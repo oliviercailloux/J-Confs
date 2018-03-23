@@ -1,7 +1,7 @@
-package fr.msch.Jconfs;
+package fr.msch.jconfs;
 
 public class Test {
-	public static void main(String[]args) {
-		TransportType t=null;
+	public static void main(String [] args) {
+		PathStep test =new PathStep("Paris","La Courneuve");
 	}
 }

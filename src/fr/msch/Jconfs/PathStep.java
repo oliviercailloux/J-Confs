@@ -1,4 +1,6 @@
-package fr.msch.Jconfs;
+package fr.msch.jconfs;
+
+import java.util.Objects;
 
 public class PathStep {
 	/*
@@ -7,50 +9,55 @@ public class PathStep {
 	 * 
 	 */
 
-	private TransportType type = TransportType.noTransport;// type of transport,( not null,noTransport by default)
-	private String startingPoint = "";// place of departure,(not null, "" by defaut)
-	private String arrivalPoint = "";// place of arrival, (not null, "" by defaut)
+	/**
+	 * Not <code> null</code>, noTransport if unknown
+	 */
+	private TransportType type = TransportType.noTransport;
+
+	/**
+	 * Not <code> null</code>, "" if unknown
+	 */
+	private String startingPoint = "";
+
+	/**
+	 * Not <code> null</code>, "" if unknown
+	 */
+	private String arrivalPoint = "";
 
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
 	 * 
 	 * @param startingPoint
-	 *            , can't be null
+	 *            not <code>null</code>.
 	 * @param arrivalPoint
-	 *            , can't be null
+	 *            not <code>null</code>.
 	 */
 
 	public PathStep(String startingPoint, String arrivalPoint) {
-		if (startingPoint == null || arrivalPoint == null) {
-			throw new IllegalArgumentException("startingPoint and arrivalPoint can't be null");
-		}
-		this.startingPoint = startingPoint;
-		this.arrivalPoint = arrivalPoint;
+		this.startingPoint = Objects.requireNonNull(startingPoint);
+		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
 	}
 
 	/**
 	 * this is a constructor which initializes the PathStep object
 	 * 
 	 * @param startingPoint
-	 *            , can't be null
+	 *            not <code>null</code>.
 	 * @param arrivalPoint
-	 *            , can't be null
+	 *            not <code>null</code>.
 	 * @param type
-	 *            , can't be null
+	 *            not <code>null</code>.
 	 */
 	public PathStep(String startingPoint, String arrivalPoint, TransportType type) {
 		this(startingPoint, arrivalPoint);
-		if (type == null) {
-			throw new IllegalArgumentException("type can't be null");
-		}
-		this.type = TransportType.noTransport;
+		this.type = Objects.requireNonNull(type);
 	}
 
 	/**
 	 * this is a getter which return the type
 	 * 
-	 * @return type
+	 * @return not <code>null</code>.
 	 */
 	public TransportType getType() {
 		return type;
@@ -59,7 +66,7 @@ public class PathStep {
 	/**
 	 * this is a getter which return the startingPoint
 	 * 
-	 * @return startingPoint
+	 * @return not <code>null</code>.
 	 */
 	public String getStartingPoint() {
 		return startingPoint;
@@ -68,7 +75,7 @@ public class PathStep {
 	/**
 	 * This is a getter which return the arrivalPoint
 	 * 
-	 * @return arrivalPoint
+	 * @returnnot <code>null</code>.
 	 */
 
 	public String getArrivalPoint() {
@@ -82,35 +89,27 @@ public class PathStep {
 	 *            can't be null
 	 */
 	public void setType(TransportType type) {
-		if (type == null) {
-			throw new IllegalArgumentException("type can't be null");
-		}
-		this.type = type;
+		this.type = Objects.requireNonNull(type);
 	}
 
 	/**
 	 * a setter to modify the startingPoint
 	 * 
 	 * @param startingPoint
+	 *            not <code>null</code>
 	 */
 	public void setStartingPoint(String startingPoint) {
-		if (startingPoint == null) {
-			throw new IllegalArgumentException("startingPoint can't be null");
-		}
-		this.startingPoint = startingPoint;
+		this.startingPoint = Objects.requireNonNull(startingPoint);
 	}
 
 	/**
 	 * a setter to modify the arrivalPoint
 	 * 
-	 * @param arrivalPoint,
-	 *            can't be null
+	 * @param arrivalPoint
+	 *            not <code>null</code>.
 	 */
 	public void setArrivalPoint(String arrivalPoint) {
-		if (arrivalPoint == null) {
-			throw new IllegalArgumentException("startingPoint can't be null");
-		}
-		this.arrivalPoint = arrivalPoint;
+		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package fr.msch.Jconfs;
+package fr.msch.jconfs;
 
 public enum TransportType {
 	PublicTransporation ("Public transportation"),
