@@ -5,4 +5,4 @@
  * @author stanislas
  *
  */
-package fr.msch.Jconfs;
+package fr.msch.jconfs;
