@@ -1,9 +1,10 @@
 package fr.msch.jconfs;
+
 import java.net.*;
 import java.time.Instant;
-/**
- * @author huong,camille
- */
+	/**
+	 * @author huong,camille
+	 */
 public class Conference {
 	private URL url;
 	private String title;
@@ -17,17 +18,17 @@ public class Conference {
 	 * This is a getter which return the URL  	
 	 * @return url
 	 */
-	public URL getUrl() {
-		return url;
-	}
-	
+public URL getUrl() {
+	return url;
+}
+
 	/**
 	 * This is a getter which return the title  	
 	 * @return title
 	 */
-	public String getTitle() {
-		return title;
-	}
+public String getTitle() {
+	return title;
+}
 	
 	/**
 	 * This is a setter which set the title 	
@@ -136,5 +137,4 @@ public class Conference {
 		return "Conference [url=" + url + ", title=" + title + ", start_date=" + start_date + ", end_date=" + end_date
 				+ ", registration_fee=" + registration_fee + ", city=" + city + ", country=" + country + "]";
 	}
-		
 }
