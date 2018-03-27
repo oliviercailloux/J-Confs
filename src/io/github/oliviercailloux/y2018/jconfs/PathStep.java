@@ -2,17 +2,19 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.util.Objects;
 
+
+/*
+ * An object of PathStep represents a path step of a conference with parametres
+ * (type of transport, departure and arrival place) that describe this path
+ * 
+ */
 public class PathStep {
-	/*
-	 * An object of PathStep represents a path step of a conference with parametres
-	 * (type of transport, departure and arrival place) that describe this path
-	 * 
-	 */
+	
 
 	/**
 	 * Not <code> null</code>, noTransport if unknown
 	 */
-	private TransportType type = TransportType.noTransport;
+	private TransportType type = TransportType.NOTRANSPORT;
 
 	/**
 	 * Not <code> null</code>, "" if unknown

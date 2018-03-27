@@ -1,11 +1,11 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
 public enum TransportType {
-	PublicTransporation ("Public transportation"),
-	taxi ("Taxi"),
-	train ("Train"),
-	plane("Plane"),
-	noTransport("walking");
+	PUBLICTRANSPORTATION ("Public transportation"),
+	TAXI ("Taxi"),
+	TRAIN ("Train"),
+	PLANE("Plane"),
+	NOTRANSPORT("walking");
 	
 	private String name="";//the name of a TransportType
 	

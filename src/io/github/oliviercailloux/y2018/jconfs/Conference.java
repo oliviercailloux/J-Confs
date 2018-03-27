@@ -28,7 +28,7 @@ public class Conference {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * This is a setter which set the title 	
 	 * @param title
