@@ -1,12 +1,15 @@
 package io.github.oliviercailloux.y2018.jconfs;
 import java.net.*;
 import java.time.Instant;
+
+import ezvcard.property.Title;
+import ezvcard.property.Url;
 /**
  * @author huong,camille
  */
 public class Conference {
-	private URL url;
-	private String title;
+	private Url url;
+	private Title title;
 	private Instant start_date;
 	private Instant end_date;
 	private Double registration_fee;
@@ -17,7 +20,7 @@ public class Conference {
 	 * This is a getter which return the URL  	
 	 * @return url
 	 */
-	public URL getUrl() {
+	public Url getUrl() {
 		return url;
 	}
 	
@@ -25,7 +28,7 @@ public class Conference {
 	 * This is a getter which return the title  	
 	 * @return title
 	 */
-	public String getTitle() {
+	public Title getTitle() {
 		return title;
 	}
 
@@ -33,7 +36,7 @@ public class Conference {
 	 * This is a setter which set the title 	
 	 * @param title
 	 */
-	public void setTitle(String title) {
+	public void setTitle(Title title) {
 		this.title = title;
 	}
 	
@@ -121,9 +124,9 @@ public class Conference {
 	 * This is a constructor which initializes the conference object 
 	 * @param url primary key
 	*/
-	public Conference(URL url) {
+	public Conference(Url url) {
 		this.url = url;
-		this.title = "";
+		this.title =new Title("");
 		this.start_date = Instant.EPOCH;
 		this.end_date = Instant.EPOCH;
 		this.registration_fee = 0.0;

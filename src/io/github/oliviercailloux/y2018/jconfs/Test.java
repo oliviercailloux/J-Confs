@@ -14,14 +14,7 @@ public class Test  {
 		ConferenceReader test2=new ConferenceReader(new File ("Jean_Dupont.vcf"));
 		test2.createConference();
 		
-		VCard test4=new VCard();
-		VCardReader reader=new VCardReader("Jean_Dupont.vcf");
-		System.out.println("ici2");
-		System.out.println(reader);
-		while((test4=reader.readNext())!=null){
-			System.out.println("ici");
-			System.out.println(reader);
-		}
+		
 	
 		
 	}
