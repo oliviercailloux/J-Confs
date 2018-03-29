@@ -6,14 +6,16 @@ import java.time.Instant;
 
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
+import ezvcard.property.Title;
+import ezvcard.property.Url;
 
 
 public class ConferenceWriter {
 	
 	public static void main(String [] args) throws IOException {
 		
-		URL url = null;
-		String title = "Coucou";
+		Url url = new Url("urltest");
+		Title title = new Title("Coucou");
 		Instant startDate = Instant.now();
 		Instant endDate= Instant.now();
 		Double registrationFee = 12.05;
@@ -32,8 +34,9 @@ public class ConferenceWriter {
 		conference.setCity(city);
 		conference.setCountry(country);
 		
+		System.out.println(conference.toString());
 		vcard.setFormattedName(conference.toString());
-		File file = new File("vcard.vcf");
+		File file = new File("vcardtest.vcf");
 		Ezvcard.write(vcard).go(file);		
 		
 		
