@@ -1,2 +1,0 @@
-String title --> Title title
-URL ulr --> Url url
