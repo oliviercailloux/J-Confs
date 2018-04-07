@@ -1,24 +1,29 @@
 package io.github.oliviercailloux.y2018.jconfs;
+import java.net.URL;
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.Objects;
+
+import net.fortuna.ical4j.model.DateTime;
 
 
 /**
  * @author huong,camille
  */
 public class Conference {
-	private String url;
+	private URL url;
 	private String title;
-	private LocalDate start_date;
-	private LocalDate end_date;
-	private Double registration_fee;
+	private DateTime startDate;
+	private DateTime endDate;
+	private Double registrationFee;
 	private String country;
-	private String region;
+	private String city;
 	
 	/**
 	 * This is a getter which return the URL  	
 	 * @return url
 	 */
-	public String getUrl() {
+	public URL getUrl() {
 		return url;
 	}
 
@@ -32,59 +37,62 @@ public class Conference {
 
 	/**
 	 * This is a setter which set the title 	
-	 * @param title2
+	 * @param title
+	 * @return 
 	 */
-	public void setTitle(String title2) {
-		this.title = title2;
+	public void setTitle(String title) {
+		this.title = Objects.requireNonNull(title);
 	}
 
 	/**
 	 * This is a getter which return the date start  	
-	 * @return start_date
+	 * @return startDate
 	 */
-	public LocalDate getStartDate() {
-		return start_date;
+	public DateTime getStartDate() {
+		return startDate;
 	}
 
 	/**
 	 * This is a setter which set the the date start  	
-	 * @param start_date
+	 * @param startDate
+	 * @throws ParseException 
 	 */
-	public void setStartDate(String start_date) {
-		this.end_date = LocalDate.parse(start_date);
-
+	public void setStartDate(String startDate) throws ParseException {
+		 this.startDate = Objects.requireNonNull(new DateTime(startDate));
+		
 	}
 
 	/**
 	 * This is a getter which return the date end 	
-	 * @return end_date
+	 * @return endDate
 	 */
-	public  LocalDate getEndDate() {
-		return end_date;
+	public  DateTime getEndDate() {
+		return endDate;
 	}
 
 	/**
 	 * This is a setter which set the the date end  	
 	 * @param end_date
+	 * @throws ParseException 
 	 */
-	public void setEndDate( String end_date) {
-		this.end_date = LocalDate.parse(end_date);
+	public void setEndDate(String endDate) throws ParseException {
+		this.endDate = Objects.requireNonNull(new DateTime(endDate));
 	}
 
 	/**
 	 * This is a getter which return the fee of registration	
-	 * @return registration_fee
+	 * @return registrationFee
 	 */
 	public Double getFeeRegistration() {
-		return registration_fee;
+		return registrationFee;
 	}
 
 	/**
 	 * This is a setter which set the fee of registration
-	 * @param registration_fee
+	 * @param registrationFee
 	 */
-	public void setFeeRegistration(Double registration_fee) {
-		this.registration_fee = registration_fee;
+	public void setFeeRegistration(Double registrationFee) {
+		this.registrationFee = Objects.requireNonNull(registrationFee);
 	}
 
 	
@@ -100,42 +108,44 @@ public class Conference {
 	 * This is a setter which set the country
 	 * @param country
 	 */
-	public void setCountry(String Country) {
-		this.country = Country;
+	public void setCountry(String country) {
+		this.country = Objects.requireNonNull(country);
 	}
 	
 	/**
-	 * @return
+	 * This is a getter which return the city	
+	 * @return city
 	 */
-	public String getRegion() {
-		return region;
+	public String getCity() {
+		return city;
 	}
-
-	public void setRegion(String Region) {
-		this.region = Region;
+	/**
+	 * This is a setter which set the city
+	 * @param city
+	 */
+	public void setCity(String city) {
+		this.city = Objects.requireNonNull(city);
 	}
 	
 	/**
 	 * This is a constructor which initializes the conference object 
 	 * @param url primary key
+	 * @throws ParseException 
 	 */
-	public Conference(String url) {
+	public Conference(URL url) throws ParseException {
 		this.url = url;
 		this.title =new String("");
-		this.start_date = LocalDate.now() ;
-		this.end_date =  LocalDate.now() ;
-		this.registration_fee = 0.0;
+		this.startDate = new DateTime("1889-01-01");
+		this.endDate =  new DateTime("1889-01-01");
+		this.registrationFee = 0.0;
 		this.country = "";
-		this.region="";
+		this.city="";
 	}
 
 	@Override
 	public String toString() {
-		return "Conference [url=" + url + ", title=" + title + ", start_date=" + start_date + ", end_date=" + end_date
-				+ ", registration_fee=" + registration_fee + ", country=" + country+ "region = " + region +"]";
+		return "Conference [url=" + url + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", registrationFee=" + registrationFee + ", country=" + country+ "city = " + city +"]";
 	}
-	
-	
-	
 
 }

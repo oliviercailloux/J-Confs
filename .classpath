@@ -3,16 +3,12 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="library"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/ez-vcard-0.10.3-with-deps/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/ez-vcard-0.10.3-with-deps/jackson-core-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/ez-vcard-0.10.3-with-deps/jsoup-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/ez-vcard-0.10.3-with-deps/vinnie-2.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/ical4j-1.0.jar/ical4j-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/backport-util-concurrent.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/commons-codec.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/commons-io.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/commons-lang.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkani-mustapha/Downloads/junit.jar"/>
+	<classpathentry kind="lib" path="library/backport-util-concurrent.jar"/>
+	<classpathentry kind="lib" path="library/commons-codec.jar"/>
+	<classpathentry kind="lib" path="library/commons-io.jar"/>
+	<classpathentry kind="lib" path="library/commons-lang.jar"/>
+	<classpathentry kind="lib" path="library/commons-logging.jar"/>
+	<classpathentry kind="lib" path="library/ical4j-1.0.jar"/>
+	<classpathentry kind="lib" path="library/simple-odf-0.8.1-incubating.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
