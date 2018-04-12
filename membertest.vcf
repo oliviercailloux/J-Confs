@@ -1,8 +1,0 @@
-BEGIN:VCARD
-VERSION:3.0
-PRODID:ez-vcard ${version}
-ADR:;;34 rue de la conf;Paris;;;France
-TITLE:Maitre de conference
-URL:URL test
-NOTE:registation fee: 12.05 euros
-END:VCARD

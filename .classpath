@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="library"/>
-	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="src" path="resources1"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/backport-util-concurrent.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/commons-codec.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/commons-io.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/commons-lang.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/ez-vcard-0.10.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/ez-vcard-0.10.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/ez-vcard-0.10.3-sources .jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/ical4j-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/jackson-core-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/jsoup-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/mapsforge-core-0.9.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/mapsforge-map-0.9.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/mapsforge-map-reader-0.9.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/simple-odf-0.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/simple-odf-0.8.1-incubating.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stanislas/eclipse-workspace/J-confs/library/vinnie-2.0.1.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
