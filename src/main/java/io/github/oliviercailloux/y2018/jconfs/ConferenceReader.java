@@ -43,11 +43,12 @@ public class ConferenceReader {
 			Calendar calendar = builder.build(fin1);
 
 			// Iterating over the calendar component
-			for (Iterator<CalendarComponent> i = calendar.getComponents().iterator(); i.hasNext();) {
-				Component component = i.next();
-				System.out.println("Component [" + component.getName() + "]");
+			/*for (Iterator<CalendarComponent> i = calendar.getComponents().iterator(); i.hasNext();) {
+				Component component = i.next();*/
+			for (Component i: calendar.getComponents()) {
+				System.out.println("Component [" + i.getName() + "]");
 				// Iterating over the component property
-				for (Iterator<Property> j = component.getProperties().iterator(); j.hasNext();) {
+				for (Iterator<Property> j = i.getProperties().iterator(); j.hasNext();) {
 					Property property = j.next();
 					System.out.println("Property [" + property.getName() + ", " + property.getValue() + "]");
 				}
