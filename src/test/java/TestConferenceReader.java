@@ -15,7 +15,7 @@ public class TestConferenceReader {
 		System.out.println(conf.toString());
 		System.out.println(" \n \n  On va Lire le fichier ics");
 
-		
+		ConferenceReader.ReadCalendarFile("src/test/resources/test2.ics");
 		System.out.println("donee");
 	}
 }
