@@ -54,17 +54,7 @@ public class ConferenceReader {
 		}
 	}
 
-	/**
-	 * generate a localDate from string parametre This function is needed since the
-	 * ical4j property DTSTART is a string so we have to convert it into a localDate
-	 * format
-	 * 
-	 * @param date
-	 * @return LocalDate
-	 */
-	public static LocalDate stringToLocalDate(String date) {
-		return LocalDate.parse(date);
-	}
+	
 
 	/**
 	 * Creates conference from ics file, function inspired by function
