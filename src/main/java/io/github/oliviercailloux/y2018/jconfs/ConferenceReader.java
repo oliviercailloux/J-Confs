@@ -36,15 +36,14 @@ public class ConferenceReader {
 	 */
 	public static void ReadCalendarFile(String filePath) throws IOException, ParserException {
 
-		try (FileInputStream fin1 = new FileInputStream(filePath)) {
+		try (InputStream calendarFile = ConferenceReader.class.getClassLoader().getResourceAsStream(filePath)) {
 
 			CalendarBuilder builder = new CalendarBuilder();
 
-			Calendar calendar = builder.build(fin1);
+			Calendar calendar = builder.build(calendarFile);
 
 			// Iterating over the calendar component
-			/*for (Iterator<CalendarComponent> i = calendar.getComponents().iterator(); i.hasNext();) {
-				Component component = i.next();*/
+			
 			for (Component component: calendar.getComponents()) {
 				System.out.println("Component [" + component.getName() + "]");
 				// Iterating over the component property
@@ -79,13 +78,13 @@ public class ConferenceReader {
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filepath) throws IOException, ParserException, ParseException {
+	public static Conference createConference(String filePath) throws IOException, ParserException, ParseException {
 
 		Conference conf = null;
-		try (FileInputStream fin2 = new FileInputStream(filepath)) {
+		try (InputStream calendarFile = ConferenceReader.class.getClassLoader().getResourceAsStream(filePath)) {
 
 			CalendarBuilder builder = new CalendarBuilder();
-			Calendar calendar = builder.build(fin2);
+			Calendar calendar = builder.build(calendarFile);
 			Component confCompo = calendar.getComponent("X-CONFERENCE");
 
 			// the url is the primary key of a conference
