@@ -78,7 +78,7 @@ public class ConferenceReader {
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filePath) throws IOException, ParserException, ParseException {
+	public static Conference createConference(String filePath) throws IOException, ParserException, ParseException,NumberFormatException {
 
 		Conference conf = null;
 		try (InputStream calendarFile = ConferenceReader.class.getClassLoader().getResourceAsStream(filePath)) {
