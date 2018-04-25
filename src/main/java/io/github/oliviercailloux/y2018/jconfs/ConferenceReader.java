@@ -21,7 +21,6 @@ import net.fortuna.ical4j.model.component.CalendarComponent;
  * This class allows to read and iCalelndar file and creates a conference object
  * from a parsed iCalendar file
  * 
- * @author berkani-mustapha
  *
  */
 public class ConferenceReader {
@@ -43,8 +42,8 @@ public class ConferenceReader {
 			Calendar calendar = builder.build(calendarFile);
 
 			// Iterating over the calendar component
-			
-			for (Component component: calendar.getComponents()) {
+
+			for (Component component : calendar.getComponents()) {
 				System.out.println("Component [" + component.getName() + "]");
 				// Iterating over the component property
 				for (Property property : component.getProperties()) {
@@ -54,22 +53,25 @@ public class ConferenceReader {
 		}
 	}
 
-	
-
 	/**
 	 * Creates conference from ics file, function inspired by function
 	 * readCalendarFile
 	 * 
 	 * @param filepath
-	 * @return
+	 * 		not <code> null</code>
+	 * @return Conference
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filePath) throws IOException, ParserException, ParseException,NumberFormatException {
+	public static Conference createConference(String filePath)
+			throws IOException, ParserException, ParseException, NumberFormatException {
 
+		if(filePath==null) {
+			throw new IllegalArgumentException("Argument is null");
+		}
 		Conference conf = null;
 		try (InputStream calendarFile = ConferenceReader.class.getClassLoader().getResourceAsStream(filePath)) {
 
