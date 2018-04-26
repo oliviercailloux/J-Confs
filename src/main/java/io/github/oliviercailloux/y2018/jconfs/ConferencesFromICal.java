@@ -24,6 +24,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 
 	@Override
 	public Set<Conference> retrive() throws IOException, NumberFormatException, ParserException, ParseException {
+		
 		String filePath = ConferencesFromICal.class.getClassLoader().getResource("icaldata").getFile();
 
 		File ressourcesDirectory = new File(filePath);
@@ -34,7 +35,8 @@ public class ConferencesFromICal implements ConferencesRetriever {
 
 		for (File file : fileList) {
 			if (file.getName().endsWith(".ics")) {
-				setOfConf.add(ConferenceReader.createConference(file.getName()));
+				System.out.println(file.getName());
+				setOfConf.add(ConferenceReader.createConference("icaldata/"+file.getName()));
 			}
 		}
 
