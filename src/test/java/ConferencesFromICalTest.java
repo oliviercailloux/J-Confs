@@ -35,7 +35,7 @@ public class ConferencesFromICalTest {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		// TEST 1
-		Set<Conference> setConfTest1 = testConfFromIcal.retrive("test2.ics");
+		Set<Conference> setConfTest1 = testConfFromIcal.retrive("icaldata/test2.ics");
 
 		assertEquals(1, setConfTest1.size());
 		LOGGER.debug("setConfTest1 size is 1");
@@ -52,10 +52,10 @@ public class ConferencesFromICalTest {
 		Iterator<Conference> iteratorTest=setConfTest2.iterator();
 		
 		Conference confTest21=iteratorTest.next();
-		assertEquals("Japon",confTest21.getCountry());
+		assertEquals("Chine",confTest21.getCountry());
 		Conference confTest22=iteratorTest.next();
 
-		assertEquals("Chine",confTest22.getCountry());
+		assertEquals("Japon",confTest22.getCountry());
 		
 
 	}
