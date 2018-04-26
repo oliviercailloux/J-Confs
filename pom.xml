@@ -12,6 +12,15 @@
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -48,7 +57,7 @@
 			</exclusions>
 		</dependency>
 
-		
+
 
 	</dependencies>
 	<dependencyManagement>
