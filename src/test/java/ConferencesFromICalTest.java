@@ -45,18 +45,16 @@ public class ConferencesFromICalTest {
 		LOGGER.debug("test 1 done");
 
 		// TEST 2
-		Set<Conference> setConfTest2 = testConfFromIcal.retrive(new DateTime("20000101"),
-				new DateTime("20200101"));
+		Set<Conference> setConfTest2 = testConfFromIcal.retrive(new DateTime("20000101"), new DateTime("20200101"));
 		assertEquals(2, setConfTest2.size());
 		LOGGER.debug("setConfTest2 size is 2");
-		Iterator<Conference> iteratorTest=setConfTest2.iterator();
-		
-		Conference confTest21=iteratorTest.next();
-		assertEquals("Chine",confTest21.getCountry());
-		Conference confTest22=iteratorTest.next();
+		Iterator<Conference> iteratorTest = setConfTest2.iterator();
 
-		assertEquals("Japon",confTest22.getCountry());
-		
+		Conference confTest21 = iteratorTest.next();
+		assertEquals("Chine", confTest21.getCountry());
+		Conference confTest22 = iteratorTest.next();
+
+		assertEquals("Japon", confTest22.getCountry());
 
 	}
 }
