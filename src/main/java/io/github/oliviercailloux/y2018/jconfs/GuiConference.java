@@ -1,17 +1,25 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.text.ParseException;
 
-import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import net.fortuna.ical4j.data.ParserException;
+import net.fortuna.ical4j.validate.ValidationException;
+
+
 /**
  * This class create the GUI to edit the conference
  * @author huong, camille
@@ -19,78 +27,107 @@ import javax.swing.JTextField;
  */
 public class GuiConference {
 	public static void main(String[] args){
-		// Create the window
-		JFrame fenetre = new JFrame("Conference");
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		// Create a layout on the panel to have 7 rows  for 7 Text Field + 2 columns for the label and the Field.
-		GridLayout gl = new GridLayout(7,2); 
-		panel.setLayout(gl);
+		// setup the SWT window
+		Display display = new Display();
+		Shell shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
+		shell.setText("Conference");
 		
-		// Create the label and the Text Field for the Title
-		JLabel labelTitle = new JLabel("Enter Title :");
-		JTextField textfieldTitle = new JTextField();
-		panel.add(labelTitle);
-		panel.add(textfieldTitle);
+		// initialize a grid layout manager
+		GridLayout gridLayout = new GridLayout();
+		gridLayout.numColumns = 2;
+		shell.setLayout(gridLayout);
 		
-		// Create the label and the Text Field for the Registration Fee
-		JLabel labelFee = new JLabel("Enter Registration Fee :");
-		JTextField textfieldFee = new JTextField();
-		panel.add(labelFee);
-		panel.add(textfieldFee);
+		// create the label and the field text
+		Label labelTitle = new Label(shell, SWT.NONE);
+		labelTitle.setText("Title : ");
+		Text textTitle = new Text(shell, SWT.BORDER);
 		
-		// Create the label and the Text Field for the City
-		JLabel labelCity = new JLabel("Enter City :");
-		JTextField textfieldCity = new JTextField();
-		panel.add(labelCity);
-		panel.add(textfieldCity);
 		
-		// Create the label and the Text Field for the Country
-		JLabel labelCountry = new JLabel("Enter Country :");
-		JTextField textfieldCountry = new JTextField();
-		panel.add(labelCountry);
-		panel.add(textfieldCountry);
+		Label labelFee = new Label(shell, SWT.NONE);
+		labelFee.setText("Registration Fee : ");
+		Text textFee = new Text(shell, SWT.BORDER);
 		
-		// Create the label and the Text Field for the Date Start
-		JLabel labelStartDate = new JLabel("Enter Date Start (format: dd/mm/yyyy) :");
-		JTextField textfieldStartDate = new JTextField();
-		panel.add(labelStartDate);
-		panel.add(textfieldStartDate);
+		Label labelCity = new Label(shell, SWT.NONE);
+		labelCity.setText("City : ");
+		Text textCity = new Text(shell, SWT.BORDER);
 		
-		// Create the label and the Text Field for the Date End
-		JLabel labelEndDate = new JLabel("Enter Date End (format: dd/mm/yyyy) :");
-		JTextField textfieldEndDate = new JTextField();
-		panel.add(labelEndDate);
-		panel.add(textfieldEndDate);
-		
-		// Create the button Submit
-		JButton button = new JButton("Submit"); 
-		button.addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                proceed();
-            }
-            // Show the information of the conference after filling the form
-			private void proceed() {
-				System.out.println("The conference is created");
-				System.out.println("The title is: " + textfieldTitle.getText());
-				System.out.println("The Registration Fee is: " + textfieldFee.getText());
-				System.out.println("The Date Start is: " + textfieldStartDate.getText());
-				System.out.println("The Date End is: " + textfieldEndDate.getText());
-				System.out.println("The City is: " + textfieldCity.getText());
-				System.out.println("The Country is: " + textfieldCountry.getText());
-						 
+		Label labelCountry = new Label(shell, SWT.NONE);
+		labelCountry.setText("Country : ");
+		Text textCountry = new Text(shell, SWT.BORDER);
+		
+		//create Date Selection as a drop-down
+		Label labelDateStart = new Label(shell, SWT.NONE);
+		labelDateStart.setText("Date Start : ");
+		DateTime dateStart = new DateTime(shell, SWT.DATE | SWT.DROP_DOWN);
+		
+		Label labelDateEnd = new Label(shell, SWT.NONE);
+		labelDateEnd.setText("Date End : ");
+		DateTime dateEnd = new DateTime(shell, SWT.DATE | SWT.DROP_DOWN);
+	
+		Button buttonSubmit = new Button(shell, SWT.PUSH);
+		buttonSubmit.setText("Submit");
+		buttonSubmit.addSelectionListener(new SelectionAdapter() {
+			// the function proceed() executed once we press the button Submit
+			public void widgetSelected(SelectionEvent event) {
+				try {
+					proceed();
+				} catch (ValidationException e) {
+					e.printStackTrace();
+				} catch (ParseException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ParserException e) {
+					e.printStackTrace();
+				} catch (URISyntaxException e) {
+					e.printStackTrace();
+				}
 				
 			}
-        });
+			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
+			private void proceed() throws ParseException, ValidationException, IOException, ParserException, URISyntaxException {
+				URL url = new URL("http://www.conference.com");
+				Conference conf = new Conference(url);
+				String title = textTitle.getText();
+				Double fee = Double.parseDouble(textFee.getText());
+				String city = textCity.getText();
+				String country = textCountry.getText();
+				String dStart = Integer.toString(dateStart.getDay());
+				String mStart = Integer.toString(dateStart.getMonth());
+				String yStart = Integer.toString(dateStart.getYear());
+				String start = yStart + "-" + mStart + "-" + dStart;
+				String dEnd = Integer.toString(dateEnd.getDay());
+				String mEnd = Integer.toString(dateEnd.getMonth());
+				String yEnd = Integer.toString(dateEnd.getYear());
+				String end = yEnd + "-" + mEnd + "-" + dEnd;
+				conf.setCity(city);
+				conf.setCountry(country);
+				conf.setStartDate(start);
+				conf.setEndDate(end);
+				conf.setFeeRegistration(fee);
+				conf.setTitle(title);
+				ConferenceWriter.writeCalendarFiles(conf);
+				System.out.println("The iCalendar has created in the file mycalendar.ics ");
+				
+			}
+		});
 		
-		// Add the window and the button on the panel
-		panel.add(button);
-		fenetre.getContentPane().add(panel);
-		fenetre.setSize(600, 300);
-		fenetre.setVisible(true);
+		// tear down the SWT window
+		shell.pack();
+		shell.open();
+		while (!shell.isDisposed()) {
 		
-	}
+			if (!display.readAndDispatch())
+		
+				display.sleep();
+		
+			}
+		 
+		display.dispose();
+		
+		}
+
 }
+	
