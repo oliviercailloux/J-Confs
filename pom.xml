@@ -2,8 +2,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>msch</groupId>
+	<groupId>io.github.oliviercailloux.y2018</groupId>
+	<artifactId>J-confs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>J-confs</name>
+	<description>A tools to organize conferences</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
 	<profiles>
 		<profile>
 			<id>Mac</id>
@@ -38,8 +47,8 @@
 				<!-- SWT support for Windos 64 Bit -->
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
-					<version>3.105.2</version>
+					<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+					<version>3.106.3</version>
 					<exclusions>
 						<exclusion>
 							<groupId>org.eclipse.platform</groupId>
@@ -97,11 +106,7 @@
 			</dependencies>
 		</profile>
 	</profiles>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
+
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -190,5 +195,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<artifactId>J-confs</artifactId>
+
 </project>
