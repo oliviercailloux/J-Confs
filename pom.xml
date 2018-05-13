@@ -130,10 +130,7 @@
 			<groupId>org.mnode.ical4j</groupId>
 			<artifactId>ical4j</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.mapsforge</groupId>
-			<artifactId>mapsforge-map-reader</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.jsr107.ri</groupId>
 			<artifactId>cache-ri-impl</artifactId>
@@ -154,7 +151,25 @@
 			</exclusions>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-core -->
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-core</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-awt -->
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-map-awt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-themes -->
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-themes</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 
 	</dependencies>
 	<dependencyManagement>
@@ -164,11 +179,8 @@
 				<artifactId>ical4j</artifactId>
 				<version>2.2.0</version>
 			</dependency>
-			<dependency>
-				<groupId>org.mapsforge</groupId>
-				<artifactId>mapsforge-map-reader</artifactId>
-				<version>0.9.1</version>
-			</dependency>
+
+
 			<dependency>
 				<groupId>org.jsr107.ri</groupId>
 				<artifactId>cache-ri-impl</artifactId>
@@ -184,6 +196,8 @@
 				<artifactId>tools</artifactId>
 				<version>1.7</version>
 			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
 	<build>
