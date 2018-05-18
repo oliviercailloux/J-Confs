@@ -44,10 +44,10 @@
 				</os>
 			</activation>
 			<dependencies>
-				<!-- SWT support for Windos 64 Bit -->
+				<!-- SWT support for Linux -->
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
 					<version>3.106.3</version>
 					<exclusions>
 						<exclusion>
@@ -170,36 +170,27 @@
 			<artifactId>mapsforge-themes</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mnode.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>2.2.0</version>
+		</dependency>
 
+
+		<dependency>
+			<groupId>org.jsr107.ri</groupId>
+			<artifactId>cache-ri-impl</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jax-ws-commons</groupId>
+			<artifactId>jaxws-maven-plugin</artifactId>
+			<version>2.3.1-b20150201.1248</version>
+		</dependency>
+		
+	
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.mnode.ical4j</groupId>
-				<artifactId>ical4j</artifactId>
-				<version>2.2.0</version>
-			</dependency>
-
-
-			<dependency>
-				<groupId>org.jsr107.ri</groupId>
-				<artifactId>cache-ri-impl</artifactId>
-				<version>1.1.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jvnet.jax-ws-commons</groupId>
-				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>2.3.1-b20150201.1248</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sun</groupId>
-				<artifactId>tools</artifactId>
-				<version>1.7</version>
-			</dependency>
-
-
-		</dependencies>
-	</dependencyManagement>
+	
 	<build>
 		<plugins>
 			<plugin>
