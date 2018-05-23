@@ -80,6 +80,9 @@ public class MapGUI {
 	 */
 	final private Frame mapFrame;
 
+	/**
+	 * the frame wihich contain mapView
+	 */
 	final private Shell shell;
 
 	/**
@@ -96,9 +99,6 @@ public class MapGUI {
 	 */
 	private BoundingBox boundingBox;
 
-	// true if the map must be read in local(true) or online (false)
-	private boolean local;
-
 	/**
 	 * mapGUI constructor,it creates every items needed to make the GUI ans display
 	 * it
@@ -111,20 +111,16 @@ public class MapGUI {
 	public MapGUI(String mapName) throws NullPointerException, IOException {
 		if (!Objects.nonNull(mapName))
 			throw new NullPointerException("mapName is null");
-		this.local = true;
-
 		Display display = new Display();
 		this.shell = new Shell(display);
 
 		shell.setText("map :" + mapName);
 		Composite composite = new Composite(shell, SWT.EMBEDDED);
 		composite.setSize(900, 900);
-		HillsRenderConfig hillsCfg = null; // Mutable frontend for the hillshading cache/processing in HgtCache (can be
-											// changed)
+	
 
-		// Samples.class is a default preferences provide by MapForges
 		final MapView mapView = createMapView();
-		this.boundingBox = addLayers(mapView, mapName, hillsCfg, local);
+		this.boundingBox = addLayers(mapView, mapName);
 
 		// a SWT FRAME to contain AWT component from AWT-MapsForge libraries
 		this.mapFrame = SWT_AWT.new_Frame(composite);
@@ -170,6 +166,91 @@ public class MapGUI {
 		this.endPoint = new FixedPixelCircle(new LatLong(48.866667, 2.333333), 5, paintFill, null);// Paris by default
 		startPoint.setVisible(true);
 		mapView.getLayerManager().getLayers().add(endPoint);
+	}
+
+	/**
+	 * this constructor ctrate a mapGUI by reading online map
+	 */
+	public MapGUI() {
+		Display display = new Display();
+		this.shell = new Shell(display);
+
+		shell.setText("map: online");
+		Composite composite = new Composite(shell, SWT.EMBEDDED);
+		composite.setSize(900, 900);
+		
+		final MapView mapView = createMapView();
+		this.boundingBox = addDownloadLayers(mapView);
+
+		// a SWT FRAME to contain AWT component from AWT-MapsForge libraries
+		this.mapFrame = SWT_AWT.new_Frame(composite);
+		mapView.setSize(900, 900);
+		mapFrame.add(mapView);
+		mapFrame.setLocationRelativeTo(null);
+
+		// action when the windows is closed
+		shell.addListener(SWT.Close, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				MessageBox closeMsg = new MessageBox(shell, SWT.APPLICATION_MODAL | SWT.YES | SWT.NO);
+				closeMsg.setMessage("\"Are you sure you want to exit the application?");
+				closeMsg.setText("Confirm close");
+				event.doit = closeMsg.open() == SWT.YES;
+
+				if (event.doit) {
+					mapView.destroyAll();
+					AwtGraphicFactory.clearResourceMemoryCache();
+					shell.getDisplay().dispose();
+
+				}
+			}
+		});
+
+		// DEFAULT Zoom and position
+		byte zoomLevel = LatLongUtils.zoomForBounds(mapView.getDimension(), boundingBox,
+				mapView.getModel().displayModel.getTileSize());
+		mapView.getModel().mapViewPosition.setMapPosition(new MapPosition(boundingBox.getCenterPoint(), zoomLevel));
+
+		// initialize a painFill to pain points
+		Paint paintFill = GRAPHIC_FACTORY.createPaint();
+		paintFill.setColor(Color.RED);
+		paintFill.setStyle(Style.FILL);
+
+		// startPoint creation
+
+		this.startPoint = new FixedPixelCircle(new LatLong(48.866667, 2.333333), 5, paintFill, null);// Paris by default
+		startPoint.setVisible(true);
+		mapView.getLayerManager().getLayers().add(startPoint);
+
+		// endPoint cration
+		this.endPoint = new FixedPixelCircle(new LatLong(48.866667, 2.333333), 5, paintFill, null);// Paris by default
+		startPoint.setVisible(true);
+
+	}
+
+	private BoundingBox addDownloadLayers(MapView mapView) {
+		
+		// Raster(read online World map)
+		TileSource tileSource = OpenStreetMapMapnik.INSTANCE;
+		
+		int tileSize =512;
+		
+		TileCache tileCache = AwtUtil.createTileCache(tileSize, mapView.getModel().frameBufferModel.getOverdrawFactor(),
+				1024, new File(System.getProperty("java.io.tmpdir"), UUID.randomUUID().toString()));
+		
+		mapView.getModel().displayModel.setFixedTileSize(tileSize);
+		TileDownloadLayer tileDownloadLayer = createTileDownloadLayer(tileCache, mapView.getModel().mapViewPosition,
+				tileSource);
+		Layers layers = mapView.getLayerManager().getLayers();
+		layers.add(tileDownloadLayer);
+		tileDownloadLayer.start();
+		mapView.setZoomLevelMin(tileSource.getZoomLevelMin());
+		mapView.setZoomLevelMax(tileSource.getZoomLevelMax());
+
+		boundingBox = new BoundingBox(LatLongUtils.LATITUDE_MIN, LatLongUtils.LONGITUDE_MIN, LatLongUtils.LATITUDE_MAX,
+				LatLongUtils.LONGITUDE_MAX);
+
+		return boundingBox;
 	}
 
 	/**
@@ -238,7 +319,7 @@ public class MapGUI {
 	 * @return<b> BoundingBox</b>,from mapViewModel
 	 * @throws IOException
 	 */
-	private BoundingBox addLayers(MapView mapView, String mapName, HillsRenderConfig hillsRenderConfig, boolean local)
+	private BoundingBox addLayers(MapView mapView, String mapName)
 			throws IOException {
 		if (Objects.isNull(mapView))
 			throw new NullPointerException("mapView is null");
@@ -249,57 +330,41 @@ public class MapGUI {
 		// if the file doesn't exist, we will download it
 
 		Layers layers = mapView.getLayerManager().getLayers();
-		int tileSize = mapURL == null ? 256 : 512;
+		int tileSize = 256 ;
 
 		// Tile Cache
 		TileCache tileCache = AwtUtil.createTileCache(tileSize, mapView.getModel().frameBufferModel.getOverdrawFactor(),
 				1024, new File(System.getProperty("java.io.tmpdir"), UUID.randomUUID().toString()));
 
-		if (local) {
-
-			if (mapURL == null) {
-				// download the mapFile
-				String urlSource = "";
-				try (Scanner sc = new Scanner(System.in);) {
-					System.out.println(
-							"enter a source to download the map ex:http://download.mapsforge.org/maps/world/world.map");
-					urlSource = sc.nextLine();
-				}
-				System.out.println("please wait the map is downloading");
-				if(!urlSource.contains(".map"))
-					throw new IllegalArgumentException("this files isn't a map");
-				Download.downLoadFile(urlSource);
-				
-				System.out.println("done");
-				mapURL = this.getClass().getClassLoader().getResource(mapName);
+		if (mapURL == null) {
+			// download the mapFile
+			String urlSource = "";
+			try (Scanner sc = new Scanner(System.in);) {
+				System.out.println(
+						"enter a source to download the map ex:http://download.mapsforge.org/maps/world/world.map");
+				urlSource = sc.nextLine();
 			}
-			// Vector (the mapFile exist in resources)
-			mapView.getModel().displayModel.setFixedTileSize(tileSize);
-			MapFile mapFile = new MapFile(new File(mapURL.getFile()));
-			MapDataStore mapDataStore = mapFile;
-			TileRendererLayer tileRendererLayer = createTileRendererLayer(tileCache, mapDataStore,
-					mapView.getModel().mapViewPosition, hillsRenderConfig);
+			System.out.println("please wait the map is downloading");
+			if (!urlSource.contains(".map"))
+				throw new IllegalArgumentException("this files isn't a map");
+			Download.downLoadFile(urlSource);
 
-			layers.add(tileRendererLayer);
-			boundingBox = mapDataStore.boundingBox();
-
-		} else {
-			// Raster(read online World map)
-			TileSource tileSource = OpenStreetMapMapnik.INSTANCE;
-			mapView.getModel().displayModel.setFixedTileSize(tileSize);
-			TileDownloadLayer tileDownloadLayer = createTileDownloadLayer(tileCache, mapView.getModel().mapViewPosition,
-					tileSource);
-
-			layers.add(tileDownloadLayer);
-			tileDownloadLayer.start();
-			mapView.setZoomLevelMin(tileSource.getZoomLevelMin());
-			mapView.setZoomLevelMax(tileSource.getZoomLevelMax());
-
-			boundingBox = new BoundingBox(LatLongUtils.LATITUDE_MIN, LatLongUtils.LONGITUDE_MIN,
-					LatLongUtils.LATITUDE_MAX, LatLongUtils.LONGITUDE_MAX);
-
+			System.out.println("done");
+			mapURL = this.getClass().getClassLoader().getResource(mapName);
 		}
+		// Vector (the mapFile exist in resources)
+				mapView.getModel().displayModel.setFixedTileSize(tileSize);
+				MapFile mapFile = new MapFile(new File(mapURL.getFile()));
+				MapDataStore mapDataStore = mapFile;
+				TileRendererLayer tileRendererLayer = createTileRendererLayer(tileCache, mapDataStore,
+						mapView.getModel().mapViewPosition,null);
+
+				layers.add(tileRendererLayer);
+				boundingBox = mapDataStore.boundingBox();
+
+
 		return boundingBox;
+
 	}
 
 	/**
