@@ -189,12 +189,15 @@
 		</dependency>
 
 
+
 		<dependency>
 			<groupId>org.mapsforge</groupId>
 			<artifactId>mapsforge-samples-awt</artifactId>
+			<version>0.6.1</version>
 		</dependency>
+
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -205,13 +208,5 @@
 		</plugins>
 	</build>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.mapsforge</groupId>
-				<artifactId>mapsforge-samples-awt</artifactId>
-				<version>0.6.1</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+
 </project>
