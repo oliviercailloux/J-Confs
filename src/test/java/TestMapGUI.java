@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.UUID;
 
 import org.mapsforge.core.model.LatLong;
@@ -12,11 +14,11 @@ import org.mapsforge.map.layer.download.tilesource.OpenStreetMapMapnik;
 import io.github.oliviercailloux.y2018.jconfs.MapGUI;
 
 public class TestMapGUI {
-	public static void main(String[]args) {
-		MapGUI GUI=new MapGUI("ile-de-france.map",new LatLong(48.9333,2.45)); //endPoint is Drancy
+	public static void main(String[]args) throws NullPointerException, IllegalArgumentException, IOException  {
+		MapGUI GUI=new MapGUI("world.map",new LatLong( 39.913818, 116.363625)); //endPoint (pékin latLong)
+		
 		GUI.display();
+		
+		
 	}
 }
-
-
-
