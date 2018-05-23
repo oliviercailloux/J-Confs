@@ -7,11 +7,13 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 import java.util.UUID;
 import java.util.prefs.Preferences;
 
@@ -56,7 +58,6 @@ import org.mapsforge.map.layer.overlay.Marker;
 import org.mapsforge.map.layer.renderer.TileRendererLayer;
 import org.mapsforge.map.model.MapViewPosition;
 import org.mapsforge.map.model.Model;
-
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
 
@@ -79,6 +80,24 @@ public class MapGUI {
 	 */
 	final private Frame mapFrame;
 
+	final private Shell shell;
+
+	/**
+	 * Default startPoint is Paris
+	 */
+	private FixedPixelCircle startPoint;
+
+	/**
+	 * Default startPoint is Paris
+	 */
+	private FixedPixelCircle endPoint;
+	/**
+	 * the boundingBox of the map which is display
+	 */
+	private BoundingBox boundingBox;
+
+	// true if the map must be read in local(true) or online (false)
+	private boolean local;
 
 	/**
 	 * mapGUI constructor,it creates every items needed to make the GUI ans display
@@ -86,20 +105,13 @@ public class MapGUI {
 	 * 
 	 * @param mapFile
 	 *            <code>not null</code>, must be a .map file
+	 * @throws IOException
 	 */
 
-	final private Shell shell;
-
-	private FixedPixelCircle startPoint;
-
-	private FixedPixelCircle endPoint;
-
-	private BoundingBox boundingBox;
-
-	public MapGUI(String mapName) throws NullPointerException {
-
+	public MapGUI(String mapName) throws NullPointerException, IOException {
 		if (!Objects.nonNull(mapName))
 			throw new NullPointerException("mapName is null");
+		this.local = true;
 
 		Display display = new Display();
 		this.shell = new Shell(display);
@@ -112,7 +124,7 @@ public class MapGUI {
 
 		// Samples.class is a default preferences provide by MapForges
 		final MapView mapView = createMapView();
-		this.boundingBox = addLayers(mapView, mapName, hillsCfg);
+		this.boundingBox = addLayers(mapView, mapName, hillsCfg, local);
 
 		// a SWT FRAME to contain AWT component from AWT-MapsForge libraries
 		this.mapFrame = SWT_AWT.new_Frame(composite);
@@ -138,7 +150,7 @@ public class MapGUI {
 			}
 		});
 
-		//DEFAULT Zoom and position
+		// DEFAULT Zoom and position
 		byte zoomLevel = LatLongUtils.zoomForBounds(mapView.getDimension(), boundingBox,
 				mapView.getModel().displayModel.getTileSize());
 		mapView.getModel().mapViewPosition.setMapPosition(new MapPosition(boundingBox.getCenterPoint(), zoomLevel));
@@ -165,7 +177,7 @@ public class MapGUI {
 	 */
 	public void display() {
 		this.shell.pack();
-		System.out.println(shell);
+
 		this.shell.open();
 
 		while (!this.shell.isDisposed())
@@ -184,8 +196,9 @@ public class MapGUI {
 	 * 
 	 * @param mapName
 	 * @param endPoint
+	 * @throws IOException
 	 */
-	public MapGUI(String mapName, LatLong endPoint) throws NullPointerException {
+	public MapGUI(String mapName, LatLong endPoint) throws NullPointerException, IOException {
 		this(mapName);
 		if (Objects.nonNull(endPoint)) {
 			if (this.boundingBox.contains(endPoint)) {
@@ -213,7 +226,8 @@ public class MapGUI {
 
 	/**
 	 * this methode create a mapTile from mapFile data and add it to the mapView if
-	 * the file doesn't exist,this method download tileData
+	 * the file doesn't exist,this method ask an URL to the user for download the
+	 * map If Local==false it display an online map
 	 * 
 	 * @param mapView
 	 *            <code> not null<code>
@@ -222,8 +236,10 @@ public class MapGUI {
 	 * @param hillsRenderConfig
 	 *            <code> can be null<code>
 	 * @return<b> BoundingBox</b>,from mapViewModel
+	 * @throws IOException
 	 */
-	private BoundingBox addLayers(MapView mapView, String mapName, HillsRenderConfig hillsRenderConfig) {
+	private BoundingBox addLayers(MapView mapView, String mapName, HillsRenderConfig hillsRenderConfig, boolean local)
+			throws IOException {
 		if (Objects.isNull(mapView))
 			throw new NullPointerException("mapView is null");
 		if (Objects.isNull(mapName))
@@ -233,15 +249,30 @@ public class MapGUI {
 		// if the file doesn't exist, we will download it
 
 		Layers layers = mapView.getLayerManager().getLayers();
-		int tileSize = mapURL == null ? 256	 : 512;
-		
-		
+		int tileSize = mapURL == null ? 256 : 512;
+
 		// Tile Cache
 		TileCache tileCache = AwtUtil.createTileCache(tileSize, mapView.getModel().frameBufferModel.getOverdrawFactor(),
 				1024, new File(System.getProperty("java.io.tmpdir"), UUID.randomUUID().toString()));
 
-		if (!(mapURL == null)) {
+		if (local) {
 
+			if (mapURL == null) {
+				// download the mapFile
+				String urlSource = "";
+				try (Scanner sc = new Scanner(System.in);) {
+					System.out.println(
+							"enter a source to download the map ex:http://download.mapsforge.org/maps/world/world.map");
+					urlSource = sc.nextLine();
+				}
+				System.out.println("please wait the map is downloading");
+				if(!urlSource.contains(".map"))
+					throw new IllegalArgumentException("this files isn't a map");
+				Download.downLoadFile(urlSource);
+				
+				System.out.println("done");
+				mapURL = this.getClass().getClassLoader().getResource(mapName);
+			}
 			// Vector (the mapFile exist in resources)
 			mapView.getModel().displayModel.setFixedTileSize(tileSize);
 			MapFile mapFile = new MapFile(new File(mapURL.getFile()));
@@ -253,8 +284,8 @@ public class MapGUI {
 			boundingBox = mapDataStore.boundingBox();
 
 		} else {
-			// Raster(the mapFile doesn't exist in resources)
-			TileSource tileSource = OpenStreetMapMapnik.INSTANCE	;
+			// Raster(read online World map)
+			TileSource tileSource = OpenStreetMapMapnik.INSTANCE;
 			mapView.getModel().displayModel.setFixedTileSize(tileSize);
 			TileDownloadLayer tileDownloadLayer = createTileDownloadLayer(tileCache, mapView.getModel().mapViewPosition,
 					tileSource);
