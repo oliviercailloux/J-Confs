@@ -8,8 +8,8 @@ public class TestConferenceWriter {
 		conferenceToWrite.setTitle("coucou");
 		conferenceToWrite.setCountry("America");
 		conferenceToWrite.setCity("New_YorkS");
-		conferenceToWrite.setEndDate("2018-01-04");
-		conferenceToWrite.setStartDate("2017-06-06");
+		conferenceToWrite.setEndDate("04/01/2018");
+		conferenceToWrite.setStartDate("06/06/2017");
 		conferenceToWrite.setFeeRegistration(12.5);
 		ConferenceWriter.writeCalendarFiles(conferenceToWrite);
 		

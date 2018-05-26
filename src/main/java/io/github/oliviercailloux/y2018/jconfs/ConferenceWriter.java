@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
 import net.fortuna.ical4j.data.CalendarBuilder;
@@ -35,6 +36,7 @@ public class ConferenceWriter {
 	 * @throws ValidationException
 	 * @throws URISyntaxException
 	 */
+	
 	public static void writeCalendarFiles(Conference conference) throws ParseException, IOException, ParserException, ValidationException, URISyntaxException{
 		  
 		  String calFile = "mycalendar.ics";
@@ -47,8 +49,31 @@ public class ConferenceWriter {
 		  
 		  //Creating an event
 		  PropertyList propertyList = new PropertyList();
-		  propertyList.add(new DtStart(conference.getStartDate()));
-		  propertyList.add(new DtEnd(conference.getEndDate()));
+		  SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd'T'hhmmss'Z'");
+		  java.util.Calendar startCal = java.util.Calendar.getInstance();
+
+		  startCal.setTime(java.sql.Date.valueOf(conference.getStartDate()));
+		  String strDate = sdFormat.format(startCal.getTime());
+		  net.fortuna.ical4j.model.Date startDt = null;
+			try {
+				startDt = new net.fortuna.ical4j.model.Date(strDate);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		  propertyList.add(new DtStart(startDt));
+		  
+		  java.util.Calendar EndCal = java.util.Calendar.getInstance();
+		 
+		  EndCal.setTime(java.sql.Date.valueOf(conference.getEndDate()));
+		  String strDate1 = sdFormat.format(EndCal.getTime());
+		  net.fortuna.ical4j.model.Date endDt = null;
+			try {
+				endDt = new net.fortuna.ical4j.model.Date(strDate1);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		  propertyList.add(new DtEnd(endDt));
+		  
 		  propertyList.add(new Summary(conference.getTitle()));
 		  propertyList.add(new Country (conference.getCountry()));
 		  propertyList.add(new Region(conference.getCity()));
@@ -85,5 +110,5 @@ public class ConferenceWriter {
 		      }
 		  }
 	}
-
 }
+
