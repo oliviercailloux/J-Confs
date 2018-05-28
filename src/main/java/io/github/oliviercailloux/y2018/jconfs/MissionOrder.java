@@ -18,7 +18,7 @@ public class MissionOrder {
  * @throws Exception
  */
 	private void generateSpreadsheetDocument() throws Exception {
-		try (InputStream inputStream = MissionOrder.class.getResourceAsStream("missionOrder.ods");
+		try (InputStream inputStream = MissionOrder.class.getResourceAsStream("ordre_de_mission.ods");
 				SpreadsheetDocument spreadsheetDoc = SpreadsheetDocument.loadDocument(inputStream)) {
 			System.out.println("File opened and ready to close!!!");	
 	        inputStream.close();
