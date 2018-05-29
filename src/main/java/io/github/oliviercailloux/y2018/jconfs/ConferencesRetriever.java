@@ -3,6 +3,7 @@ package io.github.oliviercailloux.y2018.jconfs;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Set;
 
 import net.fortuna.ical4j.data.ParserException;
@@ -35,7 +36,7 @@ public interface ConferencesRetriever {
 	 * @return Set<Conference>,Not <code> null</code>, return empty set if no data
 	 *         found
 	 */
-	public Set<Conference> retrive(DateTime minDate, DateTime maxDate)
+	public Set<Conference> retrive(LocalDate minDate, LocalDate maxDate)
 			throws NumberFormatException, IOException, ParserException, ParseException;
 
 	/**

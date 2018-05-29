@@ -1,14 +1,18 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import io.github.oliviercailloux.y2018.TestConferenceReader;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.DateTime;
 
@@ -24,7 +28,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 
 	@Override
 	public Set<Conference> retrive() throws IOException, NumberFormatException, ParserException, ParseException {
-		
+
 		String filePath = ConferencesFromICal.class.getClassLoader().getResource("icaldata").getFile();
 
 		File ressourcesDirectory = new File(filePath);
@@ -35,21 +39,23 @@ public class ConferencesFromICal implements ConferencesRetriever {
 
 		for (File file : fileList) {
 			if (file.getName().endsWith(".ics")) {
-				System.out.println(file.getName());
-				setOfConf.add(ConferenceReader.createConference("icaldata/"+file.getName()));
-			}
-		}
+				try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
+					setOfConf.add(ConferenceReader.createConference(reader));
 
+				}
+			}
+
+		}
 		return setOfConf;
 	}
 
 	@Override
-	public Set<Conference> retrive(DateTime minDate, DateTime maxDate)
+	public Set<Conference> retrive(LocalDate minDate, LocalDate maxDate)
 			throws IOException, NumberFormatException, ParserException, ParseException {
 		Set<Conference> setOfAllConf = retrive();
 		Set<Conference> setOfConfFiltred = new HashSet<>();
 		for (Conference conf : setOfAllConf) {
-			if (conf.getStartDate().after(minDate) && conf.getEndDate().before(maxDate)) {
+			if (conf.getStartDate().isAfter(minDate) && conf.getEndDate().isBefore(maxDate)) {
 				setOfConfFiltred.add(conf);
 
 			}
@@ -62,9 +68,13 @@ public class ConferencesFromICal implements ConferencesRetriever {
 	public Set<Conference> retrive(String fileName)
 			throws NumberFormatException, IOException, ParserException, ParseException {
 		Set<Conference> setOfConf = new HashSet<>();
-		Conference conf = ConferenceReader.createConference(fileName);
-		setOfConf.add(conf);
-		return setOfConf;
+		File file = new File(TestConferenceReader.class.getClassLoader().getResource(fileName).getFile());
+		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
+
+			Conference conf = ConferenceReader.createConference(reader);
+			setOfConf.add(conf);
+			return setOfConf;
+		}
 	}
 
 }
