@@ -2,11 +2,14 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URL;
 import java.text.ParseException;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import javax.xml.bind.ValidationException;
 
@@ -33,22 +36,22 @@ public class ConferenceReader {
 	 * @throws IOException
 	 * @throws ParserException
 	 */
-	public static void ReadCalendarFile(String filePath) throws IOException, ParserException {
 
-		try (InputStream calendarFile = ConferenceReader.class.getClassLoader().getResourceAsStream(filePath)) {
+	// Reader reader = new InputStreamReader(inputStream); on va mettre ca en place
+	// apres
+	public static void ReadCalendarFile(Reader read) throws IOException, ParserException, NumberFormatException {
+		CalendarBuilder builder = new CalendarBuilder();
+		System.out.println(3);
+		Calendar calendar = builder.build(read);
+		System.out.println(4);
 
-			CalendarBuilder builder = new CalendarBuilder();
+		// Iterating over the calendar component
 
-			Calendar calendar = builder.build(calendarFile);
-
-			// Iterating over the calendar component
-
-			for (Component component : calendar.getComponents()) {
-				System.out.println("Component [" + component.getName() + "]");
-				// Iterating over the component property
-				for (Property property : component.getProperties()) {
-					System.out.println("Property [" + property.getName() + ", " + property.getValue() + "]");
-				}
+		for (Component component : calendar.getComponents()) {
+			System.out.println("Component [" + component.getName() + "]");
+			// Iterating over the component property
+			for (Property property : component.getProperties()) {
+				System.out.println("Property [" + property.getName() + ", " + property.getValue() + "]");
 			}
 		}
 	}
@@ -58,7 +61,7 @@ public class ConferenceReader {
 	 * readCalendarFile
 	 * 
 	 * @param filepath
-	 * 		not <code> null</code>
+	 *            not <code> null</code>
 	 * @return Conference
 	 * @throws IOException
 	 * @throws ParserException
@@ -66,31 +69,43 @@ public class ConferenceReader {
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filePath)
+	public static Conference createConference(Reader read)
 			throws IOException, ParserException, ParseException, NumberFormatException {
-
-		if(filePath==null) {
-			throw new IllegalArgumentException("Argument is null");
-		}
 		Conference conf = null;
-		try (InputStream calendarFile = ConferenceReader.class.getClassLoader().getResourceAsStream(filePath)) {
 
-			CalendarBuilder builder = new CalendarBuilder();
-			Calendar calendar = builder.build(calendarFile);
-			Component confCompo = calendar.getComponent("X-CONFERENCE");
+		CalendarBuilder builder = new CalendarBuilder();
+		Calendar calendar = builder.build(read);
+		Component confCompo = calendar.getComponent("X-CONFERENCE");
 
-			// the url is the primary key of a conference
-			URL confURL = new URL(confCompo.getProperty("URL").getValue());
-			conf = new Conference(confURL);
+		// the url is the primary key of a conference
+		URL confURL = new URL(confCompo.getProperty("URL").getValue());
+		conf = new Conference(confURL);
 
-			// add the others attributes
-			conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-			conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
-			conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-			conf.setStartDate(confCompo.getProperty("DTSTART").getValue());
-			conf.setEndDate(confCompo.getProperty("DTEND").getValue());
-			conf.setCity(confCompo.getProperty("X-CITY").getValue());
-		}
+		// add the others attributes
+		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
+		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
+		
+		
+		
+		//convert DateTime pattern to LocalDate pattern
+
+		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
+		String stringDTEND=confCompo.getProperty("X-DTSTART").getValue();
+
+		
+		
+		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
+		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
+		
+		LocalDate dtStart=LocalDate.parse(stringDTSTART,formatBefore);
+		LocalDate dtEnd=LocalDate.parse(stringDTEND,formatBefore);
+		
+		conf.setStartDate(dtStart.format(formatAfter));
+		conf.setEndDate(dtEnd.format(formatAfter));
+		
+		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
+		conf.setCity(confCompo.getProperty("X-CITY").getValue());
+	
 		return conf;
 
 	}
