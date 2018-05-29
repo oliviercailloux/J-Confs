@@ -11,6 +11,7 @@ import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Component;
+import net.fortuna.ical4j.model.DateTime;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.VEvent;
@@ -24,6 +25,7 @@ import net.fortuna.ical4j.model.property.Region;
 import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.model.property.Version;
+import net.fortuna.ical4j.model.property.XProperty;
 import net.fortuna.ical4j.validate.ValidationException;
 import net.fortuna.ical4j.model.Calendar;
 public class ConferenceWriter {
@@ -49,37 +51,16 @@ public class ConferenceWriter {
 		  
 		  //Creating an event
 		  PropertyList propertyList = new PropertyList();
-		  SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMdd'T'hhmmss'Z'");
-		  java.util.Calendar startCal = java.util.Calendar.getInstance();
-
-		  startCal.setTime(java.sql.Date.valueOf(conference.getStartDate()));
-		  String strDate = sdFormat.format(startCal.getTime());
-		  net.fortuna.ical4j.model.Date startDt = null;
-			try {
-				startDt = new net.fortuna.ical4j.model.Date(strDate);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-		  propertyList.add(new DtStart(startDt));
-		  
-		  java.util.Calendar EndCal = java.util.Calendar.getInstance();
-		 
-		  EndCal.setTime(java.sql.Date.valueOf(conference.getEndDate()));
-		  String strDate1 = sdFormat.format(EndCal.getTime());
-		  net.fortuna.ical4j.model.Date endDt = null;
-			try {
-				endDt = new net.fortuna.ical4j.model.Date(strDate1);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-		  propertyList.add(new DtEnd(endDt));
+	
+		 propertyList.add(new XProperty("X-DTSTART",conference.getStartDate().toString()));
+		 propertyList.add(new XProperty("X-DTEND",conference.getEndDate().toString()));
 		  
 		  propertyList.add(new Summary(conference.getTitle()));
-		  propertyList.add(new Country (conference.getCountry()));
-		  propertyList.add(new Region(conference.getCity()));
+		  propertyList.add(new XProperty("X-COUNTRY",conference.getCountry().toString()));
+		  propertyList.add(new XProperty("X-CITY",conference.getCity().toString()));
 		  propertyList.add(new Url(conference.getUrl().toURI()));
-		  propertyList.add(new Description("A conference with a fee of :" + conference.getFeeRegistration() + "euros"));
-		
+		  propertyList.add(new XProperty("X-FEE",conference.getFeeRegistration().toString()));
+		 
 		  VEvent meeting = new VEvent(propertyList);
 		  //add event to the calendar
 		  calendar.getComponents().add(meeting);
