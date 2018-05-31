@@ -4,7 +4,7 @@ package io.github.oliviercailloux.y2018.jconfs;
 import java.util.Objects;
 
 /**
- * this class allows to stock a researcher
+ * this class allows to stock a researcher ans his information found in directory
  *
  */
 
