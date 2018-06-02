@@ -103,6 +103,12 @@
 						</exclusion>
 					</exclusions>
 				</dependency>
+				<dependency>
+					<groupId>dom4j</groupId>
+					<artifactId>dom4j</artifactId>
+					<version>1.6.1</version>
+				</dependency>
+
 			</dependencies>
 		</profile>
 	</profiles>
@@ -126,10 +132,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.mnode.ical4j</groupId>
-			<artifactId>ical4j</artifactId>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.jsr107.ri</groupId>
@@ -151,6 +154,17 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.bundles</groupId>
+			<artifactId>jaxrs-ri</artifactId>
+			<version>2.26</version>
+			<scope>runtime</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-core -->
 		<dependency>
 			<groupId>org.mapsforge</groupId>
