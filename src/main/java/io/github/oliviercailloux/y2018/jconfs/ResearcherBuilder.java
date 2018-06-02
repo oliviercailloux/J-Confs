@@ -13,7 +13,7 @@ import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSParser;
 
-import io.github.oliviercailloux.y2018.TestResearcherBuilder;
+
 
 /**
  * Researcher is a classe which creates chercher object
