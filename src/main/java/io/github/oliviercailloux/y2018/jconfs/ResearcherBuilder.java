@@ -62,22 +62,22 @@ public class ResearcherBuilder {
 	String prenom=searcher.split(" ")[0];
 	Researcher researcher=new Researcher(nom,prenom);
 	NodeList listElements = doc.getElementsByTagName("li");
-	researcher.setFonction(listElements.item(2).getFirstChild().getTextContent());
-	researcher.setTelephone(listElements.item(4).getFirstChild().getTextContent().trim());
-	researcher.setBureau(listElements.item(8).getFirstChild().getTextContent().trim());
-	researcher.setmail(listElements.item(10).getFirstChild().getTextContent().trim());
+	researcher.setFunction(listElements.item(2).getFirstChild().getTextContent());
+	researcher.setPhone(listElements.item(4).getFirstChild().getTextContent().trim());
+	researcher.setOffice(listElements.item(8).getFirstChild().getTextContent().trim());
+	researcher.setMail(listElements.item(10).getFirstChild().getTextContent().trim());
 	listElements=doc.getElementsByTagName("a");
 	
-	String groupe="";
+	String group="";
 	//add every groups 
 	for (int i=3;i<listElements.getLength();i++) {
 		if(i!=3)
-			groupe+="-";
-		groupe+=listElements.item(i).getFirstChild().getTextContent();
-		LOGGER.debug("group "+i+" added",groupe);
+			group+="-";
+		group+=listElements.item(i).getFirstChild().getTextContent();
+		LOGGER.debug("group "+i+" added",group);
 
 	}
-	researcher.setGroupe(groupe);
+	researcher.setGroup(group);
 	return researcher;
 	}
 }

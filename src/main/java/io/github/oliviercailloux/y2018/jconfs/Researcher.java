@@ -9,21 +9,21 @@ import java.util.Objects;
 
 public class Researcher {
 
-	private String nom;
-	private String prenom;
-	private String fonction;
-	private String telephone;
-	private String bureau;
-	private String groupe;
+	private String surname;
+	private String firstname;
+	private String function;
+	private String phone;
+	private String office;
+	private String group;
 	private String mail;
 
 	/**
-	 * this is a getter which return a name
+	 * this is a getter which return a surnname
 	 * 
 	 * @return nom not <code>null</code>.
 	 */
-	public String getNom() {
-		return nom;
+	public String getSurname() {
+		return surname;
 	}
 
 	/**
@@ -31,68 +31,68 @@ public class Researcher {
 	 * 
 	 * @param nom
 	 */
-	public void setNom(String nom) {
-		this.nom = Objects.requireNonNull(nom);
+	public void setSurname(String surname) {
+		this.surname = Objects.requireNonNull(surname);
 	}
 
 	/**
-	 * @return prenom not <code>null</code>.
+	 * @return firstName not <code>null</code>.
 	 */
-	public String getPrenom() {
-		return prenom;
+	public String getFirstname() {
+		return firstname;
 	}
 
 	/**
 	 * @param prenom
 	 *            not <code>null</code>.
 	 */
-	public void setPrenom(String prenom) {
-		this.prenom = Objects.requireNonNull(prenom);
+	public void setFirstName(String firstName) {
+		this.firstname = Objects.requireNonNull(firstName);
 	}
 
 	/**
 	 * @return telephone not <code>null</code>.
 	 */
-	public String getTelephone() {
-		return telephone;
+	public String getPhone() {
+		return phone;
 	}
 
 	/**
 	 * @param telephone
 	 *            not <code>null</code>.
 	 */
-	public void setTelephone(String telephone) {
-		this.telephone = Objects.requireNonNull(telephone);
+	public void setPhone(String phone) {
+		this.phone = Objects.requireNonNull(phone);
 	}
 
 	/**
 	 * @return bureau not <code>null</code>.
 	 */
-	public String getBureau() {
-		return bureau;
+	public String getOffice() {
+		return office;
 	}
 
 	/**
 	 * @param bureau
 	 *            not <code>null</code>.
 	 */
-	public void setBureau(String bureau) {
-		this.bureau = Objects.requireNonNull(bureau);
+	public void setOffice(String office) {
+		this.office = Objects.requireNonNull(office);
 	}
 
 	/**
 	 * @return groupe not <code>null</code>.
 	 */
-	public String getGroupe() {
-		return groupe;
+	public String getGroup() {
+		return group;
 	}
 
 	/**
 	 * @param groupe
 	 *            not <code>null</code>.
 	 */
-	public void setGroupe(String groupe) {
-		this.groupe = Objects.requireNonNull(groupe);
+	public void setGroup(String group) {
+		this.group = Objects.requireNonNull(group);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class Researcher {
 	 * @param mail
 	 *            not <code>null</code>.
 	 */
-	public void setmail(String mail) {
+	public void setMail(String mail) {
 		this.mail = Objects.requireNonNull(mail);
 	}
 
@@ -115,8 +115,8 @@ public class Researcher {
 	 * @param fonctioon
 	 *            not<code>null</code>.
 	 */
-	public void setFonction(String fonction) {
-		this.fonction = Objects.requireNonNull(fonction);
+	public void setFunction(String function) {
+		this.function = Objects.requireNonNull(function);
 	}
 
 	/**
@@ -128,20 +128,20 @@ public class Researcher {
 	 * @param prenom
 	 *            not <code>null</code>.
 	 */
-	public Researcher(String nom, String prenom) {
-		this.nom = Objects.requireNonNull(nom);
-		this.prenom = Objects.requireNonNull(prenom);
-		this.fonction = "";
-		this.telephone = new String("");
-		this.bureau = "";
+	public Researcher(String surname, String firstName) {
+		this.surname = Objects.requireNonNull(surname);
+		this.firstname = Objects.requireNonNull(firstName);
+		this.function = "";
+		this.phone = "";
+		this.office = "";
 		this.mail = "";
-		this.groupe = "";
+		this.group = "";
 	}
 
 	@Override
 	public String toString() {
-		return "nom: " + this.nom + " prenom: " + this.prenom + " fonction: " + this.fonction + " telephone: "
-				+ this.telephone + " bureau: " + this.bureau + " mail: " + mail + " groupe: " + this.groupe;
+		return "nom: " + this.surname + " prenom: " + this.firstname + " fonction: " + this.function + " telephone: "
+				+ this.phone + " bureau: " + this.office + " mail: " + mail + " groupe: " + this.group;
 
 	}
 }
