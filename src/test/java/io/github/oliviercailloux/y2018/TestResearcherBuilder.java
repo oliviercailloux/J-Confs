@@ -29,12 +29,12 @@ public class TestResearcherBuilder {
 		Researcher oCailloux = ResearcherBuilder.create("ocailloux");
 		LOGGER.debug("create Researcher object");
 
-		assertEquals("CAILLOUX",oCailloux.getNom());
-		assertEquals("Olivier",oCailloux.getPrenom());
-		assertEquals("+33 1 44 05 46 53",oCailloux.getTelephone());
-		assertEquals("MIDO-LAMSADE",oCailloux.getGroupe());
+		assertEquals("CAILLOUX",oCailloux.getSurname());
+		assertEquals("Olivier",oCailloux.getFirstname());
+		assertEquals("+33 1 44 05 46 53",oCailloux.getPhone());
+		assertEquals("MIDO-LAMSADE",oCailloux.getGroup());
 		assertEquals("olivier.cailloux@lamsade.dauphine.fr",oCailloux.getMail());
-		assertEquals("P405 ter",oCailloux.getBureau());
+		assertEquals("P405 ter",oCailloux.getOffice());
 		
 		
 
