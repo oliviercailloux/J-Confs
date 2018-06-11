@@ -20,7 +20,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 
 	/**
 	 * A constructor to initialize a ConferencesFromICal
-	 * 
+	 * 	
 	 * @throws URISyntaxException
 	 */
 	public ConferencesFromICal() {
