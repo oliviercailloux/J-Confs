@@ -9,10 +9,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.HashSet;
+
+import java.util.LinkedHashSet;
 import java.util.Set;
 
-import io.github.oliviercailloux.y2018.TestConferenceReader;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.DateTime;
 
@@ -35,7 +35,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 
 		File[] fileList = ressourcesDirectory.listFiles();
 
-		Set<Conference> setOfConf = new HashSet<>();
+		Set<Conference> setOfConf = new LinkedHashSet<>();
 
 		for (File file : fileList) {
 			if (file.getName().endsWith(".ics")) {
@@ -55,7 +55,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 	public Set<Conference> retrive(LocalDate minDate, LocalDate maxDate)
 			throws IOException, NumberFormatException, ParserException, ParseException {
 		Set<Conference> setOfAllConf = retrive();
-		Set<Conference> setOfConfFiltred = new HashSet<>();
+		Set<Conference> setOfConfFiltred = new LinkedHashSet<>();
 		for (Conference conf : setOfAllConf) {
 			if (conf.getStartDate().isAfter(minDate) && conf.getEndDate().isBefore(maxDate)) {
 				setOfConfFiltred.add(conf);
@@ -69,8 +69,8 @@ public class ConferencesFromICal implements ConferencesRetriever {
 	@Override
 	public Set<Conference> retrive(String fileName)
 			throws NumberFormatException, IOException, ParserException, ParseException {
-		Set<Conference> setOfConf = new HashSet<>();
-		File file = new File(TestConferenceReader.class.getClassLoader().getResource("icaldata/test2.ics").getFile());
+		Set<Conference> setOfConf =new  LinkedHashSet<>();
+		File file = new File(ConferencesFromICal.class.getClassLoader().getResource("icaldata/test2.ics").getFile());
 
 		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
 			setOfConf.add(ConferenceReader.createConference(reader));
