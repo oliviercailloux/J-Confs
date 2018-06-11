@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
 import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
-import io.github.oliviercailloux.y2018.jconfs.ConferencesShower;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.DateTime;
 
