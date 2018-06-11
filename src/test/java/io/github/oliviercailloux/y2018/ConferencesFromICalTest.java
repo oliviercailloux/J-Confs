@@ -57,10 +57,10 @@ public class ConferencesFromICalTest {
 		Iterator<Conference> iteratorTest = setConfTest2.iterator();
 
 		Conference confTest21 = iteratorTest.next();
-		assertEquals("Japon", confTest21.getCountry());
+		assertEquals("Chine", confTest21.getCountry());
 		Conference confTest22 = iteratorTest.next();
 
-		assertEquals("Chine", confTest22.getCountry());
+		assertEquals("Japon", confTest22.getCountry());
 
 	}
 }
