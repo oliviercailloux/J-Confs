@@ -24,7 +24,7 @@ import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.DateTime;
 
 public class ConferencesFromICalTest {
-	private static final Logger LOGGER = LoggerFactory.getLogger(TestConferenceReader.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ConferencesFromICalTest.class);
 
 	/**
 	 * this method test retrive method in ConferencesFromIcal
