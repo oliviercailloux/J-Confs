@@ -16,7 +16,6 @@ import net.fortuna.ical4j.model.DateTime;
  *
  */
 public interface ConferencesRetriever {
-	
 
 	/**
 	 * this method read conference data and return a set of conference
@@ -29,10 +28,10 @@ public interface ConferencesRetriever {
 	/**
 	 * this method take a date interval and return a restricted set of conference
 	 * 
-	 * @param  maxDate
-	 *   not <code> null</code>
-	 * @param minDate 
-	 * 		Not  <code> null</code>
+	 * @param maxDate
+	 *            not <code> null</code>
+	 * @param minDate
+	 *            Not <code> null</code>
 	 * @return Set<Conference>,Not <code> null</code>, return empty set if no data
 	 *         found
 	 */
