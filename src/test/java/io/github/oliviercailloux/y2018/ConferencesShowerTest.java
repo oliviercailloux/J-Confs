@@ -9,6 +9,11 @@ import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
 import io.github.oliviercailloux.y2018.jconfs.ConferencesShower;
 import net.fortuna.ical4j.data.ParserException;
 
+/**
+ * it's a main to  test the method ConferencesFiltredByDate
+ * @author stanislas
+ *
+ */
 public class ConferencesShowerTest {
 	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException {
 		ConferencesShower testShower=new ConferencesShower(new ConferencesFromICal());
