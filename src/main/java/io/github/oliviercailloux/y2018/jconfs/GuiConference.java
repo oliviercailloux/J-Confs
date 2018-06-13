@@ -18,8 +18,12 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.slf4j.LoggerFactory;
+
+
 
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceWriter;
@@ -34,6 +38,7 @@ import net.fortuna.ical4j.validate.ValidationException;
  */
 public class GuiConference {
 	public static void main(String[] args){
+		final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
 		
 		// setup the SWT window
 		Display display = new Display();
@@ -113,12 +118,14 @@ public class GuiConference {
 		Label labelDateEnd = new Label(shell, SWT.NONE);
 		labelDateEnd.setText("Date End : ");
 		DateTime dateEnd = new DateTime(shell, SWT.DATE | SWT.DROP_DOWN);
-	
+		
+		
 		Button buttonSubmit = new Button(shell, SWT.PUSH);
-		buttonSubmit.setText("Submit");
+		buttonSubmit.setText("Create calendar");
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
 			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
 			public void widgetSelected(SelectionEvent event)  {
+				LOGGER.debug("Button clicked : Ical created");
 				URL url = null;
 				try {
 					url = new URL("http://www.conference.com");
@@ -223,6 +230,117 @@ public class GuiConference {
 			
 		});
 		
+		
+		
+		Button buttonGenerate = new Button(shell, SWT.PUSH);
+		buttonGenerate.setText("Generate OM");
+		buttonGenerate.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent event)  {
+				//this function save the value in the fields of GUI in a conference and fill the mission order
+				LOGGER.debug("Button clicked : OM generated");
+				URL url = null;
+				try {
+					url = new URL("http://www.conference.com");
+				} catch (MalformedURLException e1) {
+					e1.printStackTrace();
+				}
+				Conference conf = new Conference(url);
+				String title = textTitle.getText();
+				Double fee = Double.parseDouble(textFee.getText());
+				String city = textCity.getText();
+				String country = textCountry.getText();
+				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
+				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				
+				String dStart = Integer.toString(dateStart.getDay());
+				String mStart = Integer.toString(dateStart.getMonth()+1);
+				String yStart = Integer.toString(dateStart.getYear());
+				String start = "";
+				String dnew = "";
+				String mnew = "";
+				boolean dayStart = Arrays.asList(array).contains(dStart);
+				boolean monthStart = Arrays.asList(array).contains(mStart);
+				if(dayStart && !monthStart ){
+					dnew = "0"+dStart;
+			        start = dnew + "/" + mStart + "/" + yStart;
+			            	           
+				}
+			    else if (!dayStart && monthStart){
+			    	mnew = "0"+mStart;
+			    	start = dStart + "/" + mnew + "/" + yStart;
+				}
+			    else if (dayStart && monthStart){
+			    	dnew = "0"+dStart;
+			    	mnew = "0"+mStart;
+					start = dnew + "/" + mnew + "/" + yStart;
+			    }
+			        else {
+			        	start = dStart + "/" + mStart + "/" + yStart;
+			   }
+				
+			    
+				String dEnd = Integer.toString(dateEnd.getDay());
+				String mEnd = Integer.toString(dateEnd.getMonth()+1);
+				String yEnd = Integer.toString(dateEnd.getYear());
+				
+				String end = "";
+				String dnew1 = "";
+				String mnew1 = "";
+				boolean dayEnd = Arrays.asList(array).contains(dEnd);
+				boolean monthEnd = Arrays.asList(array).contains(mEnd);
+				if(dayEnd && !monthEnd ){
+					dnew1 = "0"+dEnd;
+			         end = dnew1 + "/" + mEnd + "/" + yEnd;
+			            	           
+					}
+			        else if (!dayEnd && monthEnd){
+			            	mnew1 = "0"+mEnd;
+							end = dEnd + "/" + mnew1 + "/" + yEnd;
+							
+			         }
+			        else if (dayEnd && monthEnd){
+			        	dnew1 = "0"+dEnd;
+		            	mnew1 = "0"+mEnd;
+						end = dnew1 + "/" + mnew1 + "/" + yEnd;
+						
+			        }
+			        else {
+			            	end = dEnd + "/" + mEnd + "/" + yEnd;
+			            }
+				    
+				conf.setCity(city);
+				conf.setCountry(country);
+				try {
+					conf.setStartDate(start);
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				try {
+					conf.setEndDate(end);
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				
+				
+				conf.setFeeRegistration(fee);
+				conf.setTitle(title);
+				try {
+					GenerateOM.generateOM(conf);
+					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+					mb.setText("Success");
+					String filename = new String("OM_" + city + "-" + country + "_" + start + ".ods");
+					mb.setMessage("File saved in : " + filename);
+					mb.open();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+			}
+			
+		});
+		
+		
 		Color col = new Color(display, 145, 201, 169);
 		shell.setBackground(col);
 		col.dispose();
@@ -241,5 +359,8 @@ public class GuiConference {
 		
 		}
 
-}
+
+	}
+
+
 	
