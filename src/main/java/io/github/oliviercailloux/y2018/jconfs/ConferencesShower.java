@@ -8,9 +8,14 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+
+import com.hp.hpl.jena.rdf.model.EmptyListException;
 
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.DateTime;
@@ -35,30 +40,36 @@ public class ConferencesShower {
 	}
 
 	/**
-	 * ask to the user to write a filename and return a conference created by
-	 * reading a file
 	 * 
-	 * @return null if conference is not find
+	 * take a filename and search every conference with the title given in arg
 	 * 
-	 * @throws ParseException
-	 * @throws ParserException
-	 * @throws NumberFormatException
-	 * @throws IOException
+	 * @param title
+	 *            not <code>null<code>
+	 * @return Set<Conference> Not <code>null<code>
+	 * 
+	 * @throws Exception
 	 */
-	public Conference searchConferenceByName() throws NumberFormatException, IOException, ParserException, ParseException {
-
+	public Set<Conference> searchConferenceByTitle(String title) throws Exception {
+		if (Objects.isNull(title))
+			throw new IllegalArgumentException("title is null");
 		Conference conf = null;
+		Set<Conference> setOfConfFiltred = new LinkedHashSet<>();
 		try (Scanner sc = new Scanner(System.in)) {
 			System.out.println("please enter a file name");
 			String fileName = sc.nextLine();
 			Set<Conference> set = retriever.retrive(Objects.requireNonNull(fileName));
 
-			if (set.iterator().hasNext()) {
+			while (set.iterator().hasNext()) {
 				conf = set.iterator().next();
+				if (conf.getTitle() == title) {
+					setOfConfFiltred.add(conf);
+				}
 			}
 
 		}
-		return conf;
+		if (setOfConfFiltred.isEmpty())
+			throw new EmptyListException("no conferences found");
+		return setOfConfFiltred;
 	}
 
 	/**
@@ -72,16 +83,10 @@ public class ConferencesShower {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
-	public Conference searchConferenceByName(String fileName)
+	public Set<Conference> searchConferenceInFile(String fileName)
 			throws NumberFormatException, IOException, ParserException, ParseException {
-		Conference conf = null;
 		Set<Conference> set = retriever.retrive(Objects.requireNonNull(fileName));
-
-		if (set.iterator().hasNext()) {
-			conf = set.iterator().next();
-		}
-
-		return conf;
+		return set;
 
 	}
 
@@ -110,6 +115,9 @@ public class ConferencesShower {
 			minDate = LocalDate.parse(sc.nextLine(), formatter);
 			System.out.println("Please enter the maximale date dd/MM/yyyy format ");
 			maxDate = LocalDate.parse(sc.nextLine(), formatter);
+
+			if (!minDate.isBefore(maxDate))
+				throw new IllegalArgumentException("minDate must be before maxDate");
 
 		}
 		return retriever.retrive(minDate, maxDate);
