@@ -39,7 +39,7 @@ public class ConferencesFromICalTest {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		// TEST 1
-		Set<Conference> setConfTest1 = testConfFromIcal.retrive("icaldata/test2.ics");
+		Set<Conference> setConfTest1 = testConfFromIcal.retrive("test2.ics");
 
 		assertEquals(1, setConfTest1.size());
 		LOGGER.debug("setConfTest1 size is 1");
@@ -47,6 +47,16 @@ public class ConferencesFromICalTest {
 		Conference confTest1 = setConfTest1.iterator().next();
 		assertEquals("java", confTest1.getTitle());
 		LOGGER.debug("test 1 done");
+
+
+
+	}
+	
+	@Test
+	public final void retriveTest2() throws NumberFormatException, IOException, ParserException, ParseException {
+		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
+
+		
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		// TEST 2
