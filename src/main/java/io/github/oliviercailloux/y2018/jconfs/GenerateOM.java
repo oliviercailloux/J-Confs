@@ -27,12 +27,12 @@ public class GenerateOM {
 	 * @param conference
 	 * @throws Exception
 	 */
-	public static void generateOM (Conference conference) throws Exception {
+	public static void generateOM (Conference conference, Researcher researcher) throws Exception {
 		
 
 		try (InputStream inputStream = MissionOrder.class.getResourceAsStream("ordre_de_mission.ods");
 				SpreadsheetDocument spreadsheetDoc = SpreadsheetDocument.loadDocument(inputStream)) {
-			/*
+			
 			Cell surNameCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("F8");
 			surNameCell.setStringValue(researcher.getSurname());
 			
@@ -41,12 +41,15 @@ public class GenerateOM {
 			
 			Cell mailCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("F11");
 			mailCell.setStringValue(researcher.getMail());
-			*/
+			
 			Cell titleCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B15");
 			titleCell.setStringValue(conference.getTitle());
 			
 			Cell returnCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B37");
 			returnCell.setStringValue(conference.getCity() + " ," + conference.getCountry());
+			
+			Cell comeCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B31");
+			comeCell.setStringValue("Paris, France");
 			
 			Cell startCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("M22");
 			startCell.setStringValue(conference.getStartDate().toString());

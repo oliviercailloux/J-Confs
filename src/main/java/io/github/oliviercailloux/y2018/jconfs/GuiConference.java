@@ -13,10 +13,13 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -43,22 +46,235 @@ public class GuiConference {
 		// setup the SWT window
 		Display display = new Display();
 		Shell shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
-		shell.setText("Conference");
-		
+		shell.setText("J-Confs");
+	
 		// initialize a grid layout manager
 		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
+		gridLayout.numColumns = 1;
 		shell.setLayout(gridLayout);
+		shell.setLocation(300, 100);
+		shell.layout(true, true);
+		final Point newSize = shell.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);
+		shell.setSize(new Point(912, 796));
 		
-		// create the label and the field text
-		Label labelTitle = new Label(shell, SWT.NONE);
-		labelTitle.setText("Title : ");
-		Text textTitle = new Text(shell, SWT.BORDER);
+		// add the group for the researcher into shell
+		Group grp_researcher = new Group(shell, SWT.NONE);
+		GridData gd_researcher = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_researcher.heightHint =300;
+		gd_researcher.widthHint = 900;
+		grp_researcher.setLayoutData(gd_researcher);
+		grp_researcher.setText("Researcher");
 		
+		// add the group for the conference into shell
+		Group grp_conf = new Group(shell, SWT.NONE);
+		GridData gp_conf = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gp_conf.heightHint =300;
+		gp_conf.widthHint = 900;
+		grp_conf.setLayoutData(gp_conf);
+		grp_conf.setText("Conference");
 		
-		Label labelFee = new Label(shell, SWT.NONE);
-		labelFee.setText("Registration Fee : ");
-		Text textFee = new Text(shell, SWT.BORDER);
+		// create the label and the field text for the group researcher
+		Label lblLogin = new Label(grp_researcher, SWT.NONE);
+		lblLogin.setAlignment(SWT.RIGHT);
+		lblLogin.setBounds(25, 16, 55, 20);
+		lblLogin.setText("Login");
+		Text txt_login = new Text(grp_researcher, SWT.BORDER);
+		txt_login.setBounds(83, 15, 78, 21);
+		
+		Label lblSurname = new Label(grp_researcher, SWT.NONE);
+		lblSurname.setAlignment(SWT.RIGHT);
+		lblSurname.setBounds(25, 100, 55, 15);
+		lblSurname.setText("Surname");
+		Text txt_Surname= new Text(grp_researcher, SWT.BORDER);
+		txt_Surname.setBounds(83, 99, 200, 21);
+		//block the input in the field
+		txt_Surname.addVerifyListener(new VerifyListener() {
+			 public void verifyText(VerifyEvent e) {
+			      e.doit = false;      
+			   }
+		 });
+		
+		Label lblFirstname = new Label(grp_researcher, SWT.NONE);
+		lblFirstname.setAlignment(SWT.RIGHT);
+		lblFirstname.setBounds(400, 100, 58, 15);
+		lblFirstname.setText("Firstname");
+		Text txt_Firstname= new Text(grp_researcher, SWT.BORDER);
+		txt_Firstname.setBounds(458, 99, 200, 21);
+		//block the input in the field
+		txt_Firstname.addVerifyListener(new VerifyListener() {
+			public void verifyText(VerifyEvent e) {
+				e.doit = false;      
+			}
+		});
+		
+		Label lblPhone = new Label(grp_researcher, SWT.NONE);
+		lblPhone.setAlignment(SWT.RIGHT);
+		lblPhone.setBounds(20, 150, 55, 15);
+		lblPhone.setText("Phone");
+		Text txt_Phone= new Text(grp_researcher, SWT.BORDER);
+		txt_Phone.setBounds(78, 149, 200, 21);
+		//block the input in the field
+		txt_Phone.addVerifyListener(new VerifyListener() {
+			public void verifyText(VerifyEvent e) {
+				e.doit = false;      
+			}
+		});
+		
+		Label lblGroup= new Label(grp_researcher, SWT.NONE);
+		lblGroup.setAlignment(SWT.RIGHT);
+		lblGroup.setBounds(320, 150, 55, 15);
+		lblGroup.setText("Group");
+		Text txt_Group= new Text(grp_researcher, SWT.BORDER);
+		txt_Group.setBounds(376, 149, 200, 21);
+		//block the input in the field
+		txt_Group.addVerifyListener(new VerifyListener() {
+			public void verifyText(VerifyEvent e) {
+				e.doit = false;      
+			}
+		});
+		
+		Label lblMail = new Label(grp_researcher, SWT.NONE);
+		lblMail.setAlignment(SWT.RIGHT);
+		lblMail.setBounds(20, 200, 55, 15);
+		lblMail.setText("Mail");
+		Text txt_Mail= new Text(grp_researcher, SWT.BORDER);
+		txt_Mail.setBounds(78, 199, 400, 21);
+		//block the input in the field
+		txt_Mail.addVerifyListener(new VerifyListener() {
+			public void verifyText(VerifyEvent e) {
+				e.doit = false;      
+			}
+		});
+		
+		Label lblOffice= new Label(grp_researcher, SWT.NONE);
+		lblOffice.setAlignment(SWT.RIGHT);
+		lblOffice.setBounds(600, 150, 55, 15);
+		lblOffice.setText("Office");
+		Text txt_Office= new Text(grp_researcher, SWT.BORDER);
+		txt_Office.setBounds(658, 149, 150, 21);
+		//block the input in the field
+		txt_Office.addVerifyListener(new VerifyListener() {
+			public void verifyText(VerifyEvent e) {
+				e.doit = false;      
+			}
+		});
+		
+		Button btn_researcher= new Button(grp_researcher, SWT.NONE);
+		btn_researcher.setBounds(250, 16, 200, 25);
+		btn_researcher.setText("search Researcher");
+		
+		btn_researcher.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent event)  {
+				String login = txt_login.getText();
+				
+				try {
+					Researcher researcher = ResearcherBuilder.create(login);
+					//unblock for the input automatic from the button Search
+					txt_Surname.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = true;
+						 }
+					 });
+					txt_Surname.setText(researcher.getSurname());
+					//block again after the field filled
+					txt_Surname.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = false;
+						   }
+					 });
+					
+					
+					//unblock for the input automatic from the button Search
+					txt_Firstname.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = true;
+						 }
+					 });
+					txt_Firstname.setText(researcher.getFirstname());
+					//block again after the field filled
+					txt_Firstname.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = false;
+						   }
+					 });
+					
+					//unblock for the input automatic from the button Search
+					txt_Phone.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = true;
+						 }
+					 });
+					txt_Phone.setText(researcher.getPhone());
+					//block again after the field filled
+					txt_Phone.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = false;
+						   }
+					 });
+					
+					//unblock for the input automatic from the button Search
+					txt_Group.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = true;
+						 }
+					 });
+					txt_Group.setText(researcher.getGroup());
+					//block again after the field filled
+					txt_Group.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = false;
+						   }
+					 });
+					
+					//unblock for the input automatic from the button Search
+					txt_Mail.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = true;
+						 }
+					 });
+					txt_Mail.setText(researcher.getMail());
+					//block again after the field filled
+					txt_Mail.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = false;
+						   }
+					 });
+					
+					//unblock for the input automatic from the button Search
+					txt_Office.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = true;
+						 }
+					 });
+					txt_Office.setText(researcher.getOffice());
+					//block again after the field filled
+					txt_Office.addVerifyListener(new VerifyListener() {
+						 public void verifyText(VerifyEvent e) {
+						      e.doit = false;
+						   }
+					 });
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+						| ClassCastException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+
+		});
+		
+		// create the label and the field text for the group conference
+		Label labelTitle = new Label(grp_conf, SWT.NONE);
+		labelTitle.setText("Title  ");
+		labelTitle.setBounds(25, 16, 55, 20);
+		Text textTitle = new Text(grp_conf, SWT.BORDER);
+		textTitle.setBounds(60, 15, 200, 21);
+		
+		Label labelFee = new Label(grp_conf, SWT.NONE);
+		labelFee.setText("Registration Fee  ");
+		labelFee.setBounds(350, 16, 100, 20);
+		Text textFee = new Text(grp_conf, SWT.BORDER);
+		textFee.setBounds(450, 15, 200, 21);
 		
 		//allow only positive integers as input and not allow special characters like letter 
 		textFee.addVerifyListener(new VerifyListener() {
@@ -76,9 +292,12 @@ public class GuiConference {
 		 });
 		
 		//not allow the integers
-		Label labelCity = new Label(shell, SWT.NONE);
-		labelCity.setText("City : ");
-		Text textCity = new Text(shell, SWT.BORDER);
+		Label labelCity = new Label(grp_conf, SWT.NONE);
+		labelCity.setText("City ");
+		labelCity.setBounds(25, 100, 55, 20);
+		Text textCity = new Text(grp_conf, SWT.BORDER);
+		textCity.setBounds(60, 100, 200, 21);
+		
 		textCity.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
 				 String string = e.text;
@@ -93,10 +312,13 @@ public class GuiConference {
 			   }
 		 });
 		
-		////not allow the integers
-		Label labelCountry = new Label(shell, SWT.NONE);
-		labelCountry.setText("Country : ");
-		Text textCountry = new Text(shell, SWT.BORDER);
+		//not allow the integers
+		Label labelCountry = new Label(grp_conf, SWT.NONE);
+		labelCountry.setText("Country  ");
+		labelCountry.setBounds(350, 100, 100, 20);
+		Text textCountry = new Text(grp_conf, SWT.BORDER);
+		textCountry.setBounds(400, 100, 200, 21);
+		
 		textCountry.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
 				 String string = e.text;
@@ -111,17 +333,21 @@ public class GuiConference {
 			   }
 		 });
 		//create Date Selection as a drop-down
-		Label labelDateStart = new Label(shell, SWT.NONE);
-		labelDateStart.setText("Date Start : ");
-		DateTime dateStart = new DateTime(shell, SWT.DATE | SWT.DROP_DOWN);
+		Label labelDateStart = new Label(grp_conf, SWT.NONE);
+		labelDateStart.setText("Date Start ");
+		labelDateStart.setBounds(25, 200, 60, 20);
+		DateTime dateStart = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
+		dateStart.setBounds(100, 200, 150, 21);
 		
-		Label labelDateEnd = new Label(shell, SWT.NONE);
-		labelDateEnd.setText("Date End : ");
-		DateTime dateEnd = new DateTime(shell, SWT.DATE | SWT.DROP_DOWN);
+		Label labelDateEnd = new Label(grp_conf, SWT.NONE);
+		labelDateEnd.setText("Date End ");
+		labelDateEnd.setBounds(350, 200, 80, 20);
+		DateTime dateEnd = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
+		dateEnd.setBounds(425, 200, 150, 21);
 		
-		
-		Button buttonSubmit = new Button(shell, SWT.PUSH);
+		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
 		buttonSubmit.setText("Create calendar");
+		buttonSubmit.setBounds(700, 50, 150, 21);
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
 			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
 			public void widgetSelected(SelectionEvent event)  {
@@ -212,28 +438,36 @@ public class GuiConference {
 				
 				conf.setFeeRegistration(fee);
 				conf.setTitle(title);
-				 
+				
+				if (start.compareTo(end) >= 0 ) {
+					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+					mb.setText("Failed");
+					mb.setMessage("Date Start can't be lower or equel to Date End");
+					mb.open();
+				} else {
 
 							try {
 								ConferenceWriter.writeCalendarFiles(conf);
-								
+								MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+								mb.setText("Success");
+								mb.setMessage("The iCalendar has created in the file mycalendar.ics");
+								mb.open();
 							} catch (ValidationException | ParseException | IOException | ParserException
 									| URISyntaxException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						
-				
-				System.out.println("The iCalendar has created in the file mycalendar.ics ");
-			
+		
+				}
 			}
+				
 			
 		});
 		
 		
 		
-		Button buttonGenerate = new Button(shell, SWT.PUSH);
+		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
+		buttonGenerate.setBounds(700, 150, 150, 21);
 		buttonGenerate.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent event)  {
@@ -246,6 +480,11 @@ public class GuiConference {
 					e1.printStackTrace();
 				}
 				Conference conf = new Conference(url);
+				String surname = txt_Surname.getText();
+				String firstname = txt_Firstname.getText();
+				String email = txt_Mail.getText();
+				Researcher researcher = new Researcher(surname,firstname);
+				researcher.setMail(email);
 				String title = textTitle.getText();
 				Double fee = Double.parseDouble(textFee.getText());
 				String city = textCity.getText();
@@ -307,7 +546,7 @@ public class GuiConference {
 			        }
 			        else {
 			            	end = dEnd + "/" + mEnd + "/" + yEnd;
-			            }
+			         }
 				    
 				conf.setCity(city);
 				conf.setCountry(country);
@@ -325,25 +564,39 @@ public class GuiConference {
 				
 				conf.setFeeRegistration(fee);
 				conf.setTitle(title);
-				try {
-					GenerateOM.generateOM(conf);
+				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-					mb.setText("Success");
-					String filename = new String("OM_" + city + "-" + country + "_" + start + ".ods");
-					mb.setMessage("File saved in : " + filename);
+					mb.setText("Failed");
+					mb.setMessage("Date Start can't be lower or equel to Date End");
 					mb.open();
-				} catch (Exception e) {
-					e.printStackTrace();
+				} 
+				else {
+					try {
+						GenerateOM.generateOM(conf,researcher);
+						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+						mb.setText("Success");
+						String filename = new String("OM_" + city + "-" + country + "_" + start + ".ods");
+						mb.setMessage("File saved in : " + filename);
+						mb.open();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			
 			}
-			
+		
 		});
 		
 		
-		Color col = new Color(display, 145, 201, 169);
-		shell.setBackground(col);
-		col.dispose();
+		Color col = new Color(display, 211, 214, 219);
+		Color col2 = new Color(display, 250, 250, 250);
+		txt_Surname.setBackground(col);
+		txt_Firstname.setBackground(col);
+		txt_Phone.setBackground(col);
+		txt_Group.setBackground(col);
+		txt_Mail.setBackground(col);
+		txt_Office.setBackground(col);
+		shell.setBackground(col2);
+		col2.dispose();
 		// tear down the SWT window
 		shell.pack();
 		shell.open();
