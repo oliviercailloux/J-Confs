@@ -76,17 +76,17 @@ public class GuiConference {
 		// create the label and the field text for the group researcher
 		Label lblLogin = new Label(grp_researcher, SWT.NONE);
 		lblLogin.setAlignment(SWT.RIGHT);
-		lblLogin.setBounds(25, 16, 55, 20);
+		lblLogin.setBounds(25,41,55,40);
 		lblLogin.setText("Login");
 		Text txt_login = new Text(grp_researcher, SWT.BORDER);
-		txt_login.setBounds(83, 15, 78, 21);
+		txt_login.setBounds(100,40,200,20);
 		
 		Label lblSurname = new Label(grp_researcher, SWT.NONE);
 		lblSurname.setAlignment(SWT.RIGHT);
-		lblSurname.setBounds(25, 100, 55, 15);
+		lblSurname.setBounds(25, 100, 55, 40);
 		lblSurname.setText("Surname");
 		Text txt_Surname= new Text(grp_researcher, SWT.BORDER);
-		txt_Surname.setBounds(83, 99, 200, 21);
+		txt_Surname.setBounds(100, 99, 200, 21);
 		//block the input in the field
 		txt_Surname.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
@@ -96,10 +96,10 @@ public class GuiConference {
 		
 		Label lblFirstname = new Label(grp_researcher, SWT.NONE);
 		lblFirstname.setAlignment(SWT.RIGHT);
-		lblFirstname.setBounds(400, 100, 58, 15);
+		lblFirstname.setBounds(400, 100, 58, 40);
 		lblFirstname.setText("Firstname");
 		Text txt_Firstname= new Text(grp_researcher, SWT.BORDER);
-		txt_Firstname.setBounds(458, 99, 200, 21);
+		txt_Firstname.setBounds(475, 99, 200, 21);
 		//block the input in the field
 		txt_Firstname.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -109,10 +109,10 @@ public class GuiConference {
 		
 		Label lblPhone = new Label(grp_researcher, SWT.NONE);
 		lblPhone.setAlignment(SWT.RIGHT);
-		lblPhone.setBounds(20, 150, 55, 15);
+		lblPhone.setBounds(25, 180, 55, 40);
 		lblPhone.setText("Phone");
 		Text txt_Phone= new Text(grp_researcher, SWT.BORDER);
-		txt_Phone.setBounds(78, 149, 200, 21);
+		txt_Phone.setBounds(100, 179, 200, 21);
 		//block the input in the field
 		txt_Phone.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -122,10 +122,10 @@ public class GuiConference {
 		
 		Label lblGroup= new Label(grp_researcher, SWT.NONE);
 		lblGroup.setAlignment(SWT.RIGHT);
-		lblGroup.setBounds(320, 150, 55, 15);
+		lblGroup.setBounds(320, 179, 55, 40);
 		lblGroup.setText("Group");
 		Text txt_Group= new Text(grp_researcher, SWT.BORDER);
-		txt_Group.setBounds(376, 149, 200, 21);
+		txt_Group.setBounds(395, 179, 200, 21);
 		//block the input in the field
 		txt_Group.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -135,10 +135,10 @@ public class GuiConference {
 		
 		Label lblMail = new Label(grp_researcher, SWT.NONE);
 		lblMail.setAlignment(SWT.RIGHT);
-		lblMail.setBounds(20, 200, 55, 15);
+		lblMail.setBounds(25, 260, 55, 40);
 		lblMail.setText("Mail");
 		Text txt_Mail= new Text(grp_researcher, SWT.BORDER);
-		txt_Mail.setBounds(78, 199, 400, 21);
+		txt_Mail.setBounds(100, 260, 400, 21);
 		//block the input in the field
 		txt_Mail.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -148,10 +148,10 @@ public class GuiConference {
 		
 		Label lblOffice= new Label(grp_researcher, SWT.NONE);
 		lblOffice.setAlignment(SWT.RIGHT);
-		lblOffice.setBounds(600, 150, 55, 15);
+		lblOffice.setBounds(620, 179, 55, 15);
 		lblOffice.setText("Office");
 		Text txt_Office= new Text(grp_researcher, SWT.BORDER);
-		txt_Office.setBounds(658, 149, 150, 21);
+		txt_Office.setBounds(695, 179, 200, 21);
 		//block the input in the field
 		txt_Office.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -160,7 +160,7 @@ public class GuiConference {
 		});
 		
 		Button btn_researcher= new Button(grp_researcher, SWT.NONE);
-		btn_researcher.setBounds(250, 16, 200, 25);
+		btn_researcher.setBounds(600, 36, 200, 25);
 		btn_researcher.setText("search Researcher");
 		
 		btn_researcher.addSelectionListener(new SelectionAdapter() {
@@ -266,15 +266,15 @@ public class GuiConference {
 		// create the label and the field text for the group conference
 		Label labelTitle = new Label(grp_conf, SWT.NONE);
 		labelTitle.setText("Title  ");
-		labelTitle.setBounds(25, 16, 55, 20);
+		labelTitle.setBounds(25,41,55,40);
 		Text textTitle = new Text(grp_conf, SWT.BORDER);
-		textTitle.setBounds(60, 15, 200, 21);
+		textTitle.setBounds(100,40,200,20);
 		
 		Label labelFee = new Label(grp_conf, SWT.NONE);
-		labelFee.setText("Registration Fee  ");
-		labelFee.setBounds(350, 16, 100, 20);
+		labelFee.setText("Registration Fee");
+		labelFee.setBounds(400,41,90,40);
 		Text textFee = new Text(grp_conf, SWT.BORDER);
-		textFee.setBounds(450, 15, 200, 21);
+		textFee.setBounds(500,40,200,20);
 		
 		//allow only positive integers as input and not allow special characters like letter 
 		textFee.addVerifyListener(new VerifyListener() {
@@ -294,9 +294,9 @@ public class GuiConference {
 		//not allow the integers
 		Label labelCity = new Label(grp_conf, SWT.NONE);
 		labelCity.setText("City ");
-		labelCity.setBounds(25, 100, 55, 20);
+		labelCity.setBounds(25, 100, 55, 40);
 		Text textCity = new Text(grp_conf, SWT.BORDER);
-		textCity.setBounds(60, 100, 200, 21);
+		textCity.setBounds(100, 99, 200, 21);
 		
 		textCity.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
@@ -315,9 +315,9 @@ public class GuiConference {
 		//not allow the integers
 		Label labelCountry = new Label(grp_conf, SWT.NONE);
 		labelCountry.setText("Country  ");
-		labelCountry.setBounds(350, 100, 100, 20);
+		labelCountry.setBounds(400, 100, 58, 40);
 		Text textCountry = new Text(grp_conf, SWT.BORDER);
-		textCountry.setBounds(400, 100, 200, 21);
+		textCountry.setBounds(475, 99, 200, 21);
 		
 		textCountry.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
@@ -335,19 +335,19 @@ public class GuiConference {
 		//create Date Selection as a drop-down
 		Label labelDateStart = new Label(grp_conf, SWT.NONE);
 		labelDateStart.setText("Date Start ");
-		labelDateStart.setBounds(25, 200, 60, 20);
+		labelDateStart.setBounds(25, 180, 55, 40);
 		DateTime dateStart = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
-		dateStart.setBounds(100, 200, 150, 21);
+		dateStart.setBounds(100, 179, 200, 21);
 		
 		Label labelDateEnd = new Label(grp_conf, SWT.NONE);
 		labelDateEnd.setText("Date End ");
-		labelDateEnd.setBounds(350, 200, 80, 20);
+		labelDateEnd.setBounds(400, 180, 55, 40);
 		DateTime dateEnd = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
-		dateEnd.setBounds(425, 200, 150, 21);
+		dateEnd.setBounds(475, 179, 200, 21);
 		
 		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
 		buttonSubmit.setText("Create calendar");
-		buttonSubmit.setBounds(700, 50, 150, 21);
+		buttonSubmit.setBounds(80, 260, 200, 25);
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
 			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
 			public void widgetSelected(SelectionEvent event)  {
@@ -447,10 +447,10 @@ public class GuiConference {
 				} else {
 
 							try {
-								ConferenceWriter.writeCalendarFiles(conf);
+								ConferenceWriter.writeCalendarFiles(title,conf);
 								MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 								mb.setText("Success");
-								mb.setMessage("The iCalendar has created in the file mycalendar.ics");
+								mb.setMessage("The iCalendar has created in the file " + title + ".ics");
 								mb.open();
 							} catch (ValidationException | ParseException | IOException | ParserException
 									| URISyntaxException e) {
@@ -467,7 +467,7 @@ public class GuiConference {
 		
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
-		buttonGenerate.setBounds(700, 150, 150, 21);
+		buttonGenerate.setBounds(500, 260, 200, 25);
 		buttonGenerate.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent event)  {
@@ -614,6 +614,3 @@ public class GuiConference {
 
 
 	}
-
-
-	

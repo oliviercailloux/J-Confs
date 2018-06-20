@@ -39,9 +39,9 @@ public class ConferenceWriter {
 	 * @throws URISyntaxException
 	 */
 	
-	public static void writeCalendarFiles(Conference conference) throws ParseException, IOException, ParserException, ValidationException, URISyntaxException{
+	public static void writeCalendarFiles(String calFile, Conference conference) throws ParseException, IOException, ParserException, ValidationException, URISyntaxException{
 		  
-		  String calFile = "mycalendar.ics";
+		  //String calFile = "mycalendar.ics";
 		 
 		  //Creating a new calendar
 		  Calendar calendar = new Calendar();
@@ -51,7 +51,6 @@ public class ConferenceWriter {
 		  
 		  //Creating an event
 		  PropertyList propertyList = new PropertyList();
-	
 		 propertyList.add(new XProperty("X-DTSTART",conference.getStartDate().toString()));
 		 propertyList.add(new XProperty("X-DTEND",conference.getEndDate().toString()));
 		  
@@ -66,7 +65,7 @@ public class ConferenceWriter {
 		  calendar.getComponents().add(meeting);
 		   
 		  //Saving an iCalendar file
-		  try(FileOutputStream fout = new FileOutputStream(calFile)){
+		  try(FileOutputStream fout = new FileOutputStream(calFile+".ics")){
 			  CalendarOutputter outputter = new CalendarOutputter();
 			  outputter.setValidating(false);
 			  outputter.output(calendar, fout);
@@ -75,21 +74,7 @@ public class ConferenceWriter {
 				e.printStackTrace();
 		  }
 		  
-		  //Now Parsing an iCalendar file
-		  FileInputStream fin = new FileInputStream(calFile);
-		  CalendarBuilder builder = new CalendarBuilder();
-		  calendar = builder.build(fin);
-		  
-		  //Iterating over a Calendar
-		  for (Iterator<?> i = calendar.getComponents().iterator(); i.hasNext();) {
-		      Component component = (Component) i.next();
-		      System.out.println("Component [" + component.getName() + "]");
 	
-		      for (Iterator<?> j = component.getProperties().iterator(); j.hasNext();) {
-		          Property property = (Property) j.next();
-		          System.out.println("Property [" + property.getName() + ", " + property.getValue() + "]");
-		      }
-		  }
 	}
 }
 
