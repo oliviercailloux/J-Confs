@@ -40,11 +40,14 @@ import net.fortuna.ical4j.validate.ValidationException;
  *
  */
 public class GuiConference {
-	public static void main(String[] args){
+	
+	public static void main(String[]args){
+		Gui(new Display());
+	}
+	public static void Gui(Display display){
 		final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
 		
 		// setup the SWT window
-		Display display = new Display();
 		Shell shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
 		shell.setText("J-Confs");
 	
