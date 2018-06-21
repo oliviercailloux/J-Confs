@@ -271,15 +271,22 @@ public class MapGUI {
 		}
 	}
 
+	
+	
+	public MapGUI(String mapName, LatLong endPoint) throws NullPointerException, IOException {
+		this(mapName,new Display(),endPoint);
+	}
+	
 	/**
 	 * constructor in which we can choose the endPoint;
 	 * 
 	 * @param mapName
 	 * @param endPoint
-	 * @throws IOException
+	 * @param display
+	 * @throws IOException, NullPointerException
 	 */
-	public MapGUI(String mapName, LatLong endPoint) throws NullPointerException, IOException {
-		this(mapName);
+	public MapGUI(String mapName,Display display, LatLong endPoint) throws NullPointerException, IOException {
+		this(mapName,display);
 		if (Objects.nonNull(endPoint)) {
 			if (this.boundingBox.contains(endPoint)) {
 				this.endPoint.setLatLong(endPoint);
