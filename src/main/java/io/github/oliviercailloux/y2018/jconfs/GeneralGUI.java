@@ -53,9 +53,19 @@ public class GeneralGUI {
 			}
 		});
 
-		Button conferenceBouton = new Button(shell, SWT.PUSH);
-		conferenceBouton.setText("conference");
-		conferenceBouton.setSize(200, 50);
+		// button to open GUIConference
+		Button conferenceButton = new Button(shell, SWT.PUSH);
+		conferenceButton.setText("conference");
+		conferenceButton.setSize(200, 50);
+		conferenceButton.addListener(SWT.Selection, new Listener() {
+
+			@Override
+			public void handleEvent(Event event) {
+				new GuiConference();	
+				GuiConference.Gui(display);
+			}
+			
+		});
 
 		shell.setSize(500, 500);
 
