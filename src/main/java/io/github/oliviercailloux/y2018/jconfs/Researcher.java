@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Researcher {
 
 	private String surname;
-	private String firstname;
+	private String firstName;
 	private String function;
 	private String phone;
 	private String office;
@@ -18,7 +18,7 @@ public class Researcher {
 	private String mail;
 
 	/**
-	 * this is a getter which return a surnname
+	 * this is a getter which return a surname
 	 * 
 	 * @return nom not <code>null</code>.
 	 */
@@ -29,7 +29,7 @@ public class Researcher {
 	/**
 	 * this is a setter which allows to set the name not <code>null</code>.
 	 * 
-	 * @param nom
+	 * @param surname
 	 */
 	public void setSurname(String surname) {
 		this.surname = Objects.requireNonNull(surname);
@@ -39,15 +39,15 @@ public class Researcher {
 	 * @return firstName not <code>null</code>.
 	 */
 	public String getFirstname() {
-		return firstname;
+		return firstName;
 	}
 
 	/**
-	 * @param prenom
+	 * @param fistName
 	 *            not <code>null</code>.
 	 */
 	public void setFirstName(String firstName) {
-		this.firstname = Objects.requireNonNull(firstName);
+		this.firstName = Objects.requireNonNull(firstName);
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class Researcher {
 	}
 
 	/**
-	 * @return groupe not <code>null</code>.
+	 * @return groupe not <code>enull</code>.
 	 */
 	public String getGroup() {
 		return group;
@@ -130,7 +130,7 @@ public class Researcher {
 	 */
 	public Researcher(String surname, String firstName) {
 		this.surname = Objects.requireNonNull(surname);
-		this.firstname = Objects.requireNonNull(firstName);
+		this.firstName = Objects.requireNonNull(firstName);
 		this.function = "";
 		this.phone = "";
 		this.office = "";
@@ -140,7 +140,7 @@ public class Researcher {
 
 	@Override
 	public String toString() {
-		return "nom: " + this.surname + " prenom: " + this.firstname + " fonction: " + this.function + " telephone: "
+		return "nom: " + this.surname + " prenom: " + this.firstName + " fonction: " + this.function + " telephone: "
 				+ this.phone + " bureau: " + this.office + " mail: " + mail + " groupe: " + this.group;
 
 	}
