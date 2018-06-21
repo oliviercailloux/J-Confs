@@ -26,7 +26,7 @@ public class Download {
 		try (InputStream input = connection.getInputStream()) {
 			String fileName = url.getFile().substring(url.getFile().lastIndexOf('/') + 1);
 
-			try (FileOutputStream writeFile = new FileOutputStream("src/test/resources"+fileName);) {
+			try (FileOutputStream writeFile = new FileOutputStream("target/classes/"+fileName);) {
 
 				byte[] buffer = new byte[1024];
 				int read;
@@ -40,5 +40,4 @@ public class Download {
 
 	}
 
-	
 }
