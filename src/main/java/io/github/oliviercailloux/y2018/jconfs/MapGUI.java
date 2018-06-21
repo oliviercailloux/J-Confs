@@ -108,16 +108,15 @@ public class MapGUI {
 	 * @throws IOException
 	 */
 
-	public MapGUI(String mapName) throws NullPointerException, IOException {
+	public MapGUI(String mapName, Display display) throws NullPointerException, IOException {
 		if (!Objects.nonNull(mapName))
 			throw new NullPointerException("mapName is null");
-		Display display = new Display();
+
 		this.shell = new Shell(display);
 
 		shell.setText("map :" + mapName);
 		Composite composite = new Composite(shell, SWT.EMBEDDED);
 		composite.setSize(900, 900);
-	
 
 		final MapView mapView = createMapView();
 		this.boundingBox = addLayers(mapView, mapName);
@@ -140,7 +139,7 @@ public class MapGUI {
 				if (event.doit) {
 					mapView.destroyAll();
 					AwtGraphicFactory.clearResourceMemoryCache();
-					shell.getDisplay().dispose();
+					shell.dispose();
 
 				}
 			}
@@ -178,7 +177,7 @@ public class MapGUI {
 		shell.setText("map: online");
 		Composite composite = new Composite(shell, SWT.EMBEDDED);
 		composite.setSize(900, 900);
-		
+
 		final MapView mapView = createMapView();
 		this.boundingBox = addDownloadLayers(mapView);
 
@@ -229,15 +228,15 @@ public class MapGUI {
 	}
 
 	private BoundingBox addDownloadLayers(MapView mapView) {
-		
+
 		// Raster(read online World map)
 		TileSource tileSource = OpenStreetMapMapnik.INSTANCE;
-		
-		int tileSize =512;
-		
+
+		int tileSize = 512;
+
 		TileCache tileCache = AwtUtil.createTileCache(tileSize, mapView.getModel().frameBufferModel.getOverdrawFactor(),
 				1024, new File(System.getProperty("java.io.tmpdir"), UUID.randomUUID().toString()));
-		
+
 		mapView.getModel().displayModel.setFixedTileSize(tileSize);
 		TileDownloadLayer tileDownloadLayer = createTileDownloadLayer(tileCache, mapView.getModel().mapViewPosition,
 				tileSource);
@@ -294,6 +293,13 @@ public class MapGUI {
 	}
 
 	/**
+	 * a constructor to create mapGUi without display
+	 */
+	public MapGUI(String mapName) throws NullPointerException, IOException {
+		this(mapName, new Display());
+	}
+
+	/**
 	 * this method create an ampty mapView with a MapScaleBar
 	 * 
 	 * @return MapView <code> not null<code>
@@ -319,8 +325,7 @@ public class MapGUI {
 	 * @return<b> BoundingBox</b>,from mapViewModel
 	 * @throws IOException
 	 */
-	private BoundingBox addLayers(MapView mapView, String mapName)
-			throws IOException {
+	private BoundingBox addLayers(MapView mapView, String mapName) throws IOException {
 		if (Objects.isNull(mapView))
 			throw new NullPointerException("mapView is null");
 		if (Objects.isNull(mapName))
@@ -330,7 +335,7 @@ public class MapGUI {
 		// if the file doesn't exist, we will download it
 
 		Layers layers = mapView.getLayerManager().getLayers();
-		int tileSize = 256 ;
+		int tileSize = 256;
 
 		// Tile Cache
 		TileCache tileCache = AwtUtil.createTileCache(tileSize, mapView.getModel().frameBufferModel.getOverdrawFactor(),
@@ -353,15 +358,14 @@ public class MapGUI {
 			mapURL = this.getClass().getClassLoader().getResource(mapName);
 		}
 		// Vector (the mapFile exist in resources)
-				mapView.getModel().displayModel.setFixedTileSize(tileSize);
-				MapFile mapFile = new MapFile(new File(mapURL.getFile()));
-				MapDataStore mapDataStore = mapFile;
-				TileRendererLayer tileRendererLayer = createTileRendererLayer(tileCache, mapDataStore,
-						mapView.getModel().mapViewPosition,null);
+		mapView.getModel().displayModel.setFixedTileSize(tileSize);
+		MapFile mapFile = new MapFile(new File(mapURL.getFile()));
+		MapDataStore mapDataStore = mapFile;
+		TileRendererLayer tileRendererLayer = createTileRendererLayer(tileCache, mapDataStore,
+				mapView.getModel().mapViewPosition, null);
 
-				layers.add(tileRendererLayer);
-				boundingBox = mapDataStore.boundingBox();
-
+		layers.add(tileRendererLayer);
+		boundingBox = mapDataStore.boundingBox();
 
 		return boundingBox;
 
