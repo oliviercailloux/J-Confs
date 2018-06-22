@@ -18,6 +18,10 @@ public class ConferencesShowerTest {
 	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException {
 		ConferencesShower testShower=new ConferencesShower(new ConferencesFromICal());
 		Set<Conference> testConf=testShower.conferencesFiltredByDate();
-		System.out.println(testConf.size());
+		for (Conference conf :testConf) {
+			System.out.println(conf.getTitle());
+			System.out.println(conf.getStartDate());
+		}
 	}
 }
+
