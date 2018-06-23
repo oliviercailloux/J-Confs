@@ -588,7 +588,123 @@ public class GuiConference {
 			}
 		
 		});
-		
+		Button buttonYS = new Button(grp_conf, SWT.PUSH);
+		buttonYS.setText("Generate YS");
+		buttonYS.setBounds(700, 260, 200, 25);
+		buttonYS.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent event)  {
+				URL url = null;
+				try {
+					url = new URL("http://www.conference.com");
+				} catch (MalformedURLException e1) {
+					e1.printStackTrace();
+				}
+				Conference conf = new Conference(url);
+				String surname = txt_Surname.getText();
+				String firstname = txt_Firstname.getText();
+				String email = txt_Mail.getText();
+				String phone  = txt_Phone.getText();
+				Researcher researcher = new Researcher(surname,firstname);
+				researcher.setMail(email);
+				researcher.setPhone(phone);
+				String title = textTitle.getText();
+				Double fee = Double.parseDouble(textFee.getText());
+				String city = textCity.getText();
+				String country = textCountry.getText();
+				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
+				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				
+				String dStart = Integer.toString(dateStart.getDay());
+				String mStart = Integer.toString(dateStart.getMonth()+1);
+				String yStart = Integer.toString(dateStart.getYear());
+				String start = "";
+				String dnew = "";
+				String mnew = "";
+				boolean dayStart = Arrays.asList(array).contains(dStart);
+				boolean monthStart = Arrays.asList(array).contains(mStart);
+				if(dayStart && !monthStart ){
+					dnew = "0"+dStart;
+			        start = dnew + "/" + mStart + "/" + yStart;
+			            	           
+				}
+			    else if (!dayStart && monthStart){
+			    	mnew = "0"+mStart;
+			    	start = dStart + "/" + mnew + "/" + yStart;
+				}
+			    else if (dayStart && monthStart){
+			    	dnew = "0"+dStart;
+			    	mnew = "0"+mStart;
+					start = dnew + "/" + mnew + "/" + yStart;
+			    }
+			        else {
+			        	start = dStart + "/" + mStart + "/" + yStart;
+			   }
+				
+			    
+				String dEnd = Integer.toString(dateEnd.getDay());
+				String mEnd = Integer.toString(dateEnd.getMonth()+1);
+				String yEnd = Integer.toString(dateEnd.getYear());
+				
+				String end = "";
+				String dnew1 = "";
+				String mnew1 = "";
+				boolean dayEnd = Arrays.asList(array).contains(dEnd);
+				boolean monthEnd = Arrays.asList(array).contains(mEnd);
+				if(dayEnd && !monthEnd ){
+					dnew1 = "0"+dEnd;
+			         end = dnew1 + "/" + mEnd + "/" + yEnd;
+			            	           
+					}
+			        else if (!dayEnd && monthEnd){
+			            	mnew1 = "0"+mEnd;
+							end = dEnd + "/" + mnew1 + "/" + yEnd;
+							
+			         }
+			        else if (dayEnd && monthEnd){
+			        	dnew1 = "0"+dEnd;
+		            	mnew1 = "0"+mEnd;
+						end = dnew1 + "/" + mnew1 + "/" + yEnd;
+						
+			        }
+			        else {
+			            	end = dEnd + "/" + mEnd + "/" + yEnd;
+			         }
+				    
+				conf.setCity(city);
+				conf.setCountry(country);
+				try {
+					conf.setStartDate(start);
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				try {
+					conf.setEndDate(end);
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				
+				
+				conf.setFeeRegistration(fee);
+				conf.setTitle(title);
+				if (start.compareTo(end) >= 0 ) {
+					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+					mb.setText("Failed");
+					mb.setMessage("Date Start can't be lower or equel to Date End");
+					mb.open();
+				} 
+				else {
+					try {
+						String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
+					
+						GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
+				
+					}catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			
+			});
 		
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
