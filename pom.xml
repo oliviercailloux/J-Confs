@@ -2,15 +2,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.oliviercailloux.y2018</groupId>
-	<artifactId>J-confs</artifactId>
+	<groupId>io.github.oliviercailloux</groupId>
+	<artifactId>j-confs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>J-confs</name>
-	<description>A tools to organize conferences</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
 
 	<profiles>

@@ -1,0 +1,6 @@
+= J-Confs
+[![Build Status](https://travis-ci.org/J-Conf-Team/J-Confs.svg?branch=master)](https://travis-ci.org/J-Conf-Team/J-Confs)
+
+A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
+
+The code is hereby published under the MIT License, with their permission.
