@@ -4,3 +4,53 @@
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
 
 The code is hereby published under the MIT License, with their permission.
+
+Delivery schedule for 2019 :
+
+Delivery 1 :
+	Tasks :
+		1) Update dependencies if possible (Junit, Guava, as well as dependencies of different environments)
+		2) Update package "y2018 "to "y2019"
+		3) Deleting documents in resources that are not used
+		4) Apply best practices with Guava to the existing system :
+			a) Preconditions
+			b) StringBuilder (for toString)
+			c) getResources
+		5) Perform tests using JUnit for the following classes:
+			a) ConferenceWriter
+			b) Conferencereader or Readfileconference
+			c) Shower Conferences
+			d) ReverseGeoCode
+		6) Delete unused classes
+		7) Create packages to better divide the code according to dependencies between classes:
+			a) Mistletoe
+			b) Conference
+			c) Geo
+		8) Apply a Javadoc with defensive programming
+		9) Redefine some exception lifts that are too generic
+		10) Match an Icalendar file to a researcher (login.ics)
+		11) Gui with conferneces of a load a calendar:
+			a) Create an independnt Gui
+			b) Create a methode that read all conferences of a file
+			c) unit test for this method
+
+Delivery 2 :
+	Tasks :
+		1)Modify ConferenceGui with possibility:
+			a) The user selects his iCalendar
+			b) All the conferences of this iCalendar are displayed on the screen
+			c) Possibility to edit an Icalendar conference
+			d) Ability to display a map with the location of a selected conference
+			
+Delivery 3 :
+	Tasks :
+		1) Do the JC functionality :
+			a) Method for filling the fields of the canvas with use of the POI library
+			b) Saving the file
+		2) In the continuity of delivery 2 we can also make the History feature:
+			a)When editing a conference from the GUI, the icalendar file is sent to a remote github repository
+			
+Delivery 4 :
+	Tasks :
+		1) Continue the History feature
+		2) Do the Peterhead feature
