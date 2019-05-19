@@ -10,11 +10,11 @@ Delivery schedule for 2019 :
 Delivery 1 :
 	Tasks :
 		1) Update dependencies if possible (Junit, Guava, as well as dependencies of different environments)
-		2) Update package "y2018 "to "y2019"
+		2) Remove the package called "y2018"
 		3) Deleting documents in resources that are not used
 		4) Apply best practices with Guava to the existing system :
-			a) Preconditions
-			b) StringBuilder (for toString)
+			a) Preconditions (defensive programming)
+			b) StringHelper (for toString)
 			c) getResources
 		5) Perform tests using JUnit for the following classes:
 			a) ConferenceWriter
@@ -26,13 +26,13 @@ Delivery 1 :
 			a) Mistletoe
 			b) Conference
 			c) Geo
-		8) Apply a Javadoc with defensive programming
-		9) Redefine some exception lifts that are too generic
-		10) Match an Icalendar file to a researcher (login.ics)
-		11) Gui with conferneces of a load a calendar:
+		8) Redefine some exception lifts that are too generic
+		9) Match an Icalendar file to a researcher (login.ics)
+		10) Gui with conferneces of a load a calendar:
 			a) Create an independnt Gui
 			b) Create a methode that read all conferences of a file
 			c) unit test for this method
+		11) Resolve "eval mvn" problem in travis
 
 Delivery 2 :
 	Tasks :
