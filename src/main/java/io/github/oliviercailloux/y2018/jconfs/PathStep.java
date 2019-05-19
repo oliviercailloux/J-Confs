@@ -2,6 +2,9 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Preconditions;
+
 
 /*
  * An object of PathStep represents a path step of a conference with parametres
@@ -37,8 +40,8 @@ public class PathStep {
 	 */
 
 	public PathStep(String startingPoint, String arrivalPoint) {
-		this.startingPoint = Objects.requireNonNull(startingPoint);
-		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
+		this.startingPoint = Preconditions.checkNotNull(startingPoint,"The path must have a start location");
+		this.arrivalPoint = Preconditions.checkNotNull(arrivalPoint,"The path must have an end location");
 	}
 
 	/**
@@ -53,7 +56,7 @@ public class PathStep {
 	 */
 	public PathStep(String startingPoint, String arrivalPoint, TransportType type) {
 		this(startingPoint, arrivalPoint);
-		this.type = Objects.requireNonNull(type);
+		this.type = Preconditions.checkNotNull(type,"The path must have a transport type");
 	}
 
 	/**
@@ -91,7 +94,7 @@ public class PathStep {
 	 *            can't be null
 	 */
 	public void setType(TransportType type) {
-		this.type = Objects.requireNonNull(type);
+		this.type = Preconditions.checkNotNull(type,"The path must have a transport type");
 	}
 
 	/**
@@ -101,7 +104,7 @@ public class PathStep {
 	 *            not <code>null</code>
 	 */
 	public void setStartingPoint(String startingPoint) {
-		this.startingPoint = Objects.requireNonNull(startingPoint);
+		this.startingPoint = Preconditions.checkNotNull(startingPoint,"The path must have a start location");
 	}
 
 	/**
@@ -111,12 +114,16 @@ public class PathStep {
 	 *            not <code>null</code>.
 	 */
 	public void setArrivalPoint(String arrivalPoint) {
-		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
+		this.arrivalPoint = Preconditions.checkNotNull(arrivalPoint,"The path must have an end location");
 	}
 
 	@Override
 	public String toString() {
-		return "StartingPoint: " + startingPoint + " ArrivalPoint: " + arrivalPoint + " type: " + type.toString();
+		return MoreObjects.toStringHelper(this)
+				.add("StartingPoint", startingPoint)
+				.add("ArrivalPoint", arrivalPoint)
+				.add("Type", type)
+				.toString();
 	}
 
 }

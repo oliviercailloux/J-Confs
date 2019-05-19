@@ -61,6 +61,8 @@ import org.mapsforge.map.model.Model;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
 
+import com.google.common.base.Preconditions;
+
 /**
  * this class provides method to made GUI for displaying map inspired from awt
  * sample from org.mapsforge.samples.awt
@@ -109,8 +111,7 @@ public class MapGUI {
 	 */
 
 	public MapGUI(String mapName, Display display) throws NullPointerException, IOException {
-		if (!Objects.nonNull(mapName))
-			throw new NullPointerException("mapName is null");
+		Preconditions.checkNotNull(mapName, "Mapname must not be null");
 
 		this.shell = new Shell(display);
 
@@ -287,16 +288,12 @@ public class MapGUI {
 	 */
 	public MapGUI(String mapName,Display display, LatLong endPoint) throws NullPointerException, IOException {
 		this(mapName,display);
-		if (Objects.nonNull(endPoint)) {
+		Preconditions.checkNotNull(endPoint, "Endpoint must not be null");
 			if (this.boundingBox.contains(endPoint)) {
 				this.endPoint.setLatLong(endPoint);
 			} else {
 				throw new IllegalArgumentException("this location doesn't exist on this map");
 			}
-		} else {
-			throw new NullPointerException("endPoint is null");
-		}
-
 	}
 
 	/**
@@ -333,10 +330,8 @@ public class MapGUI {
 	 * @throws IOException
 	 */
 	private BoundingBox addLayers(MapView mapView, String mapName) throws IOException {
-		if (Objects.isNull(mapView))
-			throw new NullPointerException("mapView is null");
-		if (Objects.isNull(mapName))
-			throw new NullPointerException("mapName is null");
+		Preconditions.checkNotNull(mapView, "Mapview must not be null");
+		Preconditions.checkNotNull(mapName, "Mapname must not be null");
 
 		URL mapURL = this.getClass().getClassLoader().getResource(mapName);
 		// if the file doesn't exist, we will download it
@@ -412,9 +407,10 @@ public class MapGUI {
 	 */
 	private TileDownloadLayer createTileDownloadLayer(TileCache tileCache, MapViewPosition mapViewPosition,
 			TileSource tileSource) {
-
-		return new TileDownloadLayer(Objects.requireNonNull(tileCache), Objects.requireNonNull(mapViewPosition),
-				Objects.requireNonNull(tileSource), Objects.requireNonNull(GRAPHIC_FACTORY));
-
+		
+		return new TileDownloadLayer((Preconditions.checkNotNull(tileCache, "tileCache must not be null")),
+				(Preconditions.checkNotNull(mapViewPosition, "mapViewPosition must not be null")),
+						(Preconditions.checkNotNull(tileSource, "tileSource must not be null")),
+								(Preconditions.checkNotNull(GRAPHIC_FACTORY, "GRAPHIC_FACTORY must not be null")));
 	}
 }

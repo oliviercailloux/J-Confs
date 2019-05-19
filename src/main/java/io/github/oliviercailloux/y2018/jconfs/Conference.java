@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Preconditions;
+
 
 
 /**
@@ -41,7 +44,7 @@ public class Conference {
 	 * @return 
 	 */
 	public void setTitle(String title) {
-		this.title = Objects.requireNonNull(title);
+		this.title = Preconditions.checkNotNull(title,"Your conference must have a title");
 	}
 
 	/**
@@ -93,7 +96,7 @@ public class Conference {
 	 * @param registrationFee
 	 */
 	public void setFeeRegistration(Double registrationFee) {
-		this.registrationFee = Objects.requireNonNull(registrationFee);
+		this.registrationFee = Preconditions.checkNotNull(registrationFee,"Your conference must have a registrationFee");
 	}
 
 	
@@ -110,7 +113,7 @@ public class Conference {
 	 * @param country
 	 */
 	public void setCountry(String country) {
-		this.country = Objects.requireNonNull(country);
+		this.country = Preconditions.checkNotNull(country,"Your conference must have a country location");
 	}
 	
 	/**
@@ -125,7 +128,7 @@ public class Conference {
 	 * @param city
 	 */
 	public void setCity(String city) {
-		this.city = Objects.requireNonNull(city);
+		this.city = Preconditions.checkNotNull(city,"Your conference must have a city location");
 	}
 	
 	/**
@@ -168,8 +171,15 @@ public class Conference {
 
 	@Override
 	public String toString() {
-		return "Conference [url=" + url + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", registrationFee=" + registrationFee + ", country=" + country+ "city = " + city +"]";
+		return MoreObjects.toStringHelper(this)
+				.add("url", url)
+				.add("title", title)
+				.add("startDate", startDate)
+				.add("endDate", endDate)
+				.add("registrationFee", registrationFee)
+				.add("country", country)
+				.add("city", city)
+				.toString();
 	}
 	
 	

@@ -2,6 +2,9 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Preconditions;
+
 /**
  * this class allows to stock a researcher
  *
@@ -32,7 +35,7 @@ public class Researcher {
 	 * @param surname
 	 */
 	public void setSurname(String surname) {
-		this.surname = Objects.requireNonNull(surname);
+		this.surname = Preconditions.checkNotNull(surname,"The Researcher must have a surname");
 	}
 
 	/**
@@ -43,11 +46,11 @@ public class Researcher {
 	}
 
 	/**
-	 * @param fistName
+	 * @param firstName
 	 *            not <code>null</code>.
 	 */
 	public void setFirstName(String firstName) {
-		this.firstName = Objects.requireNonNull(firstName);
+		this.firstName = Preconditions.checkNotNull(firstName,"The Researcher must have a fistName");
 	}
 
 	/**
@@ -62,7 +65,7 @@ public class Researcher {
 	 *            not <code>null</code>.
 	 */
 	public void setPhone(String phone) {
-		this.phone = Objects.requireNonNull(phone);
+		this.phone = Preconditions.checkNotNull(phone,"The Researcher must have a phone");
 	}
 
 	/**
@@ -77,7 +80,7 @@ public class Researcher {
 	 *            not <code>null</code>.
 	 */
 	public void setOffice(String office) {
-		this.office = Objects.requireNonNull(office);
+		this.office = Preconditions.checkNotNull(office,"The Researcher must have an office");
 	}
 
 	/**
@@ -92,7 +95,7 @@ public class Researcher {
 	 *            not <code>null</code>.
 	 */
 	public void setGroup(String group) {
-		this.group = Objects.requireNonNull(group);
+		this.group = Preconditions.checkNotNull(group,"The Researcher must have a group");
 	}
 
 	/**
@@ -107,7 +110,7 @@ public class Researcher {
 	 *            not <code>null</code>.
 	 */
 	public void setMail(String mail) {
-		this.mail = Objects.requireNonNull(mail);
+		this.mail = Preconditions.checkNotNull(mail,"The Researcher must have a mail");
 	}
 
 	/**
@@ -116,7 +119,7 @@ public class Researcher {
 	 *            not<code>null</code>.
 	 */
 	public void setFunction(String function) {
-		this.function = Objects.requireNonNull(function);
+		this.function = Preconditions.checkNotNull(function,"The Researcher must have a function");
 	}
 
 	/**
@@ -129,8 +132,8 @@ public class Researcher {
 	 *            not <code>null</code>.
 	 */
 	public Researcher(String surname, String firstName) {
-		this.surname = Objects.requireNonNull(surname);
-		this.firstName = Objects.requireNonNull(firstName);
+		this.surname = Preconditions.checkNotNull(surname,"The Researcher must have a surname");
+		this.firstName = Preconditions.checkNotNull(firstName,"The Researcher must have a fistName");
 		this.function = "";
 		this.phone = "";
 		this.office = "";
@@ -140,8 +143,14 @@ public class Researcher {
 
 	@Override
 	public String toString() {
-		return "nom: " + this.surname + " prenom: " + this.firstName + " fonction: " + this.function + " telephone: "
-				+ this.phone + " bureau: " + this.office + " mail: " + mail + " groupe: " + this.group;
-
+		return MoreObjects.toStringHelper(this)
+				.add("surname", surname)
+				.add("firstName", firstName)
+				.add("function", function)
+				.add("phone", phone)
+				.add("office", office)
+				.add("mail", mail)
+				.add("group", group)
+				.toString();
 	}
 }
