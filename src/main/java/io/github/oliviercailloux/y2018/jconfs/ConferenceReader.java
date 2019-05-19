@@ -1,22 +1,21 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.text.ParseException;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import javax.xml.bind.ValidationException;
 
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
+import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 
@@ -84,16 +83,10 @@ public class ConferenceReader {
 		// add the others attributes
 		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
 		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
-		
-		
-		
 		//convert DateTime pattern to LocalDate pattern
 
 		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
 		String stringDTEND=confCompo.getProperty("X-DTSTART").getValue();
-
-		
-		
 		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
 		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
 		
@@ -109,4 +102,66 @@ public class ConferenceReader {
 		return conf;
 
 	}
+	
+	/**
+	 * We parse a calendar component to create a conference
+	 * @param confCompo it's a calendar component that contains the data of one conference
+	 * @return a conference
+	 * @throws IOException
+	 * @throws ParserException
+	 * @throws ParseException
+	 * @throws NumberFormatException
+	 */
+	public static Conference createConference(Component confCompo)
+			throws IOException, ParserException, ParseException, NumberFormatException {
+		Conference conf = null;
+		// the url is the primary key of a conference
+		URL confURL = new URL(confCompo.getProperty("URL").getValue());
+		conf = new Conference(confURL);
+
+		// add the others attributes
+		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
+		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
+		
+		//convert DateTime pattern to LocalDate pattern
+		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
+		String stringDTEND=confCompo.getProperty("X-DTSTART").getValue();
+
+		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
+		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
+		
+		LocalDate dtStart=LocalDate.parse(stringDTSTART,formatBefore);
+		LocalDate dtEnd=LocalDate.parse(stringDTEND,formatBefore);
+		
+		conf.setStartDate(dtStart.format(formatAfter));
+		conf.setEndDate(dtEnd.format(formatAfter));
+		
+		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
+		conf.setCity(confCompo.getProperty("X-CITY").getValue());
+	
+		return conf;
+
+	}
+	
+	/**
+	 * We will import a set of conferences contain in a ical
+	 * @param read contain data of the user's calendar
+	 * @return a list of the conferences of the user
+	 * @throws IOException
+	 * @throws ParserException
+	 * @throws NumberFormatException
+	 * @throws ParseException
+	 */
+	public static Set<Conference> createConferences(Reader read) throws IOException, ParserException, NumberFormatException, ParseException {
+		CalendarBuilder builder = new CalendarBuilder();
+		Calendar calendar = builder.build(read);
+		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
+		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
+		for (int i=0;i<conflist.size();i++) {
+			listeconfuser.add(createConference(conflist.get(i)));
+		}
+		return listeconfuser;
+		
+	}
+
 }
