@@ -3,18 +3,17 @@ package io.github.oliviercailloux.y2018.jconfs;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
-
+import com.google.common.io.Resources;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import com.google.common.base.Preconditions;
 
 import net.fortuna.ical4j.data.ParserException;
-import net.fortuna.ical4j.model.DateTime;
 
 public class ConferencesFromICal implements ConferencesRetriever {
 
@@ -70,15 +69,15 @@ public class ConferencesFromICal implements ConferencesRetriever {
 	public Set<Conference> retrive(String fileName)
 			throws NumberFormatException, IOException, ParserException, ParseException {
 		Set<Conference> setOfConf =new  LinkedHashSet<>();
-		File file = new File(ConferencesFromICal.class.getClassLoader().getResource("icaldata/test2.ics").getFile());
+		Preconditions.checkNotNull(fileName);
+		InputStream input = Resources.getResource("io/github/oliviercailloux/y2018/jconfs/Calendar/"+fileName+".ics").openStream();
 
-		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
-			setOfConf.add(ConferenceReader.createConference(reader));
+		try (InputStreamReader reader = new InputStreamReader(input) ) {
+			setOfConf.addAll(ConferenceReader.createConferences(reader));
 		}
 		
 		return setOfConf;
 	}
-
 
 
 }
