@@ -1,39 +1,43 @@
 package io.github.oliviercailloux.y2018;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.text.ParseException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
-import net.fortuna.ical4j.data.ParserException;
+import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
 
 public class TestConferenceReader {
 
-	public static void main(String[] args) throws IOException, ParserException, ParseException {
-
-		File test = new File(TestConferenceReader.class.getClassLoader().getResource("icaldata/test2.ics").getFile());
-
-		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(test))) {
-			Conference conf = ConferenceReader.createConference(reader);
-
-			System.out.println(" On va Lire l'objet conference créé à partir du fichier ics ");
-			System.out.println(conf);
-			System.out.println(conf.toString());
-		}
-
-		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(test))) {
-			System.out.println(" \n \n  On va Lire le fichier ics");
-
-			ConferenceReader.ReadCalendarFile(reader);
-
-			System.out.println("donee");
-
-			System.out.println("ii");
-		}
+	
+	protected ConferenceReader Confr;
+	protected ConferencesFromICal confI;
+	protected Set<Conference> setOfConf;
+	@Before
+	public void setUp() throws Exception {
+		Confr=new ConferenceReader();
+		confI=new ConferencesFromICal();
+		setOfConf=new LinkedHashSet<Conference>();
+		setOfConf.addAll(confI.retrive("test2"));
 	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+	 assertEquals(setOfConf.size(), 3);
+	 assertEquals(((Conference) setOfConf.toArray()[0]).getTitle(),"java");
+	 assertTrue(((Conference) setOfConf.toArray()[1]).getCountry()!="France");
+	}
+	
 
 }
