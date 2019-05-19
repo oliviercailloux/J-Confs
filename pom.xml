@@ -79,9 +79,9 @@
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.13-beta-3</version>
-		    <scope>test</scope>
+			<artifactId>junit</artifactId>
+			<version>4.13-beta-3</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -163,6 +163,13 @@
 			<groupId>org.mapsforge</groupId>
 			<artifactId>mapsforge-samples-awt</artifactId>
 			<version>0.6.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.1-jre</version>
 		</dependency>
 	</dependencies>
 
