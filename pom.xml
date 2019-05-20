@@ -13,40 +13,22 @@
 
 	<profiles>
 		<profile>
-			<id>Mac</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-			<dependencies>
-				<!-- SWT support for Mac -->
-				<dependency>
-					<groupId>org.eclipse.platform</groupId>
-					<artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
-					<version>3.110.0</version>
-					<exclusions>
-						<exclusion>
-							<groupId>org.eclipse.platform</groupId>
-							<artifactId>org.eclipse.swt</artifactId>
-						</exclusion>
-					</exclusions>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>Linux</id>
+			<id>swt-unix</id>
 			<activation>
 				<os>
 					<family>unix</family>
 				</os>
 			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.gtk.linux.x86_64</swt.artifactId>
+				<env>linux</env>
+			</properties>
 			<dependencies>
-				<!-- SWT support for Linux -->
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
-					<version>4.3</version>
+					<artifactId>${swt.artifactId}</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
 					<exclusions>
 						<exclusion>
 							<groupId>org.eclipse.platform</groupId>
@@ -57,18 +39,54 @@
 			</dependencies>
 		</profile>
 		<profile>
-			<id>Windows</id>
+			<id>swt-mac</id>
 			<activation>
 				<os>
-					<family>Windows</family>
+					<family>mac</family>
 				</os>
 			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.cocoa.macosx.x86_64</swt.artifactId>
+				<env>mac</env>
+			</properties>
 			<dependencies>
-				<!-- SWT Support for Windows 32 Bits x86_64 -->
 				<dependency>
-					<groupId>org.eclipse.swt</groupId>
-					<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
-					<version>4.3</version>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>${swt.artifactId}</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>org.eclipse.platform</groupId>
+							<artifactId>org.eclipse.swt</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>swt-windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.win32.win32.x86_64</swt.artifactId>
+				<env>windows</env>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>${swt.artifactId}</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>org.eclipse.platform</groupId>
+							<artifactId>org.eclipse.swt</artifactId>
+						</exclusion>
+					</exclusions>
 				</dependency>
 			</dependencies>
 		</profile>
@@ -170,6 +188,18 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>27.1-jre</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.jface</artifactId>
+			<version>3.15.100</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
