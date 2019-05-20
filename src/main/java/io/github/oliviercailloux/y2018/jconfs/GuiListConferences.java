@@ -76,10 +76,10 @@ public class GuiListConferences {
 	 * @throws ParseException
 	 */
 	public void getconferences() throws NumberFormatException, IOException, ParserException, ParseException {
-		String loginUser="ocailloux";
+		String calendarName="CalendarOcailloux";
 		ConferencesRetriever retriever = new ConferencesFromICal();
 		ConferencesShower conflist=new ConferencesShower(retriever);
-		this.listeconfuser=conflist.searchConferenceInFile(loginUser);
+		this.listeconfuser=conflist.searchConferenceInFile(calendarName);
 		final List list = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 	    for (Conference conf: this.listeconfuser) {
 	      list.add(conf.toString());

@@ -86,7 +86,7 @@ public class ConferenceReader {
 		//convert DateTime pattern to LocalDate pattern
 
 		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
-		String stringDTEND=confCompo.getProperty("X-DTSTART").getValue();
+		String stringDTEND=confCompo.getProperty("X-DTEND").getValue();
 		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
 		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
 		
@@ -115,7 +115,6 @@ public class ConferenceReader {
 	public static Conference createConference(Component confCompo)
 			throws IOException, ParserException, ParseException, NumberFormatException {
 		Conference conf = null;
-		// the url is the primary key of a conference
 		URL confURL = new URL(confCompo.getProperty("URL").getValue());
 		conf = new Conference(confURL);
 
@@ -125,7 +124,7 @@ public class ConferenceReader {
 		
 		//convert DateTime pattern to LocalDate pattern
 		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
-		String stringDTEND=confCompo.getProperty("X-DTSTART").getValue();
+		String stringDTEND=confCompo.getProperty("X-DTEND").getValue();
 
 		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
 		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");

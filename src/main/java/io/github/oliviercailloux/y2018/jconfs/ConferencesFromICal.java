@@ -70,8 +70,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 			throws NumberFormatException, IOException, ParserException, ParseException {
 		Set<Conference> setOfConf =new  LinkedHashSet<>();
 		Preconditions.checkNotNull(fileName);
-		InputStream input = Resources.getResource("io/github/oliviercailloux/y2018/jconfs/Calendar/"+fileName+".ics").openStream();
-
+		InputStream input =(ConferenceReader.class.getResource(fileName+".ics")).openStream();
 		try (InputStreamReader reader = new InputStreamReader(input) ) {
 			setOfConf.addAll(ConferenceReader.createConferences(reader));
 		}

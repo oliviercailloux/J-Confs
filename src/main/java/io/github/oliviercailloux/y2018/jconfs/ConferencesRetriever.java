@@ -39,8 +39,8 @@ public interface ConferencesRetriever {
 			throws NumberFormatException, IOException, ParserException, ParseException;
 
 	/**
-	 * this method search a conference file and return a set of conference with the
-	 * conference in this file
+	 * this method search an .ics file located in classpath 
+	 * and return a set of conferences contain in this file.
 	 * 
 	 * @param title
 	 *            Not <code> null</code>

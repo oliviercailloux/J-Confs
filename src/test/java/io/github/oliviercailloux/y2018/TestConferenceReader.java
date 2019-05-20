@@ -1,18 +1,16 @@
 package io.github.oliviercailloux.y2018;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
 import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
+import net.fortuna.ical4j.data.ParserException;
 
 public class TestConferenceReader {
 
@@ -20,23 +18,17 @@ public class TestConferenceReader {
 	protected ConferenceReader Confr;
 	protected ConferencesFromICal confI;
 	protected Set<Conference> setOfConf;
-	@Before
-	public void setUp() throws Exception {
-		Confr=new ConferenceReader();
-		confI=new ConferencesFromICal();
-		setOfConf=new LinkedHashSet<Conference>();
-		setOfConf.addAll(confI.retrive("test2"));
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@Test
-	public void test() {
-	 assertEquals(setOfConf.size(), 3);
-	 assertEquals(((Conference) setOfConf.toArray()[0]).getTitle(),"java");
-	 assertTrue(((Conference) setOfConf.toArray()[1]).getCountry()!="France");
+	public void test() throws NumberFormatException, IOException, ParserException, ParseException {
+	Confr=new ConferenceReader();
+	confI=new ConferencesFromICal();
+	setOfConf=new LinkedHashSet<Conference>();
+	setOfConf.addAll(confI.retrive("Calendartest2"));
+	Iterator<Conference> iteratorConf=setOfConf.iterator();
+	 assertEquals(setOfConf.size(), 4);
+	 assertEquals((iteratorConf.next().getTitle()),"Java");
+	 assertEquals((iteratorConf.next().getCountry()),"USA");
 	}
 	
 

@@ -39,13 +39,13 @@ public class ConferencesFromICalTest {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		// TEST 1
-		Set<Conference> setConfTest1 = testConfFromIcal.retrive("test2.ics");
+		Set<Conference> setConfTest1 = testConfFromIcal.retrive("Calendartest2");
 
-		assertEquals(1, setConfTest1.size());
-		LOGGER.debug("setConfTest1 size is 1");
+		assertEquals(4, setConfTest1.size());
+		LOGGER.debug("setConfTest1 size is 4");
 
 		Conference confTest1 = setConfTest1.iterator().next();
-		assertEquals("java", confTest1.getTitle());
+		assertEquals("Java", confTest1.getTitle());
 		LOGGER.debug("test 1 done");
 
 
