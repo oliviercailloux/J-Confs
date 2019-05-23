@@ -24,7 +24,6 @@ public class TestResearcherBuilder {
 	 * @throws IllegalAccessException
 	 * @throws ClassCastException
 	 */
-	@Test
 	public final void createTest() throws ClassNotFoundException, InstantiationException, IllegalAccessException, ClassCastException {
 		Researcher oCailloux = ResearcherBuilder.create("ocailloux");
 		LOGGER.debug("create Researcher object");
