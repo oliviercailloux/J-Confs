@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Preconditions;
 
 
 
@@ -44,7 +43,7 @@ public class Conference {
 	 * @return 
 	 */
 	public void setTitle(String title) {
-		this.title = Preconditions.checkNotNull(title,"Your conference must have a title");
+		this.title = Objects.requireNonNull(title,"Your conference must have a title");
 	}
 
 	/**
@@ -96,7 +95,7 @@ public class Conference {
 	 * @param registrationFee
 	 */
 	public void setFeeRegistration(Double registrationFee) {
-		this.registrationFee = Preconditions.checkNotNull(registrationFee,"Your conference must have a registrationFee");
+		this.registrationFee = Objects.requireNonNull(registrationFee,"Your conference must have a registrationFee");
 	}
 
 	
@@ -113,7 +112,7 @@ public class Conference {
 	 * @param country
 	 */
 	public void setCountry(String country) {
-		this.country = Preconditions.checkNotNull(country,"Your conference must have a country location");
+		this.country = Objects.requireNonNull(country,"Your conference must have a country location");
 	}
 	
 	/**
@@ -128,7 +127,7 @@ public class Conference {
 	 * @param city
 	 */
 	public void setCity(String city) {
-		this.city = Preconditions.checkNotNull(city,"Your conference must have a city location");
+		this.city = Objects.requireNonNull(city,"Your conference must have a city location");
 	}
 	
 	/**

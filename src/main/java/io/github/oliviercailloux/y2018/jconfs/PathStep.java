@@ -3,7 +3,6 @@ package io.github.oliviercailloux.y2018.jconfs;
 import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Preconditions;
 
 
 /*
@@ -40,8 +39,8 @@ public class PathStep {
 	 */
 
 	public PathStep(String startingPoint, String arrivalPoint) {
-		this.startingPoint = Preconditions.checkNotNull(startingPoint,"The path must have a start location");
-		this.arrivalPoint = Preconditions.checkNotNull(arrivalPoint,"The path must have an end location");
+		this.startingPoint = Objects.requireNonNull(startingPoint,"The path must have a start location");
+		this.arrivalPoint = Objects.requireNonNull(arrivalPoint,"The path must have an end location");
 	}
 
 	/**
@@ -56,7 +55,7 @@ public class PathStep {
 	 */
 	public PathStep(String startingPoint, String arrivalPoint, TransportType type) {
 		this(startingPoint, arrivalPoint);
-		this.type = Preconditions.checkNotNull(type,"The path must have a transport type");
+		this.type = Objects.requireNonNull(type,"The path must have a transport type");
 	}
 
 	/**
@@ -94,7 +93,7 @@ public class PathStep {
 	 *            can't be null
 	 */
 	public void setType(TransportType type) {
-		this.type = Preconditions.checkNotNull(type,"The path must have a transport type");
+		this.type = Objects.requireNonNull(type,"The path must have a transport type");
 	}
 
 	/**
@@ -104,7 +103,7 @@ public class PathStep {
 	 *            not <code>null</code>
 	 */
 	public void setStartingPoint(String startingPoint) {
-		this.startingPoint = Preconditions.checkNotNull(startingPoint,"The path must have a start location");
+		this.startingPoint = Objects.requireNonNull(startingPoint,"The path must have a start location");
 	}
 
 	/**
@@ -114,7 +113,7 @@ public class PathStep {
 	 *            not <code>null</code>.
 	 */
 	public void setArrivalPoint(String arrivalPoint) {
-		this.arrivalPoint = Preconditions.checkNotNull(arrivalPoint,"The path must have an end location");
+		this.arrivalPoint = Objects.requireNonNull(arrivalPoint,"The path must have an end location");
 	}
 
 	@Override
