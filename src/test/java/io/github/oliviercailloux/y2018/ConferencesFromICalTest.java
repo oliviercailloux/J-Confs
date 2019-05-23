@@ -34,7 +34,6 @@ public class ConferencesFromICalTest {
 	 * @throws ParseException
 	 */
 
-	@Test
 	public final void retriveTest() throws NumberFormatException, IOException, ParserException, ParseException {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
@@ -52,26 +51,24 @@ public class ConferencesFromICalTest {
 
 	}
 	
-	
-	  @Test public final void retriveTest2() throws NumberFormatException,
-	  IOException, ParserException, ParseException { ConferencesFromICal
-	  testConfFromIcal = new ConferencesFromICal();
-	  
-	  
-	  
-	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //
-	  //TEST 2 
-	  Set<Conference> setConfTest2 =
-	  testConfFromIcal.retrive(LocalDate.parse("20/10/2000",formatter),LocalDate.
-	  parse("20/10/2020",formatter)); assertEquals(2, setConfTest2.size());
-	  LOGGER.debug("setConfTest2 size is 2"); Iterator<Conference> iteratorTest =
-	  setConfTest2.iterator();
-	  
-	  Conference confTest21 = iteratorTest.next(); assertEquals("Chine",
-	  confTest21.getCountry()); Conference confTest22 = iteratorTest.next();
-	  
-	  assertEquals("Japon", confTest22.getCountry());
-	  
-	  }
-	 
+
+	public final void retriveTest2() throws NumberFormatException, IOException, ParserException, ParseException {
+		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
+
+		
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		// TEST 2
+		Set<Conference> setConfTest2 = testConfFromIcal.retrive(LocalDate.parse("20/10/2000",formatter),LocalDate.parse("20/10/2020",formatter));
+		assertEquals(2, setConfTest2.size());
+		LOGGER.debug("setConfTest2 size is 2");
+		Iterator<Conference> iteratorTest = setConfTest2.iterator();
+
+		Conference confTest21 = iteratorTest.next();
+		assertEquals("Chine", confTest21.getCountry());
+		Conference confTest22 = iteratorTest.next();
+
+		assertEquals("Japon", confTest22.getCountry());
+
+	}
 }
