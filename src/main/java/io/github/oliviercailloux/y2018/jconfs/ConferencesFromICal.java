@@ -2,10 +2,12 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import com.google.common.io.Resources;
@@ -39,7 +41,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 		for (File file : fileList) {
 			if (file.getName().endsWith(".ics")) {
 
-				
+
 				try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
 					setOfConf.add(ConferenceReader.createConference(reader));
 				}
@@ -70,12 +72,9 @@ public class ConferencesFromICal implements ConferencesRetriever {
 			throws NumberFormatException, IOException, ParserException, ParseException {
 		Set<Conference> setOfConf =new  LinkedHashSet<>();
 		Preconditions.checkNotNull(fileName);
-		InputStream input =(ConferenceReader.class.getResource(fileName+".ics")).openStream();
-		try (InputStreamReader reader = new InputStreamReader(input) ) {
-			setOfConf.addAll(ConferenceReader.createConferences(reader));
-		}
-		
-		return setOfConf;
+		URL resource = ConferenceReader.class.getResource(fileName+".ics");		
+		FileReader reader=new FileReader(new File(resource.getFile()));
+		return ConferenceReader.createConferences(reader);
 	}
 
 
