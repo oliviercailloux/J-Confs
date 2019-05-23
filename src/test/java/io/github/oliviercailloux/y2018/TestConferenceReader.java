@@ -24,7 +24,7 @@ public class TestConferenceReader {
 	Confr=new ConferenceReader();
 	confI=new ConferencesFromICal();
 	setOfConf=new LinkedHashSet<Conference>();
-	setOfConf.addAll(confI.retrive("Calendartest2"));
+	setOfConf.addAll(confI.retrieve("Calendartest2"));
 	Iterator<Conference> iteratorConf=setOfConf.iterator();
 	 assertEquals(setOfConf.size(), 4);
 	 assertEquals((iteratorConf.next().getTitle()),"Java");

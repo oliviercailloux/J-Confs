@@ -2,8 +2,6 @@ package io.github.oliviercailloux.y2018;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.logging.Level;
-
 import org.mapsforge.map.reader.MapFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

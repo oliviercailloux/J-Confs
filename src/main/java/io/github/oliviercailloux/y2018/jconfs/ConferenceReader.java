@@ -9,8 +9,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import javax.xml.bind.ValidationException;
-
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
@@ -23,7 +21,6 @@ import net.fortuna.ical4j.model.component.CalendarComponent;
  * This class allows to read and iCalelndar file and creates a conference object
  * from a parsed iCalendar file
  * 
- *
  */
 public class ConferenceReader {
 
@@ -36,71 +33,15 @@ public class ConferenceReader {
 	 * @throws ParserException
 	 */
 
-	// Reader reader = new InputStreamReader(inputStream); on va mettre ca en place
-	// apres
 	public static void ReadCalendarFile(Reader read) throws IOException, ParserException, NumberFormatException {
 		CalendarBuilder builder = new CalendarBuilder();
-		System.out.println(3);
 		Calendar calendar = builder.build(read);
-		System.out.println(4);
-
-		// Iterating over the calendar component
-
 		for (Component component : calendar.getComponents()) {
 			System.out.println("Component [" + component.getName() + "]");
-			// Iterating over the component property
 			for (Property property : component.getProperties()) {
 				System.out.println("Property [" + property.getName() + ", " + property.getValue() + "]");
 			}
 		}
-	}
-
-	/**
-	 * Creates conference from ics file, function inspired by function
-	 * readCalendarFile
-	 * 
-	 * @param filepath
-	 *            not <code> null</code>
-	 * @return Conference
-	 * @throws IOException
-	 * @throws ParserException
-	 * @throws ParseException
-	 * @throws ValidationException
-	 */
-
-	public static Conference createConference(Reader read)
-			throws IOException, ParserException, ParseException, NumberFormatException {
-		Conference conf = null;
-
-		CalendarBuilder builder = new CalendarBuilder();
-		Calendar calendar = builder.build(read);
-		Component confCompo = calendar.getComponent("X-CONFERENCE");
-
-		// the url is the primary key of a conference
-		URL confURL = new URL(confCompo.getProperty("URL").getValue());
-		conf = new Conference(confURL);
-
-		// add the others attributes
-		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
-		//convert DateTime pattern to LocalDate pattern
-
-		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
-		String stringDTEND=confCompo.getProperty("X-DTEND").getValue();
-		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
-		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
-		
-		LocalDate dtStart=LocalDate.parse(stringDTSTART,formatBefore);
-		LocalDate dtEnd=LocalDate.parse(stringDTEND,formatBefore);
-		
-		conf.setStartDate(dtStart.format(formatAfter));
-		conf.setEndDate(dtEnd.format(formatAfter));
-		
-		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-		conf.setCity(confCompo.getProperty("X-CITY").getValue());
-	
-		return conf;
-
 	}
 	
 	/**
@@ -117,23 +58,13 @@ public class ConferenceReader {
 		Conference conf = null;
 		URL confURL = new URL(confCompo.getProperty("URL").getValue());
 		conf = new Conference(confURL);
-
-		// add the others attributes
 		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
 		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
 		
-		//convert DateTime pattern to LocalDate pattern
-		String stringDTSTART=confCompo.getProperty("X-DTSTART").getValue();
-		String stringDTEND=confCompo.getProperty("X-DTEND").getValue();
-
-		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
-		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
-		
-		LocalDate dtStart=LocalDate.parse(stringDTSTART,formatBefore);
-		LocalDate dtEnd=LocalDate.parse(stringDTEND,formatBefore);
-		
-		conf.setStartDate(dtStart.format(formatAfter));
-		conf.setEndDate(dtEnd.format(formatAfter));
+		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
+		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
+		conf.setStartDate(stringDTSTART);
+		conf.setEndDate(stringDTEND);
 		
 		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
 		conf.setCity(confCompo.getProperty("X-CITY").getValue());
@@ -151,16 +82,28 @@ public class ConferenceReader {
 	 * @throws NumberFormatException
 	 * @throws ParseException
 	 */
-	public static Set<Conference> createConferences(Reader read) throws IOException, ParserException, NumberFormatException, ParseException {
+	public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException, NumberFormatException, ParseException {
 		CalendarBuilder builder = new CalendarBuilder();
-		Calendar calendar = builder.build(read);
+		Calendar calendar = builder.build(reader);
 		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
 		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
 		for (int i=0;i<conflist.size();i++) {
 			listeconfuser.add(createConference(conflist.get(i)));
 		}
 		return listeconfuser;
-		
+
+	}
+	
+	/**this function transform a date to an another pattern of date
+	 * @param date Not <code>null</code>
+	 * 	 it's the date that we want to change its pattern.
+	 * @return dateformated it's the date with the good pattern
+	 */
+	public static String convertDate(String date) {
+		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
+		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
+		String dateformated=LocalDate.parse(date,formatBefore).format(formatAfter);
+		return dateformated;
 	}
 
 }

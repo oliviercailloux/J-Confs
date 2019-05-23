@@ -57,7 +57,6 @@ public class GuiConference {
 		shell.setLayout(gridLayout);
 		shell.setLocation(300, 100);
 		shell.layout(true, true);
-		final Point newSize = shell.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);
 		shell.setSize(new Point(912, 796));
 		
 		// add the group for the researcher into shell

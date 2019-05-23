@@ -2,10 +2,8 @@ package io.github.oliviercailloux.y2018;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import io.github.oliviercailloux.y2018.jconfs.Researcher;
 import io.github.oliviercailloux.y2018.jconfs.ResearcherBuilder;
 

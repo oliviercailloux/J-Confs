@@ -76,7 +76,7 @@ public class GuiListConferences {
 	 * @throws ParseException
 	 */
 	public void getconferences() throws NumberFormatException, IOException, ParserException, ParseException {
-		String calendarName="CalendarOcailloux";
+		String calendarName="threeConferences";
 		ConferencesRetriever retriever = new ConferencesFromICal();
 		ConferencesShower conflist=new ConferencesShower(retriever);
 		this.listeconfuser=conflist.searchConferenceInFile(calendarName);
