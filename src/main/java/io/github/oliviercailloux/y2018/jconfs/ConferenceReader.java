@@ -33,7 +33,7 @@ public class ConferenceReader {
 	 * @throws ParserException
 	 */
 
-	public static void ReadCalendarFile(Reader read) throws IOException, ParserException, NumberFormatException {
+	public static void readCalendarFile(Reader read) throws IOException, ParserException, NumberFormatException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(read);
 		for (Component component : calendar.getComponents()) {
