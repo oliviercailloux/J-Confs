@@ -425,7 +425,7 @@ public class MapGUI {
 
 		return new TileDownloadLayer((Objects.requireNonNull(tileCache, "tileCache must not be null")),
 				(Objects.requireNonNull(mapViewPosition, "mapViewPosition must not be null")),
-						(Objects.requireNonNull(tileSource, "tileSource must not be null")),
-								(Objects.requireNonNull(GRAPHIC_FACTORY, "GRAPHIC_FACTORY must not be null")));
+				(Objects.requireNonNull(tileSource, "tileSource must not be null")),
+				(Objects.requireNonNull(GRAPHIC_FACTORY, "GRAPHIC_FACTORY must not be null")));
 	}
 }

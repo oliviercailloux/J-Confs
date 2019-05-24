@@ -3,7 +3,7 @@ package io.github.oliviercailloux.y2018.jconfs;
 import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
- 
+
 
 /*
  * An object of PathStep represents a path step of a conference with parameters
