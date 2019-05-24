@@ -24,6 +24,7 @@ public class Conference {
 	/**
 	 * This is a getter which return the URL  	
 	 * @return url
+	 * 			not <code>null</code>
 	 */
 	public URL getUrl() {
 		return url;
@@ -32,6 +33,7 @@ public class Conference {
 	/**
 	 * This is a getter which return the title  	
 	 * @return title
+	 * 			not <code>null</code>
 	 */
 	public String getTitle() {
 		return title;
@@ -40,7 +42,7 @@ public class Conference {
 	/**
 	 * This is a setter which set the title 	
 	 * @param title
-	 * @return 
+	 * 			not <code>null</code>
 	 */
 	public void setTitle(String title) {
 		this.title = Objects.requireNonNull(title,"Your conference must have a title");
@@ -49,6 +51,7 @@ public class Conference {
 	/**
 	 * This is a getter which return the date start  	
 	 * @return startDate
+	 * 			not <code>null</code>
 	 */
 	public LocalDate getStartDate() {
 		return startDate;
@@ -136,7 +139,7 @@ public class Conference {
 	 */
 	public Conference(URL url) {
 		this.url =Objects.requireNonNull(url);
-		this.title =new String("");
+		this.title ="";
 		this.startDate = LocalDate.now();
 		this.endDate = LocalDate.now();
 		this.registrationFee = 0.0;
@@ -144,10 +147,8 @@ public class Conference {
 		this.city="";
 	}
 	
+
 	@Override
-	/**
-	 * Compare the conference to object by comparing all attributes 
-	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof Conference) {
 			Conference conference2 = (Conference) obj;
@@ -162,6 +163,8 @@ public class Conference {
 		}
 		return false;
 	}
+	
+	
 	@Override
 	public int hashCode(){
 		return Objects.hash(url,title,registrationFee,startDate,endDate,country,city);
