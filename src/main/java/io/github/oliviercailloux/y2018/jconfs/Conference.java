@@ -20,7 +20,7 @@ public class Conference {
 	private Double registrationFee;
 	private String country;
 	private String city;
-	
+
 	/**
 	 * This is a getter which return the URL  	
 	 * @return url
@@ -40,10 +40,9 @@ public class Conference {
 	/**
 	 * This is a setter which set the title 	
 	 * @param title
-	 * @return 
 	 */
 	public void setTitle(String title) {
-		this.title = Objects.requireNonNull(title,"Your conference must have a title");
+		this.title = Objects.requireNonNull(title);
 	}
 
 	/**
@@ -95,10 +94,10 @@ public class Conference {
 	 * @param registrationFee
 	 */
 	public void setFeeRegistration(Double registrationFee) {
-		this.registrationFee = Objects.requireNonNull(registrationFee,"Your conference must have a registrationFee");
+		this.registrationFee = Objects.requireNonNull(registrationFee);
 	}
 
-	
+
 	/**
 	 * This is a getter which return the country	
 	 * @return country
@@ -112,9 +111,9 @@ public class Conference {
 	 * @param country
 	 */
 	public void setCountry(String country) {
-		this.country = Objects.requireNonNull(country,"Your conference must have a country location");
+		this.country = Objects.requireNonNull(country);
 	}
-	
+
 	/**
 	 * This is a getter which return the city	
 	 * @return city
@@ -127,9 +126,9 @@ public class Conference {
 	 * @param city
 	 */
 	public void setCity(String city) {
-		this.city = Objects.requireNonNull(city,"Your conference must have a city location");
+		this.city = Objects.requireNonNull(city);
 	}
-	
+
 	/**
 	 * This is a constructor which initializes the conference object 
 	 * @param url primary key
@@ -143,7 +142,7 @@ public class Conference {
 		this.country = "";
 		this.city="";
 	}
-	
+
 	@Override
 	/**
 	 * Compare the conference to object by comparing all attributes 
@@ -162,6 +161,7 @@ public class Conference {
 		}
 		return false;
 	}
+	
 	@Override
 	public int hashCode(){
 		return Objects.hash(url,title,registrationFee,startDate,endDate,country,city);
@@ -180,8 +180,8 @@ public class Conference {
 				.add("city", city)
 				.toString();
 	}
-	
-	
-	
+
+
+
 
 }

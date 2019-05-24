@@ -3,15 +3,15 @@ package io.github.oliviercailloux.y2018.jconfs;
 import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
-
+ 
 
 /*
- * An object of PathStep represents a path step of a conference with parametres
+ * An object of PathStep represents a path step of a conference with parameters
  * (type of transport, departure and arrival place) that describe this path
  * 
  */
 public class PathStep {
-	
+
 
 	/**
 	 * Not <code> null</code>, noTransport if unknown
@@ -37,10 +37,9 @@ public class PathStep {
 	 * @param arrivalPoint
 	 *            not <code>null</code>.
 	 */
-
 	public PathStep(String startingPoint, String arrivalPoint) {
-		this.startingPoint = Objects.requireNonNull(startingPoint,"The path must have a start location");
-		this.arrivalPoint = Objects.requireNonNull(arrivalPoint,"The path must have an end location");
+		this.startingPoint = Objects.requireNonNull(startingPoint);
+		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class PathStep {
 	 */
 	public PathStep(String startingPoint, String arrivalPoint, TransportType type) {
 		this(startingPoint, arrivalPoint);
-		this.type = Objects.requireNonNull(type,"The path must have a transport type");
+		this.type = Objects.requireNonNull(type);
 	}
 
 	/**
@@ -79,9 +78,8 @@ public class PathStep {
 	/**
 	 * This is a getter which return the arrivalPoint
 	 * 
-	 * @returnnot <code>null</code>.
+	 * @return not <code>null</code>.
 	 */
-
 	public String getArrivalPoint() {
 		return arrivalPoint;
 	}
@@ -90,10 +88,10 @@ public class PathStep {
 	 * This is a setter to modify the type
 	 * 
 	 * @param type
-	 *            can't be null
+	 *            not <code>null</code>
 	 */
 	public void setType(TransportType type) {
-		this.type = Objects.requireNonNull(type,"The path must have a transport type");
+		this.type = Objects.requireNonNull(type);
 	}
 
 	/**
@@ -103,7 +101,7 @@ public class PathStep {
 	 *            not <code>null</code>
 	 */
 	public void setStartingPoint(String startingPoint) {
-		this.startingPoint = Objects.requireNonNull(startingPoint,"The path must have a start location");
+		this.startingPoint = Objects.requireNonNull(startingPoint);
 	}
 
 	/**
@@ -113,7 +111,7 @@ public class PathStep {
 	 *            not <code>null</code>.
 	 */
 	public void setArrivalPoint(String arrivalPoint) {
-		this.arrivalPoint = Objects.requireNonNull(arrivalPoint,"The path must have an end location");
+		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
 	}
 
 	@Override
