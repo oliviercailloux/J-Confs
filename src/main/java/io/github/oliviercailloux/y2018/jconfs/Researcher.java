@@ -30,7 +30,7 @@ public class Researcher {
 	/**
 	 * this is a setter which allows to set the name 
 	 * @param surname
-	 * 			not <code>null</code>
+	 *            not <code>null</code>
 	 */
 	public void setSurname(String surname) {
 		this.surname = Objects.requireNonNull(surname);
