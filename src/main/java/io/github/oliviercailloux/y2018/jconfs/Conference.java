@@ -149,10 +149,6 @@ public class Conference {
 		this.country = "";
 		this.city="";
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 1ef80a5537975946880240905017de988cb3fe24
 
 	@Override
 	public boolean equals(Object obj) {
@@ -170,10 +166,6 @@ public class Conference {
 		return false;
 	}
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> 1ef80a5537975946880240905017de988cb3fe24
 	@Override
 	public int hashCode(){
 		return Objects.hash(url,title,registrationFee,startDate,endDate,country,city);
