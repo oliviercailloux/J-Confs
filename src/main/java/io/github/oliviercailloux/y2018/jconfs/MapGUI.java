@@ -230,7 +230,7 @@ public class MapGUI {
 	/**
 	 * this method define the size and the zoom on the map
 	 * @param mapView
-	 * @return boundinBox
+	 * @return boundingBox
 	 */
 	private BoundingBox addDownloadLayers(MapView mapView) {
 
@@ -319,9 +319,9 @@ public class MapGUI {
 	}
 
 	/**
-	 * this method create an ampty mapView with a MapScaleBar
+	 * this method create an empty mapView with a MapScaleBar
 	 * 
-	 * @return MapView <code> not null<code>
+	 * @return <code> not null<code>
 	 */
 	private MapView createMapView() {
 		MapView mapViewTmp = new MapView();
@@ -331,7 +331,7 @@ public class MapGUI {
 	}
 
 	/**
-	 * this methode create a mapTile from mapFile data and add it to the mapView if
+	 * this method create a mapTile from mapFile data and add it to the mapView if
 	 * the file doesn't exist,this method ask an URL to the user for download the
 	 * map If Local==false it display an online map
 	 * 
@@ -341,7 +341,7 @@ public class MapGUI {
 	 *            <code> not null<code>
 	 * @param hillsRenderConfig
 	 *            <code> can be null<code>
-	 * @return<b> BoundingBox</b>,from mapViewModel
+	 * @return<b> BoundingBox</b>
 	 * @throws IOException
 	 */
 	private BoundingBox addLayers(MapView mapView, String mapName) throws IOException {
@@ -389,7 +389,7 @@ public class MapGUI {
 	}
 
 	/**
-	 * create a TileRenderLayer from mapFile datas
+	 * create a TileRenderLayer from mapFile data
 	 * 
 	 * @param tileCache
 	 *            <code>not null </code>

@@ -13,19 +13,8 @@ import com.google.common.base.MoreObjects;
 public class PathStep {
 
 
-	/**
-	 * Not <code> null</code>, noTransport if unknown
-	 */
 	private TransportType type = TransportType.NOTRANSPORT;
-
-	/**
-	 * Not <code> null</code>, "" if unknown
-	 */
 	private String startingPoint = "";
-
-	/**
-	 * Not <code> null</code>, "" if unknown
-	 */
 	private String arrivalPoint = "";
 
 	/**

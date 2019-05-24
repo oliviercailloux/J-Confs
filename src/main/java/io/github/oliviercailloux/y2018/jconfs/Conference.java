@@ -23,8 +23,7 @@ public class Conference {
 
 	/**
 	 * This is a getter which return the URL  	
-	 * @return url
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public URL getUrl() {
 		return url;
@@ -32,8 +31,7 @@ public class Conference {
 
 	/**
 	 * This is a getter which return the title  	
-	 * @return title
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getTitle() {
 		return title;
@@ -42,10 +40,7 @@ public class Conference {
 	/**
 	 * This is a setter which set the title 	
 	 * @param title
-<<<<<<< HEAD
 	 * 			not <code>null</code>
-=======
->>>>>>> 1ef80a5537975946880240905017de988cb3fe24
 	 */
 	public void setTitle(String title) {
 		this.title = Objects.requireNonNull(title);
@@ -53,8 +48,7 @@ public class Conference {
 
 	/**
 	 * This is a getter which return the date start  	
-	 * @return startDate
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public LocalDate getStartDate() {
 		return startDate;
@@ -99,6 +93,7 @@ public class Conference {
 	/**
 	 * This is a setter which set the fee of registration
 	 * @param registrationFee
+	 * 			not <code>null</code>
 	 */
 	public void setFeeRegistration(Double registrationFee) {
 		this.registrationFee = Objects.requireNonNull(registrationFee);
@@ -116,6 +111,7 @@ public class Conference {
 	/**
 	 * This is a setter which set the country
 	 * @param country
+	 * 			not <code>null</code>
 	 */
 	public void setCountry(String country) {
 		this.country = Objects.requireNonNull(country);
@@ -131,6 +127,7 @@ public class Conference {
 	/**
 	 * This is a setter which set the city
 	 * @param city
+	 * 			not <code>null</code>
 	 */
 	public void setCity(String city) {
 		this.city = Objects.requireNonNull(city);
@@ -139,6 +136,7 @@ public class Conference {
 	/**
 	 * This is a constructor which initializes the conference object 
 	 * @param url primary key
+	 * 			not <code>null</code>
 	 */
 	public Conference(URL url) {
 		this.url =Objects.requireNonNull(url);
@@ -165,7 +163,7 @@ public class Conference {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode(){
 		return Objects.hash(url,title,registrationFee,startDate,endDate,country,city);
@@ -184,8 +182,5 @@ public class Conference {
 				.add("city", city)
 				.toString();
 	}
-
-
-
 
 }

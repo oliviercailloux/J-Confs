@@ -21,8 +21,7 @@ public class Researcher {
 
 	/**
 	 * this is a getter which return a surname
-	 * @return surname 
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getSurname() {
 		return surname;
@@ -30,16 +29,15 @@ public class Researcher {
 
 	/**
 	 * this is a setter which allows to set the name 
-	 * 			not <code>null</code>
 	 * @param surname
+	 * 			not <code>null</code>
 	 */
 	public void setSurname(String surname) {
 		this.surname = Objects.requireNonNull(surname);
 	}
 
 	/**
-	 * @return firstName 
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getFirstname() {
 		return firstName;
@@ -54,8 +52,7 @@ public class Researcher {
 	}
 
 	/**
-	 * @return phone 
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getPhone() {
 		return phone;
@@ -70,8 +67,7 @@ public class Researcher {
 	}
 
 	/**
-	 * @return office 
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getOffice() {
 		return office;
@@ -86,8 +82,7 @@ public class Researcher {
 	}
 
 	/**
-	 * @return group 
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getGroup() {
 		return group;
@@ -101,10 +96,9 @@ public class Researcher {
 		this.group = Objects.requireNonNull(group);
 	}
 
-	
+
 	/**
-	 * @return mail
-	 * 			not <code>null</code>
+	 * @return not <code>null</code>
 	 */
 	public String getMail() {
 		return mail;
