@@ -18,7 +18,7 @@ public class TestResearcherBuilder {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(TestResearcherBuilder.class);
 
 	/**
-	 * A test for the methode create
+	 * A test for the method create
 	 * @throws ClassNotFoundException
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
@@ -28,7 +28,7 @@ public class TestResearcherBuilder {
 		Researcher oCailloux = ResearcherBuilder.create("ocailloux");
 		LOGGER.debug("create Researcher object");
 
-		assertEquals("CAILLOUX",oCailloux.getSurname());
+		assertEquals("CAILLOUX",oCailloux.getLastname());
 		assertEquals("Olivier",oCailloux.getFirstname());
 		assertEquals("+33 1 44 05 46 53",oCailloux.getPhone());
 		assertEquals("MIDO-LAMSADE",oCailloux.getGroup());

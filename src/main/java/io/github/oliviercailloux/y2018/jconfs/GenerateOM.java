@@ -34,7 +34,7 @@ public class GenerateOM {
 				SpreadsheetDocument spreadsheetDoc = SpreadsheetDocument.loadDocument(inputStream)) {
 			
 			Cell surNameCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("F8");
-			surNameCell.setStringValue(researcher.getSurname());
+			surNameCell.setStringValue(researcher.getLastname());
 			
 			Cell firstNameCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("Y8");
 			firstNameCell.setStringValue(researcher.getFirstname());

@@ -38,7 +38,7 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the title 	
+	 * Sets the title 	
 	 * @param title
 	 * 			not <code>null</code>
 	 */
@@ -55,7 +55,7 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the the date start  	
+	 * Sets the start date  	
 	 * @param startDate
 	 * @throws ParseException 
 	 */
@@ -73,7 +73,7 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the the date end  	
+	 * Sets the the end date   	
 	 * @param end_date
 	 * @throws ParseException 
 	 */
@@ -91,11 +91,10 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the fee of registration
+	 * Sets the fee of registration
 	 * @param registrationFee
-	 * 			not <code>null</code>
 	 */
-	public void setFeeRegistration(Double registrationFee) {
+	public void setFeeRegistration(double registrationFee) {
 		this.registrationFee = Objects.requireNonNull(registrationFee);
 	}
 
@@ -109,7 +108,7 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the country
+	 * Sets the country
 	 * @param country
 	 * 			not <code>null</code>
 	 */

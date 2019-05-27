@@ -11,7 +11,7 @@ import com.google.common.base.MoreObjects;
 
 public class Researcher {
 
-	private String surname;
+	private String lastName;
 	private String firstName;
 	private String function;
 	private String phone;
@@ -20,20 +20,20 @@ public class Researcher {
 	private String mail;
 
 	/**
-	 * this is a getter which return a surname
+	 * this is a getter which return a lastName
 	 * @return not <code>null</code>
 	 */
-	public String getSurname() {
-		return surname;
+	public String getLastname() {
+		return lastName;
 	}
 
 	/**
 	 * this is a setter which allows to set the name 
-	 * @param surname
+	 * @param lastName
 	 *            not <code>null</code>
 	 */
-	public void setSurname(String surname) {
-		this.surname = Objects.requireNonNull(surname);
+	public void setLastname(String lastName) {
+		this.lastName = Objects.requireNonNull(lastName);
 	}
 
 	/**
@@ -125,13 +125,13 @@ public class Researcher {
 	 * 
 	 * This is a constructor which initializes the searcher object
 	 * 
-	 * @param surname
+	 * @param lastName
 	 *            not <code>null</code>
 	 * @param firstName
 	 *            not <code>null</code>
 	 */
-	public Researcher(String surname, String firstName) {
-		this.surname = Objects.requireNonNull(surname);
+	public Researcher(String lastName, String firstName) {
+		this.lastName = Objects.requireNonNull(lastName);
 		this.firstName = Objects.requireNonNull(firstName);
 		this.function = "";
 		this.phone = "";
@@ -143,7 +143,7 @@ public class Researcher {
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
-				.add("surname", surname)
+				.add("lastName", lastName)
 				.add("firstName", firstName)
 				.add("function", function)
 				.add("phone", phone)

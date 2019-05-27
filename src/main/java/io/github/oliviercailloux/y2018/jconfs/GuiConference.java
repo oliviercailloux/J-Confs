@@ -178,7 +178,7 @@ public class GuiConference {
 						      e.doit = true;
 						 }
 					 });
-					txt_Surname.setText(researcher.getSurname());
+					txt_Surname.setText(researcher.getLastname());
 					//block again after the field filled
 					txt_Surname.addVerifyListener(new VerifyListener() {
 						 public void verifyText(VerifyEvent e) {
