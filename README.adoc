@@ -6,13 +6,13 @@ A Java project developed by students during the https://github.com/oliviercaillo
 
 The code is hereby published under the *MIT License*, with their permission. +
 
-This link:https://github.com/13tomoore/J-Confs[project] is producted by 5 students : link:https://github.com/aliliKM[Alison KOUDOUSSOU MESSAN], link:https://github.com/jacquesmoati[Jacques MOATI], link:https://github.com/13tomoore[Tom MOORE], link:https://github.com/nikolaspaci[Nikola SPACI] and link:https://github.com/feLlx[Félix VITAS].
+This project is producted by 5 students : link:https://github.com/aliliKM[Alison KOUDOUSSOU MESSAN], link:https://github.com/jacquesmoati[Jacques MOATI], link:https://github.com/13tomoore[Tom MOORE], link:https://github.com/nikolaspaci[Nikola SPACI] and link:https://github.com/feLlx[Félix VITAS].
 
 === Delivery schedule for 2019
 
 [width="80%",cols="^7,^7,^8,^9,18",options="header"]
 |=========================================================
-|Delivery | Deadline | Minimum working time (recommanded)| SM/PO | TEAMS
+|Delivery | Deadline | Expected effort | SM/PO | TEAMS
 
 |1|20th May, 2019 |10 h | link:https://github.com/feLlx[Félix Vitas] |Team 1 : Alison & Jacques +
 Team 2 : Nikola & Tom 
@@ -31,90 +31,90 @@ Team 2 : Nikola & Félix
 
 	* *Tasks done*
 	
-		1. Draw the outlines of the project we expect at the end of the semester.
+		. Draw the outlines of the project we expect at the end of the semester.
 		
-		2. Creation of a repository for everyone using a __fork__ on GitHub (C), you can find it link:https://github.com/13tomoore/J-Confs[here].
+		. Creation of a repository for everyone using a __fork__ on GitHub (C), you can find it link:https://github.com/13tomoore/J-Confs[here].
 		
-		3. The SM/PO writes in the README.adoc of the project, write there the outline of the four iterations, with more details for the coming iterations.
+		. The SM/PO writes in the README.adoc of the project, write there the outline of the four iterations, with more details for the coming iterations.
 		
-		4. Uptade dependencies in the POM.xml, especially check link:https://github.com/google/guava[Guava]. 
+		. Uptade dependencies in the POM.xml, especially check link:https://github.com/google/guava[Guava]. 
 		
-		5. Clean repository : gitignore, Move the old docomentation (in the former folder "Présentation") in a folder called '*Doc*', delete useless files.
+		. Clean repository : gitignore, Move the old docomentation (in the former folder "Présentation") in a folder called '*Doc*', delete useless files.
 		
-		6. Enumerate the classes, methods and interfaces that have been done in the previous project, established what is working and what is not working (answer why), what could be done (excel sheet on our Google Drive.
+		. Enumerate the classes, methods and interfaces that have been done in the previous project, established what is working and what is not working (answer why), what could be done (excel sheet on our Google Drive.
 		
-		7. Create a new branch called '*dev*' on GitHub repository.
+		. Create a new branch called '*dev*' on GitHub repository.
 		
-		8. Resolve link:https://travis-ci.org/[Travis] Build
+		. Resolve link:https://travis-ci.org/[Travis] Build
 
 
 === Delivery 2 
 	* *Tasks TO DO*
-	    1. The SM/PO rewrite the README.adoc of the project, with much more details about the task for "TASK TO DO" in the curent iteration. +
+	    . The SM/PO rewrite the README.adoc of the project, with much more details about the task for "TASK TO DO" in the curent iteration. +
 	    Write a clean README.adoc with asciidoc format. 
 	    
-	    2. Write an email @ __Jean-Christophe Gay__ asking him clear explanation of how to access to the intranet of the Université Paris-Dauphine +
+	    . Write an email @ __Jean-Christophe Gay__ asking him clear explanation of how to access to the intranet of the Université Paris-Dauphine +
 	    Write a file in asciidoc format rewriting the explaination @ __Olivier Cailloux__
 
-	    3. Update JUnit 5 dependencies on the POM.xml
+	    . Update JUnit 5 dependencies on the POM.xml
 	    
-	    4. Resolve warnings (mostly used libraries)
+	    . Resolve warnings (mostly unused libraries)
 	    
-	    5. Check if the Build Status on link:https://travis-ci.org/[Travis] is still working
+	    . Check if the Build Status on link:https://travis-ci.org/[Travis] is still working
 	    
-	    6. Improve readability of the code, use immutable object where it is intended (proceed by subject)
+	    . Improve readability of the code, use immutable object where it is intended (proceed by subject)
 	    
-	    7. About packages : 
-	        ** Delete the package "y2018" and then check the package structure
-	        ** Create package in order to better divide the code depending on the dependencies between classes : Créer des packages pour mieux diviser le code en fonction des dépendances entre les classes :
-                ***   Gui
-                ***   Conference
-                ***   Geo
-        8. Apply the best practices using Guava on the existing code. +
+	    . About packages : 
+	        .. Delete the package "y2018" and then check the package structure
+	        .. Create package in order to better divide the code depending on the dependencies between classes : Créer des packages pour mieux diviser le code en fonction des dépendances entre les classes :
+                **   Gui
+                **   Conference
+                **   Geo
+        . Apply the best practices using Guava on the existing code. +
             e.g. for __equals__ method using Guava.
-        9. Code JUnit test for these classes :
-        *** ConferenceWriter
-        *** ConferencesShower
-        ***  ReverseGeoCode
+        Code JUnit test for these classes :
+                *** ConferenceWriter
+                *** ConferencesShower
+                *** ReverseGeoCode
         
-        10. Delete unused classes (such as IO, an empty class)
+        . Delete unused classes (such as IO, an empty class)
         
-        11. Apply a Javadoc with defensive programming (preconditions).
+        . Apply a Javadoc with defensive programming (preconditions).
         
-        12. Redefine some raised exception that are too much generic.
+        . Redefine some raised exception that are too much generic.
         
-        13. Make a link between an ICalendar file and a researcher. 
+        . Make a link between an ICalendar file and a researcher. 
         
-        14. About refactoring : 
-        ** New constructors (using non Null)
-        ** See and change automatique changes of bottow on the graphic interface
-        ** Immuable Conference (delete setters)
-        ** GUI Patterns
-        s
-        15. Check if we can execute the app using one single __main__
+        . About refactoring : 
+        .. New constructors (using non Null)
+        .. See and change automatique changes of bottow on the graphic interface
+        .. Immuable Conference (delete setters)
+        .. GUI Patterns
         
-        16. Modify *ConferenceGUI* with the possibilities :
-        ** For the user to choose his ICalendar
-        ** Every conferences of this ICalendar should be displayed on the screen
-        ** Making possible editing a conference instead of Recreating/Deleting this conference
-        **  Making possible to display a map with the location of a conference selected and being able to search about its itinary.
-        ** Writing and checking the __@annotations__
+        . Check if we can execute the app using one single __main__
+        
+        . Modify *ConferenceGUI* with the possibilities :
+        .. For the user to choose his ICalendar
+        .. Every conferences of this ICalendar should be displayed on the screen
+        .. Making possible editing a conference instead of Recreating/Deleting this conference
+        ..  Making possible to display a map with the location of a conference selected and being able to search about its itinary.
+        .. Writing and checking the __@annotations__
         
 
 
 === Delivery 3 
 
 	* *Tasks expected*
-		1. Do the JC functionality :
+		. Do the JC functionality :
 			** Method for filling the fields of the canvas with use of the POI library
 			** Saving the file
-		2. In the continuity of delivery 2 we can also make the History feature
+		. In the continuity of delivery 2 we can also make the History feature
 			** When editing a conference from the GUI, the icalendar file is sent to a remote github repository
-		3. About Conference :  +
+		. About Conference :  +
 		** One calendar per team, being able to access and to this Calendar by someone else in the coresponding conference.
 			
 === Delivery 4 
 
 	* *Tasks*
-		1. Continue the History feature
-		2. Do the Peterhead feature
+		. Continue the History feature
+		. Do the Peterhead feature
