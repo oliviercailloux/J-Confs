@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
+import io.github.oliviercailloux.y2018.jconfs.InvalidConferenceFormatException;
 import net.fortuna.ical4j.data.ParserException;
 
 public class ConferencesFromICalTest {
@@ -25,9 +26,10 @@ public class ConferencesFromICalTest {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
+	 * @throws InvalidConferenceFormatException 
 	 */
 
-	public final void retriveTest() throws NumberFormatException, IOException, ParserException, ParseException {
+	public final void retriveTest() throws NumberFormatException, IOException, ParserException, ParseException, InvalidConferenceFormatException {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		// TEST 1
@@ -45,7 +47,7 @@ public class ConferencesFromICalTest {
 	}
 	
 
-	public final void retriveTest2() throws NumberFormatException, IOException, ParserException, ParseException {
+	public final void retriveTest2() throws NumberFormatException, IOException, ParserException, InvalidConferenceFormatException, ParseException {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		

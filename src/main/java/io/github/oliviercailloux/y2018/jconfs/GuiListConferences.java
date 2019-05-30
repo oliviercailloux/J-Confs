@@ -61,7 +61,7 @@ public class GuiListConferences {
 		}
 	}
 	
-	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException{
+	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException, InvalidConferenceFormatException{
 		GuiListConferences guil=new GuiListConferences();
 		guil.getconferences();
 		guil.display();
@@ -74,8 +74,9 @@ public class GuiListConferences {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
+	 * @throws InvalidConferenceFormatException 
 	 */
-	public void getconferences() throws NumberFormatException, IOException, ParserException, ParseException {
+	public void getconferences() throws IOException, ParserException, InvalidConferenceFormatException {
 		String calendarName="threeConferences";
 		ConferencesRetriever retriever = new ConferencesFromICal();
 		ConferencesShower conflist=new ConferencesShower(retriever);

@@ -2,6 +2,7 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -48,27 +49,42 @@ public class ConferenceReader {
 	 * We parse a calendar component to create a conference
 	 * @param confCompo it's a calendar component that contains the data of one conference
 	 * @return a conference
+	 * @throws InvalidConferenceFormatException 
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
 	 * @throws NumberFormatException
 	 */
-	public static Conference createConference(Component confCompo)
-			throws IOException, ParserException, ParseException, NumberFormatException {
+	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
 		Conference conf = null;
-		URL confURL = new URL(confCompo.getProperty("URL").getValue());
-		conf = new Conference(confURL);
+		URL confURL;
+		
+		try {
+			confURL = new URL(confCompo.getProperty("URL").getValue());
+			conf = new Conference(confURL);
+		} catch (MalformedURLException e1) {
+			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference",e1);
+		}
+		
 		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
 		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
-		
 		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
 		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
-		conf.setStartDate(stringDTSTART);
-		conf.setEndDate(stringDTEND);
+		
+		try {
+			conf.setStartDate(stringDTSTART);
+		} catch (ParseException e) {
+			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
+		}
+		
+		try {
+			conf.setEndDate(stringDTEND);
+		} catch (ParseException e) {
+			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
+		}
 		
 		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-		conf.setCity(confCompo.getProperty("X-CITY").getValue());
-	
+		conf.setCity(confCompo.getProperty("X-CITY").getValue());	
 		return conf;
 
 	}
@@ -81,8 +97,9 @@ public class ConferenceReader {
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 * @throws ParseException
+	 * @throws InvalidConferenceFormatException 
 	 */
-	public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException, NumberFormatException, ParseException {
+	public static Set<Conference> readConferences(Reader reader) throws InvalidConferenceFormatException, IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
 		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
