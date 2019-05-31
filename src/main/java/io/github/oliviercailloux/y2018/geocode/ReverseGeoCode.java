@@ -45,8 +45,13 @@ import io.github.oliviercailloux.y2018.geocode.KDTree;
 */
 public class ReverseGeoCode {
     KDTree<GeoName> kdTree;
+    ArrayList<GeoName> arPlaceNames;
     
-    // Get placenames from http://download.geonames.org/export/dump/
+    public ArrayList<GeoName> getArPlaceNames() {
+		return arPlaceNames;
+	}
+    
+	// Get placenames from http://download.geonames.org/export/dump/
     /**
      * Parse the zipped geonames file.
      * @param zippedPlacednames a {@link ZipInputStream} zip file downloaded from http://download.geonames.org/export/dump/; can not be null.
@@ -80,7 +85,7 @@ public class ReverseGeoCode {
     }
     private void createKdTree(InputStream placenames, boolean majorOnly)
             throws IOException {
-        ArrayList<GeoName> arPlaceNames;
+        //ArrayList<GeoName> arPlaceNames;
         arPlaceNames = new ArrayList<GeoName>();
         // Read the geonames file in the directory
         BufferedReader in = new BufferedReader(new InputStreamReader(placenames));
