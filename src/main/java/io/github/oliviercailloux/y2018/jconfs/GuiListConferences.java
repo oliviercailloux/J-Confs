@@ -70,8 +70,6 @@ public class GuiListConferences {
 	    GridData gridDatalist = new GridData();
 	    gridDatalist.grabExcessHorizontalSpace = true;
 	    gridDatalist.grabExcessVerticalSpace = true;
-	    //gridDatalist.widthHint = 550;
-	    //gridDatalist.heightHint = 150;
 		listConferences.setLayoutData(gridDatalist);
 		
 		Group groupInfoConf = new Group(shell, SWT.NONE);
@@ -79,50 +77,50 @@ public class GuiListConferences {
 		GridLayout gridLayoutDetails=new GridLayout(4, false);
 		groupInfoConf.setLayout (gridLayoutDetails);
 		
-		GridData gridData=new GridData();
-		gridData.horizontalSpan=3;
-		gridData.widthHint = 500;
-		gridData.heightHint = 30;
+		GridData gridDataTextField=new GridData();
+		gridDataTextField.horizontalSpan=3;
+		gridDataTextField.widthHint = 500;
+		gridDataTextField.heightHint = 30;
 		
 		Label labelTitle= new Label(groupInfoConf, SWT.NONE);
 		labelTitle.setText("Title :");
 		Text txtTitle = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtTitle.setLayoutData(gridData);
+		txtTitle.setLayoutData(gridDataTextField);
 		
 		Label labelUrl= new Label(groupInfoConf, SWT.NONE);
 		labelUrl.setText("URL :");
 		Text txtUrl = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtUrl.setLayoutData(gridData);
+		txtUrl.setLayoutData(gridDataTextField);
 		
-		Label labelfee= new Label(groupInfoConf, SWT.NONE);
-		labelfee.setText("Fee :");
+		Label labelFee= new Label(groupInfoConf, SWT.NONE);
+		labelFee.setText("Fee :");
 		Text txtRegisFee = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtRegisFee.setLayoutData(gridData);
+		txtRegisFee.setLayoutData(gridDataTextField);
 		
 		Label labelCountry= new Label(groupInfoConf, SWT.NONE);
 		labelCountry.setText("Country :");
 		Text txtCoutry = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtCoutry.setLayoutData(gridData);
+		txtCoutry.setLayoutData(gridDataTextField);
 		
 		Label labelCity = new Label(groupInfoConf, SWT.NONE);
 		labelCity.setText("City :");
 		Text txtCity=new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtCity.setLayoutData(gridData);
+		txtCity.setLayoutData(gridDataTextField);
 		
 		Label labelDateStart = new Label(groupInfoConf, SWT.NONE);
 		labelDateStart.setText("Date start :");
-		DateTime datestart=new DateTime(groupInfoConf, SWT.DEFAULT);
-		datestart.setLayoutData(gridData);
+		DateTime dateStart=new DateTime(groupInfoConf, SWT.DEFAULT);
+		dateStart.setLayoutData(gridDataTextField);
 
 		Label labelDateEnd = new Label(groupInfoConf, SWT.NONE);
 		labelDateEnd.setText("Date end :");
-		DateTime dateend=new DateTime(groupInfoConf, SWT.DEFAULT);
-		dateend.setLayoutData(gridData);
+		DateTime dateEnd=new DateTime(groupInfoConf, SWT.DEFAULT);
+		dateEnd.setLayoutData(gridDataTextField);
 		
-		Button btnsave=new Button(groupInfoConf, SWT.PUSH);
-		btnsave.setText("Save Conference");
+		Button btnSave=new Button(groupInfoConf, SWT.PUSH);
+		btnSave.setText("Save Conference");
 		GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
-		btnsave.setLayoutData(gridDataBtn);
+		btnSave.setLayoutData(gridDataBtn);
 	
 
 		listConferences.addSelectionListener(new SelectionListener() {
@@ -136,8 +134,8 @@ public class GuiListConferences {
 					txtCoutry.setText(conferenceSelected.getCountry());
 					txtUrl.setText(conferenceSelected.getUrl().toString());
 					txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
-					setDateofConf(datestart,conferenceSelected.getStartDate());
-					setDateofConf(dateend,conferenceSelected.getEndDate());
+					setDateofConf(dateStart,conferenceSelected.getStartDate());
+					setDateofConf(dateEnd,conferenceSelected.getEndDate());
 				}
 			}
 			
@@ -147,12 +145,13 @@ public class GuiListConferences {
 			
 		});
 		
-		btnsave.addSelectionListener(new SelectionListener() {
+		btnSave.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
 				//edit of a conference
-				if(isDateValid(datestart, dateend)&& listConferences.getSelectionIndex()>=0) {
+				if(isDateValid(dateStart, dateEnd)&& listConferences.getSelectionIndex()>=0) {
+					//dev by other team
 					//ConferenceWriter.deleteConference(listConferencesUser.get(listConferences.getSelectionIndex()));
 					//ConferenceWriter.addConference(new conference(.........));
 					listConferences.removeAll();
@@ -161,6 +160,12 @@ public class GuiListConferences {
 					} catch (NumberFormatException | IOException | ParserException|InvalidConferenceFormatException e1) {
 						e1.printStackTrace();
 					}
+				}
+				else {
+					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+					mb.setText("Failed");
+					mb.setMessage("Date Start can't be lower or equal to Date End");
+					mb.open();
 				}
 			}
 			@Override
@@ -217,14 +222,10 @@ public class GuiListConferences {
 	 * @return
 	 */
 	public boolean isDateValid(DateTime datestart,DateTime dateend) {
-		LocalDate lstart=LocalDate.of(datestart.getYear(), datestart.getMonth()+1, datestart.getDay());
-		LocalDate leend=LocalDate.of(dateend.getYear(), dateend.getMonth()+1, dateend.getDay());
-		if (lstart.compareTo(leend)>0||lstart.compareTo(leend)==0) {
-			LOGGER.debug("conference not save : startday > enday");
-			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-			mb.setText("Failed");
-			mb.setMessage("Date Start can't be lower or equal to Date End");
-			mb.open();
+		LocalDate localDateStart=LocalDate.of(datestart.getYear(), datestart.getMonth()+1, datestart.getDay());
+		LocalDate localDateEnd=LocalDate.of(dateend.getYear(), dateend.getMonth()+1, dateend.getDay());
+		if (localDateStart.compareTo(localDateEnd)>=0) {
+			LOGGER.debug("conference not save : start day >= end day");
 			return false;
 		}
 		return true;
