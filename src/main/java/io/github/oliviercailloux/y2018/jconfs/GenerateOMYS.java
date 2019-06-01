@@ -75,7 +75,7 @@ public class GenerateOMYS {
 			// using the UserDetails and the Conference information
 			for (int i = 0; i < span.getLength(); i++) {
 				if (span.item(i).getTextContent().contains("NOM") && !span.item(i).getTextContent().contains("PRENOM")) {
-					span.item(i).setTextContent(user.getSurname());
+					span.item(i).setTextContent(user.getLastname());
 				}
 
 				if (span.item(i).getTextContent().contains("PRENOM")) {

@@ -3,3 +3,4 @@ out.log
 .project
 .settings/
 /target/
+.DS_Store

@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
+
 
 
 /**
@@ -18,10 +20,10 @@ public class Conference {
 	private Double registrationFee;
 	private String country;
 	private String city;
-	
+
 	/**
 	 * This is a getter which return the URL  	
-	 * @return url
+	 * @return not <code>null</code>
 	 */
 	public URL getUrl() {
 		return url;
@@ -29,16 +31,16 @@ public class Conference {
 
 	/**
 	 * This is a getter which return the title  	
-	 * @return title
+	 * @return not <code>null</code>
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * This is a setter which set the title 	
+	 * Sets the title 	
 	 * @param title
-	 * @return 
+	 * 			not <code>null</code>
 	 */
 	public void setTitle(String title) {
 		this.title = Objects.requireNonNull(title);
@@ -46,14 +48,14 @@ public class Conference {
 
 	/**
 	 * This is a getter which return the date start  	
-	 * @return startDate
+	 * @return not <code>null</code>
 	 */
 	public LocalDate getStartDate() {
 		return startDate;
 	}
 
 	/**
-	 * This is a setter which set the the date start  	
+	 * Sets the start date  	
 	 * @param startDate
 	 * @throws ParseException 
 	 */
@@ -71,7 +73,7 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the the date end  	
+	 * Sets the the end date   	
 	 * @param end_date
 	 * @throws ParseException 
 	 */
@@ -89,14 +91,14 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the fee of registration
+	 * Sets the fee of registration
 	 * @param registrationFee
 	 */
-	public void setFeeRegistration(Double registrationFee) {
+	public void setFeeRegistration(double registrationFee) {
 		this.registrationFee = Objects.requireNonNull(registrationFee);
 	}
 
-	
+
 	/**
 	 * This is a getter which return the country	
 	 * @return country
@@ -106,13 +108,14 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the country
+	 * Sets the country
 	 * @param country
+	 * 			not <code>null</code>
 	 */
 	public void setCountry(String country) {
 		this.country = Objects.requireNonNull(country);
 	}
-	
+
 	/**
 	 * This is a getter which return the city	
 	 * @return city
@@ -123,29 +126,28 @@ public class Conference {
 	/**
 	 * This is a setter which set the city
 	 * @param city
+	 * 			not <code>null</code>
 	 */
 	public void setCity(String city) {
 		this.city = Objects.requireNonNull(city);
 	}
-	
+
 	/**
 	 * This is a constructor which initializes the conference object 
 	 * @param url primary key
+	 * 			not <code>null</code>
 	 */
 	public Conference(URL url) {
 		this.url =Objects.requireNonNull(url);
-		this.title =new String("");
+		this.title ="";
 		this.startDate = LocalDate.now();
 		this.endDate = LocalDate.now();
 		this.registrationFee = 0.0;
 		this.country = "";
 		this.city="";
 	}
-	
+
 	@Override
-	/**
-	 * Compare the conference to object by comparing all attributes 
-	 */
 	public boolean equals(Object obj) {
 		if (obj instanceof Conference) {
 			Conference conference2 = (Conference) obj;
@@ -160,6 +162,7 @@ public class Conference {
 		}
 		return false;
 	}
+
 	@Override
 	public int hashCode(){
 		return Objects.hash(url,title,registrationFee,startDate,endDate,country,city);
@@ -168,11 +171,15 @@ public class Conference {
 
 	@Override
 	public String toString() {
-		return "Conference [url=" + url + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", registrationFee=" + registrationFee + ", country=" + country+ "city = " + city +"]";
+		return MoreObjects.toStringHelper(this)
+				.add("url", url)
+				.add("title", title)
+				.add("startDate", startDate)
+				.add("endDate", endDate)
+				.add("registrationFee", registrationFee)
+				.add("country", country)
+				.add("city", city)
+				.toString();
 	}
-	
-	
-	
 
 }

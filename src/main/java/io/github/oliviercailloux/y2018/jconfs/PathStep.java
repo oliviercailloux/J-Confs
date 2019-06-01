@@ -2,28 +2,19 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.util.Objects;
 
+import com.google.common.base.MoreObjects;
+
 
 /*
- * An object of PathStep represents a path step of a conference with parametres
+ * An object of PathStep represents a path step of a conference with parameters
  * (type of transport, departure and arrival place) that describe this path
  * 
  */
 public class PathStep {
-	
 
-	/**
-	 * Not <code> null</code>, noTransport if unknown
-	 */
+
 	private TransportType type = TransportType.NOTRANSPORT;
-
-	/**
-	 * Not <code> null</code>, "" if unknown
-	 */
 	private String startingPoint = "";
-
-	/**
-	 * Not <code> null</code>, "" if unknown
-	 */
 	private String arrivalPoint = "";
 
 	/**
@@ -35,7 +26,6 @@ public class PathStep {
 	 * @param arrivalPoint
 	 *            not <code>null</code>.
 	 */
-
 	public PathStep(String startingPoint, String arrivalPoint) {
 		this.startingPoint = Objects.requireNonNull(startingPoint);
 		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
@@ -77,9 +67,8 @@ public class PathStep {
 	/**
 	 * This is a getter which return the arrivalPoint
 	 * 
-	 * @returnnot <code>null</code>.
+	 * @return not <code>null</code>.
 	 */
-
 	public String getArrivalPoint() {
 		return arrivalPoint;
 	}
@@ -88,7 +77,7 @@ public class PathStep {
 	 * This is a setter to modify the type
 	 * 
 	 * @param type
-	 *            can't be null
+	 *            not <code>null</code>
 	 */
 	public void setType(TransportType type) {
 		this.type = Objects.requireNonNull(type);
@@ -116,7 +105,11 @@ public class PathStep {
 
 	@Override
 	public String toString() {
-		return "StartingPoint: " + startingPoint + " ArrivalPoint: " + arrivalPoint + " type: " + type.toString();
+		return MoreObjects.toStringHelper(this)
+				.add("StartingPoint", startingPoint)
+				.add("ArrivalPoint", arrivalPoint)
+				.add("Type", type)
+				.toString();
 	}
 
 }

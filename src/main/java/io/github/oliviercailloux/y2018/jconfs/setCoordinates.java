@@ -51,7 +51,7 @@ public class setCoordinates {
 				String regex = "Nom";
 				Pattern p = Pattern.compile(regex);
 				Matcher m = p.matcher(lineSource);
-				lineSource = m.replaceFirst(user.getSurname());
+				lineSource = m.replaceFirst(user.getLastname());
 				regex = "Prenom";
 				p = Pattern.compile(regex);
 				m = p.matcher(lineSource);

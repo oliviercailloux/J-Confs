@@ -1,56 +1,120 @@
-= J-Confs
-[![Build Status](https://travis-ci.org/J-Conf-Team/J-Confs.svg?branch=master)](https://travis-ci.org/J-Conf-Team/J-Confs)
+= J-Confs 
+
+image:https://travis-ci.org/13tomoore/J-Confs.svg?branch=master["Build Status", link="https://travis-ci.org/13tomoore/J-Confs"]
 
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
 
-The code is hereby published under the MIT License, with their permission.
+The code is hereby published under the *MIT License*, with their permission. +
 
-Delivery schedule for 2019 :
+This project is producted by 5 students : link:https://github.com/aliliKM[Alison KOUDOUSSOU MESSAN], link:https://github.com/jacquesmoati[Jacques MOATI], link:https://github.com/13tomoore[Tom MOORE], link:https://github.com/nikolaspaci[Nikola SPACI] and link:https://github.com/feLlx[Félix VITAS].
 
-Delivery 1 :
-	Tasks :
-		1) Update dependencies if possible (Junit, Guava, as well as dependencies of different environments)
-		2) Remove the package called "y2018"
-		3) Deleting documents in resources that are not used
-		4) Apply best practices with Guava to the existing system :
-			a) Preconditions (defensive programming)
-			b) StringHelper (for toString)
-			c) getResources
-		5) Perform tests using JUnit for the following classes:
-			a) ConferenceWriter
-			b) Conferencereader or Readfileconference
-			c) Shower Conferences
-			d) ReverseGeoCode
-		6) Delete unused classes
-		7) Create packages to better divide the code according to dependencies between classes:
-			a) Mistletoe
-			b) Conference
-			c) Geo
-		8) Redefine some exception lifts that are too generic
-		9) Match an Icalendar file to a researcher (login.ics)
-		10) Gui with conferneces of a load a calendar:
-			a) Create an independnt Gui
-			b) Create a methode that read all conferences of a file
-			c) unit test for this method
-		11) Resolve "eval mvn" problem in travis
+=== Delivery schedule for 2019
 
-Delivery 2 :
-	Tasks :
-		1)Modify ConferenceGui with possibility:
-			a) The user selects his iCalendar
-			b) All the conferences of this iCalendar are displayed on the screen
-			c) Possibility to edit an Icalendar conference
-			d) Ability to display a map with the location of a selected conference
+[width="80%",cols="^7,^7,^8,^9,18",options="header"]
+|=========================================================
+|Delivery | Deadline | Expected effort | SM/PO | TEAMS
+
+|1|20th May, 2019 |10 h | link:https://github.com/feLlx[Félix Vitas] |Team 1 : Alison & Jacques +
+Team 2 : Nikola & Tom 
+|2| 3rd June, 2019 |15 h | link:https://github.com/jacquesmoati[Jacques MOATI]| Team 1 : Alison & Tom +
+Team 2 : Nikola & Félix
+
+|3|__To define__ | __To define__ | __To define__| __To define__
+
+
+|4|__To define__ | __To define__ | __To define__|__To define__
+
+
+|=========================================================
+
+=== Delivery 1
+
+	* *Tasks done*
+	
+		. Draw the outlines of the project we expect at the end of the semester.
+		
+		. Creation of a repository for everyone using a __fork__ on GitHub (C), you can find it link:https://github.com/13tomoore/J-Confs[here].
+		
+		. The SM/PO writes in the README.adoc of the project, write there the outline of the four iterations, with more details for the coming iterations.
+		
+		. Uptade dependencies in the POM.xml, especially check link:https://github.com/google/guava[Guava]. 
+		
+		. Clean repository : gitignore, Move the old docomentation (in the former folder "Présentation") in a folder called '*Doc*', delete useless files.
+		
+		. Enumerate the classes, methods and interfaces that have been done in the previous project, established what is working and what is not working (answer why), what could be done (excel sheet on our Google Drive.
+		
+		. Create a new branch called '*dev*' on GitHub repository.
+		
+		. Resolve link:https://travis-ci.org/[Travis] Build
+
+
+=== Delivery 2 
+	* *Tasks TO DO*
+	    . The SM/PO rewrite the README.adoc of the project, with much more details about the task for "TASK TO DO" in the curent iteration. +
+	    Write a clean README.adoc with asciidoc format. 
+	    
+	    . Write an email @ __Jean-Christophe Gay__ asking him clear explanation of how to access to the intranet of the Université Paris-Dauphine +
+	    Write a file in asciidoc format rewriting the explaination @ __Olivier Cailloux__
+
+	    . Update JUnit 5 dependencies on the POM.xml
+	    
+	    . Resolve warnings (mostly unused libraries)
+	    
+	    . Check if the Build Status on link:https://travis-ci.org/[Travis] is still working
+	    
+	    . Improve readability of the code, use immutable object where it is intended (proceed by subject)
+	    
+	    . About packages : 
+	        .. Delete the package "y2018" and then check the package structure
+	        .. Create package in order to better divide the code depending on the dependencies between classes : Créer des packages pour mieux diviser le code en fonction des dépendances entre les classes :
+                **   Gui
+                **   Conference
+                **   Geo
+        . Apply the best practices using Guava on the existing code. +
+            e.g. for __equals__ method using Guava.
+        Code JUnit test for these classes :
+                *** ConferenceWriter
+                *** ConferencesShower
+                *** ReverseGeoCode
+        
+        . Delete unused classes (such as IO, an empty class)
+        
+        . Apply a Javadoc with defensive programming (preconditions).
+        
+        . Redefine some raised exception that are too much generic.
+        
+        . Make a link between an ICalendar file and a researcher. 
+        
+        . About refactoring : 
+        .. New constructors (using non Null)
+        .. See and change automatique changes of bottow on the graphic interface
+        .. Immuable Conference (delete setters)
+        .. GUI Patterns
+        
+        . Check if we can execute the app using one single __main__
+        
+        . Modify *ConferenceGUI* with the possibilities :
+        .. For the user to choose his ICalendar
+        .. Every conferences of this ICalendar should be displayed on the screen
+        .. Making possible editing a conference instead of Recreating/Deleting this conference
+        ..  Making possible to display a map with the location of a conference selected and being able to search about its itinary.
+        .. Writing and checking the __@annotations__
+        
+
+
+=== Delivery 3 
+
+	* *Tasks expected*
+		. Do the JC functionality :
+			** Method for filling the fields of the canvas with use of the POI library
+			** Saving the file
+		. In the continuity of delivery 2 we can also make the History feature
+			** When editing a conference from the GUI, the icalendar file is sent to a remote github repository
+		. About Conference :  +
+		** One calendar per team, being able to access and to this Calendar by someone else in the coresponding conference.
 			
-Delivery 3 :
-	Tasks :
-		1) Do the JC functionality :
-			a) Method for filling the fields of the canvas with use of the POI library
-			b) Saving the file
-		2) In the continuity of delivery 2 we can also make the History feature:
-			a)When editing a conference from the GUI, the icalendar file is sent to a remote github repository
-			
-Delivery 4 :
-	Tasks :
-		1) Continue the History feature
-		2) Do the Peterhead feature
+=== Delivery 4 
+
+	* *Tasks*
+		. Continue the History feature
+		. Do the Peterhead feature

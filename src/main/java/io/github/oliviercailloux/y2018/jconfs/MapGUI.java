@@ -39,6 +39,8 @@ import org.mapsforge.map.model.MapViewPosition;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
 
+import com.google.common.base.Preconditions;
+
 /**
  * this class provides method to made GUI for displaying map inspired from awt
  * sample from org.mapsforge.samples.awt
@@ -49,7 +51,7 @@ import org.mapsforge.map.rendertheme.InternalRenderTheme;
 public class MapGUI {
 
 	/**
-	 * défault graphicFactor used by using libraries provide by mapsForge
+	 * default graphicFactor used by using libraries provide by mapsForge
 	 */
 	final private GraphicFactory GRAPHIC_FACTORY = AwtGraphicFactory.INSTANCE;
 
@@ -59,7 +61,7 @@ public class MapGUI {
 	final private Frame mapFrame;
 
 	/**
-	 * the frame wihich contain mapView
+	 * the frame which contain mapView
 	 */
 	final private Shell shell;
 
@@ -78,17 +80,15 @@ public class MapGUI {
 	private BoundingBox boundingBox;
 
 	/**
-	 * mapGUI constructor,it creates every items needed to make the GUI ans display
-	 * it
-	 * 
-	 * @param mapFile
-	 *            <code>not null</code>, must be a .map file
+	 * * mapGUI constructor,it creates every items needed to make the GUI and display
+	 * @param mapName
+	 * 			<code>not null</code>, must be a .map file
+	 * @param display
+	 * @throws NullPointerException
 	 * @throws IOException
 	 */
-
 	public MapGUI(String mapName, Display display) throws NullPointerException, IOException {
-		if (!Objects.nonNull(mapName))
-			throw new NullPointerException("mapName is null");
+		Preconditions.checkNotNull(mapName, "Mapname must not be null");
 
 		this.shell = new Shell(display);
 
@@ -146,7 +146,7 @@ public class MapGUI {
 	}
 
 	/**
-	 * this constructor ctrate a mapGUI by reading online map
+	 * this constructor create a mapGUI by reading online map
 	 */
 	public MapGUI() {
 		Display display = new Display();
@@ -205,6 +205,11 @@ public class MapGUI {
 
 	}
 
+	/**
+	 * this method define the size and the zoom on the map
+	 * @param mapView
+	 * @return boundingBox
+	 */
 	private BoundingBox addDownloadLayers(MapView mapView) {
 
 		// Raster(read online World map)
@@ -249,45 +254,52 @@ public class MapGUI {
 		}
 	}
 
-	
-	
+
+
+	/**
+	 * this constructor create a mapGUI in which we can choose the endPoint and we display it
+	 * @param mapName
+	 * @param endPoint
+	 * @throws NullPointerException
+	 * @throws IOException
+	 */
 	public MapGUI(String mapName, LatLong endPoint) throws NullPointerException, IOException {
 		this(mapName,new Display(),endPoint);
 	}
-	
+
 	/**
 	 * constructor in which we can choose the endPoint;
 	 * 
 	 * @param mapName
 	 * @param endPoint
+	 * 			<code>not null</code>
 	 * @param display
 	 * @throws IOException, NullPointerException
 	 */
 	public MapGUI(String mapName,Display display, LatLong endPoint) throws NullPointerException, IOException {
 		this(mapName,display);
-		if (Objects.nonNull(endPoint)) {
-			if (this.boundingBox.contains(endPoint)) {
-				this.endPoint.setLatLong(endPoint);
-			} else {
-				throw new IllegalArgumentException("this location doesn't exist on this map");
-			}
+		Preconditions.checkNotNull(endPoint, "Endpoint must not be null");
+		if (this.boundingBox.contains(endPoint)) {
+			this.endPoint.setLatLong(endPoint);
 		} else {
-			throw new NullPointerException("endPoint is null");
+			throw new IllegalArgumentException("this location doesn't exist on this map");
 		}
-
 	}
 
 	/**
 	 * a constructor to create mapGUi without display
+	 * @param mapName
+	 * @throws NullPointerException
+	 * @throws IOException
 	 */
 	public MapGUI(String mapName) throws NullPointerException, IOException {
 		this(mapName, new Display());
 	}
 
 	/**
-	 * this method create an ampty mapView with a MapScaleBar
+	 * this method create an empty mapView with a MapScaleBar
 	 * 
-	 * @return MapView <code> not null<code>
+	 * @return <code> not null<code>
 	 */
 	private MapView createMapView() {
 		MapView mapViewTmp = new MapView();
@@ -297,7 +309,7 @@ public class MapGUI {
 	}
 
 	/**
-	 * this methode create a mapTile from mapFile data and add it to the mapView if
+	 * this method create a mapTile from mapFile data and add it to the mapView if
 	 * the file doesn't exist,this method ask an URL to the user for download the
 	 * map If Local==false it display an online map
 	 * 
@@ -307,14 +319,12 @@ public class MapGUI {
 	 *            <code> not null<code>
 	 * @param hillsRenderConfig
 	 *            <code> can be null<code>
-	 * @return<b> BoundingBox</b>,from mapViewModel
+	 * @return<b> BoundingBox</b>
 	 * @throws IOException
 	 */
 	private BoundingBox addLayers(MapView mapView, String mapName) throws IOException {
-		if (Objects.isNull(mapView))
-			throw new NullPointerException("mapView is null");
-		if (Objects.isNull(mapName))
-			throw new NullPointerException("mapName is null");
+		Preconditions.checkNotNull(mapView, "Mapview must not be null");
+		Preconditions.checkNotNull(mapName, "Mapname must not be null");
 
 		URL mapURL = this.getClass().getClassLoader().getResource(mapName);
 		// if the file doesn't exist, we will download it
@@ -357,7 +367,7 @@ public class MapGUI {
 	}
 
 	/**
-	 * create a TileRenderLayer from mapFile datas
+	 * create a TileRenderLayer from mapFile data
 	 * 
 	 * @param tileCache
 	 *            <code>not null </code>
@@ -367,7 +377,7 @@ public class MapGUI {
 	 *            <code>not null </code>
 	 * @param hillsRenderConfig
 	 *            <code>can be null</code>
-	 * @return TileRenderLayer, which represent mapsData
+	 * @return TileRenderLayer
 	 */
 	private TileRendererLayer createTileRendererLayer(TileCache tileCache, MapDataStore mapDataStore,
 			MapViewPosition mapViewPosition, HillsRenderConfig hillsRenderConfig) {
@@ -386,13 +396,14 @@ public class MapGUI {
 	 *            <code>not null </code>
 	 * @param tileSource
 	 *            <code>not null </code>
-	 * @return
+	 * @return TileDownloadLayer
 	 */
 	private TileDownloadLayer createTileDownloadLayer(TileCache tileCache, MapViewPosition mapViewPosition,
 			TileSource tileSource) {
 
-		return new TileDownloadLayer(Objects.requireNonNull(tileCache), Objects.requireNonNull(mapViewPosition),
-				Objects.requireNonNull(tileSource), Objects.requireNonNull(GRAPHIC_FACTORY));
-
+		return new TileDownloadLayer((Objects.requireNonNull(tileCache, "tileCache must not be null")),
+				(Objects.requireNonNull(mapViewPosition, "mapViewPosition must not be null")),
+				(Objects.requireNonNull(tileSource, "tileSource must not be null")),
+				(Objects.requireNonNull(GRAPHIC_FACTORY, "GRAPHIC_FACTORY must not be null")));
 	}
 }
