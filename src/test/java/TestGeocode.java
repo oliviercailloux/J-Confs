@@ -1,10 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-
 import io.github.oliviercailloux.y2018.geocode.ReverseGeoCode;
-import io.github.oliviercailloux.y2018.jconfs.MissionOrder;
 /**
  * 
  * @author huong, camille

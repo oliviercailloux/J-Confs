@@ -1,39 +1,34 @@
 package io.github.oliviercailloux.y2018;
 
-import java.io.File;
-import java.io.FileInputStream;
+import static org.junit.Assert.assertEquals;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.text.ParseException;
-
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.junit.Test;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
+import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
+import io.github.oliviercailloux.y2018.jconfs.InvalidConferenceFormatException;
 import net.fortuna.ical4j.data.ParserException;
 
 public class TestConferenceReader {
 
-	public static void main(String[] args) throws IOException, ParserException, ParseException {
+	
+	protected ConferenceReader Confr;
+	protected ConferencesFromICal confI;
+	protected Set<Conference> setOfConf;
 
-		File test = new File(TestConferenceReader.class.getClassLoader().getResource("icaldata/test2.ics").getFile());
-
-		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(test))) {
-			Conference conf = ConferenceReader.createConference(reader);
-
-			System.out.println(" On va Lire l'objet conference créé à partir du fichier ics ");
-			System.out.println(conf);
-			System.out.println(conf.toString());
-		}
-
-		try (InputStreamReader reader = new InputStreamReader(new FileInputStream(test))) {
-			System.out.println(" \n \n  On va Lire le fichier ics");
-
-			ConferenceReader.ReadCalendarFile(reader);
-
-			System.out.println("donee");
-
-			System.out.println("ii");
-		}
+	@Test
+	public void test() throws IOException, ParserException, InvalidConferenceFormatException {
+	Confr=new ConferenceReader();
+	confI=new ConferencesFromICal();
+	setOfConf=new LinkedHashSet<Conference>();
+	setOfConf.addAll(confI.retrieve("Calendartest2"));
+	Iterator<Conference> iteratorConf=setOfConf.iterator();
+	 assertEquals(setOfConf.size(), 4);
+	 assertEquals((iteratorConf.next().getTitle()),"Java");
+	 assertEquals((iteratorConf.next().getCountry()),"USA");
 	}
-
+	
 }

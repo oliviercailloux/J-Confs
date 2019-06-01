@@ -37,7 +37,7 @@ import java.util.Comparator;
  */
 public abstract class KDNodeComparator<T> { 
     // This should return a comparator for whatever axis is passed in
-    protected abstract Comparator getComparator(int axis);
+    protected abstract Comparator<T> getComparator(int axis);
     
     // Return squared distance between current and other
     protected abstract double squaredDistance(T other);

@@ -1,10 +1,8 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.text.ParseException;
-import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.util.Iterator;

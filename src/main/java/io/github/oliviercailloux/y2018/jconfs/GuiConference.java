@@ -57,7 +57,6 @@ public class GuiConference {
 		shell.setLayout(gridLayout);
 		shell.setLocation(300, 100);
 		shell.layout(true, true);
-		final Point newSize = shell.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);
 		shell.setSize(new Point(912, 796));
 		
 		// add the group for the researcher into shell
@@ -588,6 +587,22 @@ public class GuiConference {
 			}
 		
 		});
+
+// To dev at the second iteration
+//		Button btn_openCalendar= new Button(grp_researcher, SWT.NONE);
+//		btn_openCalendar.setBounds(600, 260, 200, 25);
+//		btn_openCalendar.setText("Open Calendar");
+//		btn_openCalendar.addListener(SWT.Selection, new Listener() {
+//			
+//			@Override
+//			public void handleEvent(Event event) {
+//				Preconditions.checkArgument((txt_login.getText()!=""));
+//				//checkcalendarexist(txt_login.getText()+".ics"); //to do
+//				LOGGER.debug("click open calendar");
+//				//GuiListConferences gulist=new GuiListConferences(txt_login.getText());
+//			}
+//		});
+		
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
 		buttonYS.setBounds(700, 260, 200, 25);

@@ -2,23 +2,17 @@ package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.IOException;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-
 import com.hp.hpl.jena.rdf.model.EmptyListException;
 
 import net.fortuna.ical4j.data.ParserException;
-import net.fortuna.ical4j.model.DateTime;
 
 /**
  * this class show Conferences data
@@ -57,7 +51,7 @@ public class ConferencesShower {
 		try (Scanner sc = new Scanner(System.in)) {
 			System.out.println("please enter a file name");
 			String fileName = sc.nextLine();
-			Set<Conference> set = retriever.retrive(Objects.requireNonNull(fileName));
+			Set<Conference> set = retriever.retrieve(Objects.requireNonNull(fileName));
 
 			while (set.iterator().hasNext()) {
 				conf = set.iterator().next();
@@ -82,10 +76,11 @@ public class ConferencesShower {
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 * @throws IOException
+	 * @throws InvalidConferenceFormatException 
 	 */
 	public Set<Conference> searchConferenceInFile(String fileName)
-			throws NumberFormatException, IOException, ParserException, ParseException {
-		Set<Conference> set = retriever.retrive(Objects.requireNonNull(fileName));
+			throws IOException, ParserException, InvalidConferenceFormatException{
+		Set<Conference> set = retriever.retrieve(Objects.requireNonNull(fileName));
 		return set;
 
 	}
@@ -99,13 +94,14 @@ public class ConferencesShower {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
+	 * @throws InvalidConferenceFormatException 
 	 */
-	public Set<Conference> allConferences() throws NumberFormatException, IOException, ParserException, ParseException {
-		return retriever.retrive();
+	public Set<Conference> allConferences() throws IOException, ParserException, InvalidConferenceFormatException {
+		return retriever.retrieve();
 	}
 
 	public Set<Conference> conferencesFiltredByDate()
-			throws NumberFormatException, IOException, ParserException, ParseException {
+			throws InvalidConferenceFormatException, IOException, ParserException {
 		LocalDate minDate;
 		LocalDate maxDate;
 		try (Scanner sc = new Scanner(System.in)) {
@@ -120,7 +116,7 @@ public class ConferencesShower {
 				throw new IllegalArgumentException("minDate must be before maxDate");
 
 		}
-		return retriever.retrive(minDate, maxDate);
+		return retriever.retrieve(minDate, maxDate);
 
 	}
 }
