@@ -124,6 +124,19 @@ public class GuiListConferences {
 		GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
 		btnSave.setLayoutData(gridDataBtn);
 	
+		VerifyListener verifyListenerLetter=new VerifyListener() {
+			
+			@Override
+			public void verifyText(VerifyEvent e) {
+				if (!e.text.matches("[a-zA-ZÀ-ú -]*")) {
+					e.doit=false;
+				}
+			}
+		};
+		
+		txtCity.addVerifyListener(verifyListenerLetter);
+		txtCoutry.addVerifyListener(verifyListenerLetter);
+		
 		txtRegisFee.addVerifyListener(new VerifyListener() {
 			
 			/**
