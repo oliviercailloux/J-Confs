@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -21,7 +23,7 @@ import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.fortuna.ical4j.data.ParserException;
-
+import com.google.common.primitives.Doubles;
 /**
  * @author nikola
  *Gui where we can show conferences of a user
@@ -122,7 +124,19 @@ public class GuiListConferences {
 		GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
 		btnSave.setLayoutData(gridDataBtn);
 	
-
+		txtRegisFee.addVerifyListener(new VerifyListener() {
+			
+			/**
+			 *check that the fee is a double, if not you can't put the character
+			 */
+			@Override
+			public void verifyText(VerifyEvent e) {
+				if (Doubles.tryParse(txtRegisFee.getText()+e.text)==null) {
+					e.doit=false;
+				}				
+			}
+		});
+		
 		listConferences.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -152,8 +166,8 @@ public class GuiListConferences {
 				//edit of a conference
 				if(isDateValid(dateStart, dateEnd)&& listConferences.getSelectionIndex()>=0) {
 					//dev by other team
-					//ConferenceWriter.deleteConference(listConferencesUser.get(listConferences.getSelectionIndex()));
-					//ConferenceWriter.addConference(new conference(.........));
+					//ConferenceWriter.deleteConference(calendarName,listConferencesUser.get(listConferences.getSelectionIndex()));
+					//ConferenceWriter.addConference(calendarName,new Conference(.........));
 					listConferences.removeAll();
 					try {
 						getConferences();
