@@ -1,7 +1,11 @@
 package io.github.oliviercailloux.y2018;
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+
+import org.junit.Test;
 import org.mapsforge.map.reader.MapFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,15 +13,14 @@ import org.slf4j.LoggerFactory;
 
 public class TestMap {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestMap.class);
-
+	
 	/**
-	 * this main create a MapFile from a file in classPath
-	 * 
-	 * @param args
-	 * @throws FileNotFoundException 
+	 * Method that test if you can create a MapFile from a file in classPath
+	 * @throws FileNotFoundException
 	 */
-	public static void main(String[] args) throws FileNotFoundException {
-
+	@Test
+	public void openMapTest() throws FileNotFoundException{
+		String end;
 		URL fileURL = TestMap.class.getClassLoader().getResource("world.map");
 		if (fileURL == null)
 			throw new FileNotFoundException("file doesn't exist");
@@ -26,11 +29,12 @@ public class TestMap {
 		LOGGER.debug("File", fichier);
 		if(!fichier.isFile())
 			throw new FileNotFoundException("it's not a file");
-			
+
 		MapFile map = new MapFile(fichier);
 		LOGGER.debug("MapFile", map);
-
-		System.out.println("done");
+		end = "done";
 		map.close();
+		assertEquals(end,"done");
+		
 	}
 }
