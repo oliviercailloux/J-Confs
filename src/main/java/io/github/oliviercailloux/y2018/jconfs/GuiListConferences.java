@@ -27,7 +27,7 @@ import com.google.common.primitives.Doubles;
 import com.google.common.base.Strings;
 /**
  * @author nikola
- *Gui where we can show conferences of a user
+ *Gui uses to show a list of conferences of a searcher and with the possibility to edit it
  */
 public class GuiListConferences {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GuiListConferences.class);
@@ -236,7 +236,8 @@ public class GuiListConferences {
 	}
 		
 	/**
-	 * We retrieve and display in a list the conferences stored in the ical file of the identified user.
+	 * We retrieve the conferences stored in the iCalendar file of the searcher
+	 * and display it in a SWT widget list 
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException
@@ -252,7 +253,7 @@ public class GuiListConferences {
 	    }
 	}
 	
-	/** this method implement the date of a conference 
+	/** this method change the date of a conference 
 	 * in the good format in the widget Datetime of the GUI
 	 * @param fieldDate field of the GUI
 	 * @param dateRead date of the conference
