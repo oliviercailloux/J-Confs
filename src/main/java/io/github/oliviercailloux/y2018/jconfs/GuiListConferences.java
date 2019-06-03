@@ -33,12 +33,12 @@ public class GuiListConferences {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GuiListConferences.class);
 	
 	/**
-	 *  Arraylist that stock all of conferences from ConferenceReader
+	 *  Arraylist that stocks all of conferences from ConferenceReader
 	 */
 	private ArrayList<Conference> listConferencesUser;
 	
 	/**
-	 * SWT list uses for print all conferences in the GUI
+	 * SWT Widget list, uses for print all conferences
 	 */
 	private List listConferences;
 	
@@ -46,7 +46,7 @@ public class GuiListConferences {
 	private String calendarName;
 	
 	/**
-	 * fields filed fill in by the researcher
+	 * SWT Widget text, fields filed fill in by the researcher
 	 */
 	private Text txtTitle;
 	private Text txtUrl;
@@ -203,7 +203,6 @@ public class GuiListConferences {
 				
 				//edit of a conference
 				if(isAllFieldsValid() && listConferences.getSelectionIndex()>=0) {
-					//dev by other team
 					//ConferenceWriter.deleteConference(calendarName,listConferencesUser.get(listConferences.getSelectionIndex()));
 					//ConferenceWriter.addConference(calendarName,new Conference(.........));
 					listConferences.removeAll();
@@ -253,7 +252,8 @@ public class GuiListConferences {
 	    }
 	}
 	
-	/** this method implement the date of a conference in the good format in the GUI
+	/** this method implement the date of a conference 
+	 * in the good format in the widget Datetime of the GUI
 	 * @param fieldDate field of the GUI
 	 * @param dateRead date of the conference
 	 */
