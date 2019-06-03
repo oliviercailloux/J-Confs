@@ -31,6 +31,8 @@ import org.eclipse.swt.widgets.Text;
 import org.mapsforge.core.model.LatLong;
 import org.slf4j.LoggerFactory;
 
+import com.hp.hpl.jena.ontology.OntTools.Path;
+
 import io.github.oliviercailloux.y2018.geocode.ReverseGeoCode;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceWriter;
@@ -726,17 +728,25 @@ public class GuiConference {
 		});
 
 		// button to use map GUI
+		PathStep path = new PathStep();
 		Button mapButton = new Button(grp_conf, SWT.PUSH);
 		mapButton.setText("See conference location");
-		mapButton.setBounds(700, 99, 200, 21); 
+		mapButton.setBounds(700, 99, 200, 21);
+		mapButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent event)  {
+				getLatLonCity(textCity.getText(), path);
+			}
+		});
 		try {
 			mapButton.addListener(SWT.Selection, new Listener() {
-				/*The function getLatLonCity(String city) with parameters textCity.getText() is not working
-				Probably not a good use of event.
-				For the moment we have to write like follow*/
-				MapGUI mapGUI = new MapGUI("world.map",display, new LatLong(39.913818, 116.363625));
+				MapGUI mapGUI = new MapGUI("world.map",display,
+						new LatLong(path.getLatitudeArrivalPoint(), path.getLongitudeArrivalPoint()));
 				@Override
 				public void handleEvent(Event event) {
+					//System.out.println(path.getLatitudeArrivalPoint());
+					/* with the previous syso we see that the function getLatLonCity(textCity.getText(), path)
+					 * is working but the constructor do not take it into account.
+					 * Probably not a good use of event.*/
 					mapGUI.display();
 				}
 			});
@@ -770,29 +780,32 @@ public class GuiConference {
 
 	}
 
-	public void getLatLonCity(String city) throws FileNotFoundException, IOException {
+	/**
+	 * This method set informations of the city (which is the arrival point) for the instance
+	 * path
+	 * 
+	 * @param city
+	 *            not <code>null</code>.
+	 * @param path
+	 *            not <code>null</code>.
+	 */
+	public static void getLatLonCity(String city, PathStep path) {
 		/*for the moment we stay with the cities15000.txt file, some files provided on http://download.geonames.org/export/dump/
 		 * are unusable. The file with all the cities is far too large (more than 10 minutes of execution without result. 
 		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
-		 * (For instance If you look for "Pekin", you have to search "Beijing".*/
-		ReverseGeoCode reverseGeoCode = new ReverseGeoCode(new FileInputStream("src/main/resources/io/github/oliviercailloux/y2018/jconfs/cities150000.txt"), true);
-		for (int i=0; i < reverseGeoCode.getArPlaceNames().size(); ++i) {
-			if (reverseGeoCode.getArPlaceNames().get(i).getName().contains(city)) {
-				getLatCity(i, city, reverseGeoCode);
-				getLonCity(i, city, reverseGeoCode);
+		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
+		ReverseGeoCode reverseGeoCode;
+		try {
+			reverseGeoCode = new ReverseGeoCode(new FileInputStream("src/main/resources/io/github/oliviercailloux/y2018/jconfs/cities15000.txt"), true);
+			for (int i=0; i < reverseGeoCode.getArPlaceNames().size(); ++i) {
+				if (reverseGeoCode.getArPlaceNames().get(i).getName().contains(city)) {
+					path.setLatitudeArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getLatitude());
+					path.setLongitudeArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getLongitude());
+					path.setArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getName());
+				}
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
-	/*
-	 * The following method will disapear in the near future. I'll use the class PathStep that already exists
-	 * after modifying it (we need to modify attributes).
-	 */
-	private double getLatCity(int i, String city, ReverseGeoCode reverseGeoCode) {
-		return reverseGeoCode.getArPlaceNames().get(i).getLatitude();
-	}
-	private double getLonCity(int i, String city,  ReverseGeoCode reverseGeoCode) {
-		return reverseGeoCode.getArPlaceNames().get(i).getLatitude();
-	}
-
-
 }

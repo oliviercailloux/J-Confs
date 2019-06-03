@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
 
+import io.github.oliviercailloux.y2018.geocode.ReverseGeoCode;
+
 
 /*
  * An object of PathStep represents a path step of a conference with parameters
@@ -16,6 +18,10 @@ public class PathStep {
 	private TransportType type = TransportType.NOTRANSPORT;
 	private String startingPoint = "";
 	private String arrivalPoint = "";
+	private double latitudeStartingPoint;
+	private double longitudeStartingPoint;
+	private double latitudeArrivalPoint;
+	private double longitudeArrivalPoint;
 
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
@@ -45,6 +51,18 @@ public class PathStep {
 		this(startingPoint, arrivalPoint);
 		this.type = Objects.requireNonNull(type);
 	}
+	
+
+	/**
+	 * this is a constructor use with the MapGui in GuiConference. By default, Paris is the
+	 * starting point
+	 * 
+	 */
+	public PathStep() {
+		this.startingPoint = "Paris";
+		this.latitudeStartingPoint = 48.866667;
+		this.longitudeStartingPoint = 2.333333;
+	}
 
 	/**
 	 * this is a getter which return the type
@@ -71,6 +89,47 @@ public class PathStep {
 	 */
 	public String getArrivalPoint() {
 		return arrivalPoint;
+	}
+
+	
+	/**
+	 * This is a getter which return the latitude of starting point
+	 * 
+	 * @return not <code>null</code>.
+	 * 
+	 */
+	public double getLatitudeStartingPoint() {
+		return latitudeStartingPoint;
+	}
+
+	/**
+	 * This is a getter which return the longitude of starting point
+	 * 
+	 * @return not <code>null</code>.
+	 * 
+	 */
+	public double getLongitudeStartingPoint() {
+		return longitudeStartingPoint;
+	}
+
+	/**
+	 * This is a getter which return the latitude of arrival point
+	 * 
+	 * @return not <code>null</code>.
+	 * 
+	 */
+	public double getLatitudeArrivalPoint() {
+		return latitudeArrivalPoint;
+	}
+
+	/**
+	 * This is a getter which return the longitude of arrival point
+	 * 
+	 * @return not <code>null</code>.
+	 * 
+	 */
+	public double getLongitudeArrivalPoint() {
+		return longitudeArrivalPoint;
 	}
 
 	/**
@@ -103,11 +162,56 @@ public class PathStep {
 		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
 	}
 
+	
+	/**
+	 * a setter to modify the latitude of the Starting Point
+	 * 
+	 * @param latitudeStartingPoint
+	 *            not <code>null</code>.
+	 */
+	public void setLatitudeStartingPoint(double latitudeStartingPoint) {
+		this.latitudeStartingPoint = Objects.requireNonNull(latitudeStartingPoint);
+	}
+
+	/**
+	 * a setter to modify the longitude of the Starting Point
+	 * 
+	 * @param longitudeStartingPoint
+	 *            not <code>null</code>.
+	 */
+	public void setLongitudeStartingPoint(double longitudeStartingPoint) {
+		this.longitudeStartingPoint = Objects.requireNonNull(longitudeStartingPoint);
+	}
+
+	/**
+	 * a setter to modify the latitude of the Arrival Point
+	 * 
+	 * @param latitudArrivalPoint
+	 *            not <code>null</code>.
+	 */
+	public void setLatitudeArrivalPoint(double latitudArrivalPoint) {
+		this.latitudeArrivalPoint = latitudArrivalPoint;
+	}
+
+	/**
+	 * a setter to modify the longitude of the Arrival Point
+	 * 
+	 * @param longitudeArrivalPoint
+	 *            not <code>null</code>.
+	 */
+	public void setLongitudeArrivalPoint(double longitudeArrivalPoint) {
+		this.longitudeArrivalPoint = Objects.requireNonNull(longitudeArrivalPoint);
+	}
+
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
 				.add("StartingPoint", startingPoint)
+				.add("LatitudeStartingPoint", latitudeStartingPoint)
+				.add("LongitudeStartingPoint", longitudeStartingPoint)
 				.add("ArrivalPoint", arrivalPoint)
+				.add("LatitudeArrivalPoint", latitudeArrivalPoint)
+				.add("LongitudeArrivalPoint", longitudeArrivalPoint)
 				.add("Type", type)
 				.toString();
 	}
