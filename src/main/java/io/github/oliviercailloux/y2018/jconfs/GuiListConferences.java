@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.fortuna.ical4j.data.ParserException;
 import com.google.common.primitives.Doubles;
+import com.google.common.base.Strings;
 /**
  * @author nikola
  *Gui where we can show conferences of a user
@@ -34,7 +35,18 @@ public class GuiListConferences {
 	private List listConferences;
 	private Shell shell;
 	private String calendarName;
-
+	
+	/**
+	 * fields filed fill in by the researcher
+	 */
+	private Text txtTitle;
+	private Text txtUrl;
+	private Text txtRegisFee;
+	private Text txtCoutry;
+	private Text txtCity;
+	private DateTime dateStart;
+	private DateTime dateEnd;
+	
 	/**
 	 * Create a GUI where they will have conferences of the user
 	 * @throws ParseException 
@@ -51,7 +63,7 @@ public class GuiListConferences {
 
 	}
 	
-	/** Create a shell with all field of a conference and a list of conferences
+	/** Create a shell with all field of a conference and the list of conferences
 	 * of a file
 	 * @param display
 	 * @return the shell
@@ -86,38 +98,38 @@ public class GuiListConferences {
 		
 		Label labelTitle= new Label(groupInfoConf, SWT.NONE);
 		labelTitle.setText("Title :");
-		Text txtTitle = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtTitle.setLayoutData(gridDataTextField);
+		this.txtTitle = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
+		this.txtTitle.setLayoutData(gridDataTextField);
 		
 		Label labelUrl= new Label(groupInfoConf, SWT.NONE);
 		labelUrl.setText("URL :");
-		Text txtUrl = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtUrl.setLayoutData(gridDataTextField);
+		this.txtUrl = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
+		this.txtUrl.setLayoutData(gridDataTextField);
 		
 		Label labelFee= new Label(groupInfoConf, SWT.NONE);
 		labelFee.setText("Fee :");
-		Text txtRegisFee = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtRegisFee.setLayoutData(gridDataTextField);
+		this.txtRegisFee = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
+		this.txtRegisFee.setLayoutData(gridDataTextField);
 		
 		Label labelCountry= new Label(groupInfoConf, SWT.NONE);
 		labelCountry.setText("Country :");
-		Text txtCoutry = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtCoutry.setLayoutData(gridDataTextField);
+		this.txtCoutry = new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
+		this.txtCoutry.setLayoutData(gridDataTextField);
 		
 		Label labelCity = new Label(groupInfoConf, SWT.NONE);
 		labelCity.setText("City :");
-		Text txtCity=new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
-		txtCity.setLayoutData(gridDataTextField);
+		this.txtCity=new Text(groupInfoConf,SWT.SINGLE | SWT.BORDER);
+		this.txtCity.setLayoutData(gridDataTextField);
 		
 		Label labelDateStart = new Label(groupInfoConf, SWT.NONE);
 		labelDateStart.setText("Date start :");
-		DateTime dateStart=new DateTime(groupInfoConf, SWT.DEFAULT);
-		dateStart.setLayoutData(gridDataTextField);
+		this.dateStart=new DateTime(groupInfoConf, SWT.DEFAULT);
+		this.dateStart.setLayoutData(gridDataTextField);
 
 		Label labelDateEnd = new Label(groupInfoConf, SWT.NONE);
 		labelDateEnd.setText("Date end :");
-		DateTime dateEnd=new DateTime(groupInfoConf, SWT.DEFAULT);
-		dateEnd.setLayoutData(gridDataTextField);
+		this.dateEnd=new DateTime(groupInfoConf, SWT.DEFAULT);
+		this.dateEnd.setLayoutData(gridDataTextField);
 		
 		Button btnSave=new Button(groupInfoConf, SWT.PUSH);
 		btnSave.setText("Save Conference");
@@ -126,6 +138,9 @@ public class GuiListConferences {
 	
 		VerifyListener verifyListenerLetter=new VerifyListener() {
 			
+			/**
+			 *check if the character is a letter or - or a whitespace
+			 */
 			@Override
 			public void verifyText(VerifyEvent e) {
 				if (!e.text.matches("[a-zA-ZÀ-ú -]*")) {
@@ -161,8 +176,8 @@ public class GuiListConferences {
 					txtCoutry.setText(conferenceSelected.getCountry());
 					txtUrl.setText(conferenceSelected.getUrl().toString());
 					txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
-					setDateofConf(dateStart,conferenceSelected.getStartDate());
-					setDateofConf(dateEnd,conferenceSelected.getEndDate());
+					setDateofConferences(dateStart,conferenceSelected.getStartDate());
+					setDateofConferences(dateEnd,conferenceSelected.getEndDate());
 				}
 			}
 			
@@ -177,22 +192,19 @@ public class GuiListConferences {
 			public void widgetSelected(SelectionEvent e) {
 				
 				//edit of a conference
-				if(isDateValid(dateStart, dateEnd)&& listConferences.getSelectionIndex()>=0) {
+				if(isAllFieldsValid() && listConferences.getSelectionIndex()>=0) {
 					//dev by other team
 					//ConferenceWriter.deleteConference(calendarName,listConferencesUser.get(listConferences.getSelectionIndex()));
 					//ConferenceWriter.addConference(calendarName,new Conference(.........));
 					listConferences.removeAll();
 					try {
 						getConferences();
-					} catch (NumberFormatException | IOException | ParserException|InvalidConferenceFormatException e1) {
+					} catch (IOException | ParserException|InvalidConferenceFormatException e1) {
 						e1.printStackTrace();
 					}
 				}
 				else {
-					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-					mb.setText("Failed");
-					mb.setMessage("Date Start can't be lower or equal to Date End");
-					mb.open();
+
 				}
 			}
 			@Override
@@ -238,24 +250,54 @@ public class GuiListConferences {
 	 * @param fieldDate field of the GUI
 	 * @param dateread date of the conference
 	 */
-	public void setDateofConf(DateTime fieldDate,LocalDate dateread) {
+	public void setDateofConferences(DateTime fieldDate,LocalDate dateread) {
 		fieldDate.setDate(dateread.getYear(), dateread.getMonthValue()-1, dateread.getDayOfMonth());
 	}
 	
 	/**This method check the validity of date choose by the searcher :
 	 * Date of start < of Date of End 
-	 * @param datestart field that contains the start date of the conference
-	 * @param dateend field that contains the end date of the conference
 	 * @return
 	 */
-	public boolean isDateValid(DateTime datestart,DateTime dateend) {
-		LocalDate localDateStart=LocalDate.of(datestart.getYear(), datestart.getMonth()+1, datestart.getDay());
-		LocalDate localDateEnd=LocalDate.of(dateend.getYear(), dateend.getMonth()+1, dateend.getDay());
+	public boolean isDateValid() {
+		LocalDate localDateStart=LocalDate.of(dateStart.getYear(), dateStart.getMonth()+1, dateStart.getDay());
+		LocalDate localDateEnd=LocalDate.of(dateEnd.getYear(), dateEnd.getMonth()+1, dateEnd.getDay());
 		if (localDateStart.compareTo(localDateEnd)>=0) {
-			LOGGER.debug("conference not save : start day >= end day");
+			LOGGER.debug("Conference not save : start day >= end day");
+			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+			mb.setText("Failed");
+			mb.setMessage("Date Start can't be lower or equal to Date End");
+			mb.open();
 			return false;
 		}
 		return true;
+	}
+	
+	/** Check that all text fields are fill in
+	 * @return a boolean that say if all fields are fill
+	 */
+	public boolean isFillIn() {
+		
+		if((Strings.isNullOrEmpty(txtCity.getText())
+				||Strings.isNullOrEmpty(txtUrl.getText())
+				||Strings.isNullOrEmpty(txtCoutry.getText())
+				||Strings.isNullOrEmpty(txtTitle.getText())
+				||Strings.isNullOrEmpty(txtRegisFee.getText()))){
+			
+			LOGGER.debug("conference not save : not all fields filled");
+			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+			mb.setText("Failed");
+			mb.setMessage("Conference not save : not all fields filled");
+			mb.open();
+			return false;
+		}
+		return true;
+	}
+	
+	/** launch all method that check if all fields are filled in correctly
+	 * @return a boolean that say if all is correct or not
+	 */
+	public boolean isAllFieldsValid() {
+		return isDateValid()&&isFillIn();
 	}
 	
 	public static void main(String[]args) throws IOException, ParserException, InvalidConferenceFormatException{
