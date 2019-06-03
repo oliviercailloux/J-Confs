@@ -4,8 +4,6 @@ import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
 
-import io.github.oliviercailloux.y2018.geocode.ReverseGeoCode;
-
 
 /*
  * An object of PathStep represents a path step of a conference with parameters

@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -12,6 +11,7 @@ import java.util.Arrays;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.graphics.Color;
@@ -21,17 +21,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.mapsforge.core.model.LatLong;
 import org.slf4j.LoggerFactory;
-
-import com.hp.hpl.jena.ontology.OntTools.Path;
 
 import io.github.oliviercailloux.y2018.geocode.ReverseGeoCode;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
@@ -732,28 +728,27 @@ public class GuiConference {
 		Button mapButton = new Button(grp_conf, SWT.PUSH);
 		mapButton.setText("See conference location");
 		mapButton.setBounds(700, 99, 200, 21);
-		mapButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent event)  {
+		mapButton.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
 				getLatLonCity(textCity.getText(), path);
+
+				MapGUI mapGUI;
+				try {
+					mapGUI = new MapGUI("world.map", display,
+							new LatLong(path.getLatitudeArrivalPoint(), path.getLongitudeArrivalPoint()));
+					mapGUI.display();				
+
+				} catch (NullPointerException | IllegalArgumentException | IOException e1) {
+					e1.printStackTrace();
+				}				
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {				
 			}
 		});
-		try {
-			mapButton.addListener(SWT.Selection, new Listener() {
-				MapGUI mapGUI = new MapGUI("world.map",display,
-						new LatLong(path.getLatitudeArrivalPoint(), path.getLongitudeArrivalPoint()));
-				@Override
-				public void handleEvent(Event event) {
-					//System.out.println(path.getLatitudeArrivalPoint());
-					/* with the previous syso we see that the function getLatLonCity(textCity.getText(), path)
-					 * is working but the constructor do not take it into account.
-					 * Probably not a good use of event.*/
-					mapGUI.display();
-				}
-			});
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
