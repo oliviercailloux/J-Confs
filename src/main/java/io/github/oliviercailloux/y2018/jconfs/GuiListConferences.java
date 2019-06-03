@@ -31,8 +31,17 @@ import com.google.common.base.Strings;
  */
 public class GuiListConferences {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GuiListConferences.class);
+	
+	/**
+	 *  Arraylist that stock all of conferences from ConferenceReader
+	 */
 	private ArrayList<Conference> listConferencesUser;
+	
+	/**
+	 * SWT list uses for print all conferences in the GUI
+	 */
 	private List listConferences;
+	
 	private Shell shell;
 	private String calendarName;
 	
@@ -64,7 +73,7 @@ public class GuiListConferences {
 	}
 	
 	/** Create a shell with all field of a conference and the list of conferences
-	 * of a file
+	 * of a specific calendar file
 	 * @param display
 	 * @return the shell
 	 * @throws NumberFormatException
@@ -139,7 +148,8 @@ public class GuiListConferences {
 		VerifyListener verifyListenerLetter=new VerifyListener() {
 			
 			/**
-			 *check if the character is a letter or - or a whitespace
+			 *check if the character is a letter or "-" or a whitespace, 
+			 *if not you can't put the character
 			 */
 			@Override
 			public void verifyText(VerifyEvent e) {
@@ -203,9 +213,6 @@ public class GuiListConferences {
 						e1.printStackTrace();
 					}
 				}
-				else {
-
-				}
 			}
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {				
@@ -254,8 +261,8 @@ public class GuiListConferences {
 		fieldDate.setDate(dateRead.getYear(), dateRead.getMonthValue()-1, dateRead.getDayOfMonth());
 	}
 	
-	/**This method check the validity of date choose by the searcher :
-	 * Date of start < of Date of End 
+	/**This method check the validity of a date choose by the searcher :
+	 * Date of start must be < of Date of End 
 	 * @return
 	 */
 	public boolean isDateValid() {
@@ -272,18 +279,17 @@ public class GuiListConferences {
 		return true;
 	}
 	
-	/** Check that all text fields are fill in
-	 * @return a boolean that say if all fields are fill
+	/** Check that all text fields are filled
+	 * @return a boolean that say if all fields are filled
 	 */
 	public boolean isFillIn() {
-		
 		if((Strings.isNullOrEmpty(txtCity.getText())
 				||Strings.isNullOrEmpty(txtUrl.getText())
 				||Strings.isNullOrEmpty(txtCoutry.getText())
 				||Strings.isNullOrEmpty(txtTitle.getText())
 				||Strings.isNullOrEmpty(txtRegisFee.getText()))){
 			
-			LOGGER.debug("conference not save : not all fields filled");
+			LOGGER.debug("Conference not save : not all fields filled");
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
 			mb.setMessage("Conference not save : not all fields filled");
@@ -293,7 +299,7 @@ public class GuiListConferences {
 		return true;
 	}
 	
-	/** launch all method that check if all fields are filled in correctly
+	/** launch all method that check if all fields are filled correctly
 	 * @return a boolean that say if all is correct or not
 	 */
 	public boolean isAllFieldsValid() {
