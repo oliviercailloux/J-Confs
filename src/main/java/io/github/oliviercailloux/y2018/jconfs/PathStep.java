@@ -49,7 +49,7 @@ public class PathStep {
 		this(startingPoint, arrivalPoint);
 		this.type = Objects.requireNonNull(type);
 	}
-	
+
 
 	/**
 	 * this is a constructor use with the MapGui in GuiConference. By default, Paris is the
@@ -89,7 +89,7 @@ public class PathStep {
 		return arrivalPoint;
 	}
 
-	
+
 	/**
 	 * This is a getter which return the latitude of starting point
 	 * 
@@ -160,7 +160,7 @@ public class PathStep {
 		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
 	}
 
-	
+
 	/**
 	 * a setter to modify the latitude of the Starting Point
 	 * 
