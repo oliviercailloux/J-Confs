@@ -248,10 +248,10 @@ public class GuiListConferences {
 	
 	/** this method implement the date of a conference in the good format in the GUI
 	 * @param fieldDate field of the GUI
-	 * @param dateread date of the conference
+	 * @param dateRead date of the conference
 	 */
-	public void setDateofConferences(DateTime fieldDate,LocalDate dateread) {
-		fieldDate.setDate(dateread.getYear(), dateread.getMonthValue()-1, dateread.getDayOfMonth());
+	public void setDateofConferences(DateTime fieldDate,LocalDate dateRead) {
+		fieldDate.setDate(dateRead.getYear(), dateRead.getMonthValue()-1, dateRead.getDayOfMonth());
 	}
 	
 	/**This method check the validity of date choose by the searcher :
