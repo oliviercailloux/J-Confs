@@ -137,35 +137,9 @@ public class GuiListConferences {
 		GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
 		btnSave.setLayoutData(gridDataBtn);
 
-		VerifyListener verifyListenerLetter = new VerifyListener() {
-			/**
-			 * check if the character is a letter or "-" or a whitespace, if not you can't
-			 * put the character
-			 */
-			@Override
-			public void verifyText(VerifyEvent e) {
-				if (!e.text.matches("[a-zA-ZÀ-ú -]*")) {
-					e.doit = false;
-				}
-			}
-		};
-
-		txtCity.addVerifyListener(verifyListenerLetter);
-		txtCoutry.addVerifyListener(verifyListenerLetter);
-
-		txtRegisFee.addVerifyListener(new VerifyListener() {
-
-			/**
-			 * check that the fee is a double, if not you can't put the character
-			 */
-			@Override
-			public void verifyText(VerifyEvent e) {
-				if (Doubles.tryParse(txtRegisFee.getText() + e.text) == null) {
-					e.doit = false;
-				}
-			}
-		});
-
+		txtCity.addVerifyListener(ListennerAction::CheckTextInput);
+		txtCoutry.addVerifyListener(ListennerAction::CheckTextInput);
+		txtRegisFee.addVerifyListener(ListennerAction::CheckDoubleInput);
 		listConferences.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
