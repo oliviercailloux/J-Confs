@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -16,7 +17,6 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -27,20 +27,21 @@ import com.google.common.primitives.Doubles;
 import com.google.common.base.Strings;
 
 /**
- * @author nikola Gui 
- * uses to show a list of conferences of a searcher and with the possibility to edit it
+ * @author nikola 
+ * This class Gui uses to show a list of conferences of a searcher 
+ * and with the possibility to edit it
  */
 public class GuiListConferences {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(GuiListConferences.class);
 	/**
-	 * List that stocks all of conferences from ConferenceReader
+	 * List that stocks all of conferences previously collected
 	 */
-	private java.util.List<Conference> listConferencesUser;
+	private List<Conference> listConferencesUser;
 	/**
 	 * SWT Widget list, uses for print all conferences
 	 */
-	private List listConferences;
+	private org.eclipse.swt.widgets.List listConferences;
 	private Shell shell;
 	private String calendarName;
 	/**
@@ -54,15 +55,6 @@ public class GuiListConferences {
 	private DateTime dateStart;
 	private DateTime dateEnd;
 
-	/**
-	 * Create a GUI where they will have conferences of the user
-	 * 
-	 * @throws ParseException
-	 * @throws ParserException
-	 * @throws IOException
-	 * @throws NumberFormatException
-	 * @throws InvalidConferenceFormatException
-	 */
 	public GuiListConferences() throws IOException, ParserException, InvalidConferenceFormatException {
 		calendarName = "threeConferences";
 		Display display = new Display();
@@ -88,7 +80,7 @@ public class GuiListConferences {
 		GridLayout layout = new GridLayout(2, false);
 		shell.setLayout(layout);
 
-		listConferences = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
+		listConferences = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		this.getConferences();
 		GridData gridDatalist = new GridData();
 		gridDatalist.grabExcessHorizontalSpace = true;
