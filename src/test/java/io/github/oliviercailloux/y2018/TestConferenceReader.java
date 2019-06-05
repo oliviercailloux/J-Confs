@@ -23,7 +23,7 @@ public class TestConferenceReader {
 	public void test() throws IOException, ParserException, InvalidConferenceFormatException {
 	Confr=new ConferenceReader();
 	confI=new ConferencesFromICal();
-	setOfConf=new LinkedHashSet<Conference>();
+	setOfConf=new LinkedHashSet<>();
 	setOfConf.addAll(confI.retrieve("Calendartest2"));
 	Iterator<Conference> iteratorConf=setOfConf.iterator();
 	 assertEquals(setOfConf.size(), 4);
