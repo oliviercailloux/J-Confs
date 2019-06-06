@@ -64,9 +64,9 @@ Team 2 : Nikola & Félix
 	    
 	    . Improve readability of the code, use immutable object where it is intended (proceed by subject)
 	    
-	    . About packages : 
+	    . About packages : => *Warning : Creation of packages reported to the next delivery due to errors*
 	        .. Delete the package "y2018" and then check the package structure
-	        .. Create package in order to better divide the code depending on the dependencies between classes : Créer des packages pour mieux diviser le code en fonction des dépendances entre les classes :
+	        .. Create package in order to better divide the code depending on the dependencies between classes :
                 **   Gui
                 **   Conference
                 **   Geo
@@ -112,7 +112,8 @@ Team 2 : Nikola & Félix
 			** When editing a conference from the GUI, the icalendar file is sent to a remote github repository
 		. About Conference :  +
 		** One calendar per team, being able to access and to this Calendar by someone else in the coresponding conference.
-			
+		. Task #7 from the Delivery 2
+		
 === Delivery 4 
 
 	* *Tasks*
