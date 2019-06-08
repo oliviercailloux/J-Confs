@@ -167,10 +167,9 @@ public class GuiListConferences {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				// edit of a conference
+				/* edit of a conference: delete and save the conference edited */
 				if (isAllFieldsValid() && listConferences.getSelectionIndex() >= 0) {
-					// ConferenceWriter.deleteConference(calendarName,listConferencesUser.get(listConferences.getSelectionIndex()));
-					// ConferenceWriter.addConference(calendarName,new Conference(.........));
+					LOGGER.warn("Save of Conference not yet implemented");
 					listConferences.removeAll();
 					try {
 						getConferences();
