@@ -19,7 +19,7 @@ Team 2 : Nikola & Tom
 |2| 3rd June, 2019 |15 h | link:https://github.com/jacquesmoati[Jacques MOATI]| Team 1 : Alison & Tom +
 Team 2 : Nikola & Félix
 
-|3|17th May,2019 | 15 h| link:https://github.com/aliliKM[Alison Koudossou Messan]| Team 1 : Nikola & Tom +
+|3|17th May, 2019 | 10 h | link:https://github.com/aliliKM[Alison Koudossou Messan]| Team 1 : Nikola & Tom +
 Team 2 : Jacques & Félix
 
 |4|__To define__ | __To define__ | __To define__|__To define__
@@ -54,7 +54,6 @@ Team 2 : Jacques & Félix
 	    Write a clean README.adoc with asciidoc format. 
 	    
 	    . Write an email @ __Jean-Christophe Gay__ asking him clear explanation of how to access to the intranet of the Université Paris-Dauphine +
-	    Write a file in asciidoc format rewriting the explaination @ __Olivier Cailloux__
 	    
 	    . Resolve warnings (mostly unused libraries)
 	    
@@ -92,6 +91,8 @@ Team 2 : Jacques & Félix
 	* *Tasks TO DO*
 	
 		. The SM/PO update the README.adoc of the project with asciidoc format. 
+		
+		. Write a file in asciidoc format rewriting the  @ __Jean-Christophe Gay__ explaination (@ __Olivier Cailloux__)
 								
         . Check if we can execute the app using one single __main__
             
