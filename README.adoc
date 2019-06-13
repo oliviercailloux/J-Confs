@@ -19,8 +19,8 @@ Team 2 : Nikola & Tom
 |2| 3rd June, 2019 |15 h | link:https://github.com/jacquesmoati[Jacques MOATI]| Team 1 : Alison & Tom +
 Team 2 : Nikola & Félix
 
-|3|__To define__ | __To define__ | __To define__| __To define__
-
+|3|17th May, 2019 | 10 h | link:https://github.com/aliliKM[Alison Koudossou Messan]| Team 1 : Nikola & Tom +
+Team 2 : Jacques & Félix
 
 |4|__To define__ | __To define__ | __To define__|__To define__
 
@@ -49,14 +49,11 @@ Team 2 : Nikola & Félix
 
 
 === Delivery 2 
-	* *Tasks TO DO*
+	* *Tasks done*
 	    . The SM/PO rewrite the README.adoc of the project, with much more details about the task for "TASK TO DO" in the curent iteration. +
 	    Write a clean README.adoc with asciidoc format. 
 	    
 	    . Write an email @ __Jean-Christophe Gay__ asking him clear explanation of how to access to the intranet of the Université Paris-Dauphine +
-	    Write a file in asciidoc format rewriting the explaination @ __Olivier Cailloux__
-
-	    . Update JUnit 5 dependencies on the POM.xml
 	    
 	    . Resolve warnings (mostly unused libraries)
 	    
@@ -64,21 +61,13 @@ Team 2 : Nikola & Félix
 	    
 	    . Improve readability of the code, use immutable object where it is intended (proceed by subject)
 	    
-	    . About packages : => *Warning : Creation of packages reported to the next delivery due to errors*
-	        .. Delete the package "y2018" and then check the package structure
-	        .. Create package in order to better divide the code depending on the dependencies between classes :
-                **   Gui
-                **   Conference
-                **   Geo
         . Apply the best practices using Guava on the existing code. +
             e.g. for __equals__ method using Guava.
         Code JUnit test for these classes :
                 *** ConferenceWriter
                 *** ConferencesShower
                 *** ReverseGeoCode
-        
-        . Delete unused classes (such as IO, an empty class)
-        
+                
         . Apply a Javadoc with defensive programming (preconditions).
         
         . Redefine some raised exception that are too much generic.
@@ -87,33 +76,39 @@ Team 2 : Nikola & Félix
         
         . About refactoring : 
         .. New constructors (using non Null)
-        .. See and change automatique changes of bottow on the graphic interface
         .. Immuable Conference (delete setters)
-        .. GUI Patterns
-        
-        . Check if we can execute the app using one single __main__
-        
+                
         . Modify *ConferenceGUI* with the possibilities :
         .. For the user to choose his ICalendar
         .. Every conferences of this ICalendar should be displayed on the screen
         .. Making possible editing a conference instead of Recreating/Deleting this conference
         ..  Making possible to display a map with the location of a conference selected and being able to search about its itinary.
         .. Writing and checking the __@annotations__
-        
 
 
 === Delivery 3 
 
-	* *Tasks expected*
-		. Do the JC functionality :
-			** Method for filling the fields of the canvas with use of the POI library
-			** Saving the file
-		. In the continuity of delivery 2 we can also make the History feature
-			** When editing a conference from the GUI, the icalendar file is sent to a remote github repository
-		. About Conference :  +
-		** One calendar per team, being able to access and to this Calendar by someone else in the coresponding conference.
-		. Task #7 from the Delivery 2
+	* *Tasks TO DO*
+	
+		. The SM/PO update the README.adoc of the project with asciidoc format. 
 		
+		. Write a file in asciidoc format rewriting the  @ __Jean-Christophe Gay__ explaination (@ __Olivier Cailloux__)
+								
+        . Check if we can execute the app using one single __main__
+            
+        . About refactoring : 
+	        .. See and change automatic changes of bottow on the graphic interface
+	        .. GUI Patterns         
+	        .. Resolve new warnings
+	        .. Update JUnit 5 dependencies on the POM.xml
+	        .. Create packages
+	        .. Delete unused classes (such as IO, an empty class)
+	              
+        . News : 
+         	.. Export an ics file to github
+         	.. Store a github file
+         	.. Advance on the map (distance and path between the two points)  	
+
 === Delivery 4 
 
 	* *Tasks*
