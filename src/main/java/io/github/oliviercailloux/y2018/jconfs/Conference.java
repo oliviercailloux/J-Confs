@@ -25,7 +25,7 @@ public class Conference {
 	private Double registrationFee;
 	private String country;
 	private String city;	
-		
+
 	/**	 
 	 *  This is a constructor which initializes the conference object
 	 * @param url
@@ -37,7 +37,7 @@ public class Conference {
 	 * @throws ParseException
 	 * @param city
 	 */
-	public Conference(URL url,String title,String startDate,String endDate,Double registrationFee, String country,String city) throws ParseException{
+	public Conference(URL url, String title,String startDate,String endDate,Double registrationFee, String country,String city) throws ParseException{
 		this.url=url;
 		this.title=title;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -47,7 +47,7 @@ public class Conference {
 		this.country=country;
 		this.city=city;
 	}
-	
+
 	/**
 	 * This is a getter which return the URL  	
 	 * @return not <code>null</code>

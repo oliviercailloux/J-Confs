@@ -44,7 +44,7 @@ public class ConferenceReader {
 			}
 		}
 	}
-	
+
 	/**
 	 * We parse a calendar component to create a conference
 	 * @param confCompo it's a calendar component that contains the data of one conference
@@ -76,7 +76,7 @@ public class ConferenceReader {
 		}
 		return conf;
 	}
-	
+
 	/**
 	 * We will import a set of conferences contain in a ical
 	 * @param read contain data of the user's calendar
@@ -98,7 +98,7 @@ public class ConferenceReader {
 		return listeconfuser;
 
 	}
-	
+
 	/**this function transform a date to an another pattern of date
 	 * @param date Not <code>null</code>
 	 * 	 it's the date that we want to change its pattern.
