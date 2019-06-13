@@ -67,9 +67,9 @@ public class ConferenceReader {
 		}
 		
 		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
-		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
-		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
+		conf.setCountry(confCompo.getProperty("LOCATION").getValue());
+		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
+		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
 		
 		try {
 			conf.setStartDate(stringDTSTART);
@@ -83,8 +83,8 @@ public class ConferenceReader {
 			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
 		}
 		
-		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-		conf.setCity(confCompo.getProperty("X-CITY").getValue());	
+		//conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
+		//conf.setCity(confCompo.getProperty("X-CITY").getValue());	
 		return conf;
 
 	}
@@ -102,8 +102,8 @@ public class ConferenceReader {
 	public static Set<Conference> readConferences(Reader reader) throws InvalidConferenceFormatException, IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
-		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
-		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
+		Set<Conference> listeconfuser=new LinkedHashSet<>();
+		ComponentList<CalendarComponent> conflist=calendar.getComponents(Component.VEVENT);
 		for (int i=0;i<conflist.size();i++) {
 			listeconfuser.add(createConference(conflist.get(i)));
 		}

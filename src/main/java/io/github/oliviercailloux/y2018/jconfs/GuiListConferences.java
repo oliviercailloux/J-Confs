@@ -9,6 +9,8 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
+import org.osaf.caldav4j.exceptions.CalDAV4JException;
+
 import net.fortuna.ical4j.data.ParserException;
 
 /**
@@ -61,7 +63,7 @@ public class GuiListConferences {
 		}
 	}
 	
-	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException, InvalidConferenceFormatException{
+	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException, InvalidConferenceFormatException, CalDAV4JException{
 		GuiListConferences guil=new GuiListConferences();
 		guil.getconferences();
 		guil.display();
@@ -75,12 +77,14 @@ public class GuiListConferences {
 	 * @throws ParserException
 	 * @throws ParseException
 	 * @throws InvalidConferenceFormatException 
+	 * @throws CalDAV4JException 
 	 */
-	public void getconferences() throws IOException, ParserException, InvalidConferenceFormatException {
+	public void getconferences() throws IOException, ParserException, InvalidConferenceFormatException, CalDAV4JException {
 		String calendarName="threeConferences";
 		ConferencesRetriever retriever = new ConferencesFromICal();
 		ConferencesShower conflist=new ConferencesShower(retriever);
-		this.listeconfuser=conflist.searchConferenceInFile(calendarName);
+		//this.listeconfuser=conflist.searchConferenceInFile(calendarName);
+		listeconfuser=CalendarOnline.getonlineConferences();
 		final List list = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 	    for (Conference conf: this.listeconfuser) {
 	      list.add(conf.toString());
