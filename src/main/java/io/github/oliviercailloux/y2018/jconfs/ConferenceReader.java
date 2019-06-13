@@ -58,35 +58,23 @@ public class ConferenceReader {
 	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
 		Conference conf = null;
 		URL confURL;
-		
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
-			conf = new Conference(confURL);
 		} catch (MalformedURLException e1) {
 			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference",e1);
 		}
-		
-		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
+		String title = confCompo.getProperty("SUMMARY").getValue();
+		String country=confCompo.getProperty("X-COUNTRY").getValue();
 		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
 		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
-		
+		Double feeRegistration= Double.parseDouble(confCompo.getProperty("X-FEE").getValue());
+		String city=confCompo.getProperty("X-CITY").getValue();	
 		try {
-			conf.setStartDate(stringDTSTART);
+			conf = new Conference(confURL,title, stringDTSTART, stringDTEND, feeRegistration, country, city);
 		} catch (ParseException e) {
-			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
+			e.printStackTrace();
 		}
-		
-		try {
-			conf.setEndDate(stringDTEND);
-		} catch (ParseException e) {
-			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
-		}
-		
-		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-		conf.setCity(confCompo.getProperty("X-CITY").getValue());	
 		return conf;
-
 	}
 	
 	/**

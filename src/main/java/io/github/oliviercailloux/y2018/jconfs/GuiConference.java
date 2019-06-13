@@ -360,7 +360,7 @@ public class GuiConference {
 				} catch (MalformedURLException e1) {
 					e1.printStackTrace();
 				}
-				Conference conf = new Conference(url);
+				Conference conf = null;
 				String title = textTitle.getText();
 				Double fee = Double.parseDouble(textFee.getText());
 				String city = textCity.getText();
@@ -423,24 +423,11 @@ public class GuiConference {
 			        else {
 			            	end = dEnd + "/" + mEnd + "/" + yEnd;
 			            }
-				    
-				conf.setCity(city);
-				conf.setCountry(country);
 				try {
-					conf.setStartDate(start);
+					conf = new Conference(url,title, start, end, fee, country,city);
 				} catch (ParseException e1) {
 					e1.printStackTrace();
 				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				
-				
-				conf.setFeeRegistration(fee);
-				conf.setTitle(title);
-				
 				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
@@ -550,22 +537,11 @@ public class GuiConference {
 			            	end = dEnd + "/" + mEnd + "/" + yEnd;
 			         }
 				    
-				conf.setCity(city);
-				conf.setCountry(country);
 				try {
-					conf.setStartDate(start);
+					conf = new Conference(url,title,start,end,fee, country, city);
 				} catch (ParseException e1) {
 					e1.printStackTrace();
 				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				
-				
-				conf.setFeeRegistration(fee);
-				conf.setTitle(title);
 				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
@@ -614,7 +590,7 @@ public class GuiConference {
 				} catch (MalformedURLException e1) {
 					e1.printStackTrace();
 				}
-				Conference conf = new Conference(url);
+				Conference conf = null;
 				String surname = txt_Surname.getText();
 				String firstname = txt_Firstname.getText();
 				String email = txt_Mail.getText();
@@ -684,23 +660,11 @@ public class GuiConference {
 			        else {
 			            	end = dEnd + "/" + mEnd + "/" + yEnd;
 			         }
-				    
-				conf.setCity(city);
-				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				
-				
-				conf.setFeeRegistration(fee);
-				conf.setTitle(title);
+			try {
+				conf = new Conference(url,title, start, end, fee, country, city);
+			} catch (ParseException e1) {
+				e1.printStackTrace();
+			}
 				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");

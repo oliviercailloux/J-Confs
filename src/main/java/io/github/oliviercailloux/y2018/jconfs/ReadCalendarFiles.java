@@ -77,7 +77,7 @@ public class ReadCalendarFiles {
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filepath) throws IOException, ParserException, ParseException {
+	public static Conference createConference(String filepath) throws IOException, ParserException {
 
 		Conference conf = null;
 		try (FileInputStream fin2 = new FileInputStream(filepath)) {
@@ -88,15 +88,19 @@ public class ReadCalendarFiles {
 
 			// the url is the primary key of a conference
 			URL confURL = new URL(confCompo.getProperty("URL").getValue());
-			conf = new Conference(confURL);
 
 			// add the others attributes
-			conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-			conf.setCountry(confCompo.getProperty("COUNTRY").getValue());
-			conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("FEE").getValue()));
-			conf.setStartDate(confCompo.getProperty("DTSTART").getValue());
-			conf.setEndDate(confCompo.getProperty("DTEND").getValue());
-			conf.setCity(confCompo.getProperty("CITY").getValue());
+			String title=confCompo.getProperty("SUMMARY").getValue();
+			String country=confCompo.getProperty("COUNTRY").getValue();
+			Double feeRegistration=Double.parseDouble(confCompo.getProperty("FEE").getValue());
+			String startDate=confCompo.getProperty("DTSTART").getValue();
+			String endDate=confCompo.getProperty("DTEND").getValue();
+			String city=confCompo.getProperty("CITY").getValue();
+			try {
+				conf = new Conference(confURL,title,startDate,endDate,feeRegistration,country, city);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 		}
 		return conf;
 

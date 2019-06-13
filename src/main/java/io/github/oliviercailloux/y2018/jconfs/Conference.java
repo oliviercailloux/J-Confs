@@ -7,11 +7,16 @@ import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
 
+import net.fortuna.ical4j.data.ParserException;
+
+
+
 
 
 /**
  * @author huong,camille
  */
+
 public class Conference {
 	private URL url;
 	private String title;
@@ -19,8 +24,30 @@ public class Conference {
 	private LocalDate endDate;
 	private Double registrationFee;
 	private String country;
-	private String city;
-
+	private String city;	
+		
+	/**	 
+	 *  This is a constructor which initializes the conference object
+	 * @param url
+	 * @param title
+	 * @param startDate
+	 * @param endDate
+	 * @param registrationFee
+	 * @param country
+	 * @throws ParseException
+	 * @param city
+	 */
+	public Conference(URL url,String title,String startDate,String endDate,Double registrationFee, String country,String city) throws ParseException{
+		this.url=url;
+		this.title=title;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		this.startDate= LocalDate.parse(startDate, formatter);
+		this.endDate= LocalDate.parse(endDate, formatter);
+		this.registrationFee=registrationFee;
+		this.country=country;
+		this.city=city;
+	}
+	
 	/**
 	 * This is a getter which return the URL  	
 	 * @return not <code>null</code>
@@ -37,14 +64,6 @@ public class Conference {
 		return title;
 	}
 
-	/**
-	 * Sets the title 	
-	 * @param title
-	 * 			not <code>null</code>
-	 */
-	public void setTitle(String title) {
-		this.title = Objects.requireNonNull(title);
-	}
 
 	/**
 	 * This is a getter which return the date start  	
@@ -54,15 +73,6 @@ public class Conference {
 		return startDate;
 	}
 
-	/**
-	 * Sets the start date  	
-	 * @param startDate
-	 * @throws ParseException 
-	 */
-	public void setStartDate(String startDate) throws ParseException {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		this.startDate = LocalDate.parse(startDate, formatter);
-	}
 
 	/**
 	 * This is a getter which return the date end 	
@@ -70,16 +80,6 @@ public class Conference {
 	 */
 	public  LocalDate getEndDate() {
 		return endDate;
-	}
-
-	/**
-	 * Sets the the end date   	
-	 * @param end_date
-	 * @throws ParseException 
-	 */
-	public void setEndDate( String endDate) throws ParseException {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		this.endDate = LocalDate.parse(endDate, formatter);
 	}
 
 	/**
@@ -91,15 +91,6 @@ public class Conference {
 	}
 
 	/**
-	 * Sets the fee of registration
-	 * @param registrationFee
-	 */
-	public void setFeeRegistration(double registrationFee) {
-		this.registrationFee = Objects.requireNonNull(registrationFee);
-	}
-
-
-	/**
 	 * This is a getter which return the country	
 	 * @return country
 	 */
@@ -107,14 +98,6 @@ public class Conference {
 		return country;
 	}
 
-	/**
-	 * Sets the country
-	 * @param country
-	 * 			not <code>null</code>
-	 */
-	public void setCountry(String country) {
-		this.country = Objects.requireNonNull(country);
-	}
 
 	/**
 	 * This is a getter which return the city	
@@ -122,14 +105,6 @@ public class Conference {
 	 */
 	public String getCity() {
 		return city;
-	}
-	/**
-	 * This is a setter which set the city
-	 * @param city
-	 * 			not <code>null</code>
-	 */
-	public void setCity(String city) {
-		this.city = Objects.requireNonNull(city);
 	}
 
 	/**
