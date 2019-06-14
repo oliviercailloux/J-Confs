@@ -58,7 +58,8 @@ public class ConferenceReader {
 	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
 		Conference conf = null;
 		URL confURL;
-		
+		String[] location;
+		String[] description;
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
 			conf = new Conference(confURL);
@@ -66,8 +67,17 @@ public class ConferenceReader {
 			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference",e1);
 		}
 		
-		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-		conf.setCountry(confCompo.getProperty("LOCATION").getValue());
+		location=confCompo.getProperty("LOCATION").getValue().split(",");
+		description=confCompo.getProperty("DESCRIPTION").getValue().split("/");
+
+		for(String ele : description) {
+			if(ele.contains("Fee")) {				
+				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf("Fee : ")+"Fee : ".length(),ele.length())));
+			}
+		}
+		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());		
+		conf.setCity(location[0]);
+		conf.setCountry(location[1]);
 		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
 		

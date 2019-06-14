@@ -29,6 +29,9 @@ public class TestConferenceReader {
 	 assertEquals(setOfConf.size(), 4);
 	 assertEquals((iteratorConf.next().getTitle()),"Java");
 	 assertEquals((iteratorConf.next().getTitle()),"J2EE TRAINING");
+	 assertEquals((iteratorConf.next().getCity()),"Paris");
+	 //assertEquals((iteratorConf.next().getCountry()),"France");
+	 assertEquals((iteratorConf.next().getFeeRegistration()),80.00,0.0001);
 	}
 	
 }
