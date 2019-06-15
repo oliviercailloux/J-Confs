@@ -27,11 +27,18 @@ public class TestConferenceReader {
 	setOfConf.addAll(confI.retrieve("Calendartest2"));
 	Iterator<Conference> iteratorConf=setOfConf.iterator();
 	 assertEquals(setOfConf.size(), 4);
+	 Conference conferenceTest = iteratorConf.next();
+	 assertEquals(conferenceTest.getTitle(),"Java");
+	 assertEquals(conferenceTest.getCity(),"Toronto");
+	 assertEquals(conferenceTest.getCountry(),"Canada");
+	 assertEquals(conferenceTest.getFeeRegistration(),22.60,0.001);
+	 /*
 	 assertEquals((iteratorConf.next().getTitle()),"Java");
 	 assertEquals((iteratorConf.next().getTitle()),"J2EE TRAINING");
 	 assertEquals((iteratorConf.next().getCity()),"Paris");
 	 //assertEquals((iteratorConf.next().getCountry()),"France");
 	 assertEquals((iteratorConf.next().getFeeRegistration()),80.00,0.0001);
+	 */
 	}
 	
 }
