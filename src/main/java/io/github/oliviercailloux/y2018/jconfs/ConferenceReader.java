@@ -7,6 +7,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -83,13 +84,13 @@ public class ConferenceReader {
 		
 		try {
 			conf.setStartDate(stringDTSTART);
-		} catch (ParseException e) {
+		} catch (DateTimeParseException e) {
 			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
 		}
 		
 		try {
 			conf.setEndDate(stringDTEND);
-		} catch (ParseException e) {
+		} catch (DateTimeParseException e) {
 			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
 		}
 		
