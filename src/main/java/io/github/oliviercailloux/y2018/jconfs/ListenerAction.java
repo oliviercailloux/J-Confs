@@ -10,13 +10,13 @@ import com.google.common.primitives.Doubles;
  * @author nikola
  * Class that contains common methods for verification of text fields
  */
-public class ListennerAction {
+public class ListenerAction {
 	
 	/**
 	 * check if the character is a letter or "-" or a whitespace, if not you can't
 	 * put the character
 	 */
-	public static void CheckTextInput(VerifyEvent e) {
+	public static void checkTextInput(VerifyEvent e) {
 		if (!e.text.matches("[a-zA-ZÀ-ú -]*")) {
 			e.doit = false;
 		}
@@ -25,7 +25,7 @@ public class ListennerAction {
 	/**
 	 * check that the fee is a double, if not you can't put the character
 	 */
-	public static void CheckDoubleInput(VerifyEvent e) {
+	public static void checkDoubleInput(VerifyEvent e) {
 		Text txtOfField=(Text) e.widget;
 		if (Doubles.tryParse(txtOfField.getText()+e.text) == null) {
 			e.doit = false;

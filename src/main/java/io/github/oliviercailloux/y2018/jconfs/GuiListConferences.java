@@ -82,7 +82,7 @@ public class GuiListConferences {
 		shell.setText("My conference");
 		GridLayout layout = new GridLayout(2, false);
 		shell.setLayout(layout);
-		CreateWidgets();
+		createWidgets();
 		createListenerWidgets();
 		return shell;
 	}
@@ -211,7 +211,12 @@ public class GuiListConferences {
 		}
 	}
 
-	public void CreateWidgets() throws IOException, ParserException, InvalidConferenceFormatException {
+	/**Create widgets of the GUI, and disposition of widgets
+	 * @throws IOException
+	 * @throws ParserException
+	 * @throws InvalidConferenceFormatException
+	 */
+	public void createWidgets() throws IOException, ParserException, InvalidConferenceFormatException {
 		listConferences = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		this.getConferences();
 		GridData gridDatalist = new GridData();
@@ -274,9 +279,9 @@ public class GuiListConferences {
 	 * Create all listener for all widgets of the GUI
 	 */
 	private void createListenerWidgets() {
-		txtCity.addVerifyListener(ListennerAction::CheckTextInput);
-		txtCoutry.addVerifyListener(ListennerAction::CheckTextInput);
-		txtRegisFee.addVerifyListener(ListennerAction::CheckDoubleInput);
+		txtCity.addVerifyListener(ListenerAction::checkTextInput);
+		txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
+		txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
 		listConferences.addListener(SWT.Selection,this::fillInAllFields);
 		btnSave.addListener(SWT.Selection, this::editConference);		
 	}
