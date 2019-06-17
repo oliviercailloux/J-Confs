@@ -18,7 +18,7 @@ import org.w3c.dom.ls.LSParser;
 
 
 /**
- * Researcher is a classe which creates chercher object
+ * Researcher is a class which creates chercher object
  * @author stanislas
  *
  */
