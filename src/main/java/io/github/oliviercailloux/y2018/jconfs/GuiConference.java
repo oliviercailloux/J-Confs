@@ -91,7 +91,8 @@ public class GuiConference {
 		txt_Surname.setBounds(100, 99, 200, 21);
 		//block the input in the field
 		txt_Surname.addVerifyListener(new VerifyListener() {
-			 public void verifyText(VerifyEvent e) {
+			 @Override
+			public void verifyText(VerifyEvent e) {
 			      e.doit = false;      
 			   }
 		 });
@@ -104,6 +105,7 @@ public class GuiConference {
 		txt_Firstname.setBounds(475, 99, 200, 21);
 		//block the input in the field
 		txt_Firstname.addVerifyListener(new VerifyListener() {
+			@Override
 			public void verifyText(VerifyEvent e) {
 				e.doit = false;      
 			}
@@ -117,6 +119,7 @@ public class GuiConference {
 		txt_Phone.setBounds(100, 179, 200, 21);
 		//block the input in the field
 		txt_Phone.addVerifyListener(new VerifyListener() {
+			@Override
 			public void verifyText(VerifyEvent e) {
 				e.doit = false;      
 			}
@@ -130,6 +133,7 @@ public class GuiConference {
 		txt_Group.setBounds(395, 179, 200, 21);
 		//block the input in the field
 		txt_Group.addVerifyListener(new VerifyListener() {
+			@Override
 			public void verifyText(VerifyEvent e) {
 				e.doit = false;      
 			}
@@ -143,6 +147,7 @@ public class GuiConference {
 		txt_Mail.setBounds(100, 260, 400, 21);
 		//block the input in the field
 		txt_Mail.addVerifyListener(new VerifyListener() {
+			@Override
 			public void verifyText(VerifyEvent e) {
 				e.doit = false;      
 			}
@@ -156,6 +161,7 @@ public class GuiConference {
 		txt_Office.setBounds(695, 179, 200, 21);
 		//block the input in the field
 		txt_Office.addVerifyListener(new VerifyListener() {
+			@Override
 			public void verifyText(VerifyEvent e) {
 				e.doit = false;      
 			}
@@ -166,6 +172,7 @@ public class GuiConference {
 		btn_researcher.setText("search Researcher");
 		
 		btn_researcher.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				String login = txt_login.getText();
 				
@@ -173,14 +180,16 @@ public class GuiConference {
 					Researcher researcher = ResearcherBuilder.create(login);
 					//unblock for the input automatic from the button Search
 					txt_Surname.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = true;
 						 }
 					 });
 					txt_Surname.setText(researcher.getLastname());
 					//block again after the field filled
 					txt_Surname.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = false;
 						   }
 					 });
@@ -188,70 +197,80 @@ public class GuiConference {
 					
 					//unblock for the input automatic from the button Search
 					txt_Firstname.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = true;
 						 }
 					 });
 					txt_Firstname.setText(researcher.getFirstname());
 					//block again after the field filled
 					txt_Firstname.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = false;
 						   }
 					 });
 					
 					//unblock for the input automatic from the button Search
 					txt_Phone.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = true;
 						 }
 					 });
 					txt_Phone.setText(researcher.getPhone());
 					//block again after the field filled
 					txt_Phone.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = false;
 						   }
 					 });
 					
 					//unblock for the input automatic from the button Search
 					txt_Group.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = true;
 						 }
 					 });
 					txt_Group.setText(researcher.getGroup());
 					//block again after the field filled
 					txt_Group.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = false;
 						   }
 					 });
 					
 					//unblock for the input automatic from the button Search
 					txt_Mail.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = true;
 						 }
 					 });
 					txt_Mail.setText(researcher.getMail());
 					//block again after the field filled
 					txt_Mail.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = false;
 						   }
 					 });
 					
 					//unblock for the input automatic from the button Search
 					txt_Office.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = true;
 						 }
 					 });
 					txt_Office.setText(researcher.getOffice());
 					//block again after the field filled
 					txt_Office.addVerifyListener(new VerifyListener() {
-						 public void verifyText(VerifyEvent e) {
+						 @Override
+						public void verifyText(VerifyEvent e) {
 						      e.doit = false;
 						   }
 					 });
@@ -280,7 +299,8 @@ public class GuiConference {
 		
 		//allow only positive integers as input and not allow special characters like letter 
 		textFee.addVerifyListener(new VerifyListener() {
-			 public void verifyText(VerifyEvent e) {
+			 @Override
+			public void verifyText(VerifyEvent e) {
 				 String string = e.text;
 			      char[] chars = new char[string.length()];
 			      string.getChars(0, chars.length, chars, 0);
@@ -301,7 +321,8 @@ public class GuiConference {
 		textCity.setBounds(100, 99, 200, 21);
 		
 		textCity.addVerifyListener(new VerifyListener() {
-			 public void verifyText(VerifyEvent e) {
+			 @Override
+			public void verifyText(VerifyEvent e) {
 				 String string = e.text;
 			      char[] chars = new char[string.length()];
 			      string.getChars(0, chars.length, chars, 0);
@@ -322,7 +343,8 @@ public class GuiConference {
 		textCountry.setBounds(475, 99, 200, 21);
 		
 		textCountry.addVerifyListener(new VerifyListener() {
-			 public void verifyText(VerifyEvent e) {
+			 @Override
+			public void verifyText(VerifyEvent e) {
 				 String string = e.text;
 			      char[] chars = new char[string.length()];
 			      string.getChars(0, chars.length, chars, 0);
@@ -352,6 +374,7 @@ public class GuiConference {
 		buttonSubmit.setBounds(80, 260, 200, 25);
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
 			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				LOGGER.debug("Button clicked : Ical created");
 				URL url = null;
@@ -426,16 +449,8 @@ public class GuiConference {
 				    
 				conf.setCity(city);
 				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				conf.setStartDate(start);
+				conf.setEndDate(end);
 				
 				
 				conf.setFeeRegistration(fee);
@@ -454,8 +469,7 @@ public class GuiConference {
 								mb.setText("Success");
 								mb.setMessage("The iCalendar has created in the file " + title + ".ics");
 								mb.open();
-							} catch (ValidationException | ParseException | IOException | ParserException
-									| URISyntaxException e) {
+							} catch (ValidationException | URISyntaxException e) {
 								e.printStackTrace();
 							}
 		
@@ -472,6 +486,7 @@ public class GuiConference {
 		buttonGenerate.setBounds(500, 260, 200, 25);
 		buttonGenerate.addSelectionListener(new SelectionAdapter() {
 			
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				//this function save the value in the fields of GUI in a conference and fill the mission order
 				LOGGER.debug("Button clicked : OM generated");
@@ -552,16 +567,8 @@ public class GuiConference {
 				    
 				conf.setCity(city);
 				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				conf.setStartDate(start);
+				conf.setEndDate(end);
 				
 				
 				conf.setFeeRegistration(fee);
@@ -607,6 +614,7 @@ public class GuiConference {
 		buttonYS.setText("Generate YS");
 		buttonYS.setBounds(700, 260, 200, 25);
 		buttonYS.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				URL url = null;
 				try {
@@ -687,16 +695,8 @@ public class GuiConference {
 				    
 				conf.setCity(city);
 				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				conf.setStartDate(start);
+				conf.setEndDate(end);
 				
 				
 				conf.setFeeRegistration(fee);

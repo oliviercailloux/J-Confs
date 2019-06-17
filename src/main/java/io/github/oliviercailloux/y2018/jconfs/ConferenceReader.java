@@ -71,17 +71,9 @@ public class ConferenceReader {
 		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
 		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
 		
-		try {
-			conf.setStartDate(stringDTSTART);
-		} catch (ParseException e) {
-			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
-		}
+		conf.setStartDate(stringDTSTART);
 		
-		try {
-			conf.setEndDate(stringDTEND);
-		} catch (ParseException e) {
-			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
-		}
+		conf.setEndDate(stringDTEND);
 		
 		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
 		conf.setCity(confCompo.getProperty("X-CITY").getValue());	
@@ -102,6 +94,7 @@ public class ConferenceReader {
 	public static Set<Conference> readConferences(Reader reader) throws InvalidConferenceFormatException, IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
+		@SuppressWarnings("unused")
 		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
 		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
 		for (int i=0;i<conflist.size();i++) {

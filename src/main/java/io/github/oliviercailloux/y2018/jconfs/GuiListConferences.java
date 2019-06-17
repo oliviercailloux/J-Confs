@@ -61,7 +61,7 @@ public class GuiListConferences {
 		}
 	}
 	
-	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, ParseException, InvalidConferenceFormatException{
+	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, InvalidConferenceFormatException{
 		GuiListConferences guil=new GuiListConferences();
 		guil.getconferences();
 		guil.display();

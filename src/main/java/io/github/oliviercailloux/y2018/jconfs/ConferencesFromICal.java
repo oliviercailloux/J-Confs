@@ -44,6 +44,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
 		return setOfConfFiltred;
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public Set<Conference> retrieve(String fileName)
 			throws InvalidConferenceFormatException, IOException, ParserException {

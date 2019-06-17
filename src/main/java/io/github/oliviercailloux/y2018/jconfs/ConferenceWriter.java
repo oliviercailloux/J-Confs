@@ -20,49 +20,47 @@ public class ConferenceWriter {
 	/**
 	 * Write the conference in form calendar 
 	 * @param conference
-	 * @throws ParseException
-	 * @throws IOException
-	 * @throws ParserException
 	 * @throws ValidationException
 	 * @throws URISyntaxException
 	 */
-	
-	public static void writeCalendarFiles(String calFile, Conference conference) throws ParseException, IOException, ParserException, ValidationException, URISyntaxException{
-		  
-		  //String calFile = "mycalendar.ics";
-		 
-		  //Creating a new calendar
-		  Calendar calendar = new Calendar();
-		  calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
-		  calendar.getProperties().add(Version.VERSION_2_0);
-		  calendar.getProperties().add(CalScale.GREGORIAN);
-		  
-		  //Creating an event
-		  PropertyList<Property> propertyList = new PropertyList<Property>();
-		 propertyList.add(new XProperty("X-DTSTART",conference.getStartDate().toString()));
-		 propertyList.add(new XProperty("X-DTEND",conference.getEndDate().toString()));
-		  
-		  propertyList.add(new Summary(conference.getTitle()));
-		  propertyList.add(new XProperty("X-COUNTRY",conference.getCountry().toString()));
-		  propertyList.add(new XProperty("X-CITY",conference.getCity().toString()));
-		  propertyList.add(new Url(conference.getUrl().toURI()));
-		  propertyList.add(new XProperty("X-FEE",conference.getFeeRegistration().toString()));
-		 
-		  VEvent meeting = new VEvent(propertyList);
-		  //add event to the calendar
-		  calendar.getComponents().add(meeting);
-		   
-		  //Saving an iCalendar file
-		  try(FileOutputStream fout = new FileOutputStream(calFile+".ics")){
-			  CalendarOutputter outputter = new CalendarOutputter();
-			  outputter.setValidating(false);
-			  outputter.output(calendar, fout);
-			  fout.close();	 
-		  }catch (IOException e) {
-				e.printStackTrace();
-		  }
-		  
-	
+
+	public static void writeCalendarFiles(String calFile, Conference conference) throws ValidationException, URISyntaxException{
+
+		//String calFile = "mycalendar.ics";
+
+		//Creating a new calendar
+		Calendar calendar = new Calendar();
+		calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
+		calendar.getProperties().add(Version.VERSION_2_0);
+		calendar.getProperties().add(CalScale.GREGORIAN);
+
+		//Creating an event
+		@SuppressWarnings("unused")
+		PropertyList<Property> propertyList = new PropertyList<Property>();
+		propertyList.add(new XProperty("X-DTSTART",conference.getStartDate().toString()));
+		propertyList.add(new XProperty("X-DTEND",conference.getEndDate().toString()));
+
+		propertyList.add(new Summary(conference.getTitle()));
+		propertyList.add(new XProperty("X-COUNTRY",conference.getCountry().toString()));
+		propertyList.add(new XProperty("X-CITY",conference.getCity().toString()));
+		propertyList.add(new Url(conference.getUrl().toURI()));
+		propertyList.add(new XProperty("X-FEE",conference.getFeeRegistration().toString()));
+
+		VEvent meeting = new VEvent(propertyList);
+		//add event to the calendar
+		calendar.getComponents().add(meeting);
+
+		//Saving an iCalendar file
+		try(FileOutputStream fout = new FileOutputStream(calFile+".ics")){
+			CalendarOutputter outputter = new CalendarOutputter();
+			outputter.setValidating(false);
+			outputter.output(calendar, fout);
+			fout.close();	 
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
 	}
 }
 

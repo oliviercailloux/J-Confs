@@ -81,9 +81,10 @@ public class ReverseGeoCode {
     private void createKdTree(InputStream placenames, boolean majorOnly)
             throws IOException {
         ArrayList<GeoName> arPlaceNames;
-        arPlaceNames = new ArrayList<GeoName>();
+        arPlaceNames = new ArrayList<>();
         // Read the geonames file in the directory
-        BufferedReader in = new BufferedReader(new InputStreamReader(placenames));
+        @SuppressWarnings("resource")
+		BufferedReader in = new BufferedReader(new InputStreamReader(placenames));
         String str;
         try {
             while ((str = in.readLine()) != null) {
@@ -97,7 +98,7 @@ public class ReverseGeoCode {
         }finally{
             in.close();
         }
-        kdTree = new KDTree<GeoName>(arPlaceNames);
+        kdTree = new KDTree<>(arPlaceNames);
     }
 
     public GeoName nearestPlace(double latitude, double longitude) {
