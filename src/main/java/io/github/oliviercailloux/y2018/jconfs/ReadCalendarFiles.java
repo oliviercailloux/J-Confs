@@ -71,11 +71,10 @@ public class ReadCalendarFiles {
 	 * @return
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws ParseException
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filepath) throws IOException, ParserException, ParseException {
+	public static Conference createConference(String filepath) throws IOException, ParserException {
 
 		Conference conf = null;
 		try (FileInputStream fin2 = new FileInputStream(filepath)) {
