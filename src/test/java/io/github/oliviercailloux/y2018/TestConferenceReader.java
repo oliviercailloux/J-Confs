@@ -19,6 +19,7 @@ public class TestConferenceReader {
 	protected ConferencesFromICal confI;
 	protected Set<Conference> setOfConf;
 
+	@SuppressWarnings("unused")
 	@Test
 	public void test() throws IOException, ParserException, InvalidConferenceFormatException {
 	Confr=new ConferenceReader();
