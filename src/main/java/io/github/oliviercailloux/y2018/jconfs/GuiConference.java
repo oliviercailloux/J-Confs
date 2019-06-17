@@ -732,17 +732,26 @@ public class GuiConference {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				getLatLonCity(textCity.getText(), path);
+				if (!textCity.getText().isEmpty()) {
+					getLatLonCity(textCity.getText(), path);
 
-				MapGUI mapGUI;
-				try {
-					mapGUI = new MapGUI("world.map", display,
-							new LatLong(path.getLatitudeArrivalPoint(), path.getLongitudeArrivalPoint()));
-					mapGUI.display();				
+					MapGUI mapGUI;
+					try {
+						mapGUI = new MapGUI("world.map", display,
+								new LatLong(path.getLatitudeArrivalPoint(), path.getLongitudeArrivalPoint()));
+						mapGUI.display();				
 
-				} catch (NullPointerException | IllegalArgumentException | IOException e1) {
-					e1.printStackTrace();
-				}				
+					} catch (NullPointerException | IllegalArgumentException | IOException e1) {
+						e1.printStackTrace();
+					}				
+				}
+				else {
+					LOGGER.debug("The field city must not be null");
+					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+					mb.setText("Failed");
+					mb.setMessage("The field city must not be null");
+					mb.open();
+				}
 			}
 
 			@Override
