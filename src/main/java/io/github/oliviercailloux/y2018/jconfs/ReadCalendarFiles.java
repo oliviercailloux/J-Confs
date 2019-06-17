@@ -6,8 +6,6 @@ import java.text.ParseException;
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.util.Iterator;
-import javax.xml.bind.ValidationException;
-
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
