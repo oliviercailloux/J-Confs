@@ -11,7 +11,7 @@ public class TestConferenceWriter {
 		conferenceToWrite.setEndDate("04/01/2018");
 		conferenceToWrite.setStartDate("06/06/2017");
 		conferenceToWrite.setFeeRegistration(12.5);
-		ConferenceWriter.writeCalendarFiles(conferenceToWrite.getTitle(),conferenceToWrite);
+		ConferenceWriter.addConference(conferenceToWrite.getTitle(),conferenceToWrite);
 		
 		System.out.println("done");
 	}
