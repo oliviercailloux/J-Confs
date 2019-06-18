@@ -13,7 +13,6 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -53,42 +52,34 @@ public class GuiConference {
 	
 		// initialize a grid layout manager
 		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 1;
 		shell.setLayout(gridLayout);
-		shell.setLocation(300, 100);
-		shell.layout(true, true);
-		shell.setSize(new Point(912, 796));
 		
 		// add the group for the researcher into shell
 		Group grp_researcher = new Group(shell, SWT.NONE);
-		GridData gd_researcher = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_researcher.heightHint =300;
-		gd_researcher.widthHint = 900;
-		grp_researcher.setLayoutData(gd_researcher);
 		grp_researcher.setText("Researcher");
+		GridLayout gridLayoutR = new GridLayout(4, false);
+		grp_researcher.setLayout(gridLayoutR);
 		
-		// add the group for the conference into shell
 		Group grp_conf = new Group(shell, SWT.NONE);
-		GridData gp_conf = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gp_conf.heightHint =300;
-		gp_conf.widthHint = 900;
-		grp_conf.setLayoutData(gp_conf);
 		grp_conf.setText("Conference");
+		GridLayout gridLayoutC = new GridLayout(4, false);
+		grp_conf.setLayout(gridLayoutC);
+		
+		GridData gridDataTextField = new GridData();
+		gridDataTextField.horizontalSpan = 3;
+		gridDataTextField.widthHint = 130;
+		gridDataTextField.heightHint = 20;
 		
 		// create the label and the field text for the group researcher
 		Label lblLogin = new Label(grp_researcher, SWT.NONE);
-		lblLogin.setAlignment(SWT.RIGHT);
-		lblLogin.setBounds(25,41,55,40);
-		lblLogin.setText("Login");
-		Text txt_login = new Text(grp_researcher, SWT.BORDER);
-		txt_login.setBounds(100,40,200,20);
+		lblLogin.setText("Login :");
+		Text txt_login = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_login.setLayoutData(gridDataTextField);
 		
 		Label lblSurname = new Label(grp_researcher, SWT.NONE);
-		lblSurname.setAlignment(SWT.RIGHT);
-		lblSurname.setBounds(25, 100, 55, 40);
 		lblSurname.setText("Surname");
-		Text txt_Surname= new Text(grp_researcher, SWT.BORDER);
-		txt_Surname.setBounds(100, 99, 200, 21);
+		Text txt_Surname = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_Surname.setLayoutData(gridDataTextField);
 		//block the input in the field
 		txt_Surname.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
@@ -97,11 +88,9 @@ public class GuiConference {
 		 });
 		
 		Label lblFirstname = new Label(grp_researcher, SWT.NONE);
-		lblFirstname.setAlignment(SWT.RIGHT);
-		lblFirstname.setBounds(400, 100, 58, 40);
 		lblFirstname.setText("Firstname");
-		Text txt_Firstname= new Text(grp_researcher, SWT.BORDER);
-		txt_Firstname.setBounds(475, 99, 200, 21);
+		Text txt_Firstname = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_Firstname.setLayoutData(gridDataTextField);
 		//block the input in the field
 		txt_Firstname.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -110,11 +99,9 @@ public class GuiConference {
 		});
 		
 		Label lblPhone = new Label(grp_researcher, SWT.NONE);
-		lblPhone.setAlignment(SWT.RIGHT);
-		lblPhone.setBounds(25, 180, 55, 40);
 		lblPhone.setText("Phone");
-		Text txt_Phone= new Text(grp_researcher, SWT.BORDER);
-		txt_Phone.setBounds(100, 179, 200, 21);
+		Text txt_Phone = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_Phone.setLayoutData(gridDataTextField);
 		//block the input in the field
 		txt_Phone.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -122,12 +109,10 @@ public class GuiConference {
 			}
 		});
 		
-		Label lblGroup= new Label(grp_researcher, SWT.NONE);
-		lblGroup.setAlignment(SWT.RIGHT);
-		lblGroup.setBounds(320, 179, 55, 40);
+		Label lblGroup = new Label(grp_researcher, SWT.NONE);
 		lblGroup.setText("Group");
-		Text txt_Group= new Text(grp_researcher, SWT.BORDER);
-		txt_Group.setBounds(395, 179, 200, 21);
+		Text txt_Group = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_Group.setLayoutData(gridDataTextField);
 		//block the input in the field
 		txt_Group.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -136,11 +121,9 @@ public class GuiConference {
 		});
 		
 		Label lblMail = new Label(grp_researcher, SWT.NONE);
-		lblMail.setAlignment(SWT.RIGHT);
-		lblMail.setBounds(25, 260, 55, 40);
 		lblMail.setText("Mail");
-		Text txt_Mail= new Text(grp_researcher, SWT.BORDER);
-		txt_Mail.setBounds(100, 260, 400, 21);
+		Text txt_Mail = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_Mail.setLayoutData(gridDataTextField);
 		//block the input in the field
 		txt_Mail.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -148,12 +131,10 @@ public class GuiConference {
 			}
 		});
 		
-		Label lblOffice= new Label(grp_researcher, SWT.NONE);
-		lblOffice.setAlignment(SWT.RIGHT);
-		lblOffice.setBounds(620, 179, 55, 15);
+		Label lblOffice = new Label(grp_researcher, SWT.NONE);
 		lblOffice.setText("Office");
-		Text txt_Office= new Text(grp_researcher, SWT.BORDER);
-		txt_Office.setBounds(695, 179, 200, 21);
+		Text txt_Office = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		txt_Office.setLayoutData(gridDataTextField);
 		//block the input in the field
 		txt_Office.addVerifyListener(new VerifyListener() {
 			public void verifyText(VerifyEvent e) {
@@ -161,10 +142,8 @@ public class GuiConference {
 			}
 		});
 		
-		Button btn_researcher= new Button(grp_researcher, SWT.NONE);
-		btn_researcher.setBounds(600, 36, 200, 25);
-		btn_researcher.setText("search Researcher");
-		
+		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
+		btn_researcher.setText("Search");		
 		btn_researcher.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event)  {
 				String login = txt_login.getText();
@@ -267,16 +246,14 @@ public class GuiConference {
 		
 		// create the label and the field text for the group conference
 		Label labelTitle = new Label(grp_conf, SWT.NONE);
-		labelTitle.setText("Title  ");
-		labelTitle.setBounds(25,41,55,40);
-		Text textTitle = new Text(grp_conf, SWT.BORDER);
-		textTitle.setBounds(100,40,200,20);
+		labelTitle.setText("Title :");
+		Text textTitle = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textTitle.setLayoutData(gridDataTextField);
 		
 		Label labelFee = new Label(grp_conf, SWT.NONE);
-		labelFee.setText("Registration Fee");
-		labelFee.setBounds(400,41,90,40);
-		Text textFee = new Text(grp_conf, SWT.BORDER);
-		textFee.setBounds(500,40,200,20);
+		labelFee.setText("Registration \nFee :");
+		Text textFee = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textFee.setLayoutData(gridDataTextField);
 		
 		//allow only positive integers as input and not allow special characters like letter 
 		textFee.addVerifyListener(new VerifyListener() {
@@ -295,10 +272,9 @@ public class GuiConference {
 		
 		//not allow the integers
 		Label labelCity = new Label(grp_conf, SWT.NONE);
-		labelCity.setText("City ");
-		labelCity.setBounds(25, 100, 55, 40);
-		Text textCity = new Text(grp_conf, SWT.BORDER);
-		textCity.setBounds(100, 99, 200, 21);
+		labelCity.setText("City :");
+		Text textCity = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textCity.setLayoutData(gridDataTextField);
 		
 		textCity.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
@@ -316,10 +292,9 @@ public class GuiConference {
 		
 		//not allow the integers
 		Label labelCountry = new Label(grp_conf, SWT.NONE);
-		labelCountry.setText("Country  ");
-		labelCountry.setBounds(400, 100, 58, 40);
-		Text textCountry = new Text(grp_conf, SWT.BORDER);
-		textCountry.setBounds(475, 99, 200, 21);
+		labelCountry.setText("Country :");
+		Text textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textCountry.setLayoutData(gridDataTextField);
 		
 		textCountry.addVerifyListener(new VerifyListener() {
 			 public void verifyText(VerifyEvent e) {
@@ -334,22 +309,24 @@ public class GuiConference {
 			      }
 			   }
 		 });
+		GridData gridDataData = new GridData();
+		gridDataData.horizontalSpan = 3;
+		gridDataData.widthHint = 100;
+		gridDataData.heightHint = 20;
+		
 		//create Date Selection as a drop-down
 		Label labelDateStart = new Label(grp_conf, SWT.NONE);
-		labelDateStart.setText("Date Start ");
-		labelDateStart.setBounds(25, 180, 55, 40);
+		labelDateStart.setText("Date Start");
 		DateTime dateStart = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
-		dateStart.setBounds(100, 179, 200, 21);
+		dateStart.setLayoutData(gridDataData);
 		
 		Label labelDateEnd = new Label(grp_conf, SWT.NONE);
-		labelDateEnd.setText("Date End ");
-		labelDateEnd.setBounds(400, 180, 55, 40);
+		labelDateEnd.setText("Date End");
 		DateTime dateEnd = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
-		dateEnd.setBounds(475, 179, 200, 21);
+		dateEnd.setLayoutData(gridDataData);
 		
 		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
-		buttonSubmit.setText("Create calendar");
-		buttonSubmit.setBounds(80, 260, 200, 25);
+		buttonSubmit.setText("Create calendar");	
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
 			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
 			public void widgetSelected(SelectionEvent event)  {
@@ -466,10 +443,8 @@ public class GuiConference {
 		});
 		
 		
-		
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
-		buttonGenerate.setBounds(500, 260, 200, 25);
 		buttonGenerate.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent event)  {
@@ -605,7 +580,6 @@ public class GuiConference {
 		
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
-		buttonYS.setBounds(700, 260, 200, 25);
 		buttonYS.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event)  {
 				URL url = null;
