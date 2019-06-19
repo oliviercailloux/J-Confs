@@ -72,8 +72,8 @@ public class ConferenceReader {
 		description=confCompo.getProperty("DESCRIPTION").getValue().split("/");
 
 		for(String ele : description) {
-			if(ele.contains("Fee")) {				
-				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf("Fee : ")+"Fee : ".length(),ele.length())));
+			if(ele.contains("Fee")) {
+				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf(":")+1)));
 			}
 		}
 		conf.setUid(confCompo.getProperty("UID").getValue());
@@ -94,9 +94,6 @@ public class ConferenceReader {
 		} catch (DateTimeParseException e) {
 			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
 		}
-		
-		//conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-		//conf.setCity(confCompo.getProperty("X-CITY").getValue());	
 		return conf;
 
 	}

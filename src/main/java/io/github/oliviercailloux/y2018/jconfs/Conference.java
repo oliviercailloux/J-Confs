@@ -181,6 +181,7 @@ public class Conference {
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
+				.add("UID", uid)
 				.add("url", url)
 				.add("title", title)
 				.add("startDate", startDate)

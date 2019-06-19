@@ -5,7 +5,13 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import javax.validation.constraints.AssertTrue;
+
 import org.junit.Test;
+import org.osaf.caldav4j.exceptions.CalDAV4JException;
+
+import io.github.oliviercailloux.y2018.jconfs.CalendarOnline;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
 import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
@@ -20,7 +26,7 @@ public class TestConferenceReader {
 	protected Set<Conference> setOfConf;
 
 	@Test
-	public void test() throws IOException, ParserException, InvalidConferenceFormatException {
+	public void testLocalCalendar() throws IOException, ParserException, InvalidConferenceFormatException {
 	Confr=new ConferenceReader();
 	confI=new ConferencesFromICal();
 	setOfConf=new LinkedHashSet<>();

@@ -46,7 +46,6 @@ public class GuiListConferences {
 	 */
 	private org.eclipse.swt.widgets.List listConferences;
 	private Shell shell;
-	private String calendarName;
 	/**
 	 * SWT Widget text, fields filed fill in by the researcher
 	 */
@@ -59,8 +58,7 @@ public class GuiListConferences {
 	private DateTime dateEnd;
 	private Button btnSave;
 
-	public GuiListConferences() throws IOException, ParserException, InvalidConferenceFormatException {
-		calendarName = "threeConferences";
+	public GuiListConferences() throws  InvalidConferenceFormatException {
 		Display display = new Display();
 		shell = createShell(display);
 		shell.open();
@@ -78,7 +76,7 @@ public class GuiListConferences {
 	 * @throws ParseException
 	 * @throws InvalidConferenceFormatException
 	 */
-	public Shell createShell(Display display) throws IOException, ParserException, InvalidConferenceFormatException {
+	public Shell createShell(Display display) throws InvalidConferenceFormatException {
 		this.shell = new Shell(display);
 		shell.setText("My conference");
 		GridLayout layout = new GridLayout(2, false);
@@ -111,12 +109,9 @@ public class GuiListConferences {
 	 * @throws InvalidConferenceFormatException 
 	 * @throws CalDAV4JException 
 	 */
-	public void getConferences() throws IOException, ParserException, InvalidConferenceFormatException {
-		ConferencesRetriever retriever = new ConferencesFromICal();
-		ConferencesShower conflist = new ConferencesShower(retriever);
-		listConferencesUser = new ArrayList<>(conflist.searchConferenceInFile(this.calendarName));
+	public void getConferences() throws InvalidConferenceFormatException {
 		try {
-			listConferencesUser= new ArrayList<>(CalendarOnline.getOnlineConferences());
+			listConferencesUser= new ArrayList<>(CalendarOnline.getInstance().getOnlineConferences());
 		} catch (CalDAV4JException e) {
 			throw new IllegalStateException(e);
 		}
@@ -208,11 +203,11 @@ public class GuiListConferences {
 	 */
 	public void editConference(Event e) {
 		if (isAllFieldsValid() && listConferences.getSelectionIndex() >= 0) {
-			LOGGER.warn("Save of Conference not yet implemented");
+			LOGGER.warn("Save and edit of Conference online not yet implemented");
 			listConferences.removeAll();
 			try {
 				getConferences();
-			} catch (IOException | ParserException | InvalidConferenceFormatException e1) {
+			} catch (InvalidConferenceFormatException e1) {
 				throw new IllegalStateException(e1);
 			}
 		}
@@ -223,12 +218,13 @@ public class GuiListConferences {
 	 * @throws ParserException
 	 * @throws InvalidConferenceFormatException
 	 */
-	public void createWidgets() throws IOException, ParserException, InvalidConferenceFormatException {
+	public void createWidgets() throws InvalidConferenceFormatException {
 		listConferences = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		this.getConferences();
 		GridData gridDatalist = new GridData();
 		gridDatalist.grabExcessHorizontalSpace = true;
 		gridDatalist.grabExcessVerticalSpace = true;
+		gridDatalist.heightHint=200;
 		listConferences.setLayoutData(gridDatalist);
 
 		Group groupInfoConf = new Group(shell, SWT.NONE);
@@ -293,7 +289,7 @@ public class GuiListConferences {
 		btnSave.addListener(SWT.Selection, this::editConference);		
 	}
 	
-	public static void main(String[] args) throws IOException, ParserException, InvalidConferenceFormatException {
+	public static void main(String[] args) throws InvalidConferenceFormatException {
 		new GuiListConferences().display();
 	}
 }
