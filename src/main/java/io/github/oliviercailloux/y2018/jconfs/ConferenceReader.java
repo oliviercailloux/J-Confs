@@ -76,6 +76,7 @@ public class ConferenceReader {
 				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf("Fee : ")+"Fee : ".length(),ele.length())));
 			}
 		}
+		conf.setUid(confCompo.getProperty("UID").getValue());
 		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());		
 		conf.setCity(location[0]);
 		conf.setCountry(location[1]);

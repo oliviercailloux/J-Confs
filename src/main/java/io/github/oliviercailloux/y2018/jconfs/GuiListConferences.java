@@ -116,7 +116,7 @@ public class GuiListConferences {
 		ConferencesShower conflist = new ConferencesShower(retriever);
 		listConferencesUser = new ArrayList<>(conflist.searchConferenceInFile(this.calendarName));
 		try {
-			listConferencesUser= new ArrayList<>(CalendarOnline.getonlineConferences());
+			listConferencesUser= new ArrayList<>(CalendarOnline.getOnlineConferences());
 		} catch (CalDAV4JException e) {
 			throw new IllegalStateException(e);
 		}

@@ -15,6 +15,7 @@ import com.google.common.base.MoreObjects;
  */
 public class Conference {
 	private URL url;
+	private String uid;
 	private String title;
 	private LocalDate startDate;
 	private LocalDate endDate;
@@ -131,6 +132,14 @@ public class Conference {
 	 */
 	public void setCity(String city) {
 		this.city = Objects.requireNonNull(city);
+	}
+	
+	public String getUid() {
+		return this.uid;
+	}
+	
+	public void setUid(String uid) {
+		this.uid=uid;
 	}
 
 	/**
