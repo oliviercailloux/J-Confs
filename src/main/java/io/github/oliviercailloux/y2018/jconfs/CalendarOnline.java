@@ -39,6 +39,9 @@ public class CalendarOnline {
 	private static HttpClient httpClient;
 
 	/**
+	 * This method has been partially taken from :
+	 * https://github.com/dedeibel/list-events-caldav4j-example/blob/master/src/test/java/benjaminpeter/name/ListCalendarTest.java
+	 * It allows you to retrieve events from a calendar hosted on a fruux account
 	 * @return
 	 * @throws CalDAV4JException
 	 * @throws InvalidConferenceFormatException
