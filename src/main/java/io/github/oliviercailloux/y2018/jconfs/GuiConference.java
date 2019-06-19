@@ -98,8 +98,8 @@ public class GuiConference {
 		Label lblOffice = new Label(grp_researcher, SWT.NONE);
 		lblOffice.setText("Office");
 		Text txt_Office = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
-		
-		defineLayout(gridDataTextField, grp_researcher,txt_login, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
+
+		defineLayout(gridDataTextField,txt_login, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
 		manageInputField(false, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
 
 		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
@@ -137,61 +137,20 @@ public class GuiConference {
 		labelFee.setText("Registration \nFee :");
 		Text textFee = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
-		//allow only positive integers as input and not allow special characters like letter 
-		textFee.addVerifyListener(new VerifyListener() {
-			public void verifyText(VerifyEvent e) {
-				String string = e.text;
-				char[] chars = new char[string.length()];
-				string.getChars(0, chars.length, chars, 0);
-				for (int i = 0; i < chars.length; i++) {
-					if (!('0' <= chars[i] && chars[i] <= '9')) {
-						e.doit = false;
-						return;
-					}
-				}
-			}
-		});
-
-		//not allow the integers
 		Label labelCity = new Label(grp_conf, SWT.NONE);
 		labelCity.setText("City :");
 		Text textCity = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
-		textCity.addVerifyListener(new VerifyListener() {
-			public void verifyText(VerifyEvent e) {
-				String string = e.text;
-				char[] chars = new char[string.length()];
-				string.getChars(0, chars.length, chars, 0);
-				for (int i = 0; i < chars.length; i++) {
-					if ('0' <= chars[i] && chars[i] <= '9') {
-						e.doit = false;
-						return;
-					}
-				}
-			}
-		});
-
-		//not allow the integers
 		Label labelCountry = new Label(grp_conf, SWT.NONE);
 		labelCountry.setText("Country :");
 		Text textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
-		textCountry.addVerifyListener(new VerifyListener() {
-			public void verifyText(VerifyEvent e) {
-				String string = e.text;
-				char[] chars = new char[string.length()];
-				string.getChars(0, chars.length, chars, 0);
-				for (int i = 0; i < chars.length; i++) {
-					if ('0' <= chars[i] && chars[i] <= '9') {
-						e.doit = false;
-						return;
-					}
-				}
-			}
-		});
-		
-		defineLayout(gridDataTextField, grp_conf, textTitle, textFee, textCity, textCountry);
-		
+		//allow only positive integers as input and not allow special characters like letter
+		restrictionField("number", textFee);
+		//not allow the integers
+		restrictionField("letter", textCity, textCountry);
+		defineLayout(gridDataTextField, textTitle, textFee, textCity, textCountry);
+
 		GridData gridDataDate = new GridData();
 		gridDataDate.horizontalSpan = 3;
 		gridDataDate.widthHint = 100;
@@ -225,89 +184,11 @@ public class GuiConference {
 				Double fee = Double.parseDouble(textFee.getText());
 				String city = textCity.getText();
 				String country = textCountry.getText();
-				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
 
-				String dStart = Integer.toString(dateStart.getDay());
-				String mStart = Integer.toString(dateStart.getMonth()+1);
-				String yStart = Integer.toString(dateStart.getYear());
 				String start = "";
-				String dnew = "";
-				String mnew = "";
-				boolean dayStart = Arrays.asList(array).contains(dStart);
-				boolean monthStart = Arrays.asList(array).contains(mStart);
-				if(dayStart && !monthStart ){
-					dnew = "0"+dStart;
-					start = dnew + "/" + mStart + "/" + yStart;
-
-				}
-				else if (!dayStart && monthStart){
-					mnew = "0"+mStart;
-					start = dStart + "/" + mnew + "/" + yStart;
-				}
-				else if (dayStart && monthStart){
-					dnew = "0"+dStart;
-					mnew = "0"+mStart;
-					start = dnew + "/" + mnew + "/" + yStart;
-				}
-				else {
-					start = dStart + "/" + mStart + "/" + yStart;
-				}
-
-
-				String dEnd = Integer.toString(dateEnd.getDay());
-				String mEnd = Integer.toString(dateEnd.getMonth()+1);
-				String yEnd = Integer.toString(dateEnd.getYear());
-
 				String end = "";
-				String dnew1 = "";
-				String mnew1 = "";
-				boolean dayEnd = Arrays.asList(array).contains(dEnd);
-				boolean monthEnd = Arrays.asList(array).contains(mEnd);
-				if(dayEnd && !monthEnd ){
-					dnew1 = "0"+dEnd;
-					end = dnew1 + "/" + mEnd + "/" + yEnd;
-
-				}
-				else if (!dayEnd && monthEnd){
-					mnew1 = "0"+mEnd;
-					end = dEnd + "/" + mnew1 + "/" + yEnd;
-
-				}
-				else if (dayEnd && monthEnd){
-					dnew1 = "0"+dEnd;
-					mnew1 = "0"+mEnd;
-					end = dnew1 + "/" + mnew1 + "/" + yEnd;
-
-				}
-				else {
-					end = dEnd + "/" + mEnd + "/" + yEnd;
-				}
-
-				conf.setCity(city);
-				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-
-
-				conf.setFeeRegistration(fee);
-				conf.setTitle(title);
-
-				if (start.compareTo(end) >= 0 ) {
-					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-					mb.setText("Failed");
-					mb.setMessage("Date Start can't be lower or equel to Date End");
-					mb.open();
-				} else {
-
+				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
+						shell) == true){
 					try {
 						ConferenceWriter.writeCalendarFiles(title,conf);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
@@ -318,11 +199,8 @@ public class GuiConference {
 							| URISyntaxException e) {
 						e.printStackTrace();
 					}
-
 				}
 			}
-
-
 		});
 
 
@@ -340,97 +218,19 @@ public class GuiConference {
 					e1.printStackTrace();
 				}
 				Conference conf = new Conference(url);
-				String surname = txt_Surname.getText();
-				String firstname = txt_Firstname.getText();
-				String email = txt_Mail.getText();
-				Researcher researcher = new Researcher(surname,firstname);
-				researcher.setMail(email);
-				String title = textTitle.getText();
-				Double fee = Double.parseDouble(textFee.getText());
-				String city = textCity.getText();
-				String country = textCountry.getText();
-				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				String surname = "", firstname = "", email = "", phone = "", title = "",
+						city = "", country = "";
+				Double fee = 0.00;
+				Researcher researcher = null;
 
-				String dStart = Integer.toString(dateStart.getDay());
-				String mStart = Integer.toString(dateStart.getMonth()+1);
-				String yStart = Integer.toString(dateStart.getYear());
+				confAndResercher(researcher, surname, firstname, email, phone, title,
+						city, country, fee,  txt_Surname,  txt_Firstname, txt_Mail,  txt_Phone,
+						textTitle,  textFee,  textCity, textCountry);
+
 				String start = "";
-				String dnew = "";
-				String mnew = "";
-				boolean dayStart = Arrays.asList(array).contains(dStart);
-				boolean monthStart = Arrays.asList(array).contains(mStart);
-				if(dayStart && !monthStart ){
-					dnew = "0"+dStart;
-					start = dnew + "/" + mStart + "/" + yStart;
-
-				}
-				else if (!dayStart && monthStart){
-					mnew = "0"+mStart;
-					start = dStart + "/" + mnew + "/" + yStart;
-				}
-				else if (dayStart && monthStart){
-					dnew = "0"+dStart;
-					mnew = "0"+mStart;
-					start = dnew + "/" + mnew + "/" + yStart;
-				}
-				else {
-					start = dStart + "/" + mStart + "/" + yStart;
-				}
-
-
-				String dEnd = Integer.toString(dateEnd.getDay());
-				String mEnd = Integer.toString(dateEnd.getMonth()+1);
-				String yEnd = Integer.toString(dateEnd.getYear());
-
 				String end = "";
-				String dnew1 = "";
-				String mnew1 = "";
-				boolean dayEnd = Arrays.asList(array).contains(dEnd);
-				boolean monthEnd = Arrays.asList(array).contains(mEnd);
-				if(dayEnd && !monthEnd ){
-					dnew1 = "0"+dEnd;
-					end = dnew1 + "/" + mEnd + "/" + yEnd;
-
-				}
-				else if (!dayEnd && monthEnd){
-					mnew1 = "0"+mEnd;
-					end = dEnd + "/" + mnew1 + "/" + yEnd;
-
-				}
-				else if (dayEnd && monthEnd){
-					dnew1 = "0"+dEnd;
-					mnew1 = "0"+mEnd;
-					end = dnew1 + "/" + mnew1 + "/" + yEnd;
-
-				}
-				else {
-					end = dEnd + "/" + mEnd + "/" + yEnd;
-				}
-
-				conf.setCity(city);
-				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-
-
-				conf.setFeeRegistration(fee);
-				conf.setTitle(title);
-				if (start.compareTo(end) >= 0 ) {
-					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-					mb.setText("Failed");
-					mb.setMessage("Date Start can't be lower or equel to Date End");
-					mb.open();
-				} 
-				else {
+				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
+						shell) == true){
 					try {
 						GenerateOM.generateOM(conf,researcher);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
@@ -472,99 +272,19 @@ public class GuiConference {
 					e1.printStackTrace();
 				}
 				Conference conf = new Conference(url);
-				String surname = txt_Surname.getText();
-				String firstname = txt_Firstname.getText();
-				String email = txt_Mail.getText();
-				String phone  = txt_Phone.getText();
-				Researcher researcher = new Researcher(surname,firstname);
-				researcher.setMail(email);
-				researcher.setPhone(phone);
-				String title = textTitle.getText();
-				Double fee = Double.parseDouble(textFee.getText());
-				String city = textCity.getText();
-				String country = textCountry.getText();
-				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				String surname = "", firstname = "", email = "", phone = "", title = "",
+						city = "", country = "";
+				Double fee = 0.00;
+				Researcher researcher = null;
+					
+				confAndResercher(researcher, surname, firstname, email, phone, title,
+						city, country, fee,  txt_Surname,  txt_Firstname, txt_Mail,  txt_Phone,
+						textTitle,  textFee,  textCity, textCountry);
 
-				String dStart = Integer.toString(dateStart.getDay());
-				String mStart = Integer.toString(dateStart.getMonth()+1);
-				String yStart = Integer.toString(dateStart.getYear());
 				String start = "";
-				String dnew = "";
-				String mnew = "";
-				boolean dayStart = Arrays.asList(array).contains(dStart);
-				boolean monthStart = Arrays.asList(array).contains(mStart);
-				if(dayStart && !monthStart ){
-					dnew = "0"+dStart;
-					start = dnew + "/" + mStart + "/" + yStart;
-
-				}
-				else if (!dayStart && monthStart){
-					mnew = "0"+mStart;
-					start = dStart + "/" + mnew + "/" + yStart;
-				}
-				else if (dayStart && monthStart){
-					dnew = "0"+dStart;
-					mnew = "0"+mStart;
-					start = dnew + "/" + mnew + "/" + yStart;
-				}
-				else {
-					start = dStart + "/" + mStart + "/" + yStart;
-				}
-
-
-				String dEnd = Integer.toString(dateEnd.getDay());
-				String mEnd = Integer.toString(dateEnd.getMonth()+1);
-				String yEnd = Integer.toString(dateEnd.getYear());
-
 				String end = "";
-				String dnew1 = "";
-				String mnew1 = "";
-				boolean dayEnd = Arrays.asList(array).contains(dEnd);
-				boolean monthEnd = Arrays.asList(array).contains(mEnd);
-				if(dayEnd && !monthEnd ){
-					dnew1 = "0"+dEnd;
-					end = dnew1 + "/" + mEnd + "/" + yEnd;
-
-				}
-				else if (!dayEnd && monthEnd){
-					mnew1 = "0"+mEnd;
-					end = dEnd + "/" + mnew1 + "/" + yEnd;
-
-				}
-				else if (dayEnd && monthEnd){
-					dnew1 = "0"+dEnd;
-					mnew1 = "0"+mEnd;
-					end = dnew1 + "/" + mnew1 + "/" + yEnd;
-
-				}
-				else {
-					end = dEnd + "/" + mEnd + "/" + yEnd;
-				}
-
-				conf.setCity(city);
-				conf.setCountry(country);
-				try {
-					conf.setStartDate(start);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					conf.setEndDate(end);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-
-
-				conf.setFeeRegistration(fee);
-				conf.setTitle(title);
-				if (start.compareTo(end) >= 0 ) {
-					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-					mb.setText("Failed");
-					mb.setMessage("Date Start can't be lower or equel to Date End");
-					mb.open();
-				} 
-				else {
+				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
+						shell) == true){
 					try {
 						String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 
@@ -603,15 +323,193 @@ public class GuiConference {
 
 	}
 
-	public static void defineLayout(GridData grid, Group grp, Text...parameters) {
+	/**
+	 * Method that get informations from fields
+	 * @param researcher
+	 * @param surname
+	 * @param firstname
+	 * @param email
+	 * @param phone
+	 * @param title
+	 * @param city
+	 * @param country
+	 * @param fee
+	 * @param txt_Surname
+	 * @param txt_Firstname
+	 * @param txt_Mail
+	 * @param txt_Phone
+	 * @param textTitle
+	 * @param textFee
+	 * @param textCity
+	 * @param textCountry
+	 */
+	public static void confAndResercher(Researcher researcher,
+			String surname, String firstname, String email, String phone, String title,
+			String city, String country, double fee, Text txt_Surname, Text txt_Firstname,
+			Text txt_Mail, Text txt_Phone, Text textTitle, Text textFee, Text textCity,
+			Text textCountry) {
+		surname = txt_Surname.getText();
+		firstname = txt_Firstname.getText();
+		email = txt_Mail.getText();
+		phone  = txt_Phone.getText();
+		researcher = new Researcher(surname,firstname);
+		researcher.setMail(email);
+		researcher.setPhone(phone);
+		title = textTitle.getText();
+		fee = Double.parseDouble(textFee.getText());
+		city = textCity.getText();
+		country = textCountry.getText();
+	}
+
+	/**
+	 * Method that define what char you can write in a field
+	 * @param type
+	 * @param parameters
+	 */
+	public static void restrictionField(String type, Text...parameters) {
+		for (Text parameter : parameters) {
+			parameter.addVerifyListener(new VerifyListener() {
+				public void verifyText(VerifyEvent e) {
+					String string = e.text;
+					char[] chars = new char[string.length()];
+					string.getChars(0, chars.length, chars, 0);
+					for (int i = 0; i < chars.length; i++) {
+						if (type.contains("letter")) {
+							if ('0' <= chars[i] && chars[i] <= '9') {
+								e.doit = false;
+								return;
+							}
+						}
+						else {
+							if (!('0' <= chars[i] && chars[i] <= '9')) {
+								e.doit = false;
+								return;
+							}
+						}
+
+					}
+				}
+			});
+		}
+
+	}
+
+	/**
+	 * Method that return true if dateStart is before dateEnd. It's also set informations for
+	 * conference
+	 * @param start
+	 * @param end
+	 * @param dateStart
+	 * @param dateEnd
+	 * @param conf
+	 * @param city
+	 * @param country
+	 * @param fee
+	 * @param title
+	 * @param shell
+	 * @return true or false
+	 */
+	public static boolean check(String start, String end, DateTime dateStart, DateTime dateEnd, Conference conf,
+			String city, String country, double fee, String title, Shell shell) {
+		// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
+		String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+
+		String dStart = Integer.toString(dateStart.getDay());
+		String mStart = Integer.toString(dateStart.getMonth()+1);
+		String yStart = Integer.toString(dateStart.getYear());
+		String dnew = "";
+		String mnew = "";
+		boolean dayStart = Arrays.asList(array).contains(dStart);
+		boolean monthStart = Arrays.asList(array).contains(mStart);
+		if(dayStart && !monthStart ){
+			dnew = "0"+dStart;
+			start = dnew + "/" + mStart + "/" + yStart;
+
+		}
+		else if (!dayStart && monthStart){
+			mnew = "0"+mStart;
+			start = dStart + "/" + mnew + "/" + yStart;
+		}
+		else if (dayStart && monthStart){
+			dnew = "0"+dStart;
+			mnew = "0"+mStart;
+			start = dnew + "/" + mnew + "/" + yStart;
+		}
+		else {
+			start = dStart + "/" + mStart + "/" + yStart;
+		}
+
+
+		String dEnd = Integer.toString(dateEnd.getDay());
+		String mEnd = Integer.toString(dateEnd.getMonth()+1);
+		String yEnd = Integer.toString(dateEnd.getYear());
+		;
+		String dnew1 = "";
+		String mnew1 = "";
+		boolean dayEnd = Arrays.asList(array).contains(dEnd);
+		boolean monthEnd = Arrays.asList(array).contains(mEnd);
+		if(dayEnd && !monthEnd ){
+			dnew1 = "0"+dEnd;
+			end = dnew1 + "/" + mEnd + "/" + yEnd;
+
+		}
+		else if (!dayEnd && monthEnd){
+			mnew1 = "0"+mEnd;
+			end = dEnd + "/" + mnew1 + "/" + yEnd;
+
+		}
+		else if (dayEnd && monthEnd){
+			dnew1 = "0"+dEnd;
+			mnew1 = "0"+mEnd;
+			end = dnew1 + "/" + mnew1 + "/" + yEnd;
+
+		}
+		else {
+			end = dEnd + "/" + mEnd + "/" + yEnd;
+		}
+
+		conf.setCity(city);
+		conf.setCountry(country);
+		try {
+			conf.setStartDate(start);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			conf.setEndDate(end);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+
+		conf.setFeeRegistration(fee);
+		conf.setTitle(title);
+		if (start.compareTo(end) >= 0 ) {
+			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+			mb.setText("Failed");
+			mb.setMessage("Date Start can't be lower or equel to Date End");
+			mb.open();
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Method that define the layout grid for all argument of type Text
+	 * @param grid
+	 * @param grp
+	 * @param parameters
+	 */
+	public static void defineLayout(GridData grid, Text...parameters) {
 		for (Text parameter : parameters) {
 			parameter.setLayoutData(grid);
 		}
 	}
-	
-	//unblock for the input automatic from the button Search
-	//block again after the field filled
-	//block the input in the field
+
+	/**
+	 * Method that unblock or block the field when needed
+	 * @param block
+	 * @param parameters
+	 */
 	public static void manageInputField( boolean block, Text...parameters) {
 		for (Text parameter : parameters) {
 			parameter.addVerifyListener(new VerifyListener() {
