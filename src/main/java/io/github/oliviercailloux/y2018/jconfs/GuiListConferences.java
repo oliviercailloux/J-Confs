@@ -19,7 +19,7 @@ public class GuiListConferences {
 
 	final private Shell shell;
 	private Set<Conference> listeconfuser;
-	
+
 	/*public GuiListConferences(String loginResearcher) {
 	    Display display = new Display();
 	    this.shell = new Shell(display);
@@ -27,21 +27,21 @@ public class GuiListConferences {
 	    shell.setSize(200, 200);
 	    shell.open();
 	}*/
-	
+
 	/**
 	 * Create a shell where they will have conferences of the user
 	 */
 	public GuiListConferences() {
-	    Display display = new Display();
+		Display display = new Display();
 		FillLayout layout = new FillLayout(SWT.VERTICAL);
-	    this.shell = new Shell(display);
-	    shell.setText("My conference");
+		this.shell = new Shell(display);
+		shell.setText("My conference");
 		layout.marginHeight = 200;
 		layout.marginWidth = 200;
 		shell.setLayout(layout);
-	    shell.open();
+		shell.open();
 	}
-	
+
 	/**
 	 * this method display the GUI in a windows
 	 */
@@ -60,6 +60,7 @@ public class GuiListConferences {
 
 		}
 	}
+
 	
 	/**
 	 * We retrieve and display in a list the conferences stored in the ical file of the identified user.
@@ -75,11 +76,11 @@ public class GuiListConferences {
 		ConferencesShower conflist=new ConferencesShower(retriever);
 		this.listeconfuser=conflist.searchConferenceInFile(calendarName);
 		final List list = new List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
-	    for (Conference conf: this.listeconfuser) {
-	      list.add(conf.toString());
-	    }
+		for (Conference conf: this.listeconfuser) {
+			list.add(conf.toString());
+		}
 	}
- 
+
 }
 
 
