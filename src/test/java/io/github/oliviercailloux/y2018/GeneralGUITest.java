@@ -5,8 +5,6 @@ import java.io.IOException;
 import io.github.oliviercailloux.y2018.jconfs.GeneralGUI;
 
 public class GeneralGUITest {
-	public static void main (String[]args)  {
-		//
-	}
-}
+	//empty block - suppress this class
+ }
 
