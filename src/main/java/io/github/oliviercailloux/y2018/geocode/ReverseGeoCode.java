@@ -83,20 +83,17 @@ public class ReverseGeoCode {
         ArrayList<GeoName> arPlaceNames;
         arPlaceNames = new ArrayList<>();
         // Read the geonames file in the directory
-        @SuppressWarnings("resource")
-		BufferedReader in = new BufferedReader(new InputStreamReader(placenames));
+		
         String str;
-        try {
-            while ((str = in.readLine()) != null) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(placenames))) {
+        	while ((str = in.readLine()) != null) {
                 GeoName newPlace = new GeoName(str);
                 if ( !majorOnly || newPlace.majorPlace ) {
                     arPlaceNames.add(newPlace);
                 }
             }
         } catch (IOException ex) {
-            throw ex;
-        }finally{
-            in.close();
+        	throw ex;
         }
         kdTree = new KDTree<>(arPlaceNames);
     }
