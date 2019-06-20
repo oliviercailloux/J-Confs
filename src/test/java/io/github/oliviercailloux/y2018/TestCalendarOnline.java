@@ -1,17 +1,16 @@
 package io.github.oliviercailloux.y2018;
 
-import static org.junit.Assert.*;
-
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Iterator;
 import java.util.Set;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.osaf.caldav4j.exceptions.CalDAV4JException;
-
 import io.github.oliviercailloux.y2018.jconfs.CalendarOnline;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.InvalidConferenceFormatException;

@@ -1,16 +1,14 @@
 package io.github.oliviercailloux.y2018;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import javax.validation.constraints.AssertTrue;
-
-import org.junit.Test;
 import org.osaf.caldav4j.exceptions.CalDAV4JException;
-
 import io.github.oliviercailloux.y2018.jconfs.CalendarOnline;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
