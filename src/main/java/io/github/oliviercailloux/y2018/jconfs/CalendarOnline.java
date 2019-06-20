@@ -127,6 +127,13 @@ public class CalendarOnline {
 		return vEventConference;
 	}
 	
+	/**
+	 * Recovery of an VEvent by his UID
+	 * @param uid
+	 * @return The VEvent that have this iud
+	 * @throws CalDAV4JException
+	 * @throws InvalidConferenceFormatException
+	 */
 	public Conference getConferenceFromUid(String uid) throws CalDAV4JException, InvalidConferenceFormatException {
 		VEvent vEventConferenceFound = null;
 		GenerateQuery searchQuery = new GenerateQuery();
