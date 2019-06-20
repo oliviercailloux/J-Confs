@@ -12,9 +12,6 @@ import net.fortuna.ical4j.data.ParserException;
 
 /**
  * @author huong,camille	
- */
-
-/**
  * @author Alison This class is immutable.
  *
  */
@@ -42,6 +39,8 @@ public class Conference {
 	 */
 	public Conference(URL url, String title, String startDate, String endDate, Double registrationFee, String country,
 			String city) {
+		Objects.requireNonNull(endDate);
+		Objects.requireNonNull(startDate);
 		this.url = url;
 		this.title = title;
 		try {
@@ -65,14 +64,11 @@ public class Conference {
 	 * @param endDate
 	 *            not <code>null</code>
 	 */
-	public Conference(String startDate, String endDate) {
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			this.startDate = LocalDate.parse(startDate, formatter);
-			this.endDate = LocalDate.parse(endDate, formatter);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Date impossible to put in the conference", e);
-		}
+	public Conference(LocalDate startDate, LocalDate endDate) {
+		Objects.requireNonNull(endDate);
+		Objects.requireNonNull(startDate);
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	/**
@@ -136,22 +132,6 @@ public class Conference {
 	 */
 	public String getCity() {
 		return city;
-	}
-
-	/**
-	 * This is a constructor which initializes the conference object
-	 * 
-	 * @param url
-	 *            primary key not <code>null</code>
-	 */
-	public Conference(URL url) {
-		this.url = Objects.requireNonNull(url);
-		this.title = "";
-		this.startDate = LocalDate.now();
-		this.endDate = LocalDate.now();
-		this.registrationFee = 0.0;
-		this.country = "";
-		this.city = "";
 	}
 
 	@Override

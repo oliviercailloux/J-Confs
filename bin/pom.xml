@@ -1,0 +1,221 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.github.oliviercailloux</groupId>
+	<artifactId>j-confs</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>swt-unix</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.gtk.linux.x86_64</swt.artifactId>
+				<env>linux</env>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>${swt.artifactId}</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>org.eclipse.platform</groupId>
+							<artifactId>org.eclipse.swt</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>swt-mac</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.cocoa.macosx.x86_64</swt.artifactId>
+				<env>mac</env>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>${swt.artifactId}</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>org.eclipse.platform</groupId>
+							<artifactId>org.eclipse.swt</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>swt-windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<properties>
+				<swt.artifactId>org.eclipse.swt.win32.win32.x86_64</swt.artifactId>
+				<env>windows</env>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>${swt.artifactId}</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>org.eclipse.platform</groupId>
+							<artifactId>org.eclipse.swt</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.4.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsr107.ri</groupId>
+			<artifactId>cache-ri-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.odftoolkit</groupId>
+			<artifactId>simple-odf</artifactId>
+			<version>0.8.2-incubating</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.bundles</groupId>
+			<artifactId>jaxrs-ri</artifactId>
+			<version>2.26</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-core -->
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-core</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-awt -->
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-map-awt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-themes -->
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-themes</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mnode.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsr107.ri</groupId>
+			<artifactId>cache-ri-impl</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.jax-ws-commons</groupId>
+			<artifactId>jaxws-maven-plugin</artifactId>
+			<version>2.3.1-b20150201.1248</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mapsforge</groupId>
+			<artifactId>mapsforge-samples-awt</artifactId>
+			<version>0.6.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.1-jre</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.jface</artifactId>
+			<version>3.15.100</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.3.1-b20150201.1248</version>
+			</plugin>
+			<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

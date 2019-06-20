@@ -457,7 +457,7 @@ public class GuiConference {
 				} catch (MalformedURLException e1) {
 					e1.printStackTrace();
 				}
-				Conference conf = new Conference(url);
+				Conference conf = null;
 				String surname = txt_Surname.getText();
 				String firstname = txt_Firstname.getText();
 				String email = txt_Mail.getText();
