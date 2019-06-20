@@ -16,7 +16,7 @@ import net.fortuna.ical4j.data.ParserException;
  *
  */
 public class ConferencesShowerTest {
-	public static void main(String[]args) throws Exception {
+	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, InvalidConferenceFormatException {
 		ConferencesShower testShower=new ConferencesShower(new ConferencesFromICal());
 		Set<Conference> testConf=testShower.conferencesFiltredByDate();
 		for (Conference conf :testConf) {
