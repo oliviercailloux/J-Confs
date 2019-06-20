@@ -36,6 +36,10 @@ import org.osaf.caldav4j.model.request.CalendarQuery;
 import org.osaf.caldav4j.util.GenerateQuery;
 import org.osaf.caldav4j.util.ICalendarUtils;
 
+/**
+ * @author nikola
+ * This class permits to access to online conferences from https://fruux.com
+ */
 public class CalendarOnline {
 	final private static String userNameFruux = "b3297431258";
 	final private static String passwordFruux = "jizbr5fuj9gi";
@@ -130,7 +134,7 @@ public class CalendarOnline {
 	/**
 	 * Recovery of an VEvent by his UID
 	 * @param uid
-	 * @return The VEvent that have this iud
+	 * @return The VEvent that have this uid
 	 * @throws CalDAV4JException
 	 * @throws InvalidConferenceFormatException
 	 */
