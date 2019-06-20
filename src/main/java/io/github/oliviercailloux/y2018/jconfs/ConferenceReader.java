@@ -94,8 +94,7 @@ public class ConferenceReader {
 	public static Set<Conference> readConferences(Reader reader) throws InvalidConferenceFormatException, IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
-		@SuppressWarnings("unused")
-		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
+		Set<Conference> listeconfuser=new LinkedHashSet<>();
 		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
 		for (int i=0;i<conflist.size();i++) {
 			listeconfuser.add(createConference(conflist.get(i)));
