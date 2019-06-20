@@ -37,7 +37,7 @@ public class TestCalendarOnline {
 	}
 	
 	@Test
-	public void TestGetAllOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
+	public void testGetAllOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
 		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
 		Set<Conference> collectionConferences=instanceCalendarOnline.getOnlineConferences();
 		Iterator<Conference> iteratorConf=collectionConferences.iterator();
@@ -48,7 +48,7 @@ public class TestCalendarOnline {
 	}
 	
 	@Test
-	public void TestConferenceToVEvent() throws URISyntaxException, ParseException, MalformedURLException {
+	public void testConferenceToVEvent() throws URISyntaxException, ParseException, MalformedURLException {
 		VEvent conferenceVEvent;
 		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
 		Conference conference=new Conference(new URL("http://fruux.com"));
