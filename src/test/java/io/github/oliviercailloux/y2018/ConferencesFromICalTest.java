@@ -46,7 +46,7 @@ public class ConferencesFromICalTest {
 	}
 	
 
-	public final void retriveTest2() throws NumberFormatException, IOException, ParserException, InvalidConferenceFormatException {
+	public final void retriveTest2() throws Exception {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		

@@ -61,13 +61,6 @@ public class GuiListConferences {
 		}
 	}
 	
-	public static void main(String[]args) throws NumberFormatException, IOException, ParserException, InvalidConferenceFormatException{
-		GuiListConferences guil=new GuiListConferences();
-		guil.getconferences();
-		guil.display();
-		
-	}
-	
 	/**
 	 * We retrieve and display in a list the conferences stored in the ical file of the identified user.
 	 * @throws NumberFormatException
