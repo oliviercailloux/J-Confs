@@ -1,11 +1,12 @@
 package io.github.oliviercailloux.y2018;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import org.junit.Test;
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceReader;
 import io.github.oliviercailloux.y2018.jconfs.ConferencesFromICal;
@@ -23,7 +24,7 @@ public class TestConferenceReader {
 	public void test() throws IOException, ParserException, InvalidConferenceFormatException {
 	Confr=new ConferenceReader();
 	confI=new ConferencesFromICal();
-	setOfConf=new LinkedHashSet<Conference>();
+	setOfConf=new LinkedHashSet<>();
 	setOfConf.addAll(confI.retrieve("Calendartest2"));
 	Iterator<Conference> iteratorConf=setOfConf.iterator();
 	 assertEquals(setOfConf.size(), 4);
