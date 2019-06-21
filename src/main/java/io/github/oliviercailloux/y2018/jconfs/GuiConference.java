@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 
 import org.eclipse.swt.SWT;
@@ -423,6 +424,7 @@ public class GuiConference {
 				else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
+
 				conf = new Conference(url,title, start, end, fee, country,city);
 
 				if (start.compareTo(end) >= 0 ) {
@@ -433,16 +435,15 @@ public class GuiConference {
 				} else {
 
 					try {
-						ConferenceWriter.writeCalendarFiles(title,conf);
+						ConferenceWriter.addConference(title,conf);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 						mb.setText("Success");
 						mb.setMessage("The iCalendar has created in the file " + title + ".ics");
 						mb.open();
-					} catch (ValidationException | ParseException | IOException | ParserException
+					} catch (ValidationException | IOException | ParserException
 							| URISyntaxException e) {
 						e.printStackTrace();
 					}
-
 				}
 			}
 
@@ -638,7 +639,6 @@ public class GuiConference {
 				if(dayEnd && !monthEnd ){
 					dnew1 = "0"+dEnd;
 					end = dnew1 + "/" + mEnd + "/" + yEnd;
-
 				}
 				else if (!dayEnd && monthEnd){
 					mnew1 = "0"+mEnd;
@@ -649,7 +649,6 @@ public class GuiConference {
 					dnew1 = "0"+dEnd;
 					mnew1 = "0"+mEnd;
 					end = dnew1 + "/" + mnew1 + "/" + yEnd;
-
 				}
 				else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;

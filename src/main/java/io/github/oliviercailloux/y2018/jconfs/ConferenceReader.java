@@ -7,6 +7,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -57,19 +58,31 @@ public class ConferenceReader {
 	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
 		Conference conf = null;
 		URL confURL;
+		String[] location;
+		String[] description;
+		Double feeRegistration=null;
+
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
 		} catch (MalformedURLException e1) {
 			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference",e1);
 		}
-		String title = confCompo.getProperty("SUMMARY").getValue();
-		String country=confCompo.getProperty("X-COUNTRY").getValue();
-		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
-		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
-		Double feeRegistration= Double.parseDouble(confCompo.getProperty("X-FEE").getValue());
-		String city=confCompo.getProperty("X-CITY").getValue();	
-		conf = new Conference(confURL,title, stringDTSTART, stringDTEND, feeRegistration, country, city);
 
+		location=confCompo.getProperty("LOCATION").getValue().split(",");
+		description=confCompo.getProperty("DESCRIPTION").getValue().split("/");
+
+		for(String ele : description) {
+			if(ele.contains("Fee")) {
+				feeRegistration=Double.parseDouble(ele.substring(ele.indexOf(":")+1));
+			}
+		}
+		String uid=confCompo.getProperty("UID").getValue();
+		String title=confCompo.getProperty("SUMMARY").getValue();		
+		String city=location[0];
+		String country=location[1];
+		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
+		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
+		conf = new Conference(uid,confURL,title,stringDTSTART, stringDTEND,feeRegistration, country, city);
 		return conf;
 	}
 
@@ -80,14 +93,13 @@ public class ConferenceReader {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
-	 * @throws ParseException
 	 * @throws InvalidConferenceFormatException 
 	 */
 	public static Set<Conference> readConferences(Reader reader) throws InvalidConferenceFormatException, IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
-		Set<Conference> listeconfuser=new LinkedHashSet<Conference>();
-		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
+		Set<Conference> listeconfuser=new LinkedHashSet<>();
+		ComponentList<CalendarComponent> conflist=calendar.getComponents(Component.VEVENT);
 		for (int i=0;i<conflist.size();i++) {
 			listeconfuser.add(createConference(conflist.get(i)));
 		}
