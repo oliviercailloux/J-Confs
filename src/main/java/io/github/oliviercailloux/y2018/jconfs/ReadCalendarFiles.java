@@ -54,9 +54,9 @@ public class ReadCalendarFiles {
 	}
 
 	/**
-	 * generate a localDate from string parametre This function is needed since the
-	 * ical4j property DTSTART is a string so we have to convert it into a localDate
-	 * format
+	 * generate a localDate from string parametre This function is needed since
+	 * the ical4j property DTSTART is a string so we have to convert it into a
+	 * localDate format
 	 * 
 	 * @param date
 	 * @return LocalDate
@@ -65,40 +65,4 @@ public class ReadCalendarFiles {
 		return LocalDate.parse(date);
 	}
 
-	/**
-	 * Creates conference from ics file, function inspired by function
-	 * readCalendarFile
-	 * 
-	 * @param filepath
-	 * @return
-	 * @throws IOException
-	 * @throws ParserException
-	 * @throws ValidationException
-	 */
-
-	public static Conference createConference(String filepath) throws IOException, ParserException {
-
-		Conference conf = null;
-		try (FileInputStream fin2 = new FileInputStream(filepath)) {
-
-			CalendarBuilder builder = new CalendarBuilder();
-			Calendar calendar = builder.build(fin2);
-			Component confCompo = calendar.getComponent("CONFERENCE");
-
-			// the url is the primary key of a conference
-			URL confURL = new URL(confCompo.getProperty("URL").getValue());
-
-			// add the others attributes
-			String title=confCompo.getProperty("SUMMARY").getValue();
-			String country=confCompo.getProperty("COUNTRY").getValue();
-			Double feeRegistration=Double.parseDouble(confCompo.getProperty("FEE").getValue());
-			String startDate=confCompo.getProperty("DTSTART").getValue();
-			String endDate=confCompo.getProperty("DTEND").getValue();
-			String city=confCompo.getProperty("CITY").getValue();
-			conf = new Conference(confURL,title,startDate,endDate,feeRegistration,country, city);
-
-		}
-		return conf;
-
-	}
 }

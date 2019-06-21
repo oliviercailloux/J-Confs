@@ -21,15 +21,19 @@ public class Researcher {
 
 	/**
 	 * This is a constructor which initializes the searcher object
-	 * @param surname not <code>null</code>.
-	 * @param firstName not <code>null</code>.
-	 * @param function  
-	 * @param phone  
-	 * @param office 
-	 * @param mail 
+	 * 
+	 * @param lastName
+	 *            not <code>null</code>.
+	 * @param firstName
+	 *            not <code>null</code>.
+	 * @param function
+	 * @param phone
+	 * @param office
+	 * @param mail
 	 * @param group
 	 */
-	public Researcher(String lastName, String firstName, String function,String phone,String office, String mail, String group) {
+	public Researcher(String lastName, String firstName, String function, String phone, String office, String mail,
+			String group) {
 		this.lastName = Objects.requireNonNull(lastName);
 		this.firstName = Objects.requireNonNull(firstName);
 		this.function = function;
@@ -41,6 +45,7 @@ public class Researcher {
 
 	/**
 	 * this is a getter which return a lastName
+	 * 
 	 * @return not <code>null</code>
 	 */
 	public String getLastname() {
@@ -48,7 +53,8 @@ public class Researcher {
 	}
 
 	/**
-	 * this is a setter which allows to set the name 
+	 * this is a setter which allows to set the name
+	 * 
 	 * @param lastName
 	 *            not <code>null</code>
 	 */
@@ -116,7 +122,6 @@ public class Researcher {
 		this.group = Objects.requireNonNull(group);
 	}
 
-
 	/**
 	 * @return not <code>null</code>
 	 */
@@ -162,14 +167,8 @@ public class Researcher {
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this)
-				.add("lastName", lastName)
-				.add("firstName", firstName)
-				.add("function", function)
-				.add("phone", phone)
-				.add("office", office)
-				.add("mail", mail)
-				.add("group", group)
-				.toString();
+		return MoreObjects.toStringHelper(this).add("lastName", lastName).add("firstName", firstName)
+				.add("function", function).add("phone", phone).add("office", office).add("mail", mail)
+				.add("group", group).toString();
 	}
 }
