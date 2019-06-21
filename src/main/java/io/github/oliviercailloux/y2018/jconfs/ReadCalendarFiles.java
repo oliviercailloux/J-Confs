@@ -73,7 +73,6 @@ public class ReadCalendarFiles {
 	 * @return
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws ParseException
 	 * @throws ValidationException
 	 */
 
@@ -96,11 +95,8 @@ public class ReadCalendarFiles {
 			String startDate=confCompo.getProperty("DTSTART").getValue();
 			String endDate=confCompo.getProperty("DTEND").getValue();
 			String city=confCompo.getProperty("CITY").getValue();
-			try {
-				conf = new Conference(confURL,title,startDate,endDate,feeRegistration,country, city);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			conf = new Conference(confURL,title,startDate,endDate,feeRegistration,country, city);
+
 		}
 		return conf;
 

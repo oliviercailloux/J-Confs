@@ -423,11 +423,8 @@ public class GuiConference {
 				else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
-				try {
-					conf = new Conference(url,title, start, end, fee, country,city);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				conf = new Conference(url,title, start, end, fee, country,city);
+
 				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
@@ -537,11 +534,8 @@ public class GuiConference {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
 
-				try {
-					conf = new Conference(url,title,start,end,fee, country, city);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				conf = new Conference(url,title,start,end,fee, country, city);
+
 				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
@@ -660,11 +654,8 @@ public class GuiConference {
 				else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
-				try {
-					conf = new Conference(url,title, start, end, fee, country, city);
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
+				conf = new Conference(url,title, start, end, fee, country, city);
+
 				if (start.compareTo(end) >= 0 ) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");

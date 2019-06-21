@@ -52,7 +52,6 @@ public class ConferenceReader {
 	 * @throws InvalidConferenceFormatException 
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws ParseException
 	 * @throws NumberFormatException
 	 */
 	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
@@ -69,11 +68,8 @@ public class ConferenceReader {
 		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
 		Double feeRegistration= Double.parseDouble(confCompo.getProperty("X-FEE").getValue());
 		String city=confCompo.getProperty("X-CITY").getValue();	
-		try {
-			conf = new Conference(confURL,title, stringDTSTART, stringDTEND, feeRegistration, country, city);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		conf = new Conference(confURL,title, stringDTSTART, stringDTEND, feeRegistration, country, city);
+
 		return conf;
 	}
 
