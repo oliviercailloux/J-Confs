@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 
 import org.eclipse.swt.SWT;
@@ -428,12 +429,12 @@ public class GuiConference {
 				conf.setCountry(country);
 				try {
 					conf.setStartDate(start);
-				} catch (ParseException e1) {
+				} catch (DateTimeParseException e1) {
 					e1.printStackTrace();
 				}
 				try {
 					conf.setEndDate(end);
-				} catch (ParseException e1) {
+				} catch (DateTimeParseException e1) {
 					e1.printStackTrace();
 				}
 				
@@ -449,12 +450,12 @@ public class GuiConference {
 				} else {
 
 							try {
-								ConferenceWriter.writeCalendarFiles(title,conf);
+								ConferenceWriter.addConference(title,conf);
 								MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 								mb.setText("Success");
 								mb.setMessage("The iCalendar has created in the file " + title + ".ics");
 								mb.open();
-							} catch (ValidationException | ParseException | IOException | ParserException
+							} catch (ValidationException | IOException | ParserException
 									| URISyntaxException e) {
 								e.printStackTrace();
 							}
@@ -554,12 +555,12 @@ public class GuiConference {
 				conf.setCountry(country);
 				try {
 					conf.setStartDate(start);
-				} catch (ParseException e1) {
+				} catch (DateTimeParseException e1) {
 					e1.printStackTrace();
 				}
 				try {
 					conf.setEndDate(end);
-				} catch (ParseException e1) {
+				} catch (DateTimeParseException e1) {
 					e1.printStackTrace();
 				}
 				
@@ -689,12 +690,12 @@ public class GuiConference {
 				conf.setCountry(country);
 				try {
 					conf.setStartDate(start);
-				} catch (ParseException e1) {
+				} catch (DateTimeParseException e1) {
 					e1.printStackTrace();
 				}
 				try {
 					conf.setEndDate(end);
-				} catch (ParseException e1) {
+				} catch (DateTimeParseException e1) {
 					e1.printStackTrace();
 				}
 				
