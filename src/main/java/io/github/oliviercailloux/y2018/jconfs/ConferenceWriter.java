@@ -51,20 +51,6 @@ public class ConferenceWriter {
 	}
 
 	/**
-	 * Create a Calendar object with special properties
-	 * 
-	 * @return not <code>null</code>.
-	 */
-	@SuppressWarnings("unused")
-	private static Calendar createCalendar() {
-		Calendar calendar = new Calendar();
-		calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
-		calendar.getProperties().add(Version.VERSION_2_0);
-		calendar.getProperties().add(CalScale.GREGORIAN);
-		return calendar;
-	}
-
-	/**
 	 * Delete the conference of the ics file (if it exists) 
 	 * @param calFile    not <code>null</code>.
 	 * @param conference not <code>null</code>.

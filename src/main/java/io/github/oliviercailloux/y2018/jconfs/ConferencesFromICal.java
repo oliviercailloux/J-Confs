@@ -44,14 +44,15 @@ public class ConferencesFromICal implements ConferencesRetriever {
 		return setOfConfFiltred;
 	}
 
-	@SuppressWarnings("resource")
 	@Override
 	public Set<Conference> retrieve(String fileName)
 			throws InvalidConferenceFormatException, IOException, ParserException {
 		Preconditions.checkNotNull(fileName);
 		URL urlcalendar = ConferenceReader.class.getResource(fileName+".ics");		
-		FileReader reader=new FileReader(new File(urlcalendar.getFile()));
-		return ConferenceReader.readConferences(reader);
+		try (FileReader reader=new FileReader(new File(urlcalendar.getFile()))){
+			return ConferenceReader.readConferences(reader);
+		}
+		
 	}
 
 }
