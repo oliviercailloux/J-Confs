@@ -18,11 +18,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
@@ -40,14 +42,27 @@ import net.fortuna.ical4j.validate.ValidationException;
  */
 public class GuiConference {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
+	private static Shell shell;
+	private static Conference conf;
+	private static Text textTitle;
+	private static Text textCity;
+	private static Text textCountry;
+	private static Text textFee;
+	private static Text textSurname;
+	private static Text textFirstname;
+	private static Text textPhone;
+	private static Text textGroup;
+	private static Text textMail;
+	private static Text textOffice;
+
 	public static void main(String[]args){
 		Gui(new Display());
 	}
 	public static void Gui(Display display){
-		final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
 
 		// setup the SWT window
-		Shell shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
+		shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
 		shell.setText("J-Confs");
 
 		// initialize a grid layout manager
@@ -73,52 +88,52 @@ public class GuiConference {
 		// create the label and the field text for the group researcher
 		Label lblLogin = new Label(grp_researcher, SWT.NONE);
 		lblLogin.setText("Login :");
-		Text txt_login = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		Text textLogin = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblSurname = new Label(grp_researcher, SWT.NONE);
 		lblSurname.setText("Surname");
-		Text txt_Surname = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textSurname = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblFirstname = new Label(grp_researcher, SWT.NONE);
 		lblFirstname.setText("Firstname");
-		Text txt_Firstname = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textFirstname = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblPhone = new Label(grp_researcher, SWT.NONE);
 		lblPhone.setText("Phone");
-		Text txt_Phone = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textPhone = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblGroup = new Label(grp_researcher, SWT.NONE);
 		lblGroup.setText("Group");
-		Text txt_Group = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textGroup = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblMail = new Label(grp_researcher, SWT.NONE);
 		lblMail.setText("Mail");
-		Text txt_Mail = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textMail = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblOffice = new Label(grp_researcher, SWT.NONE);
 		lblOffice.setText("Office");
-		Text txt_Office = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textOffice = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
-		defineLayout(gridDataTextField,txt_login, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
-		manageInputField(false, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
+		defineLayout(gridDataTextField,textLogin, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
+		manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
 
 		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
 		btn_researcher.setText("Search");		
 		btn_researcher.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event)  {
-				String login = txt_login.getText();
+				String login = textLogin.getText();
 
 				try {
 					Researcher researcher = ResearcherBuilder.create(login);
-					manageInputField(true, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
-					txt_Surname.setText(researcher.getLastname());
-					txt_Firstname.setText(researcher.getFirstname());
-					txt_Phone.setText(researcher.getPhone());
-					txt_Group.setText(researcher.getGroup());
-					txt_Mail.setText(researcher.getMail());
-					txt_Office.setText(researcher.getOffice());
-					manageInputField(false, txt_Surname, txt_Firstname, txt_Phone, txt_Group,txt_Mail,txt_Office);
+					manageInputField(true, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
+					textSurname.setText(researcher.getLastname());
+					textFirstname.setText(researcher.getFirstname());
+					textPhone.setText(researcher.getPhone());
+					textGroup.setText(researcher.getGroup());
+					textMail.setText(researcher.getMail());
+					textOffice.setText(researcher.getOffice());
+					manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
 
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 						| ClassCastException e) {
@@ -132,19 +147,19 @@ public class GuiConference {
 		// create the label and the field text for the group conference
 		Label labelTitle = new Label(grp_conf, SWT.NONE);
 		labelTitle.setText("Title :");
-		Text textTitle = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textTitle = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
 		Label labelFee = new Label(grp_conf, SWT.NONE);
 		labelFee.setText("Registration \nFee :");
-		Text textFee = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textFee = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
 		Label labelCity = new Label(grp_conf, SWT.NONE);
 		labelCity.setText("City :");
-		Text textCity = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textCity = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
 		Label labelCountry = new Label(grp_conf, SWT.NONE);
 		labelCountry.setText("Country :");
-		Text textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
+		textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
 		//allow only positive integers as input and not allow special characters like letter
 		restrictionField(false,textFee);
@@ -170,99 +185,11 @@ public class GuiConference {
 
 		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
 		buttonSubmit.setText("Create calendar");	
-		buttonSubmit.addSelectionListener(new SelectionAdapter() {
-			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
-			@Override
-			public void widgetSelected(SelectionEvent event)  {
-				LOGGER.debug("Button clicked : Ical created");
-				URL url = null;
-				try {
-					url = new URL("http://www.conference.com");
-				} catch (MalformedURLException e1) {
-					e1.printStackTrace();
-				}
-				
-				Conference conf = new Conference(url);
-				conf.setCity(textCity.getText());
-				conf.setCountry(textCountry.getText());
-				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
-				conf.setTitle(textTitle.getText());
-
-				String start = "";
-				String end = "";
-				if (dateCheck(start, end, shell) == true){
-					try {
-						ConferenceWriter.addConference(textTitle.getText(),conf);
-						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-						mb.setText("Success");
-						mb.setMessage("The iCalendar has created in the file " + textTitle.getText() + ".ics");
-						mb.open();
-					} catch (ValidationException | IOException | ParserException
-							| URISyntaxException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		});
-
+		buttonSubmit.addListener(SWT.Selection, GuiConference::generateCalendar);
 
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
-		buttonGenerate.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent event)  {
-				//this function save the value in the fields of GUI in a conference and fill the mission order
-				LOGGER.debug("Button clicked : OM generated");
-				URL url = null;
-				try {
-					url = new URL("http://www.conference.com");
-				} catch (MalformedURLException e1) {
-					e1.printStackTrace();
-				}
-
-				Researcher researcher = new Researcher(txt_Surname.getText(),txt_Firstname.getText());
-				researcher.setMail(txt_Mail.getText());
-				researcher.setPhone(txt_Phone.getText());
-
-				Conference conf = new Conference(url);
-				conf.setCity(textCity.getText());
-				conf.setCountry(textCountry.getText());
-				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
-				conf.setTitle(textTitle.getText());
-
-				String start = "";
-				String end = "";
-				if (dateCheck(start, end, shell) == true){
-					try {
-						GenerateOM.generateOM(conf,researcher);
-						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-						mb.setText("Success");
-						String filename = new String("OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
-						mb.setMessage("File saved in : " + filename);
-						mb.open();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-		});
-
-		// To dev at the second iteration
-		//		Button btn_openCalendar= new Button(grp_researcher, SWT.NONE);
-		//		btn_openCalendar.setBounds(600, 260, 200, 25);
-		//		btn_openCalendar.setText("Open Calendar");
-		//		btn_openCalendar.addListener(SWT.Selection, new Listener() {
-		//			
-		//			@Override
-		//			public void handleEvent(Event event) {
-		//				Preconditions.checkArgument((txt_login.getText()!=""));
-		//				//checkcalendarexist(txt_login.getText()+".ics"); //to do
-		//				LOGGER.debug("click open calendar");
-		//				//GuiListConferences gulist=new GuiListConferences(txt_login.getText());
-		//			}
-		//		});
+		buttonSubmit.addListener(SWT.Selection, GuiConference::generateOM);
 
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
@@ -276,22 +203,22 @@ public class GuiConference {
 					e1.printStackTrace();
 				}
 
-				Researcher researcher = new Researcher(txt_Surname.getText(),txt_Firstname.getText());
-				researcher.setMail(txt_Mail.getText());
-				researcher.setPhone(txt_Phone.getText());
+				Researcher researcher = new Researcher(textSurname.getText(),textFirstname.getText());
+				researcher.setMail(textMail.getText());
+				researcher.setPhone(textPhone.getText());
 
-				Conference conf = new Conference(url);
+				conf = new Conference(url);
 				conf.setCity(textCity.getText());
 				conf.setCountry(textCountry.getText());
 				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 				conf.setTitle(textTitle.getText());
-				
+
 				String start = dateFormat(dateStart);
 				String end = dateFormat(dateEnd);
 				conf.setStartDate(start);
 				conf.setEndDate(end);
-				
-				if (dateCheck(start, end, shell) == true){
+
+				if (dateCheck(start, end) == true){
 					try {
 						String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 
@@ -307,12 +234,12 @@ public class GuiConference {
 
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
-		txt_Surname.setBackground(col);
-		txt_Firstname.setBackground(col);
-		txt_Phone.setBackground(col);
-		txt_Group.setBackground(col);
-		txt_Mail.setBackground(col);
-		txt_Office.setBackground(col);
+		textSurname.setBackground(col);
+		textFirstname.setBackground(col);
+		textPhone.setBackground(col);
+		textGroup.setBackground(col);
+		textMail.setBackground(col);
+		textOffice.setBackground(col);
 		shell.setBackground(col2);
 		col2.dispose();
 		// tear down the SWT window
@@ -331,29 +258,12 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that define what char you can write in a field
-	 * @param text
-	 * @param parameters
-	 */
-	public static void restrictionField(boolean text,Text...parameters) {
-		for (Text parameter : parameters) {
-			if (text == true) {
-				parameter.addVerifyListener(ListenerAction::checkTextInput);
-			}
-			else {
-				parameter.addVerifyListener(ListenerAction::checkNumberInput);
-			}
-		}
-	}
-
-	/**
 	 * Method that return true if dateStart is before dateEnd.
 	 * @param start
 	 * @param end
-	 * @param shell
 	 * @return boolean
 	 */
-	public static boolean dateCheck(String start, String end, Shell shell) {
+	public static boolean dateCheck(String start, String end) {
 		if (start.compareTo(end) >= 0 ) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
@@ -419,6 +329,88 @@ public class GuiConference {
 				parameter.addVerifyListener(ListenerAction::inputFieldUnblock);
 			else
 				parameter.addVerifyListener(ListenerAction::inputFieldBlock);
+		}
+	}
+
+	/**
+	 * Method that define what char you can write in a field
+	 * @param text
+	 * @param parameters
+	 */
+	public static void restrictionField(boolean text,Text...parameters) {
+		for (Text parameter : parameters) {
+			if (text == true) {
+				parameter.addVerifyListener(ListenerAction::checkTextInput);
+			}
+			else {
+				parameter.addVerifyListener(ListenerAction::checkNumberInput);
+			}
+		}
+	}
+
+	public static void generateCalendar(@SuppressWarnings("unused") Event e) {
+		LOGGER.debug("Button clicked : Ical created");
+		URL url = null;
+		try {
+			url = new URL("http://www.conference.com");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+
+		conf = new Conference(url);
+		conf.setCity(textCity.getText());
+		conf.setCountry(textCountry.getText());
+		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
+		conf.setTitle(textTitle.getText());
+
+		String start = "";
+		String end = "";
+		if (dateCheck(start, end) == true){
+			try {
+				ConferenceWriter.addConference(textTitle.getText(),conf);
+				MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+				mb.setText("Success");
+				mb.setMessage("The iCalendar has created in the file " + textTitle.getText() + ".ics");
+				mb.open();
+			} catch (ValidationException | IOException | ParserException
+					| URISyntaxException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	public static void generateOM(@SuppressWarnings("unused") Event e) {
+		LOGGER.debug("Button clicked : OM generated");
+		URL url = null;
+		try {
+			url = new URL("http://www.conference.com");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+
+		Researcher researcher = new Researcher(textSurname.getText(),textFirstname.getText());
+		researcher.setMail(textMail.getText());
+		researcher.setPhone(textPhone.getText());
+
+		conf = new Conference(url);
+		conf.setCity(textCity.getText());
+		conf.setCountry(textCountry.getText());
+		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
+		conf.setTitle(textTitle.getText());
+
+		String start = "";
+		String end = "";
+		if (dateCheck(start, end) == true){
+			try {
+				GenerateOM.generateOM(conf,researcher);
+				MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+				mb.setText("Success");
+				String filename = new String("OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
+				mb.setMessage("File saved in : " + filename);
+				mb.open();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 }
