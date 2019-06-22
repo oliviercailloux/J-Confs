@@ -332,6 +332,7 @@ public class GuiConference {
 
 	/**
 	 * Method that define what char you can write in a field
+	 * @param text
 	 * @param parameters
 	 */
 	public static void restrictionField(boolean text,Text...parameters) {
@@ -343,23 +344,14 @@ public class GuiConference {
 				parameter.addVerifyListener(ListenerAction::checkNumberInput);
 			}
 		}
-
 	}
 
 	/**
-	 * Method that return true if dateStart is before dateEnd. It's also set informations for
-	 * conference
+	 * Method that return true if dateStart is before dateEnd.
 	 * @param start
 	 * @param end
-	 * @param dateStart
-	 * @param dateEnd
-	 * @param conf
-	 * @param city
-	 * @param country
-	 * @param fee
-	 * @param title
 	 * @param shell
-	 * @return true or false
+	 * @return boolean
 	 */
 	public static boolean dateCheck(String start, String end, Shell shell) {
 		if (start.compareTo(end) >= 0 ) {
@@ -372,6 +364,11 @@ public class GuiConference {
 		return true;
 	}
 
+	/**
+	 * Return a string that represents the date with the format dd/mm/yyyy
+	 * @param date
+	 * @return dateString
+	 */
 	public static String dateFormat(DateTime date) {
 		String day = Integer.toString(date.getDay());
 		String month = Integer.toString(date.getMonth()+1);
@@ -403,7 +400,6 @@ public class GuiConference {
 	/**
 	 * Method that define the layout grid for all argument of type Text
 	 * @param grid
-	 * @param grp
 	 * @param parameters
 	 */
 	public static void defineLayout(GridData grid, Text...parameters) {
@@ -413,7 +409,8 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that block the field when needed
+	 * Method that block or unblock the field when needed
+	 * @param block
 	 * @param parameters
 	 */
 	public static void manageInputField(boolean block, Text...parameters) {
