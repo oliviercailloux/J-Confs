@@ -49,12 +49,15 @@ public class GuiConference {
 	private static Text textCity;
 	private static Text textCountry;
 	private static Text textFee;
+	private static Text textLogin;
 	private static Text textSurname;
 	private static Text textFirstname;
 	private static Text textPhone;
 	private static Text textGroup;
 	private static Text textMail;
 	private static Text textOffice;
+	private static DateTime dateStart;
+	private static DateTime dateEnd;
 
 	public static void main(String[]args){
 		Gui(new Display());
@@ -88,7 +91,7 @@ public class GuiConference {
 		// create the label and the field text for the group researcher
 		Label lblLogin = new Label(grp_researcher, SWT.NONE);
 		lblLogin.setText("Login :");
-		Text textLogin = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
+		textLogin = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
 		Label lblSurname = new Label(grp_researcher, SWT.NONE);
 		lblSurname.setText("Surname");
@@ -118,31 +121,8 @@ public class GuiConference {
 		manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
 
 		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
-		btn_researcher.setText("Search");		
-		btn_researcher.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent event)  {
-				String login = textLogin.getText();
-
-				try {
-					Researcher researcher = ResearcherBuilder.create(login);
-					manageInputField(true, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
-					textSurname.setText(researcher.getLastname());
-					textFirstname.setText(researcher.getFirstname());
-					textPhone.setText(researcher.getPhone());
-					textGroup.setText(researcher.getGroup());
-					textMail.setText(researcher.getMail());
-					textOffice.setText(researcher.getOffice());
-					manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
-
-				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-						| ClassCastException e) {
-					e.printStackTrace();
-				}
-
-			}
-
-		});
+		btn_researcher.setText("Search");
+		btn_researcher.addListener(SWT.Selection, GuiConference::searchResearcher);
 
 		// create the label and the field text for the group conference
 		Label labelTitle = new Label(grp_conf, SWT.NONE);
@@ -175,12 +155,12 @@ public class GuiConference {
 		//create Date Selection as a drop-down
 		Label labelDateStart = new Label(grp_conf, SWT.NONE);
 		labelDateStart.setText("Date Start");
-		DateTime dateStart = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
+		dateStart = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
 		dateStart.setLayoutData(gridDataDate);
 
 		Label labelDateEnd = new Label(grp_conf, SWT.NONE);
 		labelDateEnd.setText("Date End");
-		DateTime dateEnd = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
+		dateEnd = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
 		dateEnd.setLayoutData(gridDataDate);
 
 		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
@@ -189,48 +169,11 @@ public class GuiConference {
 
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
-		buttonSubmit.addListener(SWT.Selection, GuiConference::generateOM);
+		buttonSubmit.addListener(SWT.Selection, GuiConference::generateOm);
 
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
-		buttonYS.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent event)  {
-				URL url = null;
-				try {
-					url = new URL("http://www.conference.com");
-				} catch (MalformedURLException e1) {
-					e1.printStackTrace();
-				}
-
-				Researcher researcher = new Researcher(textSurname.getText(),textFirstname.getText());
-				researcher.setMail(textMail.getText());
-				researcher.setPhone(textPhone.getText());
-
-				conf = new Conference(url);
-				conf.setCity(textCity.getText());
-				conf.setCountry(textCountry.getText());
-				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
-				conf.setTitle(textTitle.getText());
-
-				String start = dateFormat(dateStart);
-				String end = dateFormat(dateEnd);
-				conf.setStartDate(start);
-				conf.setEndDate(end);
-
-				if (dateCheck(start, end) == true){
-					try {
-						String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
-
-						GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
-
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-		});
+		buttonSubmit.addListener(SWT.Selection, GuiConference::generateYs);
 
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
@@ -348,6 +291,27 @@ public class GuiConference {
 		}
 	}
 
+	public static void searchResearcher(@SuppressWarnings("unused") Event e) {
+		try {
+			Researcher researcher = ResearcherBuilder.create(textLogin.getText());
+			manageInputField(true, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
+			textSurname.setText(researcher.getLastname());
+			textFirstname.setText(researcher.getFirstname());
+			textPhone.setText(researcher.getPhone());
+			textGroup.setText(researcher.getGroup());
+			textMail.setText(researcher.getMail());
+			textOffice.setText(researcher.getOffice());
+			manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| ClassCastException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Method that generate and store a calendar 
+	 * @param e Event that we can catch
+	 */
 	public static void generateCalendar(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ical created");
 		URL url = null;
@@ -362,9 +326,11 @@ public class GuiConference {
 		conf.setCountry(textCountry.getText());
 		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 		conf.setTitle(textTitle.getText());
-
-		String start = "";
-		String end = "";
+		String start = dateFormat(dateStart);
+		String end = dateFormat(dateEnd);
+		conf.setStartDate(start);
+		conf.setEndDate(end);
+		
 		if (dateCheck(start, end) == true){
 			try {
 				ConferenceWriter.addConference(textTitle.getText(),conf);
@@ -379,7 +345,11 @@ public class GuiConference {
 		}
 	}
 
-	public static void generateOM(@SuppressWarnings("unused") Event e) {
+	/**
+	 * Method that generate an ods file which is an order mission 
+	 * @param e Event that we can catch
+	 */
+	public static void generateOm(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : OM generated");
 		URL url = null;
 		try {
@@ -397,9 +367,11 @@ public class GuiConference {
 		conf.setCountry(textCountry.getText());
 		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 		conf.setTitle(textTitle.getText());
-
-		String start = "";
-		String end = "";
+		String start = dateFormat(dateStart);
+		String end = dateFormat(dateEnd);
+		conf.setStartDate(start);
+		conf.setEndDate(end);
+		
 		if (dateCheck(start, end) == true){
 			try {
 				GenerateOM.generateOM(conf,researcher);
@@ -409,6 +381,42 @@ public class GuiConference {
 				mb.setMessage("File saved in : " + filename);
 				mb.open();
 			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * Method that generate a fodt file 
+	 * @param e event that we catch
+	 */
+	public static void generateYs(@SuppressWarnings("unused") Event e) {
+		URL url = null;
+		try {
+			url = new URL("http://www.conference.com");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+
+		Researcher researcher = new Researcher(textSurname.getText(),textFirstname.getText());
+		researcher.setMail(textMail.getText());
+		researcher.setPhone(textPhone.getText());
+
+		conf = new Conference(url);
+		conf.setCity(textCity.getText());
+		conf.setCountry(textCountry.getText());
+		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
+		conf.setTitle(textTitle.getText());
+		String start = dateFormat(dateStart);
+		String end = dateFormat(dateEnd);
+		conf.setStartDate(start);
+		conf.setEndDate(end);
+
+		if (dateCheck(start, end) == true){
+			try {
+				String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
+				GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
+			}catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		}
