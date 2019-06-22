@@ -181,21 +181,21 @@ public class GuiConference {
 				} catch (MalformedURLException e1) {
 					e1.printStackTrace();
 				}
+				
 				Conference conf = new Conference(url);
-				String title = textTitle.getText();
-				Double fee = Double.parseDouble(textFee.getText());
-				String city = textCity.getText();
-				String country = textCountry.getText();
+				conf.setCity(textCity.getText());
+				conf.setCountry(textCountry.getText());
+				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
+				conf.setTitle(textTitle.getText());
 
 				String start = "";
 				String end = "";
-				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
-						shell) == true){
+				if (dateCheck(start, end, shell) == true){
 					try {
-						ConferenceWriter.addConference(title,conf);
+						ConferenceWriter.addConference(textTitle.getText(),conf);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 						mb.setText("Success");
-						mb.setMessage("The iCalendar has created in the file " + title + ".ics");
+						mb.setMessage("The iCalendar has created in the file " + textTitle.getText() + ".ics");
 						mb.open();
 					} catch (ValidationException | IOException | ParserException
 							| URISyntaxException e) {
@@ -220,25 +220,25 @@ public class GuiConference {
 				} catch (MalformedURLException e1) {
 					e1.printStackTrace();
 				}
-				Conference conf = new Conference(url);
-				String surname = "", firstname = "", email = "", phone = "", title = "",
-						city = "", country = "";
-				Double fee = 0.00;
-				Researcher researcher = null;
 
-				confAndResercher(researcher, surname, firstname, email, phone, title,
-						city, country, fee,  txt_Surname,  txt_Firstname, txt_Mail,  txt_Phone,
-						textTitle,  textFee,  textCity, textCountry);
+				Researcher researcher = new Researcher(txt_Surname.getText(),txt_Firstname.getText());
+				researcher.setMail(txt_Mail.getText());
+				researcher.setPhone(txt_Phone.getText());
+
+				Conference conf = new Conference(url);
+				conf.setCity(textCity.getText());
+				conf.setCountry(textCountry.getText());
+				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
+				conf.setTitle(textTitle.getText());
 
 				String start = "";
 				String end = "";
-				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
-						shell) == true){
+				if (dateCheck(start, end, shell) == true){
 					try {
 						GenerateOM.generateOM(conf,researcher);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 						mb.setText("Success");
-						String filename = new String("OM_" + city + "-" + country + "_" + start + ".ods");
+						String filename = new String("OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
 						mb.setMessage("File saved in : " + filename);
 						mb.open();
 					} catch (Exception e) {
@@ -275,20 +275,23 @@ public class GuiConference {
 				} catch (MalformedURLException e1) {
 					e1.printStackTrace();
 				}
+
+				Researcher researcher = new Researcher(txt_Surname.getText(),txt_Firstname.getText());
+				researcher.setMail(txt_Mail.getText());
+				researcher.setPhone(txt_Phone.getText());
+
 				Conference conf = new Conference(url);
-				String surname = "", firstname = "", email = "", phone = "", title = "",
-						city = "", country = "";
-				Double fee = 0.00;
-				Researcher researcher = null;
-
-				confAndResercher(researcher, surname, firstname, email, phone, title,
-						city, country, fee,  txt_Surname,  txt_Firstname, txt_Mail,  txt_Phone,
-						textTitle,  textFee,  textCity, textCountry);
-
-				String start = "";
-				String end = "";
-				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
-						shell) == true){
+				conf.setCity(textCity.getText());
+				conf.setCountry(textCountry.getText());
+				conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
+				conf.setTitle(textTitle.getText());
+				
+				String start = dateFormat(dateStart);
+				String end = dateFormat(dateEnd);
+				conf.setStartDate(start);
+				conf.setEndDate(end);
+				
+				if (dateCheck(start, end, shell) == true){
 					try {
 						String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 
@@ -328,44 +331,6 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that get informations from fields
-	 * @param researcher
-	 * @param surname
-	 * @param firstname
-	 * @param email
-	 * @param phone
-	 * @param title
-	 * @param city
-	 * @param country
-	 * @param fee
-	 * @param txt_Surname
-	 * @param txt_Firstname
-	 * @param txt_Mail
-	 * @param txt_Phone
-	 * @param textTitle
-	 * @param textFee
-	 * @param textCity
-	 * @param textCountry
-	 */
-	public static void confAndResercher(Researcher researcher,
-			String surname, String firstname, String email, String phone, String title,
-			String city, String country, double fee, Text txt_Surname, Text txt_Firstname,
-			Text txt_Mail, Text txt_Phone, Text textTitle, Text textFee, Text textCity,
-			Text textCountry) {
-		surname = txt_Surname.getText();
-		firstname = txt_Firstname.getText();
-		email = txt_Mail.getText();
-		phone  = txt_Phone.getText();
-		researcher = new Researcher(surname,firstname);
-		researcher.setMail(email);
-		researcher.setPhone(phone);
-		title = textTitle.getText();
-		fee = Double.parseDouble(textFee.getText());
-		city = textCity.getText();
-		country = textCountry.getText();
-	}
-
-	/**
 	 * Method that define what char you can write in a field
 	 * @param parameters
 	 */
@@ -396,72 +361,7 @@ public class GuiConference {
 	 * @param shell
 	 * @return true or false
 	 */
-	public static boolean check(String start, String end, DateTime dateStart, DateTime dateEnd, Conference conf,
-			String city, String country, double fee, String title, Shell shell) {
-		// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-		String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
-
-		String dStart = Integer.toString(dateStart.getDay());
-		String mStart = Integer.toString(dateStart.getMonth()+1);
-		String yStart = Integer.toString(dateStart.getYear());
-		String dnew = "";
-		String mnew = "";
-		boolean dayStart = Arrays.asList(array).contains(dStart);
-		boolean monthStart = Arrays.asList(array).contains(mStart);
-		if(dayStart && !monthStart ){
-			dnew = "0"+dStart;
-			start = dnew + "/" + mStart + "/" + yStart;
-
-		}
-		else if (!dayStart && monthStart){
-			mnew = "0"+mStart;
-			start = dStart + "/" + mnew + "/" + yStart;
-		}
-		else if (dayStart && monthStart){
-			dnew = "0"+dStart;
-			mnew = "0"+mStart;
-			start = dnew + "/" + mnew + "/" + yStart;
-		}
-		else {
-			start = dStart + "/" + mStart + "/" + yStart;
-		}
-
-
-		String dEnd = Integer.toString(dateEnd.getDay());
-		String mEnd = Integer.toString(dateEnd.getMonth()+1);
-		String yEnd = Integer.toString(dateEnd.getYear());
-		;
-		String dnew1 = "";
-		String mnew1 = "";
-		boolean dayEnd = Arrays.asList(array).contains(dEnd);
-		boolean monthEnd = Arrays.asList(array).contains(mEnd);
-		if(dayEnd && !monthEnd ){
-			dnew1 = "0"+dEnd;
-			end = dnew1 + "/" + mEnd + "/" + yEnd;
-
-		}
-		else if (!dayEnd && monthEnd){
-			mnew1 = "0"+mEnd;
-			end = dEnd + "/" + mnew1 + "/" + yEnd;
-
-		}
-		else if (dayEnd && monthEnd){
-			dnew1 = "0"+dEnd;
-			mnew1 = "0"+mEnd;
-			end = dnew1 + "/" + mnew1 + "/" + yEnd;
-
-		}
-		else {
-			end = dEnd + "/" + mEnd + "/" + yEnd;
-		}
-
-		conf.setCity(city);
-		conf.setCountry(country);
-		conf.setStartDate(start);
-		conf.setEndDate(end);
-
-		conf.setFeeRegistration(fee);
-		conf.setTitle(title);
+	public static boolean dateCheck(String start, String end, Shell shell) {
 		if (start.compareTo(end) >= 0 ) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
@@ -470,6 +370,34 @@ public class GuiConference {
 			return false;
 		}
 		return true;
+	}
+
+	public static String dateFormat(DateTime date) {
+		String day = Integer.toString(date.getDay());
+		String month = Integer.toString(date.getMonth()+1);
+		String year = Integer.toString(date.getYear());
+		String dateString = "";
+		String dayNew = "";
+		String monthNew = "";
+		boolean dayFormat = date.getDay() <= 9;
+		boolean monthFormat = date.getMonth()+1 <= 9;
+		if(dayFormat && !monthFormat ){
+			dayNew = "0"+day;
+			dateString = dayNew + "/" + month + "/" + year;
+		}
+		else if (!dayFormat && monthFormat){
+			monthNew = "0"+month;
+			dateString = day + "/" + monthNew + "/" + year;
+		}
+		else if (dayFormat && monthFormat){
+			dayNew = "0"+day;
+			monthNew = "0"+month;
+			dateString = dayNew + "/" + monthNew + "/" + year;
+		}
+		else {
+			dateString = day + "/" + month + "/" + year;
+		}
+		return dateString;
 	}
 
 	/**
