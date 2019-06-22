@@ -105,6 +105,7 @@ public class GuiConference {
 		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
 		btn_researcher.setText("Search");		
 		btn_researcher.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				String login = txt_login.getText();
 
@@ -171,6 +172,7 @@ public class GuiConference {
 		buttonSubmit.setText("Create calendar");	
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
 			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				LOGGER.debug("Button clicked : Ical created");
 				URL url = null;
@@ -208,6 +210,7 @@ public class GuiConference {
 		buttonGenerate.setText("Generate OM");
 		buttonGenerate.addSelectionListener(new SelectionAdapter() {
 
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				//this function save the value in the fields of GUI in a conference and fill the mission order
 				LOGGER.debug("Button clicked : OM generated");
@@ -264,6 +267,7 @@ public class GuiConference {
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
 		buttonYS.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent event)  {
 				URL url = null;
 				try {
