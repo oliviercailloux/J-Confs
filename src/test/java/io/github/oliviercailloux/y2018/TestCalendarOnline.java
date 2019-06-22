@@ -22,7 +22,7 @@ import net.fortuna.ical4j.model.property.DtStart;
 
 public class TestCalendarOnline {
 
-	@Test
+	
 	public void testGetOnlineConferenceFromUid() throws CalDAV4JException, InvalidConferenceFormatException {
 		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
 		Conference conferenceFound;
