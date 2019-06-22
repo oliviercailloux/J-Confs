@@ -146,9 +146,9 @@ public class GuiConference {
 		Text textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
 		//allow only positive integers as input and not allow special characters like letter
-		restrictionField("number", textFee);
+		restrictionField(false,textFee);
 		//not allow the integers
-		restrictionField("letter", textCity, textCountry);
+		restrictionField(true,textCity, textCountry);
 		defineLayout(gridDataTextField, textTitle, textFee, textCity, textCountry);
 
 		GridData gridDataDate = new GridData();
@@ -190,12 +190,12 @@ public class GuiConference {
 				if (check(start, end, dateStart, dateEnd, conf, city, country, fee, title,
 						shell) == true){
 					try {
-						ConferenceWriter.writeCalendarFiles(title,conf);
+						ConferenceWriter.addConference(title,conf);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 						mb.setText("Success");
 						mb.setMessage("The iCalendar has created in the file " + title + ".ics");
 						mb.open();
-					} catch (ValidationException | ParseException | IOException | ParserException
+					} catch (ValidationException | IOException | ParserException
 							| URISyntaxException e) {
 						e.printStackTrace();
 					}
@@ -276,7 +276,7 @@ public class GuiConference {
 						city = "", country = "";
 				Double fee = 0.00;
 				Researcher researcher = null;
-					
+
 				confAndResercher(researcher, surname, firstname, email, phone, title,
 						city, country, fee,  txt_Surname,  txt_Firstname, txt_Mail,  txt_Phone,
 						textTitle,  textFee,  textCity, textCountry);
@@ -363,33 +363,16 @@ public class GuiConference {
 
 	/**
 	 * Method that define what char you can write in a field
-	 * @param type
 	 * @param parameters
 	 */
-	public static void restrictionField(String type, Text...parameters) {
+	public static void restrictionField(boolean text,Text...parameters) {
 		for (Text parameter : parameters) {
-			parameter.addVerifyListener(new VerifyListener() {
-				public void verifyText(VerifyEvent e) {
-					String string = e.text;
-					char[] chars = new char[string.length()];
-					string.getChars(0, chars.length, chars, 0);
-					for (int i = 0; i < chars.length; i++) {
-						if (type.contains("letter")) {
-							if ('0' <= chars[i] && chars[i] <= '9') {
-								e.doit = false;
-								return;
-							}
-						}
-						else {
-							if (!('0' <= chars[i] && chars[i] <= '9')) {
-								e.doit = false;
-								return;
-							}
-						}
-
-					}
-				}
-			});
+			if (text == true) {
+				parameter.addVerifyListener(ListenerAction::checkTextInput);
+			}
+			else {
+				parameter.addVerifyListener(ListenerAction::checkNumberInput);
+			}
 		}
 
 	}
@@ -470,16 +453,8 @@ public class GuiConference {
 
 		conf.setCity(city);
 		conf.setCountry(country);
-		try {
-			conf.setStartDate(start);
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			conf.setEndDate(end);
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
+		conf.setStartDate(start);
+		conf.setEndDate(end);
 
 		conf.setFeeRegistration(fee);
 		conf.setTitle(title);
@@ -506,17 +481,15 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that unblock or block the field when needed
-	 * @param block
+	 * Method that block the field when needed
 	 * @param parameters
 	 */
-	public static void manageInputField( boolean block, Text...parameters) {
+	public static void manageInputField(boolean block, Text...parameters) {
 		for (Text parameter : parameters) {
-			parameter.addVerifyListener(new VerifyListener() {
-				public void verifyText(VerifyEvent e) {
-					e.doit = block;      
-				}
-			});
+			if (block == true)
+				parameter.addVerifyListener(ListenerAction::inputFieldUnblock);
+			else
+				parameter.addVerifyListener(ListenerAction::inputFieldBlock);
 		}
 	}
 }

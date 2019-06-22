@@ -1,6 +1,9 @@
 package io.github.oliviercailloux.y2018;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+//import static org.junit.Assert.assertEquals;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -29,7 +32,7 @@ public class ConferencesFromICalTest {
 	 * @throws InvalidConferenceFormatException 
 	 */
 
-	public final void retriveTest() throws NumberFormatException, IOException, ParserException, ParseException, InvalidConferenceFormatException {
+	public final void retriveTest() throws Exception {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		// TEST 1
@@ -47,7 +50,7 @@ public class ConferencesFromICalTest {
 	}
 	
 
-	public final void retriveTest2() throws NumberFormatException, IOException, ParserException, InvalidConferenceFormatException, ParseException {
+	public final void retriveTest2() throws Exception {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
 		
