@@ -7,6 +7,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -58,7 +59,8 @@ public class ConferenceReader {
 	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
 		Conference conf = null;
 		URL confURL;
-		
+		String[] location;
+		String[] description;
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
 			conf = new Conference(confURL);
@@ -66,17 +68,30 @@ public class ConferenceReader {
 			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference",e1);
 		}
 		
-		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-		conf.setCountry(confCompo.getProperty("X-COUNTRY").getValue());
-		String stringDTSTART=convertDate(confCompo.getProperty("X-DTSTART").getValue());
-		String stringDTEND=convertDate(confCompo.getProperty("X-DTEND").getValue());
-		
-		conf.setStartDate(stringDTSTART);
-		
-		conf.setEndDate(stringDTEND);
-		
-		conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("X-FEE").getValue()));
-		conf.setCity(confCompo.getProperty("X-CITY").getValue());	
+		location=confCompo.getProperty("LOCATION").getValue().split(",");
+		description=confCompo.getProperty("DESCRIPTION").getValue().split("/");
+
+		for(String ele : description) {
+			if(ele.contains("Fee")) {
+				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf(":")+1)));
+			}
+		}
+		conf.setUid(confCompo.getProperty("UID").getValue());
+		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());		
+		conf.setCity(location[0]);
+		conf.setCountry(location[1]);
+		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
+		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
+		try {
+			conf.setStartDate(stringDTSTART);
+		} catch (DateTimeParseException e) {
+			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
+		}
+		try {
+			conf.setEndDate(stringDTEND);
+		} catch (DateTimeParseException e) {
+			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
+		}
 		return conf;
 
 	}
@@ -95,7 +110,7 @@ public class ConferenceReader {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
 		Set<Conference> listeconfuser=new LinkedHashSet<>();
-		ComponentList<CalendarComponent> conflist=calendar.getComponents("X-CONFERENCE");
+		ComponentList<CalendarComponent> conflist=calendar.getComponents(Component.VEVENT);
 		for (int i=0;i<conflist.size();i++) {
 			listeconfuser.add(createConference(conflist.get(i)));
 		}

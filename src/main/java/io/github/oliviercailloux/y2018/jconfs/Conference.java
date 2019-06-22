@@ -3,6 +3,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
 import com.google.common.base.MoreObjects;
@@ -14,6 +15,7 @@ import com.google.common.base.MoreObjects;
  */
 public class Conference {
 	private URL url;
+	private String uid;
 	private String title;
 	private LocalDate startDate;
 	private LocalDate endDate;
@@ -129,6 +131,14 @@ public class Conference {
 	public void setCity(String city) {
 		this.city = Objects.requireNonNull(city);
 	}
+	
+	public String getUid() {
+		return this.uid;
+	}
+	
+	public void setUid(String uid) {
+		this.uid=uid;
+	}
 
 	/**
 	 * This is a constructor which initializes the conference object 
@@ -149,11 +159,10 @@ public class Conference {
 	public boolean equals(Object obj) {
 		if (obj instanceof Conference) {
 			Conference conference2 = (Conference) obj;
-			System.out.println(toString());
-			System.out.println(conference2.toString());
+			
 			if (title.equals(conference2.title) && url.equals(conference2.url)
 					&& startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
-					&& registrationFee == conference2.registrationFee && city.equals(conference2.city)
+					&& registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
 					&& country.equals(conference2.country)) {
 				return true;
 			}
@@ -170,6 +179,7 @@ public class Conference {
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
+				.add("UID", uid)
 				.add("url", url)
 				.add("title", title)
 				.add("startDate", startDate)

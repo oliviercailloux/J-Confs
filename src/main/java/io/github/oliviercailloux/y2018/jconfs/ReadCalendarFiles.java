@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.y2018.jconfs;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -12,6 +13,7 @@ import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.CalendarComponent;
+
 
 /**
  * This class allows to read and iCalelndar file and creates a conference object
