@@ -49,7 +49,7 @@ public class ListenerAction {
 	public static void inputFieldBlock(VerifyEvent e) {
 		e.doit = false;      
 	}
-	
+
 	/**
 	 * Method that unblock the field
 	 */
