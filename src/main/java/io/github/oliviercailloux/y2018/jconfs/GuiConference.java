@@ -304,7 +304,7 @@ public class GuiConference {
 			throw new RuntimeException(e1);
 		}
 	}
-	
+
 	/**
 	 * Method that generate and store a calendar 
 	 * @param e Event that we can catch
@@ -327,7 +327,7 @@ public class GuiConference {
 		String end = dateFormat(dateEnd);
 		conf.setStartDate(start);
 		conf.setEndDate(end);
-		
+
 		if (dateCheck(start, end) == true){
 			try {
 				ConferenceWriter.addConference(textTitle.getText(),conf);
@@ -368,7 +368,7 @@ public class GuiConference {
 		String end = dateFormat(dateEnd);
 		conf.setStartDate(start);
 		conf.setEndDate(end);
-		
+
 		if (dateCheck(start, end) == true){
 			try {
 				GenerateOM.generateOM(conf,researcher);
