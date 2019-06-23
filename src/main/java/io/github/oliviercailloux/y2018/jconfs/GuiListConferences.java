@@ -64,6 +64,7 @@ public class GuiListConferences {
 		shell.open();
 	}
 
+
 	/**
 	 * Create a shell with all field of a conference and the list of conferences of
 	 * a specific calendar file
@@ -184,7 +185,7 @@ public class GuiListConferences {
 	/** Fill all fields of the GUI with the information of a conference
 	 * @param e event that we catch
 	 */
-	public void fillInAllFields(Event e) {
+	public void fillInAllFields(@SuppressWarnings("unused") Event e) {
 		if (listConferences.getSelectionIndex() >= 0) {
 			Conference conferenceSelected;
 			conferenceSelected = listConferencesUser.get(listConferences.getSelectionIndex());
@@ -201,7 +202,7 @@ public class GuiListConferences {
 	/** Edit of a conference: delete and save the conference edited
 	 * @param e event that we catch
 	 */
-	public void editConference(Event e) {
+	public void editConference(@SuppressWarnings("unused") Event e) {
 		if (isAllFieldsValid() && listConferences.getSelectionIndex() >= 0) {
 			LOGGER.warn("Save and edit of Conference online not yet implemented");
 			listConferences.removeAll();

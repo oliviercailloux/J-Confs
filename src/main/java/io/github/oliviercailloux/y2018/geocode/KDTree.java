@@ -55,7 +55,7 @@ public class KDTree<T extends KDNodeComparator<T>> {
         }
         Collections.sort(items, items.get(0).getComparator(depth % 3));
         int currentIndex = items.size()/2;
-        return new KDNode<T>(createKDTree(new ArrayList<T>(items.subList(0, currentIndex)), depth+1), createKDTree(new ArrayList<T>(items.subList(currentIndex + 1, items.size())), depth+1), items.get(currentIndex));
+        return new KDNode<>(createKDTree(new ArrayList<>(items.subList(0, currentIndex)), depth+1), createKDTree(new ArrayList<>(items.subList(currentIndex + 1, items.size())), depth+1), items.get(currentIndex));
     }
 
     private KDNode<T> findNearest(KDNode<T> currentNode, T search, int depth) {

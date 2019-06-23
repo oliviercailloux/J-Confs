@@ -49,8 +49,10 @@ public class ConferencesFromICal implements ConferencesRetriever {
 			throws InvalidConferenceFormatException, IOException, ParserException {
 		Preconditions.checkNotNull(fileName);
 		URL urlcalendar = ConferenceReader.class.getResource(fileName+".ics");		
-		FileReader reader=new FileReader(new File(urlcalendar.getFile()));
-		return ConferenceReader.readConferences(reader);
+		try (FileReader reader=new FileReader(new File(urlcalendar.getFile()))){
+			return ConferenceReader.readConferences(reader);
+		}
+		
 	}
 
 }

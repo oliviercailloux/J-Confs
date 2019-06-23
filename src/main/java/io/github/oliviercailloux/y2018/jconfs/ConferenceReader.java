@@ -82,13 +82,11 @@ public class ConferenceReader {
 		conf.setCountry(location[1]);
 		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
-		
 		try {
 			conf.setStartDate(stringDTSTART);
 		} catch (DateTimeParseException e) {
 			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
 		}
-		
 		try {
 			conf.setEndDate(stringDTEND);
 		} catch (DateTimeParseException e) {

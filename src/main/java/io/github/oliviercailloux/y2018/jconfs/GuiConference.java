@@ -75,11 +75,13 @@ public class GuiConference {
 		// add the group for the researcher into shell
 		Group grp_researcher = new Group(shell, SWT.NONE);
 		grp_researcher.setText("Researcher");
+
 		GridLayout gridLayoutR = new GridLayout(4, false);
 		grp_researcher.setLayout(gridLayoutR);
 
 		Group grp_conf = new Group(shell, SWT.NONE);
 		grp_conf.setText("Conference");
+
 		GridLayout gridLayoutC = new GridLayout(4, false);
 		grp_conf.setLayout(gridLayoutC);
 
@@ -189,15 +191,10 @@ public class GuiConference {
 		shell.pack();
 		shell.open();
 		while (!shell.isDisposed()) {
-
 			if (!display.readAndDispatch())
-
 				display.sleep();
-
 		}
-
 		display.dispose();
-
 	}
 
 	/**

@@ -7,8 +7,6 @@ import java.text.ParseException;
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.util.Iterator;
-import javax.xml.bind.ValidationException;
-
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
@@ -75,11 +73,10 @@ public class ReadCalendarFiles {
 	 * @return
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws ParseException
 	 * @throws ValidationException
 	 */
 
-	public static Conference createConference(String filepath) throws IOException, ParserException, ParseException {
+	public static Conference createConference(String filepath) throws IOException, ParserException {
 
 		Conference conf = null;
 		try (FileInputStream fin2 = new FileInputStream(filepath)) {

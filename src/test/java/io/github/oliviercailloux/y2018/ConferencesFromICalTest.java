@@ -28,7 +28,6 @@ public class ConferencesFromICalTest {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws ParseException
 	 * @throws InvalidConferenceFormatException 
 	 */
 
