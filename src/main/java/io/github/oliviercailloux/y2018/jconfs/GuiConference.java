@@ -301,7 +301,7 @@ public class GuiConference {
 			manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| ClassCastException e1) {
-			e1.printStackTrace();
+			throw new RuntimeException(e1);
 		}
 	}
 	
@@ -337,7 +337,7 @@ public class GuiConference {
 				mb.open();
 			} catch (ValidationException | IOException | ParserException
 					| URISyntaxException e1) {
-				e1.printStackTrace();
+				throw new RuntimeException(e1);
 			}
 		}
 	}
