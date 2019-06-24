@@ -113,7 +113,7 @@ Team 2 : Jacques & Félix
 === Delivery 4 
 
 	* *Tasks*
-		. The SM/PO update the README.adoc elements that we want the teacher to take into account in the overall assessment.
+		. The SM/PO update the README.adoc to say elements that we want that the teacher take into account for the overall assessment.
 		. The SM/PO fix packages and format of the code. 
 		. Team 1 : New feature : add and edit conferences online (https://www.fruux.com).
 		. Team 2 : New feature : try to display a route to the conference location
