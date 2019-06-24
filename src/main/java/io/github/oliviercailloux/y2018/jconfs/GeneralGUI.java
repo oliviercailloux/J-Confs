@@ -38,7 +38,7 @@ public class GeneralGUI {
 		localMapButton.setSize(200, 50);
 
 		localMapButton.addListener(SWT.Selection, new Listener() {
-			 MapGUI mapGUI = new MapGUI("world.map", display); // endPoint (pékin latLong)
+			MapGUI mapGUI = new MapGUI("world.map", display); // endPoint (pékin latLong)
 
 			@Override
 			public void handleEvent(Event e) {
@@ -56,7 +56,7 @@ public class GeneralGUI {
 			public void handleEvent(Event event) {
 				GuiConference.Gui(display);
 			}
-			
+
 		});
 
 		shell.setSize(500, 500);

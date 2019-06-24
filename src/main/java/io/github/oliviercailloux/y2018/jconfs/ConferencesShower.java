@@ -37,8 +37,7 @@ public class ConferencesShower {
 	 * 
 	 * take a filename and search every conference with the title given in arg
 	 * 
-	 * @param title
-	 *            not <code>null<code>
+	 * @param title not <code>null<code>
 	 * @return Set<Conference> Not <code>null<code>
 	 * 
 	 * @throws Exception
@@ -76,10 +75,10 @@ public class ConferencesShower {
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 * @throws IOException
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
 	public Set<Conference> searchConferenceInFile(String fileName)
-			throws IOException, ParserException, InvalidConferenceFormatException{
+			throws IOException, ParserException, InvalidConferenceFormatException {
 		Set<Conference> set = retriever.retrieve(Objects.requireNonNull(fileName));
 		return set;
 
@@ -94,7 +93,7 @@ public class ConferencesShower {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
 	public Set<Conference> allConferences() throws IOException, ParserException, InvalidConferenceFormatException {
 		return retriever.retrieve();

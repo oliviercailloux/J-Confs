@@ -1,4 +1,5 @@
 package io.github.oliviercailloux.y2018.jconfs;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +8,8 @@ import java.net.URLConnection;
 import java.util.Objects;
 
 /**
- * this class enables to download file from given link to test/resources directory
+ * this class enables to download file from given link to test/resources
+ * directory
  * 
  *
  */
@@ -25,7 +27,7 @@ public class Download {
 		try (InputStream input = connection.getInputStream()) {
 			String fileName = url.getFile().substring(url.getFile().lastIndexOf('/') + 1);
 
-			try (FileOutputStream writeFile = new FileOutputStream("target/classes/"+fileName);) {
+			try (FileOutputStream writeFile = new FileOutputStream("target/classes/" + fileName);) {
 
 				byte[] buffer = new byte[1024];
 				int read;
