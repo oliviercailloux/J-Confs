@@ -19,10 +19,11 @@ Team 2 : Nikola & Tom
 |2| 3rd June, 2019 |15 h | link:https://github.com/jacquesmoati[Jacques MOATI]| Team 1 : Alison & Tom +
 Team 2 : Nikola & Félix
 
-|3|17th May, 2019 | 10 h | link:https://github.com/aliliKM[Alison Koudossou Messan]| Team 1 : Nikola & Tom +
+|3|17th June, 2019 | 10 h | link:https://github.com/aliliKM[Alison Koudossou Messan]| Team 1 : Nikola & Tom +
 Team 2 : Jacques & Félix
 
-|4|__To define__ | __To define__ | __To define__|__To define__
+|4|17th June, 2019 | 10 h | link:https://github.com/nikolaspaci[Nikola Spaci]| Team 1 : Alison & Tom +
+Team 2 : Jacques & Félix
 
 
 |=========================================================
@@ -112,5 +113,8 @@ Team 2 : Jacques & Félix
 === Delivery 4 
 
 	* *Tasks*
-		. Continue the History feature
-		. Do the Peterhead feature
+		. The SM/PO update the README.adoc elements that we want the teacher to take into account in the overall assessment.
+		. The SM/PO fix packages and format of the code. 
+		. Team 1 : New feature : add and edit conferences online (https://www.fruux.com).
+		. Team 2 : New feature : try to display a route to the conference location
+		. Team 1 & 2 : Document the added functionality and say what has not been done, to inform the next group.
