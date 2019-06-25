@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Arrays;
 
 import javax.naming.directory.InvalidAttributeIdentifierException;
@@ -26,7 +27,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -171,11 +171,11 @@ public class GuiConference {
 
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
-		buttonSubmit.addListener(SWT.Selection, this::generateOm);
+		buttonGenerate.addListener(SWT.Selection, this::generateOm);
 
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
-		buttonSubmit.addListener(SWT.Selection, this::generateYs);
+		buttonYS.addListener(SWT.Selection, this::generateYs);
 
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
@@ -203,7 +203,7 @@ public class GuiConference {
 	 * @param end
 	 * @return boolean
 	 */
-	public boolean isDateValid(String start, String end) {
+	public boolean isDateValid(LocalDate start, LocalDate end) {
 		if (start.compareTo(end) >= 0 ) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
@@ -215,36 +215,14 @@ public class GuiConference {
 	}
 
 	/**
-	 * Return a string that represents the date with the format dd/mm/yyyy
+	 * Return a localDate dd/mm/yyyy
 	 * @param date
 	 * @return dateString
 	 */
-	public String dateFormat(DateTime date) {
-		String day = Integer.toString(date.getDay());
-		String month = Integer.toString(date.getMonth()+1);
-		String year = Integer.toString(date.getYear());
-		String dateString = "";
-		String dayNew = "";
-		String monthNew = "";
-		boolean dayFormat = date.getDay() <= 9;
-		boolean monthFormat = date.getMonth()+1 <= 9;
-		if(dayFormat && !monthFormat ){
-			dayNew = "0"+day;
-			dateString = dayNew + "/" + month + "/" + year;
-		}
-		else if (!dayFormat && monthFormat){
-			monthNew = "0"+month;
-			dateString = day + "/" + monthNew + "/" + year;
-		}
-		else if (dayFormat && monthFormat){
-			dayNew = "0"+day;
-			monthNew = "0"+month;
-			dateString = dayNew + "/" + monthNew + "/" + year;
-		}
-		else {
-			dateString = day + "/" + month + "/" + year;
-		}
-		return dateString;
+	public LocalDate dateFormat(DateTime date) {
+		LocalDate localDate = LocalDate.of(date.getYear(), date.getMonth() + 1,
+				date.getDay());
+		return localDate;
 	}
 
 	/**
@@ -323,8 +301,8 @@ public class GuiConference {
 		conf.setCountry(textCountry.getText());
 		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 		conf.setTitle(textTitle.getText());
-		String start = dateFormat(dateStart);
-		String end = dateFormat(dateEnd);
+		LocalDate start = dateFormat(dateStart);
+		LocalDate end = dateFormat(dateEnd);
 		conf.setStartDate(start);
 		conf.setEndDate(end);
 
@@ -364,8 +342,8 @@ public class GuiConference {
 		conf.setCountry(textCountry.getText());
 		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 		conf.setTitle(textTitle.getText());
-		String start = dateFormat(dateStart);
-		String end = dateFormat(dateEnd);
+		LocalDate start = dateFormat(dateStart);
+		LocalDate end = dateFormat(dateEnd);
 		conf.setStartDate(start);
 		conf.setEndDate(end);
 
@@ -404,8 +382,8 @@ public class GuiConference {
 		conf.setCountry(textCountry.getText());
 		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 		conf.setTitle(textTitle.getText());
-		String start = dateFormat(dateStart);
-		String end = dateFormat(dateEnd);
+		LocalDate start = dateFormat(dateStart);
+		LocalDate end = dateFormat(dateEnd);
 		conf.setStartDate(start);
 		conf.setEndDate(end);
 
