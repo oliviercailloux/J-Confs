@@ -10,7 +10,7 @@ import com.google.common.base.MoreObjects;
 
 /**
  * @author huong,camille	
- * @author Alison This class is immutable.
+ * This class is immutable.
  *
  */
 public class Conference {
