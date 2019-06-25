@@ -1,6 +1,5 @@
 package io.github.oliviercailloux;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.slf4j.LoggerFactory;
@@ -10,6 +9,7 @@ import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
 
 /**
  * a Junit test for ResearcherBuilder class
+ * 
  * @author stanislas
  *
  */
@@ -18,28 +18,29 @@ public class TestResearcherBuilder {
 
 	/**
 	 * A test for the method create
+	 * 
 	 * @throws ClassNotFoundException
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 * @throws ClassCastException
 	 */
-	public final void createTest() throws ClassNotFoundException, InstantiationException, IllegalAccessException, ClassCastException {
+	public final void createTest()
+			throws ClassNotFoundException, InstantiationException, IllegalAccessException, ClassCastException {
 		Researcher oCailloux = ResearcherBuilder.create("ocailloux");
 		LOGGER.debug("create Researcher object");
 
-		assertEquals("CAILLOUX",oCailloux.getLastname());
-		assertEquals("Olivier",oCailloux.getFirstname());
-		assertEquals("+33 1 44 05 46 53",oCailloux.getPhone());
-		assertEquals("MIDO-LAMSADE",oCailloux.getGroup());
-		assertEquals("olivier.cailloux@lamsade.dauphine.fr",oCailloux.getMail());
-		assertEquals("P405 ter",oCailloux.getOffice());
-		
-		
+		assertEquals("CAILLOUX", oCailloux.getLastname());
+		assertEquals("Olivier", oCailloux.getFirstname());
+		assertEquals("+33 1 44 05 46 53", oCailloux.getPhone());
+		assertEquals("MIDO-LAMSADE", oCailloux.getGroup());
+		assertEquals("olivier.cailloux@lamsade.dauphine.fr", oCailloux.getMail());
+		assertEquals("P405 ter", oCailloux.getOffice());
 
 	}
 
 	/**
-	 * a main to try the method create 
+	 * a main to try the method create
+	 * 
 	 * @param args
 	 * @throws ClassNotFoundException
 	 * @throws InstantiationException

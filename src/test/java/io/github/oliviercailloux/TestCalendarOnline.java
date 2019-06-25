@@ -23,36 +23,35 @@ import net.fortuna.ical4j.model.property.DtStart;
 
 public class TestCalendarOnline {
 
-	
 	public void testGetOnlineConferenceFromUid() throws CalDAV4JException, InvalidConferenceFormatException {
-		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
+		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
 		Conference conferenceFound;
-		String uidSearch="4e14d618-1d93-40a3-adb9-3c01dca8ee67";
-		conferenceFound=instanceCalendarOnline.getConferenceFromUid(uidSearch);
-		assertEquals(conferenceFound.getTitle(),"Third iteration JAVA");
+		String uidSearch = "4e14d618-1d93-40a3-adb9-3c01dca8ee67";
+		conferenceFound = instanceCalendarOnline.getConferenceFromUid(uidSearch);
+		assertEquals(conferenceFound.getTitle(), "Third iteration JAVA");
 		assertEquals(conferenceFound.getUid(), uidSearch);
 		assertEquals(conferenceFound.getCity(), "Paris");
-		assertEquals(conferenceFound.getCountry(),"France");
-		assertEquals(conferenceFound.getStartDate().toString(),"2019-06-21");
-		assertEquals(conferenceFound.getFeeRegistration().toString(),"1.46");
+		assertEquals(conferenceFound.getCountry(), "France");
+		assertEquals(conferenceFound.getStartDate().toString(), "2019-06-21");
+		assertEquals(conferenceFound.getFeeRegistration().toString(), "1.46");
 	}
-	
+
 	@Test
 	public void testGetAllOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
-		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
-		Set<Conference> collectionConferences=instanceCalendarOnline.getOnlineConferences();
-		Iterator<Conference> iteratorConf=collectionConferences.iterator();
-		while(iteratorConf.hasNext()) {
-			Conference conferenceOnline=iteratorConf.next();
+		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
+		Iterator<Conference> iteratorConf = collectionConferences.iterator();
+		while (iteratorConf.hasNext()) {
+			Conference conferenceOnline = iteratorConf.next();
 			System.out.println(conferenceOnline.toString());
 		}
 	}
-	
+
 	@Test
 	public void testConferenceToVEvent() throws URISyntaxException, ParseException, MalformedURLException {
 		VEvent conferenceVEvent;
-		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
-		Conference conference=new Conference(new URL("http://fruux.com"));
+		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		Conference conference = new Conference(new URL("http://fruux.com"));
 		conference.setCity("Paris");
 		conference.setCountry("France");
 		conference.setEndDate("08/08/2019");
@@ -60,11 +59,13 @@ public class TestCalendarOnline {
 		conference.setStartDate("06/08/2019");
 		conference.setTitle("Java formation");
 		conference.setUid("4e14d618-1d93-29a3-adb3-2c21dca5ee67");
-		conferenceVEvent=instanceCalendarOnline.conferenceToVEvent(conference);
+		conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
 		assertEquals(conferenceVEvent.getProperty(Property.SUMMARY).getValue(), conference.getTitle());
-		assertEquals(conferenceVEvent.getProperty(Property.LOCATION).getValue(), conference.getCity()+","+conference.getCountry());
+		assertEquals(conferenceVEvent.getProperty(Property.LOCATION).getValue(),
+				conference.getCity() + "," + conference.getCountry());
 		assertEquals(conferenceVEvent.getProperty(Property.UID).getValue(), conference.getUid());
-		assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),"Fee:"+conference.getFeeRegistration());
+		assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),
+				"Fee:" + conference.getFeeRegistration());
 		Property startDate = new DtStart(conference.getEndDate().toString());
 		Property endDate = new DtEnd(conference.getStartDate().toString());
 		assertTrue(conferenceVEvent.getProperty(Property.DTSTART).equals(startDate));

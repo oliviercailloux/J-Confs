@@ -33,21 +33,23 @@ import io.github.oliviercailloux.jconfs.document.GenerateOM;
 import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
 import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
+
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.validate.ValidationException;
 
-
 /**
  * This class create the GUI to edit the conference
+ * 
  * @author huong, camille
  *
  */
 public class GuiConference {
 
-	public static void main(String[]args){
+	public static void main(String[] args) {
 		Gui(new Display());
 	}
-	public static void Gui(Display display){
+
+	public static void Gui(Display display) {
 		final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
 
 		// setup the SWT window
@@ -65,7 +67,7 @@ public class GuiConference {
 		// add the group for the researcher into shell
 		Group grp_researcher = new Group(shell, SWT.NONE);
 		GridData gd_researcher = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_researcher.heightHint =300;
+		gd_researcher.heightHint = 300;
 		gd_researcher.widthHint = 900;
 		grp_researcher.setLayoutData(gd_researcher);
 		grp_researcher.setText("Researcher");
@@ -73,7 +75,7 @@ public class GuiConference {
 		// add the group for the conference into shell
 		Group grp_conf = new Group(shell, SWT.NONE);
 		GridData gp_conf = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gp_conf.heightHint =300;
+		gp_conf.heightHint = 300;
 		gp_conf.widthHint = 900;
 		grp_conf.setLayoutData(gp_conf);
 		grp_conf.setText("Conference");
@@ -81,22 +83,22 @@ public class GuiConference {
 		// create the label and the field text for the group researcher
 		Label lblLogin = new Label(grp_researcher, SWT.NONE);
 		lblLogin.setAlignment(SWT.RIGHT);
-		lblLogin.setBounds(25,41,55,40);
+		lblLogin.setBounds(25, 41, 55, 40);
 		lblLogin.setText("Login");
 		Text txt_login = new Text(grp_researcher, SWT.BORDER);
-		txt_login.setBounds(100,40,200,20);
+		txt_login.setBounds(100, 40, 200, 20);
 
 		Label lblSurname = new Label(grp_researcher, SWT.NONE);
 		lblSurname.setAlignment(SWT.RIGHT);
 		lblSurname.setBounds(25, 100, 55, 40);
 		lblSurname.setText("Surname");
-		Text txt_Surname= new Text(grp_researcher, SWT.BORDER);
+		Text txt_Surname = new Text(grp_researcher, SWT.BORDER);
 		txt_Surname.setBounds(100, 99, 200, 21);
-		//block the input in the field
+		// block the input in the field
 		txt_Surname.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
-				e.doit = false;      
+				e.doit = false;
 			}
 		});
 
@@ -104,13 +106,13 @@ public class GuiConference {
 		lblFirstname.setAlignment(SWT.RIGHT);
 		lblFirstname.setBounds(400, 100, 58, 40);
 		lblFirstname.setText("Firstname");
-		Text txt_Firstname= new Text(grp_researcher, SWT.BORDER);
+		Text txt_Firstname = new Text(grp_researcher, SWT.BORDER);
 		txt_Firstname.setBounds(475, 99, 200, 21);
-		//block the input in the field
+		// block the input in the field
 		txt_Firstname.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
-				e.doit = false;      
+				e.doit = false;
 			}
 		});
 
@@ -118,27 +120,27 @@ public class GuiConference {
 		lblPhone.setAlignment(SWT.RIGHT);
 		lblPhone.setBounds(25, 180, 55, 40);
 		lblPhone.setText("Phone");
-		Text txt_Phone= new Text(grp_researcher, SWT.BORDER);
+		Text txt_Phone = new Text(grp_researcher, SWT.BORDER);
 		txt_Phone.setBounds(100, 179, 200, 21);
-		//block the input in the field
+		// block the input in the field
 		txt_Phone.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
-				e.doit = false;      
+				e.doit = false;
 			}
 		});
 
-		Label lblGroup= new Label(grp_researcher, SWT.NONE);
+		Label lblGroup = new Label(grp_researcher, SWT.NONE);
 		lblGroup.setAlignment(SWT.RIGHT);
 		lblGroup.setBounds(320, 179, 55, 40);
 		lblGroup.setText("Group");
-		Text txt_Group= new Text(grp_researcher, SWT.BORDER);
+		Text txt_Group = new Text(grp_researcher, SWT.BORDER);
 		txt_Group.setBounds(395, 179, 200, 21);
-		//block the input in the field
+		// block the input in the field
 		txt_Group.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
-				e.doit = false;      
+				e.doit = false;
 			}
 		});
 
@@ -146,42 +148,42 @@ public class GuiConference {
 		lblMail.setAlignment(SWT.RIGHT);
 		lblMail.setBounds(25, 260, 55, 40);
 		lblMail.setText("Mail");
-		Text txt_Mail= new Text(grp_researcher, SWT.BORDER);
+		Text txt_Mail = new Text(grp_researcher, SWT.BORDER);
 		txt_Mail.setBounds(100, 260, 400, 21);
-		//block the input in the field
+		// block the input in the field
 		txt_Mail.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
-				e.doit = false;      
+				e.doit = false;
 			}
 		});
 
-		Label lblOffice= new Label(grp_researcher, SWT.NONE);
+		Label lblOffice = new Label(grp_researcher, SWT.NONE);
 		lblOffice.setAlignment(SWT.RIGHT);
 		lblOffice.setBounds(620, 179, 55, 15);
 		lblOffice.setText("Office");
-		Text txt_Office= new Text(grp_researcher, SWT.BORDER);
+		Text txt_Office = new Text(grp_researcher, SWT.BORDER);
 		txt_Office.setBounds(695, 179, 200, 21);
-		//block the input in the field
+		// block the input in the field
 		txt_Office.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
-				e.doit = false;      
+				e.doit = false;
 			}
 		});
 
-		Button btn_researcher= new Button(grp_researcher, SWT.NONE);
+		Button btn_researcher = new Button(grp_researcher, SWT.NONE);
 		btn_researcher.setBounds(600, 36, 200, 25);
 		btn_researcher.setText("search Researcher");
 
 		btn_researcher.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent event)  {
+			public void widgetSelected(SelectionEvent event) {
 				String login = txt_login.getText();
 
 				try {
 					Researcher researcher = ResearcherBuilder.create(login);
-					//unblock for the input automatic from the button Search
+					// unblock for the input automatic from the button Search
 					txt_Surname.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -189,7 +191,7 @@ public class GuiConference {
 						}
 					});
 					txt_Surname.setText(researcher.getLastname());
-					//block again after the field filled
+					// block again after the field filled
 					txt_Surname.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -197,8 +199,7 @@ public class GuiConference {
 						}
 					});
 
-
-					//unblock for the input automatic from the button Search
+					// unblock for the input automatic from the button Search
 					txt_Firstname.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -206,7 +207,7 @@ public class GuiConference {
 						}
 					});
 					txt_Firstname.setText(researcher.getFirstname());
-					//block again after the field filled
+					// block again after the field filled
 					txt_Firstname.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -214,7 +215,7 @@ public class GuiConference {
 						}
 					});
 
-					//unblock for the input automatic from the button Search
+					// unblock for the input automatic from the button Search
 					txt_Phone.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -222,7 +223,7 @@ public class GuiConference {
 						}
 					});
 					txt_Phone.setText(researcher.getPhone());
-					//block again after the field filled
+					// block again after the field filled
 					txt_Phone.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -230,7 +231,7 @@ public class GuiConference {
 						}
 					});
 
-					//unblock for the input automatic from the button Search
+					// unblock for the input automatic from the button Search
 					txt_Group.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -238,7 +239,7 @@ public class GuiConference {
 						}
 					});
 					txt_Group.setText(researcher.getGroup());
-					//block again after the field filled
+					// block again after the field filled
 					txt_Group.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -246,7 +247,7 @@ public class GuiConference {
 						}
 					});
 
-					//unblock for the input automatic from the button Search
+					// unblock for the input automatic from the button Search
 					txt_Mail.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -254,7 +255,7 @@ public class GuiConference {
 						}
 					});
 					txt_Mail.setText(researcher.getMail());
-					//block again after the field filled
+					// block again after the field filled
 					txt_Mail.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -262,7 +263,7 @@ public class GuiConference {
 						}
 					});
 
-					//unblock for the input automatic from the button Search
+					// unblock for the input automatic from the button Search
 					txt_Office.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -270,7 +271,7 @@ public class GuiConference {
 						}
 					});
 					txt_Office.setText(researcher.getOffice());
-					//block again after the field filled
+					// block again after the field filled
 					txt_Office.addVerifyListener(new VerifyListener() {
 						@Override
 						public void verifyText(VerifyEvent e) {
@@ -290,17 +291,18 @@ public class GuiConference {
 		// create the label and the field text for the group conference
 		Label labelTitle = new Label(grp_conf, SWT.NONE);
 		labelTitle.setText("Title  ");
-		labelTitle.setBounds(25,41,55,40);
+		labelTitle.setBounds(25, 41, 55, 40);
 		Text textTitle = new Text(grp_conf, SWT.BORDER);
-		textTitle.setBounds(100,40,200,20);
+		textTitle.setBounds(100, 40, 200, 20);
 
 		Label labelFee = new Label(grp_conf, SWT.NONE);
 		labelFee.setText("Registration Fee");
-		labelFee.setBounds(400,41,90,40);
+		labelFee.setBounds(400, 41, 90, 40);
 		Text textFee = new Text(grp_conf, SWT.BORDER);
-		textFee.setBounds(500,40,200,20);
+		textFee.setBounds(500, 40, 200, 20);
 
-		//allow only positive integers as input and not allow special characters like letter 
+		// allow only positive integers as input and not allow special characters like
+		// letter
 		textFee.addVerifyListener(new VerifyListener() {
 			@Override
 			public void verifyText(VerifyEvent e) {
@@ -316,7 +318,7 @@ public class GuiConference {
 			}
 		});
 
-		//not allow the integers
+		// not allow the integers
 		Label labelCity = new Label(grp_conf, SWT.NONE);
 		labelCity.setText("City ");
 		labelCity.setBounds(25, 100, 55, 40);
@@ -338,7 +340,7 @@ public class GuiConference {
 			}
 		});
 
-		//not allow the integers
+		// not allow the integers
 		Label labelCountry = new Label(grp_conf, SWT.NONE);
 		labelCountry.setText("Country  ");
 		labelCountry.setBounds(400, 100, 58, 40);
@@ -359,7 +361,7 @@ public class GuiConference {
 				}
 			}
 		});
-		//create Date Selection as a drop-down
+		// create Date Selection as a drop-down
 		Label labelDateStart = new Label(grp_conf, SWT.NONE);
 		labelDateStart.setText("Date Start ");
 		labelDateStart.setBounds(25, 180, 55, 40);
@@ -376,9 +378,10 @@ public class GuiConference {
 		buttonSubmit.setText("Create calendar");
 		buttonSubmit.setBounds(80, 260, 200, 25);
 		buttonSubmit.addSelectionListener(new SelectionAdapter() {
-			//this function save the value in the fields of GUI in a conference and write-read a ICalendar
+			// this function save the value in the fields of GUI in a conference and
+			// write-read a ICalendar
 			@Override
-			public void widgetSelected(SelectionEvent event)  {
+			public void widgetSelected(SelectionEvent event) {
 				LOGGER.debug("Button clicked : Ical created");
 				URL url = null;
 				try {
@@ -392,37 +395,33 @@ public class GuiConference {
 				String city = textCity.getText();
 				String country = textCountry.getText();
 				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				String[] array = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 				String dStart = Integer.toString(dateStart.getDay());
-				String mStart = Integer.toString(dateStart.getMonth()+1);
+				String mStart = Integer.toString(dateStart.getMonth() + 1);
 				String yStart = Integer.toString(dateStart.getYear());
 				String start = "";
 				String dnew = "";
 				String mnew = "";
 				boolean dayStart = Arrays.asList(array).contains(dStart);
 				boolean monthStart = Arrays.asList(array).contains(mStart);
-				if(dayStart && !monthStart ){
-					dnew = "0"+dStart;
+				if (dayStart && !monthStart) {
+					dnew = "0" + dStart;
 					start = dnew + "/" + mStart + "/" + yStart;
 
-				}
-				else if (!dayStart && monthStart){
-					mnew = "0"+mStart;
+				} else if (!dayStart && monthStart) {
+					mnew = "0" + mStart;
 					start = dStart + "/" + mnew + "/" + yStart;
-				}
-				else if (dayStart && monthStart){
-					dnew = "0"+dStart;
-					mnew = "0"+mStart;
+				} else if (dayStart && monthStart) {
+					dnew = "0" + dStart;
+					mnew = "0" + mStart;
 					start = dnew + "/" + mnew + "/" + yStart;
-				}
-				else {
+				} else {
 					start = dStart + "/" + mStart + "/" + yStart;
 				}
 
-
 				String dEnd = Integer.toString(dateEnd.getDay());
-				String mEnd = Integer.toString(dateEnd.getMonth()+1);
+				String mEnd = Integer.toString(dateEnd.getMonth() + 1);
 				String yEnd = Integer.toString(dateEnd.getYear());
 
 				String end = "";
@@ -430,41 +429,38 @@ public class GuiConference {
 				String mnew1 = "";
 				boolean dayEnd = Arrays.asList(array).contains(dEnd);
 				boolean monthEnd = Arrays.asList(array).contains(mEnd);
-				if(dayEnd && !monthEnd ){
-					dnew1 = "0"+dEnd;
+				if (dayEnd && !monthEnd) {
+					dnew1 = "0" + dEnd;
 					end = dnew1 + "/" + mEnd + "/" + yEnd;
 
-				}
-				else if (!dayEnd && monthEnd){
-					mnew1 = "0"+mEnd;
+				} else if (!dayEnd && monthEnd) {
+					mnew1 = "0" + mEnd;
 					end = dEnd + "/" + mnew1 + "/" + yEnd;
 
-				}
-				else if (dayEnd && monthEnd){
-					dnew1 = "0"+dEnd;
-					mnew1 = "0"+mEnd;
+				} else if (dayEnd && monthEnd) {
+					dnew1 = "0" + dEnd;
+					mnew1 = "0" + mEnd;
 					end = dnew1 + "/" + mnew1 + "/" + yEnd;
 
-				}
-				else {
+				} else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
 
 				conf.setCity(city);
 				conf.setCountry(country);
 				conf.setStartDate(start);
-				conf.setEndDate(end);			
+				conf.setEndDate(end);
 				conf.setFeeRegistration(fee);
 				conf.setTitle(title);
 
-				if (start.compareTo(end) >= 0 ) {
+				if (start.compareTo(end) >= 0) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
 					mb.setMessage("Date Start can't be lower or equel to Date End");
 					mb.open();
 				} else {
 					try {
-						ConferenceWriter.addConference(title,conf);
+						ConferenceWriter.addConference(title, conf);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 						mb.setText("Success");
 						mb.setMessage("The iCalendar has created in the file " + title + ".ics");
@@ -476,10 +472,7 @@ public class GuiConference {
 				}
 			}
 
-
 		});
-
-
 
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
@@ -487,8 +480,9 @@ public class GuiConference {
 		buttonGenerate.addSelectionListener(new SelectionAdapter() {
 
 			@Override
-			public void widgetSelected(SelectionEvent event)  {
-				//this function save the value in the fields of GUI in a conference and fill the mission order
+			public void widgetSelected(SelectionEvent event) {
+				// this function save the value in the fields of GUI in a conference and fill
+				// the mission order
 				LOGGER.debug("Button clicked : OM generated");
 				URL url = null;
 				try {
@@ -500,44 +494,40 @@ public class GuiConference {
 				String surname = txt_Surname.getText();
 				String firstname = txt_Firstname.getText();
 				String email = txt_Mail.getText();
-				Researcher researcher = new Researcher(surname,firstname);
+				Researcher researcher = new Researcher(surname, firstname);
 				researcher.setMail(email);
 				String title = textTitle.getText();
 				Double fee = Double.parseDouble(textFee.getText());
 				String city = textCity.getText();
 				String country = textCountry.getText();
 				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				String[] array = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 				String dStart = Integer.toString(dateStart.getDay());
-				String mStart = Integer.toString(dateStart.getMonth()+1);
+				String mStart = Integer.toString(dateStart.getMonth() + 1);
 				String yStart = Integer.toString(dateStart.getYear());
 				String start = "";
 				String dnew = "";
 				String mnew = "";
 				boolean dayStart = Arrays.asList(array).contains(dStart);
 				boolean monthStart = Arrays.asList(array).contains(mStart);
-				if(dayStart && !monthStart ){
-					dnew = "0"+dStart;
+				if (dayStart && !monthStart) {
+					dnew = "0" + dStart;
 					start = dnew + "/" + mStart + "/" + yStart;
 
-				}
-				else if (!dayStart && monthStart){
-					mnew = "0"+mStart;
+				} else if (!dayStart && monthStart) {
+					mnew = "0" + mStart;
 					start = dStart + "/" + mnew + "/" + yStart;
-				}
-				else if (dayStart && monthStart){
-					dnew = "0"+dStart;
-					mnew = "0"+mStart;
+				} else if (dayStart && monthStart) {
+					dnew = "0" + dStart;
+					mnew = "0" + mStart;
 					start = dnew + "/" + mnew + "/" + yStart;
-				}
-				else {
+				} else {
 					start = dStart + "/" + mStart + "/" + yStart;
 				}
 
-
 				String dEnd = Integer.toString(dateEnd.getDay());
-				String mEnd = Integer.toString(dateEnd.getMonth()+1);
+				String mEnd = Integer.toString(dateEnd.getMonth() + 1);
 				String yEnd = Integer.toString(dateEnd.getYear());
 
 				String end = "";
@@ -545,41 +535,37 @@ public class GuiConference {
 				String mnew1 = "";
 				boolean dayEnd = Arrays.asList(array).contains(dEnd);
 				boolean monthEnd = Arrays.asList(array).contains(mEnd);
-				if(dayEnd && !monthEnd ){
-					dnew1 = "0"+dEnd;
+				if (dayEnd && !monthEnd) {
+					dnew1 = "0" + dEnd;
 					end = dnew1 + "/" + mEnd + "/" + yEnd;
 
-				}
-				else if (!dayEnd && monthEnd){
-					mnew1 = "0"+mEnd;
+				} else if (!dayEnd && monthEnd) {
+					mnew1 = "0" + mEnd;
 					end = dEnd + "/" + mnew1 + "/" + yEnd;
 
-				}
-				else if (dayEnd && monthEnd){
-					dnew1 = "0"+dEnd;
-					mnew1 = "0"+mEnd;
+				} else if (dayEnd && monthEnd) {
+					dnew1 = "0" + dEnd;
+					mnew1 = "0" + mEnd;
 					end = dnew1 + "/" + mnew1 + "/" + yEnd;
 
-				}
-				else {
+				} else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
 
 				conf.setCity(city);
 				conf.setCountry(country);
 				conf.setStartDate(start);
-				conf.setEndDate(end);			
+				conf.setEndDate(end);
 				conf.setFeeRegistration(fee);
 				conf.setTitle(title);
-				if (start.compareTo(end) >= 0 ) {
+				if (start.compareTo(end) >= 0) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
 					mb.setMessage("Date Start can't be lower or equel to Date End");
 					mb.open();
-				} 
-				else {
+				} else {
 					try {
-						GenerateOM.generateOM(conf,researcher);
+						GenerateOM.generateOM(conf, researcher);
 						MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 						mb.setText("Success");
 						String filename = new String("OM_" + city + "-" + country + "_" + start + ".ods");
@@ -594,26 +580,26 @@ public class GuiConference {
 		});
 
 		// To dev at the second iteration
-		//		Button btn_openCalendar= new Button(grp_researcher, SWT.NONE);
-		//		btn_openCalendar.setBounds(600, 260, 200, 25);
-		//		btn_openCalendar.setText("Open Calendar");
-		//		btn_openCalendar.addListener(SWT.Selection, new Listener() {
-		//			
-		//			@Override
-		//			public void handleEvent(Event event) {
-		//				Preconditions.checkArgument((txt_login.getText()!=""));
-		//				//checkcalendarexist(txt_login.getText()+".ics"); //to do
-		//				LOGGER.debug("click open calendar");
-		//				//GuiListConferences gulist=new GuiListConferences(txt_login.getText());
-		//			}
-		//		});
+		// Button btn_openCalendar= new Button(grp_researcher, SWT.NONE);
+		// btn_openCalendar.setBounds(600, 260, 200, 25);
+		// btn_openCalendar.setText("Open Calendar");
+		// btn_openCalendar.addListener(SWT.Selection, new Listener() {
+		//
+		// @Override
+		// public void handleEvent(Event event) {
+		// Preconditions.checkArgument((txt_login.getText()!=""));
+		// //checkcalendarexist(txt_login.getText()+".ics"); //to do
+		// LOGGER.debug("click open calendar");
+		// //GuiListConferences gulist=new GuiListConferences(txt_login.getText());
+		// }
+		// });
 
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
 		buttonYS.setBounds(700, 260, 200, 25);
 		buttonYS.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent event)  {
+			public void widgetSelected(SelectionEvent event) {
 				URL url = null;
 				try {
 					url = new URL("http://www.conference.com");
@@ -624,8 +610,8 @@ public class GuiConference {
 				String surname = txt_Surname.getText();
 				String firstname = txt_Firstname.getText();
 				String email = txt_Mail.getText();
-				String phone  = txt_Phone.getText();
-				Researcher researcher = new Researcher(surname,firstname);
+				String phone = txt_Phone.getText();
+				Researcher researcher = new Researcher(surname, firstname);
 				researcher.setMail(email);
 				researcher.setPhone(phone);
 				String title = textTitle.getText();
@@ -633,37 +619,33 @@ public class GuiConference {
 				String city = textCity.getText();
 				String country = textCountry.getText();
 				// add "O" before the day and month if they are 1, 2, 3, 4, 5, 6, 7, 8, 9
-				String[] array = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+				String[] array = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 				String dStart = Integer.toString(dateStart.getDay());
-				String mStart = Integer.toString(dateStart.getMonth()+1);
+				String mStart = Integer.toString(dateStart.getMonth() + 1);
 				String yStart = Integer.toString(dateStart.getYear());
 				String start = "";
 				String dnew = "";
 				String mnew = "";
 				boolean dayStart = Arrays.asList(array).contains(dStart);
 				boolean monthStart = Arrays.asList(array).contains(mStart);
-				if(dayStart && !monthStart ){
-					dnew = "0"+dStart;
+				if (dayStart && !monthStart) {
+					dnew = "0" + dStart;
 					start = dnew + "/" + mStart + "/" + yStart;
 
-				}
-				else if (!dayStart && monthStart){
-					mnew = "0"+mStart;
+				} else if (!dayStart && monthStart) {
+					mnew = "0" + mStart;
 					start = dStart + "/" + mnew + "/" + yStart;
-				}
-				else if (dayStart && monthStart){
-					dnew = "0"+dStart;
-					mnew = "0"+mStart;
+				} else if (dayStart && monthStart) {
+					dnew = "0" + dStart;
+					mnew = "0" + mStart;
 					start = dnew + "/" + mnew + "/" + yStart;
-				}
-				else {
+				} else {
 					start = dStart + "/" + mStart + "/" + yStart;
 				}
 
-
 				String dEnd = Integer.toString(dateEnd.getDay());
-				String mEnd = Integer.toString(dateEnd.getMonth()+1);
+				String mEnd = Integer.toString(dateEnd.getMonth() + 1);
 				String yEnd = Integer.toString(dateEnd.getYear());
 
 				String end = "";
@@ -671,45 +653,41 @@ public class GuiConference {
 				String mnew1 = "";
 				boolean dayEnd = Arrays.asList(array).contains(dEnd);
 				boolean monthEnd = Arrays.asList(array).contains(mEnd);
-				if(dayEnd && !monthEnd ){
-					dnew1 = "0"+dEnd;
+				if (dayEnd && !monthEnd) {
+					dnew1 = "0" + dEnd;
 					end = dnew1 + "/" + mEnd + "/" + yEnd;
 
-				}
-				else if (!dayEnd && monthEnd){
-					mnew1 = "0"+mEnd;
+				} else if (!dayEnd && monthEnd) {
+					mnew1 = "0" + mEnd;
 					end = dEnd + "/" + mnew1 + "/" + yEnd;
 
-				}
-				else if (dayEnd && monthEnd){
-					dnew1 = "0"+dEnd;
-					mnew1 = "0"+mEnd;
+				} else if (dayEnd && monthEnd) {
+					dnew1 = "0" + dEnd;
+					mnew1 = "0" + mEnd;
 					end = dnew1 + "/" + mnew1 + "/" + yEnd;
 
-				}
-				else {
+				} else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
 
 				conf.setCity(city);
 				conf.setCountry(country);
 				conf.setStartDate(start);
-				conf.setEndDate(end);			
+				conf.setEndDate(end);
 				conf.setFeeRegistration(fee);
 				conf.setTitle(title);
-				if (start.compareTo(end) >= 0 ) {
+				if (start.compareTo(end) >= 0) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
 					mb.setMessage("Date Start can't be lower or equel to Date End");
 					mb.open();
-				} 
-				else {
+				} else {
 					try {
-						String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
+						String fileName = conf.getCity() + "-" + conf.getCountry() + ".fodt";
 
 						GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
 
-					}catch (Exception e) {
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
@@ -741,6 +719,5 @@ public class GuiConference {
 		display.dispose();
 
 	}
-
 
 }

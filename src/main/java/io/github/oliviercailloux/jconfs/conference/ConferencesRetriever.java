@@ -19,7 +19,7 @@ public interface ConferencesRetriever {
 	 * this method read conference data and return a set of conference
 	 * 
 	 * @return Set<Conference>
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
 
 	public Set<Conference> retrieve() throws IOException, ParserException, InvalidConferenceFormatException;
@@ -27,27 +27,24 @@ public interface ConferencesRetriever {
 	/**
 	 * this method take a date interval and return a restricted set of conference
 	 * 
-	 * @param maxDate
-	 *            not <code> null</code>
-	 * @param minDate
-	 *            Not <code> null</code>
+	 * @param maxDate not <code> null</code>
+	 * @param minDate Not <code> null</code>
 	 * @return Set<Conference>,Not <code> null</code>, return empty set if no data
 	 *         found
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
 	public Set<Conference> retrieve(LocalDate minDate, LocalDate maxDate)
 			throws IOException, ParserException, InvalidConferenceFormatException;
 
 	/**
-	 * this method search an .ics file located in classpath 
-	 * and return a set of conferences contain in this file.
+	 * this method search an .ics file located in classpath and return a set of
+	 * conferences contain in this file.
 	 * 
-	 * @param fileName
-	 *            Not <code> null</code>
+	 * @param fileName Not <code> null</code>
 	 * @return
-	 * @throws InvalidConferenceFormatException 
-	 * @throws ParseException 
-	 * @throws ParserException 
+	 * @throws InvalidConferenceFormatException
+	 * @throws ParseException
+	 * @throws ParserException
 	 */
 
 	public Set<Conference> retrieve(String fileName)

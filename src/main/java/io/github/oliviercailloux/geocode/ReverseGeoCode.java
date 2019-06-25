@@ -37,68 +37,76 @@ import io.github.oliviercailloux.geocode.GeoName;
 import io.github.oliviercailloux.geocode.KDTree;
 
 /**
-*
-* Created by Daniel Glasson on 18/05/2014.
-* Source: https://github.com/AReallyGoodName/OfflineReverseGeocode 
-* Uses KD-trees to quickly find the nearest point
-* 
-*/
+ *
+ * Created by Daniel Glasson 
+ * on 18/05/2014. 
+ * Source: https://github.com/AReallyGoodName/OfflineReverseGeocode 
+ * Uses KD-trees to quickly find the nearest point
+ * 
+ */
 public class ReverseGeoCode {
-    KDTree<GeoName> kdTree;
-    
-    // Get placenames from http://download.geonames.org/export/dump/
-    /**
-     * Parse the zipped geonames file.
-     * @param zippedPlacednames a {@link ZipInputStream} zip file downloaded from http://download.geonames.org/export/dump/; can not be null.
-     * @param majorOnly only include major cities in KD-tree.
-     * 
-     * @throws IOException if there is a problem reading the {@link ZipInputStream}.
-     * @throws NullPointerException if zippedPlacenames is {@code null}.
-     */
-    public ReverseGeoCode( ZipInputStream zippedPlacednames, boolean majorOnly ) throws IOException {
-        //depending on which zip file is given,
-        //country specific zip files have read me files
-        //that we should ignore
-        ZipEntry entry;
-        do{
-            entry = zippedPlacednames.getNextEntry();
-        }while(entry.getName().equals("readme.txt"));
-       
-        createKdTree(zippedPlacednames, majorOnly);
-        
-    }
-    /**
-     * Parse the raw text geonames file.
-     * @param placenames the text file downloaded from http://download.geonames.org/export/dump/; can not be null.
-     * @param majorOnly only include major cities in KD-tree.
-     * 
-     * @throws IOException if there is a problem reading the stream.
-     * @throws NullPointerException if zippedPlacenames is {@code null}.
-     */
-    public ReverseGeoCode( InputStream placenames, boolean majorOnly ) throws IOException {
-        createKdTree(placenames, majorOnly);
-    }
-    private void createKdTree(InputStream placenames, boolean majorOnly)
-            throws IOException {
-        ArrayList<GeoName> arPlaceNames;
-        arPlaceNames = new ArrayList<>();
-        // Read the geonames file in the directory
-		
-        String str;
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(placenames))) {
-        	while ((str = in.readLine()) != null) {
-                GeoName newPlace = new GeoName(str);
-                if ( !majorOnly || newPlace.majorPlace ) {
-                    arPlaceNames.add(newPlace);
-                }
-            }
-        } catch (IOException ex) {
-        	throw ex;
-        }
-        kdTree = new KDTree<>(arPlaceNames);
-    }
+	KDTree<GeoName> kdTree;
 
-    public GeoName nearestPlace(double latitude, double longitude) {
-        return kdTree.findNearest(new GeoName(latitude,longitude));
-    }
+	// Get placenames from http://download.geonames.org/export/dump/
+	/**
+	 * Parse the zipped geonames file.
+	 * 
+	 * @param zippedPlacednames a {@link ZipInputStream} zip file downloaded from
+	 *                          http://download.geonames.org/export/dump/; can not
+	 *                          be null.
+	 * @param majorOnly         only include major cities in KD-tree.
+	 * 
+	 * @throws IOException          if there is a problem reading the
+	 *                              {@link ZipInputStream}.
+	 * @throws NullPointerException if zippedPlacenames is {@code null}.
+	 */
+	public ReverseGeoCode(ZipInputStream zippedPlacednames, boolean majorOnly) throws IOException {
+		// depending on which zip file is given,
+		// country specific zip files have read me files
+		// that we should ignore
+		ZipEntry entry;
+		do {
+			entry = zippedPlacednames.getNextEntry();
+		} while (entry.getName().equals("readme.txt"));
+
+		createKdTree(zippedPlacednames, majorOnly);
+
+	}
+
+	/**
+	 * Parse the raw text geonames file.
+	 * 
+	 * @param placenames the text file downloaded from
+	 *                   http://download.geonames.org/export/dump/; can not be null.
+	 * @param majorOnly  only include major cities in KD-tree.
+	 * 
+	 * @throws IOException          if there is a problem reading the stream.
+	 * @throws NullPointerException if zippedPlacenames is {@code null}.
+	 */
+	public ReverseGeoCode(InputStream placenames, boolean majorOnly) throws IOException {
+		createKdTree(placenames, majorOnly);
+	}
+
+	private void createKdTree(InputStream placenames, boolean majorOnly) throws IOException {
+		ArrayList<GeoName> arPlaceNames;
+		arPlaceNames = new ArrayList<>();
+		// Read the geonames file in the directory
+
+		String str;
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(placenames))) {
+			while ((str = in.readLine()) != null) {
+				GeoName newPlace = new GeoName(str);
+				if (!majorOnly || newPlace.majorPlace) {
+					arPlaceNames.add(newPlace);
+				}
+			}
+		} catch (IOException ex) {
+			throw ex;
+		}
+		kdTree = new KDTree<>(arPlaceNames);
+	}
+
+	public GeoName nearestPlace(double latitude, double longitude) {
+		return kdTree.findNearest(new GeoName(latitude, longitude));
+	}
 }

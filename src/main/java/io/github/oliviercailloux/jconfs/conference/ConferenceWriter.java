@@ -51,7 +51,8 @@ public class ConferenceWriter {
 	}
 
 	/**
-	 * Delete the conference of the ics file (if it exists) 
+	 * Delete the conference of the ics file (if it exists)
+	 * 
 	 * @param calFile    not <code>null</code>.
 	 * @param conference not <code>null</code>.
 	 * @throws IOException
@@ -122,7 +123,7 @@ public class ConferenceWriter {
 	}
 
 	/**
-	 * Save the given conference in the ics File 
+	 * Save the given conference in the ics File
 	 * 
 	 * @param cal     not <code>null</code>.
 	 * @param calFile not <code>null</code>.

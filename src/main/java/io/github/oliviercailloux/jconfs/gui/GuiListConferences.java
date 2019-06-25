@@ -36,8 +36,8 @@ import com.google.common.base.Strings;
 
 /**
  * @author nikola 
- * This class GUI uses to show a list of conferences of a searcher 
- * and with the possibility to edit it
+ * This class GUI uses to show a list of conferences of a
+ * searcher and with the possibility to edit it
  */
 public class GuiListConferences {
 
@@ -63,12 +63,11 @@ public class GuiListConferences {
 	private DateTime dateEnd;
 	private Button btnSave;
 
-	public GuiListConferences() throws  InvalidConferenceFormatException {
+	public GuiListConferences() throws InvalidConferenceFormatException {
 		Display display = new Display();
 		shell = createShell(display);
 		shell.open();
 	}
-
 
 	/**
 	 * Create a shell with all field of a conference and the list of conferences of
@@ -112,12 +111,12 @@ public class GuiListConferences {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws InvalidConferenceFormatException 
-	 * @throws CalDAV4JException 
+	 * @throws InvalidConferenceFormatException
+	 * @throws CalDAV4JException
 	 */
 	public void getConferences() throws InvalidConferenceFormatException {
 		try {
-			listConferencesUser= new ArrayList<>(CalendarOnline.getInstance().getOnlineConferences());
+			listConferencesUser = new ArrayList<>(CalendarOnline.getInstance().getOnlineConferences());
 		} catch (CalDAV4JException e) {
 			throw new IllegalStateException(e);
 		}
@@ -186,8 +185,10 @@ public class GuiListConferences {
 	public boolean isAllFieldsValid() {
 		return isDateValid() && isFillIn();
 	}
-	
-	/** Fill all fields of the GUI with the information of a conference
+
+	/**
+	 * Fill all fields of the GUI with the information of a conference
+	 * 
 	 * @param e event that we catch
 	 */
 	public void fillInAllFields(@SuppressWarnings("unused") Event e) {
@@ -203,8 +204,10 @@ public class GuiListConferences {
 			setDateofConferences(dateEnd, conferenceSelected.getEndDate());
 		}
 	}
-	
-	/** Edit of a conference: delete and save the conference edited
+
+	/**
+	 * Edit of a conference: delete and save the conference edited
+	 * 
 	 * @param e event that we catch
 	 */
 	public void editConference(@SuppressWarnings("unused") Event e) {
@@ -219,7 +222,9 @@ public class GuiListConferences {
 		}
 	}
 
-	/**Create widgets of the GUI, and disposition of widgets
+	/**
+	 * Create widgets of the GUI, and disposition of widgets
+	 * 
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws InvalidConferenceFormatException
@@ -230,7 +235,7 @@ public class GuiListConferences {
 		GridData gridDatalist = new GridData();
 		gridDatalist.grabExcessHorizontalSpace = true;
 		gridDatalist.grabExcessVerticalSpace = true;
-		gridDatalist.heightHint=200;
+		gridDatalist.heightHint = 200;
 		listConferences.setLayoutData(gridDatalist);
 
 		Group groupInfoConf = new Group(shell, SWT.NONE);
@@ -283,7 +288,7 @@ public class GuiListConferences {
 		GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
 		btnSave.setLayoutData(gridDataBtn);
 	}
-	
+
 	/**
 	 * Create all listener for all widgets of the GUI
 	 */
@@ -291,10 +296,10 @@ public class GuiListConferences {
 		txtCity.addVerifyListener(ListenerAction::checkTextInput);
 		txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
 		txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
-		listConferences.addListener(SWT.Selection,this::fillInAllFields);
-		btnSave.addListener(SWT.Selection, this::editConference);		
+		listConferences.addListener(SWT.Selection, this::fillInAllFields);
+		btnSave.addListener(SWT.Selection, this::editConference);
 	}
-	
+
 	public static void main(String[] args) throws InvalidConferenceFormatException {
 		new GuiListConferences().display();
 	}

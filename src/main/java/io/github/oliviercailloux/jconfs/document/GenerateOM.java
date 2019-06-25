@@ -13,60 +13,63 @@ import com.google.common.io.Files;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.researcher.Researcher;
- /**
-  * This class fills a searcher Mission Order
-  * @author huong
-  *
-  */
 
+/**
+ * This class fills a searcher Mission Order
+ * 
+ * @author huong
+ *
+ */
 public class GenerateOM {
 	final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(GenerateOM.class);
 	private static String target = FileSystems.getDefault().getPath("").toAbsolutePath() + "/ordre_de_mission_test.ods";
+
 	public static String getTarget() {
 		return target;
 	}
+
 	/**
 	 * Use the conference to fill the Spreadsheet
+	 * 
 	 * @param conference
 	 * @throws Exception
 	 */
-	public static void generateOM (Conference conference, Researcher researcher) throws Exception {
-		
+	public static void generateOM(Conference conference, Researcher researcher) throws Exception {
 
 		try (InputStream inputStream = MissionOrder.class.getResourceAsStream("ordre_de_mission.ods");
 				SpreadsheetDocument spreadsheetDoc = SpreadsheetDocument.loadDocument(inputStream)) {
-			
+
 			Cell surNameCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("F8");
 			surNameCell.setStringValue(researcher.getLastname());
-			
+
 			Cell firstNameCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("Y8");
 			firstNameCell.setStringValue(researcher.getFirstname());
-			
+
 			Cell mailCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("F11");
 			mailCell.setStringValue(researcher.getMail());
-			
+
 			Cell titleCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B15");
 			titleCell.setStringValue(conference.getTitle());
-			
+
 			Cell returnCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B37");
 			returnCell.setStringValue(conference.getCity() + " ," + conference.getCountry());
-			
+
 			Cell comeCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B31");
 			comeCell.setStringValue("Paris, France");
-			
+
 			Cell startCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("M22");
 			startCell.setStringValue(conference.getStartDate().toString());
 
 			Cell endCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("Z22");
 			endCell.setStringValue(conference.getEndDate().toString());
-			
+
 			spreadsheetDoc.save(target);
 			saveOrderMissionToHistory(target, conference.getCity(), conference.getCountry(),
 					conference.getStartDate().toString());
 		}
-		
-		
-		}
+
+	}
+
 	private static void saveOrderMissionToHistory(String fileToCopy, String city, String country, String startDate)
 			throws IOException {
 		File filesource = new File(fileToCopy);
@@ -75,9 +78,4 @@ public class GenerateOM {
 		Files.copy(filesource, targetfile);
 	}
 
-
-	}
-
-
-
-
+}

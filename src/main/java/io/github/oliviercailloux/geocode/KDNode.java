@@ -26,21 +26,19 @@ THE SOFTWARE.
 package io.github.oliviercailloux.geocode;
 
 /**
-*
-* @author Daniel Glasson
-* Source: https://github.com/AReallyGoodName/OfflineReverseGeocode 
-*/
+ *
+ * @author Daniel Glasson 
+ * Source: https://github.com/AReallyGoodName/OfflineReverseGeocode
+ */
 
-	
 public class KDNode<T extends KDNodeComparator<T>> {
-	    KDNode<T> left;
-	    KDNode<T> right;
-	    T location;
+	KDNode<T> left;
+	KDNode<T> right;
+	T location;
 
-	    public KDNode( KDNode<T> left, KDNode<T> right, T location ) {
-	        this.left = left;
-	        this.right = right;
-	        this.location = location;
-	    }
+	public KDNode(KDNode<T> left, KDNode<T> right, T location) {
+		this.left = left;
+		this.right = right;
+		this.location = location;
 	}
-
+}
