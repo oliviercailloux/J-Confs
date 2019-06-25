@@ -80,9 +80,10 @@ public class MapGUI {
 	private BoundingBox boundingBox;
 
 	/**
-	 * * mapGUI constructor,it creates every items needed to make the GUI and display
-	 * @param mapName
-	 * 			<code>not null</code>, must be a .map file
+	 * * mapGUI constructor,it creates every items needed to make the GUI and
+	 * display
+	 * 
+	 * @param mapName <code>not null</code>, must be a .map file
 	 * @param display
 	 * @throws NullPointerException
 	 * @throws IOException
@@ -207,6 +208,7 @@ public class MapGUI {
 
 	/**
 	 * this method define the size and the zoom on the map
+	 * 
 	 * @param mapView
 	 * @return boundingBox
 	 */
@@ -254,30 +256,29 @@ public class MapGUI {
 		}
 	}
 
-
-
 	/**
-	 * this constructor create a mapGUI in which we can choose the endPoint and we display it
+	 * this constructor create a mapGUI in which we can choose the endPoint and we
+	 * display it
+	 * 
 	 * @param mapName
 	 * @param endPoint
 	 * @throws NullPointerException
 	 * @throws IOException
 	 */
 	public MapGUI(String mapName, LatLong endPoint) throws NullPointerException, IOException {
-		this(mapName,new Display(),endPoint);
+		this(mapName, new Display(), endPoint);
 	}
 
 	/**
 	 * constructor in which we can choose the endPoint;
 	 * 
 	 * @param mapName
-	 * @param endPoint
-	 * 			<code>not null</code>
+	 * @param endPoint <code>not null</code>
 	 * @param display
 	 * @throws IOException, NullPointerException
 	 */
-	public MapGUI(String mapName,Display display, LatLong endPoint) throws NullPointerException, IOException {
-		this(mapName,display);
+	public MapGUI(String mapName, Display display, LatLong endPoint) throws NullPointerException, IOException {
+		this(mapName, display);
 		Preconditions.checkNotNull(endPoint, "Endpoint must not be null");
 		if (this.boundingBox.contains(endPoint)) {
 			this.endPoint.setLatLong(endPoint);
@@ -288,6 +289,7 @@ public class MapGUI {
 
 	/**
 	 * a constructor to create mapGUi without display
+	 * 
 	 * @param mapName
 	 * @throws NullPointerException
 	 * @throws IOException
@@ -313,12 +315,9 @@ public class MapGUI {
 	 * the file doesn't exist,this method ask an URL to the user for download the
 	 * map If Local==false it display an online map
 	 * 
-	 * @param mapView
-	 *            <code> not null<code>
-	 * @param mapName
-	 *            <code> not null<code>
-	 * @param hillsRenderConfig
-	 *            <code> can be null<code>
+	 * @param mapView           <code> not null<code>
+	 * @param mapName           <code> not null<code>
+	 * @param hillsRenderConfig <code> can be null<code>
 	 * @return<b> BoundingBox</b>
 	 * @throws IOException
 	 */
@@ -369,14 +368,10 @@ public class MapGUI {
 	/**
 	 * create a TileRenderLayer from mapFile data
 	 * 
-	 * @param tileCache
-	 *            <code>not null </code>
-	 * @param mapDataStore
-	 *            <code>not null </code>
-	 * @param mapViewPosition
-	 *            <code>not null </code>
-	 * @param hillsRenderConfig
-	 *            <code>can be null</code>
+	 * @param tileCache         <code>not null </code>
+	 * @param mapDataStore      <code>not null </code>
+	 * @param mapViewPosition   <code>not null </code>
+	 * @param hillsRenderConfig <code>can be null</code>
 	 * @return TileRenderLayer
 	 */
 	private TileRendererLayer createTileRendererLayer(TileCache tileCache, MapDataStore mapDataStore,
@@ -390,12 +385,9 @@ public class MapGUI {
 	/**
 	 * CreateTileDownloadLayer from tileSource
 	 * 
-	 * @param tileCache
-	 *            <code>not null </code>
-	 * @param mapViewPosition
-	 *            <code>not null </code>
-	 * @param tileSource
-	 *            <code>not null </code>
+	 * @param tileCache       <code>not null </code>
+	 * @param mapViewPosition <code>not null </code>
+	 * @param tileSource      <code>not null </code>
 	 * @return TileDownloadLayer
 	 */
 	private TileDownloadLayer createTileDownloadLayer(TileCache tileCache, MapViewPosition mapViewPosition,

@@ -28,7 +28,7 @@ public class ConferencesFromICalTest {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
 
 	public final void retriveTest() throws Exception {
@@ -44,19 +44,15 @@ public class ConferencesFromICalTest {
 		assertEquals("Java", confTest1.getTitle());
 		LOGGER.debug("test 1 done");
 
-
-
 	}
-	
 
 	public final void retriveTest2() throws Exception {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
-		
-
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		// TEST 2
-		Set<Conference> setConfTest2 = testConfFromIcal.retrieve(LocalDate.parse("20/10/2000",formatter),LocalDate.parse("20/10/2020",formatter));
+		Set<Conference> setConfTest2 = testConfFromIcal.retrieve(LocalDate.parse("20/10/2000", formatter),
+				LocalDate.parse("20/10/2020", formatter));
 		assertEquals(2, setConfTest2.size());
 		LOGGER.debug("setConfTest2 size is 2");
 		Iterator<Conference> iteratorTest = setConfTest2.iterator();

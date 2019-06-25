@@ -45,12 +45,14 @@ public class ConferenceReader {
 			}
 		}
 	}
-	
+
 	/**
 	 * We parse a calendar component to create a conference
-	 * @param confCompo it's a calendar component that contains the data of one conference
+	 * 
+	 * @param confCompo it's a calendar component that contains the data of one
+	 *                  conference
 	 * @return a conference
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
@@ -65,68 +67,72 @@ public class ConferenceReader {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
 			conf = new Conference(confURL);
 		} catch (MalformedURLException e1) {
-			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference",e1);
+			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference", e1);
 		}
-		
-		location=confCompo.getProperty("LOCATION").getValue().split(",");
-		description=confCompo.getProperty("DESCRIPTION").getValue().split("/");
 
-		for(String ele : description) {
-			if(ele.contains("Fee")) {
-				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf(":")+1)));
+		location = confCompo.getProperty("LOCATION").getValue().split(",");
+		description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
+
+		for (String ele : description) {
+			if (ele.contains("Fee")) {
+				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf(":") + 1)));
 			}
 		}
 		conf.setUid(confCompo.getProperty("UID").getValue());
-		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());		
+		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
 		conf.setCity(location[0]);
 		conf.setCountry(location[1]);
-		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
-		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
+		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
+		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
 		try {
 			conf.setStartDate(stringDTSTART);
 		} catch (DateTimeParseException e) {
-			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference",e);
+			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference", e);
 		}
 		try {
 			conf.setEndDate(stringDTEND);
 		} catch (DateTimeParseException e) {
-			throw new InvalidConferenceFormatException("End date impossible to put in a conference",e);
+			throw new InvalidConferenceFormatException("End date impossible to put in a conference", e);
 		}
 		return conf;
 
 	}
-	
+
 	/**
 	 * We will import a set of conferences contain in a ical
+	 * 
 	 * @param read contain data of the user's calendar
 	 * @return a list of the conferences of the user
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 * @throws ParseException
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
-	public static Set<Conference> readConferences(Reader reader) throws InvalidConferenceFormatException, IOException, ParserException {
+	public static Set<Conference> readConferences(Reader reader)
+			throws InvalidConferenceFormatException, IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
-		Set<Conference> listeconfuser=new LinkedHashSet<>();
-		ComponentList<CalendarComponent> conflist=calendar.getComponents(Component.VEVENT);
-		for (int i=0;i<conflist.size();i++) {
+		Set<Conference> listeconfuser = new LinkedHashSet<>();
+		ComponentList<CalendarComponent> conflist = calendar.getComponents(Component.VEVENT);
+		for (int i = 0; i < conflist.size(); i++) {
 			listeconfuser.add(createConference(conflist.get(i)));
 		}
 		return listeconfuser;
 
 	}
-	
-	/**this function transform a date to an another pattern of date
-	 * @param date Not <code>null</code>
-	 * 	 it's the date that we want to change its pattern.
+
+	/**
+	 * this function transform a date to an another pattern of date
+	 * 
+	 * @param date Not <code>null</code> it's the date that we want to change its
+	 *             pattern.
 	 * @return dateformated it's the date with the good pattern
 	 */
 	public static String convertDate(String date) {
-		DateTimeFormatter formatBefore=DateTimeFormatter.ofPattern("yyyyMMdd");
-		DateTimeFormatter formatAfter=DateTimeFormatter.ofPattern("dd/MM/yyy");
-		String dateformated=LocalDate.parse(date,formatBefore).format(formatAfter);
+		DateTimeFormatter formatBefore = DateTimeFormatter.ofPattern("yyyyMMdd");
+		DateTimeFormatter formatAfter = DateTimeFormatter.ofPattern("dd/MM/yyy");
+		String dateformated = LocalDate.parse(date, formatBefore).format(formatAfter);
 		return dateformated;
 	}
 

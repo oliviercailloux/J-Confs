@@ -11,18 +11,18 @@ import io.github.oliviercailloux.y2018.jconfs.InvalidConferenceFormatException;
 import net.fortuna.ical4j.data.ParserException;
 
 /**
- * it's a main to  test the method ConferencesFiltredByDate
+ * it's a main to test the method ConferencesFiltredByDate
+ * 
  * @author stanislas
  *
  */
 public class ConferencesShowerTest {
-	public static void main(String[]args) throws Exception {
-		ConferencesShower testShower=new ConferencesShower(new ConferencesFromICal());
-		Set<Conference> testConf=testShower.conferencesFiltredByDate();
-		for (Conference conf :testConf) {
+	public static void main(String[] args) throws Exception {
+		ConferencesShower testShower = new ConferencesShower(new ConferencesFromICal());
+		Set<Conference> testConf = testShower.conferencesFiltredByDate();
+		for (Conference conf : testConf) {
 			System.out.println(conf.getTitle());
 			System.out.println(conf.getStartDate());
 		}
 	}
 }
-
