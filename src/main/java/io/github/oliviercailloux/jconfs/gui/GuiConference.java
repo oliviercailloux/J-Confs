@@ -177,13 +177,13 @@ public class GuiConference {
 		buttonSubmit.setText("Create calendar");	
 		buttonSubmit.addListener(SWT.Selection, this::generateCalendar);
 
-		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
-		buttonGenerate.setText("Generate OM");
-		buttonGenerate.addListener(SWT.Selection, this::generateOm);
+		Button buttonOm = new Button(grp_conf, SWT.PUSH);
+		buttonOm.setText("Generate OM");
+		buttonOm.addListener(SWT.Selection, this::generateOm);
 
-		Button buttonYS = new Button(grp_conf, SWT.PUSH);
-		buttonYS.setText("Generate YS");
-		buttonYS.addListener(SWT.Selection, this::generateYs);
+		Button buttonYs = new Button(grp_conf, SWT.PUSH);
+		buttonYs.setText("Generate YS");
+		buttonYs.addListener(SWT.Selection, this::generateYs);
 
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
@@ -296,7 +296,7 @@ public class GuiConference {
 	 * @param name
 	 * @return mb
 	 */
-	public MessageBox callBtn(String name) {
+	public MessageBox callButton(String name) {
 		URL url = null;
 		try {
 			url = new URL("http://www.conference.com");
@@ -343,7 +343,7 @@ public class GuiConference {
 	public void generateCalendar(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ical created");
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
-		MessageBox mb = callBtn(name);
+		MessageBox mb = callButton(name);
 		if (isDateValid()){
 			try {
 				ConferenceWriter.addConference(textTitle.getText(),conf);
@@ -362,7 +362,7 @@ public class GuiConference {
 	public void generateOm(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : OM generated");
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
-		MessageBox mb = callBtn(name);
+		MessageBox mb = callButton(name);
 		if (isDateValid()){
 			try {
 				GenerateOM.generateOM(conf,researcher);
@@ -380,7 +380,7 @@ public class GuiConference {
 	public void generateYs(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ys generated");
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
-		MessageBox mb = callBtn(name);
+		MessageBox mb = callButton(name);
 		if (isDateValid()){
 			String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 			try {
