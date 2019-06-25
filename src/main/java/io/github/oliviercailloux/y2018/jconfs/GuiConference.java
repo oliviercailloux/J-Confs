@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 import javax.naming.directory.InvalidAttributeIdentifierException;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -29,8 +30,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
+import org.xml.sax.SAXException;
 
 import io.github.oliviercailloux.y2018.jconfs.Conference;
 import io.github.oliviercailloux.y2018.jconfs.ConferenceWriter;
@@ -48,6 +48,7 @@ public class GuiConference {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
 	private Shell shell;
 	private Conference conf;
+	private Researcher researcher;
 	private Text textTitle;
 	private Text textCity;
 	private Text textCountry;
@@ -61,6 +62,8 @@ public class GuiConference {
 	private Text textOffice;
 	private DateTime dateStart;
 	private DateTime dateEnd;
+	private LocalDate start;
+	private LocalDate end;
 
 	public void Gui(Display display){
 
@@ -203,7 +206,7 @@ public class GuiConference {
 	 * @param end
 	 * @return boolean
 	 */
-	public boolean isDateValid(LocalDate start, LocalDate end) {
+	public boolean isDateValid() {
 		if (start.compareTo(end) >= 0 ) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
@@ -268,7 +271,7 @@ public class GuiConference {
 
 	public void searchResearcher(@SuppressWarnings("unused") Event e) {
 		try {
-			Researcher researcher = ResearcherBuilder.create(textLogin.getText());
+			researcher = ResearcherBuilder.create(textLogin.getText());
 			manageInputField(true, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
 			textSurname.setText(researcher.getLastname());
 			textFirstname.setText(researcher.getFirstname());
@@ -284,34 +287,61 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that generate and store a calendar 
-	 * @param e Event that we can catch
+	 * Method that performs actions according to the name of the calling method
+	 * @param name
+	 * @return mb
 	 */
-	public void generateCalendar(@SuppressWarnings("unused") Event e) {
-		LOGGER.debug("Button clicked : Ical created");
+	public MessageBox callBtn(String name) {
 		URL url = null;
 		try {
 			url = new URL("http://www.conference.com");
 		} catch (MalformedURLException e1) {
 			throw new IllegalArgumentException(e1);
 		}
-
 		conf = new Conference(url);
 		conf.setCity(textCity.getText());
 		conf.setCountry(textCountry.getText());
 		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
 		conf.setTitle(textTitle.getText());
-		LocalDate start = dateFormat(dateStart);
-		LocalDate end = dateFormat(dateEnd);
+		start = dateFormat(dateStart);
+		end = dateFormat(dateEnd);
 		conf.setStartDate(start);
 		conf.setEndDate(end);
+		if (name.equals("generateOm") || name.equals("generateYs")) {
+			researcher = new Researcher(textSurname.getText(),textFirstname.getText());
+			researcher.setMail(textMail.getText());
+			researcher.setPhone(textPhone.getText());
+		}
+		MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+		mb.setText("Success");
+		switch(name) {
+		case "generateCalendar":
+			mb.setMessage("The iCalendar has created in the file " + textTitle.getText() + ".ics");
+			break;
+		case "generateOm":
+			String filename = new String("OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
+			mb.setMessage("File saved in : " + filename);
+			break;
+		case "generateYs":
+			mb.setMessage("File saved");
+			break;
+		default:
+			throw new IllegalArgumentException();
+		}
+		return mb;
+	}
 
-		if (isDateValid(start, end)){
+	/**
+	 * Method that generate and store a calendar 
+	 * @param e Event that we can catch
+	 */
+	public void generateCalendar(@SuppressWarnings("unused") Event e) {
+		LOGGER.debug("Button clicked : Ical created");
+		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
+		MessageBox mb = callBtn(name);
+		if (isDateValid()){
 			try {
 				ConferenceWriter.addConference(textTitle.getText(),conf);
-				MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-				mb.setText("Success");
-				mb.setMessage("The iCalendar has created in the file " + textTitle.getText() + ".ics");
 				mb.open();
 			} catch (ValidationException | IOException | ParserException
 					| URISyntaxException e1) {
@@ -326,38 +356,15 @@ public class GuiConference {
 	 */
 	public void generateOm(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : OM generated");
-		URL url = null;
-		try {
-			url = new URL("http://www.conference.com");
-		} catch (MalformedURLException e1) {
-			e1.printStackTrace();
-		}
-
-		Researcher researcher = new Researcher(textSurname.getText(),textFirstname.getText());
-		researcher.setMail(textMail.getText());
-		researcher.setPhone(textPhone.getText());
-
-		conf = new Conference(url);
-		conf.setCity(textCity.getText());
-		conf.setCountry(textCountry.getText());
-		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
-		conf.setTitle(textTitle.getText());
-		LocalDate start = dateFormat(dateStart);
-		LocalDate end = dateFormat(dateEnd);
-		conf.setStartDate(start);
-		conf.setEndDate(end);
-
-		if (isDateValid(start, end)){
+		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
+		MessageBox mb = callBtn(name);
+		if (isDateValid()){
 			try {
 				GenerateOM.generateOM(conf,researcher);
-				MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
-				mb.setText("Success");
-				String filename = new String("OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
-				mb.setMessage("File saved in : " + filename);
-				mb.open();
 			} catch (Exception e1) {
-				e1.printStackTrace();
+				throw new IllegalStateException(e1);
 			}
+			mb.open();
 		}
 	}
 
@@ -366,36 +373,20 @@ public class GuiConference {
 	 * @param e event that we catch
 	 */
 	public void generateYs(@SuppressWarnings("unused") Event e) {
-		URL url = null;
-		try {
-			url = new URL("http://www.conference.com");
-		} catch (MalformedURLException e1) {
-			e1.printStackTrace();
-		}
-
-		Researcher researcher = new Researcher(textSurname.getText(),textFirstname.getText());
-		researcher.setMail(textMail.getText());
-		researcher.setPhone(textPhone.getText());
-
-		conf = new Conference(url);
-		conf.setCity(textCity.getText());
-		conf.setCountry(textCountry.getText());
-		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
-		conf.setTitle(textTitle.getText());
-		LocalDate start = dateFormat(dateStart);
-		LocalDate end = dateFormat(dateEnd);
-		conf.setStartDate(start);
-		conf.setEndDate(end);
-
-		if (isDateValid(start, end)){
+		LOGGER.debug("Button clicked : Ys generated");
+		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
+		MessageBox mb = callBtn(name);
+		if (isDateValid()){
+			String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 			try {
-				String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 				GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
-			}catch (Exception e1) {
-				e1.printStackTrace();
+			} catch (IllegalArgumentException | IOException | SAXException | ParserConfigurationException e1) {
+				throw new IllegalStateException(e1);
 			}
+			mb.open();
 		}
 	}
+
 	public static void main(String[] args) {
 		new GuiConference().Gui(new Display());
 	}
