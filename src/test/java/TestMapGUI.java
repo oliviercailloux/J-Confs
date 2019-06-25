@@ -1,6 +1,7 @@
 import java.io.IOException;
 import org.mapsforge.core.model.LatLong;
-import io.github.oliviercailloux.y2018.jconfs.MapGUI;
+
+import io.github.oliviercailloux.jconfs.gui.MapGUI;
 
 public class TestMapGUI {
 	public static void main(String[] args) throws NullPointerException, IllegalArgumentException, IOException {

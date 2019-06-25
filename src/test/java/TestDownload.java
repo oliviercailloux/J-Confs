@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-import io.github.oliviercailloux.y2018.jconfs.Download;
+import io.github.oliviercailloux.jconfs.map.Download;
 
 public class TestDownload {
 	public static void main(String[] args) throws IOException {
