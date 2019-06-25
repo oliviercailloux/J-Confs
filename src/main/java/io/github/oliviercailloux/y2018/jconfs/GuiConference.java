@@ -43,26 +43,23 @@ import net.fortuna.ical4j.validate.ValidationException;
 public class GuiConference {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(GuiConference.class);
-	private static Shell shell;
-	private static Conference conf;
-	private static Text textTitle;
-	private static Text textCity;
-	private static Text textCountry;
-	private static Text textFee;
-	private static Text textLogin;
-	private static Text textSurname;
-	private static Text textFirstname;
-	private static Text textPhone;
-	private static Text textGroup;
-	private static Text textMail;
-	private static Text textOffice;
-	private static DateTime dateStart;
-	private static DateTime dateEnd;
+	private Shell shell;
+	private Conference conf;
+	private Text textTitle;
+	private Text textCity;
+	private Text textCountry;
+	private Text textFee;
+	private Text textLogin;
+	private Text textSurname;
+	private Text textFirstname;
+	private Text textPhone;
+	private Text textGroup;
+	private Text textMail;
+	private Text textOffice;
+	private DateTime dateStart;
+	private DateTime dateEnd;
 
-	public static void main(String[]args){
-		Gui(new Display());
-	}
-	public static void Gui(Display display){
+	public void Gui(Display display){
 
 		// setup the SWT window
 		shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
@@ -124,7 +121,7 @@ public class GuiConference {
 
 		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
 		btn_researcher.setText("Search");
-		btn_researcher.addListener(SWT.Selection, GuiConference::searchResearcher);
+		btn_researcher.addListener(SWT.Selection, this::searchResearcher);
 
 		// create the label and the field text for the group conference
 		Label labelTitle = new Label(grp_conf, SWT.NONE);
@@ -167,15 +164,15 @@ public class GuiConference {
 
 		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
 		buttonSubmit.setText("Create calendar");	
-		buttonSubmit.addListener(SWT.Selection, GuiConference::generateCalendar);
+		buttonSubmit.addListener(SWT.Selection, this::generateCalendar);
 
 		Button buttonGenerate = new Button(grp_conf, SWT.PUSH);
 		buttonGenerate.setText("Generate OM");
-		buttonSubmit.addListener(SWT.Selection, GuiConference::generateOm);
+		buttonSubmit.addListener(SWT.Selection, this::generateOm);
 
 		Button buttonYS = new Button(grp_conf, SWT.PUSH);
 		buttonYS.setText("Generate YS");
-		buttonSubmit.addListener(SWT.Selection, GuiConference::generateYs);
+		buttonSubmit.addListener(SWT.Selection, this::generateYs);
 
 		Color col = new Color(display, 211, 214, 219);
 		Color col2 = new Color(display, 250, 250, 250);
@@ -203,7 +200,7 @@ public class GuiConference {
 	 * @param end
 	 * @return boolean
 	 */
-	public static boolean dateCheck(String start, String end) {
+	public boolean dateCheck(String start, String end) {
 		if (start.compareTo(end) >= 0 ) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
@@ -219,7 +216,7 @@ public class GuiConference {
 	 * @param date
 	 * @return dateString
 	 */
-	public static String dateFormat(DateTime date) {
+	public String dateFormat(DateTime date) {
 		String day = Integer.toString(date.getDay());
 		String month = Integer.toString(date.getMonth()+1);
 		String year = Integer.toString(date.getYear());
@@ -252,7 +249,7 @@ public class GuiConference {
 	 * @param grid
 	 * @param parameters
 	 */
-	public static void defineLayout(GridData grid, Text...parameters) {
+	public void defineLayout(GridData grid, Text...parameters) {
 		for (Text parameter : parameters) {
 			parameter.setLayoutData(grid);
 		}
@@ -263,7 +260,7 @@ public class GuiConference {
 	 * @param block
 	 * @param parameters
 	 */
-	public static void manageInputField(boolean block, Text...parameters) {
+	public void manageInputField(boolean block, Text...parameters) {
 		for (Text parameter : parameters) {
 			if (block == true)
 				parameter.addVerifyListener(ListenerAction::inputFieldUnblock);
@@ -277,7 +274,7 @@ public class GuiConference {
 	 * @param text
 	 * @param parameters
 	 */
-	public static void restrictionField(boolean text,Text...parameters) {
+	public void restrictionField(boolean text,Text...parameters) {
 		for (Text parameter : parameters) {
 			if (text == true) {
 				parameter.addVerifyListener(ListenerAction::checkTextInput);
@@ -288,7 +285,7 @@ public class GuiConference {
 		}
 	}
 
-	public static void searchResearcher(@SuppressWarnings("unused") Event e) {
+	public void searchResearcher(@SuppressWarnings("unused") Event e) {
 		try {
 			Researcher researcher = ResearcherBuilder.create(textLogin.getText());
 			manageInputField(true, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
@@ -309,7 +306,7 @@ public class GuiConference {
 	 * Method that generate and store a calendar 
 	 * @param e Event that we can catch
 	 */
-	public static void generateCalendar(@SuppressWarnings("unused") Event e) {
+	public void generateCalendar(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ical created");
 		URL url = null;
 		try {
@@ -346,7 +343,7 @@ public class GuiConference {
 	 * Method that generate an ods file which is an order mission 
 	 * @param e Event that we can catch
 	 */
-	public static void generateOm(@SuppressWarnings("unused") Event e) {
+	public void generateOm(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : OM generated");
 		URL url = null;
 		try {
@@ -387,7 +384,7 @@ public class GuiConference {
 	 * Method that generate a fodt file 
 	 * @param e event that we catch
 	 */
-	public static void generateYs(@SuppressWarnings("unused") Event e) {
+	public void generateYs(@SuppressWarnings("unused") Event e) {
 		URL url = null;
 		try {
 			url = new URL("http://www.conference.com");
@@ -417,5 +414,8 @@ public class GuiConference {
 				e1.printStackTrace();
 			}
 		}
+	}
+	public static void main(String[] args) {
+		new GuiConference().Gui(new Display());
 	}
 }

@@ -54,7 +54,8 @@ public class GeneralGUI {
 
 			@Override
 			public void handleEvent(Event event) {
-				GuiConference.Gui(display);
+				GuiConference gui = new GuiConference();
+				gui.Gui(display);
 			}
 			
 		});
