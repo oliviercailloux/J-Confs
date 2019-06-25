@@ -7,6 +7,8 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.Arrays;
 
+import javax.naming.directory.InvalidAttributeIdentifierException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -24,6 +26,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.omg.DynamicAny.DynAnyPackage.InvalidValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -200,7 +203,7 @@ public class GuiConference {
 	 * @param end
 	 * @return boolean
 	 */
-	public boolean dateCheck(String start, String end) {
+	public boolean isDateValid(String start, String end) {
 		if (start.compareTo(end) >= 0 ) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
@@ -298,7 +301,7 @@ public class GuiConference {
 			manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 				| ClassCastException e1) {
-			throw new RuntimeException(e1);
+			throw new AssertionError(e1);
 		}
 	}
 
@@ -312,7 +315,7 @@ public class GuiConference {
 		try {
 			url = new URL("http://www.conference.com");
 		} catch (MalformedURLException e1) {
-			e1.printStackTrace();
+			throw new IllegalArgumentException(e1);
 		}
 
 		conf = new Conference(url);
@@ -325,7 +328,7 @@ public class GuiConference {
 		conf.setStartDate(start);
 		conf.setEndDate(end);
 
-		if (dateCheck(start, end) == true){
+		if (isDateValid(start, end)){
 			try {
 				ConferenceWriter.addConference(textTitle.getText(),conf);
 				MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
@@ -366,7 +369,7 @@ public class GuiConference {
 		conf.setStartDate(start);
 		conf.setEndDate(end);
 
-		if (dateCheck(start, end) == true){
+		if (isDateValid(start, end)){
 			try {
 				GenerateOM.generateOM(conf,researcher);
 				MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
@@ -406,7 +409,7 @@ public class GuiConference {
 		conf.setStartDate(start);
 		conf.setEndDate(end);
 
-		if (dateCheck(start, end) == true){
+		if (isDateValid(start, end)){
 			try {
 				String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
 				GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
