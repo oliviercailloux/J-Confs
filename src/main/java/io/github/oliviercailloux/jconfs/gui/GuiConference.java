@@ -151,9 +151,9 @@ public class GuiConference {
 		labelCountry.setText("Country :");
 		textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
-		//allow only positive integers as input and not allow special characters like letter
+		// allow only positive integers as input and not allow special characters like letter
 		restrictionField(false,textFee);
-		//not allow the integers
+		// not allow the integers
 		restrictionField(true,textCity, textCountry);
 		defineLayout(gridDataTextField, textTitle, textFee, textCity, textCountry);
 
@@ -162,7 +162,7 @@ public class GuiConference {
 		gridDataDate.widthHint = 100;
 		gridDataDate.heightHint = 20;
 
-		//create Date Selection as a drop-down
+		// create Date Selection as a drop-down
 		Label labelDateStart = new Label(grp_conf, SWT.NONE);
 		labelDateStart.setText("Date Start");
 		dateStart = new DateTime(grp_conf, SWT.DATE | SWT.DROP_DOWN);
@@ -382,7 +382,7 @@ public class GuiConference {
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
 		MessageBox mb = callButton(name);
 		if (isDateValid()){
-			String fileName = conf.getCity() + "-" + conf.getCountry()+ ".fodt";
+			String fileName = conf.getCity() + "-" + conf.getCountry() + ".fodt";
 			try {
 				GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
 			} catch (IllegalArgumentException | IOException | SAXException | ParserConfigurationException e1) {
