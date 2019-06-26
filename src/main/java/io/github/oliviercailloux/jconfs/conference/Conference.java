@@ -63,6 +63,14 @@ public class Conference {
 	 * 
 	 * @param startDate
 	 */
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+	
+	/**
+	 * Sets the start date  	
+	 * @param startDate
+	 */
 	public void setStartDate(String startDate) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		this.startDate = LocalDate.parse(startDate, formatter);
@@ -80,6 +88,13 @@ public class Conference {
 	/**
 	 * Sets the the end date
 	 * 
+	 * @param end_date
+	 */
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = Objects.requireNonNull(endDate);
+	}
+	/**
+	 * Sets the the end date   	
 	 * @param end_date
 	 */
 	public void setEndDate(String endDate) {
