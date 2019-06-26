@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.jconfs.gui;
 
 import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,16 @@ public class ListenerAction {
 	}
 
 	/**
+	 * check if the character is an integer, if not you can't
+	 * put the character
+	 */
+	public static void checkNumberInput(VerifyEvent e) {
+		if (e.text.matches("[a-zA-ZÀ-ú -]*")) {
+			e.doit = false;
+		}
+	}
+
+	/**
 	 * check that the fee is a double, if not you can't put the character
 	 */
 	public static void checkDoubleInput(VerifyEvent e) {
@@ -31,5 +42,19 @@ public class ListenerAction {
 		if (Doubles.tryParse(txtOfField.getText() + e.text) == null) {
 			e.doit = false;
 		}
+	}
+
+	/**
+	 * Method that block the field
+	 */
+	public static void inputFieldBlock(VerifyEvent e) {
+		e.doit = false;      
+	}
+
+	/**
+	 * Method that unblock the field
+	 */
+	public static void inputFieldUnblock(VerifyEvent e) {
+		e.doit = true;      
 	}
 }
