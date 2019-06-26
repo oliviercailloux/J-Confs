@@ -27,7 +27,6 @@ public class Conference {
 	 * This is a constructor which initializes the conference object
 	 * 
 	 * @param uid
-	 * 			not <code>null</code>
 	 * @param url
 	 * @param title
 	 * @param startDate
@@ -38,70 +37,15 @@ public class Conference {
 	 * @param country
 	 * @param city
 	 */
-	public Conference(String uid,URL url, String title, String startDate, String endDate, Double registrationFee, String country,
+	public Conference(String uid,URL url, String title, LocalDate startDate, LocalDate endDate, Double registrationFee, String country,
 			String city) {
-		this.uid=uid;
-		Objects.requireNonNull(uid);
 		Objects.requireNonNull(endDate);
 		Objects.requireNonNull(startDate);
+		this.uid=uid;
 		this.url = url;
 		this.title = title;
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			this.startDate = LocalDate.parse(startDate, formatter);
-			this.endDate = LocalDate.parse(endDate, formatter);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Date impossible to put in the conference", e);
-		}
-		this.registrationFee = registrationFee;
-		this.country = country;
-		this.city = city;
-	}
-
-	/**
-	 * This is a constructor which initializes the conference object without
-	 * optional data
-	 * @param uid
-	 * 	          not <code>null</code>
-	 * @param startDate
-	 *            not <code>null</code>
-	 * @param endDate
-	 *            not <code>null</code>
-	 */
-	public Conference(String uid,LocalDate startDate, LocalDate endDate) {
-		Objects.requireNonNull(uid);
-		Objects.requireNonNull(endDate);
-		Objects.requireNonNull(startDate);
-		this.uid=uid;
 		this.startDate = startDate;
 		this.endDate = endDate;
-	}
-
-	/**
-	 * This is a constructor which initializes the conference object for classes without caldav4j
-	 * @param url
-	 * @param title
-	 * @param startDate
-	 *            not <code>null</code>
-	 * @param endDate
-	 *            not <code>null</code>
-	 * @param registrationFee
-	 * @param country
-	 * @param city
-	 */
-	public Conference(URL url, String title, String startDate, String endDate, Double registrationFee, String country,
-			String city) {
-		Objects.requireNonNull(endDate);
-		Objects.requireNonNull(startDate);
-		this.url = url;
-		this.title = title;
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			this.startDate = LocalDate.parse(startDate, formatter);
-			this.endDate = LocalDate.parse(endDate, formatter);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Date impossible to put in the conference", e);
-		}
 		this.registrationFee = registrationFee;
 		this.country = country;
 		this.city = city;

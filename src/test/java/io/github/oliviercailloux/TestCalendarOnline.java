@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -59,7 +61,20 @@ public class TestCalendarOnline {
 		String startDate="06/08/2019";
 		String title="Java formation";
 		String uid="4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-		Conference conference= new Conference(uid,url, title, startDate, endDate,feeRegistration, country, city);
+		
+		LocalDate start_=null;
+		LocalDate end_=null;
+				
+		try {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			start_ = LocalDate.parse(startDate, formatter);
+			end_ = LocalDate.parse(endDate, formatter);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Date impossible to put in the conference", e);
+		}
+		
+		Conference conference = new Conference(uid,url,title, start_, end_, feeRegistration, country, city);
+		
 		conferenceVEvent=instanceCalendarOnline.conferenceToVEvent(conference);
 
 		assertEquals(conferenceVEvent.getProperty(Property.SUMMARY).getValue(), conference.getTitle());

@@ -84,7 +84,18 @@ public class ConferenceReader {
 		String country=location[1];
 		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
-		conf = new Conference(uid,confURL,title,stringDTSTART, stringDTEND,feeRegistration, country, city);
+		LocalDate start=null;
+		LocalDate end=null;
+				
+		try {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			start = LocalDate.parse(stringDTSTART, formatter);
+			end = LocalDate.parse(stringDTEND, formatter);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Date impossible to put in the conference", e);
+		}
+		
+		conf = new Conference(uid,confURL,title,start, end,feeRegistration, country, city);
 		return conf;
 	}
 

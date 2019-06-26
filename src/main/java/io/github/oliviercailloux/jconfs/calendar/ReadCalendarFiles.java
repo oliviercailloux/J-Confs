@@ -5,6 +5,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
@@ -95,7 +96,18 @@ public class ReadCalendarFiles {
 			String startDate=confCompo.getProperty("DTSTART").getValue();
 			String endDate=confCompo.getProperty("DTEND").getValue();
 			String city=confCompo.getProperty("CITY").getValue();
-			conf = new Conference(confURL,title,startDate,endDate,feeRegistration,country, city);
+			LocalDate start=null;
+			LocalDate end=null;
+			
+			try {
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				start = LocalDate.parse(startDate, formatter);
+				end = LocalDate.parse(endDate, formatter);
+			} catch (Exception e) {
+				throw new IllegalArgumentException("Date impossible to put in the conference", e);
+			}
+			
+			conf = new Conference(null, confURL,title, start, end, feeRegistration, country, city);
 
 		}
 		return conf;

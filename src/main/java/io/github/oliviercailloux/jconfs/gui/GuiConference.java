@@ -5,6 +5,8 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 
@@ -445,8 +447,19 @@ public class GuiConference {
 				} else {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
-
-				conf = new Conference(url,title, start, end, fee, country, city);
+				
+				LocalDate start_=null;
+				LocalDate end_=null;
+						
+				try {
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+					start_ = LocalDate.parse(start, formatter);
+					end_ = LocalDate.parse(end, formatter);
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Date impossible to put in the conference", e);
+				}
+				
+				conf = new Conference(null,url,title, start_, end_, fee, country, city);
 
 				if (start.compareTo(end) >= 0) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
@@ -547,8 +560,18 @@ public class GuiConference {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
 
-				conf = new Conference(url,title, start, end, fee, country, city);
-
+				LocalDate start_=null;
+				LocalDate end_=null;
+						
+				try {
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+					start_ = LocalDate.parse(start, formatter);
+					end_ = LocalDate.parse(end, formatter);
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Date impossible to put in the conference", e);
+				}
+				
+				conf = new Conference(null,url,title, start_, end_, fee, country, city);
 				if (start.compareTo(end) >= 0) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
@@ -661,7 +684,19 @@ public class GuiConference {
 					end = dEnd + "/" + mEnd + "/" + yEnd;
 				}
 
-				conf = new Conference(url,title, start, end, fee, country, city);
+				LocalDate start_=null;
+				LocalDate end_=null;
+						
+				try {
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+					start_ = LocalDate.parse(start, formatter);
+					end_ = LocalDate.parse(end, formatter);
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Date impossible to put in the conference", e);
+				}
+				
+				conf = new Conference(null,url,title, start_, end_, fee, country, city);				
+				
 				if (start.compareTo(end) >= 0) {
 					MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 					mb.setText("Failed");
