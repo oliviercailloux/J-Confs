@@ -91,7 +91,7 @@ public class Conference {
 	 * @param end_date
 	 */
 	public void setEndDate(LocalDate endDate) {
-		this.endDate = endDate;
+		this.endDate = Objects.requireNonNull(endDate);
 	}
 	/**
 	 * Sets the the end date   	
