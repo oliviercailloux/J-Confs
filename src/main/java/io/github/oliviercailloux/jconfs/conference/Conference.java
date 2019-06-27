@@ -9,8 +9,7 @@ import java.util.Objects;
 import com.google.common.base.MoreObjects;
 
 /**
- * @author huong,camille	
- * This class is immutable.
+ * @author huong,camille This class is immutable.
  *
  */
 public class Conference {
@@ -37,11 +36,11 @@ public class Conference {
 	 * @param country
 	 * @param city
 	 */
-	public Conference(String uid,URL url, String title, LocalDate startDate, LocalDate endDate, Double registrationFee, String country,
-			String city) {
+	public Conference(String uid, URL url, String title, LocalDate startDate, LocalDate endDate, Double registrationFee,
+			String country, String city) {
 		Objects.requireNonNull(endDate);
 		Objects.requireNonNull(startDate);
-		this.uid=uid;
+		this.uid = uid;
 		this.url = url;
 		this.title = title;
 		this.startDate = startDate;
@@ -52,7 +51,7 @@ public class Conference {
 	}
 
 	/**
-	 * This is a getter which return the URL 
+	 * This is a getter which return the URL
 	 * 
 	 * @return url
 	 */
@@ -87,7 +86,6 @@ public class Conference {
 		return endDate;
 	}
 
-
 	/**
 	 * This is a getter which return the fee of registration
 	 * 
@@ -97,7 +95,6 @@ public class Conference {
 		return registrationFee;
 	}
 
-
 	/**
 	 * This is a getter which return the country
 	 * 
@@ -106,7 +103,6 @@ public class Conference {
 	public String getCountry() {
 		return country;
 	}
-
 
 	/**
 	 * This is a getter which return the city
@@ -125,7 +121,6 @@ public class Conference {
 	public String getUid() {
 		return this.uid;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {

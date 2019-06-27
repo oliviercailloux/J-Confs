@@ -49,8 +49,9 @@ public class ConferenceReader {
 	/**
 	 * We parse a calendar component to create a conference
 	 * 
-	 * @param confCompo it's a calendar component that contains the data of one
-	 *                  conference
+	 * @param confCompo
+	 *            it's a calendar component that contains the data of one
+	 *            conference
 	 * @return a conference
 	 * @throws InvalidConferenceFormatException
 	 * @throws IOException
@@ -62,7 +63,7 @@ public class ConferenceReader {
 		URL confURL;
 		String[] location;
 		String[] description;
-		Double feeRegistration=null;
+		Double feeRegistration = null;
 
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
@@ -70,23 +71,23 @@ public class ConferenceReader {
 			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference", e1);
 		}
 
-		location=confCompo.getProperty("LOCATION").getValue().split(",");
-		description=confCompo.getProperty("DESCRIPTION").getValue().split("/");
+		location = confCompo.getProperty("LOCATION").getValue().split(",");
+		description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
 
-		for(String ele : description) {
-			if(ele.contains("Fee")) {
-				feeRegistration=Double.parseDouble(ele.substring(ele.indexOf(":")+1));
+		for (String ele : description) {
+			if (ele.contains("Fee")) {
+				feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
 			}
 		}
-		String uid=confCompo.getProperty("UID").getValue();
-		String title=confCompo.getProperty("SUMMARY").getValue();		
-		String city=location[0];
-		String country=location[1];
-		String stringDTSTART=convertDate(confCompo.getProperty("DTSTART").getValue());
-		String stringDTEND=convertDate(confCompo.getProperty("DTEND").getValue());
-		LocalDate start=null;
-		LocalDate end=null;
-				
+		String uid = confCompo.getProperty("UID").getValue();
+		String title = confCompo.getProperty("SUMMARY").getValue();
+		String city = location[0];
+		String country = location[1];
+		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
+		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
+		LocalDate start = null;
+		LocalDate end = null;
+
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			start = LocalDate.parse(stringDTSTART, formatter);
@@ -94,20 +95,21 @@ public class ConferenceReader {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-		
-		conf = new Conference(uid,confURL,title,start, end,feeRegistration, country, city);
+
+		conf = new Conference(uid, confURL, title, start, end, feeRegistration, country, city);
 		return conf;
 	}
 
 	/**
 	 * We will import a set of conferences contain in a ical
 	 * 
-	 * @param read contain data of the user's calendar
+	 * @param read
+	 *            contain data of the user's calendar
 	 * @return a list of the conferences of the user
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
-	 * @throws InvalidConferenceFormatException 
+	 * @throws InvalidConferenceFormatException
 	 */
 	public static Set<Conference> readConferences(Reader reader)
 			throws InvalidConferenceFormatException, IOException, ParserException {
@@ -122,9 +124,12 @@ public class ConferenceReader {
 
 	}
 
-	/**this function transform a date to an another pattern of date
-	 * @param date Not <code>null</code>
-	 * 	 it's the date that we want to change its pattern.
+	/**
+	 * this function transform a date to an another pattern of date
+	 * 
+	 * @param date
+	 *            Not <code>null</code> it's the date that we want to change its
+	 *            pattern.
 	 * 
 	 * @return dateformated it's the date with the good pattern
 	 */

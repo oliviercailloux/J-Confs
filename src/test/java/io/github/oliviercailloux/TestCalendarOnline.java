@@ -52,19 +52,19 @@ public class TestCalendarOnline {
 	@Test
 	public void testConferenceToVEvent() throws URISyntaxException, ParseException, MalformedURLException {
 		VEvent conferenceVEvent;
-		CalendarOnline instanceCalendarOnline=CalendarOnline.getInstance();
-		URL url= new URL("http://fruux.com");
-		String city="Paris";
-		String country="France";
-		String endDate="08/08/2019";
-		Double feeRegistration=1.36;
-		String startDate="06/08/2019";
-		String title="Java formation";
-		String uid="4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-		
-		LocalDate start_=null;
-		LocalDate end_=null;
-				
+		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		URL url = new URL("http://fruux.com");
+		String city = "Paris";
+		String country = "France";
+		String endDate = "08/08/2019";
+		Double feeRegistration = 1.36;
+		String startDate = "06/08/2019";
+		String title = "Java formation";
+		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
+
+		LocalDate start_ = null;
+		LocalDate end_ = null;
+
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			start_ = LocalDate.parse(startDate, formatter);
@@ -72,16 +72,17 @@ public class TestCalendarOnline {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-		
-		Conference conference = new Conference(uid,url,title, start_, end_, feeRegistration, country, city);
-		
-		conferenceVEvent=instanceCalendarOnline.conferenceToVEvent(conference);
+
+		Conference conference = new Conference(uid, url, title, start_, end_, feeRegistration, country, city);
+
+		conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
 
 		assertEquals(conferenceVEvent.getProperty(Property.SUMMARY).getValue(), conference.getTitle());
 		assertEquals(conferenceVEvent.getProperty(Property.LOCATION).getValue(),
 				conference.getCity() + "," + conference.getCountry());
 		assertEquals(conferenceVEvent.getProperty(Property.UID).getValue(), conference.getUid());
-		assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),"Fee:"+conference.getFeeRegistration());
+		assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),
+				"Fee:" + conference.getFeeRegistration());
 		Property startDate_ = new DtStart(conference.getEndDate().toString());
 		Property endDate_ = new DtEnd(conference.getStartDate().toString());
 		assertTrue(conferenceVEvent.getProperty(Property.DTSTART).equals(startDate_));
