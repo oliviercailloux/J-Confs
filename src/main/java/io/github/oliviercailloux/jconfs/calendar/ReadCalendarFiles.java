@@ -90,15 +90,15 @@ public class ReadCalendarFiles {
 			URL confURL = new URL(confCompo.getProperty("URL").getValue());
 
 			// add the others attributes
-			String title=confCompo.getProperty("SUMMARY").getValue();
-			String country=confCompo.getProperty("COUNTRY").getValue();
-			Double feeRegistration=Double.parseDouble(confCompo.getProperty("FEE").getValue());
-			String startDate=confCompo.getProperty("DTSTART").getValue();
-			String endDate=confCompo.getProperty("DTEND").getValue();
-			String city=confCompo.getProperty("CITY").getValue();
-			LocalDate start=null;
-			LocalDate end=null;
-			
+			String title = confCompo.getProperty("SUMMARY").getValue();
+			String country = confCompo.getProperty("COUNTRY").getValue();
+			Double feeRegistration = Double.parseDouble(confCompo.getProperty("FEE").getValue());
+			String startDate = confCompo.getProperty("DTSTART").getValue();
+			String endDate = confCompo.getProperty("DTEND").getValue();
+			String city = confCompo.getProperty("CITY").getValue();
+			LocalDate start = null;
+			LocalDate end = null;
+
 			try {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				start = LocalDate.parse(startDate, formatter);
@@ -106,8 +106,8 @@ public class ReadCalendarFiles {
 			} catch (Exception e) {
 				throw new IllegalArgumentException("Date impossible to put in the conference", e);
 			}
-			
-			conf = new Conference(null, confURL,title, start, end, feeRegistration, country, city);
+
+			conf = new Conference(null, confURL, title, start, end, feeRegistration, country, city);
 
 		}
 		return conf;

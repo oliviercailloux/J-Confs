@@ -28,10 +28,8 @@ public class Conference {
 	 * @param uid
 	 * @param url
 	 * @param title
-	 * @param startDate
-	 *            not <code>null</code>
-	 * @param endDate
-	 *            not <code>null</code>
+	 * @param startDate       not <code>null</code>
+	 * @param endDate         not <code>null</code>
 	 * @param registrationFee
 	 * @param country
 	 * @param city

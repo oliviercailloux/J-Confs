@@ -344,8 +344,7 @@ public class GuiConference {
 	/**
 	 * Method that generate and store a calendar
 	 * 
-	 * @param e
-	 *            Event that we can catch
+	 * @param e Event that we can catch
 	 */
 	public void generateCalendar(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ical created");
@@ -364,8 +363,7 @@ public class GuiConference {
 	/**
 	 * Method that generate an ods file which is an order mission
 	 * 
-	 * @param e
-	 *            Event that we can catch
+	 * @param e Event that we can catch
 	 */
 	public void generateOm(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : OM generated");
@@ -384,8 +382,7 @@ public class GuiConference {
 	/**
 	 * Method that generate a fodt file
 	 * 
-	 * @param e
-	 *            event that we catch
+	 * @param e event that we catch
 	 */
 	public void generateYs(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ys generated");
