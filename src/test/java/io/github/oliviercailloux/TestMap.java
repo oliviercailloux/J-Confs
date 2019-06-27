@@ -20,7 +20,8 @@ public class TestMap {
 	@Test
 	public void openMapTest() throws FileNotFoundException{
 		String end;
-		URL fileURL = TestMap.class.getClassLoader().getResource("world.map");
+		URL fileURL = TestMap.class.getClassLoader().getResource("io/github/oliviercailloux/jconfs/map/world.map");
+		System.out.println(fileURL);
 		if (fileURL == null)
 			throw new FileNotFoundException("file doesn't exist");
 		LOGGER.debug("URL", fileURL);
