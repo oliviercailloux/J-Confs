@@ -32,7 +32,8 @@ public class ResearcherBuilder {
 	}
 
 	/**
-	 * create is a static factory method to create Researcher from dauphine website
+	 * create is a static factory method to create Researcher from dauphine
+	 * website
 	 * 
 	 * @param login
 	 * @return Researcher
