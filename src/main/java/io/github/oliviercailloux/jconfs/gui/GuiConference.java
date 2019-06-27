@@ -76,6 +76,7 @@ public class GuiConference {
 
 	public void Gui(Display displayGui){
 		this.display = displayGui;
+		
 		// setup the SWT window
 		shell = new Shell(displayGui, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
 		shell.setText("J-Confs");
@@ -131,8 +132,9 @@ public class GuiConference {
 		lblOffice.setText("Office");
 		textOffice = new Text(grp_researcher, SWT.SINGLE | SWT.BORDER);
 
-		defineLayout(gridDataTextField,textLogin, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
-		manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
+		defineLayout(gridDataTextField, textLogin, textSurname, textFirstname, textPhone, textGroup, textMail,
+				textOffice);
+		manageInputField(false, textSurname, textFirstname, textPhone, textGroup, textMail, textOffice);
 
 		Button btn_researcher = new Button(grp_researcher, SWT.PUSH);
 		btn_researcher.setText("Search");
@@ -155,10 +157,11 @@ public class GuiConference {
 		labelCountry.setText("Country :");
 		textCountry = new Text(grp_conf, SWT.SINGLE | SWT.BORDER);
 
-		// allow only positive integers as input and not allow special characters like letter
-		restrictionField(false,textFee);
+		// allow only positive integers as input and not allow special
+		// characters like letter
+		restrictionField(false, textFee);
 		// not allow the integers
-		restrictionField(true,textCity, textCountry);
+		restrictionField(true, textCity, textCountry);
 		defineLayout(gridDataTextField, textTitle, textFee, textCity, textCountry);
 
 		GridData gridDataDate = new GridData();
@@ -178,7 +181,7 @@ public class GuiConference {
 		dateEnd.setLayoutData(gridDataDate);
 
 		Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
-		buttonSubmit.setText("Create calendar");	
+		buttonSubmit.setText("Create calendar");
 		buttonSubmit.addListener(SWT.Selection, this::generateCalendar);
 
 		Button buttonOm = new Button(grp_conf, SWT.PUSH);
@@ -215,12 +218,13 @@ public class GuiConference {
 
 	/**
 	 * Method that return true if dateStart is before dateEnd.
+	 * 
 	 * @param start
 	 * @param end
 	 * @return boolean
 	 */
 	public boolean isDateValid() {
-		if (start.compareTo(end) >= 0 ) {
+		if (start.compareTo(end) >= 0) {
 			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 			mb.setText("Failed");
 			mb.setMessage("Date Start can't be lower or equel to Date End");
@@ -232,21 +236,22 @@ public class GuiConference {
 
 	/**
 	 * Return a localDate dd/mm/yyyy
+	 * 
 	 * @param date
 	 * @return dateString
 	 */
 	public LocalDate dateFormat(DateTime date) {
-		LocalDate localDate = LocalDate.of(date.getYear(), date.getMonth() + 1,
-				date.getDay());
+		LocalDate localDate = LocalDate.of(date.getYear(), date.getMonth() + 1, date.getDay());
 		return localDate;
 	}
 
 	/**
 	 * Method that define the layout grid for all argument of type Text
+	 * 
 	 * @param grid
 	 * @param parameters
 	 */
-	public void defineLayout(GridData grid, Text...parameters) {
+	public void defineLayout(GridData grid, Text... parameters) {
 		for (Text parameter : parameters) {
 			parameter.setLayoutData(grid);
 		}
@@ -254,10 +259,11 @@ public class GuiConference {
 
 	/**
 	 * Method that block or unblock the field when needed
+	 * 
 	 * @param block
 	 * @param parameters
 	 */
-	public void manageInputField(boolean block, Text...parameters) {
+	public void manageInputField(boolean block, Text... parameters) {
 		for (Text parameter : parameters) {
 			if (block == true)
 				parameter.addVerifyListener(ListenerAction::inputFieldUnblock);
@@ -268,15 +274,15 @@ public class GuiConference {
 
 	/**
 	 * Method that define what char you can write in a field
+	 * 
 	 * @param text
 	 * @param parameters
 	 */
-	public void restrictionField(boolean text,Text...parameters) {
+	public void restrictionField(boolean text, Text... parameters) {
 		for (Text parameter : parameters) {
 			if (text == true) {
 				parameter.addVerifyListener(ListenerAction::checkTextInput);
-			}
-			else {
+			} else {
 				parameter.addVerifyListener(ListenerAction::checkNumberInput);
 			}
 		}
@@ -285,22 +291,22 @@ public class GuiConference {
 	public void searchResearcher(@SuppressWarnings("unused") Event e) {
 		try {
 			researcher = ResearcherBuilder.create(textLogin.getText());
-			manageInputField(true, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
+			manageInputField(true, textSurname, textFirstname, textPhone, textGroup, textMail, textOffice);
 			textSurname.setText(researcher.getLastname());
 			textFirstname.setText(researcher.getFirstname());
 			textPhone.setText(researcher.getPhone());
 			textGroup.setText(researcher.getGroup());
 			textMail.setText(researcher.getMail());
 			textOffice.setText(researcher.getOffice());
-			manageInputField(false, textSurname, textFirstname, textPhone, textGroup,textMail,textOffice);
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| ClassCastException e1) {
+			manageInputField(false, textSurname, textFirstname, textPhone, textGroup, textMail, textOffice);
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | ClassCastException e1) {
 			throw new AssertionError(e1);
 		}
 	}
 
 	/**
 	 * Method that performs actions according to the name of the calling method
+	 * 
 	 * @param name
 	 * @return mb
 	 */
@@ -311,28 +317,28 @@ public class GuiConference {
 		} catch (MalformedURLException e1) {
 			throw new IllegalArgumentException(e1);
 		}
-		conf = new Conference(url);
-		conf.setCity(textCity.getText());
-		conf.setCountry(textCountry.getText());
-		conf.setFeeRegistration(Double.parseDouble(textFee.getText()));
-		conf.setTitle(textTitle.getText());
+		String city = textCity.getText();
+		String country = textCountry.getText();
+		Double feeRegistration = Double.parseDouble(textFee.getText());
+		String title = textTitle.getText();
 		start = dateFormat(dateStart);
 		end = dateFormat(dateEnd);
-		conf.setStartDate(start);
-		conf.setEndDate(end);
+		conf = new Conference(null, url, title, start, end, feeRegistration, country, city);
+
 		if (name.equals("generateOm") || name.equals("generateYs")) {
-			researcher = new Researcher(textSurname.getText(),textFirstname.getText());
+			researcher = new Researcher(textSurname.getText(), textFirstname.getText());
 			researcher.setMail(textMail.getText());
 			researcher.setPhone(textPhone.getText());
 		}
 		MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
 		mb.setText("Success");
-		switch(name) {
+		switch (name) {
 		case "generateCalendar":
 			mb.setMessage("The iCalendar has created in the file " + textTitle.getText() + ".ics");
 			break;
 		case "generateOm":
-			String filename = new String("OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
+			String filename = new String(
+					"OM_" + textCity.getText() + "-" + textCountry.getText() + "_" + start + ".ods");
 			mb.setMessage("File saved in : " + filename);
 			break;
 		case "generateYs":
@@ -345,35 +351,36 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that generate and store a calendar 
+	 * Method that generate and store a calendar
+	 * 
 	 * @param e Event that we can catch
 	 */
 	public void generateCalendar(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ical created");
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
 		MessageBox mb = callButton(name);
-		if (isDateValid()){
+		if (isDateValid()) {
 			try {
-				ConferenceWriter.addConference(textTitle.getText(),conf);
+				ConferenceWriter.addConference(textTitle.getText(), conf);
 				mb.open();
-			} catch (ValidationException | IOException | ParserException
-					| URISyntaxException e1) {
+			} catch (ValidationException | IOException | ParserException | URISyntaxException e1) {
 				throw new RuntimeException(e1);
 			}
 		}
 	}
 
 	/**
-	 * Method that generate an ods file which is an order mission 
+	 * Method that generate an ods file which is an order mission
+	 * 
 	 * @param e Event that we can catch
 	 */
 	public void generateOm(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : OM generated");
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
 		MessageBox mb = callButton(name);
-		if (isDateValid()){
+		if (isDateValid()) {
 			try {
-				GenerateOM.generateOM(conf,researcher);
+				GenerateOM.generateOM(conf, researcher);
 			} catch (Exception e1) {
 				throw new IllegalStateException(e1);
 			}
@@ -382,20 +389,21 @@ public class GuiConference {
 	}
 
 	/**
-	 * Method that generate a fodt file 
+	 * Method that generate a fodt file
+	 * 
 	 * @param e event that we catch
 	 */
 	public void generateYs(@SuppressWarnings("unused") Event e) {
 		LOGGER.debug("Button clicked : Ys generated");
 		String name = Thread.currentThread().getStackTrace()[1].getMethodName();
 		MessageBox mb = callButton(name);
-		if (isDateValid()){
+		if (isDateValid()) {
 			String fileName = conf.getCity() + "-" + conf.getCountry() + ".fodt";
 			try {
 				GenerateOMYS.fillYSOrderMission(researcher, conf, fileName);
 			} catch (IllegalArgumentException | IOException | SAXException | ParserConfigurationException e1) {
 				throw new IllegalStateException(e1);
-			} 
+			}
 			mb.open();
 		}
 	}

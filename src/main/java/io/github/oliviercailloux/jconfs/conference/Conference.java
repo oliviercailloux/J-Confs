@@ -6,11 +6,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
-
 import com.google.common.base.MoreObjects;
 
 /**
- * @author huong,camille
+ * @author huong,camille This class is immutable.
+ *
  */
 public class Conference {
 	private URL url;
@@ -23,9 +23,35 @@ public class Conference {
 	private String city;
 
 	/**
+	 * This is a constructor which initializes the conference object
+	 * 
+	 * @param uid
+	 * @param url
+	 * @param title
+	 * @param startDate       not <code>null</code>
+	 * @param endDate         not <code>null</code>
+	 * @param registrationFee
+	 * @param country
+	 * @param city
+	 */
+	public Conference(String uid, URL url, String title, LocalDate startDate, LocalDate endDate, Double registrationFee,
+			String country, String city) {
+		Objects.requireNonNull(endDate);
+		Objects.requireNonNull(startDate);
+		this.uid = uid;
+		this.url = url;
+		this.title = title;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.registrationFee = registrationFee;
+		this.country = country;
+		this.city = city;
+	}
+
+	/**
 	 * This is a getter which return the URL
 	 * 
-	 * @return not <code>null</code>
+	 * @return url
 	 */
 	public URL getUrl() {
 		return url;
@@ -34,19 +60,10 @@ public class Conference {
 	/**
 	 * This is a getter which return the title
 	 * 
-	 * @return not <code>null</code>
+	 * @return title
 	 */
 	public String getTitle() {
 		return title;
-	}
-
-	/**
-	 * Sets the title
-	 * 
-	 * @param title not <code>null</code>
-	 */
-	public void setTitle(String title) {
-		this.title = Objects.requireNonNull(title);
 	}
 
 	/**
@@ -59,47 +76,12 @@ public class Conference {
 	}
 
 	/**
-	 * Sets the start date
-	 * 
-	 * @param startDate
-	 */
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
-	}
-	
-	/**
-	 * Sets the start date  	
-	 * @param startDate
-	 */
-	public void setStartDate(String startDate) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		this.startDate = LocalDate.parse(startDate, formatter);
-	}
-
-	/**
 	 * This is a getter which return the date end
 	 * 
-	 * @return endDate
+	 * @return not <code>null</code>
 	 */
 	public LocalDate getEndDate() {
 		return endDate;
-	}
-
-	/**
-	 * Sets the the end date
-	 * 
-	 * @param end_date
-	 */
-	public void setEndDate(LocalDate endDate) {
-		this.endDate = Objects.requireNonNull(endDate);
-	}
-	/**
-	 * Sets the the end date   	
-	 * @param end_date
-	 */
-	public void setEndDate(String endDate) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		this.endDate = LocalDate.parse(endDate, formatter);
 	}
 
 	/**
@@ -112,30 +94,12 @@ public class Conference {
 	}
 
 	/**
-	 * Sets the fee of registration
-	 * 
-	 * @param registrationFee
-	 */
-	public void setFeeRegistration(double registrationFee) {
-		this.registrationFee = Objects.requireNonNull(registrationFee);
-	}
-
-	/**
 	 * This is a getter which return the country
 	 * 
 	 * @return country
 	 */
 	public String getCountry() {
 		return country;
-	}
-
-	/**
-	 * Sets the country
-	 * 
-	 * @param country not <code>null</code>
-	 */
-	public void setCountry(String country) {
-		this.country = Objects.requireNonNull(country);
 	}
 
 	/**
@@ -148,35 +112,12 @@ public class Conference {
 	}
 
 	/**
-	 * This is a setter which set the city
+	 * This is a getter which return the iud
 	 * 
-	 * @param city not <code>null</code>
+	 * @return not <code>null</code>
 	 */
-	public void setCity(String city) {
-		this.city = Objects.requireNonNull(city);
-	}
-
 	public String getUid() {
 		return this.uid;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-
-	/**
-	 * This is a constructor which initializes the conference object
-	 * 
-	 * @param url primary key not <code>null</code>
-	 */
-	public Conference(URL url) {
-		this.url = Objects.requireNonNull(url);
-		this.title = "";
-		this.startDate = LocalDate.now();
-		this.endDate = LocalDate.now();
-		this.registrationFee = 0.0;
-		this.country = "";
-		this.city = "";
 	}
 
 	@Override

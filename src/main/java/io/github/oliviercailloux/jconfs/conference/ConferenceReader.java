@@ -55,7 +55,6 @@ public class ConferenceReader {
 	 * @throws InvalidConferenceFormatException
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws ParseException
 	 * @throws NumberFormatException
 	 */
 	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
@@ -63,9 +62,10 @@ public class ConferenceReader {
 		URL confURL;
 		String[] location;
 		String[] description;
+		Double feeRegistration = null;
+
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
-			conf = new Conference(confURL);
 		} catch (MalformedURLException e1) {
 			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference", e1);
 		}
@@ -75,27 +75,28 @@ public class ConferenceReader {
 
 		for (String ele : description) {
 			if (ele.contains("Fee")) {
-				conf.setFeeRegistration(Double.parseDouble(ele.substring(ele.indexOf(":") + 1)));
+				feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
 			}
 		}
-		conf.setUid(confCompo.getProperty("UID").getValue());
-		conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-		conf.setCity(location[0]);
-		conf.setCountry(location[1]);
+		String uid = confCompo.getProperty("UID").getValue();
+		String title = confCompo.getProperty("SUMMARY").getValue();
+		String city = location[0];
+		String country = location[1];
 		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
-		try {
-			conf.setStartDate(stringDTSTART);
-		} catch (DateTimeParseException e) {
-			throw new InvalidConferenceFormatException("Start Date impossible to put in a conference", e);
-		}
-		try {
-			conf.setEndDate(stringDTEND);
-		} catch (DateTimeParseException e) {
-			throw new InvalidConferenceFormatException("End date impossible to put in a conference", e);
-		}
-		return conf;
+		LocalDate start = null;
+		LocalDate end = null;
 
+		try {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			start = LocalDate.parse(stringDTSTART, formatter);
+			end = LocalDate.parse(stringDTEND, formatter);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Date impossible to put in the conference", e);
+		}
+
+		conf = new Conference(uid, confURL, title, start, end, feeRegistration, country, city);
+		return conf;
 	}
 
 	/**
@@ -106,7 +107,6 @@ public class ConferenceReader {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
-	 * @throws ParseException
 	 * @throws InvalidConferenceFormatException
 	 */
 	public static Set<Conference> readConferences(Reader reader)
@@ -127,6 +127,7 @@ public class ConferenceReader {
 	 * 
 	 * @param date Not <code>null</code> it's the date that we want to change its
 	 *             pattern.
+	 * 
 	 * @return dateformated it's the date with the good pattern
 	 */
 	public static String convertDate(String date) {

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
@@ -87,15 +88,27 @@ public class ReadCalendarFiles {
 
 			// the url is the primary key of a conference
 			URL confURL = new URL(confCompo.getProperty("URL").getValue());
-			conf = new Conference(confURL);
 
 			// add the others attributes
-			conf.setTitle(confCompo.getProperty("SUMMARY").getValue());
-			conf.setCountry(confCompo.getProperty("COUNTRY").getValue());
-			conf.setFeeRegistration(Double.parseDouble(confCompo.getProperty("FEE").getValue()));
-			conf.setStartDate(confCompo.getProperty("DTSTART").getValue());
-			conf.setEndDate(confCompo.getProperty("DTEND").getValue());
-			conf.setCity(confCompo.getProperty("CITY").getValue());
+			String title = confCompo.getProperty("SUMMARY").getValue();
+			String country = confCompo.getProperty("COUNTRY").getValue();
+			Double feeRegistration = Double.parseDouble(confCompo.getProperty("FEE").getValue());
+			String startDate = confCompo.getProperty("DTSTART").getValue();
+			String endDate = confCompo.getProperty("DTEND").getValue();
+			String city = confCompo.getProperty("CITY").getValue();
+			LocalDate start = null;
+			LocalDate end = null;
+
+			try {
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				start = LocalDate.parse(startDate, formatter);
+				end = LocalDate.parse(endDate, formatter);
+			} catch (Exception e) {
+				throw new IllegalArgumentException("Date impossible to put in the conference", e);
+			}
+
+			conf = new Conference(null, confURL, title, start, end, feeRegistration, country, city);
+
 		}
 		return conf;
 
