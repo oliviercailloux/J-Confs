@@ -19,6 +19,28 @@ public class Researcher {
 	private String mail;
 
 	/**
+	 * This is a constructor which initializes the searcher object
+	 * 
+	 * @param surname   not <code>null</code>.
+	 * @param firstName not <code>null</code>.
+	 * @param function
+	 * @param phone
+	 * @param office
+	 * @param mail
+	 * @param group
+	 */
+	public Researcher(String lastName, String firstName, String function, String phone, String office, String mail,
+			String group) {
+		this.lastName = Objects.requireNonNull(lastName);
+		this.firstName = Objects.requireNonNull(firstName);
+		this.function = function;
+		this.phone = phone;
+		this.office = office;
+		this.mail = mail;
+		this.group = group;
+	}
+
+	/**
 	 * this is a getter which return a lastName
 	 * 
 	 * @return not <code>null</code>
