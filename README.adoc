@@ -121,9 +121,9 @@ Team 2 : Jacques & Félix
 	
 === Difficultés
 	
-Durant ce projet nous avons rencontré des difficultés dans la compréhension du code existant. En effet le code était mal organisé (absence de packages ) et parfois incompréhensible dans certaines méthodes qui étaient mal documentées. De plus, cela nous a pénalisé car un grand nombre des consignes à respecter au sein des PR n’était pas respecté au sein de la branche master initial.
+Durant ce projet nous avons rencontré des difficultés dans la compréhension du code existant. En effet le code était mal organisé (absence de packages ) et parfois difficilement compréhensible dans certaines méthodes qui étaient mal documentées. De plus, cela nous a pénalisé car certaines consignes à respecter au sein des PR n’étaient pas respecté dans la branche master initiale.
 
-La branche comportait des centaines de message d’avertissements, du code non formaté et mal documenté (Javadoc non explicite). Ainsi lors des PR, un grand nombre des remarques que nous recevions de votre part faisaient référence à du code réalisé par l’ancien groupe. Nous avons donc consacré un temps conséquent afin de corriger le code existant entraînant ainsi un retard dans l’implémentation de nouvelles fonctionnalités.
+La branche comportait des centaines de messages d’avertissements, du code non formaté et mal documenté (Javadoc non explicite). Ainsi lors des PR, un grand nombre des remarques que nous recevions de votre part faisaient référence à du code réalisé par l’ancien groupe. Nous avons donc consacré un temps conséquent afin de corriger le code existant entraînant ainsi un retard dans l’implémentation de nouvelles fonctionnalités.
 Concernant les fonctionnalités implémentées, nous nous sommes concentrés sur des tâches s’axant autour de la carte et le stockage de conférence en ligne.
 
 Pour la partie concernant la carte, nous avons perdu beaucoup de temps à essayer de chercher une documentation ou des tutoriels sur l’utilisation de l’API MapsForge. Par la suite nous avons perdu beaucoup de temps à chercher dans le github de l’API quelles classes et méthodes pourraient nous aider sans succès.
