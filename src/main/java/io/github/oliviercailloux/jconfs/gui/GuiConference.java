@@ -408,6 +408,10 @@ public class GuiConference {
 		}
 	}
 
+	/**
+	 * Method that display a map with two location points on it
+	 * @param e event that we can catch
+	 */
 	public void displayMap(@SuppressWarnings("unused") Event e) {
 		PathStep path = new PathStep();
 		if (!textCity.getText().isEmpty()) {
