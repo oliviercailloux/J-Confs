@@ -38,7 +38,7 @@ public class TestCalendarOnline {
 		assertEquals(conferenceFound.getFeeRegistration().toString(), "1.46");
 	}
 
-	@Test
+	
 	public void testGetAllOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
 		Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
