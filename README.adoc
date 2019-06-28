@@ -128,11 +128,11 @@ Concernant les fonctionnalités implémentées, nous nous sommes concentrés sur
 
 Pour la partie concernant la carte, nous avons perdu beaucoup de temps à essayer de chercher une documentation ou des tutoriels sur l’utilisation de l’API MapsForge. Par la suite nous avons perdu beaucoup de temps à chercher dans le github de l’API quelles classes et méthodes pourraient nous aider sans succès.
 
-Pour le stockage de conférence en ligne nous avons dû faire face à une absence de documentation pour la mise en place de cette fonctionnalité (le service en ligne fruux reconnaît même que sa documentation pour développeurs est assez limitée).
+Pour le stockage de conférence en ligne nous avons dû faire face à une absence de documentation pour la mise en place de cette fonctionnalité (fruux reconnaît que sa documentation pour développeurs est assez limitée).
 
 Cela a impacté notre planning prévisionnel car nous avons initialement prévu d’implémenter la fonctionnalité d’ajout et d’édition d’une conférence en une seule itération (3). Mais certaines méthodes présentes au sein de la librairie caldav4j ne fonctionnaient pas sur la version stable de la librairie (ajout et modification d’évènements) . Cette version stable était par ailleurs préconisé au sein du répertoire github officiel de la librairie. Nous avons donc consacré un temps important pour comprendre que le problème venait de la version préconisée qui rencontrait des dysfonctionnements (voir https://github.com/caldav4j/caldav4j/blob/master/README.md ).
 
 Ainsi durant l’itération 4 nous avons dû effectuer une montée de version (version « rc » de la librairie) qui a entraîné une refonte de certaines parties du code (montée de version pour HTTPClient). La fonctionnalité de stockage en ligne a donc occupée l’ensemble de l’itération 4 de l’équipe 1 les empêchant de s’intéresser à la fonctionnalité de recherche du chercheur sur l’annuaire intranet de Dauphine.
 
-Afin d’éviter que le prochain groupe rencontre ces difficultés nous avons ajouté une documentation pour le stockage de conférence en ligne et pour la map. De plus nous avons résolu les problèmes de formatage, de packages et de code illisible le permettant ainsi de se focaliser directement sur l’implémentation de nouvelles fonctionnalités.
+Afin d’éviter que le prochain groupe rencontre ces difficultés nous avons ajouté une documentation pour le stockage de conférence en ligne et pour la map. De plus nous avons résolu les problèmes de formatage, de packages et de code illisible leur permettant ainsi de se focaliser sur l’implémentation de nouvelles fonctionnalités.
 			
