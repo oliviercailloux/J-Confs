@@ -76,7 +76,7 @@ public class GuiConference {
 
 	public void Gui(Display displayGui){
 		this.display = displayGui;
-		
+
 		// setup the SWT window
 		shell = new Shell(displayGui, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
 		shell.setText("J-Confs");
