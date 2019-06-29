@@ -27,7 +27,7 @@ public class TestGeocode {
 	public void nearestPlaceTest() throws FileNotFoundException, IOException {
 		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
 		ReverseGeoCode reverseGeoCode = new ReverseGeoCode(resourceUrl.openStream(), true);
-		assertEquals(reverseGeoCode.nearestPlace(39.913818, 116.363625).getName(),"Beijing");
+		assertEquals("Beijing",reverseGeoCode.nearestPlace(39.913818, 116.363625).name);
 	}
 
 }
