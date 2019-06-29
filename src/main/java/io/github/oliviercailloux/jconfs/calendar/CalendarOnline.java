@@ -169,6 +169,9 @@ public class CalendarOnline {
 		for (Calendar calendar : calendarsResult) {
 			vEventConferenceFound = ICalendarUtils.getFirstEvent(calendar);
 		}
+		if(vEventConferenceFound==null) {
+            return null;
+        }
 		return ConferenceReader.createConference(vEventConferenceFound);
 	}
 	
@@ -185,6 +188,16 @@ public class CalendarOnline {
         Objects.requireNonNull(ve);
         Objects.requireNonNull(ve.getUid());
         collectionCalendarsOnline.add(httpclient, ve, null);
+    }
+    
+    /**
+     * @param uid uid of the event to delete
+     * @throws CalDAV4JException
+     */
+    public void deleteOnlineConference(String uid) throws CalDAV4JException {
+        Objects.requireNonNull(uid);
+        collectionCalendarsOnline.delete(httpclient,
+                collectionCalendarsOnline.getCalendarCollectionRoot() + "/" + uid + ".ics");
     }
 
 }
