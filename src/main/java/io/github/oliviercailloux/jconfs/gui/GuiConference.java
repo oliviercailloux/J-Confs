@@ -454,11 +454,11 @@ public class GuiConference {
 		ReverseGeoCode reverseGeoCode;
 		try {
 			reverseGeoCode = new ReverseGeoCode(resourceUrl.openStream(), true);
-			for (int i=0; i < reverseGeoCode.getArPlaceNames().size(); ++i) {
-				if (reverseGeoCode.getArPlaceNames().get(i).getName().contains(city)) {
-					path.setLatitudeArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getLatitude());
-					path.setLongitudeArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getLongitude());
-					path.setArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getName());
+			for (int i=0; i < reverseGeoCode.arPlaceNames.size(); ++i) {
+				if (reverseGeoCode.arPlaceNames.get(i).name.contains(city)) {
+					path.setLatitudeArrivalPoint(reverseGeoCode.arPlaceNames.get(i).latitude);
+					path.setLongitudeArrivalPoint(reverseGeoCode.arPlaceNames.get(i).longitude);
+					path.setArrivalPoint(reverseGeoCode.arPlaceNames.get(i).name);
 				}
 			}
 		} catch (IOException e) {

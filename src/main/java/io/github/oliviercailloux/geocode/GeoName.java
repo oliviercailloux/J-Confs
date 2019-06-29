@@ -47,18 +47,6 @@ public class GeoName extends KDNodeComparator<GeoName> {
 	public double longitude;
 	public double point[] = new double[3]; // The 3D coordinates of the point
 	public String country;
-	
-	public String getName() {
-		return name;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public double getLongitude() {
-		return longitude;
-	}
 
 	GeoName(String data) {
 		String[] names = data.split("\t");
