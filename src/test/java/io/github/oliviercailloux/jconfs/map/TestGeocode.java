@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.gui;
+package io.github.oliviercailloux.jconfs.map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.FileInputStream;
@@ -23,7 +23,6 @@ public class TestGeocode {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	@SuppressWarnings("resource")
 	@Test
 	public void nearestPlaceTest() throws FileNotFoundException, IOException {
 		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");

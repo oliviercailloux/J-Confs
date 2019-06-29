@@ -1,33 +1,38 @@
-package io.github.oliviercailloux.gui;
+package io.github.oliviercailloux.jconfs.map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 import org.mapsforge.map.reader.MapFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.github.oliviercailloux.jconfs.gui.GuiConference;
+
 public class TestMap {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestMap.class);
 
 	/**
 	 * Method that test if you can create a MapFile from a file in classPath
-	 * @throws FileNotFoundException
+	 * @throws IOException 
 	 */
 	@Test
-	public void openMapTest() throws FileNotFoundException{
-		URL fileURL = TestMap.class.getClassLoader().getResource("io/github/oliviercailloux/jconfs/map/world.map");
+	public void openMapTest() throws IOException{
+		URL fileURL = TestMap.class.getResource("world.map");
 		if (fileURL == null)
 			throw new FileNotFoundException("file doesn't exist");
 		LOGGER.debug("URL", fileURL);
+		
 		File fichier = new File(fileURL.getFile());
 		LOGGER.debug("File", fichier);
 		if (!fichier.isFile())
 			throw new FileNotFoundException("it's not a file");
-
+		
 		MapFile map = new MapFile(fichier);
 		LOGGER.debug("MapFile", map);
 		assertEquals(map.startZoomLevel().doubleValue(), 5.0);
