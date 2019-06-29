@@ -21,7 +21,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
-import org.osaf.caldav4j.exceptions.CalDAV4JException;
 import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +31,7 @@ import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 
+import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
 
 /**
