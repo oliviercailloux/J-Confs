@@ -117,7 +117,7 @@ On doit donc remplacer la classe ReverseGeoCode du projet par une nouvelle class
 
 En somme, l’idée pour un prochain groupe de travail serait de réaliser cela : 
 
-![alt text](https://github.com/13tomoore/J-Confs/blob/map/Doc/Itinéraire_Explication.png)
+![alt text](https://github.com/13tomoore/J-Confs/blob/map/Doc/Itin%C3%A9raire_Explication.png)
 
 
 === Travail envisageable ultérieurement (Utilisation de MapBox, Google Maps)
