@@ -28,12 +28,7 @@ public class TestMap {
 			throw new FileNotFoundException("file doesn't exist");
 		LOGGER.debug("URL", fileURL);
 		
-		File fichier = new File(fileURL.getFile());
-		LOGGER.debug("File", fichier);
-		if (!fichier.isFile())
-			throw new FileNotFoundException("it's not a file");
-		
-		MapFile map = new MapFile(fichier);
+		MapFile map = new MapFile(fileURL.getPath());
 		LOGGER.debug("MapFile", map);
 		assertEquals(map.startZoomLevel().doubleValue(), 5.0);
 		assertEquals(map.startPosition().getLatitude(), 0.0);
