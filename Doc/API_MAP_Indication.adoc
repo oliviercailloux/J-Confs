@@ -32,7 +32,7 @@ L’idée serait donc d’exploiter cette classe afin de collecter dans un premi
 
 D’autres renseignements sont à indiquer dans l’implémentation de la classe comme le pays où l’on voudra faire nos recherche. Il faudra donc se référer à la Doc. Dans l’exemple ci-dessous nous avions mis « fr » en argument afin d’effectuer des requêtes sur le territoire français.  
 
-![](Doc/SearchAPI_Ex.png)
+![alt text](https://github.com/13tomoore/J-Confs/blob/map/Doc/SearchAPI_Ex.png)
 
 Exemple : en entrant « université paris Descartes paris » en input (string q)
  
@@ -117,7 +117,7 @@ On doit donc remplacer la classe ReverseGeoCode du projet par une nouvelle class
 
 En somme, l’idée pour un prochain groupe de travail serait de réaliser cela : 
 
-![](Doc/Itinéraire_Explication.png)
+![alt text](https://github.com/13tomoore/J-Confs/blob/map/Doc/Itin%C3%A9raire_Explication.png)
 
 
 === Travail envisageable ultérieurement (Utilisation de MapBox, Google Maps)
