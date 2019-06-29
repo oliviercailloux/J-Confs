@@ -1,0 +1,61 @@
+= Documentation du stockage en ligne de conférences (Projet J-confs)
+:author: Nikola Spaci
+:email: nikolaspaci@dauphine.eu
+v1, 29.06.2019: Première spécification
+
+Réalisé par {author}
+
+Contact : {email}
+
+Ce document a pour vocation de documenter la fonctionnalité de stockage des conférences en ligne.
+
+
+Une interface graphique nommée « GuiListConferences » a été mise en place avec pour but d’afficher, éditer et ajouter des conférences sur un site web de stockage en ligne de calendrier.
+
+
+Le site web de stockage de calendrier utilisé se nomme fruux. Il s’agit d’un service gratuit qui permet de garder ses contacts, calendriers synchronisés sur de nombreuses plateformes.
+
+
+Pour pouvoir échanger des données entre l’application et fruux il est nécessaire d’utiliser un protocole d'édition de calendrier en ligne nommé CalDav.
+
+
+La librairie CalDav4j a été choisie afin de permettre ces échanges, elle comporte un ensemble de méthode permettant l’édition d’événement et l’ajout de nouveaux évènements en ligne. Attention, utiliser une version supérieure à la 0.9.2, en effet celle-ci rencontre des problèmes pour l’édition et l’ajout d’évènements. L’ensemble des méthodes faisant appel à cette librairie sont dans la classe « CalendarOnline ».
+
+
+Prérequis pour utilisation de fruux dans l’application :
+
+	. Avoir créé un compte sur fruux.
+	. Le calendrier doit être au format ICalendar. Il comporte un ensemble d’événement représentés par des composants « VEvent » dont il est nécessaire de respecter les normes de nommage.
+Exemple du contenu d'un composant Vevent stocké sur fruux :
+(voir le modèle /j-confs/src/main/resources/io/github/oliviercailloux/jconfs/conference/Calendartest2.ics)
+- La propriété « UID » contient un identifiant unique d’un évènement.
+- La propriété « description » contient la valeur des frais pour la conférence.
+- La propriété « location » contient le nom de la ville suivi par le nom du pays (champs séparés par une virgule) de la conférence.
+- La propriété « summary » contient le titre de l’évènement.
+
+	. Au sein du code Java il est nécessaire d’indiquer un ensemble d’informations devant être récupérées sur fruux. Ces informations vont permettre d’avoir l’autorisation de récupérer les événements d’un calendrier désiré. Il faut :
+- La clé d’identification du calendrier sur fruux.
+- L’identifiant de la « session » fruux.
+- Le mot de passe la « session » fruux.
+
+Ces informations sont disponibles sur fruux (onglet « sync ») après avoir ajouté un nouveau client (Tutoriel ci-dessous).
+
+Etape 1 : Créer un nouveau client.
+
+
+Etape 2 : Sélectionner le type de client « Other clients »
+ 
+	
+Etape 3 : Renseigner un nom.
+ 
+
+Etape 4 : Saisir les champs identifiants et mot de passe au sein des variables prévues à cet effet dans l’application Java.
+ 
+
+Etape 5 : Saisir le champ identifiant du calendrier au sein de la variable prévue à cet effet dans l’application Java.
+ 
+Liens utiles pour se documenter :
+
+- Documentation fruux : https://fruux.com/api/
+- Exemple d’implémentation de caldav4j : https://github.com/caldav4j/caldav4j/tree/master/src/example/org/osaf/caldav4j/example
+- Documentation du format ICalendar : https://tools.ietf.org/html/rfc5545
