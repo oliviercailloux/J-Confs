@@ -42,8 +42,8 @@ import com.google.common.base.Strings;
 /**
  * @author nikola 
  * This class GUI uses to show a list of conferences of a
- *         searcher and with the possibility to edit it It takes conferences
- *         from fruux
+ *         searcher and with the possibility to edit it.
+ *         It takes conferences from fruux
  */
 public class GuiListConferences {
 

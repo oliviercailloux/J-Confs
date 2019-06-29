@@ -2,6 +2,7 @@ package io.github.oliviercailloux.jconfs.calendar;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.net.URISyntaxException;
 import java.rmi.server.UID;
@@ -161,7 +162,7 @@ public class CalendarOnline {
 	 * @throws CalDAV4JException
 	 * @throws InvalidConferenceFormatException
 	 */
-	public Conference getConferenceFromUid(String uid) throws CalDAV4JException, InvalidConferenceFormatException {
+	public Optional<Conference> getConferenceFromUid(String uid) throws CalDAV4JException, InvalidConferenceFormatException {
 		VEvent vEventConferenceFound = null;
 		GenerateQuery searchQuery = new GenerateQuery();
 		searchQuery.setFilter("VEVENT : UID==" + uid);
@@ -171,9 +172,9 @@ public class CalendarOnline {
 			vEventConferenceFound = ICalendarUtils.getFirstEvent(calendar);
 		}
 		if (vEventConferenceFound == null) {
-			return null;
+			return Optional.empty();
 		}
-		return ConferenceReader.createConference(vEventConferenceFound);
+		return Optional.of(ConferenceReader.createConference(vEventConferenceFound));
 	}
 
 	/**

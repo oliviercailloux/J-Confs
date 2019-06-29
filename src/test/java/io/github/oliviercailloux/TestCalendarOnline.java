@@ -7,11 +7,13 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,15 +34,21 @@ public class TestCalendarOnline {
 	public void testGetOnlineConferenceFromUid()
 			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
-		Conference conferenceFound;
 		String uidSearch = "b8e5f0dc-5a69-4fd5-bde3-f38e0f986085";
-		conferenceFound = instanceCalendarOnline.getConferenceFromUid(uidSearch);
-		assertEquals(conferenceFound.getTitle(), "Java presentation");
-		assertEquals(conferenceFound.getUid(), uidSearch);
-		assertEquals(conferenceFound.getCity(), "Paris");
-		assertEquals(conferenceFound.getCountry(), "France");
-		assertEquals(conferenceFound.getStartDate().toString(), "2019-07-01");
-		assertEquals(conferenceFound.getFeeRegistration().toString(), "1.36");
+		Optional<Conference> potentialConference;
+		potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
+		if (potentialConference.isPresent()) {
+			Conference conferenceFound = potentialConference.get();
+			assertEquals("Java presentation",conferenceFound.getTitle());
+			assertEquals(uidSearch,conferenceFound.getUid());
+			assertEquals("Paris",conferenceFound.getCity());
+			assertEquals("France",conferenceFound.getCountry());
+			assertEquals("2019-07-01",conferenceFound.getStartDate().toString());
+			assertEquals("1.36",conferenceFound.getFeeRegistration().toString());
+		}
+		else {
+			fail(new NullPointerException());
+		}		
 	}
 
 	@Test
@@ -93,7 +101,7 @@ public class TestCalendarOnline {
 
 	@Test
 	public void testAddOnlineConference() throws MalformedURLException, URISyntaxException, ParseException,
-			InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
+	InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
 		LocalDate start_ = null;
 		LocalDate end_ = null;
@@ -108,8 +116,11 @@ public class TestCalendarOnline {
 		Conference conference = new Conference(uid, new URL("http://fruux.com"), "Java formation", start_, end_, 1.36,
 				"France", "Paris");
 		instanceCalendarOnline.addOnlineConference(conference);
-		Conference confTest = instanceCalendarOnline.getConferenceFromUid(uid);
-		assertNotNull(confTest);
+		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uid);
+		if(!confTest.isPresent()) {
+			fail();
+		}
+
 	}
 
 	@Test
@@ -117,7 +128,9 @@ public class TestCalendarOnline {
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
 		instanceCalendarOnline.deleteOnlineConference(uid);
-		assertNull(instanceCalendarOnline.getConferenceFromUid(uid));
+		if(instanceCalendarOnline.getConferenceFromUid(uid).isPresent()) {
+			fail();
+		}
 
 	}
 
