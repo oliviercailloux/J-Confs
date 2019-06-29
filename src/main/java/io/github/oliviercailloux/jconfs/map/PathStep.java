@@ -158,7 +158,7 @@ public class PathStep {
 	 *            not <code>null</code>.
 	 */
 	public void setLatitudeStartingPoint(double latitudeStartingPoint) {
-		this.latitudeStartingPoint = Objects.requireNonNull(latitudeStartingPoint);
+		this.latitudeStartingPoint = latitudeStartingPoint;
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class PathStep {
 	 *            not <code>null</code>.
 	 */
 	public void setLongitudeStartingPoint(double longitudeStartingPoint) {
-		this.longitudeStartingPoint = Objects.requireNonNull(longitudeStartingPoint);
+		this.longitudeStartingPoint = longitudeStartingPoint;
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class PathStep {
 	 *            not <code>null</code>.
 	 */
 	public void setLongitudeArrivalPoint(double longitudeArrivalPoint) {
-		this.longitudeArrivalPoint = Objects.requireNonNull(longitudeArrivalPoint);
+		this.longitudeArrivalPoint = longitudeArrivalPoint;
 	}
 
 	@Override
