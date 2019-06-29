@@ -55,7 +55,8 @@ import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 
 /**
- * @author nikola This class permits to access to online conferences from
+ * @author nikola 
+ * This class permits to access to online conferences from
  *         https://fruux.com
  */
 public class CalendarOnline {
