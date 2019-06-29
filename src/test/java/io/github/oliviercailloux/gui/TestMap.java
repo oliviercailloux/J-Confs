@@ -19,9 +19,7 @@ public class TestMap {
 	 */
 	@Test
 	public void openMapTest() throws FileNotFoundException{
-		String end;
 		URL fileURL = TestMap.class.getClassLoader().getResource("io/github/oliviercailloux/jconfs/map/world.map");
-		System.out.println(fileURL);
 		if (fileURL == null)
 			throw new FileNotFoundException("file doesn't exist");
 		LOGGER.debug("URL", fileURL);
@@ -32,9 +30,12 @@ public class TestMap {
 
 		MapFile map = new MapFile(fichier);
 		LOGGER.debug("MapFile", map);
-		end = "done";
+		assertEquals(map.startZoomLevel().doubleValue(), 5.0);
+		assertEquals(map.startPosition().getLatitude(), 0.0);
+		assertEquals(map.startPosition().getLongitude(), 0.0);
+		map.startZoomLevel();
+		assertEquals(Byte.MAX_VALUE, 127);
 		map.close();
-		assertEquals(end,"done");
 
 	}
 }
