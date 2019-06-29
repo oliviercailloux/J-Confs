@@ -1,6 +1,6 @@
-=== Document : Indications et recherche sur les API de cartes 
+= Document : Indications et recherche sur les API de cartes 
 
-== Etat des lieux
+= Etat des lieux
 
 Après nous être rendu compte que l’*API Mapsforge* était très peu documentée et une fois votre accord obtenu nous nous sommes intéressés à utiliser d’autre API de géo/localisation disponible pour être appelé via notre code Java. 
 
@@ -10,7 +10,7 @@ J’ai donc continué mes recherches mais la plupart des API en Java pour affich
 
 Il reste une petite dizaine d’API (hors Google API) abordable ou gratuite à condition de ne pas excéder un nombre de requêtes, ce qui devrait amplement être suffisant dans le cadre d’un projet universitaire. 
 
-== Utilisation de link:https://locationiq.com/[l’API LocationIQ]
+= Utilisation de link:https://locationiq.com/[l’API LocationIQ]
 
 J’ai donc testé en créant un petit projet en local où j’ai cloné ce link:https://github.com/location-iq/locationiq-java-client.git[projet] qui est l’API complète (doc comprise). 
 
@@ -120,7 +120,7 @@ En somme, l’idée pour un prochain groupe de travail serait de réaliser cela 
 ![alt text](https://github.com/13tomoore/J-Confs/blob/map/Doc/Itin%C3%A9raire_Explication.png)
 
 
-=== Travail envisageable ultérieurement (Utilisation de MapBox, Google Maps)
+= Travail envisageable ultérieurement (Utilisation de MapBox, Google Maps)
 Les deux seules solutions restant envisageable sont l’utilisation d’une API avec des modules Android dans le projet J-Confs ou bien l’utilisation de l’API
 
 Autres choix : https://openlayers.org/
