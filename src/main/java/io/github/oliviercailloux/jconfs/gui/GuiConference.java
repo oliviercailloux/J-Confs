@@ -424,7 +424,7 @@ public class GuiConference {
 				mapGUI.display();				
 
 			} catch (NullPointerException | IllegalArgumentException | IOException e1) {
-				e1.printStackTrace();
+				throw new IllegalStateException(e1);
 			}				
 		}
 		else {
@@ -462,7 +462,7 @@ public class GuiConference {
 				}
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
