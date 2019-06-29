@@ -55,6 +55,22 @@ public class PathStep {
 	private TransportType type = TransportType.NOTRANSPORT;
 	private Point arrival;
 	private Point starting;
+	
+	public Point getArrival() {
+		return arrival;
+	}
+
+	public void setArrival(Point arrival) {
+		this.arrival = arrival;
+	}
+
+	public Point getStarting() {
+		return starting;
+	}
+
+	public void setStarting(Point starting) {
+		this.starting = starting;
+	}
 
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
@@ -65,6 +81,18 @@ public class PathStep {
 	 */
 	public PathStep(Point startingPoint, Point arrivalPoint) {
 		this.starting = Objects.requireNonNull(startingPoint);
+		this.arrival = Objects.requireNonNull(arrivalPoint);
+	}
+	
+	/**
+	 * this is a constructor which initializes the PathStep object The TransporType
+	 * is noTranport by default
+	 * 
+	 * @param startingPoint not <code>null</code>.
+	 * @param arrivalPoint  not <code>null</code>.
+	 */
+	public PathStep(Point arrivalPoint) {
+		this.starting = new Point();
 		this.arrival = Objects.requireNonNull(arrivalPoint);
 	}
 

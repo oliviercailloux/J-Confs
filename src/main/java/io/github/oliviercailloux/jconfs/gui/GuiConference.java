@@ -40,6 +40,7 @@ import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
 import io.github.oliviercailloux.jconfs.document.GenerateOM;
 import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
 import io.github.oliviercailloux.jconfs.map.PathStep;
+import io.github.oliviercailloux.jconfs.map.PathStep.Point;
 import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
 import net.fortuna.ical4j.data.ParserException;
@@ -413,14 +414,13 @@ public class GuiConference {
 	 * @param e event that we can catch
 	 */
 	public void displayMap(@SuppressWarnings("unused") Event e) {
-		PathStep path = new PathStep();
 		if (!textCity.getText().isEmpty()) {
-			getLatLonCity(textCity.getText(), path);
+			PathStep path = getLatLonCity(textCity.getText());
 
 			MapGUI mapGUI;
 			try {
 				mapGUI = new MapGUI("world.map", display,
-						new LatLong(path.getLatitudeArrivalPoint(), path.getLongitudeArrivalPoint()));
+						new LatLong(path.getArrival().getLatitude(), path.getArrival().getLongitude()));
 				mapGUI.display();				
 
 			} catch (NullPointerException | IllegalArgumentException | IOException e1) {
@@ -444,26 +444,28 @@ public class GuiConference {
 	 *            not <code>null</code>.
 	 * @param path
 	 *            not <code>null</code>.
+	 * @return 
 	 */
-	public static void getLatLonCity(String city, PathStep path) {
+	public static PathStep getLatLonCity(String city) {
 		/*for the moment we stay with the cities15000.txt file, some files provided on http://download.geonames.org/export/dump/
 		 * are unusable. The file with all the cities is far too large (more than 10 minutes of execution without result. 
 		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
 		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
 		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
 		ReverseGeoCode reverseGeoCode;
+		PathStep path = null;
 		try {
 			reverseGeoCode = new ReverseGeoCode(resourceUrl.openStream(), true);
 			for (int i=0; i < reverseGeoCode.arPlaceNames.size(); ++i) {
 				if (reverseGeoCode.arPlaceNames.get(i).name.contains(city)) {
-					path.setLatitudeArrivalPoint(reverseGeoCode.arPlaceNames.get(i).latitude);
-					path.setLongitudeArrivalPoint(reverseGeoCode.arPlaceNames.get(i).longitude);
-					path.setArrivalPoint(reverseGeoCode.arPlaceNames.get(i).name);
+					path = new PathStep(path.new Point(reverseGeoCode.arPlaceNames.get(i).name,
+							reverseGeoCode.arPlaceNames.get(i).latitude,reverseGeoCode.arPlaceNames.get(i).longitude));
 				}
 			}
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		return path;
 	}
 
 	public static void main(String[] args) {
