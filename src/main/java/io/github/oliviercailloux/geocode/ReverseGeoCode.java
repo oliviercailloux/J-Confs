@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -46,9 +47,9 @@ import io.github.oliviercailloux.geocode.KDTree;
  */
 public class ReverseGeoCode {
 	KDTree<GeoName> kdTree;
-	ArrayList<GeoName> arPlaceNames;
+	List<GeoName> arPlaceNames;
 
-	public ArrayList<GeoName> getArPlaceNames() {
+	public List<GeoName> getArPlaceNames() {
 		return arPlaceNames;
 	}
 
