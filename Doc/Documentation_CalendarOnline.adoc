@@ -19,8 +19,8 @@ La librairie CalDav4j a été choisie afin de permettre ces échanges, elle comp
 Prérequis pour utilisation de fruux dans l’application : +
 
 	. Avoir créé un compte sur fruux.
-	. Le calendrier doit être au format ICalendar. Il comporte un ensemble d’événement représentés par des composants « VEvent » dont il est nécessaire de respecter les normes de nommage. +
-Exemple du contenu d'un composant Vevent stocké sur fruux   +
+	. Le calendrier doit être au format ICalendar. Il comporte un ensemble d’événement représentés par des composants « VEvent » dont il est nécessaire de respecter les normes de nommage. + +
+Exemple du contenu d'un composant Vevent stocké sur fruux (voir Doc/Conf.ics):   +
 - La propriété « UID » contient un identifiant unique d’un évènement. +
 - La propriété « description » contient la valeur des frais pour la conférence. +
 - La propriété « location » contient le nom de la ville suivi par le nom du pays (champs séparés par une virgule) de la conférence. +
