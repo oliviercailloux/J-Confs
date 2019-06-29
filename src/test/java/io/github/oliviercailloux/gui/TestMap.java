@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.map;
+package io.github.oliviercailloux.gui;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;

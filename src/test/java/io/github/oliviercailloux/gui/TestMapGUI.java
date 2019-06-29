@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.map;
+package io.github.oliviercailloux.gui;
 import java.io.IOException;
 import org.mapsforge.core.model.LatLong;
 

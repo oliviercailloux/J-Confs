@@ -445,15 +445,15 @@ public class GuiConference {
 	 * @param path
 	 *            not <code>null</code>.
 	 */
-	@SuppressWarnings("resource")
 	public static void getLatLonCity(String city, PathStep path) {
 		/*for the moment we stay with the cities15000.txt file, some files provided on http://download.geonames.org/export/dump/
 		 * are unusable. The file with all the cities is far too large (more than 10 minutes of execution without result. 
 		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
 		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
+		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
 		ReverseGeoCode reverseGeoCode;
 		try {
-			reverseGeoCode = new ReverseGeoCode(new FileInputStream("src/main/resources/io/github/oliviercailloux/jconfs/map/cities15000.txt"), true);
+			reverseGeoCode = new ReverseGeoCode(resourceUrl.openStream(), true);
 			for (int i=0; i < reverseGeoCode.getArPlaceNames().size(); ++i) {
 				if (reverseGeoCode.getArPlaceNames().get(i).getName().contains(city)) {
 					path.setLatitudeArrivalPoint(reverseGeoCode.getArPlaceNames().get(i).getLatitude());
