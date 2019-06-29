@@ -11,7 +11,7 @@ import com.google.common.base.MoreObjects;
  */
 public class PathStep {
 
-	public class point{
+	public class Point{
 		private String pointName;
 		private double latitude;
 		private double longitude;
@@ -35,7 +35,7 @@ public class PathStep {
 			this.longitude = longitude;
 		}	
 
-		public point (String name, double latitude, double longitude) {
+		public Point (String name, double latitude, double longitude) {
 			this.pointName = Objects.requireNonNull(name);
 			this.latitude = latitude;
 			this.longitude = longitude;
@@ -44,7 +44,7 @@ public class PathStep {
 		/**
 		 * By default with mapGui, Paris is the default point
 		 */
-		public point() {
+		public Point() {
 			this.pointName = "Paris";
 			this.latitude = 48.866667;
 			this.longitude = 2.333333;
@@ -53,8 +53,8 @@ public class PathStep {
 	}
 
 	private TransportType type = TransportType.NOTRANSPORT;
-	private point arrival;
-	private point starting;
+	private Point arrival;
+	private Point starting;
 
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
@@ -63,7 +63,7 @@ public class PathStep {
 	 * @param startingPoint not <code>null</code>.
 	 * @param arrivalPoint  not <code>null</code>.
 	 */
-	public PathStep(point startingPoint, point arrivalPoint) {
+	public PathStep(Point startingPoint, Point arrivalPoint) {
 		this.starting = Objects.requireNonNull(startingPoint);
 		this.arrival = Objects.requireNonNull(arrivalPoint);
 	}
@@ -75,7 +75,7 @@ public class PathStep {
 	 * @param arrivalPoint  not <code>null</code>.
 	 * @param type          not <code>null</code>.
 	 */
-	public PathStep(point startingPoint, point arrivalPoint, TransportType type) {
+	public PathStep(Point startingPoint, Point arrivalPoint, TransportType type) {
 		this(startingPoint, arrivalPoint);
 		this.type = Objects.requireNonNull(type);
 	}
