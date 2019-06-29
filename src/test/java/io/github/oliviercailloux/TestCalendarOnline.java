@@ -33,14 +33,14 @@ public class TestCalendarOnline {
 			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
 		Conference conferenceFound;
-		String uidSearch = "7aa11ba6-e6d7-452e-b60c-8d50a5520107";
+		String uidSearch = "b8e5f0dc-5a69-4fd5-bde3-f38e0f986085";
 		conferenceFound = instanceCalendarOnline.getConferenceFromUid(uidSearch);
 		assertEquals(conferenceFound.getTitle(), "Java presentation");
 		assertEquals(conferenceFound.getUid(), uidSearch);
 		assertEquals(conferenceFound.getCity(), "Paris");
 		assertEquals(conferenceFound.getCountry(), "France");
 		assertEquals(conferenceFound.getStartDate().toString(), "2019-07-01");
-		assertEquals(conferenceFound.getFeeRegistration().toString(), "1.46");
+		assertEquals(conferenceFound.getFeeRegistration().toString(), "1.36");
 	}
 
 	@Test
