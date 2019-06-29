@@ -1,3 +1,4 @@
+package io.github.oliviercailloux.map;
 import java.io.IOException;
 
 import io.github.oliviercailloux.jconfs.map.Download;

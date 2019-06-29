@@ -1,4 +1,4 @@
-package io.github.oliviercailloux;
+package io.github.oliviercailloux.conference;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
