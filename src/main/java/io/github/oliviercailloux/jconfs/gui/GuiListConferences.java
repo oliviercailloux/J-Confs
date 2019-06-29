@@ -40,10 +40,9 @@ import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
 
 /**
- * @author nikola 
- * This class GUI uses to show a list of conferences of a
- * searcher and with the possibility to edit it
- * It takes conferences from fruux
+ * @author nikola This class GUI uses to show a list of conferences of a
+ *         searcher and with the possibility to edit it It takes conferences
+ *         from fruux
  */
 public class GuiListConferences {
 
@@ -68,9 +67,9 @@ public class GuiListConferences {
 	private DateTime dateStart;
 	private DateTime dateEnd;
 	private Button btnSave;
-    private Button btnClear;
-    private Button btnDelete;
-    
+	private Button btnClear;
+	private Button btnDelete;
+
 	public GuiListConferences() throws InvalidConferenceFormatException {
 		Display display = new Display();
 		shell = createShell(display);
@@ -214,27 +213,27 @@ public class GuiListConferences {
 	}
 
 	/**
-     * Edit and add a conference:
-     * Delete from fruux the current selected conference by the user
-     * and add a new conference with the value enter by the user
-     * The widget list is updates with new online conferences
-     * @param e event that we catch
-     */
-    public void editConference(@SuppressWarnings("unused") Event e) {
-        if (isAllFieldsValid()) {
-            if (listConferences.getSelectionIndex() >= 0) {
-                removeConference();
-            }
-            addConference();
-            listConferences.removeAll();
-            listConferences.deselectAll();
-            try {
-                getConferences();
-            } catch (InvalidConferenceFormatException e1) {
-                throw new IllegalStateException(e1);
-            }
-        }
-    }
+	 * Edit and add a conference: Delete from fruux the current selected conference
+	 * by the user and add a new conference with the value enter by the user The
+	 * widget list is updates with new online conferences
+	 * 
+	 * @param e event that we catch
+	 */
+	public void editConference(@SuppressWarnings("unused") Event e) {
+		if (isAllFieldsValid()) {
+			if (listConferences.getSelectionIndex() >= 0) {
+				removeConference();
+			}
+			addConference();
+			listConferences.removeAll();
+			listConferences.deselectAll();
+			try {
+				getConferences();
+			} catch (InvalidConferenceFormatException e1) {
+				throw new IllegalStateException(e1);
+			}
+		}
+	}
 
 	/**
 	 * Create widgets of the GUI, and disposition of widgets
@@ -299,20 +298,20 @@ public class GuiListConferences {
 
 		btnSave = new Button(groupInfoConf, SWT.PUSH);
 		btnSave.setText("Save Conference");
-		
+
 		btnSave = new Button(groupInfoConf, SWT.PUSH);
-        btnSave.setText("Save Conference");
-        GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
-        gridDataBtn.widthHint=200;
-        btnSave.setLayoutData(gridDataBtn);
-       
-        btnDelete = new Button(groupInfoConf, SWT.PUSH);
-        btnDelete.setText("Delete Conference");
-        btnDelete.setLayoutData(gridDataBtn);
-       
-        btnClear = new Button(groupInfoConf, SWT.PUSH);
-        btnClear.setText("Clear fields");
-        btnClear.setLayoutData(gridDataBtn);
+		btnSave.setText("Save Conference");
+		GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
+		gridDataBtn.widthHint = 200;
+		btnSave.setLayoutData(gridDataBtn);
+
+		btnDelete = new Button(groupInfoConf, SWT.PUSH);
+		btnDelete.setText("Delete Conference");
+		btnDelete.setLayoutData(gridDataBtn);
+
+		btnClear = new Button(groupInfoConf, SWT.PUSH);
+		btnClear.setText("Clear fields");
+		btnClear.setLayoutData(gridDataBtn);
 	}
 
 	/**
@@ -325,77 +324,79 @@ public class GuiListConferences {
 		listConferences.addListener(SWT.Selection, this::fillInAllFields);
 		btnSave.addListener(SWT.Selection, this::editConference);
 		btnClear.addListener(SWT.Selection, this::clearwidget);
-        btnDelete.addListener(SWT.Selection, this::deleteConference);
+		btnDelete.addListener(SWT.Selection, this::deleteConference);
 	}
 
 	public static void main(String[] args) throws InvalidConferenceFormatException {
 		new GuiListConferences().display();
 	}
-	
+
 	/**
-     * Delete the conference in fruux that had been selected by the user
-     * @param e vent that we catch
-     */
-    public void deleteConference(@SuppressWarnings("unused") Event e) {
-        if (listConferences.getSelectionIndex() >= 0) {
-            removeConference();
-        }
-        listConferences.removeAll();
-        listConferences.deselectAll();
-        try {
-            getConferences();
-        } catch (InvalidConferenceFormatException e1) {
-            throw new IllegalStateException(e1);
-        }
-    }
- 
-    /**
-     * Clear all widgets of the GUI
-     * @param e
-     */
-    public void clearwidget(@SuppressWarnings("unused") Event e) {
-        txtCity.setText("");
-        txtCoutry.setText("");
-        txtRegisFee.setText("");
-        txtTitle.setText("");
-        txtUrl.setText("");
-        listConferences.deselectAll();
-    }
- 
-    /**
-     * Call the method from CalendarOnline to push in fruux the new conference
-     */
-    public void addConference() {
-        CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
-        LocalDate localDateStart = LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
-        LocalDate localDateEnd = LocalDate.of(dateEnd.getYear(), dateEnd.getMonth() + 1, dateEnd.getDay());
-        URL urlConference;
-        try {
-            urlConference = new URL(txtUrl.getText());
-        } catch (MalformedURLException e1) {
-            throw new IllegalStateException(e1);
-        }
- 
-        Conference newConference = new Conference(new RandomUidGenerator().generateUid().getValue(), urlConference,
-                txtTitle.getText(), localDateStart, localDateEnd, Doubles.tryParse(txtRegisFee.getText()),
-                txtCoutry.getText(), txtCity.getText());
-        try {
-            instanceCalendarOnline.addOnlineConference(newConference);
-        } catch (CalDAV4JException | URISyntaxException | ParseException e) {
-            throw new IllegalStateException(e);
-        }
-    }
- 
-    /**
-     * Call the method from CalendarOnline to delete in fruux a conference
-     */
-    public void removeConference() {
-        CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
-        String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
-        try {
-            instanceCalendarOnline.deleteOnlineConference(uidDelete);
-        } catch (CalDAV4JException e) {
-            throw new IllegalStateException(e);
-        }
-    }
+	 * Delete the conference in fruux that had been selected by the user
+	 * 
+	 * @param e vent that we catch
+	 */
+	public void deleteConference(@SuppressWarnings("unused") Event e) {
+		if (listConferences.getSelectionIndex() >= 0) {
+			removeConference();
+		}
+		listConferences.removeAll();
+		listConferences.deselectAll();
+		try {
+			getConferences();
+		} catch (InvalidConferenceFormatException e1) {
+			throw new IllegalStateException(e1);
+		}
+	}
+
+	/**
+	 * Clear all widgets of the GUI
+	 * 
+	 * @param e
+	 */
+	public void clearwidget(@SuppressWarnings("unused") Event e) {
+		txtCity.setText("");
+		txtCoutry.setText("");
+		txtRegisFee.setText("");
+		txtTitle.setText("");
+		txtUrl.setText("");
+		listConferences.deselectAll();
+	}
+
+	/**
+	 * Call the method from CalendarOnline to push in fruux the new conference
+	 */
+	public void addConference() {
+		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		LocalDate localDateStart = LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
+		LocalDate localDateEnd = LocalDate.of(dateEnd.getYear(), dateEnd.getMonth() + 1, dateEnd.getDay());
+		URL urlConference;
+		try {
+			urlConference = new URL(txtUrl.getText());
+		} catch (MalformedURLException e1) {
+			throw new IllegalStateException(e1);
+		}
+
+		Conference newConference = new Conference(new RandomUidGenerator().generateUid().getValue(), urlConference,
+				txtTitle.getText(), localDateStart, localDateEnd, Doubles.tryParse(txtRegisFee.getText()),
+				txtCoutry.getText(), txtCity.getText());
+		try {
+			instanceCalendarOnline.addOnlineConference(newConference);
+		} catch (CalDAV4JException | URISyntaxException | ParseException e) {
+			throw new IllegalStateException(e);
+		}
+	}
+
+	/**
+	 * Call the method from CalendarOnline to delete in fruux a conference
+	 */
+	public void removeConference() {
+		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
+		try {
+			instanceCalendarOnline.deleteOnlineConference(uidDelete);
+		} catch (CalDAV4JException e) {
+			throw new IllegalStateException(e);
+		}
+	}
 }
