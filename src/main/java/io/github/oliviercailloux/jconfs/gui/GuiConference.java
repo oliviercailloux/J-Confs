@@ -457,11 +457,13 @@ public class GuiConference {
 		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
 		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
 		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
-		/*line 461 to 476 are taken from ReverseGeoCode.java and GeoName.java classes with a few modifications
-		 on code to work. Credit :
+		/*the block "Store city" is taken from ReverseGeoCode.java and GeoName.java classes with a few modifications
+		on code to work. Credit :
 		Created by Daniel Glasson 
 		on 18/05/2014. Source:
 		https://github.com/AReallyGoodName/OfflineReverseGeocode*/
+		
+		//begining of the block Store city"
 		ArrayList<GeoPoint> arPlaceNames = new ArrayList<>();
 		// Read the geonames file in the directory
 		String str;
@@ -478,7 +480,8 @@ public class GuiConference {
 		} catch (IOException ex) {
 			throw new IllegalStateException(ex);
 		}
-
+		//End of the block Storecity
+		
 		PathStep path = null;
 		for (int i=0; i < arPlaceNames.size(); ++i) {
 			if (arPlaceNames.get(i).getPointName().contains(city)) {
