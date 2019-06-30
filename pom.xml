@@ -97,7 +97,10 @@
 		<dependency>
 			<groupId>com.github.caldav4j</groupId>
 			<artifactId>caldav4j</artifactId>
-			<version>0.9.2</version>
+			<!-- The use of the RC version is mandatory 
+			in order to use the methods of adding and
+			deleting online events -->
+			<version>1.0.0-rc.2</version> 
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
