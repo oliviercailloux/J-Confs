@@ -30,7 +30,7 @@ import net.fortuna.ical4j.model.property.DtStart;
 
 public class TestCalendarOnline {
 
-
+	@Test
 	public void testGetOnlineConferenceFromUid()
 			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
@@ -123,6 +123,7 @@ public class TestCalendarOnline {
 
 	}
 
+	@Test
 	public void testDelete() throws InvalidConferenceFormatException, CalDAV4JException {
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
 		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
