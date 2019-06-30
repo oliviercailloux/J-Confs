@@ -11,64 +11,23 @@ import com.google.common.base.MoreObjects;
  */
 public class PathStep {
 
-	public class Point{
-		private String pointName;
-		private double latitude;
-		private double longitude;
-
-		public String getPointName() {
-			return pointName;
-		}
-		public void setPointName(String pointName) {
-			this.pointName = Objects.requireNonNull(pointName);
-		}
-		public double getLatitude() {
-			return latitude;
-		}
-		public void setLatitude(double latitude) {
-			this.latitude = latitude;
-		}
-		public double getLongitude() {
-			return longitude;
-		}
-		public void setLongitude(double longitude) {
-			this.longitude = longitude;
-		}	
-
-		public Point (String name, double latitude, double longitude) {
-			this.pointName = Objects.requireNonNull(name);
-			this.latitude = latitude;
-			this.longitude = longitude;
-		}
-
-		/**
-		 * By default with mapGui, Paris is the default point
-		 */
-		public Point() {
-			this.pointName = "Paris";
-			this.latitude = 48.866667;
-			this.longitude = 2.333333;
-		}
-
-	}
-
 	private TransportType type = TransportType.NOTRANSPORT;
-	private Point arrival;
-	private Point starting;
+	private GeoPoint arrival;
+	private GeoPoint starting;
 	
-	public Point getArrival() {
+	public GeoPoint getArrival() {
 		return arrival;
 	}
 
-	public void setArrival(Point arrival) {
+	public void setArrival(GeoPoint arrival) {
 		this.arrival = arrival;
 	}
 
-	public Point getStarting() {
+	public GeoPoint getStarting() {
 		return starting;
 	}
 
-	public void setStarting(Point starting) {
+	public void setStarting(GeoPoint starting) {
 		this.starting = starting;
 	}
 
@@ -76,35 +35,35 @@ public class PathStep {
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
 	 * 
-	 * @param startingPoint not <code>null</code>.
-	 * @param arrivalPoint  not <code>null</code>.
+	 * @param startingGeoPoint not <code>null</code>.
+	 * @param arrivalGeoPoint  not <code>null</code>.
 	 */
-	public PathStep(Point startingPoint, Point arrivalPoint) {
-		this.starting = Objects.requireNonNull(startingPoint);
-		this.arrival = Objects.requireNonNull(arrivalPoint);
+	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint) {
+		this.starting = Objects.requireNonNull(startingGeoPoint);
+		this.arrival = Objects.requireNonNull(arrivalGeoPoint);
 	}
 	
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
 	 * 
-	 * @param startingPoint not <code>null</code>.
-	 * @param arrivalPoint  not <code>null</code>.
+	 * @param startingGeoPoint not <code>null</code>.
+	 * @param arrivalGeoPoint  not <code>null</code>.
 	 */
-	public PathStep(Point arrivalPoint) {
-		this.starting = new Point();
-		this.arrival = Objects.requireNonNull(arrivalPoint);
+	public PathStep(GeoPoint arrivalGeoPoint) {
+		this.starting = new GeoPoint();
+		this.arrival = Objects.requireNonNull(arrivalGeoPoint);
 	}
 
 	/**
 	 * this is a constructor which initializes the PathStep object
 	 * 
-	 * @param startingPoint not <code>null</code>.
-	 * @param arrivalPoint  not <code>null</code>.
+	 * @param startingGeoPoint not <code>null</code>.
+	 * @param arrivalGeoPoint  not <code>null</code>.
 	 * @param type          not <code>null</code>.
 	 */
-	public PathStep(Point startingPoint, Point arrivalPoint, TransportType type) {
-		this(startingPoint, arrivalPoint);
+	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint, TransportType type) {
+		this(startingGeoPoint, arrivalGeoPoint);
 		this.type = Objects.requireNonNull(type);
 	}
 
