@@ -1,12 +1,16 @@
 package io.github.oliviercailloux.jconfs.gui;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.channels.IllegalSelectorException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.naming.directory.InvalidAttributeIdentifierException;
@@ -40,8 +44,8 @@ import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
 import io.github.oliviercailloux.jconfs.document.GenerateOM;
 import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
+import io.github.oliviercailloux.jconfs.map.GeoPoint;
 import io.github.oliviercailloux.jconfs.map.PathStep;
-import io.github.oliviercailloux.jconfs.map.PathStep.Point;
 import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
 import net.fortuna.ical4j.data.ParserException;
@@ -448,26 +452,41 @@ public class GuiConference {
 	 * @return 
 	 */
 	public static PathStep getLatLonCity(String city) {
-		return null;
 		/*for the moment we stay with the cities15000.txt file, some files provided on http://download.geonames.org/export/dump/
 		 * are unusable. The file with all the cities is far too large (more than 10 minutes of execution without result. 
 		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
 		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
-		/*URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
-		ReverseGeoCode reverseGeoCode;
-		PathStep path = null;
-		try {
-			reverseGeoCode = new ReverseGeoCode(resourceUrl.openStream(), true);
-			for (int i=0; i < reverseGeoCode.arPlaceNames.size(); ++i) {
-				if (reverseGeoCode.arPlaceNames.get(i).name.contains(city)) {
-					path = new PathStep(path.new Point(reverseGeoCode.arPlaceNames.get(i).name,
-							reverseGeoCode.arPlaceNames.get(i).latitude,reverseGeoCode.arPlaceNames.get(i).longitude));
-				}
+		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
+		/*line 461 to 476 are taken from ReverseGeoCode.java and GeoName.java classes with a few modifications
+		 on code to work. Credit :
+		Created by Daniel Glasson 
+		on 18/05/2014. Source:
+		https://github.com/AReallyGoodName/OfflineReverseGeocode*/
+		ArrayList<GeoPoint> arPlaceNames = new ArrayList<>();
+		// Read the geonames file in the directory
+		String str;
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(resourceUrl.openStream()))) {
+			while ((str = in.readLine()) != null) {
+				String[] infos = str.split("\t");
+				String name = infos[1];
+				Double latitude = Double.parseDouble(infos[4]);
+				Double longitude = Double.parseDouble(infos[5]);
+				GeoPoint geoPoint = new GeoPoint(name, latitude, longitude);
+				arPlaceNames.add(geoPoint);
 			}
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+			in.close();
+		} catch (IOException ex) {
+			throw new IllegalStateException(ex);
 		}
-		return path;*/
+
+		PathStep path = null;
+		for (int i=0; i < arPlaceNames.size(); ++i) {
+			if (arPlaceNames.get(i).getPointName().contains(city)) {
+				path = new PathStep(new GeoPoint(arPlaceNames.get(i).getPointName(),
+						arPlaceNames.get(i).getLatitude(),arPlaceNames.get(i).getLongitude()));
+			}
+		}
+		return path;
 	}
 
 	public static void main(String[] args) {
