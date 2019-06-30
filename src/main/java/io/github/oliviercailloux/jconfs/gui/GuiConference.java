@@ -34,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
+import io.github.oliviercailloux.geocode.GeoName;
 import io.github.oliviercailloux.geocode.ReverseGeoCode;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
@@ -447,11 +448,12 @@ public class GuiConference {
 	 * @return 
 	 */
 	public static PathStep getLatLonCity(String city) {
+		return null;
 		/*for the moment we stay with the cities15000.txt file, some files provided on http://download.geonames.org/export/dump/
 		 * are unusable. The file with all the cities is far too large (more than 10 minutes of execution without result. 
 		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
 		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
-		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
+		/*URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
 		ReverseGeoCode reverseGeoCode;
 		PathStep path = null;
 		try {
@@ -465,7 +467,7 @@ public class GuiConference {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		return path;
+		return path;*/
 	}
 
 	public static void main(String[] args) {

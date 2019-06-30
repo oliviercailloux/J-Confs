@@ -46,8 +46,8 @@ import io.github.oliviercailloux.geocode.KDTree;
  * 
  */
 public class ReverseGeoCode {
-	public KDTree<GeoName> kdTree;
-	public List<GeoName> arPlaceNames;
+	KDTree<GeoName> kdTree;
+	List<GeoName> arPlaceNames;
 
 	// Get placenames from http://download.geonames.org/export/dump/
 	/**
