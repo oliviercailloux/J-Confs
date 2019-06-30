@@ -22,7 +22,7 @@ Team 2 : Nikola & Félix
 |3|17th June, 2019 | 10 h | link:https://github.com/aliliKM[Alison Koudossou Messan]| Team 1 : Nikola & Tom +
 Team 2 : Jacques & Félix
 
-|4|17th June, 2019 | 10 h | link:https://github.com/nikolaspaci[Nikola Spaci]| Team 1 : Alison & Tom +
+|4|29th June, 2019 | 10 h | link:https://github.com/nikolaspaci[Nikola Spaci]| Team 1 : Alison & Tom +
 Team 2 : Jacques & Félix
 
 
@@ -118,3 +118,21 @@ Team 2 : Jacques & Félix
 		. Team 1 : New feature : add and edit conferences online (https://www.fruux.com).
 		. Team 2 : New feature : try to display a route to the conference location
 		. Team 1 & 2 : Document the added functionality and say what has not been done, to inform the next group.
+	
+=== Difficultés
+	
+Durant ce projet nous avons rencontré des difficultés dans la compréhension du code existant. En effet le code était mal organisé (absence de packages ) et parfois difficilement compréhensible dans certaines méthodes qui étaient mal documentées. De plus, cela nous a pénalisé car certaines consignes à respecter au sein des PR n’étaient pas respecté dans la branche master initiale.
+
+La branche comportait des centaines de messages d’avertissements, du code non formaté et mal documenté (Javadoc non explicite). Ainsi lors des PR, un grand nombre des remarques que nous recevions de votre part faisaient référence à du code réalisé par l’ancien groupe . Nous avons donc consacré un temps conséquent afin de corriger le code existant entraînant ainsi un retard dans l’implémentation de nouvelles fonctionnalités (PR#14 par exemple qui a demandé une forte implication de l'équipe 2 pour de la remise à niveau du code).
+Concernant les fonctionnalités implémentées, nous nous sommes concentrés sur des tâches s’axant autour de la carte et le stockage de conférence en ligne.
+
+Pour la partie concernant la carte, nous avons perdu beaucoup de temps à essayer de chercher une documentation ou des tutoriels sur l’utilisation de l’API MapsForge. Par la suite nous avons perdu beaucoup de temps à chercher dans le github de l’API quelles classes et méthodes pourraient nous aider sans succès.
+
+Pour le stockage de conférence en ligne nous avons dû faire face à une absence de documentation pour la mise en place de cette fonctionnalité (fruux reconnaît que sa documentation pour développeurs est assez limitée).
+
+Cela a impacté notre planning prévisionnel car nous avons initialement prévu d’implémenter la fonctionnalité d’ajout et d’édition d’une conférence en une seule itération (3). Mais certaines méthodes présentes au sein de la librairie caldav4j ne fonctionnaient pas sur la version stable de la librairie (ajout et modification d’évènements) . Cette version stable était par ailleurs préconisé au sein du répertoire github officiel de la librairie (Voir PR#24). Nous avons donc consacré un temps important à chercher l'origine du problème qui venait de la version préconisée qui rencontrait des dysfonctionnements (voir https://github.com/caldav4j/caldav4j/blob/master/README.md ).
+
+Ainsi durant l’itération 4 nous avons dû effectuer une montée de version (version « rc » de la librairie)(PR#32) qui a entraîné une refonte de certaines parties du code (montée de version pour HTTPClient, commit : e2f9dd3f1e3ad296064a7527024352e8099a5265 )qui nous a permis la réalisation de l'ajout de conférénces (commit:e2f9dd3f1e3ad296064a7527024352e8099a5265). La fonctionnalité de stockage en ligne a donc occupée l’ensemble de l’itération 4 de l’équipe 1 les empêchant de s’intéresser à la fonctionnalité de recherche du chercheur sur l’annuaire intranet de Dauphine.
+
+Afin d’éviter que le prochain groupe rencontre ces difficultés nous avons ajouté une documentation pour le stockage de conférence en ligne (PR#30) et pour la map (commit: eb6d8a4223cf9c33f1287a34a7d991d1d6cec7ba et b985a618b218a3162958542889a67745416133e9). De plus nous avons résolu les problèmes de formatage (PR#28), de packages (PR#29) et de code illisible (ensemble des PR) leur permettant ainsi de se focaliser sur l’implémentation de nouvelles fonctionnalités.
+			

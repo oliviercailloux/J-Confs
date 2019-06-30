@@ -1,10 +1,13 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.net.URISyntaxException;
 import java.rmi.server.UID;
 import java.text.ParseException;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 
@@ -24,17 +27,29 @@ import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
 
-import org.apache.commons.httpclient.HostConfiguration;
-import org.apache.commons.httpclient.UsernamePasswordCredentials;
-import org.apache.commons.httpclient.auth.AuthScope;
-import org.osaf.caldav4j.CalDAVCollection;
-import org.osaf.caldav4j.CalDAVConstants;
-import org.osaf.caldav4j.exceptions.CalDAV4JException;
-import org.osaf.caldav4j.methods.CalDAV4JMethodFactory;
-import org.osaf.caldav4j.methods.HttpClient;
-import org.osaf.caldav4j.model.request.CalendarQuery;
-import org.osaf.caldav4j.util.GenerateQuery;
-import org.osaf.caldav4j.util.ICalendarUtils;
+import org.apache.http.HttpHost;
+import org.apache.http.HttpResponse;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import com.github.caldav4j.CalDAVCollection;
+import com.github.caldav4j.CalDAVConstants;
+import com.github.caldav4j.exceptions.CalDAV4JException;
+import com.github.caldav4j.methods.CalDAV4JMethodFactory;
+import com.github.caldav4j.model.request.CalendarQuery;
+import com.github.caldav4j.util.GenerateQuery;
+import com.github.caldav4j.util.ICalendarUtils;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
@@ -42,26 +57,27 @@ import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatExcept
 
 /**
  * @author nikola 
- * This class permits to access to online conferences from https://fruux.com
+ * This class permits to access to online conferences from
+ *         https://fruux.com
  */
 public class CalendarOnline {
 	final private static String userNameFruux = "b3297431258";
 	final private static String passwordFruux = "jizbr5fuj9gi";
 	final private static String calendarIDFruux = "6e8c6372-eba5-43da-9eed-8e5413559c99";
-	private static HttpClient httpClient;
 	private static CalendarOnline instanceCalendarOnline;
 	private CalDAVCollection collectionCalendarsOnline;
+	private static CloseableHttpClient httpclient;
 
 	private CalendarOnline() {
-		httpClient = new HttpClient();
-		httpClient.getHostConfiguration().setHost("dav.fruux.com", 443, "https");
-		UsernamePasswordCredentials httpCredentials = new UsernamePasswordCredentials(userNameFruux, passwordFruux);
-		httpClient.getState().setCredentials(AuthScope.ANY, httpCredentials);
-		httpClient.getParams().setAuthenticationPreemptive(true);
+		HttpHost hostTarget;
+		CredentialsProvider credsProvider = new BasicCredentialsProvider();
+		credsProvider.setCredentials(new AuthScope("dav.fruux.com", 443),
+				new UsernamePasswordCredentials(userNameFruux, passwordFruux));
+		httpclient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider).build();
+		hostTarget = new HttpHost("dav.fruux.com", 443, "https");
 
 		collectionCalendarsOnline = new CalDAVCollection("/calendars/" + userNameFruux + "/" + calendarIDFruux,
-				(HostConfiguration) httpClient.getHostConfiguration().clone(), new CalDAV4JMethodFactory(),
-				CalDAVConstants.PROC_ID_DEFAULT);
+				hostTarget, new CalDAV4JMethodFactory(), CalDAVConstants.PROC_ID_DEFAULT);
 	}
 
 	public static CalendarOnline getInstance() {
@@ -83,7 +99,7 @@ public class CalendarOnline {
 	public Set<Conference> getOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
 		GenerateQuery searchQuery = new GenerateQuery();
 		CalendarQuery calendarQuery = searchQuery.generate();
-		List<Calendar> calendarsResult = collectionCalendarsOnline.queryCalendars(httpClient, calendarQuery);
+		List<Calendar> calendarsResult = collectionCalendarsOnline.queryCalendars(httpclient, calendarQuery);
 		Set<Conference> listConferencesUser = new LinkedHashSet<>();
 		for (Calendar calendar : calendarsResult) {
 			ComponentList<VEvent> componentList = calendar.getComponents(Component.VEVENT);
@@ -107,7 +123,7 @@ public class CalendarOnline {
 	public void editConferenceOnline(Conference conferenceEdited)
 			throws ParseException, CalDAV4JException, URISyntaxException {
 		VEvent vEventConferenceModified = conferenceToVEvent(conferenceEdited);
-		collectionCalendarsOnline.updateMasterEvent(httpClient, vEventConferenceModified, null);
+		collectionCalendarsOnline.updateMasterEvent(httpclient, vEventConferenceModified, null);
 	}
 
 	/**
@@ -118,12 +134,13 @@ public class CalendarOnline {
 	 */
 	public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException, ParseException {
 		VEvent vEventConference;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		Property url = new Url(conferenceEdited.getUrl().toURI());
 		Property location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
 		Property description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
 		Property name = new Summary(conferenceEdited.getTitle());
-		Property startDate = new DtStart(conferenceEdited.getEndDate().toString());
-		Property endDate = new DtEnd(conferenceEdited.getStartDate().toString());
+		Property startDate = new DtStart(new Date(conferenceEdited.getStartDate().format(formatter)));
+		Property endDate = new DtEnd(new Date(conferenceEdited.getEndDate().format(formatter)));
 		Property uid = new Uid(conferenceEdited.getUid());
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
 		propertyListVevent.add(url);
@@ -145,16 +162,44 @@ public class CalendarOnline {
 	 * @throws CalDAV4JException
 	 * @throws InvalidConferenceFormatException
 	 */
-	public Conference getConferenceFromUid(String uid) throws CalDAV4JException, InvalidConferenceFormatException {
+	public Optional<Conference> getConferenceFromUid(String uid) throws CalDAV4JException, InvalidConferenceFormatException {
 		VEvent vEventConferenceFound = null;
 		GenerateQuery searchQuery = new GenerateQuery();
 		searchQuery.setFilter("VEVENT : UID==" + uid);
 		CalendarQuery calendarQuery = searchQuery.generate();
-		List<Calendar> calendarsResult = collectionCalendarsOnline.queryCalendars(httpClient, calendarQuery);
+		List<Calendar> calendarsResult = collectionCalendarsOnline.queryCalendars(httpclient, calendarQuery);
 		for (Calendar calendar : calendarsResult) {
 			vEventConferenceFound = ICalendarUtils.getFirstEvent(calendar);
 		}
-		return ConferenceReader.createConference(vEventConferenceFound);
+		if (vEventConferenceFound == null) {
+			return Optional.empty();
+		}
+		return Optional.of(ConferenceReader.createConference(vEventConferenceFound));
+	}
+
+	/**
+	 * @param ve event to add
+	 * @throws CalDAV4JException
+	 * @throws ParseException
+	 * @throws URISyntaxException
+	 */
+	public void addOnlineConference(Conference conferenceToPush)
+			throws CalDAV4JException, URISyntaxException, ParseException {
+		VEvent ve;
+		ve = conferenceToVEvent(conferenceToPush);
+		Objects.requireNonNull(ve);
+		Objects.requireNonNull(ve.getUid());
+		collectionCalendarsOnline.add(httpclient, ve, null);
+	}
+
+	/**
+	 * @param uid uid of the event to delete
+	 * @throws CalDAV4JException
+	 */
+	public void deleteOnlineConference(String uid) throws CalDAV4JException {
+		Objects.requireNonNull(uid);
+		collectionCalendarsOnline.delete(httpclient,
+				collectionCalendarsOnline.getCalendarCollectionRoot() + "/" + uid + ".ics");
 	}
 
 }
