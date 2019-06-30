@@ -1,0 +1,129 @@
+= Document : Indications et recherche sur les API de cartes 
+
+= Etat des lieux
+
+Après nous être rendu compte que l’*API Mapsforge* était très peu documentée et une fois votre accord obtenu nous nous sommes intéressés à utiliser d’autre API de géo/localisation disponible pour être appelé via notre code Java. 
+
+J’ai commencé (@jacquesmoati) à travailler en me documentant sur l’API de *Google Maps* qui en propose une multitude et ayant des utilités différentes (geocoding, reverse geocoding, route optimization etc). J’ai commencé à installer l’API dans un projet ‘test’ sur eclipse, créé mon compte *Google Cloud*, obtenue ma clé de sécurité pour lancer l’api mais je me suis rendu compte que le nombre de requête sur l’API Google Maps est très limitée depuis peu. Même si Google offre 200$ de bons pour utiliser cette api mais je préfère utiliser une solution totalement gratuite (5$ pour 10k requête). 
+
+J’ai donc continué mes recherches mais la plupart des API en Java pour afficher des cartes sont disponibles uniquement pour des applications Android. Il faudra donc envisager l’utilisation de module Android pour la mise en place ultérieure d’une API destinée à afficher des cartes propres et claires, avec des itinéraires et autres. Mais certaines options d’avantage rudimentaires restent possible en utilisant certaines API que nous allons détailler ci-dessous. 
+
+Il reste une petite dizaine d’API (hors Google API) abordable ou gratuite à condition de ne pas excéder un nombre de requêtes, ce qui devrait amplement être suffisant dans le cadre d’un projet universitaire. 
+
+= Utilisation de link:https://locationiq.com/[l’API LocationIQ]
+
+J’ai donc testé en créant un petit projet en local où j’ai cloné ce link:https://github.com/location-iq/locationiq-java-client.git[projet] qui est l’API complète (doc comprise). 
+
+J’ai pu lire la doc et les méthodes que l’on pourrait éventuellement exploiter. 
+*Attention*, ce projet est tout récent et par conséquent la doc est assez succincte. 
+
+
+* Création du compte
+** Génération de la clé
+
+J’ai créé mon compte locationIQ pour générer la clé secrète (demandée pour appeler l’api) afin de pouvoir requêter et travailler sur la classe BalanceAPI et SearchAPI pour comprendre leur fonctionnement. 
+
+** Classe *SearchAPI* (très utile)
+
+Cette seconde classe permet à l’aide d’une *simple recherche en brute*, par exemple : « universite paris Descartes », sans adresse exacte ici, d’obtenir en sortie un JSON.
+Ce JSON est très riche en information car en plus de nous donner le lieu exacte de l’endroit entré dans la TextBox, il nous donne le quartier, le type de lieu (university), et surtout les positions GPS qui pourront être exploitées dans un second temps pour l’itinéraire ou l’affichage du point GPS. En argument, la méthode qui est implémentée propose également d’autres options qui pourront éventuellement être exploitées, comme le nombre maximale de lieu à afficher en sortie dans le JSON. Dans l’exemple que nous montrons ci-dessous nous avons mis cet argument à 1 pour afficher uniquement le lieu le plus pertinent mais parfois cela peut être intéressent d’en afficher plusieurs (par exemple si l’on entre le nom de rue, il y des rues ayant le même nom présentent dans beaucoup de villes en France). 
+
+L’idée serait donc d’exploiter cette classe afin de collecter dans un premier temps les données demandé par l’utilisateur et d’ensuite les utiliser pour afficher éventuellement une carte et même un itinéraire. 
+
+D’autres renseignements sont à indiquer dans l’implémentation de la classe comme le pays où l’on voudra faire nos recherche. Il faudra donc se référer à la Doc. Dans l’exemple ci-dessous nous avions mis « fr » en argument afin d’effectuer des requêtes sur le territoire français.  
+
+:image-uri-screenshot: https://github.com/13tomoore/J-Confs/blob/map/Doc/SearchAPI_Ex.png
+image::{image-uri-screenshot}[Preview of AsciiDoc source and corresponding rendered HTML]
+
+Exemple : en entrant « université paris Descartes paris » en input (string q)
+ 
+
+On obtient ce type de json exploitable : 
+
+ [class Location {
+    placeId: 95214486
+    licence: https://locationiq.com/attribution
+    osmType: way
+    osmId: 56645234
+    boundingbox: [48.8509564, 48.8519751, 2.3400064, 2.3418225]
+    lat: 48.85139235
+    lon: 2.34111160499217
+    displayName: Université Paris Descartes - Paris V, Rue de l'École de Médecine, Quartier de la Monnaie, Paris 6e Arrondissement, Paris, Île-de-France, France métropolitaine, 75006, France
+    propertyClass: amenity
+    type: university
+    importance: 0.69996057842905
+    address: class Address {
+        houseNumber: null
+        road: Rue de l'École de Médecine
+        residential: null
+        borough: null
+        neighbourhood: null
+        quarter: null
+        hamlet: null
+        suburb: Quartier de la Monnaie
+        island: null
+        village: null
+        town: null
+        city: Paris
+        cityDistrict: Paris 6e Arrondissement
+        county: Paris
+        state: Île-de-France
+        stateDistrict: null
+        postcode: 75006
+        country: France
+        countryCode: fr
+        stateCode: null
+    }
+    namedetails: class Namedetails {
+        name: Université Paris Descartes - Paris V
+    }
+}]
+
+
+* Problèmes de mise en place rencontrés 
+
+** Le projet n’est pas disponible sur Maven Central
+
+Par conséquent, j’ai créé une issue pour demander au développeur link:https://github.com/rocainunwired[rocainunwired]  de l’API de le disposer sur Maven Central.
+
+Un développeur de LocationIQ m’a contacté par email afin de proposer un rendez-vous téléphonique afin que je lui donne les uses-case de mon projet afin qu’il améliore son projet. 
+
+
+** Les instructions d'installation sont dans la Doc  (si toujours pas disponible sur Maven Central)
+
+Ajout de la dépendance : 
+
+<dependency>
+  <groupId>com.locationiq</groupId> /
+  <artifactId>locationiq-java-client</artifactId>
+  <version>1.0.0</version>
+  <scope>compile</scope>
+</dependency>
+
+*** Dans le cas où il n’est toujours pas sur Maven Central
+
+Il faut copier les packages du projet locationiq dans le projet J-Confs puis ajouter toutes les dépendances du pom du projet locationiq dans le projet J-Confs, sans quoi il y aura une multitude d’erreurs et de warnings dans le build travis après compilation. 
+
+
+* Travail envisagé pour le futur
+
+** Modification de l’interface graphique
+
+Il faudrait alors modifier l’interface graphique en ajoutant, le lieu  de l’ordre de mission (l’arrivée) et lieu de départ (exemple université paris dauphine → université paris Descartes), cette première API va ensuite générer deux json pour le départ et l’arrivée. 
+
+On pourra détailler sur l’ordre de mission le détail des adresses, quartier etc. Puis utiliser une seconde api comme OSM pour afficher le trajet entre les 2 points. 
+
+On doit donc remplacer la classe ReverseGeoCode du projet par une nouvelle classe faisant appelle à la classe SearchAPI de l’API LocationIQ. 
+
+
+En somme, l’idée pour un prochain groupe de travail serait de réaliser cela : 
+
+:image-uri-screenshot2: https://github.com/13tomoore/J-Confs/blob/map/Doc/Itin%C3%A9raire_Explication.png
+image::{image-uri-screenshot2}[Preview of AsciiDoc source and corresponding rendered HTML]
+
+= Travail envisageable ultérieurement (Utilisation de MapBox, Google Maps)
+Les deux seules solutions restant envisageable sont l’utilisation d’une API avec des modules Android dans le projet J-Confs ou bien l’utilisation de l’API
+
+Autres choix : https://openlayers.org/
+
+Liens à exploiter : https://github.com/eppleton/leaflet4j

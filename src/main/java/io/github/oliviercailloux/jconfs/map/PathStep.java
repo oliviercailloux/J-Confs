@@ -12,30 +12,58 @@ import com.google.common.base.MoreObjects;
 public class PathStep {
 
 	private TransportType type = TransportType.NOTRANSPORT;
-	private String startingPoint = "";
-	private String arrivalPoint = "";
+	private GeoPoint arrival;
+	private GeoPoint starting;
+	
+	public GeoPoint getArrival() {
+		return arrival;
+	}
+
+	public void setArrival(GeoPoint arrival) {
+		this.arrival = arrival;
+	}
+
+	public GeoPoint getStarting() {
+		return starting;
+	}
+
+	public void setStarting(GeoPoint starting) {
+		this.starting = starting;
+	}
 
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
 	 * 
-	 * @param startingPoint not <code>null</code>.
-	 * @param arrivalPoint  not <code>null</code>.
+	 * @param startingGeoPoint not <code>null</code>.
+	 * @param arrivalGeoPoint  not <code>null</code>.
 	 */
-	public PathStep(String startingPoint, String arrivalPoint) {
-		this.startingPoint = Objects.requireNonNull(startingPoint);
-		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
+	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint) {
+		this.starting = Objects.requireNonNull(startingGeoPoint);
+		this.arrival = Objects.requireNonNull(arrivalGeoPoint);
+	}
+	
+	/**
+	 * this is a constructor which initializes the PathStep object The TransporType
+	 * is noTranport by default
+	 * 
+	 * @param startingGeoPoint not <code>null</code>.
+	 * @param arrivalGeoPoint  not <code>null</code>.
+	 */
+	public PathStep(GeoPoint arrivalGeoPoint) {
+		this.starting = new GeoPoint();
+		this.arrival = Objects.requireNonNull(arrivalGeoPoint);
 	}
 
 	/**
 	 * this is a constructor which initializes the PathStep object
 	 * 
-	 * @param startingPoint not <code>null</code>.
-	 * @param arrivalPoint  not <code>null</code>.
+	 * @param startingGeoPoint not <code>null</code>.
+	 * @param arrivalGeoPoint  not <code>null</code>.
 	 * @param type          not <code>null</code>.
 	 */
-	public PathStep(String startingPoint, String arrivalPoint, TransportType type) {
-		this(startingPoint, arrivalPoint);
+	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint, TransportType type) {
+		this(startingGeoPoint, arrivalGeoPoint);
 		this.type = Objects.requireNonNull(type);
 	}
 
@@ -49,24 +77,6 @@ public class PathStep {
 	}
 
 	/**
-	 * this is a getter which return the startingPoint
-	 * 
-	 * @return not <code>null</code>.
-	 */
-	public String getStartingPoint() {
-		return startingPoint;
-	}
-
-	/**
-	 * This is a getter which return the arrivalPoint
-	 * 
-	 * @return not <code>null</code>.
-	 */
-	public String getArrivalPoint() {
-		return arrivalPoint;
-	}
-
-	/**
 	 * This is a setter to modify the type
 	 * 
 	 * @param type not <code>null</code>
@@ -75,28 +85,13 @@ public class PathStep {
 		this.type = Objects.requireNonNull(type);
 	}
 
-	/**
-	 * a setter to modify the startingPoint
-	 * 
-	 * @param startingPoint not <code>null</code>
-	 */
-	public void setStartingPoint(String startingPoint) {
-		this.startingPoint = Objects.requireNonNull(startingPoint);
-	}
-
-	/**
-	 * a setter to modify the arrivalPoint
-	 * 
-	 * @param arrivalPoint not <code>null</code>.
-	 */
-	public void setArrivalPoint(String arrivalPoint) {
-		this.arrivalPoint = Objects.requireNonNull(arrivalPoint);
-	}
-
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).add("StartingPoint", startingPoint).add("ArrivalPoint", arrivalPoint)
-				.add("Type", type).toString();
+		return MoreObjects.toStringHelper(this)
+				.add("StartingPoint", starting)
+				.add("ArrivalPoint", arrival)
+				.add("Type", type)
+				.toString();
 	}
 
 }

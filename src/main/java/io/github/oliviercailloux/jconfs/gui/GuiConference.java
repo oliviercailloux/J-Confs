@@ -1,11 +1,16 @@
 package io.github.oliviercailloux.jconfs.gui;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.channels.IllegalSelectorException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.naming.directory.InvalidAttributeIdentifierException;
@@ -28,17 +33,21 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.mapsforge.core.model.LatLong;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
+import io.github.oliviercailloux.geocode.GeoName;
+import io.github.oliviercailloux.geocode.ReverseGeoCode;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
 import io.github.oliviercailloux.jconfs.document.GenerateOM;
 import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
+import io.github.oliviercailloux.jconfs.map.GeoPoint;
+import io.github.oliviercailloux.jconfs.map.PathStep;
 import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
-
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.validate.ValidationException;
 
@@ -69,11 +78,13 @@ public class GuiConference {
 	private DateTime dateEnd;
 	private LocalDate start;
 	private LocalDate end;
+	private Display display;
 
-	public void Gui(Display display) {
+	public void Gui(Display displayGui){
+		this.display = displayGui;
 
 		// setup the SWT window
-		shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
+		shell = new Shell(displayGui, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
 		shell.setText("J-Confs");
 
 		// initialize a grid layout manager
@@ -187,8 +198,12 @@ public class GuiConference {
 		buttonYs.setText("Generate YS");
 		buttonYs.addListener(SWT.Selection, this::generateYs);
 
-		Color col = new Color(display, 211, 214, 219);
-		Color col2 = new Color(display, 250, 250, 250);
+		Button buttonMap = new Button(grp_conf, SWT.PUSH);
+		buttonMap.setText("Display Conference Location");
+		buttonMap.addListener(SWT.Selection, this::displayMap);
+
+		Color col = new Color(displayGui, 211, 214, 219);
+		Color col2 = new Color(displayGui, 250, 250, 250);
 		textSurname.setBackground(col);
 		textFirstname.setBackground(col);
 		textPhone.setBackground(col);
@@ -201,10 +216,10 @@ public class GuiConference {
 		shell.pack();
 		shell.open();
 		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
-				display.sleep();
+			if (!displayGui.readAndDispatch())
+				displayGui.sleep();
 		}
-		display.dispose();
+		displayGui.dispose();
 	}
 
 	/**
@@ -397,6 +412,84 @@ public class GuiConference {
 			}
 			mb.open();
 		}
+	}
+
+	/**
+	 * Method that display a map with two location points on it
+	 * @param e event that we can catch
+	 */
+	public void displayMap(@SuppressWarnings("unused") Event e) {
+		if (!textCity.getText().isEmpty()) {
+			PathStep path = getLatLonCity(textCity.getText());
+
+			MapGUI mapGUI;
+			try {
+				mapGUI = new MapGUI("world.map", display,
+						new LatLong(path.getArrival().getLatitude(), path.getArrival().getLongitude()));
+				mapGUI.display();				
+
+			} catch (NullPointerException | IllegalArgumentException | IOException e1) {
+				throw new IllegalStateException(e1);
+			}				
+		}
+		else {
+			LOGGER.debug("The field city must not be null");
+			MessageBox mb = new MessageBox(shell, SWT.ICON_INFORMATION | SWT.OK);
+			mb.setText("Failed");
+			mb.setMessage("The field city must not be null");
+			mb.open();
+		}
+	}
+
+	/**
+	 * This method set informations of the city (which is the arrival point) for the instance
+	 * path
+	 * 
+	 * @param city
+	 *            not <code>null</code>.
+	 * @param path
+	 *            not <code>null</code>.
+	 * @return 
+	 */
+	public static PathStep getLatLonCity(String city) {
+		/*for the moment we stay with the cities15000.txt file, some files provided on http://download.geonames.org/export/dump/
+		 * are unusable. The file with all the cities is far too large (more than 10 minutes of execution without result. 
+		 * Files such as the one with cities with more than 15000 inhabitants seem to be good but carefull with the names.
+		 * (For instance If you look for "Pekin" in french, you have to search "Beijing".*/
+		URL resourceUrl = GuiConference.class.getResource("cities15000.txt");
+		/*the block "Store city" is taken from ReverseGeoCode.java and GeoName.java classes with a few modifications
+		on code to work. Credit :
+		Created by Daniel Glasson 
+		on 18/05/2014. Source:
+		https://github.com/AReallyGoodName/OfflineReverseGeocode*/
+		
+		//begining of the block Store city"
+		ArrayList<GeoPoint> arPlaceNames = new ArrayList<>();
+		// Read the geonames file in the directory
+		String str;
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(resourceUrl.openStream()))) {
+			while ((str = in.readLine()) != null) {
+				String[] infos = str.split("\t");
+				String name = infos[1];
+				Double latitude = Double.parseDouble(infos[4]);
+				Double longitude = Double.parseDouble(infos[5]);
+				GeoPoint geoPoint = new GeoPoint(name, latitude, longitude);
+				arPlaceNames.add(geoPoint);
+			}
+			in.close();
+		} catch (IOException ex) {
+			throw new IllegalStateException(ex);
+		}
+		//End of the block Storecity
+		
+		PathStep path = null;
+		for (int i=0; i < arPlaceNames.size(); ++i) {
+			if (arPlaceNames.get(i).getPointName().contains(city)) {
+				path = new PathStep(new GeoPoint(arPlaceNames.get(i).getPointName(),
+						arPlaceNames.get(i).getLatitude(),arPlaceNames.get(i).getLongitude()));
+			}
+		}
+		return path;
 	}
 
 	public static void main(String[] args) {
