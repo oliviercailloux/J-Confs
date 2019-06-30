@@ -47,7 +47,6 @@ import io.github.oliviercailloux.geocode.KDTree;
  */
 public class ReverseGeoCode {
 	KDTree<GeoName> kdTree;
-	List<GeoName> arPlaceNames;
 
 	// Get placenames from http://download.geonames.org/export/dump/
 	/**
@@ -90,7 +89,7 @@ public class ReverseGeoCode {
 	}
 
 	private void createKdTree(InputStream placenames, boolean majorOnly) throws IOException {
-		arPlaceNames = new ArrayList<>();
+		ArrayList<GeoName> arPlaceNames = new ArrayList<>();
 		// Read the geonames file in the directory
 
 		String str;
