@@ -40,7 +40,7 @@ Exemple : en entrant « université paris Descartes paris » en input (string q)
 
 On obtient ce type de json exploitable : 
 
-[class Location {
+ [class Location {
     placeId: 95214486
     licence: https://locationiq.com/attribution
     osmType: way
