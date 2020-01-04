@@ -7,8 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.release>11</maven.compiler.release>
 	</properties>
 
 	<profiles>
@@ -92,15 +93,13 @@
 		</profile>
 	</profiles>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>com.github.caldav4j</groupId>
 			<artifactId>caldav4j</artifactId>
-			<!-- The use of the RC version is mandatory 
-			in order to use the methods of adding and
-			deleting online events -->
-			<version>1.0.0-rc.2</version> 
+			<!-- The use of the RC version is mandatory in order to use the methods 
+				of adding and deleting online events -->
+			<version>1.0.0-rc.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -133,6 +132,14 @@
 				<exclusion>
 					<groupId>org.slf4j</groupId>
 					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<!-- <exclusion> -->
+				<!-- <groupId>xerces</groupId> -->
+				<!-- <artifactId>xercesImpl</artifactId> -->
+				<!-- </exclusion> -->
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -207,6 +214,30 @@
 					<artifactId>org.eclipse.swt</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 	</dependencies>
 
