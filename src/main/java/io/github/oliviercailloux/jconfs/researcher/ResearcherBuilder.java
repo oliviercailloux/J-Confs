@@ -45,7 +45,7 @@ public class ResearcherBuilder {
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException, ClassCastException {
 		Client client = ClientBuilder.newClient();
 		WebTarget webTarget = client
-				.target("https://www.ent.dauphine.fr/annuaire/index.php?param0=fiche&param1=" + login);
+				.target("https://annuaire.dauphine.psl.eu/annuaire/index.php?param0=fiche&param1=" + login);
 		LOGGER.debug("webTarget initialisation succed");
 		String result = webTarget.request(MediaType.TEXT_PLAIN).get(String.class);
 		LOGGER.debug("request succed", result);
