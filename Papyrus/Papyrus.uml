@@ -528,6 +528,34 @@
       </ownedOperation>
     </packagedElement>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UV5v4GYDEeqbUqsc8bodZw" name="ListenerAction">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_tLg-kGYDEeqbUqsc8bodZw" name="ListenerAction"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_taGNIGYDEeqbUqsc8bodZw" name="checkTextInput" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Mp7QwGYFEeqbUqsc8bodZw" type="_z1vlcGYEEeqbUqsc8bodZw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_tp48oGYDEeqbUqsc8bodZw" name="checkNumberInput" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_AGrLkGYFEeqbUqsc8bodZw" type="_z1vlcGYEEeqbUqsc8bodZw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yVVYEGYDEeqbUqsc8bodZw" name="checkDoubleInput" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_FSbewGYFEeqbUqsc8bodZw" type="_z1vlcGYEEeqbUqsc8bodZw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yvfkgGYDEeqbUqsc8bodZw" name="inputFieldBlock" isStatic="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_H19LcGYFEeqbUqsc8bodZw" type="_z1vlcGYEEeqbUqsc8bodZw"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UhMZ4GYDEeqbUqsc8bodZw" name="GuiConference"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UtnsUGYDEeqbUqsc8bodZw" name="GuiListConferences"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_U8ZvMGYDEeqbUqsc8bodZw" name="GeneralGUI">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_aCm-kGYEEeqbUqsc8bodZw" name="GeneralGUI"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_VKWEkGYDEeqbUqsc8bodZw" name="MapGUI">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ozD7IGYEEeqbUqsc8bodZw" name="GRAPHIC_FACTORY"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_pZGAYGYEEeqbUqsc8bodZw" name="mapFrame"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qHqWkGYEEeqbUqsc8bodZw" name="shell"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_q1bbgGYEEeqbUqsc8bodZw" name="startPoint"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_rnIlQGYEEeqbUqsc8bodZw" name="endPoint"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_z1vlcGYEEeqbUqsc8bodZw" name="VerifyEvent"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
