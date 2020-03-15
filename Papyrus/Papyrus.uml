@@ -5,72 +5,10 @@
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_YP4PkGWqEeqCB6kIHjdr_A" name="io.github.oliviercailloux.geocode">
     <packagedElement xmi:type="uml:Class" xmi:id="_pWZEkGWqEeqCB6kIHjdr_A" name="GeoName">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_L4kZUGbWEeqr15I_9GSrpA" name="name">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Mkcn4GbWEeqr15I_9GSrpA" name="majorPlace">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_NXDJgGbWEeqr15I_9GSrpA" name="latitude">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_OENKcGbWEeqr15I_9GSrpA" name="longitude">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Oh-EgGbWEeqr15I_9GSrpA" name="point">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0XZ_oGbWEeqr15I_9GSrpA"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0XeREGbWEeqr15I_9GSrpA" value="*"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_PCNDwGbWEeqr15I_9GSrpA" name="country">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_9_U8IGbWEeqr15I_9GSrpA" name="GeoName">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RxxL4GbXEeqr15I_9GSrpA" name="a">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_-jNFQGbWEeqr15I_9GSrpA" name="GeoName">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_W21BMGbXEeqr15I_9GSrpA" name="a">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cDmoEGbXEeqr15I_9GSrpA" name="b">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_LGOg8GbXEeqr15I_9GSrpA" name="toString">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_gfBqgGbXEeqr15I_9GSrpA" name="a" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_LjQbMGbXEeqr15I_9GSrpA" name="setPoint" visibility="private"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L-aGIGbXEeqr15I_9GSrpA" name="SquaredDistance" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_9lYVoGbXEeqr15I_9GSrpA" name="a" type="_pWZEkGWqEeqCB6kIHjdr_A"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_W_G-AGbYEeqr15I_9GSrpA" name="a" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_MlzdUGbXEeqr15I_9GSrpA" name="axisSquaredDistance" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BgNMcGbYEeqr15I_9GSrpA" name="a" type="_pWZEkGWqEeqCB6kIHjdr_A"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IMuu0GbYEeqr15I_9GSrpA" name="b">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_LJ5DgGbYEeqr15I_9GSrpA" name="a" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_N4XRYGbXEeqr15I_9GSrpA" name="getComparator" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RpCRMGbYEeqr15I_9GSrpA" name="a">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_fS4yEGbYEeqr15I_9GSrpA" name="a" type="_az76gGbYEeqr15I_9GSrpA" direction="return"/>
-      </ownedOperation>
       <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_dbmCUGWxEeqCB6kIHjdr_A" name="GeoNameComparator">
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_t6EGQGW5EeqCB6kIHjdr_A" name="y" visibility="public"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_t6EGQGW5EeqCB6kIHjdr_A" name="y" visibility="protected"/>
         <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_yr0voGW6EeqCB6kIHjdr_A" name="x"/>
         <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_YBEu0GW7EeqCB6kIHjdr_A" name="z" visibility="protected"/>
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_A13g4GbWEeqr15I_9GSrpA" name="y"/>
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_B6RkMGbWEeqr15I_9GSrpA" name="z"/>
       </nestedClassifier>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_11wvUGWqEeqCB6kIHjdr_A" name="KDNode&lt;T>">
@@ -92,38 +30,35 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_X_PTEGXMEeqCB6kIHjdr_A" name="c" type="_Cixm8GXLEeqCB6kIHjdr_A"/>
       </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4PtpQGWqEeqCB6kIHjdr_A" name="KDNodeComparator&lt;T>">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_haNL8GW8EeqCB6kIHjdr_A" name="KDNodeComparator" visibility="public"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_oMj2QGXMEeqCB6kIHjdr_A" name="getComparator" visibility="protected" isAbstract="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wqGDQGXMEeqCB6kIHjdr_A" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_-6UAkGXMEeqCB6kIHjdr_A" name="a" type="_59L_QGXMEeqCB6kIHjdr_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_opSOgGXMEeqCB6kIHjdr_A" name="squaredDistance" visibility="protected" isAbstract="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IGW5YGXNEeqCB6kIHjdr_A" name="a" type="_Cixm8GXLEeqCB6kIHjdr_A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_MaY6YGXNEeqCB6kIHjdr_A" name="a" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pNE4EGXMEeqCB6kIHjdr_A" name="axisSquaredDistance" visibility="protected" isAbstract="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_emISEGXNEeqCB6kIHjdr_A" name="a" type="_Cixm8GXLEeqCB6kIHjdr_A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_h3acoGXNEeqCB6kIHjdr_A" name="b">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j-yY0GXNEeqCB6kIHjdr_A" name="a" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_MbNSMGWrEeqCB6kIHjdr_A" name="ReverseGeoCode">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QK_EsWWtEeqCB6kIHjdr_A" name="kdTree" visibility="package" type="_7NaJcGWqEeqCB6kIHjdr_A" association="_QK-doGWtEeqCB6kIHjdr_A">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QK_EsmWtEeqCB6kIHjdr_A"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QK_Es2WtEeqCB6kIHjdr_A" value="1"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_XVCrYGbQEeqr15I_9GSrpA" name="ReverseGeoCode">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bpoTwGbVEeqr15I_9GSrpA" name="a" type="_20eGsGbQEeqr15I_9GSrpA"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_iknI4GbVEeqr15I_9GSrpA" name="b">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_YEADIGbQEeqr15I_9GSrpA" name="ReverseGeoCode" visibility="public">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_thAXQGbQEeqr15I_9GSrpA" name="a" type="_mYYuwGbQEeqr15I_9GSrpA"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x4cRkGbQEeqr15I_9GSrpA" name="b">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        </ownedParameter>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_Ynd8kGbQEeqr15I_9GSrpA" name="nearestPlace">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_DpmmEGbREeqr15I_9GSrpA" name="a">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_F1MT4GbREeqr15I_9GSrpA" name="b">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_KdZ1IGbREeqr15I_9GSrpA" name="a" type="_pWZEkGWqEeqCB6kIHjdr_A" direction="return"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_YDTDEGbREeqr15I_9GSrpA" name="createKdTree" visibility="private">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_pWMxcGbVEeqr15I_9GSrpA" name="a" type="_20eGsGbQEeqr15I_9GSrpA"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_tSSzkGbVEeqr15I_9GSrpA" name="b">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        </ownedParameter>
-      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7NaJcGWqEeqCB6kIHjdr_A" name="KDTree&lt;T>">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OqhiEmWuEeqCB6kIHjdr_A" name="root" visibility="private" type="_11wvUGWqEeqCB6kIHjdr_A" association="_Oqg7AGWuEeqCB6kIHjdr_A">
@@ -256,8 +191,8 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wp3ogGXGEeqCB6kIHjdr_A" name="calendarIDFruux">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline" type="_0M9Q4GbbEeqr15I_9GSrpA"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xtDj0GXGEeqCB6kIHjdr_A" name="httpclient" type="_u6GQIGbbEeqr15I_9GSrpA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xtDj0GXGEeqCB6kIHjdr_A" name="httpclient"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_30dKcGXHEeqCB6kIHjdr_A" name="CalendarOnline" visibility="private"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_4TSbgGXHEeqCB6kIHjdr_A" name="getInstance" isStatic="true">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_MoxG4GXIEeqCB6kIHjdr_A" name="a" type="_6awIAGWrEeqCB6kIHjdr_A" direction="return"/>
@@ -1131,35 +1066,64 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Usage" xmi:id="_bBS7sGbFEeqLF_m4YtUVrA" client="_EUpkoGbFEeqLF_m4YtUVrA" supplier="_FtwsoGbFEeqLF_m4YtUVrA"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_blSZkGbFEeqLF_m4YtUVrA" client="_FtwsoGbFEeqLF_m4YtUVrA" supplier="_FvE7QGbFEeqLF_m4YtUVrA"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_mYYuwGbQEeqr15I_9GSrpA" name="ZipInputStream"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_20eGsGbQEeqr15I_9GSrpA" name="InputStream"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_4PtpQGWqEeqCB6kIHjdr_A" name="KDNodeComparator&lt;T>">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_haNL8GW8EeqCB6kIHjdr_A" name="KDNodeComparator" visibility="public"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_oMj2QGXMEeqCB6kIHjdr_A" name="getComparator" visibility="protected" isAbstract="true">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wqGDQGXMEeqCB6kIHjdr_A" name="a">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-6UAkGXMEeqCB6kIHjdr_A" name="a" type="_59L_QGXMEeqCB6kIHjdr_A" direction="return"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_opSOgGXMEeqCB6kIHjdr_A" name="squaredDistance" visibility="protected" isAbstract="true">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_IGW5YGXNEeqCB6kIHjdr_A" name="a" type="_Cixm8GXLEeqCB6kIHjdr_A"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_MaY6YGXNEeqCB6kIHjdr_A" name="a" direction="return">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-      </ownedParameter>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_pNE4EGXMEeqCB6kIHjdr_A" name="axisSquaredDistance" visibility="protected" isAbstract="true">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_emISEGXNEeqCB6kIHjdr_A" name="a" type="_Cixm8GXLEeqCB6kIHjdr_A"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_h3acoGXNEeqCB6kIHjdr_A" name="b">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_j-yY0GXNEeqCB6kIHjdr_A" name="a" direction="return">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-      </ownedParameter>
-    </ownedOperation>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_dpA8UGb7EeqHnrw76uGf4g" name="Gui" useCase="_z8F1cGb-EeqHnrw76uGf4g _FS03wGb_EeqHnrw76uGf4g _NDRVQGb_EeqHnrw76uGf4g _NE5s8Gb_EeqHnrw76uGf4g _NGj50Gb_EeqHnrw76uGf4g _NIArUGb_EeqHnrw76uGf4g _NJkxkGb_EeqHnrw76uGf4g _NK4ZIGb_EeqHnrw76uGf4g _NMfisGb_EeqHnrw76uGf4g _NN4CwGb_EeqHnrw76uGf4g _NPWpcGb_EeqHnrw76uGf4g _NQvJgGb_EeqHnrw76uGf4g">
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_z8F1cGb-EeqHnrw76uGf4g" name="Display window to create a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_hy3XgGcEEeqHnrw76uGf4g" extendedCase="_NDRVQGb_EeqHnrw76uGf4g" extensionLocation="_hy4loGcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_ikV3wGcEEeqHnrw76uGf4g" extendedCase="_NJkxkGb_EeqHnrw76uGf4g" extensionLocation="_ikWe0GcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_kZie0GcEEeqHnrw76uGf4g" extendedCase="_NE5s8Gb_EeqHnrw76uGf4g" extensionLocation="_kZjF4GcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_k4VToGcEEeqHnrw76uGf4g" extendedCase="_NGj50Gb_EeqHnrw76uGf4g" extensionLocation="_k4V6sGcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_lUWhQGcEEeqHnrw76uGf4g" extendedCase="_NPWpcGb_EeqHnrw76uGf4g" extensionLocation="_lUXvYGcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_lyTokGcEEeqHnrw76uGf4g" extendedCase="_NIArUGb_EeqHnrw76uGf4g" extensionLocation="_lyTokWcEEeqHnrw76uGf4g"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_FS03wGb_EeqHnrw76uGf4g" name="Display window to show conference list" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_qNEjsGcEEeqHnrw76uGf4g" extendedCase="_NK4ZIGb_EeqHnrw76uGf4g" extensionLocation="_qNEjsWcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_qyC5AGcEEeqHnrw76uGf4g" extendedCase="_NN4CwGb_EeqHnrw76uGf4g" extensionLocation="_qyC5AWcEEeqHnrw76uGf4g"/>
+      <extend xmi:type="uml:Extend" xmi:id="_rLabQGcEEeqHnrw76uGf4g" extendedCase="_NMfisGb_EeqHnrw76uGf4g" extensionLocation="_rLabQWcEEeqHnrw76uGf4g"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NDRVQGb_EeqHnrw76uGf4g" name="Search a researcher" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_hy4loGcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NE5s8Gb_EeqHnrw76uGf4g" name="Generate calendar" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_kZjF4GcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NGj50Gb_EeqHnrw76uGf4g" name="Generate mission order" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_k4V6sGcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NIArUGb_EeqHnrw76uGf4g" name="Generate young searcher mission order" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_lyTokWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NJkxkGb_EeqHnrw76uGf4g" name="Display map" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_ikWe0GcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NK4ZIGb_EeqHnrw76uGf4g" name="Show conference list" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_qNEjsWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NMfisGb_EeqHnrw76uGf4g" name="Edit a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_rLabQWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NN4CwGb_EeqHnrw76uGf4g" name="Delete a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_qyC5AWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NPWpcGb_EeqHnrw76uGf4g" name="Add a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_lUXvYGcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NQvJgGb_EeqHnrw76uGf4g" name="Get latitude longitude of a city" subject="_dpA8UGb7EeqHnrw76uGf4g"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_az76gGbYEeqr15I_9GSrpA" name="Comparator&lt;Geoname>"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_u6GQIGbbEeqr15I_9GSrpA" name="CloseableHttpClient"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_0M9Q4GbbEeqr15I_9GSrpA" name="CalDAVCollection"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_jZ1VUGcEEeqHnrw76uGf4g" client="_NJkxkGb_EeqHnrw76uGf4g" supplier="_NQvJgGb_EeqHnrw76uGf4g"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mojUEGcEEeqHnrw76uGf4g" memberEnd="_mom-cGcEEeqHnrw76uGf4g _mom-cWcEEeqHnrw76uGf4g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_molwUGcEEeqHnrw76uGf4g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_molwUWcEEeqHnrw76uGf4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mom-cGcEEeqHnrw76uGf4g" name="display window to create a conference" type="_z8F1cGb-EeqHnrw76uGf4g" association="_mojUEGcEEeqHnrw76uGf4g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mom-cWcEEeqHnrw76uGf4g" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_mojUEGcEEeqHnrw76uGf4g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ogBMAGcEEeqHnrw76uGf4g" memberEnd="_ogDBMGcEEeqHnrw76uGf4g _ogDBMWcEEeqHnrw76uGf4g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ogCaIGcEEeqHnrw76uGf4g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ogCaIWcEEeqHnrw76uGf4g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ogDBMGcEEeqHnrw76uGf4g" name="display window to show conference list" type="_FS03wGb_EeqHnrw76uGf4g" association="_ogBMAGcEEeqHnrw76uGf4g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ogDBMWcEEeqHnrw76uGf4g" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_ogBMAGcEEeqHnrw76uGf4g"/>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
