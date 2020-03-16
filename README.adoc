@@ -1,12 +1,13 @@
-= J-Confs 
-:gitHubUserName: oliviercailloux
-:groupId: io.github.{gitHubUserName}
-:artifactId: j-confs
-:repository: J-Confs
+J-Confs
+-------
+For the next iteration of java we plan to work on the following tasks :
 
-image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/{gitHubUserName}/{repository}"]
+. Use Instant in Conference. Use double instead of Doubles. Use a Builder.
 
-A Java project developed during several sessions of the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 MIAGE).
+. Delete the package io.github.oliviercailloux.geocode and start integration of LocationIQ API following available documentation.
+
+. Ensure that CalendarOnline stores conferences in a format that is understood by calendar manipulation software such as Evolution. Write a report in Asciidoctor format indicating which fields of the iCal standard should be used, in particular, how to represent a specific point on the globe (latitude, longitude, text address).
+
+*These tasks are independent.*
 
 The code is hereby published under the MIT License, with the permission of the contributors.
-			
