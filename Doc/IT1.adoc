@@ -41,16 +41,30 @@ Everyone participate to the elaboration of all adoc file.
 
 General View
 ~~~~~~~~~~~~
+
+Use case diagram
+^^^^^^^^^^^^^^^^
+
 image:https://i.imgur.com/zyKkysf.png[alt="General View.",width=80%,height=80%, align="center"]
 
 This diagram corresponds to the somewhat simplified use of the application. The purpose of the application is to allow the user (researcher, user of the administration) to create a conference. So he can look for a researcher and assign him a conference. It can then generate a mission order for a researcher or a young researcher and it can also show the route (optimised) between his location and the location of the conference. The user can also visualize all conference on calendar online. Futhermore, he can delete or edit conferences.
+
+
+Package diagram
+^^^^^^^^^^^^^^^
+
+image:https://i.imgur.com/lBIqnbV.png[alt="General View.",width=80%,height=80%, align="center"]
 
 
 
 Geocode package
 ~~~~~~~~~~~~~~~
 
-XXXX
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/mhVzawR.png[alt="General View.",width=80%,height=80%, align="center"]
+
 
 In this package that is represented in Papyrus, we can see 5 classes and one enumeration. The main class of this packages is GeoName and others classes are here to help to generate a GeoName.
 
@@ -63,11 +77,17 @@ We think that we will delete it because we may change it into a GeoTools package
 Researcher package
 ~~~~~~~~~~~~~~~~~~
 
+Use case diagram
+^^^^^^^^^^^^^^^^
+
 image:https://i.imgur.com/nNhMJRv.png[alt="Researcher View.",width=80%,height=80%, align="center"]
 
 The package Researcher allows the user to create a Researcher object by connecting to dauphine online phone book and get information from a login enter by the user.
 
-XXXX
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/uBbBWCI.png[alt="General View.",width=80%,height=80%, align="center"]
 
 In this package that is represented in Papyrus, we can find 2 classes. One that is immutable (Researcher) and the other that help to create the object that will not change (ResearcherBuilder).
 
@@ -82,12 +102,18 @@ We want to add some attributes in Researcher like listJourney and listExpense. S
 Calendar package
 ~~~~~~~~~~~~~~~~
 
+Use case diagram
+^^^^^^^^^^^^^^^^
+
 image:https://i.imgur.com/lq6ir0D.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 The package calendar permits to use an online calendar call fruux or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
 By connecting with a local calendar you can only create a conference.
 
-XXXX
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/8S3QLqz.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 In this package that is represented in Papyrus, we have 2 classes : CalendarOnline and ReadCalendarFiles. CalendarOnline helps us to connect to Fruux and store CalendarOnline. ReadCalendarFiles helps us to create conference and read Calendar.
 
@@ -100,11 +126,17 @@ Another thing that has been added is the possibility to read from classpath and 
 Conference Package
 ~~~~~~~~~~~~~~~~~ 
 
+Use case diagram
+^^^^^^^^^^^^^^^^
+
 image:https://i.imgur.com/esZRtLn.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 The package conference is use to create, search or delete a conference. It needs to be as a particular format call Vevent component. There is different way to search a conference such as by file path in order to search conference in a local file, by date interval or by title. 
 
-XXXX
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/b0qE8NM.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 This package groups together classes allowing to manage conferences as its name indicates. 
 Indeed it contains the classes allowing to create conferences. 
@@ -129,11 +161,18 @@ There are for example :
 Document Package
 ~~~~~~~~~~~~~~~~
 
+Use case diagram
+^^^^^^^^^^^^^^^^
+
 image:https://i.imgur.com/3pGfm3R.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 The package document is use to generate documents in resources folder. He is in charge of generate mission order for example after the user fill all information in the application.
 
-XXXX
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/leIpryJ.png[alt="Calendar View.",width=80%,height=80%, align="center"]
+
 
 This package mainly deals with the management of mission orders.
 For example: 
@@ -153,15 +192,25 @@ In the package document, there is also some modifications to do to improve the c
 gui and map package
 ------------------
 
+Use case diagram
+^^^^^^^^^^^^^^^^
+
 image:https://i.imgur.com/wQBKK79.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 The GUI package allows you to set up a home machine interface and simplify the use of the application. It represents all the interactions between the use cases of this package. This package allows the user to set up an interface containing widgets that allow them to perform several actions described for the most part in other use case diagrams. The package therefore allows to associate events and methods. The application is currently able to display two windows that each allow you to perform different actions such as creating a conference or displaying a list of conferences based on certain information printered.
 
+Use case diagram
+^^^^^^^^^^^^^^^^
 
 image:https://i.imgur.com/7cJZn2p.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 The package Map permits to download a file from an URL and put it in resources folder of the project. It also permits to fill a document call “papier_a_en_tete.fodt” (using regex). The information writing in the document are : Researcher’s first name, last name, phone number, Function and e-mail get from a researcher object. There is also a class to define a point on a map, the attribute that must be defined are the point name, the longitude and the latitude of the point. The default point is Paris with latitude equals to 48.866667 and longitude equals to 2.333333
 In order to define a path step, with is something like “starting from Paris to Marseille in train”, we need to define a starting point, an arrival point and a transport type.
+
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/oEfupiV.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 
 the GUI package is made up of 5 classes 
@@ -174,9 +223,16 @@ GuiListConferences
 ~~~~~~~~~~~~~~~~~~
 it allows to display the different conferences of a researcher and the possibility to make a change on a conference thanks to the method of the class *conference.ConferenceWriter*.
 
+Class diagram
+^^^^^^^^^^^^^
+
+image:https://i.imgur.com/OzDOad7.png[alt="Calendar View.",width=80%,height=80%, align="center"]
+
+
 geopoint
 ~~~~~~~~
 represents a point with name, longitude and latitude
+
 
 pathstep
 ~~~~~~~~
