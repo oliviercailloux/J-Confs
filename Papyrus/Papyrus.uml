@@ -119,6 +119,33 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QK_EsmWtEeqCB6kIHjdr_A"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QK_Es2WtEeqCB6kIHjdr_A" value="1"/>
       </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_bOfwUGdsEeq1TMmsQgXH2g" name="ReverseGeoCode">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_oFyL0GdsEeq1TMmsQgXH2g" name="a" type="_BwunYGdqEeq1TMmsQgXH2g"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_qoq_UGdsEeq1TMmsQgXH2g" name="b">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_bquZUGdsEeq1TMmsQgXH2g" name="ReverseGeoCode">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_uU1IAGdsEeq1TMmsQgXH2g" name="a" type="_E86PgGdqEeq1TMmsQgXH2g"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wBIRwGdsEeq1TMmsQgXH2g" name="b">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cC5BsGdsEeq1TMmsQgXH2g" name="createKdTree" visibility="private">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_zPd2AGdsEeq1TMmsQgXH2g" name="a" type="_E86PgGdqEeq1TMmsQgXH2g"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1RKA8GdsEeq1TMmsQgXH2g" name="b">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cXhN4GdsEeq1TMmsQgXH2g" name="nearestPlace">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_4ANoMGdsEeq1TMmsQgXH2g" name="z">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_6Im4EGdsEeq1TMmsQgXH2g" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_83QPoGdsEeq1TMmsQgXH2g" name="a" type="_pWZEkGWqEeqCB6kIHjdr_A" direction="return"/>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_7NaJcGWqEeqCB6kIHjdr_A" name="KDTree&lt;T>">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_OqhiEmWuEeqCB6kIHjdr_A" name="root" visibility="private" type="_11wvUGWqEeqCB6kIHjdr_A" association="_Oqg7AGWuEeqCB6kIHjdr_A">
@@ -242,17 +269,17 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3k2FUGXAEeqCB6kIHjdr_A"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3k2FUWXAEeqCB6kIHjdr_A" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_u_3k0GXGEeqCB6kIHjdr_A" name="userNameFruux" visibility="private">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_u_3k0GXGEeqCB6kIHjdr_A" name="userNameFruux" visibility="private" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_vhoOEGXGEeqCB6kIHjdr_A" name="passwordFruux" visibility="private">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vhoOEGXGEeqCB6kIHjdr_A" name="passwordFruux" visibility="private" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_wp3ogGXGEeqCB6kIHjdr_A" name="calendarIDFruux">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wp3ogGXGEeqCB6kIHjdr_A" name="calendarIDFruux" visibility="private" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xtDj0GXGEeqCB6kIHjdr_A" name="httpclient"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline" visibility="package" type="_QujxQGdtEeq1TMmsQgXH2g"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xtDj0GXGEeqCB6kIHjdr_A" name="httpclient" visibility="private" isStatic="true" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_30dKcGXHEeqCB6kIHjdr_A" name="CalendarOnline" visibility="private"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_4TSbgGXHEeqCB6kIHjdr_A" name="getInstance" isStatic="true">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_MoxG4GXIEeqCB6kIHjdr_A" name="a" type="_6awIAGWrEeqCB6kIHjdr_A" direction="return"/>
@@ -1261,6 +1288,8 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_BwunYGdqEeq1TMmsQgXH2g" name="ZipInputStream"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_E86PgGdqEeq1TMmsQgXH2g" name="InputStream"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_JpPbwGdqEeq1TMmsQgXH2g" name="Comparator&lt;GeoName>"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_QujxQGdtEeq1TMmsQgXH2g" name="CalDAVCollection"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_V8TBcGdtEeq1TMmsQgXH2g" name="CloseableHttpClient"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
