@@ -649,6 +649,9 @@
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_I39r0GeWEeq1TMmsQgXH2g" client="_CyGewGX_EeqbUqsc8bodZw" supplier="_A_R7YGaxEeq2I7WBLVkWww"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_M3mxMGeWEeq1TMmsQgXH2g" client="_CyGewGX_EeqbUqsc8bodZw" supplier="_sLIA8GX1EeqbUqsc8bodZw"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Z1RhgGeWEeq1TMmsQgXH2g" client="_CyGewGX_EeqbUqsc8bodZw" supplier="_WcUx0GWrEeqCB6kIHjdr_A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_qI3UYGacEeq2I7WBLVkWww" name="GraphicFactory"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_4L2RgGadEeq2I7WBLVkWww" name="Frame"/>
@@ -798,6 +801,12 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_CUQnwGalEeq2I7WBLVkWww" type="_1laDgGXIEeqCB6kIHjdr_A"/>
       </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_fj_X0GeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_YP4PkGWqEeqCB6kIHjdr_A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ggFMoGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_sLIA8GX1EeqbUqsc8bodZw"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_im-nsGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_A_R7YGaxEeq2I7WBLVkWww"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_js8KMGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_CyGewGX_EeqbUqsc8bodZw"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_k7m8wGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_WcUx0GWrEeqCB6kIHjdr_A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lvaYQGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_tbCJQGWrEeqCB6kIHjdr_A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_T7e8IGawEeq2I7WBLVkWww" visibility="private" memberEnd="_T7lp0GawEeq2I7WBLVkWww _T7mQ4mawEeq2I7WBLVkWww">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_T7j0oGawEeq2I7WBLVkWww" source="org.eclipse.papyrus">
@@ -981,6 +990,7 @@
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_fOKtEGd7EeqFPNnTUXE6xA" name="total_price_calcul"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_QxZGMGeWEeq1TMmsQgXH2g" client="_A_R7YGaxEeq2I7WBLVkWww" supplier="_WcUx0GWrEeqCB6kIHjdr_A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_1X2u0Ga8EeqLF_m4YtUVrA" name="General view" useCase="_CsRyQGa9EeqLF_m4YtUVrA _IpIyQGa9EeqLF_m4YtUVrA _Y3X7cGa9EeqLF_m4YtUVrA _bOnfoGa9EeqLF_m4YtUVrA _kQaQQGa9EeqLF_m4YtUVrA _ooylwGa9EeqLF_m4YtUVrA _tYoZAGa9EeqLF_m4YtUVrA _w-r5sGa9EeqLF_m4YtUVrA _zzSIQGa9EeqLF_m4YtUVrA _5GOokGa9EeqLF_m4YtUVrA _TPoaYGa-EeqLF_m4YtUVrA">
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_CsRyQGa9EeqLF_m4YtUVrA" name="Edit a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
