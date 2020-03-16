@@ -5,10 +5,70 @@
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_YP4PkGWqEeqCB6kIHjdr_A" name="io.github.oliviercailloux.geocode">
     <packagedElement xmi:type="uml:Class" xmi:id="_pWZEkGWqEeqCB6kIHjdr_A" name="GeoName">
-      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_dbmCUGWxEeqCB6kIHjdr_A" name="GeoNameComparator">
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_t6EGQGW5EeqCB6kIHjdr_A" name="y" visibility="protected"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OirP4GdqEeq1TMmsQgXH2g" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PHi3gGdqEeq1TMmsQgXH2g" name="majorPlace">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PnPrQGdqEeq1TMmsQgXH2g" name="latitude">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QlHowGdqEeq1TMmsQgXH2g" name="longitude">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RF4zgGdqEeq1TMmsQgXH2g" name="point">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_j3pCUGdqEeq1TMmsQgXH2g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j3t60GdqEeq1TMmsQgXH2g" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Rif3AGdqEeq1TMmsQgXH2g" name="country">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nF-mkGdqEeq1TMmsQgXH2g" name="GeoName" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_AxHIAGdrEeq1TMmsQgXH2g" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_nrRE8GdqEeq1TMmsQgXH2g" name="GeoName">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_DQacAGdrEeq1TMmsQgXH2g" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_FFXLcGdrEeq1TMmsQgXH2g" name="b">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_oMOc8GdqEeq1TMmsQgXH2g" name="setPoint" visibility="private"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_osJTIGdqEeq1TMmsQgXH2g" name="toString">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IND8MGdrEeq1TMmsQgXH2g" name="a" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pGtIMGdqEeq1TMmsQgXH2g" name="squaredDistance" visibility="protected">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_RvxBgGdrEeq1TMmsQgXH2g" name="a" type="_pWZEkGWqEeqCB6kIHjdr_A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_UiLewGdrEeq1TMmsQgXH2g" name="a" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_pi7KIGdqEeq1TMmsQgXH2g" name="axisSquaredDistance" visibility="protected">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_YtXs0GdrEeq1TMmsQgXH2g" name="a" type="_pWZEkGWqEeqCB6kIHjdr_A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bouqsGdrEeq1TMmsQgXH2g" name="b">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_fMlzAGdrEeq1TMmsQgXH2g" name="a" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_p_E6oGdqEeq1TMmsQgXH2g" name="getComparator" visibility="protected">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j5XrMGdrEeq1TMmsQgXH2g" name="z">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nET9MGdrEeq1TMmsQgXH2g" name="a" type="_JpPbwGdqEeq1TMmsQgXH2g" direction="return"/>
+      </ownedOperation>
+      <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_dbmCUGWxEeqCB6kIHjdr_A" name="GeoNameComparator" visibility="package">
         <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_yr0voGW6EeqCB6kIHjdr_A" name="x"/>
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_YBEu0GW7EeqCB6kIHjdr_A" name="z" visibility="protected"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_1FUEsGdpEeq1TMmsQgXH2g" name="y"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8pF_MGdpEeq1TMmsQgXH2g" name="z"/>
       </nestedClassifier>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_11wvUGWqEeqCB6kIHjdr_A" name="KDNode&lt;T>">
@@ -1198,6 +1258,9 @@
   <packagedElement xmi:type="uml:Usage" xmi:id="_h1w44GdkEeq_dqFjoPbQJg" client="_NPWpcGb_EeqHnrw76uGf4g" supplier="_fxukkGdkEeq_dqFjoPbQJg"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_6e_4cGdkEeq_dqFjoPbQJg" client="_NDRVQGb_EeqHnrw76uGf4g" supplier="_2F2G4GdkEeq_dqFjoPbQJg"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_jkDUwGdmEeq_dqFjoPbQJg" client="_NN4CwGb_EeqHnrw76uGf4g" supplier="_BaN-IGdlEeq_dqFjoPbQJg"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_BwunYGdqEeq1TMmsQgXH2g" name="ZipInputStream"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_E86PgGdqEeq1TMmsQgXH2g" name="InputStream"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JpPbwGdqEeq1TMmsQgXH2g" name="Comparator&lt;GeoName>"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
