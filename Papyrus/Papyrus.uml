@@ -220,6 +220,15 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_D8P_gGXEEeqCB6kIHjdr_A" name="mail" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_AHkyEGeHEeq1TMmsQgXH2g" name="listExpense">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pen0kGeHEeq1TMmsQgXH2g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Peq34GeHEeq1TMmsQgXH2g" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BpiUEGeHEeq1TMmsQgXH2g" name="listJourney" visibility="package" type="__--RwGasEeq2I7WBLVkWww" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RLF9cGeHEeq1TMmsQgXH2g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RLHyoGeHEeq1TMmsQgXH2g" value="*"/>
+      </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_HWGQMGXEEeqCB6kIHjdr_A" name="Researcher">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_tpsG8GXEEeqCB6kIHjdr_A" name="a">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -251,6 +260,8 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kr8t8GeHEeq1TMmsQgXH2g" name="storePass" visibility="protected"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_mPqjcGeHEeq1TMmsQgXH2g" name="lookPass" visibility="protected"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_isZcUGWrEeqCB6kIHjdr_A" name="ResearcherBuilder">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_x1-MEGXCEeqCB6kIHjdr_A" name="LOGGER" visibility="private" type="_EdxNoGXDEeqCB6kIHjdr_A"/>
@@ -311,6 +322,17 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_15JkUGeIEeq1TMmsQgXH2g" name="sendGit" visibility="protected"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_57f_cGeIEeq1TMmsQgXH2g" name="restoreGit" visibility="protected">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_LYdToGeLEeq1TMmsQgXH2g" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_9ApLcGeIEeq1TMmsQgXH2g" name="mergeCal" visibility="protected">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="__hP1EGeKEeq1TMmsQgXH2g" name="a" type="_QujxQGdtEeq1TMmsQgXH2g"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_EpYzkGeLEeq1TMmsQgXH2g" name="v" type="_QujxQGdtEeq1TMmsQgXH2g" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_DY2DoGeJEeq1TMmsQgXH2g" name="connector" visibility="protected"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_8qZPYGWrEeqCB6kIHjdr_A" name="ReadCalendarFiles" visibility="package">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Yafv4GXFEeqCB6kIHjdr_A" name="ReadCalendarFiles"/>
@@ -330,6 +352,12 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_il0e8GXGEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_fOuv8GeKEeq1TMmsQgXH2g" name="typeCal" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ywWVcGeKEeq1TMmsQgXH2g" name="a" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Ue5sGeKEeq1TMmsQgXH2g" name="a" type="_QujxQGdtEeq1TMmsQgXH2g"/>
       </ownedOperation>
     </packagedElement>
   </packagedElement>
