@@ -289,7 +289,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wp3ogGXGEeqCB6kIHjdr_A" name="calendarIDFruux" visibility="private" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline" visibility="package" type="_QujxQGdtEeq1TMmsQgXH2g"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline" visibility="private" type="_QujxQGdtEeq1TMmsQgXH2g"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_xtDj0GXGEeqCB6kIHjdr_A" name="httpclient" visibility="private" isStatic="true" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_30dKcGXHEeqCB6kIHjdr_A" name="CalendarOnline" visibility="private"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_4TSbgGXHEeqCB6kIHjdr_A" name="getInstance" isStatic="true">
@@ -353,7 +353,7 @@
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_il0e8GXGEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A" direction="return"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_fOuv8GeKEeq1TMmsQgXH2g" name="typeCal" visibility="public">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_fOuv8GeKEeq1TMmsQgXH2g" name="typeCal" visibility="public" isStatic="true">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_ywWVcGeKEeq1TMmsQgXH2g" name="a" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
