@@ -375,12 +375,12 @@
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_26j_IGX1EeqbUqsc8bodZw" name="ConferencesShower">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_lVVewGX-EeqbUqsc8bodZw" name="conferencesretriever" type="_4m8BYGX1EeqbUqsc8bodZw" association="_lVSbcGX-EeqbUqsc8bodZw">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_lVVewGX-EeqbUqsc8bodZw" name="conferencesretriever" type="_sXJWgGdwEeqFIabYW9i8VA" association="_lVSbcGX-EeqbUqsc8bodZw">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lVWs4GX-EeqbUqsc8bodZw"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lVWs4WX-EeqbUqsc8bodZw" value="1"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_fAxqEGX2EeqbUqsc8bodZw" name="ConferencesShower">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_aM518GX3EeqbUqsc8bodZw" name="a" type="_4m8BYGX1EeqbUqsc8bodZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_aM518GX3EeqbUqsc8bodZw" name="a"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_fPKrYGX2EeqbUqsc8bodZw" name="searchConferenceByTitle">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_nzY5wGX3EeqbUqsc8bodZw" name="a">
@@ -401,21 +401,6 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_zdZ0YGX4EeqbUqsc8bodZw" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_4m8BYGX1EeqbUqsc8bodZw" name="ConferencesRetriever">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_iwA78GX2EeqbUqsc8bodZw" name="retrieveConference">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_83Z0MGX5EeqbUqsc8bodZw" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_jCAq4GX2EeqbUqsc8bodZw" name="retrieve">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BVgXMGX6EeqbUqsc8bodZw" name="LocalDate" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_CcChcGX6EeqbUqsc8bodZw" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_jV7scGX2EeqbUqsc8bodZw" name="retrieve">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JhHGsGX6EeqbUqsc8bodZw" name="a">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_KlLLwGX6EeqbUqsc8bodZw" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
-      </ownedOperation>
-    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="__nbBkGX1EeqbUqsc8bodZw" name="ConferenceReader">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_kAwLEGX2EeqbUqsc8bodZw" name="ConferenceReader"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_kRR6YGX2EeqbUqsc8bodZw" name="readCalendarFile" isStatic="true">
@@ -434,7 +419,14 @@
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_vYcfQGX6EeqbUqsc8bodZw" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_lA-R8GX2EeqbUqsc8bodZw" name="Operation5" isStatic="true"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_lA-R8GX2EeqbUqsc8bodZw" name="convertDate" isStatic="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_mXzDMGdwEeqFIabYW9i8VA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ojbNQGdwEeqFIabYW9i8VA" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_EDcg8GX2EeqbUqsc8bodZw" name="InvalidConferenceFormatException">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ORr2kGX2EeqbUqsc8bodZw" name="serialVersionUID" visibility="private" isStatic="true">
@@ -552,7 +544,22 @@
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Realization" xmi:id="_q_PGgGX-EeqbUqsc8bodZw" client="_zJWXUGX1EeqbUqsc8bodZw" supplier="_4m8BYGX1EeqbUqsc8bodZw"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_q_PGgGX-EeqbUqsc8bodZw" visibility="protected" client="_zJWXUGX1EeqbUqsc8bodZw" supplier="_sXJWgGdwEeqFIabYW9i8VA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_sXJWgGdwEeqFIabYW9i8VA" name="ConferenceRetriever">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vIT2kGdwEeqFIabYW9i8VA" name="retrieveConference" visibility="public">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1bd2sGdwEeqFIabYW9i8VA" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vnshQGdwEeqFIabYW9i8VA" name="retrieve">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_-fmJoGdwEeqFIabYW9i8VA" name="LocalDate" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BHYEMGdxEeqFIabYW9i8VA" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_wdoDsGdwEeqFIabYW9i8VA" name="retrieve">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_F5aP0GdxEeqFIabYW9i8VA" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_IFOnIGdxEeqFIabYW9i8VA" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_lVSbcGX-EeqbUqsc8bodZw" memberEnd="_lVVewGX-EeqbUqsc8bodZw _lVWs4mX-EeqbUqsc8bodZw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lVU3sGX-EeqbUqsc8bodZw" source="org.eclipse.papyrus">
