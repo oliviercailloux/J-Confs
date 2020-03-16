@@ -1068,43 +1068,52 @@
   <packagedElement xmi:type="uml:Usage" xmi:id="_blSZkGbFEeqLF_m4YtUVrA" client="_FtwsoGbFEeqLF_m4YtUVrA" supplier="_FvE7QGbFEeqLF_m4YtUVrA"/>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_dpA8UGb7EeqHnrw76uGf4g" name="Gui" useCase="_z8F1cGb-EeqHnrw76uGf4g _FS03wGb_EeqHnrw76uGf4g _NDRVQGb_EeqHnrw76uGf4g _NE5s8Gb_EeqHnrw76uGf4g _NGj50Gb_EeqHnrw76uGf4g _NIArUGb_EeqHnrw76uGf4g _NJkxkGb_EeqHnrw76uGf4g _NK4ZIGb_EeqHnrw76uGf4g _NMfisGb_EeqHnrw76uGf4g _NN4CwGb_EeqHnrw76uGf4g _NPWpcGb_EeqHnrw76uGf4g _NQvJgGb_EeqHnrw76uGf4g">
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_z8F1cGb-EeqHnrw76uGf4g" name="Display window to create a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
-      <extend xmi:type="uml:Extend" xmi:id="_hy3XgGcEEeqHnrw76uGf4g" extendedCase="_NDRVQGb_EeqHnrw76uGf4g" extensionLocation="_hy4loGcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_ikV3wGcEEeqHnrw76uGf4g" extendedCase="_NJkxkGb_EeqHnrw76uGf4g" extensionLocation="_ikWe0GcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_kZie0GcEEeqHnrw76uGf4g" extendedCase="_NE5s8Gb_EeqHnrw76uGf4g" extensionLocation="_kZjF4GcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_k4VToGcEEeqHnrw76uGf4g" extendedCase="_NGj50Gb_EeqHnrw76uGf4g" extensionLocation="_k4V6sGcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_lUWhQGcEEeqHnrw76uGf4g" extendedCase="_NPWpcGb_EeqHnrw76uGf4g" extensionLocation="_lUXvYGcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_lyTokGcEEeqHnrw76uGf4g" extendedCase="_NIArUGb_EeqHnrw76uGf4g" extensionLocation="_lyTokWcEEeqHnrw76uGf4g"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_yJLhMGddEeqFIaBVu9zzkw" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_y5wCgGddEeqFIaBVu9zzkw" name="ExtensionPoint2"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_z_zEkWddEeqFIaBVu9zzkw" name="ExtensionPoint3"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_0t7V4GddEeqFIaBVu9zzkw" name="ExtensionPoint4"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_1iuP4GddEeqFIaBVu9zzkw" name="ExtensionPoint5"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_2lgikWddEeqFIaBVu9zzkw" name="ExtensionPoint6"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_FS03wGb_EeqHnrw76uGf4g" name="Display window to show conference list" subject="_dpA8UGb7EeqHnrw76uGf4g">
-      <extend xmi:type="uml:Extend" xmi:id="_qNEjsGcEEeqHnrw76uGf4g" extendedCase="_NK4ZIGb_EeqHnrw76uGf4g" extensionLocation="_qNEjsWcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_qyC5AGcEEeqHnrw76uGf4g" extendedCase="_NN4CwGb_EeqHnrw76uGf4g" extensionLocation="_qyC5AWcEEeqHnrw76uGf4g"/>
-      <extend xmi:type="uml:Extend" xmi:id="_rLabQGcEEeqHnrw76uGf4g" extendedCase="_NMfisGb_EeqHnrw76uGf4g" extensionLocation="_rLabQWcEEeqHnrw76uGf4g"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_vLFYYGddEeqFIaBVu9zzkw" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_v28Y0WddEeqFIaBVu9zzkw" name="ExtensionPoint2"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_wh9EsGddEeqFIaBVu9zzkw" name="ExtensionPoint3"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NDRVQGb_EeqHnrw76uGf4g" name="Search a researcher" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_2lgikGddEeqFIaBVu9zzkw" extendedCase="_z8F1cGb-EeqHnrw76uGf4g" extensionLocation="_2lgikWddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_hy4loGcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NE5s8Gb_EeqHnrw76uGf4g" name="Generate calendar" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_0t6u0GddEeqFIaBVu9zzkw" extendedCase="_z8F1cGb-EeqHnrw76uGf4g" extensionLocation="_0t7V4GddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_kZjF4GcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NGj50Gb_EeqHnrw76uGf4g" name="Generate mission order" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_z_zEkGddEeqFIaBVu9zzkw" extendedCase="_z8F1cGb-EeqHnrw76uGf4g" extensionLocation="_z_zEkWddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_k4V6sGcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NIArUGb_EeqHnrw76uGf4g" name="Generate young searcher mission order" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_yJK6IGddEeqFIaBVu9zzkw" extendedCase="_z8F1cGb-EeqHnrw76uGf4g" extensionLocation="_yJLhMGddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_lyTokWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NJkxkGb_EeqHnrw76uGf4g" name="Display map" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_1ito0GddEeqFIaBVu9zzkw" extendedCase="_z8F1cGb-EeqHnrw76uGf4g" extensionLocation="_1iuP4GddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_ikWe0GcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NK4ZIGb_EeqHnrw76uGf4g" name="Show conference list" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_wh8doGddEeqFIaBVu9zzkw" extendedCase="_FS03wGb_EeqHnrw76uGf4g" extensionLocation="_wh9EsGddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_qNEjsWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NMfisGb_EeqHnrw76uGf4g" name="Edit a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_vLBuAGddEeqFIaBVu9zzkw" extendedCase="_FS03wGb_EeqHnrw76uGf4g" extensionLocation="_vLFYYGddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_rLabQWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NN4CwGb_EeqHnrw76uGf4g" name="Delete a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_v28Y0GddEeqFIaBVu9zzkw" extendedCase="_FS03wGb_EeqHnrw76uGf4g" extensionLocation="_v28Y0WddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_qyC5AWcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NPWpcGb_EeqHnrw76uGf4g" name="Add a conference" subject="_dpA8UGb7EeqHnrw76uGf4g">
+      <extend xmi:type="uml:Extend" xmi:id="_y5vbcGddEeqFIaBVu9zzkw" extendedCase="_z8F1cGb-EeqHnrw76uGf4g" extensionLocation="_y5wCgGddEeqFIaBVu9zzkw"/>
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_lUXvYGcEEeqHnrw76uGf4g" name="ExtensionPoint1"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NQvJgGb_EeqHnrw76uGf4g" name="Get latitude longitude of a city" subject="_dpA8UGb7EeqHnrw76uGf4g"/>
