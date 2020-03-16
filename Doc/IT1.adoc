@@ -55,7 +55,7 @@ Package diagram
 
 image:https://i.imgur.com/lBIqnbV.png[alt="General View.",width=80%,height=80%, align="center"]
 
-
+Here you have a package diagram where we can see package dependancy. As usual, the package which is the most dependant is the GUI one.
 
 Geocode package
 ~~~~~~~~~~~~~~~
