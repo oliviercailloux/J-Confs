@@ -1138,7 +1138,7 @@
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_JADHEWdlEeq_dqFjoPbQJg" name="ExtensionPoint3"/>
     </ownedUseCase>
     <ownedUseCase xmi:type="uml:UseCase" xmi:id="_2F2G4GdkEeq_dqFjoPbQJg" name="View of all informations about researcher" subject="_dpA8UGb7EeqHnrw76uGf4g"/>
-    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_BaN-IGdlEeq_dqFjoPbQJg" name="Delete &quot;reservation" subject="_dpA8UGb7EeqHnrw76uGf4g">
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_BaN-IGdlEeq_dqFjoPbQJg" name="Delete &quot;reservation&quot;" subject="_dpA8UGb7EeqHnrw76uGf4g">
       <extend xmi:type="uml:Extend" xmi:id="_F5LcwGdlEeq_dqFjoPbQJg" extendedCase="_wq0BkGdkEeq_dqFjoPbQJg" extensionLocation="_F5MD0GdlEeq_dqFjoPbQJg"/>
       <extend xmi:type="uml:Extend" xmi:id="_eC3ZkGdlEeq_dqFjoPbQJg" extendedCase="_NN4CwGb_EeqHnrw76uGf4g" extensionLocation="_eC3ZkWdlEeq_dqFjoPbQJg"/>
     </ownedUseCase>
@@ -1197,6 +1197,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Usage" xmi:id="_h1w44GdkEeq_dqFjoPbQJg" client="_NPWpcGb_EeqHnrw76uGf4g" supplier="_fxukkGdkEeq_dqFjoPbQJg"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_6e_4cGdkEeq_dqFjoPbQJg" client="_NDRVQGb_EeqHnrw76uGf4g" supplier="_2F2G4GdkEeq_dqFjoPbQJg"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_jkDUwGdmEeq_dqFjoPbQJg" client="_NN4CwGb_EeqHnrw76uGf4g" supplier="_BaN-IGdlEeq_dqFjoPbQJg"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>

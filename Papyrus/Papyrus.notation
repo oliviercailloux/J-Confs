@@ -4378,8 +4378,21 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_eDIfUWdlEeq_dqFjoPbQJg"/>
       <element xmi:type="uml:Extend" href="Papyrus.uml#_eC3ZkGdlEeq_dqFjoPbQJg"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eDIfUmdlEeq_dqFjoPbQJg" points="[1240, 398, -643984, -643984]$[1120, 644, -643984, -643984]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eDoOkGdlEeq_dqFjoPbQJg" id="(0.32857142857142857,0.9666666666666667)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eDoOkWdlEeq_dqFjoPbQJg" id="(0.7734806629834254,0.06666666666666667)"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eDoOkGdlEeq_dqFjoPbQJg" id="(0.5,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eDoOkWdlEeq_dqFjoPbQJg" id="(0.8839779005524862,0.16666666666666666)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_jkEi4GdmEeq_dqFjoPbQJg" type="Usage_Edge" source="_ifaJ4GcDEeqHnrw76uGf4g" target="_Baec0GdlEeq_dqFjoPbQJg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_jkFJ8GdmEeq_dqFjoPbQJg" type="Usage_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jkFJ8WdmEeq_dqFjoPbQJg" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_jkFJ8mdmEeq_dqFjoPbQJg" type="Usage_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jkFJ82dmEeq_dqFjoPbQJg" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_jkEi4WdmEeq_dqFjoPbQJg"/>
+      <element xmi:type="uml:Usage" href="Papyrus.uml#_jkDUwGdmEeq_dqFjoPbQJg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jkEi4mdmEeq_dqFjoPbQJg" points="[1080, 640, -643984, -643984]$[1200, 382, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jkojkGdmEeq_dqFjoPbQJg" id="(0.5524861878453039,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jkojkWdmEeq_dqFjoPbQJg" id="(0.04285714285714286,0.7)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
