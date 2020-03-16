@@ -24,6 +24,21 @@ Then we have test the application and report a bug about the URL of Dauphine pho
 
 In accordance with Mr Cailloux we replace the old URL with the new one.
 
+Tasks repartition for IT1 :
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Majid ACHRIA : package diagram, geocode class diagram, calendar class diagram and researcher class diagram
+
+* Sebastien BOURG : reasercher use case diagram, map use case diagram, conference use case diagram and calendar use case diagram
+
+* Anis HAMOUNI : map class diagram and gui class diagram
+
+* Floryan KIEFFER : gui use case diagram, document use case diagram and general use case diagram 
+
+* Anis ZOUARI : conference class diagram and document class diagram
+
+Everyone participate to the elaboration of all adoc file.
+
 General View
 ~~~~~~~~~~~~
 image:https://i.imgur.com/zyKkysf.png[alt="General View.",width=80%,height=80%, align="center"]
