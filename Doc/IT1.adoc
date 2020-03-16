@@ -20,9 +20,7 @@ After that we imported the project to Eclipse connected to git in order to work 
 
 Every one one the project looked at the code already done in order to do UML diagrams bellow.
 
-Then we have test the application and report a bug about the URL of Dauphine phone book that as change.
-
-In accordance with Mr Cailloux we replace the old URL with the new one.
+Then we have test the application and report a bug about the URL of Dauphine phone book that as change. In accordance with Mr Cailloux we replace the old URL with the new one.
 
 Tasks repartition for IT1 :
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
