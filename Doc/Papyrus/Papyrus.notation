@@ -2549,10 +2549,10 @@
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_2TSxc2a-EeqLF_m4YtUVrA" type="Classifier_UseCaseCompartment">
         <children xmi:type="notation:Shape" xmi:id="_81qSQGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hPi6gG7EEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_9rn0cGa_EeqLF_m4YtUVrA">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hPi6gW7EEeq668Ll3Jq22Q" key="tooltip_text" value="Calendar use case diagram"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hPi6gm7EEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hPi6g27EEeq668Ll3Jq22Q" key="is_default_navigation" value="false"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qPVqkG7FEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_9rn0cGa_EeqLF_m4YtUVrA">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPVqkW7FEeq668Ll3Jq22Q" key="tooltip_text" value="Calendar use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPVqkm7FEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qPVqk27FEeq668Ll3Jq22Q" key="is_default_navigation" value="true"/>
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_81rgYGa-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_81rgYWa-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
@@ -2567,10 +2567,10 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_81qSQWa-EeqLF_m4YtUVrA" x="74" y="30" width="161"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_82KokGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lmIgQG7EEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_fm38gGbBEeqLF_m4YtUVrA">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lmIgQW7EEeq668Ll3Jq22Q" key="tooltip_text" value="Conference use case diagram"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lmIgQm7EEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lmIgQ27EEeq668Ll3Jq22Q" key="is_default_navigation" value="false"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kNHpcG7FEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_fm38gGbBEeqLF_m4YtUVrA">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kNHpcW7FEeq668Ll3Jq22Q" key="tooltip_text" value="Conference use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kNHpcm7FEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kNHpc27FEeq668Ll3Jq22Q" key="is_default_navigation" value="true"/>
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_82Kokma-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_82LPoGa-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
@@ -2585,10 +2585,10 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_82KokWa-EeqLF_m4YtUVrA" x="74" y="154" width="181"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_82vQUGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t-TsIG7EEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_732XcGbEEeqLF_m4YtUVrA">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t-TsIW7EEeq668Ll3Jq22Q" key="tooltip_text" value="Researcher use case diagram"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t-TsIm7EEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t-TsI27EEeq668Ll3Jq22Q" key="is_default_navigation" value="false"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rV3NwG7FEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_732XcGbEEeqLF_m4YtUVrA">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rV3NwW7FEeq668Ll3Jq22Q" key="tooltip_text" value="Researcher use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rV3Nwm7FEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rV3Nw27FEeq668Ll3Jq22Q" key="is_default_navigation" value="true"/>
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_82v3YGa-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_82v3YWa-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
@@ -2642,10 +2642,10 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_84-sAWa-EeqLF_m4YtUVrA" x="134" y="334" width="321" height="61"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_8555EGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pl1QAG7EEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_scDCsGbCEeqLF_m4YtUVrA">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pl1QAW7EEeq668Ll3Jq22Q" key="tooltip_text" value="Document use case diagram"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pl1QAm7EEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pl1QA27EEeq668Ll3Jq22Q" key="is_default_navigation" value="false"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_s3Fv8G7FEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_scDCsGbCEeqLF_m4YtUVrA">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_s3Fv8W7FEeq668Ll3Jq22Q" key="tooltip_text" value="Document use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_s3Fv8m7FEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_s3Fv827FEeq668Ll3Jq22Q" key="is_default_navigation" value="true"/>
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_856gIGa-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_856gIWa-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
@@ -2660,10 +2660,10 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8555EWa-EeqLF_m4YtUVrA" x="114" y="414" width="341" height="65"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_864JcGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rOhsIG7EEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_o9WRwGbDEeqLF_m4YtUVrA">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rOhsIW7EEeq668Ll3Jq22Q" key="tooltip_text" value="Map use case diagram"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rOhsIm7EEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rOhsI27EEeq668Ll3Jq22Q" key="is_default_navigation" value="false"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vv_PsG7FEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_o9WRwGbDEeqLF_m4YtUVrA">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vv_PsW7FEeq668Ll3Jq22Q" key="tooltip_text" value="Map use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vv_Psm7FEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vv_Ps27FEeq668Ll3Jq22Q" key="is_default_navigation" value="true"/>
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_865XkGa-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_865XkWa-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
@@ -2678,10 +2678,10 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_864JcWa-EeqLF_m4YtUVrA" x="134" y="514" width="281" height="61"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_871LsGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v52y0G7EEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_9rn0cGa_EeqLF_m4YtUVrA">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v52y0W7EEeq668Ll3Jq22Q" key="tooltip_text" value="Calendar use case diagram"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v52y0m7EEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v52y027EEeq668Ll3Jq22Q" key="is_default_navigation" value="false"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vDNpQG7FEeq668Ll3Jq22Q" source="PapyrusHyperLink_Page" references="_9rn0cGa_EeqLF_m4YtUVrA">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vDNpQW7FEeq668Ll3Jq22Q" key="tooltip_text" value="Calendar use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vDNpQm7FEeq668Ll3Jq22Q" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vDNpQ27FEeq668Ll3Jq22Q" key="is_default_navigation" value="true"/>
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_871ywGa-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_872Z0Ga-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
