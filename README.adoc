@@ -40,10 +40,6 @@ Delivery 1
 So each of us made our own diagrams and then came the moment when we had to merge all the diagrams and we did not succeed.
 We have therefore decided to all work on the same file each in turn so that each adds their respective digraphs.
 
-Beta :
-~~~~~~
-For the next iteration of java we plan to work on the following tasks :
-
 
 *These tasks are independent.*
 
