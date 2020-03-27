@@ -1,12 +1,49 @@
 J-Confs
 -------
-For the next iteration of java we plan to work on the following tasks :
 
+A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
+
+This project is producted by 5 students : 
+- https://github.com/machria[Achria Majid]
+- https://github.com/sebastienbourg[Bourg Sébastien]
+- https://github.com/anis468[Hamouni Anis]
+- https://github.com/floryanKieffer[Kieffer Floryan]
+- https://github.com/Zanis922[Zouari Anis]
+
+=== Delivery schedule for 2020
+
+[width="80%",cols="^10,^10,^10,^30",options="header"]
+|===========================================================================================================================
+|Delivery | Deadline | Expected effort | TEAMS
+
+|1|20th May, 2019 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis|
+
+
+
+|===========================================================================================================================
+
+
+
+Delivery 1 
+~~~~~~~~~~
+* *Tasks done*
+. Read all the code and the documentation
+. Draw the class diagrams and the use case diagrams.
 . Use Instant in Conference. Use double instead of Doubles. Use a Builder.
-
 . Delete the package io.github.oliviercailloux.geocode and start integration of LocationIQ API following available documentation.
 
 . Ensure that CalendarOnline stores conferences in a format that is understood by calendar manipulation software such as Evolution. Write a report in Asciidoctor format indicating which fields of the iCal standard should be used, in particular, how to represent a specific point on the globe (latitude, longitude, text address).
+
+
+* *Problems encountered*
+. For the class diagrams, we have divided the classes between us.
+So each of us made our own diagrams and then came the moment when we had to merge all the diagrams and we did not succeed.
+We have therefore decided to all work on the same file each in turn so that each adds their respective digraphs.
+
+Beta :
+~~~~~~
+For the next iteration of java we plan to work on the following tasks :
+
 
 *These tasks are independent.*
 
