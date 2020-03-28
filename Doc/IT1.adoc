@@ -1,0 +1,16 @@
+=Tasks repartition for IT1 :
+
+For the first iteration, the team has been divided in 2 parts,  one part that is more in charge of producing _use case diagrams_,  the rest of the team is more handling _class diagrams_.
+
+
+* Majid ACHRIA : package diagram, geocode class diagram, calendar class diagram and researcher class diagram
+
+* Sebastien BOURG : reasercher use case diagram, map use case diagram, conference use case diagram and calendar use case diagram
+
+* Anis HAMOUNI : map class diagram and gui class diagram
+
+* Floryan KIEFFER : gui use case diagram, document use case diagram and general use case diagram 
+
+* Anis ZOUARI : conference class diagram and document class diagram
+
+We all have looked at the code already done in order to do UML diagrams and everyone participate to the elaboration of all adoc files.
