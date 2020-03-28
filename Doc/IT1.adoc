@@ -1,4 +1,4 @@
-=Tasks repartition for IT1 :
+= Tasks repartition for IT1
 
 For the first iteration, the team has been divided in 2 parts,  one part that is more in charge of producing _use case diagrams_,  the rest of the team is more handling _class diagrams_.
 
