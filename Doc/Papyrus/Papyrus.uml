@@ -314,6 +314,8 @@ Refere to GUI use case.</body>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_sq5xMG-NEeq668Ll3Jq22Q" name="" type="_zzSIQGa9EeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ssLjkW-NEeq668Ll3Jq22Q" name="" type="_5GOokGa9EeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_s05asW-NEeq668Ll3Jq22Q" name="" type="_TPoaYGa-EeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jfxqwXHEEeq668Ll3Jq22Q" name="" type="_TPoaYGa-EeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ktO8YHHEEeq668Ll3Jq22Q" name="" type="_5GOokGa9EeqLF_m4YtUVrA"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_WF07cG7BEeq668Ll3Jq22Q" name="" represents="_WF1igG7BEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_WiCWUG7BEeq668Ll3Jq22Q" name="" represents="_WiCWUW7BEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_XJ0IAG7BEeq668Ll3Jq22Q" name="" represents="_XJ0IAW7BEeq668Ll3Jq22Q"/>
@@ -385,6 +387,8 @@ Refere to GUI use case.</body>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_sq5KIG-NEeq668Ll3Jq22Q" name="" represents="_sq5xMG-NEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_ssLjkG-NEeq668Ll3Jq22Q" name="" represents="_ssLjkW-NEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_s05asG-NEeq668Ll3Jq22Q" name="" represents="_s05asW-NEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_jfxqwHHEEeq668Ll3Jq22Q" name="" represents="_jfxqwXHEEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ktOVUHHEEeq668Ll3Jq22Q" name="" represents="_ktO8YHHEEeq668Ll3Jq22Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_pcOIYG7BEeq668Ll3Jq22Q" memberEnd="_pcRywG7BEeq668Ll3Jq22Q _pcSZ0G7BEeq668Ll3Jq22Q">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pcP9kG7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
@@ -1626,7 +1630,7 @@ Refere to GUI use case.</body>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_CUQnwGalEeq2I7WBLVkWww" type="_1laDgGXIEeqCB6kIHjdr_A"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Dependency" xmi:id="_fj_X0GeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_YP4PkGWqEeqCB6kIHjdr_A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_fj_X0GeWEeq1TMmsQgXH2g" client="_cAqPAGWpEeqCB6kIHjdr_A" supplier="_YP4PkGWqEeqCB6kIHjdr_A"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_ggFMoGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_sLIA8GX1EeqbUqsc8bodZw"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_im-nsGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_A_R7YGaxEeq2I7WBLVkWww"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_js8KMGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_CyGewGX_EeqbUqsc8bodZw"/>
