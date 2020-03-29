@@ -43,7 +43,7 @@ Here you have a package diagram where we can see package dependancies. As usual,
 
 === Class diagram
 
-image:https://i.imgur.com/mhVzawR.png[alt="Geocode class diagram",width=80%,height=80%, align="center"]
+image:https://imgur.com/4NpylsX.png[alt="Geocode class diagram",width=80%,height=80%, align="center"]
 
 
 In this package that is represented in Papyrus, we can see 5 classes and one enumeration. The main class of this package is GeoName and others classes are here to help to generate a GeoName.
