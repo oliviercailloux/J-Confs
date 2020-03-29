@@ -25,7 +25,7 @@ After that we imported the project to Eclipse connected to git in order to work 
 === Use case diagram
 
 
-image:https://i.imgur.com/zyKkysf.png[alt="General View.",width=80%,height=80%, align="center"]
+image:https://imgur.com/iqFlv8n.png[alt="General View.",width=80%,height=80%, align="center"]
 
 This diagram corresponds to the somewhat simplified use of the application. The purpose of the application is to allow the user (researcher, user of the administration) to create a conference. So he can look for a researcher and assign him a conference. It can then generate a mission order for a researcher or a young researcher. The user can also visualize all conferences in an online calendar. Futhermore, he can delete or edit conferences.
 
@@ -166,7 +166,7 @@ The GUI package allows you to set up a home machine interface and simplify the u
 
 === Class diagram
 
-image:https://i.imgur.com/oEfupiV.png[alt="Calendar View.",width=80%,height=80%, align="center"]
+image:https://imgur.com/ahH4YXl.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 The GUI package is made up of 5 classes.
 
@@ -190,7 +190,7 @@ In order to define a path step, with is something like “starting from Paris to
 
 === Class diagram
 
-image:https://i.imgur.com/OzDOad7.png[alt="Calendar View.",width=80%,height=80%, align="center"]
+image:https://imgur.com/zHdbk1Z.png[alt="Calendar View.",width=80%,height=80%, align="center"]
 
 
 *geopoint*
