@@ -127,7 +127,7 @@ public class Example {
 
 So we chose to use locationIQ API.
 
-We will make a location class that will have for attribute latitudeDep, longitudDep, latitudeArr, longitudeArr, villeDep, villeArr. This action will also be feasible in the other direction.
+We will make a location class that will have for attribute latitudeDep, longitudDep, latitudeArr, longitudeArr, villeDep, villeArr. This class will initialize longitude and latitude from a city name. This will be done by reading a file containing all the necessary information. It will also be possible to do in the other direction, that is to enter a latitude and longitude and obtain the name of the city.
 
 
 *Strong points*:
