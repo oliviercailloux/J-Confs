@@ -1,0 +1,53 @@
+= Our answer to the cloud needed
+
+
+The purpose of this document is to document the storage functionality of online conferences.
+
+
+A graphical user interface called "GuiListConferences" has been set up with the aim of displaying, editing and adding conferences to an online calendar storage website by the last team.
+
+
+The calendar storage website used is called fruux. It is a free service that allows you to keep your contacts and calendars synchronized on many platforms.
+
+
+In order to be able to exchange data between the application and fruux, it is necessary to use an online calendar editing protocol named *CalDav*.
+
+
+The CalDav4j library has been chosen in order to allow these exchanges, it includes a set of methods allowing the edition of events and the addition of new events online. All the methods using this library are in the "CalendarOnline" class.
+
+
+
+Prerequisites in v1:
+^^^^^^^^^^^^^^^^^^^^^
+	* A fruux account.
+	* The calendar must be in ICalendar format. It contains a set of events represented by "VEvent" components, which must be named according to the naming standards.
+- The "UID" property contains a unique identifier of an event.
+- The "description" property contains the value of the conference fee.
+- The "location" property contains the name of the city followed by the name of the country (fields separated by a comma) of the conference.
+- The "summary" property contains the title of the event.
+
+	* Within the Java code it is necessary to indicate a set of information to be retrieved on fruux. This information will allow you to have the authorization to retrieve events from a desired calendar. It is necessary to have :
+- The calendar identification key on fruux.
+- The user id on fruux.
+- The user password on fruux.
+ 
+Documentation :
+
+- Fruux : https://fruux.com/api/
+- Library : https://github.com/caldav4j/caldav4j/tree/master/src/example/org/osaf/caldav4j/example
+- ICalendar : https://tools.ietf.org/html/rfc5545
+
+Prerequisites in v2:
+^^^^^^^^^^^^^^^^^^^^^
+
+We heard that some reaserchears would like to use another cloud solution different from Fruux. 
+Exemple :
+
+- NextCloud
+- OwnCloud
+
+Those solutions have a CalDav API. So what we have to do is to change the constructor of CalendarOnline. We need to create a class which manage CalDav protocol and give information to CalendarOnline.
+Here you can find a class diagram :
+
+
+We may use a GUI to fulfill the information.
