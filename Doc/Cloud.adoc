@@ -37,6 +37,7 @@ Documentation :
 - Fruux : https://fruux.com/api/
 - Library : https://github.com/caldav4j/caldav4j/tree/master/src/example/org/osaf/caldav4j/example
 - ICalendar : https://tools.ietf.org/html/rfc5545
+- Old team : https://github.com/13tomoore/J-Confs/blob/master/Doc/Documentation_CalendarOnline.adoc
 
 == Prerequisites in v2:
 
@@ -48,7 +49,13 @@ Example :
 - OwnCloud
 
 Those solutions have a CalDav API. So what we have to do is to change the constructor of CalendarOnline. We need to create a class which manage CalDav protocol and give information to CalendarOnline.
+
 Here you can find a class diagram :
 
+image:https://imgur.com/kSxS61R.png[alt="Calendar class diagram",width=80%,height=80%, align="center"]
+
+You also have the use case diagram :
+
+image:https://imgur.com/Bhw0pv9.png[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
 
 We may use a GUI to fulfill the information.
