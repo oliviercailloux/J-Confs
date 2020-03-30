@@ -1,6 +1,6 @@
 LocationIQ-Direction
 --------------------
-the method *directions* implemented in the *class* https://github.com/location-iq/locationiq-java-client/blob/2259dd56194bc4be6d56b6ccddc989719602fa22/src/main/java/com/locationiq/client/api/DirectionsApi.java[DirectionsApi] that can be instantiated whith an https://github.com/location-iq/locationiq-java-client/blob/2259dd56194bc4be6d56b6ccddc989719602fa22/src/main/java/LocationIq/ApiClient.java[ApiClient] calculates the shortest path to a destination, it return a https://github.com/location-iq/locationiq-java-client/blob/2259dd56194bc4be6d56b6ccddc989719602fa22/src/main/java/com/locationiq/client/model/DirectionsDirections.java[DirectionsDirections] *object*
+The method *directions* implemented in the *class* https://github.com/location-iq/locationiq-java-client/blob/2259dd56194bc4be6d56b6ccddc989719602fa22/src/main/java/com/locationiq/client/api/DirectionsApi.java[DirectionsApi] that can be instantiated whith an https://github.com/location-iq/locationiq-java-client/blob/2259dd56194bc4be6d56b6ccddc989719602fa22/src/main/java/LocationIq/ApiClient.java[ApiClient] calculates the shortest path to a destination, it return a https://github.com/location-iq/locationiq-java-client/blob/2259dd56194bc4be6d56b6ccddc989719602fa22/src/main/java/com/locationiq/client/model/DirectionsDirections.java[DirectionsDirections] *object*
 As follows a test utilisation  
 
 -----------------
@@ -166,7 +166,18 @@ The problem is that it doesn't take one type of transport, which will be a probl
 
 We still have to test these functions in a small program to know the measurements of the returned data (in meters or kilometers, minutes or hours).
 
+Class diagram 
+^^^^^^^^^^^^^^
+image:https://imgur.com/KjyhZ8Z.jpg[alt="not bad.",width=100%,height=100%]
 
+Use case diagram 
+^^^^^^^^^^^^^^^^
+image:https://imgur.com/c7JDEH0.jpg[alt="not bad.",width=100%,height=100%]
+
+
+Source 
+^^^^^^
+https://github.com/location-iq/locationiq-java-client[locationIQ-java-client source]
 
 
 
