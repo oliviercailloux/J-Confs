@@ -14,3 +14,9 @@ For the first iteration, the team has been divided in 2 parts,  one part that is
 * Anis ZOUARI : conference class diagram and document class diagram
 
 We all have looked at the code already done in order to do UML diagrams and everyone participate to the elaboration of all adoc files.
+
+
+* *Problems encountered in UML delivery*
+For the class diagrams, we have divided the classes between us.
+So each of us made our own diagrams and then came the moment when we had to merge all the diagrams and we did not succeed.
+We have therefore decided to all work on the same file each in turn so that each adds their respective digraphs.
