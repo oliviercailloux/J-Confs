@@ -695,6 +695,16 @@ Refere to GUI use case.</body>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_iHzq0XKLEeq668Ll3Jq22Q" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_iH8NsHKLEeq668Ll3Jq22Q" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_iIDicXKLEeq668Ll3Jq22Q" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iGkMUHKZEeqYzooe0Mu77g" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iHEioHKZEeqYzooe0Mu77g" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iHmuIHKZEeqYzooe0Mu77g" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iHyUUXKZEeqYzooe0Mu77g" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_idDZsHKZEeqYzooe0Mu77g" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_i8lOUHKZEeqYzooe0Mu77g" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jr81wXKZEeqYzooe0Mu77g" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jsIb8XKZEeqYzooe0Mu77g" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jsTbEXKZEeqYzooe0Mu77g" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jseaMXKZEeqYzooe0Mu77g" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_R_SIEHKLEeq668Ll3Jq22Q" name="" represents="_R_SvIHKLEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_ZDgYwHKLEeq668Ll3Jq22Q" name="" represents="_ZDg_0HKLEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_ZegSsHKLEeq668Ll3Jq22Q" name="" represents="_Zeg5wHKLEeq668Ll3Jq22Q"/>
@@ -707,6 +717,16 @@ Refere to GUI use case.</body>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_iHzq0HKLEeq668Ll3Jq22Q" name="" represents="_iHzq0XKLEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_iH7moHKLEeq668Ll3Jq22Q" name="" represents="_iH8NsHKLEeq668Ll3Jq22Q"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_iIDicHKLEeq668Ll3Jq22Q" name="" represents="_iIDicXKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iGjlQHKZEeqYzooe0Mu77g" name="" represents="_iGkMUHKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iHD7kHKZEeqYzooe0Mu77g" name="" represents="_iHEioHKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iHmHEHKZEeqYzooe0Mu77g" name="" represents="_iHmuIHKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iHyUUHKZEeqYzooe0Mu77g" name="" represents="_iHyUUXKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_idCLkHKZEeqYzooe0Mu77g" name="" represents="_idDZsHKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_i8knQHKZEeqYzooe0Mu77g" name="" represents="_i8lOUHKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_jr81wHKZEeqYzooe0Mu77g" name="" represents="_jr81wXKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_jsIb8HKZEeqYzooe0Mu77g" name="" represents="_jsIb8XKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_jsTbEHKZEeqYzooe0Mu77g" name="" represents="_jsTbEXKZEeqYzooe0Mu77g"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_jseaMHKZEeqYzooe0Mu77g" name="" represents="_jseaMXKZEeqYzooe0Mu77g"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Usage" xmi:id="_g0-xAHKLEeq668Ll3Jq22Q" client="_NNzWEHKLEeq668Ll3Jq22Q" supplier="_Z6x_AHKLEeq668Ll3Jq22Q"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_i1OKcHKLEeq668Ll3Jq22Q" memberEnd="_i1OxgnKLEeq668Ll3Jq22Q _i1Oxg3KLEeq668Ll3Jq22Q">

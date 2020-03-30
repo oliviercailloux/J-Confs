@@ -147,6 +147,11 @@ Class diagram
 ^^^^^^^^^^^^^^
 image:https://imgur.com/KjyhZ8Z.jpg[alt="not bad.",width=100%,height=100%]
 
+Use case diagram 
+^^^^^^^^^^^^^^^^
+image:https://imgur.com/c7JDEH0.jpg[alt="not bad.",width=100%,height=100%]
+
+
 Source 
 ^^^^^^
 https://github.com/location-iq/locationiq-java-client[locationIQ source]
