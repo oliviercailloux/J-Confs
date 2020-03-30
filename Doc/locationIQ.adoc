@@ -142,3 +142,11 @@ We will make a location class that will have for attribute latitudeDep, longitud
 
 - Everything is free (10,000 requests per day, which is enough for the end of our project)
 - Complicated installation
+
+Class diagram 
+^^^^^^^^^^^^
+image:https://imgur.com/KjyhZ8Z.jpg[alt="not bad.",width=128,height=128]
+
+Source 
+^^^^^^
+https://github.com/location-iq/locationiq-java-client[locationIQ source]
