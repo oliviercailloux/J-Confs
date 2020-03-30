@@ -17,8 +17,8 @@ The CalDav4j library has been chosen in order to allow these exchanges, it inclu
 
 
 
-Prerequisites in v1:
-^^^^^^^^^^^^^^^^^^^^^
+== Prerequisites in v1:
+
 	* A fruux account.
 	* The calendar must be in ICalendar format. It contains a set of events represented by "VEvent" components, which must be named according to the naming standards.
 - The "UID" property contains a unique identifier of an event.
@@ -31,17 +31,18 @@ Prerequisites in v1:
 - The user id on fruux.
 - The user password on fruux.
  
+
 Documentation :
 
 - Fruux : https://fruux.com/api/
 - Library : https://github.com/caldav4j/caldav4j/tree/master/src/example/org/osaf/caldav4j/example
 - ICalendar : https://tools.ietf.org/html/rfc5545
 
-Prerequisites in v2:
-^^^^^^^^^^^^^^^^^^^^^
+== Prerequisites in v2:
 
-We heard that some reaserchears would like to use another cloud solution different from Fruux. 
-Exemple :
+
+We heard that some researchers would like to use another cloud solution different from Fruux. 
+Example :
 
 - NextCloud
 - OwnCloud
