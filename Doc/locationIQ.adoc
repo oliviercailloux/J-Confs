@@ -144,7 +144,7 @@ We will make a location class that will have for attribute latitudeDep, longitud
 - Complicated installation
 
 Class diagram 
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 image:https://imgur.com/KjyhZ8Z.jpg[alt="not bad.",width=128,height=128]
 
 Source 
