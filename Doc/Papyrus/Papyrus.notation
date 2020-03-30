@@ -837,7 +837,7 @@
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_3k7k5GXAEeqCB6kIHjdr_A" type="Association_SourceRoleLabel">
         <styles xmi:type="notation:BooleanValueStyle" xmi:id="_q7I6oGe0Eeq1TMmsQgXH2g" name="IS_UPDATED_POSITION" booleanValue="true"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_3k7k5WXAEeqCB6kIHjdr_A" x="-92" y="18"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3k7k5WXAEeqCB6kIHjdr_A" x="-42" y="17"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_3k7k5mXAEeqCB6kIHjdr_A" type="Association_SourceMultiplicityLabel">
         <styles xmi:type="notation:BooleanValueStyle" xmi:id="_q7NzIGe0Eeq1TMmsQgXH2g" name="IS_UPDATED_POSITION" booleanValue="true"/>
@@ -845,11 +845,11 @@
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_3k7k6GXAEeqCB6kIHjdr_A" type="Association_TargetMultiplicityLabel">
         <styles xmi:type="notation:BooleanValueStyle" xmi:id="_q7TSsGe0Eeq1TMmsQgXH2g" name="IS_UPDATED_POSITION" booleanValue="true"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_3k7k6WXAEeqCB6kIHjdr_A" x="-93" y="-17"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3k7k6WXAEeqCB6kIHjdr_A" x="-22" y="-10"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_3k690WXAEeqCB6kIHjdr_A"/>
       <element xmi:type="uml:Association" href="Papyrus.uml#_3k03MGXAEeqCB6kIHjdr_A"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3k690mXAEeqCB6kIHjdr_A" points="[140, 443, -643984, -643984]$[140, 480, -643984, -643984]$[180, 500, -643984, -643984]$[260, 480, -643984, -643984]$[260, 460, -643984, -643984]$[200, 443, -643984, -643984]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3k690mXAEeqCB6kIHjdr_A" points="[140, 443, -643984, -643984]$[140, 480, -643984, -643984]$[200, 480, -643984, -643984]$[200, 443, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3lHLEGXAEeqCB6kIHjdr_A" id="(0.398406374501992,1.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3lHLEWXAEeqCB6kIHjdr_A" id="(0.6374501992031872,1.0)"/>
     </edges>
