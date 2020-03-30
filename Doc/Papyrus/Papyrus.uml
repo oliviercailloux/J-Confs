@@ -1122,6 +1122,12 @@ Refere to GUI use case.</body>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_koa9gHJ3EeqfTY0p-PATFQ" memberEnd="_kohEIHJ3EeqfTY0p-PATFQ _kohrMnJ3EeqfTY0p-PATFQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kof2AHJ3EeqfTY0p-PATFQ" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kogdEHJ3EeqfTY0p-PATFQ" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_kohrMnJ3EeqfTY0p-PATFQ" name="calendaronline" type="_6awIAGWrEeqCB6kIHjdr_A" association="_koa9gHJ3EeqfTY0p-PATFQ"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_A_R7YGaxEeq2I7WBLVkWww" name="Element Map class diagram">
       <packagedElement xmi:type="uml:Class" xmi:id="__l3OMGasEeq2I7WBLVkWww" name="Download">
@@ -1816,12 +1822,6 @@ Refere to GUI use case.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_5pKZYHHoEeqziYL5_pR-NA" name="DirectionsDirections"/>
     </packagedElement>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_koa9gHJ3EeqfTY0p-PATFQ" memberEnd="_kohEIHJ3EeqfTY0p-PATFQ _kohrMnJ3EeqfTY0p-PATFQ">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kof2AHJ3EeqfTY0p-PATFQ" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kogdEHJ3EeqfTY0p-PATFQ" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_kohrMnJ3EeqfTY0p-PATFQ" name="calendaronline" type="_6awIAGWrEeqCB6kIHjdr_A" association="_koa9gHJ3EeqfTY0p-PATFQ"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">

@@ -5640,10 +5640,10 @@
       <element xmi:type="uml:Class" href="Papyrus.uml#_X16WwHHnEeqziYL5_pR-NA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X18L8XHnEeqziYL5_pR-NA" y="80"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_xuDNsXHMEeqiW5oWiheyZw" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_xuDNsXHMEeqiW5oWiheyZw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_xuDNsnHMEeqiW5oWiheyZw"/>
     <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_xuDNs3HMEeqiW5oWiheyZw" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
-      <owner xmi:type="uml:Package" href="Papyrus.uml#_kIjoYHHMEeqiW5oWiheyZw"/>
+      <owner xmi:type="uml:Model" href="Papyrus.uml#_FQh7wG-REeq668Ll3Jq22Q"/>
     </styles>
     <element xmi:type="uml:Package" href="Papyrus.uml#_kIjoYHHMEeqiW5oWiheyZw"/>
     <edges xmi:type="notation:Connector" xmi:id="_w-mH4HHmEeqziYL5_pR-NA" type="Association_Edge" source="_X18L8HHnEeqziYL5_pR-NA" target="_zxaMkHHMEeqiW5oWiheyZw">
