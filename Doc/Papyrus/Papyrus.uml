@@ -11,13 +11,13 @@
     <packagedElement xmi:type="uml:Model" xmi:id="_I0ZTwG3TEeq668Ll3Jq22Q" name="Views"/>
     <packagedElement xmi:type="uml:Model" xmi:id="_XOdoUG-OEeq668Ll3Jq22Q" name="Elements of Calendar use case">
       <packagedElement xmi:type="uml:Interaction" xmi:id="_-4EZcGa_EeqLF_m4YtUVrA" name="Calendar" useCase="_AQxRwGbAEeqLF_m4YtUVrA _DOIawGbAEeqLF_m4YtUVrA _FYbIEGbAEeqLF_m4YtUVrA _HwGxIGbAEeqLF_m4YtUVrA _KkxRIGbAEeqLF_m4YtUVrA _NqRpgGbAEeqLF_m4YtUVrA _PjHacGbAEeqLF_m4YtUVrA _RnIgoGbAEeqLF_m4YtUVrA _VlJOUGbAEeqLF_m4YtUVrA _XcZD0GbAEeqLF_m4YtUVrA">
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AQxRwGbAEeqLF_m4YtUVrA" name="Use an online calendar (fruux)" subject="_-4EZcGa_EeqLF_m4YtUVrA">
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AQxRwGbAEeqLF_m4YtUVrA" name="Use an online calendar (fruux, owncloud or nextcloud)" subject="_-4EZcGa_EeqLF_m4YtUVrA">
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_VDUeMGbBEeqLF_m4YtUVrA" name="ExtensionPoint1"/>
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_V7YuoGbBEeqLF_m4YtUVrA" name="ExtensionPoint2"/>
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_WfF4oWbBEeqLF_m4YtUVrA" name="ExtensionPoint3"/>
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_XJCNgGbBEeqLF_m4YtUVrA" name="ExtensionPoint4"/>
         </ownedUseCase>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_DOIawGbAEeqLF_m4YtUVrA" name="Set crendential providers" subject="_-4EZcGa_EeqLF_m4YtUVrA"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_DOIawGbAEeqLF_m4YtUVrA" name="Set crendential providers via CALDAV" subject="_-4EZcGa_EeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_FYbIEGbAEeqLF_m4YtUVrA" name="Get online conferences" subject="_-4EZcGa_EeqLF_m4YtUVrA">
           <extend xmi:type="uml:Extend" xmi:id="_VDT3IGbBEeqLF_m4YtUVrA" extendedCase="_AQxRwGbAEeqLF_m4YtUVrA" extensionLocation="_VDUeMGbBEeqLF_m4YtUVrA"/>
         </ownedUseCase>
@@ -55,7 +55,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Usage" xmi:id="_T30UYGbBEeqLF_m4YtUVrA" client="_DOIawGbAEeqLF_m4YtUVrA" supplier="_AQxRwGbAEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_YldIMGbBEeqLF_m4YtUVrA" client="_PjHacGbAEeqLF_m4YtUVrA" supplier="_NqRpgGbAEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_ZTwYoGbBEeqLF_m4YtUVrA" client="_PjHacGbAEeqLF_m4YtUVrA" supplier="_KkxRIGbAEeqLF_m4YtUVrA"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_ZTwYoGbBEeqLF_m4YtUVrA" client="_PjHacGbAEeqLF_m4YtUVrA" supplier="_-4EZcGa_EeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_aiSBQGbBEeqLF_m4YtUVrA" client="_XcZD0GbAEeqLF_m4YtUVrA" supplier="_VlJOUGbAEeqLF_m4YtUVrA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_09RakG-OEeq668Ll3Jq22Q" name="Elements of Researcher use case">
