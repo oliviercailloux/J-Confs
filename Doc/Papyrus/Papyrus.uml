@@ -1004,6 +1004,10 @@ Refere to GUI use case.</body>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xKQ_0GXGEeqCB6kIHjdr_A" name="collectionCalendarsOnline" visibility="private" type="_QujxQGdtEeq1TMmsQgXH2g"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xtDj0GXGEeqCB6kIHjdr_A" name="httpclient" visibility="private" isStatic="true" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kohEIHJ3EeqfTY0p-PATFQ" name="caldavbuilder" type="_RbGCcHJ2EeqfTY0p-PATFQ" association="_koa9gHJ3EeqfTY0p-PATFQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kohrMHJ3EeqfTY0p-PATFQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kohrMXJ3EeqfTY0p-PATFQ" value="1"/>
+        </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_30dKcGXHEeqCB6kIHjdr_A" name="CalendarOnline" visibility="private"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_4TSbgGXHEeqCB6kIHjdr_A" name="getInstance" isStatic="true">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_MoxG4GXIEeqCB6kIHjdr_A" name="a" type="_6awIAGWrEeqCB6kIHjdr_A" direction="return"/>
@@ -1078,6 +1082,45 @@ Refere to GUI use case.</body>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3k1eQWXAEeqCB6kIHjdr_A" key="nature" value="UML_Nature"/>
         </eAnnotations>
         <ownedEnd xmi:type="uml:Property" xmi:id="_3k2FUmXAEeqCB6kIHjdr_A" name="calendaronline" type="_6awIAGWrEeqCB6kIHjdr_A" association="_3k03MGXAEeqCB6kIHjdr_A"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_RbGCcHJ2EeqfTY0p-PATFQ" name="CalDavBuilder">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZYLNwHJ2EeqfTY0p-PATFQ" name="url">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZzIEYHJ2EeqfTY0p-PATFQ" name="username">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_aSI7oHJ2EeqfTY0p-PATFQ" name="password">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_awdPUHJ2EeqfTY0p-PATFQ" name="calendarID">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4S5ZgHJ2EeqfTY0p-PATFQ" name="port">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_dC0TgHJ2EeqfTY0p-PATFQ" name="CalDavBuilder" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_wDSTwHJ2EeqfTY0p-PATFQ" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_zRsJcHJ2EeqfTY0p-PATFQ" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_1jiQQHJ2EeqfTY0p-PATFQ" name="c">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3O-eYHJ2EeqfTY0p-PATFQ" name="d">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_COvXkHJ3EeqfTY0p-PATFQ" name="e">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rVVhcHJ3EeqfTY0p-PATFQ" name="isConnected">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_wpF6EHJ3EeqfTY0p-PATFQ" name="a" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+        </ownedOperation>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_A_R7YGaxEeq2I7WBLVkWww" name="Element Map class diagram">
@@ -1773,6 +1816,12 @@ Refere to GUI use case.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_5pKZYHHoEeqziYL5_pR-NA" name="DirectionsDirections"/>
     </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_koa9gHJ3EeqfTY0p-PATFQ" memberEnd="_kohEIHJ3EeqfTY0p-PATFQ _kohrMnJ3EeqfTY0p-PATFQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kof2AHJ3EeqfTY0p-PATFQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kogdEHJ3EeqfTY0p-PATFQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_kohrMnJ3EeqfTY0p-PATFQ" name="calendaronline" type="_6awIAGWrEeqCB6kIHjdr_A" association="_koa9gHJ3EeqfTY0p-PATFQ"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
