@@ -136,7 +136,7 @@ We will make a location class that will have for attribute latitudeDep, longitud
 
 - Everything we need is usable via this API and it seems easy to use
 - Product routing
-- Product geocoding
+- Product geocoding 
 
 *Weak points*:
 
