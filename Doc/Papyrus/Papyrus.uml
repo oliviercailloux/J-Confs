@@ -677,6 +677,60 @@ Refere to GUI use case.</body>
       <packagedElement xmi:type="uml:Usage" xmi:id="_l7Q2QGbCEeqLF_m4YtUVrA" client="_jwFNkGbBEeqLF_m4YtUVrA" supplier="_j5sckGbBEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_picYUGbCEeqLF_m4YtUVrA" client="_h8QfgGbBEeqLF_m4YtUVrA" supplier="_kJM4MGbBEeqLF_m4YtUVrA"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_xdQx4HKLEeq668Ll3Jq22Q" name="Elements of LocationIQ use case">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_H78a4HKLEeq668Ll3Jq22Q" name="LocationIQ" useCase="_NNzWEHKLEeq668Ll3Jq22Q _RdwvYHKLEeq668Ll3Jq22Q _WJNK0HKLEeq668Ll3Jq22Q _Z6x_AHKLEeq668Ll3Jq22Q">
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NNzWEHKLEeq668Ll3Jq22Q" name="Generate a location (latitude, longitude)" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_RdwvYHKLEeq668Ll3Jq22Q" name="Calculate the duration between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_WJNK0HKLEeq668Ll3Jq22Q" name="Calcule distance between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_Z6x_AHKLEeq668Ll3Jq22Q" name="Acces to a file which contains all informations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_R_SvIHKLEeq668Ll3Jq22Q" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZDg_0HKLEeq668Ll3Jq22Q" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Zeg5wHKLEeq668Ll3Jq22Q" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ael2sXKLEeq668Ll3Jq22Q" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fjbCgXKLEeq668Ll3Jq22Q" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fji-UXKLEeq668Ll3Jq22Q" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fjpsAXKLEeq668Ll3Jq22Q" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_fjxAwHKLEeq668Ll3Jq22Q" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iHrH8HKLEeq668Ll3Jq22Q" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iHzq0XKLEeq668Ll3Jq22Q" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iH8NsHKLEeq668Ll3Jq22Q" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_iIDicXKLEeq668Ll3Jq22Q" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_R_SIEHKLEeq668Ll3Jq22Q" name="" represents="_R_SvIHKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ZDgYwHKLEeq668Ll3Jq22Q" name="" represents="_ZDg_0HKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ZegSsHKLEeq668Ll3Jq22Q" name="" represents="_Zeg5wHKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ael2sHKLEeq668Ll3Jq22Q" name="" represents="_ael2sXKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_fjbCgHKLEeq668Ll3Jq22Q" name="" represents="_fjbCgXKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_fji-UHKLEeq668Ll3Jq22Q" name="" represents="_fji-UXKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_fjpsAHKLEeq668Ll3Jq22Q" name="" represents="_fjpsAXKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_fjwZsHKLEeq668Ll3Jq22Q" name="" represents="_fjxAwHKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iHqg4HKLEeq668Ll3Jq22Q" name="" represents="_iHrH8HKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iHzq0HKLEeq668Ll3Jq22Q" name="" represents="_iHzq0XKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iH7moHKLEeq668Ll3Jq22Q" name="" represents="_iH8NsHKLEeq668Ll3Jq22Q"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_iIDicHKLEeq668Ll3Jq22Q" name="" represents="_iIDicXKLEeq668Ll3Jq22Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_g0-xAHKLEeq668Ll3Jq22Q" client="_NNzWEHKLEeq668Ll3Jq22Q" supplier="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_i1OKcHKLEeq668Ll3Jq22Q" memberEnd="_i1OxgnKLEeq668Ll3Jq22Q _i1Oxg3KLEeq668Ll3Jq22Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i1OxgHKLEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i1OxgXKLEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_i1OxgnKLEeq668Ll3Jq22Q" name="calculate the duration between two locations" type="_RdwvYHKLEeq668Ll3Jq22Q" association="_i1OKcHKLEeq668Ll3Jq22Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_i1Oxg3KLEeq668Ll3Jq22Q" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_i1OKcHKLEeq668Ll3Jq22Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_kjZjgHKLEeq668Ll3Jq22Q" memberEnd="_kjaKknKLEeq668Ll3Jq22Q _kjaKk3KLEeq668Ll3Jq22Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kjaKkHKLEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kjaKkXKLEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_kjaKknKLEeq668Ll3Jq22Q" name="generate a location (latitude, longitude)" type="_H78a4HKLEeq668Ll3Jq22Q" association="_kjZjgHKLEeq668Ll3Jq22Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_kjaKk3KLEeq668Ll3Jq22Q" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_kjZjgHKLEeq668Ll3Jq22Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_n3lREHKLEeq668Ll3Jq22Q" memberEnd="_n3l4InKLEeq668Ll3Jq22Q _n3l4I3KLEeq668Ll3Jq22Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n3l4IHKLEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n3l4IXKLEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_n3l4InKLEeq668Ll3Jq22Q" name="calcule distance between two locations" type="_WJNK0HKLEeq668Ll3Jq22Q" association="_n3lREHKLEeq668Ll3Jq22Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_n3l4I3KLEeq668Ll3Jq22Q" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_n3lREHKLEeq668Ll3Jq22Q"/>
+      </packagedElement>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_6oy4EG3PEeq668Ll3Jq22Q" name="Class diagram">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_cERjsGWpEeqCB6kIHjdr_A">
