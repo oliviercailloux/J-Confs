@@ -1,5 +1,10 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -10,7 +15,18 @@ import org.apache.http.impl.client.HttpClients;
 
 import com.github.caldav4j.CalDAVCollection;
 import com.github.caldav4j.CalDAVConstants;
+import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.github.caldav4j.methods.CalDAV4JMethodFactory;
+import com.github.caldav4j.model.request.CalendarQuery;
+import com.github.caldav4j.util.GenerateQuery;
+
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
+import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
+import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.Component;
+import net.fortuna.ical4j.model.ComponentList;
+import net.fortuna.ical4j.model.component.VEvent;
 
 public class CalendarOnFruux implements CalendarOnCloudInterface {
 	String url;
@@ -57,6 +73,21 @@ public class CalendarOnFruux implements CalendarOnCloudInterface {
 	public void setCredentials() {
 		credsProvider.setCredentials(new AuthScope(getUrl(), 443), new UsernamePasswordCredentials(getUserName(), getPassword()));
 	}
-
+	
+	public Set<Conference> getOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
+		GenerateQuery searchQuery = new GenerateQuery();
+		CalendarQuery calendarQuery = searchQuery.generate();
+		List<Calendar> calendarsResult = collectionCalendarsOnline.queryCalendars(httpclient, calendarQuery);
+		Set<Conference> listConferencesUser = new LinkedHashSet<>();
+		for (Calendar calendar : calendarsResult) {
+			ComponentList<VEvent> componentList = calendar.getComponents(Component.VEVENT);
+			Iterator<VEvent> eventIterator = componentList.iterator();
+			while (eventIterator.hasNext()) {
+				VEvent vEventFound = eventIterator.next();
+				listConferencesUser.add(ConferenceReader.createConference(vEventFound));
+			} 
+		}
+		return listConferencesUser;
+	}
 	
 }
