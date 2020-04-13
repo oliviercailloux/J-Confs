@@ -1,6 +1,5 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -42,10 +41,14 @@ import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.component.VTimeZone;
+import net.fortuna.ical4j.model.property.Created;
 import net.fortuna.ical4j.model.property.Description;
 import net.fortuna.ical4j.model.property.DtEnd;
+import net.fortuna.ical4j.model.property.DtStamp;
 import net.fortuna.ical4j.model.property.DtStart;
+import net.fortuna.ical4j.model.property.LastModified;
 import net.fortuna.ical4j.model.property.Location;
+import net.fortuna.ical4j.model.property.Sequence;
 import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Url;
@@ -146,16 +149,25 @@ public class CalDavCalendarGeneric implements CalendarOnCloudInterface{
 		Property name = new Summary(conferenceEdited.getTitle());
 		Property startDate = new DtStart(new Date(conferenceEdited.getStartDate().format(formatter)));
 		Property endDate = new DtEnd(new Date(conferenceEdited.getEndDate().format(formatter)));
-		Property uid = new Uid(conferenceEdited.getUid());
+		Property uid = new Uid(conferenceEdited.getUid().toLowerCase());
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
-		propertyListVevent.add(url);
-		propertyListVevent.add(name);
-		propertyListVevent.add(description);
-		propertyListVevent.add(location);
+		Property sequence = new Sequence(1);
+		Property created = new Created();
+		Property dtstamp = new DtStamp();
+		Property lastModified = new LastModified();
+		//propertyListVevent.add(url);
+		//propertyListVevent.add(description);
+		//propertyListVevent.add(location);
+		propertyListVevent.add(created);
+		propertyListVevent.add(dtstamp);
+		propertyListVevent.add(lastModified);
+		propertyListVevent.add(sequence);
+		propertyListVevent.add(uid);
 		propertyListVevent.add(startDate);
 		propertyListVevent.add(endDate);
-		propertyListVevent.add(uid);
+		propertyListVevent.add(name);
 		vEventConference = new VEvent(propertyListVevent);
+		System.out.println(vEventConference);
 		return vEventConference;
 	}
 
@@ -208,7 +220,8 @@ public class CalDavCalendarGeneric implements CalendarOnCloudInterface{
 	}
 	public static void main(String [] args) throws CalDAV4JException, URISyntaxException, ParseException, MalformedURLException, InvalidConferenceFormatException {
 		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443);
-		CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "a", 443);
+		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "a", 443);
+		CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("ppp.woelkli.com", "93@yopmail.com", "Loscincos9378", "a", 443);
 		instanceCalendarOnline.setCredentials();
 		//instanceCalendarOnline.deleteOnlineConference("17C3F97A-B3A4-4B2E-8BC1-2751E62C7716");
 		//instanceCalendarOnline.getOnlineConferences();
@@ -221,15 +234,15 @@ public class CalDavCalendarGeneric implements CalendarOnCloudInterface{
 		  LocalDate.parse("16/04/2020", formatter); } catch (Exception e) { throw new
 		  IllegalArgumentException("Date impossible to put in the conference", e); }
 		  Conference conference = new Conference(uid, new
-		  URL("http://ppp.woelkli.com"), "Java formation", start_, end_, 1.36,
+		  URL("http://ppp.woelkli.com"), "Java", start_, end_, 1.36,
 		  "France", "Paris");
 		  //instanceCalendarOnline.getOnlineConferences();
-		  //instanceCalendarOnline.addOnlineConference(conference);
-		  uid="685F1D53-BECE-4070-8456-7A1431224252";
+		  instanceCalendarOnline.addOnlineConference(conference);
+		  //uid="685F1D53-BECE-4070-8456-7A1431224252";
 		  //Optional<Conference> confTest =
 		  //instanceCalendarOnline.getConferenceFromUid(uid); 
 		  
-		  instanceCalendarOnline.deleteOnlineConference(uid);
+		  //instanceCalendarOnline.deleteOnlineConference(uid);
 		
 	}
 }
