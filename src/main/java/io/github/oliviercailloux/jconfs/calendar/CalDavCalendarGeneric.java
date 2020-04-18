@@ -151,7 +151,7 @@ public class CalDavCalendarGeneric implements CalendarOnCloudInterface{
 		Property endDate = new DtEnd(new Date(conferenceEdited.getEndDate().format(formatter)));
 		Property uid = new Uid(conferenceEdited.getUid().toLowerCase());
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
-		Property sequence = new Sequence(1);
+		Property sequence = new Sequence(2);
 		Property created = new Created();
 		Property dtstamp = new DtStamp();
 		Property lastModified = new LastModified();
@@ -204,9 +204,9 @@ public class CalDavCalendarGeneric implements CalendarOnCloudInterface{
 			throws CalDAV4JException, URISyntaxException, ParseException {
 		VEvent ve;
 		ve = conferenceToVEvent(conferenceToPush);
-		Objects.requireNonNull(ve);
-		Objects.requireNonNull(ve.getUid());
-		collectionCalendarsOnline.add(httpclient, ve, new VTimeZone());
+		//Objects.requireNonNull(ve);
+		//Objects.requireNonNull(ve.getUid());
+		collectionCalendarsOnline.add(httpclient, ve, null);
 	}
 
 	/**
@@ -220,21 +220,21 @@ public class CalDavCalendarGeneric implements CalendarOnCloudInterface{
 	}
 	public static void main(String [] args) throws CalDAV4JException, URISyntaxException, ParseException, MalformedURLException, InvalidConferenceFormatException {
 		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443);
-		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "a", 443);
-		CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("ppp.woelkli.com", "93@yopmail.com", "Loscincos9378", "a", 443);
+		CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "a", 443);
+		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("ppp.woelkli.com", "93@yopmail.com", "Loscincos9378", "a", 443);
 		instanceCalendarOnline.setCredentials();
 		//instanceCalendarOnline.deleteOnlineConference("17C3F97A-B3A4-4B2E-8BC1-2751E62C7716");
 		//instanceCalendarOnline.getOnlineConferences();
 		
 		
 		  LocalDate start_ = null; LocalDate end_ = null; String uid =
-		  "685F1D53-BECE-4070-8456-7A1431224252"; try { DateTimeFormatter formatter =
+		  "685F1F53-BECE-4070-8456-7A1431224252"; try { DateTimeFormatter formatter =
 		  DateTimeFormatter.ofPattern("dd/MM/yyyy"); start_ =
-		  LocalDate.parse("16/04/2020", formatter); end_ =
-		  LocalDate.parse("16/04/2020", formatter); } catch (Exception e) { throw new
+		  LocalDate.parse("17/04/2020", formatter); end_ =
+		  LocalDate.parse("17/04/2020", formatter); } catch (Exception e) { throw new
 		  IllegalArgumentException("Date impossible to put in the conference", e); }
 		  Conference conference = new Conference(uid, new
-		  URL("http://ppp.woelkli.com"), "Java", start_, end_, 1.36,
+		  URL("http://ppp.woelkli.com"), "93", start_, end_, 1.36,
 		  "France", "Paris");
 		  //instanceCalendarOnline.getOnlineConferences();
 		  instanceCalendarOnline.addOnlineConference(conference);
