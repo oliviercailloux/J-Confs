@@ -56,8 +56,10 @@ For the first iteration, the team has been divided in 2 parts,  one part that is
 *Tasks done* :
 
 With regard to the team in charge of the *Calendar package* : 
+
 - The team worked on the Calendar package to integrate a connection to a calendar hosted by various NextCloud platform hosts (example: cloudamo and wolki). We modified the "CalendarOnline" class and added another "CalendarBuilder" class. We also tested other architectures such as interfaces but we chose to start on a builder for more clarity and also because we were more comfortable with this architecture.
 - About the Direction class : this class is used to calculate the distance and time between two locations, as well as the path to take to get there. For the moment the locations are strings in {longitude, latitude} format, later on they will be attributes of type Location. Concerning the steps for the move, we have a function to return the necessary data for this move, the concern is that there is a lot of useless information, we have sorted it but it is not yet sufficient.
 
 With regard to the team in charge of the *LocationIQ package* : 
+
 - We have been working on a new Location class. To do this we imported into our code all the source code of LocationIQ. We then created the Location package specific to our project and developed the following classes: Location (Floryan Kieffer and Anis Hamouni), Direction (Anis Hamouni) and Translation (Floryan Kieffer). The Location class should allow to retrieve the information in a file (offline mode). This class may be removed later we have not yet fully implemented it. The Translation class should make it possible to return several addresses based on an imprecise information, and then to propose them to the user so that he can select one among the proposed choices. Then we will have in this class all the necessary informations about the address selected by the user.
