@@ -49,7 +49,7 @@ Delivery 2 : UML
 
 The code is hereby published under the MIT License, with the permission of the contributors.
 
-Delivery 3 : UML
+Delivery 3 : JAVA
 ~~~~~~~~~~~~~~~~~
 For the first iteration, the team has been divided in 2 parts,  one part that is in charge of LocationIQ's package (Kieffer Floryan & Hamouni Anis),  and the other part of the team is on Calendar's package (Achria Majid & Bourg Sébastien).
 
