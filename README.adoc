@@ -18,7 +18,7 @@ This project is producted by 5 students :
 
 |1|UML   |16th March, 2020 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis| Nobody|
 |2|UML   |30th March, 2020 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis| Nobody|
-|3|Java  |20th April, 2020 |13 h | Team 1 : Kieffer Floryan & Hamouni Anis + Team 2 : Achria Majid & Bourg Sébastien              | Zouari Anis|
+|3|Java  |20th April, 2020 |13 h | Team 1 : Kieffer Floryan & Hamouni Anis + Team 2 : Achria Majid & Bourg Sébastien              | Zouari|
 
 
 
