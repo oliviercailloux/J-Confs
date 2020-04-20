@@ -30,7 +30,7 @@ import net.fortuna.ical4j.model.property.DtStart;
 
 /**
  *  @author machria & sbourg
- *  Unit tests for connect to a calendar on Fruux cloud plateform
+ *  Unit tests for connect to a calendar on Fruux cloud platform
  */
 
 public class TestCalendarOnlineFruux {

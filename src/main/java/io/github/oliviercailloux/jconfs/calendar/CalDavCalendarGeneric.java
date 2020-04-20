@@ -55,7 +55,7 @@ import net.fortuna.ical4j.model.property.Url;
 
 /**
  *  @author machria & sbourg
- * Design pattern to create a calendar object source to a cloud plateform
+ *  Builder which create the connection with online calendar
  */
 public class CalDavCalendarGeneric {
 	protected String url;
