@@ -64,8 +64,7 @@ import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatExcept
 
 /**
  * @author machria & sbourg
- * This class permits to access to online conferences from
- *         https://fruux.com
+ * This class is the management for create a calendar object
  */
 public class CalendarOnline {
 	
@@ -75,7 +74,6 @@ public class CalendarOnline {
 		this.connector=connector;
 	}
 
-	
 
 	/**
 	 * This method has been partially taken from :
@@ -99,8 +97,6 @@ public class CalendarOnline {
 					listConferencesUser.add(ConferenceReader.createConference(vEventFound));
 				}
 			}
-		
-		
 		return listConferencesUser;
 	}
 
@@ -201,9 +197,8 @@ public class CalendarOnline {
 		VEvent ve;
 		ve = conferenceToVEvent(conferenceToPush);
 		System.out.println(ve);
-		/*
-		 * Objects.requireNonNull(ve); Objects.requireNonNull(ve.getUid());
-		 */
+		Objects.requireNonNull(ve); Objects.requireNonNull(ve.getUid());
+		 
 		this.connector.collectionCalendarsOnline.add(this.connector.httpclient, ve, null);
 	}
 
@@ -215,37 +210,5 @@ public class CalendarOnline {
 		Objects.requireNonNull(uid);
 		this.connector.collectionCalendarsOnline.delete(this.connector.httpclient,
 				this.connector.collectionCalendarsOnline.getCalendarCollectionRoot() + uid + ".ics");
-	}
-	public static void main(String [] args) throws CalDAV4JException, URISyntaxException, ParseException, MalformedURLException, InvalidConferenceFormatException {
-		CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443, "");
-		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", 443,"/remote.php/dav");
-		CalendarOnline a= new CalendarOnline(instanceCalendarOnline);
-		//CalDavCalendarGeneric instanceCalendarOnline = new CalDavCalendarGeneric("ppp.woelkli.com", "93@yopmail.com", "Loscincos9378", "a", 443);
-		//instanceCalendarOnline.setCredentials();
-		//instanceCalendarOnline.deleteOnlineConference("17C3F97A-B3A4-4B2E-8BC1-2751E62C7716");
-		//instanceCalendarOnline.getOnlineConferences();
-		
-		
-		  LocalDate start_ = null; LocalDate end_ = null; String uid ="935F1F53-BECE-4070-8456-7A14312249".toLowerCase(); 
-		  try { DateTimeFormatter formatter =
-		  DateTimeFormatter.ofPattern("dd/MM/yyyy"); start_ =
-		  LocalDate.parse("01/04/2020", formatter); end_ =
-		  LocalDate.parse("02/04/2020", formatter); } catch (Exception e) { throw new
-		  IllegalArgumentException("Date impossible to put in the conference", e); }
-		  Conference conference = new Conference(uid, new
-		  URL("http://ppp.woelkli.com"), "78", start_, end_, 1.36,
-		  "France", "Paris");
-		  //instanceCalendarOnline.getOnlineConferences();
-		  a.addOnlineConference(conference);
-		  System.out.println(a.getOnlineConferences());
-		  //Optional<Conference> confTest =
-		  a.getConferenceFromUid(uid); 
-		  
-		  a.deleteOnlineConference(uid);
-		  a.getConferenceFromUid(uid);
-		  
-		  /*String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-		  CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443,""));
-		  instanceCalendarOnline.deleteOnlineConference(uid);*/
 	}
 }

@@ -53,21 +53,32 @@ import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Url;
 
+/**
+ *  @author machria & sbourg
+ * Design pattern to create a calendar object source to a cloud plateform
+ */
 public class CalDavCalendarGeneric {
-	String url;
-	String userName;
-	String password;
-	String calendarID;
-	CredentialsProvider credsProvider = new BasicCredentialsProvider();
-	CloseableHttpClient httpclient;
-	HttpHost hostTarget;	
-	CalDAVCollection collectionCalendarsOnline;
-	int port;
-	String posturl;
+	protected String url;
+	protected String userName;
+	protected String password;
+	protected String calendarID;
+	protected CredentialsProvider credsProvider = new BasicCredentialsProvider();
+	protected CloseableHttpClient httpclient;
+	protected HttpHost hostTarget;	
+	protected CalDAVCollection collectionCalendarsOnline;
+	protected int port;
+	protected String posturl;
 	
 	
-	
-	
+	/**
+	 * Constructor for a generic calendar object 
+	 * @param url
+	 * @param userName
+	 * @param password
+	 * @param calendarID
+	 * @param port
+	 * @param postUrl
+	 */
 	public CalDavCalendarGeneric(String url, String userName, String password, String calendarID,int port,String postUrl) {
 		this.url = url;
 		this.userName = userName;
@@ -80,27 +91,16 @@ public class CalDavCalendarGeneric {
 				new UsernamePasswordCredentials(this.userName, this.password));
 		httpclient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider).build();
 		hostTarget = new HttpHost(this.url, 443, "https");
-
 		collectionCalendarsOnline = new CalDAVCollection(this.posturl+"/calendars/" + this.userName + "/" + this.calendarID,
 				hostTarget, new CalDAV4JMethodFactory(), null);
-		
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setCredentials() {
-		credsProvider.setCredentials(new AuthScope(getUrl(), this.port), new UsernamePasswordCredentials(getUserName(), getPassword()));
 	}
 	
+
+	/**
+	 * Set the credentials to connect to the calendar on cloud
+	 */
+	public void setCredentials() {
+		credsProvider.setCredentials(new AuthScope(this.url, this.port), new UsernamePasswordCredentials(this.userName, this.password));
+	}
 
 }

@@ -28,9 +28,12 @@ import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStart;
 
+/**
+ *  @author machria & sbourg
+ *  Unit tests for connect to a calendar on Fruux cloud plateform
+ */
+
 public class TestCalendarOnlineFruux {
-		
-	
 	
 	@Test
 	public void testGetOnlineConferenceFromUid()
@@ -79,7 +82,6 @@ public class TestCalendarOnlineFruux {
 		String startDate = "06/08/2019";
 		String title = "Java formation";
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-
 		LocalDate start_ = null;
 		LocalDate end_ = null;
 
@@ -124,7 +126,6 @@ public class TestCalendarOnlineFruux {
 		if(!confTest.isPresent()) {
 			fail();
 		}
-
 	}
 
 	@Test
@@ -136,7 +137,6 @@ public class TestCalendarOnlineFruux {
 		if(instanceCalendarOnline.getConferenceFromUid(uid).isPresent()) {
 			fail();
 		}
-
 	}
 
 }
