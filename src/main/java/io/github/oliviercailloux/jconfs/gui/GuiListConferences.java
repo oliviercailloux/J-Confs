@@ -30,8 +30,7 @@ import org.slf4j.LoggerFactory;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
-import com.google.common.primitives.Doubles;
-
+import com.google.common.primitives.Doubles;import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
 import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
@@ -71,7 +70,7 @@ public class GuiListConferences {
 	private Button btnClear;
 	private Button btnDelete;
 
-	public GuiListConferences() throws InvalidConferenceFormatException {
+	public GuiListConferences() throws Exception {
 		Display display = new Display();
 		shell = createShell(display);
 		shell.open();
@@ -83,13 +82,13 @@ public class GuiListConferences {
 	 * 
 	 * @param display
 	 * @return the shell
+	 * @throws Exception 
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ParseException
-	 * @throws InvalidConferenceFormatException
 	 */
-	public Shell createShell(Display display) throws InvalidConferenceFormatException {
+	public Shell createShell(Display display) throws Exception {
 		this.shell = new Shell(display);
 		shell.setText("My conference");
 		GridLayout layout = new GridLayout(2, false);
@@ -122,9 +121,9 @@ public class GuiListConferences {
 	 * @throws InvalidConferenceFormatException
 	 * @throws CalDAV4JException
 	 */
-	public void getConferences() throws InvalidConferenceFormatException {
+	public void getConferences() throws Exception {
 		try {
-			listConferencesUser = new ArrayList<>(CalendarOnline.getInstance().getOnlineConferences());
+			listConferencesUser = new ArrayList<>(new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", "")).getOnlineConferences());
 		} catch (CalDAV4JException e) {
 			throw new IllegalStateException(e);
 		}
@@ -219,8 +218,9 @@ public class GuiListConferences {
 	 * widget list is updates with new online conferences
 	 * 
 	 * @param e event that we catch
+	 * @throws Exception 
 	 */
-	public void editConference(@SuppressWarnings("unused") Event e) {
+	public void editConference(@SuppressWarnings("unused") Event e) throws Exception {
 		if (isAllFieldsValid()) {
 			if (listConferences.getSelectionIndex() >= 0) {
 				removeConference();
@@ -238,12 +238,12 @@ public class GuiListConferences {
 
 	/**
 	 * Create widgets of the GUI, and disposition of widgets
+	 * @throws Exception 
 	 * 
 	 * @throws IOException
 	 * @throws ParserException
-	 * @throws InvalidConferenceFormatException
 	 */
-	public void createWidgets() throws InvalidConferenceFormatException {
+	public void createWidgets() throws Exception {
 		listConferences = new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		this.getConferences();
 		GridData gridDatalist = new GridData();
@@ -315,17 +315,29 @@ public class GuiListConferences {
 	/**
 	 * Create all listener for all widgets of the GUI
 	 */
-	private void createListenerWidgets() {
+	private void createListenerWidgets() throws Exception{
 		txtCity.addVerifyListener(ListenerAction::checkTextInput);
 		txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
 		txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
 		listConferences.addListener(SWT.Selection, this::fillInAllFields);
-		btnSave.addListener(SWT.Selection, this::editConference);
+		btnSave.addListener(SWT.Selection, event -> {
+			try {
+				editConference(event);
+			} catch (Exception e) {
+				throw new IllegalStateException(e);
+			}
+		});
 		btnClear.addListener(SWT.Selection, this::clearwidget);
-		btnDelete.addListener(SWT.Selection, this::deleteConference);
+		btnDelete.addListener(SWT.Selection, event -> {
+			try {
+				deleteConference(event);
+			} catch (Exception e) {
+				throw new IllegalStateException(e);
+			}
+		});
 	}
 
-	public static void main(String[] args) throws InvalidConferenceFormatException {
+	public static void main(String[] args) throws Exception {
 		new GuiListConferences().display();
 	}
 
@@ -333,8 +345,9 @@ public class GuiListConferences {
 	 * Delete the conference in fruux that had been selected by the user
 	 * 
 	 * @param e vent that we catch
+	 * @throws Exception 
 	 */
-	public void deleteConference(@SuppressWarnings("unused") Event e) {
+	public void deleteConference(@SuppressWarnings("unused") Event e) throws Exception {
 		if (listConferences.getSelectionIndex() >= 0) {
 			removeConference();
 		}
@@ -365,7 +378,7 @@ public class GuiListConferences {
 	 * Call the method from CalendarOnline to push in fruux the new conference
 	 */
 	public void addConference() {
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		LocalDate localDateStart = LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
 		LocalDate localDateEnd = LocalDate.of(dateEnd.getYear(), dateEnd.getMonth() + 1, dateEnd.getDay());
 		URL urlConference;
@@ -389,7 +402,7 @@ public class GuiListConferences {
 	 * Call the method from CalendarOnline to delete in fruux a conference
 	 */
 	public void removeConference() {
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
 		try {
 			instanceCalendarOnline.deleteOnlineConference(uidDelete);

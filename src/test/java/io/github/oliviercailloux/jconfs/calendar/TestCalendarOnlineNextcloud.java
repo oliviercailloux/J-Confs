@@ -28,33 +28,41 @@ import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStart;
 
-public class TestCalendarOnline {
+/**
+ *  @author machria & sbourg
+ *  Unit tests for connect to a calendar on Nextcloud platform
+ */
+
+public class TestCalendarOnlineNextcloud {
+
 
 	@Test
 	public void testGetOnlineConferenceFromUid()
-			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
-		String uidSearch = "b8e5f0dc-5a69-4fd5-bde3-f38e0f986085";
+			throws Exception {
+
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+		String uidSearch = "685f1f53-bece-4070-8456-7a1431224252-493566496";
 		Optional<Conference> potentialConference;
 		potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
 		if (potentialConference.isPresent()) {
 			Conference conferenceFound = potentialConference.get();
-			assertEquals("Java presentation",conferenceFound.getTitle());
+			assertEquals("93",conferenceFound.getTitle());
 			assertEquals(uidSearch,conferenceFound.getUid());
 			assertEquals("Paris",conferenceFound.getCity());
 			assertEquals("France",conferenceFound.getCountry());
-			assertEquals("2019-07-01",conferenceFound.getStartDate().toString());
+			assertEquals("2020-04-29",conferenceFound.getStartDate().toString());
 			assertEquals("1.36",conferenceFound.getFeeRegistration().toString());
 		}
 		else {
 			fail(new NullPointerException());
-		}		
+		}
 	}
 
 	@Test
 	public void testGetAllOnlineConferences()
-			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+			throws Exception {
+
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
 		Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
 		Iterator<Conference> iteratorConf = collectionConferences.iterator();
 		while (iteratorConf.hasNext()) {
@@ -64,9 +72,9 @@ public class TestCalendarOnline {
 	}
 
 	@Test
-	public void testConferenceToVEvent() throws URISyntaxException, ParseException, MalformedURLException {
+	public void testConferenceToVEvent() throws Exception{
 		VEvent conferenceVEvent;
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
 		URL url = new URL("http://fruux.com");
 		String city = "Paris";
 		String country = "France";
@@ -75,19 +83,18 @@ public class TestCalendarOnline {
 		String startDate = "06/08/2019";
 		String title = "Java formation";
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-
-		LocalDate start_ = null;
-		LocalDate end_ = null;
+		LocalDate start = null;
+		LocalDate end = null;
 
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			start_ = LocalDate.parse(startDate, formatter);
-			end_ = LocalDate.parse(endDate, formatter);
+			start = LocalDate.parse(startDate, formatter);
+			end = LocalDate.parse(endDate, formatter);
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
 
-		Conference conference = new Conference(uid, url, title, start_, end_, feeRegistration, country, city);
+		Conference conference = new Conference(uid, url, title, start, end, feeRegistration, country, city);
 
 		conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
 
@@ -100,38 +107,34 @@ public class TestCalendarOnline {
 	}
 
 	@Test
-	public void testAddOnlineConference() throws MalformedURLException, URISyntaxException, ParseException,
-	InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
-		LocalDate start_ = null;
-		LocalDate end_ = null;
+	public void testAddOnlineConference() throws Exception {
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+		LocalDate start = null;
+		LocalDate end = null;
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			start_ = LocalDate.parse("06/08/2019", formatter);
-			end_ = LocalDate.parse("08/08/2019", formatter);
+			start = LocalDate.parse("06/08/2019", formatter);
+			end = LocalDate.parse("08/08/2019", formatter);
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-		Conference conference = new Conference(uid, new URL("http://fruux.com"), "Java formation", start_, end_, 1.36,
+		Conference conference = new Conference(uid, new URL("http://fruux.com"), "Java formation", start, end, 1.36,
 				"France", "Paris");
 		instanceCalendarOnline.addOnlineConference(conference);
 		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uid);
-		if(!confTest.isPresent()) {
-			fail();
-		}
-
+		assertTrue(confTest.isPresent());
 	}
 
 	@Test
-	public void testDelete() throws InvalidConferenceFormatException, CalDAV4JException {
+	public void testDelete() throws Exception {
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-		CalendarOnline instanceCalendarOnline = CalendarOnline.getInstance();
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com", "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
 		instanceCalendarOnline.deleteOnlineConference(uid);
+		System.out.println(instanceCalendarOnline.getOnlineConferences());
 		if(instanceCalendarOnline.getConferenceFromUid(uid).isPresent()) {
 			fail();
 		}
-
 	}
 
 }
