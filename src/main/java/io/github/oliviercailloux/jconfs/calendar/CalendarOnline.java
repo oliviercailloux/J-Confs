@@ -63,11 +63,11 @@ import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 
 /**
- * @author machria & sbourg
+ * @author nikola, machria & sbourg
  * This class is the management of calendar online object. It makes you able to add, edit and delete conference.
  */
 public class CalendarOnline {
-	
+
 	private CalDavCalendarGeneric connector;
 
 	public CalendarOnline(CalDavCalendarGeneric connector) {
@@ -88,15 +88,15 @@ public class CalendarOnline {
 		GenerateQuery searchQuery = new GenerateQuery();
 		CalendarQuery calendarQuery = searchQuery.generate();
 		Set<Conference> listConferencesUser = new LinkedHashSet<>();
-		List<Calendar> calendarsResult = this.connector.collectionCalendarsOnline.queryCalendars(this.connector.httpclient, calendarQuery);
-			for (Calendar calendar : calendarsResult) {
-				ComponentList<VEvent> componentList = calendar.getComponents(Component.VEVENT);
-				Iterator<VEvent> eventIterator = componentList.iterator();
-				while (eventIterator.hasNext()) {
-					VEvent vEventFound = eventIterator.next();
-					listConferencesUser.add(ConferenceReader.createConference(vEventFound));
-				}
+		List<Calendar> calendarsResult = connector.collectionCalendarsOnline.queryCalendars(this.connector.httpclient, calendarQuery);
+		for (Calendar calendar : calendarsResult) {
+			ComponentList<VEvent> componentList = calendar.getComponents(Component.VEVENT);
+			Iterator<VEvent> eventIterator = componentList.iterator();
+			while (eventIterator.hasNext()) {
+				VEvent vEventFound = eventIterator.next();
+				listConferencesUser.add(ConferenceReader.createConference(vEventFound));
 			}
+		}
 		return listConferencesUser;
 	}
 
@@ -111,7 +111,7 @@ public class CalendarOnline {
 	public void editConferenceOnline(Conference conferenceEdited)
 			throws ParseException, CalDAV4JException, URISyntaxException {
 		VEvent vEventConferenceModified = conferenceToVEvent(conferenceEdited);
-		this.connector.collectionCalendarsOnline.updateMasterEvent(this.connector.httpclient, vEventConferenceModified, null);
+		this.connector.collectionCalendarsOnline.updateMasterEvent(connector.httpclient, vEventConferenceModified, null);
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class CalendarOnline {
 		GenerateQuery searchQuery = new GenerateQuery();
 		searchQuery.setFilter("VEVENT : UID==" + uid);
 		CalendarQuery calendarQuery = searchQuery.generate();
-		List<Calendar> calendarsResult = this.connector.collectionCalendarsOnline.queryCalendars(this.connector.httpclient, calendarQuery);
+		List<Calendar> calendarsResult = connector.collectionCalendarsOnline.queryCalendars(this.connector.httpclient, calendarQuery);
 		for (Calendar calendar : calendarsResult) {
 			vEventConferenceFound = ICalendarUtils.getFirstEvent(calendar);
 		}
@@ -199,8 +199,8 @@ public class CalendarOnline {
 		ve = conferenceToVEvent(conferenceToPush);
 		System.out.println(ve);
 		Objects.requireNonNull(ve); Objects.requireNonNull(ve.getUid());
-		 
-		this.connector.collectionCalendarsOnline.add(this.connector.httpclient, ve, null);
+
+		this.connector.collectionCalendarsOnline.add(connector.httpclient, ve, null);
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class CalendarOnline {
 	 */
 	public void deleteOnlineConference(String uid) throws CalDAV4JException {
 		Objects.requireNonNull(uid);
-		this.connector.collectionCalendarsOnline.delete(this.connector.httpclient,
-				this.connector.collectionCalendarsOnline.getCalendarCollectionRoot() + uid + ".ics");
+		connector.collectionCalendarsOnline.delete(connector.httpclient,
+				connector.collectionCalendarsOnline.getCalendarCollectionRoot() + uid + ".ics");
 	}
 }

@@ -34,12 +34,12 @@ import net.fortuna.ical4j.model.property.DtStart;
  */
 
 public class TestCalendarOnlineFruux {
-	
+
 	@Test
 	public void testGetOnlineConferenceFromUid()
-			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
-		
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443,""));
+			throws Exception {
+
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99",""));
 		String uidSearch = "b8e5f0dc-5a69-4fd5-bde3-f38e0f986085";
 		Optional<Conference> potentialConference;
 		potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
@@ -59,9 +59,9 @@ public class TestCalendarOnlineFruux {
 
 	@Test
 	public void testGetAllOnlineConferences()
-			throws InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
-		
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443,""));
+			throws Exception {
+
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
 		Iterator<Conference> iteratorConf = collectionConferences.iterator();
 		while (iteratorConf.hasNext()) {
@@ -71,9 +71,9 @@ public class TestCalendarOnlineFruux {
 	}
 
 	@Test
-	public void testConferenceToVEvent() throws URISyntaxException, ParseException, MalformedURLException {
+	public void testConferenceToVEvent() throws Exception {
 		VEvent conferenceVEvent;
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443,""));
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		URL url = new URL("http://fruux.com");
 		String city = "Paris";
 		String country = "France";
@@ -106,9 +106,8 @@ public class TestCalendarOnlineFruux {
 	}
 
 	@Test
-	public void testAddOnlineConference() throws MalformedURLException, URISyntaxException, ParseException,
-	InvalidConferenceFormatException, com.github.caldav4j.exceptions.CalDAV4JException {
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443,""));
+	public void testAddOnlineConference() throws Exception {
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		LocalDate start_ = null;
 		LocalDate end_ = null;
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
@@ -129,9 +128,9 @@ public class TestCalendarOnlineFruux {
 	}
 
 	@Test
-	public void testDelete() throws InvalidConferenceFormatException, CalDAV4JException {
+	public void testDelete() throws Exception {
 		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", 443,""));
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		instanceCalendarOnline.deleteOnlineConference(uid);
 		System.out.println(instanceCalendarOnline.getOnlineConferences());
 		if(instanceCalendarOnline.getConferenceFromUid(uid).isPresent()) {
