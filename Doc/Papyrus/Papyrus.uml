@@ -1644,7 +1644,7 @@ Refere to GUI use case.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Hgti8GX_EeqbUqsc8bodZw" name="MissionOrder">
         <ownedOperation xmi:type="uml:Operation" xmi:id="_U0iJcGX_EeqbUqsc8bodZw" name="MissionOrder"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_U_W5YGX_EeqbUqsc8bodZw" name="Operation2" isStatic="true">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_U_W5YGX_EeqbUqsc8bodZw" name="main" isStatic="true">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_No5zwGYAEeqbUqsc8bodZw" name="a">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
