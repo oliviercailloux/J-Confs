@@ -2023,7 +2023,7 @@ Refere to GUI use case.</body>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_lvaYQGeWEeq1TMmsQgXH2g" client="_ThSQQGasEeq2I7WBLVkWww" supplier="_tbCJQGWrEeqCB6kIHjdr_A"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_kIjoYHHMEeqiW5oWiheyZw" name="Element locationIQ class diagram">
-      <packagedElement xmi:type="uml:Association" xmi:id="_w-Sl4HHmEeqziYL5_pR-NA" visibility="private" memberEnd="_w-YFcHHmEeqziYL5_pR-NA _w-YsgXHmEeqziYL5_pR-NA">
+      <packagedElement xmi:type="uml:Association" xmi:id="_w-Sl4HHmEeqziYL5_pR-NA" visibility="protected" memberEnd="_w-YFcHHmEeqziYL5_pR-NA _w-YsgXHmEeqziYL5_pR-NA">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_w-WQQHHmEeqziYL5_pR-NA" source="org.eclipse.papyrus">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_w-W3UHHmEeqziYL5_pR-NA" key="nature" value="UML_Nature"/>
         </eAnnotations>
@@ -2038,7 +2038,7 @@ Refere to GUI use case.</body>
       <packagedElement xmi:type="uml:Class" xmi:id="_5pKZYHHoEeqziYL5_pR-NA" name="DirectionsDirections"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_rdU6oHKJEeqfTY0p-PATFQ" name="locationIQ">
         <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="Direction">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="end" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6F8t8HHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6F8t8XHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
@@ -2046,23 +2046,35 @@ Refere to GUI use case.</body>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-YFcXHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-YsgHHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="ApiLocation">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" type="_zxVUEHHMEeqiW5oWiheyZw"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" type="_zxVUEHHMEeqiW5oWiheyZw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_3enxgIc-Eeq1Bu2a_53vKA" name="duration">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="Direction">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="total_time">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuree">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="total_distance">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="getDistance">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="Direction_To">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" type="_5pKZYHHoEeqziYL5_pR-NA" direction="return"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="getSteps">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="setDirection"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="Translation">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_2EoMYHHMEeqiW5oWiheyZw" name="latitude" visibility="private">
