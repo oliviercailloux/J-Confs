@@ -10,7 +10,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_I0ZTwG3TEeq668Ll3Jq22Q" name="Views"/>
     <packagedElement xmi:type="uml:Model" xmi:id="_XOdoUG-OEeq668Ll3Jq22Q" name="Elements of Calendar use case">
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_-4EZcGa_EeqLF_m4YtUVrA" name="Calendar" useCase="_AQxRwGbAEeqLF_m4YtUVrA _DOIawGbAEeqLF_m4YtUVrA _FYbIEGbAEeqLF_m4YtUVrA _HwGxIGbAEeqLF_m4YtUVrA _KkxRIGbAEeqLF_m4YtUVrA _NqRpgGbAEeqLF_m4YtUVrA _PjHacGbAEeqLF_m4YtUVrA _RnIgoGbAEeqLF_m4YtUVrA _VlJOUGbAEeqLF_m4YtUVrA _XcZD0GbAEeqLF_m4YtUVrA _W6ISoIYtEequSPPEfPKx9w _Bx2qkIbsEequSPPEfPKx9w">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_-4EZcGa_EeqLF_m4YtUVrA" name="Calendar" useCase="_AQxRwGbAEeqLF_m4YtUVrA _DOIawGbAEeqLF_m4YtUVrA _FYbIEGbAEeqLF_m4YtUVrA _HwGxIGbAEeqLF_m4YtUVrA _KkxRIGbAEeqLF_m4YtUVrA _NqRpgGbAEeqLF_m4YtUVrA _PjHacGbAEeqLF_m4YtUVrA _RnIgoGbAEeqLF_m4YtUVrA _VlJOUGbAEeqLF_m4YtUVrA _XcZD0GbAEeqLF_m4YtUVrA _W6ISoIYtEequSPPEfPKx9w _Bx2qkIbsEequSPPEfPKx9w _PxbHUIbtEequSPPEfPKx9w">
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AQxRwGbAEeqLF_m4YtUVrA" name="Use an online calendar (fruux, owncloud or nextcloud)" subject="_-4EZcGa_EeqLF_m4YtUVrA">
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_VDUeMGbBEeqLF_m4YtUVrA" name="ExtensionPoint1"/>
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_V7YuoGbBEeqLF_m4YtUVrA" name="ExtensionPoint2"/>
@@ -39,6 +39,7 @@
           <extend xmi:type="uml:Extend" xmi:id="_EFW-QIbsEequSPPEfPKx9w" extendedCase="_HwGxIGbAEeqLF_m4YtUVrA" extensionLocation="_EFXlUIbsEequSPPEfPKx9w"/>
           <extend xmi:type="uml:Extend" xmi:id="_Eyei8IbsEequSPPEfPKx9w" extendedCase="_KkxRIGbAEeqLF_m4YtUVrA" extensionLocation="_EyfKAIbsEequSPPEfPKx9w"/>
         </ownedUseCase>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_PxbHUIbtEequSPPEfPKx9w" name="Create conference" subject="_-4EZcGa_EeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_TR9ZcIYqEequSPPEfPKx9w" name="" type="_AQxRwGbAEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_TqnxEIYqEequSPPEfPKx9w" name="" type="_DOIawGbAEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_UqAxgIYqEequSPPEfPKx9w" name="" type="_NqRpgGbAEeqLF_m4YtUVrA"/>
@@ -60,6 +61,11 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_AvUPgIbsEequSPPEfPKx9w" name="" type="_FYbIEGbAEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_BL6r8YbsEequSPPEfPKx9w" name="" type="_HwGxIGbAEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_DDvJMIbsEequSPPEfPKx9w" name="" type="_Bx2qkIbsEequSPPEfPKx9w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_C8Ho0IbtEequSPPEfPKx9w" name="" type="_PjHacGbAEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DgeTEIbtEequSPPEfPKx9w" name="" type="_PjHacGbAEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Gx5AgYbtEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HaWHoIbtEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RZgfcIbtEequSPPEfPKx9w" name="" type="_PxbHUIbtEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_TR8LUIYqEequSPPEfPKx9w" name="" represents="_TR9ZcIYqEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_TqnKAIYqEequSPPEfPKx9w" name="" represents="_TqnxEIYqEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_UqAKcIYqEequSPPEfPKx9w" name="" represents="_UqAxgIYqEequSPPEfPKx9w"/>
@@ -81,6 +87,11 @@
         <lifeline xmi:type="uml:Lifeline" xmi:id="_AvTocIbsEequSPPEfPKx9w" name="" represents="_AvUPgIbsEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_BL6r8IbsEequSPPEfPKx9w" name="" represents="_BL6r8YbsEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_DDuiIIbsEequSPPEfPKx9w" name="" represents="_DDvJMIbsEequSPPEfPKx9w"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_C8HBwIbtEequSPPEfPKx9w" name="" represents="_C8Ho0IbtEequSPPEfPKx9w"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_DgdsAIbtEequSPPEfPKx9w" name="" represents="_DgeTEIbtEequSPPEfPKx9w"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Gx5AgIbtEequSPPEfPKx9w" name="" represents="_Gx5AgYbtEequSPPEfPKx9w"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_HaVgkIbtEequSPPEfPKx9w" name="" represents="_HaWHoIbtEequSPPEfPKx9w"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_RZf4YIbtEequSPPEfPKx9w" name="" represents="_RZgfcIbtEequSPPEfPKx9w"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_RdQWcGbBEeqLF_m4YtUVrA" memberEnd="_RdQ9gmbBEeqLF_m4YtUVrA _RdRkkGbBEeqLF_m4YtUVrA">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RdQ9gGbBEeqLF_m4YtUVrA" source="org.eclipse.papyrus">
@@ -133,6 +144,14 @@
         <ownedEnd xmi:type="uml:Property" xmi:id="_bY_DkoYtEequSPPEfPKx9w" name="visualize conferences in an online calendar" type="_W6ISoIYtEequSPPEfPKx9w" association="_bY91cIYtEequSPPEfPKx9w"/>
         <ownedEnd xmi:type="uml:Property" xmi:id="_bY_Dk4YtEequSPPEfPKx9w" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_bY91cIYtEequSPPEfPKx9w"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_WuQzEIbsEequSPPEfPKx9w" memberEnd="_WuSBMobsEequSPPEfPKx9w _WuSBM4bsEequSPPEfPKx9w">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WuSBMIbsEequSPPEfPKx9w" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WuSBMYbsEequSPPEfPKx9w" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_WuSBMobsEequSPPEfPKx9w" name="add online conference" type="_StY-oIbsEequSPPEfPKx9w" association="_WuQzEIbsEequSPPEfPKx9w"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_WuSBM4bsEequSPPEfPKx9w" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_WuQzEIbsEequSPPEfPKx9w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_SNC1MIbtEequSPPEfPKx9w" client="_NqRpgGbAEeqLF_m4YtUVrA" supplier="_PxbHUIbtEequSPPEfPKx9w"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_09RakG-OEeq668Ll3Jq22Q" name="Elements of Researcher use case">
       <packagedElement xmi:type="uml:Interaction" xmi:id="_-2ocwGbEEeqLF_m4YtUVrA" name="Researcher" useCase="_EUpkoGbFEeqLF_m4YtUVrA _FtwsoGbFEeqLF_m4YtUVrA _FvE7QGbFEeqLF_m4YtUVrA">
@@ -2123,13 +2142,6 @@ Refere to GUI use case.</body>
         </packagedElement>
       </packagedElement>
     </packagedElement>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_WuQzEIbsEequSPPEfPKx9w" memberEnd="_WuSBMobsEequSPPEfPKx9w _WuSBM4bsEequSPPEfPKx9w">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WuSBMIbsEequSPPEfPKx9w" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WuSBMYbsEequSPPEfPKx9w" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_WuSBMobsEequSPPEfPKx9w" name="add online conference" type="_StY-oIbsEequSPPEfPKx9w" association="_WuQzEIbsEequSPPEfPKx9w"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_WuSBM4bsEequSPPEfPKx9w" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_WuQzEIbsEequSPPEfPKx9w"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
