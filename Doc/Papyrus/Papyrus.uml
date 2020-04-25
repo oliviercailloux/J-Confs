@@ -2073,7 +2073,7 @@ Refere to GUI use case.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_5pKZYHHoEeqziYL5_pR-NA" name="DirectionsDirections"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_rdU6oHKJEeqfTY0p-PATFQ" name="locationIQ">
-        <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="ApiLocation">
+        <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="Direction">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="end" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6F8t8HHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6F8t8XHmEeqziYL5_pR-NA" value="1"/>
@@ -2100,46 +2100,50 @@ Refere to GUI use case.</body>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" type="_5pKZYHHoEeqziYL5_pR-NA" direction="return"/>
           </ownedOperation>
         </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="locationIQ">
+        <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="Translation">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_2EoMYHHMEeqiW5oWiheyZw" name="latitude" visibility="private">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_7S9ScHHMEeqiW5oWiheyZw" name="longitude" visibility="private">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_NALFoHHOEeqiW5oWiheyZw" name="label" visibility="private">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_1C0xIHHMEeqiW5oWiheyZw" name="geoCode">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_7SSuoHHNEeqiW5oWiheyZw" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_935e8HHNEeqiW5oWiheyZw" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-            </ownedParameter>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_7S9ScHHMEeqiW5oWiheyZw" name="longitude" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_NALFoHHOEeqiW5oWiheyZw" name="addressInformations" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_Y3E44IccEeq1Bu2a_53vKA" name="addressFound">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+          </ownedAttribute>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_1C0xIHHMEeqiW5oWiheyZw" name="connexion" visibility="public">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_nq5LIIcfEeq1Bu2a_53vKA" type="_dE8gIIcfEeq1Bu2a_53vKA" direction="return"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_1XqYsHHMEeqiW5oWiheyZw" name="reverseGeoCode">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_A4W_QHHOEeqiW5oWiheyZw" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CA7w4HHOEeqiW5oWiheyZw" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_RczYAHKJEeqfTY0p-PATFQ" name="locationIQ">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmqgYHKJEeqfTY0p-PATFQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_lZ_fMHKJEeqfTY0p-PATFQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="locationIQ">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_hr4OsHKJEeqfTY0p-PATFQ" name="a">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_1XqYsHHMEeqiW5oWiheyZw" name="recoveryAdresseInformations">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_A4W_QHHOEeqiW5oWiheyZw" name="adress">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_RczYAHKJEeqfTY0p-PATFQ" name="Translation">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmqgYHKJEeqfTY0p-PATFQ" name="longitude">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_lZ_fMHKJEeqfTY0p-PATFQ" name="latitude">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="Translation">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_hr4OsHKJEeqfTY0p-PATFQ" name="adress">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_7EgHUIcjEeq1Bu2a_53vKA" name="displayFoundAddress">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-TmgkIcjEeq1Bu2a_53vKA" name="selection">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_xL-GgIckEeq1Bu2a_53vKA" name="addressProposal"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_3Ec80IckEeq1Bu2a_53vKA" name="selectionAddressProposal"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="addressFound_methode"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_dE8gIIcfEeq1Bu2a_53vKA" name="ApiClient"/>
       </packagedElement>
     </packagedElement>
   </packagedElement>
