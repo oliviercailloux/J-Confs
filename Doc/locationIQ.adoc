@@ -11,7 +11,7 @@ LocationIQ
 in order to implement the functionality of LocationIQ we have created two java classes 
 
 TranslationAdress:
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 The TranslationAddress class allows the retrieval of useful information to set up a localization between two addresses. 
 
 Function *recoveryAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribut on this class.
@@ -20,7 +20,27 @@ Then the *addressFound function* allows you to find only the addresses in the *a
 
 Depending on the choice of the user, the unnecessary rows are deleted in the two ArrayList.
 
-Todo
-~~~~
+Todo in this class
+^^^^^^^^^^^^^^^^^^
 What remains to be done in this class is to retrieve, in the ArrayList containing all the information on the selected address, the longitude and the latitude then to assign them to the appropriate class attributes.
+
+Direction:
+~~~~~~~~~~
+
+This class has as attribute two locations departure and arrival and allows to calculate the distance and travel time between these two locations as well as the different stages for the trip
+
+The *connexion* function allows you to initialize and configure an *ApiClient* using our key.
+
+We initialize a DirectionsApi by using the *ApiClient*, which allows us to launch the search using its directions method.
+At the end we get the time and distance as well as the steps of displacement and we attribute them to the different attributes of this class. 
+
+Todo in this class
+^^^^^^^^^^^^^^^^^^
+
+What remains to be done in this class is to sort the information collected that shows us the way, in fact there is a lot of useless information, and we will try to display the way on a map. 
+
+
+
+
+
 
