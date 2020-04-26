@@ -43,3 +43,20 @@ With regard to the team in charge of the *LocationIQ package* :
 - We have been working on a new Location class. To do this we imported all the source code of LocationIQ into our code. We then created the Location package specific to our project and developed the following classes: Location (Floryan Kieffer and Anis Hamouni), Direction (Anis Hamouni) and Translation (Floryan Kieffer). The Location class should allow to retrieve the information in a file (offline mode). This class may be removed later we have not yet fully implemented it. The Translation class should make it possible to return several addresses based on an imprecise information and to propose them to the user so that he can select one among the proposed choices. Following this response, a process of deleting unnecessary addresses is carried out. Then we will have in this class all the necessary information about the address selected by the user.
 
 - About the Direction class : this class is used to calculate the distance and time between two locations, as well as the path to take to get there. For the moment the locations are strings in {longitude, latitude} format, later on they will be attributes of type Location. Concerning the steps for the move, we have a function to return the necessary data for this move, the concern is that there is a lot of useless information, we have sorted it but it is not yet sufficient.
+
+
+Delivery 2 
+~~~~~~~~~~~
+
+- LocationIQ : solve open issues -> review LocationIQ API architecure, finish implementation of TranslationAddress and Direction
+
+- Calendar : new architecture with a builder to implement and solve open issues
+
+- Use Instant, use double instead of Double and use a Builder in Conference.
+
+- Delete package io.github.oliviercailloux.geocode 
+
+If enougth time : 
+
+- Extend the ability to register a fee (registrationFee) of a conference to able different prices : student price, early registration fee, member price, ...
+- Clean ressources (16 MB in src/main/resources/io/github/oliviercailloux/jconfs)
