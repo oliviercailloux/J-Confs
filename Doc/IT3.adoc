@@ -35,6 +35,8 @@ The second team composed of  Achria Majid and Bourg Sébastien works on *Calenda
 
 - Updated class diagrams about the Calendar package.
 
+- List of task for next IT java.
+
 
 
 *Everyone participate to the elaboration of all adoc files and read a lot of documents have been reviewed and improved.*
