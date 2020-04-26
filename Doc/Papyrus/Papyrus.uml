@@ -2156,11 +2156,11 @@ Refere to GUI use case.</body>
   <packagedElement xmi:type="uml:Model" xmi:id="_HtJfIIb-EeqThP0IZkdF6Q" name="Sequence diagram">
     <packagedElement xmi:type="uml:Model" xmi:id="_LVLVwIb-EeqThP0IZkdF6Q" name="Views"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_ZOpnAIb-EeqThP0IZkdF6Q" name="Element LocationIq sequence diagram">
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_-ldagIcAEeqqprbaQsRQHQ" name="Direction">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_-ldagIcAEeqqprbaQsRQHQ" name="setDirection">
         <lifeline xmi:type="uml:Lifeline" xmi:id="_ANTiEIcBEeqqprbaQsRQHQ" name="DirectionApi" coveredBy="_6rpa4IcBEeqqprbaQsRQHQ _6scsIIcBEeqqprbaQsRQHQ _6sYasIcBEeqqprbaQsRQHQ"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_CPwiAIcBEeqqprbaQsRQHQ" name="ApiClient" coveredBy="_f4b3EIcBEeqqprbaQsRQHQ _CaCrUIdBEeq1Bu2a_53vKA _CaDSYIdBEeq1Bu2a_53vKA _aNLScIfHEeq9eN0HH2tdWw _f6QcAIcBEeqqprbaQsRQHQ _5NOhAYdBEeq1Bu2a_53vKA _CAjX0IdCEeq1Bu2a_53vKA _CAjX0YdCEeq1Bu2a_53vKA _5zuq4IdCEeq1Bu2a_53vKA _5OKVIIdBEeq1Bu2a_53vKA _OYbokIdEEeq1Bu2a_53vKA"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_FGPm8IcBEeqqprbaQsRQHQ" name="DirectionsDirections" coveredBy="_aciZoIcCEeqqprbaQsRQHQ _5NOhAIdBEeq1Bu2a_53vKA _5zuq4YdCEeq1Bu2a_53vKA _adZVQIcCEeqqprbaQsRQHQ _adUcwIcCEeqqprbaQsRQHQ"/>
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_UEDqEIcBEeqqprbaQsRQHQ" name="Direction" coveredBy="_f4bQAIcBEeqqprbaQsRQHQ _f6RDEIcBEeqqprbaQsRQHQ _6sdTMIcBEeqqprbaQsRQHQ _adZ8UIcCEeqqprbaQsRQHQ _achykIcCEeqqprbaQsRQHQ _6roz0IcBEeqqprbaQsRQHQ _drksAIcDEeqqprbaQsRQHQ _dseq8IcDEeqqprbaQsRQHQ _g_WV0IdDEeq1Bu2a_53vKA _amBiQIcBEeqqprbaQsRQHQ"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_UEDqEIcBEeqqprbaQsRQHQ" name="Direction" coveredBy="_f4bQAIcBEeqqprbaQsRQHQ _f6RDEIcBEeqqprbaQsRQHQ _6sdTMIcBEeqqprbaQsRQHQ _adZ8UIcCEeqqprbaQsRQHQ _g_WV0IdDEeq1Bu2a_53vKA _B2hrIIfcEeq9eN0HH2tdWw _B2i5QIfcEeq9eN0HH2tdWw _achykIcCEeqqprbaQsRQHQ _6roz0IcBEeqqprbaQsRQHQ _drksAIcDEeqqprbaQsRQHQ _dseq8IcDEeqqprbaQsRQHQ _amBiQIcBEeqqprbaQsRQHQ"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_XhNbgIcDEeqqprbaQsRQHQ" name="DirectionsDirectionsRoutes" coveredBy="_drlTEIcDEeqqprbaQsRQHQ _dseD4YcDEeqqprbaQsRQHQ _dsaZgIcDEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_f4bQAIcBEeqqprbaQsRQHQ" name="Message8SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_f4Za0IcBEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_amBiQIcBEeqqprbaQsRQHQ" name="BehaviorExecutionSpecification5" covered="_UEDqEIcBEeqqprbaQsRQHQ" start="_f4bQAIcBEeqqprbaQsRQHQ"/>
@@ -2186,6 +2186,9 @@ Refere to GUI use case.</body>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_5zuq4YdCEeq1Bu2a_53vKA" name="Message50ReceiveEvent" covered="_FGPm8IcBEeqqprbaQsRQHQ" message="_5zuD0IdCEeq1Bu2a_53vKA"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_adZVQIcCEeqqprbaQsRQHQ" name="Message26SendEvent" covered="_FGPm8IcBEeqqprbaQsRQHQ" message="_adYuMIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_adZ8UIcCEeqqprbaQsRQHQ" name="Message26ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_adYuMIcCEeqqprbaQsRQHQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_g_WV0IdDEeq1Bu2a_53vKA" name="Message49SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_g_VuwIdDEeq1Bu2a_53vKA"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_B2hrIIfcEeq9eN0HH2tdWw" name="Message54SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_B2gdAIfcEeq9eN0HH2tdWw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_B2i5QIfcEeq9eN0HH2tdWw" name="Message54ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_B2gdAIfcEeq9eN0HH2tdWw"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_achykIcCEeqqprbaQsRQHQ" name="Message21SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_achLgIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6roz0IcBEeqqprbaQsRQHQ" name="Message14SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_6roMwIcBEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_drlTEIcDEeqqprbaQsRQHQ" name="Message29ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_drkE8IcDEeqqprbaQsRQHQ"/>
@@ -2193,7 +2196,6 @@ Refere to GUI use case.</body>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_drksAIcDEeqqprbaQsRQHQ" name="Message29SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_drkE8IcDEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_dseD4YcDEeqqprbaQsRQHQ" name="Message34SendEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_dseD4IcDEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_dseq8IcDEeqqprbaQsRQHQ" name="Message34ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_dseD4IcDEeqqprbaQsRQHQ"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_g_WV0IdDEeq1Bu2a_53vKA" name="Message49SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_g_VuwIdDEeq1Bu2a_53vKA"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_OYbBgIdEEeq1Bu2a_53vKA"/>
         <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_OYbokIdEEeq1Bu2a_53vKA" covered="_CPwiAIcBEeqqprbaQsRQHQ"/>
         <message xmi:type="uml:Message" xmi:id="_f4Za0IcBEeqqprbaQsRQHQ" name="Connexion()" receiveEvent="_f4b3EIcBEeqqprbaQsRQHQ" sendEvent="_f4bQAIcBEeqqprbaQsRQHQ"/>
@@ -2208,8 +2210,9 @@ Refere to GUI use case.</body>
         <message xmi:type="uml:Message" xmi:id="_5NN58IdBEeq1Bu2a_53vKA" name="directionsWithHttpInfo(coordinates:String)" receiveEvent="_5NOhAYdBEeq1Bu2a_53vKA" sendEvent="_5NOhAIdBEeq1Bu2a_53vKA"/>
         <message xmi:type="uml:Message" xmi:id="_CAiwwIdCEeq1Bu2a_53vKA" name="Execute( HTTP : call)" receiveEvent="_CAjX0YdCEeq1Bu2a_53vKA" sendEvent="_CAjX0IdCEeq1Bu2a_53vKA"/>
         <message xmi:type="uml:Message" xmi:id="_5zuD0IdCEeq1Bu2a_53vKA" name="apiResponse:  ApiResponse&lt;DirectionsDirections>" receiveEvent="_5zuq4YdCEeq1Bu2a_53vKA" sendEvent="_5zuq4IdCEeq1Bu2a_53vKA"/>
-        <message xmi:type="uml:Message" xmi:id="_g_VuwIdDEeq1Bu2a_53vKA" name="setDuration and setDistance" sendEvent="_g_WV0IdDEeq1Bu2a_53vKA"/>
+        <message xmi:type="uml:Message" xmi:id="_g_VuwIdDEeq1Bu2a_53vKA" name="setDistance()" sendEvent="_g_WV0IdDEeq1Bu2a_53vKA"/>
         <message xmi:type="uml:Message" xmi:id="_aNKEUIfHEeq9eN0HH2tdWw" name=" SetApiKey(key:String)" receiveEvent="_aNLScIfHEeq9eN0HH2tdWw"/>
+        <message xmi:type="uml:Message" xmi:id="_B2gdAIfcEeq9eN0HH2tdWw" name="setDuration()" receiveEvent="_B2i5QIfcEeq9eN0HH2tdWw" sendEvent="_B2hrIIfcEeq9eN0HH2tdWw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Interaction" xmi:id="_44BLwIeeEequSPPEfPKx9w" name="TranslationAddress">
         <lifeline xmi:type="uml:Lifeline" xmi:id="_8tWekIeeEequSPPEfPKx9w" name="User" coveredBy="_m8iBIIefEequSPPEfPKx9w _gJs7EIeiEequSPPEfPKx9w _gKVNMIeiEequSPPEfPKx9w _gKPtoIeiEequSPPEfPKx9w"/>
