@@ -2037,45 +2037,6 @@ Refere to GUI use case.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_5pKZYHHoEeqziYL5_pR-NA" name="DirectionsDirections"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_rdU6oHKJEeqfTY0p-PATFQ" name="location">
-        <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="Direction">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6F8t8HHmEeqziYL5_pR-NA"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6F8t8XHmEeqziYL5_pR-NA" value="1"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_w-YFcHHmEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw" association="_w-Sl4HHmEeqziYL5_pR-NA">
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-YFcXHmEeqziYL5_pR-NA"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-YsgHHmEeqziYL5_pR-NA" value="1"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_3enxgIc-Eeq1Bu2a_53vKA" name="duration">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="Direction">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuree">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="getDistance">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="getSteps">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="setDirection"/>
-        </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="TranslationAddress">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_2EoMYHHMEeqiW5oWiheyZw" name="latitude" visibility="private">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -2144,6 +2105,45 @@ Refere to GUI use case.</body>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_zV04QIfPEequSPPEfPKx9w" type="_zxVUEHHMEeqiW5oWiheyZw" direction="return"/>
           </ownedOperation>
         </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="Direction">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6F8t8HHmEeqziYL5_pR-NA"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6F8t8XHmEeqziYL5_pR-NA" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_w-YFcHHmEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw" association="_w-Sl4HHmEeqziYL5_pR-NA">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-YFcXHmEeqziYL5_pR-NA"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-YsgHHmEeqziYL5_pR-NA" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_3enxgIc-Eeq1Bu2a_53vKA" name="duration">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="Direction">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuree">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="getDistance">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="getSteps">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="setDirection"/>
+        </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Lr6kQIfOEequSPPEfPKx9w" memberEnd="_Lr7yYofOEequSPPEfPKx9w _Lr9AgofOEequSPPEfPKx9w">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lr7yYIfOEequSPPEfPKx9w" source="org.eclipse.papyrus">
@@ -2160,7 +2160,7 @@ Refere to GUI use case.</body>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_ANTiEIcBEeqqprbaQsRQHQ" name="DirectionApi" coveredBy="_6rpa4IcBEeqqprbaQsRQHQ _6scsIIcBEeqqprbaQsRQHQ _6sYasIcBEeqqprbaQsRQHQ"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_CPwiAIcBEeqqprbaQsRQHQ" name="ApiClient" coveredBy="_f4b3EIcBEeqqprbaQsRQHQ _CaCrUIdBEeq1Bu2a_53vKA _CaDSYIdBEeq1Bu2a_53vKA _aNLScIfHEeq9eN0HH2tdWw _f6QcAIcBEeqqprbaQsRQHQ _5NOhAYdBEeq1Bu2a_53vKA _CAjX0IdCEeq1Bu2a_53vKA _CAjX0YdCEeq1Bu2a_53vKA _5zuq4IdCEeq1Bu2a_53vKA _5OKVIIdBEeq1Bu2a_53vKA _OYbokIdEEeq1Bu2a_53vKA"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_FGPm8IcBEeqqprbaQsRQHQ" name="DirectionsDirections" coveredBy="_aciZoIcCEeqqprbaQsRQHQ _5NOhAIdBEeq1Bu2a_53vKA _5zuq4YdCEeq1Bu2a_53vKA _adZVQIcCEeqqprbaQsRQHQ _adUcwIcCEeqqprbaQsRQHQ"/>
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_UEDqEIcBEeqqprbaQsRQHQ" name="Direction" coveredBy="_f4bQAIcBEeqqprbaQsRQHQ _f6RDEIcBEeqqprbaQsRQHQ _6sdTMIcBEeqqprbaQsRQHQ _achykIcCEeqqprbaQsRQHQ _adZ8UIcCEeqqprbaQsRQHQ _6roz0IcBEeqqprbaQsRQHQ _drksAIcDEeqqprbaQsRQHQ _dseq8IcDEeqqprbaQsRQHQ _g_WV0IdDEeq1Bu2a_53vKA _amBiQIcBEeqqprbaQsRQHQ"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_UEDqEIcBEeqqprbaQsRQHQ" name="Direction" coveredBy="_f4bQAIcBEeqqprbaQsRQHQ _f6RDEIcBEeqqprbaQsRQHQ _6sdTMIcBEeqqprbaQsRQHQ _adZ8UIcCEeqqprbaQsRQHQ _achykIcCEeqqprbaQsRQHQ _6roz0IcBEeqqprbaQsRQHQ _drksAIcDEeqqprbaQsRQHQ _dseq8IcDEeqqprbaQsRQHQ _g_WV0IdDEeq1Bu2a_53vKA _amBiQIcBEeqqprbaQsRQHQ"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_XhNbgIcDEeqqprbaQsRQHQ" name="DirectionsDirectionsRoutes" coveredBy="_drlTEIcDEeqqprbaQsRQHQ _dseD4YcDEeqqprbaQsRQHQ _dsaZgIcDEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_f4bQAIcBEeqqprbaQsRQHQ" name="Message8SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_f4Za0IcBEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_amBiQIcBEeqqprbaQsRQHQ" name="BehaviorExecutionSpecification5" covered="_UEDqEIcBEeqqprbaQsRQHQ" start="_f4bQAIcBEeqqprbaQsRQHQ"/>
@@ -2175,7 +2175,6 @@ Refere to GUI use case.</body>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_6sYasIcBEeqqprbaQsRQHQ" name="BehaviorExecutionSpecification17" covered="_ANTiEIcBEeqqprbaQsRQHQ" finish="_6scsIIcBEeqqprbaQsRQHQ" start="_6rpa4IcBEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6scsIIcBEeqqprbaQsRQHQ" name="Message19SendEvent" covered="_ANTiEIcBEeqqprbaQsRQHQ" message="_6scFEIcBEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6sdTMIcBEeqqprbaQsRQHQ" name="Message19ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_6scFEIcBEeqqprbaQsRQHQ"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_achykIcCEeqqprbaQsRQHQ" name="Message21SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_achLgIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_aciZoIcCEeqqprbaQsRQHQ" name="Message21ReceiveEvent" covered="_FGPm8IcBEeqqprbaQsRQHQ" message="_achLgIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_adUcwIcCEeqqprbaQsRQHQ" name="BehaviorExecutionSpecification24" covered="_FGPm8IcBEeqqprbaQsRQHQ" finish="_adZVQIcCEeqqprbaQsRQHQ" start="_aciZoIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_5NOhAIdBEeq1Bu2a_53vKA" name="Message42SendEvent" covered="_FGPm8IcBEeqqprbaQsRQHQ" message="_5NN58IdBEeq1Bu2a_53vKA"/>
@@ -2187,6 +2186,7 @@ Refere to GUI use case.</body>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_5zuq4YdCEeq1Bu2a_53vKA" name="Message50ReceiveEvent" covered="_FGPm8IcBEeqqprbaQsRQHQ" message="_5zuD0IdCEeq1Bu2a_53vKA"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_adZVQIcCEeqqprbaQsRQHQ" name="Message26SendEvent" covered="_FGPm8IcBEeqqprbaQsRQHQ" message="_adYuMIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_adZ8UIcCEeqqprbaQsRQHQ" name="Message26ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_adYuMIcCEeqqprbaQsRQHQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_achykIcCEeqqprbaQsRQHQ" name="Message21SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_achLgIcCEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_6roz0IcBEeqqprbaQsRQHQ" name="Message14SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_6roMwIcBEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_drlTEIcDEeqqprbaQsRQHQ" name="Message29ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_drkE8IcDEeqqprbaQsRQHQ"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_dsaZgIcDEeqqprbaQsRQHQ" name="BehaviorExecutionSpecification32" covered="_XhNbgIcDEeqqprbaQsRQHQ" finish="_dseD4YcDEeqqprbaQsRQHQ" start="_drlTEIcDEeqqprbaQsRQHQ"/>
