@@ -2,9 +2,9 @@
 
 Work on Papyrus issues.
 
-Un README à été ajouté dans le fichier DOC
+A README has been added to the DOC file
 
-Appliquer avoid label
+Apply avoid label
 
 === The first team
 The first team composed of Kieffer Floryan, Hamouni Anis and Zouari Anis works on *Location package* :
