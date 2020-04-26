@@ -6172,7 +6172,7 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LsfzEYfOEequSPPEfPKx9w" id="(1.0,0.14860681114551083)"/>
     </edges>
   </notation:Diagram>
-  <notation:Diagram xmi:id="_CJPccHKLEeq668Ll3Jq22Q" type="UseCase" name="LocationIQ use case diagram" measurementUnit="Pixel">
+  <notation:Diagram xmi:id="_CJPccHKLEeq668Ll3Jq22Q" type="UseCase" name="Location use case diagram" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_CrHacHKLEeq668Ll3Jq22Q" type="Actor_Shape">
       <children xmi:type="notation:DecorationNode" xmi:id="_CrHacnKLEeq668Ll3Jq22Q" type="Actor_NameLabel">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_CrHac3KLEeq668Ll3Jq22Q" y="15"/>
