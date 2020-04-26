@@ -6,19 +6,21 @@ Getting started
 ~~~~~~~~~~~~~~~
 The LocationIQ project is not available on maven central, so we imported all the source code at the root of our project, we put this in the LocationIq package and added the dependencies in the pom file of our project. 
 
-LocationIQ
-~~~~~~~~~~~
-in order to implement the functionality of LocationIQ we have created two java classes 
+Location
+~~~~~~~~~
+in order to implement the functionality of Location we have created two java classes 
 
 TranslationAdress:
 ~~~~~~~~~~~~~~~~~~
 The TranslationAddress class allows the retrieval of useful information to set up a localization between two addresses. 
 
-Function *recoveryAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribut on this class.
+Function *recoveryAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribute on this class.
 
-Then the *addressFound function* allows you to find only the addresses in the *addressInformations* ArrayList. These addresses are then stored in the *attribut addressFound* in the format *String*. All these addresses are proposed to the user via the *addressProposal function*. The latter selects one.
+Then the *addressFound function* allows you to find only the addresses in the *addressInformations* ArrayList. These addresses are then stored in the *attribute addressFound* in the format *String*. All these addresses are proposed to the user via the *addressProposal function*. The latter selects one.
 
 Depending on the choice of the user, the unnecessary rows are deleted in the two ArrayList.
+
+Furthermore, a builder is set up to make the TranslationAddress object immutable. We chose this method because it is possible that the class can evolve and that a large number of attributes are added.
 
 Todo in this class
 ^^^^^^^^^^^^^^^^^^
