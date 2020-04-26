@@ -1,0 +1,45 @@
+= Tasks repartition for IT3 :
+
+Work on Papyrus issues.
+
+A README has been added to the DOC file
+
+Apply avoid label
+
+=== The first team
+The first team composed of Kieffer Floryan, Hamouni Anis and Zouari Anis works on *Location package* :
+
+- Study LocationIQ API and initiate documentation about it
+
+- We did the sequence diagrams on Location.
+
+- Location Class diagram update.
+
+- Location documentation has been reviewed
+
+- Improve links between the general use case diagram and other diagrams. Adding hyperlink too.
+
+- List of task for next IT java for location package.
+
+
+
+=== The second team
+
+The second team composed of  Achria Majid and Bourg Sébastien works on *Calendar package* :
+
+- Improve links between the general use case diagram and other diagrams. Adding hyperlink too.
+
+- We did a sequence diagram on Calendar.
+
+- Updated the documentation about the Calendar package.
+
+- Updated class diagrams about the Calendar package.
+
+- List of task for next IT java.
+
+
+
+*Everyone participate to the elaboration of all adoc files and read a lot of documents have been reviewed and improved.*
+
+=== Problems encountered
+- Particular manipulations related to sequence diagrams to do on Papyrus which are not very intuitive for us.
