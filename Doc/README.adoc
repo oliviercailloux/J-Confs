@@ -1,0 +1,45 @@
+J-Confs
+-------
+
+A UML documentation for the JAVA project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
+
+This project is producted by 5 students : 
+
+- https://github.com/machria[Achria Majid]
+- https://github.com/sebastienbourg[Bourg Sébastien]
+- https://github.com/anis468[Hamouni Anis]
+- https://github.com/floryanKieffer[Kieffer Floryan]
+- https://github.com/Zanis922[Zouari Anis]
+
+=== Delivery schedule for 2020
+
+[width="80%",cols="^10,^10,^20,^10,^30",options="header"]
+|===================================================================================================================================
+|Delivery |Course |Deadline | Expected effort | TEAMS 
+
+|1|UML   |16th March, 2020 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis 
+|2|UML   |30th March, 2020 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis 
+|3|UML   |26th April, 2020 |8 h  | Team 1 :  Achria Majid & Bourg Sébastien + Team 2 : Kieffer Floryan & Hamouni Anis & Zouari Anis
+
+
+|===================================================================================================================================
+
+
+
+Delivery 1 
+~~~~~~~~~~
+
+See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT1.adoc[first iteration documentation].
+
+Delivery 2 
+~~~~~~~~~~~
+
+See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT2.adoc[second iteration documentation].
+
+Delivery 3 
+~~~~~~~~~~~
+
+See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT3.adoc[third iteration documentation].
+
+
+
