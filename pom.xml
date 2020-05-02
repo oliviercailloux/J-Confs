@@ -19,8 +19,7 @@
 		<threetenbp-version>1.4.0</threetenbp-version>
 		<maven-plugin-version>1.0.0</maven-plugin-version>
 		<javax-annotation-version>1.0</javax-annotation-version>
-		<junit-version>4.13</junit-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit-version>5</junit-version>
 	</properties>
 
 	<profiles>
@@ -101,27 +100,6 @@
 					</exclusions>
 				</dependency>
 			</dependencies>
-		</profile>
-		<profile>
-			<id>sign-artifacts</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.5</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
 
@@ -349,20 +327,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+
 
 			<!-- attach test jar -->
 			<plugin>
