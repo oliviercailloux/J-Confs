@@ -19,7 +19,7 @@
 		<threetenbp-version>1.4.0</threetenbp-version>
 		<maven-plugin-version>1.0.0</maven-plugin-version>
 		<javax-annotation-version>1.0</javax-annotation-version>
-		<junit-version>5</junit-version>
+		
 	</properties>
 
 	<profiles>
@@ -115,7 +115,7 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.4.0</version>
+			<version>5.5.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
