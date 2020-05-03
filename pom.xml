@@ -10,16 +10,7 @@
 		<maven.compiler.release>11</maven.compiler.release>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<gson-fire-version>1.8.3</gson-fire-version>
-		<swagger-core-version>1.5.22</swagger-core-version>
-		<okhttp-version>3.14.2</okhttp-version>
-		<gson-version>2.8.5</gson-version>
-		<commons-lang3-version>3.9</commons-lang3-version>
-		<threetenbp-version>1.4.0</threetenbp-version>
 		<maven-plugin-version>1.0.0</maven-plugin-version>
-		<javax-annotation-version>1.0</javax-annotation-version>
-		<junit.jupiter.version>5.5.2</junit.jupiter.version>
-		<junit.platform.version>1.5.2</junit.platform.version>
 	</properties>
 
 	<profiles>
@@ -31,13 +22,12 @@
 				</os>
 			</activation>
 			<properties>
-				<swt.artifactId>org.eclipse.swt.gtk.linux.x86_64</swt.artifactId>
 				<env>linux</env>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>${swt.artifactId}</artifactId>
+					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>
@@ -57,13 +47,12 @@
 				</os>
 			</activation>
 			<properties>
-				<swt.artifactId>org.eclipse.swt.cocoa.macosx.x86_64</swt.artifactId>
 				<env>mac</env>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>${swt.artifactId}</artifactId>
+					<artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>
@@ -83,13 +72,12 @@
 				</os>
 			</activation>
 			<properties>
-				<swt.artifactId>org.eclipse.swt.win32.win32.x86_64</swt.artifactId>
 				<env>windows</env>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>${swt.artifactId}</artifactId>
+					<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>
@@ -115,13 +103,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.jupiter.version}</version>
+			<version>5.5.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-runner</artifactId>
-			<version>${junit.platform.version}</version>
+			<version>1.5.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -256,7 +244,7 @@
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-annotations</artifactId>
-			<version>${swagger-core-version}</version>
+			<version>1.5.22</version>
 		</dependency>
 		<!-- @Nullable annotation -->
 		<dependency>
@@ -267,37 +255,37 @@
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
-			<version>${okhttp-version}</version>
+			<version>3.14.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>logging-interceptor</artifactId>
-			<version>${okhttp-version}</version>
+			<version>3.14.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>${gson-version}</version>
+			<version>2.8.5</version>
 		</dependency>
 		<dependency>
 			<groupId>io.gsonfire</groupId>
 			<artifactId>gson-fire</artifactId>
-			<version>${gson-fire-version}</version>
+			<version>1.8.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>${commons-lang3-version}</version>
+			<version>3.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.threeten</groupId>
 			<artifactId>threetenbp</artifactId>
-			<version>${threetenbp-version}</version>
+			<version>1.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.annotation</groupId>
 			<artifactId>jsr250-api</artifactId>
-			<version>${javax-annotation-version}</version>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 
