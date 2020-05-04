@@ -7,9 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.release>11</maven.compiler.release>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<maven.compiler.release>11</maven.compiler.release>
 	</properties>
 
 	<profiles>
@@ -21,13 +21,12 @@
 				</os>
 			</activation>
 			<properties>
-				<swt.artifactId>org.eclipse.swt.gtk.linux.x86_64</swt.artifactId>
 				<env>linux</env>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>${swt.artifactId}</artifactId>
+					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>
@@ -47,13 +46,12 @@
 				</os>
 			</activation>
 			<properties>
-				<swt.artifactId>org.eclipse.swt.cocoa.macosx.x86_64</swt.artifactId>
 				<env>mac</env>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>${swt.artifactId}</artifactId>
+					<artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>
@@ -73,13 +71,12 @@
 				</os>
 			</activation>
 			<properties>
-				<swt.artifactId>org.eclipse.swt.win32.win32.x86_64</swt.artifactId>
 				<env>windows</env>
 			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
-					<artifactId>${swt.artifactId}</artifactId>
+					<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>
@@ -105,7 +102,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.4.0</version>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>1.5.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -116,10 +119,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<dependency>
-			<groupId>org.jsr107.ri</groupId>
-			<artifactId>cache-ri-impl</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.apache.odftoolkit</groupId>
 			<artifactId>simple-odf</artifactId>
@@ -239,6 +239,53 @@
 			<artifactId>activation</artifactId>
 			<version>1.1.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.22</version>
+		</dependency>
+		<!-- @Nullable annotation -->
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.14.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>logging-interceptor</artifactId>
+			<version>3.14.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.gsonfire</groupId>
+			<artifactId>gson-fire</artifactId>
+			<version>1.8.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.threeten</groupId>
+			<artifactId>threetenbp</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -255,6 +302,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
