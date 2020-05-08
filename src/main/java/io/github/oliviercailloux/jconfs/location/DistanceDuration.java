@@ -114,7 +114,7 @@ public class DistanceDuration {
 		Iterator<DirectionsDirectionsRoutes> ite = routes.iterator();
 		while (ite.hasNext()) {
 			DirectionsDirectionsRoutes oneDirection = ite.next();
-			distance = distance.add(oneDirection.getDistance());
+			this.distance = this.distance.add(oneDirection.getDistance());
 			this.duration = this.duration.add(oneDirection.getDuration());
 			this.steps = this.steps + oneDirection.toString();
 
