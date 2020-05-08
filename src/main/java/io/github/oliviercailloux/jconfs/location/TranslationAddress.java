@@ -312,10 +312,13 @@ public class TranslationAddress {
 	 */
 
 	public String selectionAddressProposal() {
-		System.out.println("Enter address of your choice (exactly the same proposed): ");
-		Scanner sc = new Scanner(System.in);
-		String address = sc.nextLine();
-		sc.close();
+		String address = "";
+		try(Scanner sc = new Scanner(System.in)){
+			while(address.equals("")  || address.isEmpty()) {
+				System.out.println("Enter address of your choice (exactly the same proposed): ");
+				address = sc.nextLine();
+			}
+		}
 		return address;
 	}
 
