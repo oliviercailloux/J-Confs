@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.locationiq.client.ApiException;
 
-class TestDistanceDuration {
+class DistanceDurationTests {
 
 	/**
 	 * 
