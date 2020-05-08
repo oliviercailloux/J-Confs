@@ -14,14 +14,14 @@ import com.locationiq.client.ApiException;
  *
  */
 
-class TestTranslationAddress {
+class TranslationAddressTest {
 
 	/**
 	 * this method test the creation of an address
 	 */
 
 	@Test
-	public final void creatInstanceTest() {
+	public final void testcreatInstance() {
 		TranslationAddress t = TranslationAddress.newInstance();
 		assertEquals(null, t.getLatitude());
 		assertEquals(0, t.getAddressInformations().size());
@@ -36,7 +36,7 @@ class TestTranslationAddress {
 	 */
 
 	@Test
-	public final void recoveryAddressInformationsTest() throws ApiException, InterruptedException {
+	public final void testrecoveryAddressInformations() throws ApiException, InterruptedException {
 		TranslationAddress t = TranslationAddress.newInstance();
 		TimeUnit.SECONDS.sleep(1);
 		t.recoveryAddressInformations("Université paris dauphine");
@@ -53,7 +53,7 @@ class TestTranslationAddress {
 	 */
 
 	@Test
-	public final void recoveryAddressFoundTest() throws ApiException, InterruptedException {
+	public final void testrecoveryAddressFound() throws ApiException, InterruptedException {
 		TranslationAddress t = TranslationAddress.newInstance();
 		t.recoveryAddressInformations("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
@@ -69,7 +69,7 @@ class TestTranslationAddress {
 	 */
 
 	@Test
-	public final void builderTest() throws ApiException {
+	public final void testBuilder() throws ApiException {
 		TranslationAddress address = TranslationAddress.TranslationAddressBuilder.build()
 				.addressInformations("Avenue jean rostand domont 95330").addressFound().latitude().longitude().get();
 	}
@@ -81,7 +81,7 @@ class TestTranslationAddress {
 	 */
 
 	@Test
-	public final void latitudeLongitudeTest() throws ApiException {
+	public final void testlatitudeLongitude() throws ApiException {
 		TranslationAddress address = TranslationAddress.TranslationAddressBuilder.build()
 				.addressInformations("Avenue jean rostand domont 95330").addressFound().latitude().longitude().get();
 		System.out.println(address.getLatitude());
