@@ -16,10 +16,11 @@ import com.locationiq.client.auth.ApiKeyAuth;
 
 /**
  * 
- * @author Floryan Kieffer This class allows you to translate an address into
- *         several pieces of informations. It therefore allows, from imprecise
- *         information, to propose several addresses or a single address if the
- *         information entered is precise.
+ * @author Floryan Kieffer 
+ * This class allows you to translate an address into
+ * several pieces of informations. It therefore allows, from imprecise
+ * information, to propose several addresses or a single address if the
+ * information entered is precise.
  * 
  */
 
