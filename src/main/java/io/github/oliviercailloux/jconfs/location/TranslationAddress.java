@@ -1,8 +1,8 @@
 package io.github.oliviercailloux.jconfs.location;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -15,12 +15,12 @@ import com.locationiq.client.Configuration;
 import com.locationiq.client.auth.ApiKeyAuth;
 
 /**
+ * This class allows you to translate an address into several pieces of
+ * informations. It therefore allows, from imprecise information, to propose
+ * several addresses or a single address if the information entered is precise.
  * 
- * @author Floryan Kieffer 
- * This class allows you to translate an address into
- * several pieces of informations. It therefore allows, from imprecise
- * information, to propose several addresses or a single address if the
- * information entered is precise.
+ * @author Floryan Kieffer
+ * 
  * 
  */
 
@@ -236,7 +236,7 @@ public class TranslationAddress {
 	 */
 
 	public boolean displayFoundAddress(ArrayList<String> selection) {
-		Set<String> tmp = new HashSet<String>(selection);
+		Set<String> tmp = new LinkedHashSet<String>(selection);
 		Iterator<String> i = tmp.iterator();
 		int cpt = 1;
 		if (tmp.size() > 1) {
