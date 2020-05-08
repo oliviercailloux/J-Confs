@@ -39,7 +39,7 @@ public class DistanceDuration {
 	}
 
 	private DistanceDuration(String dep, String arriv) throws ApiException {
-		this.duration = distance = BigDecimal.ZERO;
+		this.duration = this.distance = BigDecimal.ZERO;
 		this.steps = "";
 		this.addressDeparture = TranslationAddress.TranslationAddressBuilder.build().addressInformations(dep)
 				.addressFound().latitude().longitude().get();
@@ -53,7 +53,7 @@ public class DistanceDuration {
 	 * @return duration
 	 */
 	public BigDecimal getDuration() {
-		return duration;
+		return this.duration;
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class DistanceDuration {
 	 * @return distance
 	 */
 	public BigDecimal getDistance() {
-		return distance;
+		return this.distance;
 	}
 
 	/**
@@ -103,8 +103,9 @@ public class DistanceDuration {
 
 		ApiClient defaultClient = TranslationAddress.connexion();
 
-		String latLonAddressDeparture = addressDeparture.getLongitude() + "," + addressDeparture.getLatitude();
-		String latLonAddressArrival = addressArrival.getLongitude() + "," + addressArrival.getLatitude();
+		String latLonAddressDeparture = this.addressDeparture.getLongitude() + ","
+				+ this.addressDeparture.getLatitude();
+		String latLonAddressArrival = this.addressArrival.getLongitude() + "," + this.addressArrival.getLatitude();
 
 		DirectionsApi api = new DirectionsApi(defaultClient);
 
