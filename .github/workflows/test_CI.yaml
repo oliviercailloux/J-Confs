@@ -4,7 +4,12 @@ name: Maven CI
 # This workflow is triggered on every pushes to the repository. (We can use a matrix system for example)
 # To see all events, https://help.github.com/en/actions/reference/events-that-trigger-workflows
 on:
-  [push]
+  push:
+    branches:
+      - '*'
+      - '*/*'
+  pull_request:
+    branches: [master]
 
 # We only use one job in this example
 jobs:

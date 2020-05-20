@@ -3,13 +3,7 @@ J-Confs
 
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
 
-This project is producted by 5 students : 
-
-- https://github.com/machria[Achria Majid]
-- https://github.com/sebastienbourg[Bourg Sébastien]
-- https://github.com/anis468[Hamouni Anis]
-- https://github.com/floryanKieffer[Kieffer Floryan]
-- https://github.com/Zanis922[Zouari Anis]
+image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["Maven CI"]
 
 === Delivery schedule for 2020
 
