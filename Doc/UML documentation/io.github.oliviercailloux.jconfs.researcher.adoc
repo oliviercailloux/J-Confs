@@ -1,0 +1,26 @@
+== Researcher package
+
+=== Use case diagram
+
+image:https://i.imgur.com/nNhMJRv.png[alt="Researcher use case diagram",width=80%,height=80%, align="center"]
+
+The package Researcher allows the user to create a Researcher object by connecting to dauphine online phone book and get information from a login enter by the user.
+
+=== Link
+
+This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+* Create researcher.
+
+This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+
+=== Class diagram
+
+image:https://i.imgur.com/uBbBWCI.png[alt="Researcher class diagram",width=80%,height=80%, align="center"]
+
+In this package that is represented in Papyrus, we can find 2 classes. One that is immutable (Researcher) and the other that help to create the object that will not change (ResearcherBuilder).
+
+=== What we plan to do 
+
+There is some informations that isn't created yet. We plan to handle the dauphine authentication. That's why we can find storePassword and lookPassword. When we launched the application the first time we have noticed that the link with Dauphine's phone book didn't work. So we look at dauphine's website and we find an exploit on the website to get information. So we have edited the link in ResearcherBuilder and now it works !
+
+We want to add some attributes in Researcher like listJourney and listExpense. So we will have function some new function in ResearcherBuilder -> add an expense/journey, delete an expense/journey, see an expense/journey, modify an expense/journey.

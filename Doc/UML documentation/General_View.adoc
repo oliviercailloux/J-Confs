@@ -1,0 +1,31 @@
+== General View
+
+=== Use case diagram
+
+
+image:https://imgur.com/iqFlv8n.png[alt="General View.",width=80%,height=80%, align="center"]
+
+This diagram corresponds to the somewhat simplified use of the application. The purpose of the application is to allow the user (researcher, user of the administration) to create a conference. So he can look for a researcher and assign him a conference. It can then generate a mission order for a researcher or a young researcher. The user can also visualize all conferences in an online calendar. Furthermore, he can delete or edit conferences.
+
+In this diagram we have added hyper links on each use case. These hyper links allow you to click on a use case. This click will take you to another more detailed use case. The links are also visible by using the general use cases in the specific use cases.
+
+Here are all the links:
+* Edit, delete a online conference --> Calendar use case
+* Add online conference --> Calendar use case
+* Delete conference --> Conference use case
+* Create conference --> Conference use case
+* Search a researcher --> GUI use case
+* Create a researcher --> Researcher use case
+* Generate a document with informations about a conference --> Document use case
+* Generate a map with the place of a conference --> Map use case
+* Visualize conferences in an online calendar --> Calendar use case
+* Generate a page with road optimization for a conference --> Location use case
+
+We plan to add a feature to show the route (optimized) between his location and the location of the conference.
+
+=== Package diagram
+
+
+image:https://imgur.com/pisiwgI.png[alt="Package diagram",width=80%,height=80%, align="center"]
+
+Here you have a package diagram where we can see package dependencies. As usual, the package which is the most dependent is the GUI one.

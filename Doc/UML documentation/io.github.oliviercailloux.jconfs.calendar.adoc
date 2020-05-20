@@ -1,0 +1,28 @@
+== Calendar package
+
+=== Use case diagram
+
+image:https://imgur.com/Bhw0pv9.png[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
+
+The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
+By connecting with a local calendar you can only create a conference.
+
+=== Link
+
+This use case is a detailed version of the general use case about one or several specific use cases. It details the following use cases:
+* Edit, delete, a online conference.
+* Add online conference
+* Visualize conferences in an online calendar
+
+This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+
+=== Class diagram
+
+image:https://imgur.com/kSxS61R.png[alt="Calendar class diagram",width=80%,height=80%, align="center"]
+
+In this package that is represented in Papyrus, we have 2 classes : CalendarOnline and ReadCalendarFiles. CalendarOnline helps us to connect to Fruux and store CalendarOnline. ReadCalendarFiles helps us to create conference and read Calendar.
+
+=== What we plan to do 
+
+We want to add a function send to git and a function restore from git in CalendarOnline. We also need to add a function that help us to know if the calendar is writeable/readable. We have to add mergeCalendar, a function that merge all calendars online.
+Another thing that has been added is the possibility to read from classpath and a connector that help the user to connect to calendar.

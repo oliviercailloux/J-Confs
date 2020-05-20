@@ -2758,6 +2758,11 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_84N3AWa-EeqLF_m4YtUVrA" x="334" y="194"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_84-sAGa-EeqLF_m4YtUVrA" type="UseCase_Shape_CCN">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mI8i8Jp1EeqN1skccDV67A" source="PapyrusHyperLink_Page" references="_CJPccHKLEeq668Ll3Jq22Q">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mI8i8Zp1EeqN1skccDV67A" key="tooltip_text" value="Location use case diagram"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mI8i8pp1EeqN1skccDV67A" key="pageName" value="PapyrusHyperLink_Page"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mI8i85p1EeqN1skccDV67A" key="is_default_navigation" value="true"/>
+          </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_84_TEGa-EeqLF_m4YtUVrA" type="UseCase_NameLabel_CCN"/>
           <children xmi:type="notation:DecorationNode" xmi:id="_84_6IGa-EeqLF_m4YtUVrA" type="UseCase_FloatingNameLabel_CCN">
             <layoutConstraint xmi:type="notation:Location" xmi:id="_84_6IWa-EeqLF_m4YtUVrA" y="15"/>

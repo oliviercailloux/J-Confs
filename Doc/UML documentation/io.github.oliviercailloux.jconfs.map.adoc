@@ -1,0 +1,37 @@
+== Map Package
+
+=== Use case diagram
+
+image:https://i.imgur.com/7cJZn2p.png[alt="Map use case diagram",width=80%,height=80%, align="center"]
+
+The package Map permits to download a file from an URL and put it in resources folder of the project. It also permits to fill a document call “papier_a_en_tete.fodt” (using regex). The information writing in the document are : Researcher’s first name, last name, phone number, Function and e-mail get from a researcher object. There is also a class to define a point on a map, the attribute that must be defined are the point name, the longitude and the latitude of the point. The default point is Paris with latitude equals to 48.866667 and longitude equals to 2.333333
+In order to define a path step, with is something like “starting from Paris to Marseille in train”, we need to define a starting point, an arrival point and a transport type.
+
+=== Link
+
+This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+* Generate a map with the place of a conference.
+
+This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+
+
+=== Class diagram
+
+image:https://imgur.com/zHdbk1Z.png[alt="Calendar View.",width=80%,height=80%, align="center"]
+
+
+*geopoint*
+
+Represents a point with name, longitude and latitude.
+
+*pathstep*
+
+Represents a path with a starting *geopoint* and an arrival *geopoint* with a means of transport.
+
+=== What we plan to do 
+
+* Add a price, a start date and return date in the pathstep class and a display method, and thanks to an API we calculate the price of the trip between the two points and with the means of transport that already exists as attribute and the two dates, with the display function we display the itinerary.
+
+* API will be managed as an interface that will be implemented by the pathstep class, or just methods that will be added to the pathstep class.
+
+* Create a path class which will contain a departure location, an arrival location which is the conference location and a list of pathsteps, each ending where the next one begins, each beginning after the end date of the previous one, and beginning at the departure location and ending at the conference location, a price which will be the minimum between the sum of the pathstep prices and the price of the direct route. 

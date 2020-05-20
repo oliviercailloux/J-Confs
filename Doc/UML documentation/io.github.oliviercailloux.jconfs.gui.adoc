@@ -1,0 +1,29 @@
+== Gui Package
+
+=== Use case diagram
+
+image:https://i.imgur.com/wQBKK79.png[alt="Gui use case diagram",width=80%,height=80%, align="center"]
+
+The GUI package allows you to set up a home machine interface and simplify the use of the application. It represents all the interactions between the use cases of this package. This package allows the user to set up an interface containing widgets that allow them to perform several actions described for the most part in other use case diagrams. The package therefore allows to associate events and methods. The application is currently able to display two windows that each allow you to perform different actions such as creating a conference or displaying a list of conferences based on certain information printered.
+
+=== Link
+
+This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+* Search a researcher
+
+This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+
+
+=== Class diagram
+
+image:https://imgur.com/ahH4YXl.png[alt="Calendar View.",width=80%,height=80%, align="center"]
+
+The GUI package is made up of 5 classes.
+
+*Guiconference*
+
+It represents the interface for entering conferences by researcher who should enter his information (login, name, surname..., this information can be retrieved just with the login of the researcher thanks to the class _researcher.ResearcherBuilder_), then enter the information about the conference (place, start date and end date)
+
+*GuiListConferences*
+
+It allows to display the different conferences of a researcher and the possibility to make a change on a conference thanks to the method of the class _conference.ConferenceWriter_.
