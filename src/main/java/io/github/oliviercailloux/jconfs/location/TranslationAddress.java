@@ -46,8 +46,8 @@ public class TranslationAddress {
 	 */
 
 	private TranslationAddress() {
-		this.addressFound = new ArrayList<String>();
-		this.addressInformations = new ArrayList<String>();
+		this.addressFound = new ArrayList<>();
+		this.addressInformations = new ArrayList<>();
 	}
 
 	/**
@@ -236,7 +236,7 @@ public class TranslationAddress {
 	 */
 
 	public boolean displayFoundAddress(ArrayList<String> selection) {
-		Set<String> tmp = new LinkedHashSet<String>(selection);
+		Set<String> tmp = new LinkedHashSet<>(selection);
 		Iterator<String> i = tmp.iterator();
 		int cpt = 1;
 		if (tmp.size() > 1) {
@@ -266,7 +266,7 @@ public class TranslationAddress {
 			String hash = contenu.substring(1, contenu.length() - 2);
 			this.addressInformations.set(i, hash);
 		}
-		ArrayList<String> selection = new ArrayList<String>();
+		ArrayList<String> selection = new ArrayList<>();
 		for (int i = 0; i < this.addressInformations.size(); i++) {
 			String search = "display_name=";
 			int posDep = this.addressInformations.get(i).indexOf(search);
