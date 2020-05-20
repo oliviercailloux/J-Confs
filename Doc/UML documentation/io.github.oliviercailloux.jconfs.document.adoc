@@ -9,6 +9,7 @@ The package document is use to generate documents in resources folder. He is in 
 === Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+
 * Generate a document with informations about a conference.
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).

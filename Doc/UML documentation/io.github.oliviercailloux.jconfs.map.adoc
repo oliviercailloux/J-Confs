@@ -10,6 +10,7 @@ In order to define a path step, with is something like “starting from Paris to
 === Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+
 * Generate a map with the place of a conference.
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).

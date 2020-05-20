@@ -9,6 +9,7 @@ The GUI package allows you to set up a home machine interface and simplify the u
 === Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+
 * Search a researcher
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).

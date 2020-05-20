@@ -9,7 +9,9 @@ The package conference is use to create, search or delete a conference. It needs
 === Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use cases:
+
 * Delete conference.
+
 * Create conference.
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).

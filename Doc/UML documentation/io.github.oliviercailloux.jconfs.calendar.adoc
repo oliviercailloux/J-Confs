@@ -10,8 +10,11 @@ By connecting with a local calendar you can only create a conference.
 === Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use cases:
+
 * Edit, delete, a online conference.
+
 * Add online conference
+
 * Visualize conferences in an online calendar
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).
