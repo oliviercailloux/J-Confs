@@ -19,7 +19,7 @@ Here are all the links:
 * Generate a document with informations about a conference --> Document use case
 * Generate a map with the place of a conference --> Map use case
 * Visualize conferences in an online calendar --> Calendar use case
-* Generate a page with road optimization for a conference --> Location use case
+* Generate location for conference --> Location use case
 
 We plan to add a feature to show the route (optimized) between his location and the location of the conference.
 
