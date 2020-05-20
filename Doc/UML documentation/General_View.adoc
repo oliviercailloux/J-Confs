@@ -9,7 +9,7 @@ This diagram corresponds to the somewhat simplified use of the application. The 
 
 In this diagram we have added hyper links on each use case. These hyper links allow you to click on a use case. This click will take you to another more detailed use case. The links are also visible by using the general use cases in the specific use cases.
 
-Here are all the links:
+Here are all the links between general view use case and others:
 * Edit, delete a online conference --> Calendar use case
 * Add online conference --> Calendar use case
 * Delete conference --> Conference use case
