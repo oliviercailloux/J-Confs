@@ -86,7 +86,7 @@ public class TranslationAddress {
 		/**
 		 * Instantiate attribute latitude
 		 * 
-		 * @return this
+		 * @return this (current object)
 		 */
 
 		public TranslationAddressBuilder latitude() {
@@ -97,8 +97,7 @@ public class TranslationAddress {
 		/**
 		 * Instantiate attribute longitude
 		 * 
-		 * @param lon
-		 * @return this
+		 * @return this (current object)
 		 */
 
 		public TranslationAddressBuilder longitude() {
@@ -110,7 +109,7 @@ public class TranslationAddress {
 		 * Instantiate attribute addressInformations
 		 * 
 		 * @param address
-		 * @return this
+		 * @return this (current object)
 		 * @throws ApiException
 		 */
 
@@ -122,7 +121,7 @@ public class TranslationAddress {
 		/**
 		 * Instantiate attribute addressFound
 		 * 
-		 * @return this
+		 * @return this (current object)
 		 */
 
 		public TranslationAddressBuilder addressFound() {
@@ -305,9 +304,10 @@ public class TranslationAddress {
 	}
 
 	/**
-	 * This method allows to return the good address.
+	 * This method allows to return the good address by letting the user chose the
+	 * correct one
 	 * 
-	 * @return numberAddress
+	 * @return address : the address chosen by the user
 	 */
 
 	public String selectionAddressProposal() {
