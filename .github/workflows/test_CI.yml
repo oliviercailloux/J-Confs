@@ -13,8 +13,8 @@ on:
 # We only use one job in this example
 jobs:
   build:
-    # This job runs on Linux
-    runs-on: ubuntu-latest
+    # This job runs on Windows
+    runs-on: windows-latest
     # We have 3 steps: two which call existing actions and one which is a command given to the runner (Ubuntu)
     steps:
       # STEP 1
