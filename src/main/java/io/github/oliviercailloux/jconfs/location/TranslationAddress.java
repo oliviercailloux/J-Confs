@@ -76,7 +76,7 @@ public class TranslationAddress {
 		/**
 		 * This method start building a TranslationAddress
 		 * 
-		 * @return new TranslationAddressBuilder(new TranslationAddress())
+		 * @return TranslationAddressBuilder
 		 */
 
 		public static TranslationAddressBuilder build() {
@@ -86,7 +86,6 @@ public class TranslationAddress {
 		/**
 		 * Instantiate attribute latitude
 		 * 
-		 * @param lat
 		 * @return this
 		 */
 
