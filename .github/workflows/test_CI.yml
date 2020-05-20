@@ -1,4 +1,4 @@
-# Workflow name
+
 name: Maven CI
 
 # This workflow is triggered on every pushes to the repository. (We can use a matrix system for example)
