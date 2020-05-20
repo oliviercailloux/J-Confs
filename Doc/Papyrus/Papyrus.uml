@@ -399,7 +399,7 @@ Refere to GUI use case.</body>
           <extend xmi:type="uml:Extend" xmi:id="_tDJmUGa_EeqLF_m4YtUVrA" extendedCase="_IpIyQGa9EeqLF_m4YtUVrA" extensionLocation="_tDKNYGa_EeqLF_m4YtUVrA"/>
         </ownedUseCase>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_kQaQQGa9EeqLF_m4YtUVrA" name="Search a researcher" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ooylwGa9EeqLF_m4YtUVrA" name="Generate a page with traject optimisation for a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ooylwGa9EeqLF_m4YtUVrA" name="Generate location for conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_tYoZAGa9EeqLF_m4YtUVrA" name="Generate a document with informations about a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_w-r5sGa9EeqLF_m4YtUVrA" name="Generate a map with the place of a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_zzSIQGa9EeqLF_m4YtUVrA" name="Visualize conferences in an online calendar" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
@@ -885,7 +885,7 @@ Refere to GUI use case.</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_xdQx4HKLEeq668Ll3Jq22Q" name="Elements of LocationIQ use case">
       <packagedElement xmi:type="uml:Interaction" xmi:id="_H78a4HKLEeq668Ll3Jq22Q" name="LocationIQ" useCase="_NNzWEHKLEeq668Ll3Jq22Q _RdwvYHKLEeq668Ll3Jq22Q _WJNK0HKLEeq668Ll3Jq22Q _Z6x_AHKLEeq668Ll3Jq22Q _j-wjYIYpEequSPPEfPKx9w">
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NNzWEHKLEeq668Ll3Jq22Q" name="Generate a location" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NNzWEHKLEeq668Ll3Jq22Q" name="Generate location for conference" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_RdwvYHKLEeq668Ll3Jq22Q" name="Calculate the duration between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_WJNK0HKLEeq668Ll3Jq22Q" name="Calcule distance between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_Z6x_AHKLEeq668Ll3Jq22Q" name="Recovery informations about address" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
