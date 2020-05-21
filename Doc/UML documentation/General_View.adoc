@@ -29,7 +29,7 @@ Here are all the links between general view use case and others:
 
 * Visualize conferences in an online calendar --> Calendar use case
 
-* Generate location for conference --> Location use case
+* Generate location for conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc#use-case-diagram[Location use case]
 
 We plan to add a feature to show the route (optimized) between his location and the location of the conference.
 
