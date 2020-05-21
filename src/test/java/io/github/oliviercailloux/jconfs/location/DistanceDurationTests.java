@@ -28,8 +28,8 @@ class DistanceDurationTests {
 				"15 Avenue du général de gaulle, 92800 puteaux");
 		TimeUnit.SECONDS.sleep(1);
 		result.getDirection();
-		assertEquals(distance,result.getDistance());
-		assertEquals(duration,result.getDuration());
+		assertEquals(distance, result.getDistance());
+		assertEquals(duration, result.getDuration());
 
 	}
 }

@@ -34,10 +34,11 @@ public class DistanceDuration {
 	 *              puteaux"
 	 * 
 	 * @throws ApiException
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 * 
 	 */
-	public static DistanceDuration newDistanceDuration(String dep, String arriv) throws ApiException, InterruptedException {
+	public static DistanceDuration newDistanceDuration(String dep, String arriv)
+			throws ApiException, InterruptedException {
 		return new DistanceDuration(dep, arriv);
 	}
 
