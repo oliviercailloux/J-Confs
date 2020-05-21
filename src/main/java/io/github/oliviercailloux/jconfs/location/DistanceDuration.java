@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 import com.locationiq.client.api.DirectionsApi;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import com.locationiq.client.model.*;
 
 /**
@@ -32,17 +34,19 @@ public class DistanceDuration {
 	 *              puteaux"
 	 * 
 	 * @throws ApiException
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public static DistanceDuration newDistanceDuration(String dep, String arriv) throws ApiException {
+	public static DistanceDuration newDistanceDuration(String dep, String arriv) throws ApiException, InterruptedException {
 		return new DistanceDuration(dep, arriv);
 	}
 
-	private DistanceDuration(String dep, String arriv) throws ApiException {
+	private DistanceDuration(String dep, String arriv) throws ApiException, InterruptedException {
 		this.duration = this.distance = BigDecimal.ZERO;
 		this.steps = "";
 		this.addressDeparture = TranslationAddress.TranslationAddressBuilder.build().addressInformations(dep)
 				.addressFound().latitude().longitude().get();
+		TimeUnit.SECONDS.sleep(1);
 		this.addressArrival = TranslationAddress.TranslationAddressBuilder.build().addressInformations(arriv)
 				.addressFound().latitude().longitude().get();
 	}
