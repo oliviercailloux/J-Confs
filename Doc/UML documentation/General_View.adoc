@@ -36,6 +36,6 @@ We plan to add a feature to show the route (optimized) between his location and 
 === Package diagram
 
 
-image:https://imgur.com/pisiwgI.png[alt="Package diagram",width=80%,height=80%, align="center"]
+image:https://imgur.com/Zt79sAc.png[alt="Package diagram",width=80%,height=80%, align="center"]
 
 Here you have a package diagram where we can see package dependencies. As usual, the package which is the most dependent is the GUI one.
