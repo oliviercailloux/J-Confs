@@ -27,7 +27,8 @@ public class DistanceDuration {
 
 	/**
 	 * 
-	 * static factory method to build a direction instance
+	 * Static factory method to build a direction instance. Important : A sleep of 1
+	 * second as been added due to the request limit per second of the API
 	 * 
 	 * @param dep   string address, example : "13 Rue Cloche Percé, 75004 Paris"
 	 * @param arriv string address, example : "Avenue du général de gaulle, 92800

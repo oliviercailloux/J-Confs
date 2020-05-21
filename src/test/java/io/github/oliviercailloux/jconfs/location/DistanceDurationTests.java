@@ -14,7 +14,10 @@ class DistanceDurationTests {
 	/**
 	 * 
 	 * Unit test in order to verify the good get of distance and duration. Carreful
-	 * this test depend on API calculation so it might fail in the future
+	 * this test depend on API calculation so it might fail in the future Important
+	 * : A sleep of 1 second as been added due to the request limit per second of
+	 * the API
+	 * 
 	 * 
 	 * @throws ApiException
 	 * @throws InterruptedException
