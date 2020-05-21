@@ -1,0 +1,57 @@
+== Location package
+
+This package use https://locationiq.com/[LocationIQ API] and contains two classes using it. 
+Unfortunatly the API wasn't available on maven central, so we imported all the source code at the root of the project (src/main/java/com.locationiq.client). This code can be found https://github.com/location-iq/locationiq-java-client[here]. Duplicate classes coming from the client code generator use by the developpers of the github depository have been delete.
+*Something important to be notice, using a free acount for the api limit the rate of requests per second, this is why we put a few "TimeUnit.SECONDS.sleep(1);" in the code*
+
+
+The location package able the developpers to do several things : 
+
+* With the class TranslationAddress you can get informations such as latitude, longitude and more detailled informations simply by enter an address (precise or not).
+* With the class DistanceDuration you can calculate the distance and the duration beetween two addresses and also get all the itinerary steps beetween them.
+
+Let's look at some diagrams about this classes.
+
+=== Use case diagram
+
+image:https://imgur.com/4oYjLp5.png[alt="Location use case",width=80%,height=80%, align="center"]
+
+
+=== Class diagram
+
+image:https://imgur.com/pE7C9jB.png[alt="Location class",width=80%,height=80%, align="center"]
+
+
+=== Sequence diagram
+
+image:https://imgur.com/SVPkEoW.png[alt="TranslationAddress recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
+image:https://imgur.com/Xxn8CkS.png[alt="DistanceDuration getDirections Sequence diagram",width=100%,height=100%, align="center"]
+
+
+=== More details about the classes
+==== TranslationAddress
+This class use the geocoding part of the api LocationIQ (https://locationiq.com/docs-html/index.html#search-forward-geocoding[see doc here])
+
+Function *recoveryAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribute on this class.
+
+Then the *addressFound function* allows you to find only the addresses in the *addressInformations* ArrayList. These addresses are then stored in the *attribute addressFound* in the format *String*. All these addresses are proposed to the user via the *addressProposal function*. The latter selects one by writting into the console the exact address he wan't.
+
+Depending on the choice of the user, the unnecessary rows are deleted in the two ArrayList.
+
+Furthermore, a builder is set up to make the TranslationAddress object immutable. We chose this method because it is possible that the class can evolve and that a large number of attributes are added.
+
+The *connexion* function allows you to initialize and configure an *ApiClient* using our key. We chose to put this function here and delete it from DistanceDuration classes in order to avoid duplicate same code.
+
+
+==== DistanceDuration
+This class use the directions part of the api LocationIQ (https://locationiq.com/docs-html/index.html#directions[see doc here]) 
+
+The constructor of this class takes two addresses as parameters and use TranslationAddress class in order to get latitude and longitude corresponding to this addresses. 
+
+The function *getDirection* allows you to calculate the distance and the duration beewteen this two locations. By passing to the DirectionsApi method the gps coordinates we get a list of directions with a lot of informations about the itinerary. For each step of the itinerary we got the latitude, longitude, distance, duration, name of the road, and more informations. After getting this list, we use an iterator to browse the list and increment the sum of distance and duration for each steps in order to get the total distance and duration.
+
+
+=== What could be done next
+
+It might be interesting next to display the itinerary on a map. LocationIQ provide interesting stuff about it (https://locationiq.com/docs-html/index.html#static-maps[see doc here]) but an other api might do it more easily.
+
