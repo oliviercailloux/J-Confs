@@ -2,7 +2,7 @@
 
 === Use case diagram
 
-image:https://imgur.com/Bhw0pv9.png[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Calendar_use_case_diagram.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
 
 The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
 By connecting with a local calendar you can only create a conference.
