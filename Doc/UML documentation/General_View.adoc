@@ -11,13 +11,9 @@ In this diagram we have added hyper links on each use case. These hyper links al
 
 Here are all the links between general view use case and others:
 
-* Edit, delete a online conference --> Calendar use case
+* Manage online conference --> Calendar use case
 
-* Add online conference --> Calendar use case
-
-* Delete conference --> Conference use case
-
-* Create conference --> Conference use case
+* Manage conference --> Conference use case
 
 * Search a researcher --> GUI use case
 

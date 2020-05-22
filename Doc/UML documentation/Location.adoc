@@ -16,6 +16,14 @@ Let's look at some diagrams about this classes.
 
 image:https://imgur.com/4oYjLp5.png[alt="Location use case",width=80%,height=80%, align="center"]
 
+=== Link
+
+This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
+
+* Generate location for conference.
+
+This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+
 
 === Class diagram
 
