@@ -2,7 +2,7 @@
 
 === Use case diagram
 
-image:https://i.imgur.com/nNhMJRv.png[alt="Researcher use case diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Researcher_use_case_diagram.PNG[alt="Researcher use case diagram",width=80%,height=80%, align="center"]
 
 The package Researcher allows the user to create a Researcher object by connecting to dauphine online phone book and get information from a login enter by the user.
 
@@ -16,7 +16,7 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 === Class diagram
 
-image:https://i.imgur.com/uBbBWCI.png[alt="Researcher class diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Researcher_s_class_diagram.PNG[alt="Researcher class diagram",width=80%,height=80%, align="center"]
 
 In this package that is represented in Papyrus, we can find 2 classes. One that is immutable (Researcher) and the other that help to create the object that will not change (ResearcherBuilder).
 
