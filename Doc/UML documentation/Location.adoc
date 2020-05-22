@@ -14,7 +14,7 @@ Let's look at some diagrams about this classes.
 
 === Use case diagram
 
-image:https://imgur.com/4oYjLp5.png[alt="Location use case",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Location_use_case_diagram.PNG[alt="Location use case",width=80%,height=80%, align="center"]
 
 === Link
 
@@ -27,13 +27,14 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 === Class diagram
 
-image:https://imgur.com/pE7C9jB.png[alt="Location class",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/locationIQ_class_diagram.PNG[alt="Location class",width=80%,height=80%, align="center"]
 
 
 === Sequence diagram
 
-image:https://imgur.com/SVPkEoW.png[alt="TranslationAddress recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
-image:https://imgur.com/Xxn8CkS.png[alt="DistanceDuration getDirections Sequence diagram",width=100%,height=100%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_TranslationAddress_recoveryAddressInformations.PNG[alt="TranslationAddress recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
+
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_DistanceDuration_getDirection.PNG[alt="DistanceDuration getDirections Sequence diagram",width=90%,height=90%, align="center"]
 
 
 === More details about the classes
