@@ -1913,12 +1913,12 @@ Refere to GUI use case.</body>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_zV04QIfPEequSPPEfPKx9w" type="_zxVUEHHMEeqiW5oWiheyZw" direction="return"/>
           </ownedOperation>
         </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="Direction">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
+        <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="DistanceDuration">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="addressArrival" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6F8t8HHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6F8t8XHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_w-YFcHHmEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw" association="_w-Sl4HHmEeqziYL5_pR-NA">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_w-YFcHHmEeqziYL5_pR-NA" name="addressDeparture" type="_zxVUEHHMEeqiW5oWiheyZw" association="_w-Sl4HHmEeqziYL5_pR-NA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-YFcXHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-YsgHHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
