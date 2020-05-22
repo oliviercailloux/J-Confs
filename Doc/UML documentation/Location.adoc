@@ -2,7 +2,7 @@
 
 This package use https://locationiq.com/[LocationIQ API] and contains two classes using it. 
 Unfortunatly the API wasn't available on maven central, so we imported all the source code at the root of the project (src/main/java/com.locationiq.client). This code can be found https://github.com/location-iq/locationiq-java-client[here]. Duplicate classes coming from the client code generator use by the developpers of the github depository have been delete.
-*Something important to be notice, using a free acount for the api limit the rate of requests per second, this is why we put a few "TimeUnit.SECONDS.sleep(1);" in the code*
+*Something important to be notice, using a free acount for the api limit the rate of requests per second, this is why we put a few "TimeUnit.SECONDS.sleep(1);" in the code*.
 
 
 The location package able the developpers to do several things : 
