@@ -8,7 +8,7 @@ A UML documentation for the JAVA project developed by students during the https:
 
 This is our file to get a high-level vision of our project :
 
-* Generate location for conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc[General view]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc[General view]
 
 Our project contains 7 packages :
 
