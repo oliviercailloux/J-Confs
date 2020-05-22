@@ -3,7 +3,30 @@ J-Confs
 
 A UML documentation for the JAVA project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
 
+
 === Links to specific package documentation
+
+This is our file to get a high-level vision of our project :
+
+* Generate location for conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location use case]
+
+Our project contains 7 packages :
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.calendar.adoc[Calendar use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.conference.adoc[Conference use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.gui.adoc[GUI use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.researcher.adoc[Researcher use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.document.adoc[Document use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.map.adoc[Map use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.calendar.adoc[Calendar use case]
+
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location use case]
 
 === Delivery schedule for 2020
 
