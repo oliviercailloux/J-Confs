@@ -1393,7 +1393,6 @@ Refere to CalendarOnline class and GuiListConferences class
         </eAnnotations>
         <ownedEnd xmi:type="uml:Property" xmi:id="_6F8t8nHmEeqziYL5_pR-NA" type="_X16WwHHnEeqziYL5_pR-NA" association="_6F6RsHHmEeqziYL5_pR-NA"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_5pKZYHHoEeqziYL5_pR-NA" name="DirectionsDirections"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_rdU6oHKJEeqfTY0p-PATFQ" name="location">
         <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="TranslationAddress">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_2EoMYHHMEeqiW5oWiheyZw" name="latitude" visibility="private">
@@ -1464,35 +1463,41 @@ Refere to CalendarOnline class and GuiListConferences class
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="DistanceDuration">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="addressArrival" type="_zxVUEHHMEeqiW5oWiheyZw" association="_6F6RsHHmEeqziYL5_pR-NA">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_6F7f0nHmEeqziYL5_pR-NA" name="addressArrival" type="_2SVN4JzREeqrR-Ds61GHnw" association="_6F6RsHHmEeqziYL5_pR-NA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6F8t8HHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6F8t8XHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_w-YFcHHmEeqziYL5_pR-NA" name="addressDeparture" type="_zxVUEHHMEeqiW5oWiheyZw" association="_w-Sl4HHmEeqziYL5_pR-NA">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_w-YFcHHmEeqziYL5_pR-NA" name="addressDeparture" type="_2SVN4JzREeqrR-Ds61GHnw" association="_w-Sl4HHmEeqziYL5_pR-NA">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-YFcXHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-YsgHHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_3enxgIc-Eeq1Bu2a_53vKA" name="duration">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_z2nHcJzTEeqrR-Ds61GHnw" name="translationaddressbuilder" type="_JUaW0IfNEequSPPEfPKx9w" association="_z2iO8JzTEeqrR-Ds61GHnw">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z2nHcZzTEeqrR-Ds61GHnw"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z2nugJzTEeqrR-Ds61GHnw" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_pCfBEJzUEeqrR-Ds61GHnw" name="addressDeparture" type="_2SVN4JzREeqrR-Ds61GHnw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_tsRPoJzUEeqrR-Ds61GHnw" name="addressArrival" type="_2SVN4JzREeqrR-Ds61GHnw"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="Direction">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="start" type="_zxVUEHHMEeqiW5oWiheyZw"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arrival" type="_zxVUEHHMEeqiW5oWiheyZw"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="start" type="_2SVN4JzREeqrR-Ds61GHnw"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arrival" type="_2SVN4JzREeqrR-Ds61GHnw"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuree">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuration" visibility="public">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="getDistance">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBigDecimal"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="getSteps">
@@ -1500,7 +1505,22 @@ Refere to CalendarOnline class and GuiListConferences class
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="setDirection"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="calculateDistanceDuration"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_5cofUJzUEeqrR-Ds61GHnw" name="getDeparture" visibility="public">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_C8iIQJzVEeqrR-Ds61GHnw" name="addressDeparture" type="_2SVN4JzREeqrR-Ds61GHnw" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_IaflwJzVEeqrR-Ds61GHnw" name="getArrival">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_PYkLIJzVEeqrR-Ds61GHnw" name="addressArrival" type="_2SVN4JzREeqrR-Ds61GHnw" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_2SVN4JzREeqrR-Ds61GHnw" name="Address">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_FGoIoJzSEeqrR-Ds61GHnw" name="latitude">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_1n1p8JzSEeqrR-Ds61GHnw" name="longitude">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_5lHX0JzSEeqrR-Ds61GHnw" name="addressInformations" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Lr6kQIfOEequSPPEfPKx9w" memberEnd="_Lr7yYofOEequSPPEfPKx9w _Lr9AgofOEequSPPEfPKx9w">
@@ -1509,12 +1529,19 @@ Refere to CalendarOnline class and GuiListConferences class
         </eAnnotations>
         <ownedEnd xmi:type="uml:Property" xmi:id="_Lr9AgofOEequSPPEfPKx9w" name="translationaddressbuilder" type="_JUaW0IfNEequSPPEfPKx9w" association="_Lr6kQIfOEequSPPEfPKx9w"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_OzG_kJzTEeqrR-Ds61GHnw" name="List&lt;String>"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_z2iO8JzTEeqrR-Ds61GHnw" name="newinstance(address : String)" memberEnd="_z2nHcJzTEeqrR-Ds61GHnw _z2nugZzTEeqrR-Ds61GHnw">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z2jdEJzTEeqrR-Ds61GHnw" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z2jdEZzTEeqrR-Ds61GHnw" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_z2nugZzTEeqrR-Ds61GHnw" type="_X16WwHHnEeqziYL5_pR-NA" association="_z2iO8JzTEeqrR-Ds61GHnw"/>
+      </packagedElement>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_HtJfIIb-EeqThP0IZkdF6Q" name="Sequence diagram">
     <packagedElement xmi:type="uml:Model" xmi:id="_LVLVwIb-EeqThP0IZkdF6Q" name="Views"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_ZOpnAIb-EeqThP0IZkdF6Q" name="Element LocationIq sequence diagram">
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_-ldagIcAEeqqprbaQsRQHQ" name="DistanceDuration : getDirection()" isReentrant="false">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_-ldagIcAEeqqprbaQsRQHQ" name="DistanceDuration : calculateDistanceDuration()" isReentrant="false">
         <ownedComment xmi:type="uml:Comment" xmi:id="_fsGpMJtjEeqak65IHM59Og" annotatedElement="_HtMZAJtjEeqak65IHM59Og">
           <body>[other args are set to null because not use in our case]</body>
         </ownedComment>
@@ -1594,7 +1621,7 @@ Refere to CalendarOnline class and GuiListConferences class
         <message xmi:type="uml:Message" xmi:id="_HtMZAJtjEeqak65IHM59Og" name="directions(latLonAddressDeparture + &quot;;&quot; + latLonAddressArrival, &quot;true&quot;, &quot;simplified&quot;)" receiveEvent="_HtOOMJtjEeqak65IHM59Og" sendEvent="_HtNnIJtjEeqak65IHM59Og"/>
         <message xmi:type="uml:Message" xmi:id="_-z9ckJtkEeqak65IHM59Og" name="getRoutes() : routes" receiveEvent="_-z_RwJtkEeqak65IHM59Og" sendEvent="_-z-qsJtkEeqak65IHM59Og"/>
         <message xmi:type="uml:Message" xmi:id="_2xK1YJtlEeqak65IHM59Og" name="routes.iterator() : ite" receiveEvent="_2xMqkJtlEeqak65IHM59Og" sendEvent="_2xMDgJtlEeqak65IHM59Og"/>
-        <message xmi:type="uml:Message" xmi:id="_dMKX0JtqEeqak65IHM59Og" name="distance and duration of type BigDecimal and steps of type String" messageSort="reply" receiveEvent="_dMM0EJtqEeqak65IHM59Og" sendEvent="_dMLl8JtqEeqak65IHM59Og"/>
+        <message xmi:type="uml:Message" xmi:id="_dMKX0JtqEeqak65IHM59Og" name="distance and duration of type int and steps of type String" messageSort="reply" receiveEvent="_dMM0EJtqEeqak65IHM59Og" sendEvent="_dMLl8JtqEeqak65IHM59Og"/>
         <message xmi:type="uml:Message" xmi:id="_vBozQJwoEeqjV-JclrbTtA" name="increment distance and duration" receiveEvent="_vBtrwZwoEeqjV-JclrbTtA" sendEvent="_vBtrwJwoEeqjV-JclrbTtA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Interaction" xmi:id="_44BLwIeeEequSPPEfPKx9w" name="TranslationAddress : recoveryAddressInformations()">
