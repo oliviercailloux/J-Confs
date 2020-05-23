@@ -12,19 +12,19 @@ This is our file to get a high-level vision of our project :
 
 Our project contains 7 packages :
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.calendar.adoc[Calendar use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar use case]
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.conference.adoc[Conference use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc[Conference use case]
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.gui.adoc[GUI use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc[GUI use case]
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.researcher.adoc[Researcher use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc[Researcher use case]
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.document.adoc[Document use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc[Document use case]
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.map.adoc[Map use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map use case]
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.calendar.adoc[Calendar use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar use case]
 
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location use case]
 

@@ -11,19 +11,19 @@ In this diagram we have added hyper links on each use case. These hyper links al
 
 Here are all the links between general view use case and others:
 
-* Manage online conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.calendar.adoc#use-case-diagram[Calendar use case]
+* Manage online conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc#use-case-diagram[Calendar use case]
 
-* Manage conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.conference.adoc#use-case-diagram[Conference use case]
+* Manage conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc#use-case-diagram[Conference use case]
 
-* Search a researcher --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.gui.adoc#use-case-diagram[GUI use case]
+* Search a researcher --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc#use-case-diagram[GUI use case]
 
-* Create a researcher --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.researcher.adoc#use-case-diagram[Researcher use case]
+* Create a researcher --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc#use-case-diagram[Researcher use case]
 
-* Generate a document with informations about a conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.document.adoc#use-case-diagram[Document use case]
+* Generate a document with informations about a conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc#use-case-diagram[Document use case]
 
-* Generate a map with the place of a conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.map.adoc#use-case-diagram[Map use case]
+* Generate a map with the place of a conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc#use-case-diagram[Map use case]
 
-* Visualize conferences in an online calendar --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/io.github.oliviercailloux.jconfs.calendar.adoc#use-case-diagram[Calendar use case]
+* Visualize conferences in an online calendar --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc#use-case-diagram[Calendar use case]
 
 * Generate location for conference --> https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc#use-case-diagram[Location use case]
 
