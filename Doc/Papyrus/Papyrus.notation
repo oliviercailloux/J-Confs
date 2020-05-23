@@ -5187,14 +5187,6 @@
             <layoutConstraint xmi:type="notation:Location" xmi:id="_zxo2EHHMEeqiW5oWiheyZw" y="15"/>
           </children>
           <children xmi:type="notation:BasicCompartment" xmi:id="_zxpdIHHMEeqiW5oWiheyZw" type="Class_AttributeCompartment">
-            <children xmi:type="notation:Shape" xmi:id="_7TKGwHHMEeqiW5oWiheyZw" type="Property_ClassAttributeLabel">
-              <element xmi:type="uml:Property" href="Papyrus.uml#_7S9ScHHMEeqiW5oWiheyZw"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_7TKGwXHMEeqiW5oWiheyZw"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_2E214HHMEeqiW5oWiheyZw" type="Property_ClassAttributeLabel">
-              <element xmi:type="uml:Property" href="Papyrus.uml#_2EoMYHHMEeqiW5oWiheyZw"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_2E214XHMEeqiW5oWiheyZw"/>
-            </children>
             <children xmi:type="notation:Shape" xmi:id="_NAfOsHHOEeqiW5oWiheyZw" type="Property_ClassAttributeLabel">
               <element xmi:type="uml:Property" href="Papyrus.uml#_NALFoHHOEeqiW5oWiheyZw"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_NAfOsXHOEeqiW5oWiheyZw"/>
