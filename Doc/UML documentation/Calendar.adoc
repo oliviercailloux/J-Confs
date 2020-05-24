@@ -19,9 +19,19 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 === Class diagram
 
-image:https://imgur.com/uwO9sFj.png[alt="Calendar class diagram",width=80%,height=80%, align="center"]
-
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Calendar_s_class_diagram.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
 In this package that is represented in Papyrus, we have 4 classes : CalendarOnline, CalendarConnector, UserCredentials and ReadCalendarFiles. CalendarOnline manage a calendar. CalendarConnector connect to the calendar. UserCredentials read a file and give ReadCalendarFiles helps us to create conference and read Calendar.
+
+=== Sequence diagram
+
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_CalendarConnector_constructor.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
+
+
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_CalendarOnline_addOnlineConference.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
+
+
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_CalendarOnline_getOnlineConferences.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
+
 
 === IT3 Java
 
