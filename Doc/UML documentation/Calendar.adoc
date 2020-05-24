@@ -25,7 +25,7 @@ In this package that is represented in Papyrus, we have 4 classes : CalendarOnli
 
 * CalendarOnline manage a calendar. 
 * CalendarConnector connect to the calendar. 
-* UserCredentials read a file and give ReadCalendarFiles helps us to create conference and read Calendar.
+* UserCredentials read a file and give credential to CalendarConnector.
 
 === Sequence diagram
 
