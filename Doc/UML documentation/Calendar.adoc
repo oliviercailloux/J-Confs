@@ -20,7 +20,11 @@ This diagram is accessible from the general view use case via a hyperlink (click
 === Class diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Calendar_s_class_diagram.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
-In this package that is represented in Papyrus, we have 4 classes : CalendarOnline, CalendarConnector, UserCredentials and ReadCalendarFiles. CalendarOnline manage a calendar. CalendarConnector connect to the calendar. UserCredentials read a file and give ReadCalendarFiles helps us to create conference and read Calendar.
+
+In this package that is represented in Papyrus, we have 4 classes : CalendarOnline, CalendarConnector, UserCredentials and ReadCalendarFiles.
+* CalendarOnline manage a calendar. 
+*CalendarConnector connect to the calendar. 
+*UserCredentials read a file and give ReadCalendarFiles helps us to create conference and read Calendar.
 
 === Sequence diagram
 
