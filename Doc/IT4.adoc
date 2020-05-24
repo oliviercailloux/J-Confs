@@ -1,0 +1,61 @@
+= Tasks repartition for IT4 :
+
+ 
+
+Work on Papyrus issues.
+
+ 
+
+Rebuild the architecture of the whole Doc folder.
+
+ 
+
+=== The first team
+The first team composed of Kieffer Floryan and Bourg Sébastien works on *Location package* :
+
+ 
+
+- Improve the sequences diagrams.
+
+ 
+
+- Add the class Address.
+
+ 
+
+- List of task for next IT java for location package.
+
+ 
+
+ 
+
+=== The second team
+
+ 
+
+The second team composed of  Achria Majid, Hamouni Anis and Zouari Anis works on *Calendar and Conference package* :
+
+ 
+
+- Update the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[calendar adoc file] and the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc[conference adoc file]. 
+
+ 
+
+- Add sequences and improve class diagrams to Papyrus model.
+
+ 
+
+- List of task for next IT java for Conference and Calendar package.
+
+ 
+
+
+*Everyone participate to the elaboration and verification of all adoc files*
+
+ 
+
+=== Problems encountered
+
+ 
+
+- No problems for this iteration.

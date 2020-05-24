@@ -21,7 +21,11 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 image:https://imgur.com/uwO9sFj.png[alt="Calendar class diagram",width=80%,height=80%, align="center"]
 
-In this package that is represented in Papyrus, we have 2 classes : CalendarOnline and ReadCalendarFiles. CalendarOnline helps us to connect to Fruux and store CalendarOnline. ReadCalendarFiles helps us to create conference and read Calendar.
+In this package that is represented in Papyrus, we have 4 classes : CalendarOnline, CalendarConnector, UserCredentials and ReadCalendarFiles. CalendarOnline manage a calendar. CalendarConnector connect to the calendar. UserCredentials read a file and give ReadCalendarFiles helps us to create conference and read Calendar.
+
+=== IT3 Java
+
+We will implement the UserCredential class that will catch information from a JSON file which is at the path. We will change also the way getOnlineConferences in CalendarOnline works in order to avoid exception raised if an event catch don't have any URL for example. We will raise exception if one of the four mandatory field is missing for a conference that is to say : a uid, a title, a start date and an end date. 
 
 === What we plan to do 
 
