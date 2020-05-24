@@ -19,7 +19,7 @@ The first team composed of Kieffer Floryan and Bourg Sébastien works on *Locati
 
  
 
-- Add the class Address.
+- Update the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location file] 
 
  
 
