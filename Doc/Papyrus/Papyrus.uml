@@ -704,20 +704,20 @@ Refere to CalendarOnline class and GuiListConferences class
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Ue5sGeKEeq1TMmsQgXH2g" name="a" type="_QujxQGdtEeq1TMmsQgXH2g"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_RbGCcHJ2EeqfTY0p-PATFQ" name="CalendarBuilder">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZYLNwHJ2EeqfTY0p-PATFQ" name="url" visibility="protected">
+      <packagedElement xmi:type="uml:Class" xmi:id="_RbGCcHJ2EeqfTY0p-PATFQ" name="CalendarConnector">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZYLNwHJ2EeqfTY0p-PATFQ" name="url" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_4S5ZgHJ2EeqfTY0p-PATFQ" name="port" visibility="protected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4S5ZgHJ2EeqfTY0p-PATFQ" name="port" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_fIxLQIfeEeqZvaTIxmcLWw" name="usercredentials" type="_a8yCUIc2EeqZvaTIxmcLWw" association="_fIs50IfeEeqZvaTIxmcLWw">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fIzAcIfeEeqZvaTIxmcLWw"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fI1csIfeEeqZvaTIxmcLWw" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_vmjzYIfeEeqZvaTIxmcLWw" name="httpclient" visibility="protected" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_wtXDYIfeEeqZvaTIxmcLWw" name="collectionCalendarsOnline" visibility="protected" type="_QujxQGdtEeq1TMmsQgXH2g"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_yUickIfeEeqZvaTIxmcLWw" name="postUrl" visibility="protected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_vmjzYIfeEeqZvaTIxmcLWw" name="httpclient" visibility="public" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wtXDYIfeEeqZvaTIxmcLWw" name="collectionCalendarsOnline" visibility="public" type="_QujxQGdtEeq1TMmsQgXH2g"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yUickIfeEeqZvaTIxmcLWw" name="postUrl" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_dC0TgHJ2EeqfTY0p-PATFQ" name="CalDavBuilder" visibility="private"/>
@@ -738,15 +738,16 @@ Refere to CalendarOnline class and GuiListConferences class
         <ownedEnd xmi:type="uml:Property" xmi:id="_kohrMnJ3EeqfTY0p-PATFQ" name="calendaronline" type="_6awIAGWrEeqCB6kIHjdr_A" association="_koa9gHJ3EeqfTY0p-PATFQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_a8yCUIc2EeqZvaTIxmcLWw" name="UserCredentials">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_wB0iYIc2EeqZvaTIxmcLWw" name="username" visibility="protected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wB0iYIc2EeqZvaTIxmcLWw" name="username" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_0Hld4Ic2EeqZvaTIxmcLWw" name="password" visibility="protected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0Hld4Ic2EeqZvaTIxmcLWw" name="password" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_5P1KEIc2EeqZvaTIxmcLWw" name="calendarId" visibility="protected">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_5P1KEIc2EeqZvaTIxmcLWw" name="calendarId" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_guihwJ2AEeqpGbloYAnGGQ" name="path" type="_n_AtEGd6EeqFPNnTUXE6xA"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_KTh7oIc3EeqZvaTIxmcLWw" name="UserCredentials"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_PCdI4Ic3EeqZvaTIxmcLWw" name="readFiles" visibility="private"/>
       </packagedElement>
@@ -1064,7 +1065,7 @@ Refere to CalendarOnline class and GuiListConferences class
         <ownedAttribute xmi:type="uml:Property" xmi:id="_XtGWMGX4EeqbUqsc8bodZw" name="startDate" visibility="private" type="_ItfbgJwrEeqjV-JclrbTtA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YjX24GX4EeqbUqsc8bodZw" name="endDate" visibility="private" type="_ItfbgJwrEeqjV-JclrbTtA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ZMHR4GX4EeqbUqsc8bodZw" name="registrationFee" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Z1dJ0GX4EeqbUqsc8bodZw" name="country" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -1093,7 +1094,7 @@ Refere to CalendarOnline class and GuiListConferences class
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Hmh-cGX8EeqbUqsc8bodZw" name="getFreeRegistery">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_8GhCcGX8EeqbUqsc8bodZw" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_HzNIgGX8EeqbUqsc8bodZw" name="getCountry">
@@ -1666,46 +1667,65 @@ Refere to CalendarOnline class and GuiListConferences class
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Eh8toIcuEeqyw8qQKYHvaw" name="Element Calendar sequence diagram">
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_I6FykIcuEeqyw8qQKYHvaw" name="CalendarOnline">
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_SHU-MIcuEeqyw8qQKYHvaw" name="CalendarOnline" coveredBy="_KcbSkIcvEeqyw8qQKYHvaw _KdSOMIcvEeqyw8qQKYHvaw"/>
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_TvCi4IcuEeqyw8qQKYHvaw" name="CalendarBuilder" coveredBy="_Kcb5oIcvEeqyw8qQKYHvaw _Zgr78IcvEeqyw8qQKYHvaw _Zhbi0IcvEeqyw8qQKYHvaw _j7p-oIcyEeqyw8qQKYHvaw _j7p-oYcyEeqyw8qQKYHvaw _KaRZoIczEeqyw8qQKYHvaw _KbBnkIczEeqyw8qQKYHvaw _or3v4IczEeqyw8qQKYHvaw _osyV4IczEeqyw8qQKYHvaw _KdRnIIcvEeqyw8qQKYHvaw _KdHPEIcvEeqyw8qQKYHvaw"/>
-        <lifeline xmi:type="uml:Lifeline" xmi:id="_efTAcIcuEeqyw8qQKYHvaw" name="UserCredentials" coveredBy="_Zgr78YcvEeqyw8qQKYHvaw _zMUzsIcvEeqyw8qQKYHvaw _zMUzsYcvEeqyw8qQKYHvaw _Zha7wIcvEeqyw8qQKYHvaw _ZhWDQIcvEeqyw8qQKYHvaw"/>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_I6FykIcuEeqyw8qQKYHvaw" name="CalendarConnector's constructor">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_SHU-MIcuEeqyw8qQKYHvaw" name="User" coveredBy="_sBWn4J2CEeqpGbloYAnGGQ _nUbwUZ2DEeqpGbloYAnGGQ _kTlOcZ2DEeqpGbloYAnGGQ _kTlOcJ2DEeqpGbloYAnGGQ"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_TvCi4IcuEeqyw8qQKYHvaw" name="CalendarConnector" coveredBy="_sBXO8J2CEeqpGbloYAnGGQ _U4lgEJ2DEeqpGbloYAnGGQ _U4k5AJ2DEeqpGbloYAnGGQ _U4lgEZ2DEeqpGbloYAnGGQ _Wj9cwJ2DEeqpGbloYAnGGQ _Wj81sJ2DEeqpGbloYAnGGQ _KbBnkIczEeqyw8qQKYHvaw _Wj-D0J2DEeqpGbloYAnGGQ _XaT18J2DEeqpGbloYAnGGQ _XaTO4J2DEeqpGbloYAnGGQ _XaT18Z2DEeqpGbloYAnGGQ _YctuIJ2DEeqpGbloYAnGGQ _YctHEJ2DEeqpGbloYAnGGQ _nUbwUJ2DEeqpGbloYAnGGQ _9jUfQJ2BEeqpGbloYAnGGQ _9jTRIJ2BEeqpGbloYAnGGQ _CE7pQJ2CEeqpGbloYAnGGQ _5MvgkJ2BEeqpGbloYAnGGQ _5Mu5gJ2BEeqpGbloYAnGGQ _5MwHoJ2BEeqpGbloYAnGGQ _CE7CMJ2CEeqpGbloYAnGGQ _9jUfQZ2BEeqpGbloYAnGGQ _tJr-YJ2BEeqpGbloYAnGGQ _7WLSQJ2BEeqpGbloYAnGGQ _7WKrMJ2BEeqpGbloYAnGGQ"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_efTAcIcuEeqyw8qQKYHvaw" name="UserCredentials" coveredBy="_Zha7wIcvEeqyw8qQKYHvaw _v173UZ2DEeqpGbloYAnGGQ _v173UJ2DEeqpGbloYAnGGQ"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_D8qZ0IcvEeqyw8qQKYHvaw" name="HttpHost" coveredBy="_KaSAsIczEeqyw8qQKYHvaw _KbBAgIczEeqyw8qQKYHvaw _Ka8vEIczEeqyw8qQKYHvaw"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_EvLfEIczEeqyw8qQKYHvaw" name="CalDavCollection" coveredBy="_or4W8IczEeqyw8qQKYHvaw _osxu0IczEeqyw8qQKYHvaw _ostdYIczEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KcbSkIcvEeqyw8qQKYHvaw" name="Message5SendEvent" covered="_SHU-MIcuEeqyw8qQKYHvaw" message="_KcXBIIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Kcb5oIcvEeqyw8qQKYHvaw" name="Message5ReceiveEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_KcXBIIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_KdHPEIcvEeqyw8qQKYHvaw" name="BehaviorExecutionSpecification8" covered="_TvCi4IcuEeqyw8qQKYHvaw" finish="_KdRnIIcvEeqyw8qQKYHvaw" start="_Kcb5oIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Zgr78IcvEeqyw8qQKYHvaw" name="Message12SendEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_Zgqt0IcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Zgr78YcvEeqyw8qQKYHvaw" name="Message12ReceiveEvent" covered="_efTAcIcuEeqyw8qQKYHvaw" message="_Zgqt0IcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_ZhWDQIcvEeqyw8qQKYHvaw" name="BehaviorExecutionSpecification15" covered="_efTAcIcuEeqyw8qQKYHvaw" finish="_Zha7wIcvEeqyw8qQKYHvaw" start="_Zgr78YcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zMUzsIcvEeqyw8qQKYHvaw" name="Message26SendEvent" covered="_efTAcIcuEeqyw8qQKYHvaw" message="_zMUMoIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zMUzsYcvEeqyw8qQKYHvaw" name="Message26ReceiveEvent" covered="_efTAcIcuEeqyw8qQKYHvaw" message="_zMUMoIcvEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_sBWn4J2CEeqpGbloYAnGGQ" name="Message38SendEvent" covered="_SHU-MIcuEeqyw8qQKYHvaw" message="_sBWA0J2CEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_kTlOcJ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification53" covered="_SHU-MIcuEeqyw8qQKYHvaw" finish="_kTlOcZ2DEeqpGbloYAnGGQ" start="_sBWn4J2CEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_sBXO8J2CEeqpGbloYAnGGQ" name="Message38ReceiveEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_sBWA0J2CEeqpGbloYAnGGQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Zha7wIcvEeqyw8qQKYHvaw" name="Message17SendEvent" covered="_efTAcIcuEeqyw8qQKYHvaw" message="_ZhaUsIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Zhbi0IcvEeqyw8qQKYHvaw" name="Message17ReceiveEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_ZhaUsIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_j7p-oIcyEeqyw8qQKYHvaw" name="Message25SendEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_j7owgIcyEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_j7p-oYcyEeqyw8qQKYHvaw" name="Message25ReceiveEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_j7owgIcyEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KaRZoIczEeqyw8qQKYHvaw" name="Message26SendEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_KaQLgIczEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_v173UJ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification57" covered="_efTAcIcuEeqyw8qQKYHvaw" finish="_v173UZ2DEeqpGbloYAnGGQ" start="_Zha7wIcvEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_v173UZ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification57Finish" covered="_efTAcIcuEeqyw8qQKYHvaw" execution="_v173UJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_U4lgEJ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification41Start" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_U4k5AJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_U4k5AJ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification41" covered="_TvCi4IcuEeqyw8qQKYHvaw" finish="_U4lgEZ2DEeqpGbloYAnGGQ" start="_U4lgEJ2DEeqpGbloYAnGGQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KaSAsIczEeqyw8qQKYHvaw" name="Message26ReceiveEvent" covered="_D8qZ0IcvEeqyw8qQKYHvaw" message="_KaQLgIczEeqyw8qQKYHvaw"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Ka8vEIczEeqyw8qQKYHvaw" name="BehaviorExecutionSpecification29" covered="_D8qZ0IcvEeqyw8qQKYHvaw" finish="_KbBAgIczEeqyw8qQKYHvaw" start="_KaSAsIczEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_U4lgEZ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification41Finish" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_U4k5AJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_Wj9cwJ2DEeqpGbloYAnGGQ" name="ActionExecutionSpecification44Start" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_Wj81sJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_Wj81sJ2DEeqpGbloYAnGGQ" name="ActionExecutionSpecification44" covered="_TvCi4IcuEeqyw8qQKYHvaw" finish="_Wj-D0J2DEeqpGbloYAnGGQ" start="_Wj9cwJ2DEeqpGbloYAnGGQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KbBAgIczEeqyw8qQKYHvaw" name="Message31SendEvent" covered="_D8qZ0IcvEeqyw8qQKYHvaw" message="_KbAZcIczEeqyw8qQKYHvaw"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KbBnkIczEeqyw8qQKYHvaw" name="Message31ReceiveEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_KbAZcIczEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_or3v4IczEeqyw8qQKYHvaw" name="Message33SendEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_or2hwIczEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_Wj-D0J2DEeqpGbloYAnGGQ" name="ActionExecutionSpecification44Finish" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_Wj81sJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_XaT18J2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification47Start" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_XaTO4J2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_XaTO4J2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification47" covered="_TvCi4IcuEeqyw8qQKYHvaw" finish="_XaT18Z2DEeqpGbloYAnGGQ" start="_XaT18J2DEeqpGbloYAnGGQ"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_or4W8IczEeqyw8qQKYHvaw" name="Message33ReceiveEvent" covered="_EvLfEIczEeqyw8qQKYHvaw" message="_or2hwIczEeqyw8qQKYHvaw"/>
         <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_ostdYIczEeqyw8qQKYHvaw" name="BehaviorExecutionSpecification36" covered="_EvLfEIczEeqyw8qQKYHvaw" finish="_osxu0IczEeqyw8qQKYHvaw" start="_or4W8IczEeqyw8qQKYHvaw"/>
         <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_osxu0IczEeqyw8qQKYHvaw" name="Message38SendEvent" covered="_EvLfEIczEeqyw8qQKYHvaw" message="_osxHwIczEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_osyV4IczEeqyw8qQKYHvaw" name="Message38ReceiveEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_osxHwIczEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KdRnIIcvEeqyw8qQKYHvaw" name="Message10SendEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_KdRAEIcvEeqyw8qQKYHvaw"/>
-        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KdSOMIcvEeqyw8qQKYHvaw" name="Message10ReceiveEvent" covered="_SHU-MIcuEeqyw8qQKYHvaw" message="_KdRAEIcvEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_KcXBIIcvEeqyw8qQKYHvaw" name="given(connexion : CalendarBuilder)" receiveEvent="_Kcb5oIcvEeqyw8qQKYHvaw" sendEvent="_KcbSkIcvEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_KdRAEIcvEeqyw8qQKYHvaw" name="connector : CalendarOnline" messageSort="reply" receiveEvent="_KdSOMIcvEeqyw8qQKYHvaw" sendEvent="_KdRnIIcvEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_Zgqt0IcvEeqyw8qQKYHvaw" name="getUserCredentials()" receiveEvent="_Zgr78YcvEeqyw8qQKYHvaw" sendEvent="_Zgr78IcvEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_ZhaUsIcvEeqyw8qQKYHvaw" name="user : UserCredentials" messageSort="reply" receiveEvent="_Zhbi0IcvEeqyw8qQKYHvaw" sendEvent="_Zha7wIcvEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_zMUMoIcvEeqyw8qQKYHvaw" name="readFile()" messageSort="asynchCall" receiveEvent="_zMUzsYcvEeqyw8qQKYHvaw" sendEvent="_zMUzsIcvEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_j7owgIcyEeqyw8qQKYHvaw" name="credsProvider : new BasicCredentialsProvider()" messageSort="asynchCall" receiveEvent="_j7p-oYcyEeqyw8qQKYHvaw" sendEvent="_j7p-oIcyEeqyw8qQKYHvaw"/>
-        <message xmi:type="uml:Message" xmi:id="_KaQLgIczEeqyw8qQKYHvaw" name="HttpHost(url : String, port : int, begin : String)" receiveEvent="_KaSAsIczEeqyw8qQKYHvaw" sendEvent="_KaRZoIczEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_XaT18Z2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification47Finish" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_XaTO4J2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_YctuIJ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification50Start" covered="_TvCi4IcuEeqyw8qQKYHvaw" execution="_YctHEJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_YctHEJ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification50" covered="_TvCi4IcuEeqyw8qQKYHvaw" finish="_nUbwUJ2DEeqpGbloYAnGGQ" start="_YctuIJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_nUbwUJ2DEeqpGbloYAnGGQ" name="Message55SendEvent" covered="_TvCi4IcuEeqyw8qQKYHvaw" message="_nUbJQJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_nUbwUZ2DEeqpGbloYAnGGQ" name="Message55ReceiveEvent" covered="_SHU-MIcuEeqyw8qQKYHvaw" message="_nUbJQJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_kTlOcZ2DEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification53Finish" covered="_SHU-MIcuEeqyw8qQKYHvaw" execution="_kTlOcJ2DEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_xMqEkJ2BEeqpGbloYAnGGQ" name="BehaviorExecutionSpecification36"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_j7p-oIcyEeqyw8qQKYHvaw" name="Message25SendEvent" message="_j7owgIcyEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_4LTRsJ2BEeqpGbloYAnGGQ"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_9jUfQJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_9jTRIJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_or3v4IczEeqyw8qQKYHvaw" name="Message33SendEvent" message="_or2hwIczEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_CE7CMJ2CEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_5MvgkJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_5Mu5gJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_7WKrMJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_tJr-YJ2BEeqpGbloYAnGGQ" name="ActionExecutionSpecification33" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_5MwHoJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_osyV4IczEeqyw8qQKYHvaw" name="Message38ReceiveEvent" message="_osxHwIczEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_CE7pQJ2CEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_9jUfQZ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_7WLSQJ2BEeqpGbloYAnGGQ" covered="_TvCi4IcuEeqyw8qQKYHvaw"/>
+        <message xmi:type="uml:Message" xmi:id="_Zgqt0IcvEeqyw8qQKYHvaw" name="getUserCredentials()"/>
+        <message xmi:type="uml:Message" xmi:id="_ZhaUsIcvEeqyw8qQKYHvaw" name="user : UserCredentials" messageSort="reply" sendEvent="_Zha7wIcvEeqyw8qQKYHvaw"/>
+        <message xmi:type="uml:Message" xmi:id="_zMUMoIcvEeqyw8qQKYHvaw" name="readFile()" messageSort="asynchCall"/>
+        <message xmi:type="uml:Message" xmi:id="_j7owgIcyEeqyw8qQKYHvaw" name="credsProvider : new BasicCredentialsProvider()" messageSort="asynchCall" sendEvent="_j7p-oIcyEeqyw8qQKYHvaw"/>
+        <message xmi:type="uml:Message" xmi:id="_KaQLgIczEeqyw8qQKYHvaw" name="HttpHost(url : String, port : int, begin : String)" receiveEvent="_KaSAsIczEeqyw8qQKYHvaw"/>
         <message xmi:type="uml:Message" xmi:id="_KbAZcIczEeqyw8qQKYHvaw" name="hostTarget : HttpHost" messageSort="reply" receiveEvent="_KbBnkIczEeqyw8qQKYHvaw" sendEvent="_KbBAgIczEeqyw8qQKYHvaw"/>
         <message xmi:type="uml:Message" xmi:id="_or2hwIczEeqyw8qQKYHvaw" name="CalDavCollection(path String, httpHost : httpHost , methodeFactory : CalDav4JMethodFactory, prodid : String)" receiveEvent="_or4W8IczEeqyw8qQKYHvaw" sendEvent="_or3v4IczEeqyw8qQKYHvaw"/>
         <message xmi:type="uml:Message" xmi:id="_osxHwIczEeqyw8qQKYHvaw" name="CollectionCalendarsOnline : CalDavCollection" messageSort="reply" receiveEvent="_osyV4IczEeqyw8qQKYHvaw" sendEvent="_osxu0IczEeqyw8qQKYHvaw"/>
+        <message xmi:type="uml:Message" xmi:id="_sBWA0J2CEeqpGbloYAnGGQ" name="CalendarConnector(String url, String posturl, UserCredentials user)" messageSort="createMessage" receiveEvent="_sBXO8J2CEeqpGbloYAnGGQ" sendEvent="_sBWn4J2CEeqpGbloYAnGGQ"/>
+        <message xmi:type="uml:Message" xmi:id="_nUbJQJ2DEeqpGbloYAnGGQ" name="connector : CalendarConnector" messageSort="reply" receiveEvent="_nUbwUZ2DEeqpGbloYAnGGQ" sendEvent="_nUbwUJ2DEeqpGbloYAnGGQ"/>
       </packagedElement>
     </packagedElement>
   </packagedElement>
