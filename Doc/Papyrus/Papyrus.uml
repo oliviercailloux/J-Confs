@@ -1176,6 +1176,47 @@ Refere to CalendarOnline class and GuiListConferences class
         <ownedEnd xmi:type="uml:Property" xmi:id="_lVWs4mX-EeqbUqsc8bodZw" name="conferencesshower" type="_26j_IGX1EeqbUqsc8bodZw" association="_lVSbcGX-EeqbUqsc8bodZw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ItfbgJwrEeqjV-JclrbTtA" name="Instant"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_NqTxgJ3xEeqkdZ3dVWGO7A" name="ConferenceBuilder">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_c6YXYJ3zEeqkdZ3dVWGO7A" name="conference" type="_Pb9mcGX4EeqbUqsc8bodZw" association="_c6E1YJ3zEeqkdZ3dVWGO7A">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c6basJ3zEeqkdZ3dVWGO7A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c6dP4J3zEeqkdZ3dVWGO7A" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_POVwEJ3xEeqkdZ3dVWGO7A" name="InstantiateUid">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jrLyQJ3yEeqkdZ3dVWGO7A" name="a" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_RsSHQJ3zEeqkdZ3dVWGO7A" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rOkgoJ3xEeqkdZ3dVWGO7A" name="InstantiateTitle" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ztLPMJ3yEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_izVu0J3zEeqkdZ3dVWGO7A" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_rxx7YJ3xEeqkdZ3dVWGO7A" name="InstantiateStartDate" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_427XQJ3yEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ndMO0J3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_shycAJ3xEeqkdZ3dVWGO7A" name="InstantiateEndDate" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_7eyxYJ3yEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rOtYoJ3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_tDpL4J3xEeqkdZ3dVWGO7A" name="InstantiateRegistrationFee" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_96q98J3yEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_tppKAJ3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_AL7rYJ3yEeqkdZ3dVWGO7A" name="InstantiateCountry" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Mny5sJ3zEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_vVvfcJ3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_AzIOQJ3yEeqkdZ3dVWGO7A" name="InstantiateCity" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_O6c40J3zEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_zcHe8J3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="__dFWcJ3zEeqkdZ3dVWGO7A" name="Build" visibility="public">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_LiPKYJ30EeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_CyGewGX_EeqbUqsc8bodZw" name="Element Document class diagram">
       <packagedElement xmi:type="uml:Class" xmi:id="_F95FUGX_EeqbUqsc8bodZw" name="GenerateOM">
@@ -1780,6 +1821,12 @@ Refere to CalendarOnline class and GuiListConferences class
         <message xmi:type="uml:Message" xmi:id="_nUbJQJ2DEeqpGbloYAnGGQ" name="connector : CalendarConnector" messageSort="reply" receiveEvent="_nUbwUZ2DEeqpGbloYAnGGQ" sendEvent="_nUbwUJ2DEeqpGbloYAnGGQ"/>
       </packagedElement>
     </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_c6E1YJ3zEeqkdZ3dVWGO7A" memberEnd="_c6YXYJ3zEeqkdZ3dVWGO7A _c6gTMJ3zEeqkdZ3dVWGO7A">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_c6XJQJ3zEeqkdZ3dVWGO7A" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_c6XJQZ3zEeqkdZ3dVWGO7A" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_c6gTMJ3zEeqkdZ3dVWGO7A" name="conferencebuilder" type="_NqTxgJ3xEeqkdZ3dVWGO7A" association="_c6E1YJ3zEeqkdZ3dVWGO7A"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
