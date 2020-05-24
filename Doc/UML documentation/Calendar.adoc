@@ -28,15 +28,11 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 This sequence diagram explain to us how a CalendarConnector is initiate. We have CalendarOnline which has a CalendarConnector as field so we decided to add it as it is the main client of the CalendarConnector. We can see how we use the ical4j API and a new way to retrieve credential.  
 
-
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_CalendarOnline_addOnlineConference.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
-
 
 We can see how the CalendarConnector as connector is important in order to add a conference.
 
-
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_CalendarOnline_getOnlineConferences.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
-
 
 Here you can find how we look for online conferences. The main update will be on ConferenceReader and how it is managing the vEvent that we give to him. For now, it is mandatory to have all the field present in Conference but we will solved that in IT3 with the ConferenceBuilder.
 
