@@ -34,7 +34,11 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_TranslationAddress_recoveryAddressInformations.PNG[alt="TranslationAddress recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
 
+For this sequence diagram we have chosen to represent the interaction "address: String" by an arrow which by AddressQuerier and which loops over AddressQuerier. We made this choice because in the GUI we have not yet implemented the function which asks the user to enter the address he wishes to search.
+
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_DistanceDuration_getDirection.PNG[alt="DistanceDuration getDirections Sequence diagram",width=90%,height=90%, align="center"]
+
+
 
 
 === More details about the classes
