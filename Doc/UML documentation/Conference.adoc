@@ -24,7 +24,7 @@ For example :
 
 * The conferenceReader class for example which reads information from a calendar file and creates a conference object.
 * The conference class defines what a conference is with its attributes and constructor.
-* The ConferenceBuilder class instantiate a conference and validate only if it contains Uid, Title, startDate and endDate
+* The ConferenceBuilder class instantiate a conference and validate only if it contains Uid, Title, startDate and endDate at least;
 * The ConferenceRetriever interface reads conference data and return a set of conferences.
 * The conferenceShower class show Conferences data.
 * The ConferenceFromCal class that retrieve a conference from any ics file  
