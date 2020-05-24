@@ -7,8 +7,9 @@ Unfortunatly the API wasn't available on maven central, so we imported all the s
 
 The location package able the developpers to do several things : 
 
-* With the class TranslationAddress you can get informations such as latitude, longitude and more detailled informations simply by enter an address (precise or not).
+* With the class AddressQuerier you can get informations such as latitude, longitude and more detailled informations simply by enter an literal address (precise or not).
 * With the class DistanceDuration you can calculate the distance and the duration beetween two addresses and also get all the itinerary steps beetween them.
+* With the class Address you can store an address as a specific object define by his latitude, longitude and a list of strings to give more informations about this address. This class will be implemented in the next java iteration.
 
 Let's look at some diagrams about this classes.
 
@@ -32,7 +33,7 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 === Sequence diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_TranslationAddress_recoveryAddressInformations.PNG[alt="TranslationAddress recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_AddressQuerier_recoveryAddressInformations.PNG[alt="AddressQuerier recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
 
 For this sequence diagram we have chosen to represent the interaction "address: String" by an arrow which by AddressQuerier and which loops over AddressQuerier. We made this choice because in the GUI we have not yet implemented the function which asks the user to enter the address he wishes to search.
 
@@ -42,7 +43,7 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 
 === More details about the classes
-==== TranslationAddress
+==== AddressQuerier
 This class use the geocoding part of the api LocationIQ (https://locationiq.com/docs-html/index.html#search-forward-geocoding[see doc here])
 
 Function *recoveryAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribute on this class.
@@ -51,7 +52,7 @@ Then the *addressFound function* allows you to find only the addresses in the *a
 
 Depending on the choice of the user, the unnecessary rows are deleted in the two ArrayList.
 
-Furthermore, a builder is set up to make the TranslationAddress object immutable. We chose this method because it is possible that the class can evolve and that a large number of attributes are added.
+Furthermore, a builder is set up to make the AddressQuerier object immutable. We chose this method because it is possible that the class can evolve and that a large number of attributes are added.
 
 The *connexion* function allows you to initialize and configure an *ApiClient* using our key. We chose to put this function here and delete it from DistanceDuration classes in order to avoid duplicate same code.
 
@@ -59,10 +60,20 @@ The *connexion* function allows you to initialize and configure an *ApiClient* u
 ==== DistanceDuration
 This class use the directions part of the api LocationIQ (https://locationiq.com/docs-html/index.html#directions[see doc here]) 
 
-The constructor of this class takes two addresses as parameters and use TranslationAddress class in order to get latitude and longitude corresponding to this addresses. 
+The constructor of this class takes two addresses as parameters and use AddressQuerier class in order to get latitude and longitude corresponding to this addresses. 
 
 The function *getDirection* allows you to calculate the distance and the duration beewteen this two locations. By passing to the DirectionsApi method the gps coordinates we get a list of directions with a lot of informations about the itinerary. For each step of the itinerary we got the latitude, longitude, distance, duration, name of the road, and more informations. After getting this list, we use an iterator to browse the list and increment the sum of distance and duration for each steps in order to get the total distance and duration.
 
+
+==== Address
+
+This class allows to store an address as a specific location. We define it as a latitude, a longitude and a several pieces of informations as a List of String (like the type of building for exemple).
+This class will be implemented in the next java iteration.
+
+
+=== IT3 java
+
+For the java IT3, we will apply the new architecture developped above. This will concerns the creation of the Address class, the modification of TranslationAddress to AddressQuerier and the modification of DistanceDuration in order to use Address type as parameters. We decided to not use scanner and let the choose of the correct address given by AddressQuerier in the future gui.
 
 === What could be done next
 
