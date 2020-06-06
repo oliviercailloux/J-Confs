@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.jconfs.location;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -16,7 +15,7 @@ import com.locationiq.client.ApiException;
  *
  */
 
-class TranslationAddressTest {
+class AddressQuerierTest {
 
 	/**
 	 * Test of the creation of an newInstance of TranslationAddress
@@ -24,8 +23,8 @@ class TranslationAddressTest {
 
 	@Test
 	public final void testCreateInstance() {
-		TranslationAddress t = TranslationAddress.newInstance();
-		assertEquals(null, t.getLatitude());
+		AddressQuerier t = AddressQuerier.newInstance();
+		assertEquals(0, t.getAddressFound().size());
 		assertEquals(0, t.getAddressInformations().size());
 	}
 
@@ -40,10 +39,10 @@ class TranslationAddressTest {
 
 	@Test
 	public final void testRecoveryAddressInformations() throws ApiException, InterruptedException {
-		TranslationAddress t = TranslationAddress.newInstance();
+		AddressQuerier t = AddressQuerier.newInstance();
 		TimeUnit.SECONDS.sleep(1);
 		t.recoveryAddressInformations("Université paris dauphine");
-		boolean test = (t.getAddressInformations().size() > 2);
+		boolean test = (t.getAddressInformations().size() >= 2);
 		assertEquals(true, test);
 	}
 
@@ -59,11 +58,11 @@ class TranslationAddressTest {
 
 	@Test
 	public final void testRecoveryAddressFound() throws ApiException, InterruptedException {
-		TranslationAddress t = TranslationAddress.newInstance();
+		AddressQuerier t = AddressQuerier.newInstance();
 		t.recoveryAddressInformations("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
 		t.recoveryAddressFound();
-		boolean test = (t.getAddressFound().size() > 2);
+		boolean test = (t.getAddressFound().size() >= 2);
 		assertEquals(true, test);
 	}
 
@@ -75,11 +74,10 @@ class TranslationAddressTest {
 
 	@Test
 	public final void testBuilder() throws ApiException {
-		TranslationAddress address = TranslationAddress.TranslationAddressBuilder.build()
-				.addressInformations("Avenue jean rostand domont 95330").addressFound().latitude().longitude().get();
-		assertTrue(address.getAddressFound().contains("Avenue Jean Rostand, Domont, Ile-de-France, 95330, France"));
-		assertFalse(address.getLatitude().isEmpty());
-		assertFalse(address.getLongitude().isEmpty());
+		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
+				.addressInformations("Avenue jean rostand domont 95330").addressFound().get();
+		assertTrue(address.getAddressFound().contains("Avenue Jean Rostand, La Belle Rachée, Domont, Ile-de-France, 95330, France, lat=49.0358446, lon=2.341247"));
+		
 	}
 
 }

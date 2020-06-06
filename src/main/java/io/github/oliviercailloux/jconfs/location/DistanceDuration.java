@@ -22,8 +22,8 @@ public class DistanceDuration {
 	private BigDecimal duration;
 	private BigDecimal distance;
 	private String steps;
-	private TranslationAddress addressDeparture;
-	private TranslationAddress addressArrival;
+	private AddressQuerier addressDeparture;
+	private AddressQuerier addressArrival;
 
 	/**
 	 * 
@@ -46,10 +46,10 @@ public class DistanceDuration {
 	private DistanceDuration(String dep, String arriv) throws ApiException, InterruptedException {
 		this.duration = this.distance = BigDecimal.ZERO;
 		this.steps = "";
-		this.addressDeparture = TranslationAddress.TranslationAddressBuilder.build().addressInformations(dep)
+		this.addressDeparture = AddressQuerier.TranslationAddressBuilder.build().addressInformations(dep)
 				.addressFound().latitude().longitude().get();
 		TimeUnit.SECONDS.sleep(1);
-		this.addressArrival = TranslationAddress.TranslationAddressBuilder.build().addressInformations(arriv)
+		this.addressArrival = AddressQuerier.TranslationAddressBuilder.build().addressInformations(arriv)
 				.addressFound().latitude().longitude().get();
 	}
 
@@ -76,7 +76,7 @@ public class DistanceDuration {
 	 * 
 	 * @return addressDeparture
 	 */
-	public TranslationAddress getDeparture() {
+	public AddressQuerier getDeparture() {
 		return this.addressDeparture;
 	}
 
@@ -85,7 +85,7 @@ public class DistanceDuration {
 	 * 
 	 * @return addressArrival
 	 */
-	public TranslationAddress getArrival() {
+	public AddressQuerier getArrival() {
 		return this.addressArrival;
 	}
 
@@ -107,7 +107,7 @@ public class DistanceDuration {
 	 */
 	public void getDirection() throws ApiException {
 
-		ApiClient defaultClient = TranslationAddress.connexion();
+		ApiClient defaultClient = AddressQuerier.connexion();
 
 		String latLonAddressDeparture = this.addressDeparture.getLongitude() + ","
 				+ this.addressDeparture.getLatitude();
