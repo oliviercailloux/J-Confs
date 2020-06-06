@@ -19,11 +19,11 @@ import com.locationiq.client.model.*;
  * @author Anis HAMOUNI & Sébastien BOURG
  */
 public class DistanceDuration {
-	private BigDecimal duration;
-	private BigDecimal distance;
+	private int duration;
+	private int distance;
 	private String steps;
-	private AddressQuerier addressDeparture;
-	private AddressQuerier addressArrival;
+	private Address addressDeparture;
+	private Address addressArrival;
 
 	/**
 	 * 
@@ -38,19 +38,17 @@ public class DistanceDuration {
 	 * @throws InterruptedException
 	 * 
 	 */
-	public static DistanceDuration newDistanceDuration(String dep, String arriv)
+	public static DistanceDuration newDistanceDuration(Address dep, Address arriv)
 			throws ApiException, InterruptedException {
 		return new DistanceDuration(dep, arriv);
 	}
 
-	private DistanceDuration(String dep, String arriv) throws ApiException, InterruptedException {
-		this.duration = this.distance = BigDecimal.ZERO;
+	private DistanceDuration(Address dep, Address arriv) throws ApiException, InterruptedException {
+		this.duration = 0;
+		this.distance = 0;
 		this.steps = "";
-		this.addressDeparture = AddressQuerier.TranslationAddressBuilder.build().addressInformations(dep)
-				.addressFound().latitude().longitude().get();
-		TimeUnit.SECONDS.sleep(1);
-		this.addressArrival = AddressQuerier.TranslationAddressBuilder.build().addressInformations(arriv)
-				.addressFound().latitude().longitude().get();
+		this.addressDeparture = dep;
+		this.addressArrival = arriv;
 	}
 
 	/**
@@ -58,7 +56,7 @@ public class DistanceDuration {
 	 * 
 	 * @return duration
 	 */
-	public BigDecimal getDuration() {
+	public int getDuration() {
 		return this.duration;
 	}
 
@@ -67,7 +65,7 @@ public class DistanceDuration {
 	 * 
 	 * @return distance
 	 */
-	public BigDecimal getDistance() {
+	public int getDistance() {
 		return this.distance;
 	}
 
@@ -76,7 +74,7 @@ public class DistanceDuration {
 	 * 
 	 * @return addressDeparture
 	 */
-	public AddressQuerier getDeparture() {
+	public Address getDeparture() {
 		return this.addressDeparture;
 	}
 
@@ -85,7 +83,7 @@ public class DistanceDuration {
 	 * 
 	 * @return addressArrival
 	 */
-	public AddressQuerier getArrival() {
+	public Address getArrival() {
 		return this.addressArrival;
 	}
 
@@ -105,7 +103,7 @@ public class DistanceDuration {
 	 * 
 	 * @throws ApiException
 	 */
-	public void getDirection() throws ApiException {
+	public void calculateDistanceDuration() throws ApiException {
 
 		ApiClient defaultClient = AddressQuerier.connexion();
 
@@ -121,8 +119,8 @@ public class DistanceDuration {
 		Iterator<DirectionsDirectionsRoutes> ite = routes.iterator();
 		while (ite.hasNext()) {
 			DirectionsDirectionsRoutes oneDirection = ite.next();
-			this.distance = this.distance.add(oneDirection.getDistance());
-			this.duration = this.duration.add(oneDirection.getDuration());
+			this.distance = this.distance + oneDirection.getDistance().intValue();
+			this.duration = this.duration + oneDirection.getDuration().intValue();
 			this.steps = this.steps + oneDirection.toString();
 
 		}
