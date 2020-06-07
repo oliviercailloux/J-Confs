@@ -12,9 +12,9 @@ import com.locationiq.client.model.*;
 
 /**
  * This class allows to calculate the distance and the duration between two
- * places defined by address (convert to lattitude, longitude). It define the
- * steps to go to the destination. The units are meter and second, and the steps
- * are a string containing all the routes indication.
+ * places defined by address (of type Address). It define the steps to go to the
+ * destination. The units are meter and second, and the steps are a string
+ * containing all the routes indication.
  * 
  * @author Anis HAMOUNI & Sébastien BOURG
  */
@@ -27,23 +27,17 @@ public class DistanceDuration {
 
 	/**
 	 * 
-	 * Static factory method to build a direction instance. Important : A sleep of 1
-	 * second as been added due to the request limit per second of the API
+	 * Static factory method to build a direction instance.
 	 * 
-	 * @param dep   string address, example : "13 Rue Cloche Percé, 75004 Paris"
-	 * @param arriv string address, example : "Avenue du général de gaulle, 92800
-	 *              puteaux"
-	 * 
-	 * @throws ApiException
-	 * @throws InterruptedException
+	 * @param dep   Address
+	 * @param arriv Address
 	 * 
 	 */
-	public static DistanceDuration newDistanceDuration(Address dep, Address arriv)
-			throws ApiException, InterruptedException {
+	public static DistanceDuration newDistanceDuration(Address dep, Address arriv) {
 		return new DistanceDuration(dep, arriv);
 	}
 
-	private DistanceDuration(Address dep, Address arriv) throws ApiException, InterruptedException {
+	private DistanceDuration(Address dep, Address arriv) {
 		this.duration = 0;
 		this.distance = 0;
 		this.steps = "";

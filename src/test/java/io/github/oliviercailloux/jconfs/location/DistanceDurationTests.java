@@ -25,12 +25,13 @@ class DistanceDurationTests {
 
 	@Test
 	void testGetDistanceDuration() throws ApiException, InterruptedException {
-		int distanceExpected = 11168;
-		int durationExpected = 1048;
-		Address departure;
-		Address arrival;
-		DistanceDuration result = DistanceDuration.newDistanceDuration("13 Rue Cloche Percé, 75004 Paris",
-				"15 Avenue du général de gaulle, 92800 puteaux");
+		int distanceExpected = 11005;
+		int durationExpected = 1027;
+		Address departure = Address.newInstanceAddressComplete("13 Rue Cloche Percé, 75004 Paris", "48.8564037",
+				"2.3572215");
+		Address arrival = Address.newInstanceAddressComplete("15 Avenue du général de gaulle, 92800 puteaux",
+				"48.8851553", "2.2269999");
+		DistanceDuration result = DistanceDuration.newDistanceDuration(departure, arrival);
 		TimeUnit.SECONDS.sleep(1);
 		result.calculateDistanceDuration();
 		assertEquals(distanceExpected, result.getDistance());

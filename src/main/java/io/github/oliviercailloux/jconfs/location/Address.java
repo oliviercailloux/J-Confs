@@ -1,12 +1,11 @@
 package io.github.oliviercailloux.jconfs.location;
 
-
 public class Address {
-	
+
 	private String address;
 	private String latitude;
 	private String longitude;
-	
+
 	/**
 	 * 
 	 * Factory method which creates a Address instance
@@ -16,7 +15,7 @@ public class Address {
 	public static Address newInstanceAddressEmpty() {
 		return new Address();
 	}
-	
+
 	public static Address newInstanceAddressComplete(String address, String latitude, String longitude) {
 		return new Address(address, latitude, longitude);
 	}
@@ -26,15 +25,15 @@ public class Address {
 	 */
 
 	private Address() {
-		this.address="";
-		this.longitude="";
-		this.latitude="";
+		this.address = "";
+		this.longitude = "";
+		this.latitude = "";
 	}
-	
+
 	private Address(String address, String latitude, String longitude) {
-		this.address=address;
-		this.latitude=latitude;
-		this.longitude=longitude;
+		this.address = address;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 
 	public String getAddress() {
@@ -60,9 +59,5 @@ public class Address {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	
-	
-	
-	
 
 }

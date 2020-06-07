@@ -11,7 +11,6 @@ import com.locationiq.client.ApiException;
 import com.locationiq.client.Configuration;
 import com.locationiq.client.auth.ApiKeyAuth;
 
-
 /**
  * This class allows you to translate an address into several pieces of
  * informations. It therefore allows, from imprecise information, to propose
@@ -79,7 +78,6 @@ public class AddressQuerier {
 			return new AddressQuerierBuilder(new AddressQuerier());
 		}
 
-
 		/**
 		 * Instantiate attribute addressInformations
 		 * 
@@ -117,8 +115,6 @@ public class AddressQuerier {
 			return ret;
 		}
 	}
-
-	
 
 	/**
 	 * This method return a list with a lot of informations about an address
@@ -180,8 +176,6 @@ public class AddressQuerier {
 		}
 	}
 
-	
-
 	/**
 	 * This method modifies the contents of the ArrayList addressInformations to
 	 * make it more readable and to be able to apply different methods more easily.
@@ -210,17 +204,17 @@ public class AddressQuerier {
 			int posDepLon = this.addressInformations.get(i).indexOf(search3);
 			int posArrLon = this.addressInformations.get(i).indexOf(", boundingbox=");
 			String lon = this.addressInformations.get(i).substring(posDepLon + search3.length(), posArrLon);
-			String all = address +", lat="+lat+", lon="+lon;
+			String all = address + ", lat=" + lat + ", lon=" + lon;
 			selection.add(all);
-			
+
 		}
 		this.addressFound = selection;
 	}
-	
-	public static void main(String[] args) throws ApiException{
+
+	public static void main(String[] args) throws ApiException {
 		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
 				.addressInformations("Université paris dauphine").addressFound().get();
-		for (int i = 0;i<address.addressFound.size();i++){
+		for (int i = 0; i < address.addressFound.size(); i++) {
 			System.out.println(address.addressFound.get(i));
 		}
 	}

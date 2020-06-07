@@ -76,8 +76,9 @@ class AddressQuerierTest {
 	public final void testBuilder() throws ApiException {
 		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
 				.addressInformations("Avenue jean rostand domont 95330").addressFound().get();
-		assertTrue(address.getAddressFound().contains("Avenue Jean Rostand, La Belle Rachée, Domont, Ile-de-France, 95330, France, lat=49.0358446, lon=2.341247"));
-		
+		assertTrue(address.getAddressFound().contains(
+				"Avenue Jean Rostand, La Belle Rachée, Domont, Ile-de-France, 95330, France, lat=49.0358446, lon=2.341247"));
+
 	}
 
 }
