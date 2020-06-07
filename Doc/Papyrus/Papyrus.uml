@@ -1521,12 +1521,8 @@ Refere to CalendarOnline class and GuiListConferences class
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_w-YFcXHmEeqziYL5_pR-NA"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w-YsgHHmEeqziYL5_pR-NA" value="1"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_3enxgIc-Eeq1Bu2a_53vKA" name="duration">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_3enxgIc-Eeq1Bu2a_53vKA" name="duration" type="_769SoKirEeqOD-M6U7WD7w"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance" type="_769SoKirEeqOD-M6U7WD7w"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
@@ -1534,19 +1530,15 @@ Refere to CalendarOnline class and GuiListConferences class
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z2nHcZzTEeqrR-Ds61GHnw"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z2nugJzTEeqrR-Ds61GHnw" value="1"/>
           </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="Direction">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="DistanceDuration">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="start" type="_2SVN4JzREeqrR-Ds61GHnw"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arrival" type="_2SVN4JzREeqrR-Ds61GHnw"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuration" visibility="public">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" type="_769SoKirEeqOD-M6U7WD7w" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="getDistance">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
-            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" type="_769SoKirEeqOD-M6U7WD7w" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="getSteps">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" direction="return">
@@ -1568,7 +1560,9 @@ Refere to CalendarOnline class and GuiListConferences class
           <ownedAttribute xmi:type="uml:Property" xmi:id="_1n1p8JzSEeqrR-Ds61GHnw" name="longitude">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_5lHX0JzSEeqrR-Ds61GHnw" name="addressInformations" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_5lHX0JzSEeqrR-Ds61GHnw" name="address">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Lr6kQIfOEequSPPEfPKx9w" memberEnd="_Lr7yYofOEequSPPEfPKx9w _Lr9AgofOEequSPPEfPKx9w">
@@ -1887,6 +1881,7 @@ Refere to CalendarOnline class and GuiListConferences class
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_c6gTMJ3zEeqkdZ3dVWGO7A" name="conferencebuilder" type="_NqTxgJ3xEeqkdZ3dVWGO7A" association="_c6E1YJ3zEeqkdZ3dVWGO7A"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_769SoKirEeqOD-M6U7WD7w" name="int"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
