@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.locationiq.client.api.*;
-
+import com.google.common.collect.ImmutableList;
 import com.locationiq.client.ApiClient;
 import com.locationiq.client.ApiException;
 import com.locationiq.client.Configuration;
@@ -23,8 +23,8 @@ import com.locationiq.client.auth.ApiKeyAuth;
 
 public class AddressQuerier {
 
-	private ArrayList<String> addressInformations;
-	private ArrayList<String> addressFound;
+	private List<String> addressInformations;
+	private List<String> addressFound;
 
 	/**
 	 * Private constructor
@@ -113,7 +113,7 @@ public class AddressQuerier {
 	 * @return adressInformations
 	 */
 
-	public ArrayList<String> getAddressInformations() {
+	public List<String> getAddressInformations() {
 		return addressInformations;
 	}
 
@@ -123,7 +123,7 @@ public class AddressQuerier {
 	 * @return adressFound
 	 */
 
-	public ArrayList<String> getAddressFound() {
+	public List<String> getAddressFound() {
 		return addressFound;
 	}
 
@@ -164,6 +164,7 @@ public class AddressQuerier {
 		while (i.hasNext()) {
 			this.addressInformations.add(i.next().toString());
 		}
+		this.addressInformations=ImmutableList.copyOf(this.addressInformations);
 	}
 
 	/**
@@ -198,5 +199,6 @@ public class AddressQuerier {
 
 		}
 		this.addressFound = selection;
+		this.addressFound = ImmutableList.copyOf(this.addressFound);
 	}
 }
