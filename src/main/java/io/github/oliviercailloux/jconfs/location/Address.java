@@ -31,7 +31,7 @@ public class Address {
 	 * @param latitude
 	 * @param longitude
 	 */
-	public static Address newInstanceAddressComplete(String address, String latitude, String longitude) {
+	public static Address given(String address, String latitude, String longitude) {
 		return new Address(address, latitude, longitude);
 	}
 

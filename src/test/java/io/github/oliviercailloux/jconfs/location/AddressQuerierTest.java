@@ -23,7 +23,7 @@ class AddressQuerierTest {
 
 	@Test
 	public final void testCreateInstance() {
-		AddressQuerier t = AddressQuerier.newInstance();
+		AddressQuerier t = new AddressQuerier();
 		assertEquals(0, t.getAddressFound().size());
 		assertEquals(0, t.getAddressInformations().size());
 	}
@@ -39,11 +39,11 @@ class AddressQuerierTest {
 
 	@Test
 	public final void testRecoveryAddressInformations() throws ApiException, InterruptedException {
-		AddressQuerier t = AddressQuerier.newInstance();
+		AddressQuerier t = new AddressQuerier();
 		TimeUnit.SECONDS.sleep(1);
 		t.recoveryAddressInformations("Université paris dauphine");
-		boolean test = (t.getAddressInformations().size() >= 2);
-		assertEquals(true, test);
+		boolean test = (t.getAddressInformations().size() == 2);
+		assertTrue(test);
 	}
 
 	/**
@@ -58,12 +58,14 @@ class AddressQuerierTest {
 
 	@Test
 	public final void testRecoveryAddressFound() throws ApiException, InterruptedException {
-		AddressQuerier t = AddressQuerier.newInstance();
+		AddressQuerier t = new AddressQuerier();
 		t.recoveryAddressInformations("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
 		t.recoveryAddressFound();
-		boolean test = (t.getAddressFound().size() >= 2);
-		assertEquals(true, test);
+		boolean test = (t.getAddressFound().size() == 2);
+		String test2 = t.getAddressFound().get(0);
+		assertTrue(test);
+		assertTrue(test2.contains("lat=48.87015115, lon=2.2735218497104"));
 	}
 
 	/**

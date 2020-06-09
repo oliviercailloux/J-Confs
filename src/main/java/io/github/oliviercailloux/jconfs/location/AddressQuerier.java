@@ -27,20 +27,10 @@ public class AddressQuerier {
 	private ArrayList<String> addressFound;
 
 	/**
-	 * 
-	 * Factory method which creates a AddresQuerier
-	 *
-	 */
-
-	public static AddressQuerier newInstance() {
-		return new AddressQuerier();
-	}
-
-	/**
 	 * Private constructor
 	 */
 
-	private AddressQuerier() {
+	public AddressQuerier() {
 		this.addressFound = new ArrayList<>();
 		this.addressInformations = new ArrayList<>();
 	}
@@ -109,7 +99,7 @@ public class AddressQuerier {
 		 */
 
 		public AddressQuerier get() {
-			final AddressQuerier ret = AddressQuerier.newInstance();
+			final AddressQuerier ret = new AddressQuerier();
 			ret.addressFound = addressQuerier.addressFound;
 			ret.addressInformations = addressQuerier.addressInformations;
 			return ret;
