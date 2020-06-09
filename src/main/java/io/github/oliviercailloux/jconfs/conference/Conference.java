@@ -2,6 +2,7 @@ package io.github.oliviercailloux.jconfs.conference;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -16,9 +17,9 @@ public class Conference {
 	private URL url;
 	private String uid;
 	private String title;
-	private LocalDate startDate;
-	private LocalDate endDate;
-	private Double registrationFee;
+	private Instant startDate;
+	private Instant endDate;
+	private String registrationFee;
 	private String country;
 	private String city;
 
@@ -34,18 +35,8 @@ public class Conference {
 	 * @param country
 	 * @param city
 	 */
-	public Conference(String uid, URL url, String title, LocalDate startDate, LocalDate endDate, Double registrationFee,
-			String country, String city) {
-		Objects.requireNonNull(endDate);
-		Objects.requireNonNull(startDate);
-		this.uid = uid;
-		this.url = url;
-		this.title = title;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.registrationFee = registrationFee;
-		this.country = country;
-		this.city = city;
+	private Conference() {
+
 	}
 
 	/**
@@ -71,7 +62,7 @@ public class Conference {
 	 * 
 	 * @return not <code>null</code>
 	 */
-	public LocalDate getStartDate() {
+	public Instant getStartDate() {
 		return startDate;
 	}
 
@@ -80,7 +71,7 @@ public class Conference {
 	 * 
 	 * @return not <code>null</code>
 	 */
-	public LocalDate getEndDate() {
+	public Instant getEndDate() {
 		return endDate;
 	}
 
@@ -89,7 +80,7 @@ public class Conference {
 	 * 
 	 * @return registrationFee
 	 */
-	public Double getFeeRegistration() {
+	public String getFeeRegistration() {
 		return registrationFee;
 	}
 
@@ -146,5 +137,63 @@ public class Conference {
 				.add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
 				.add("country", country).add("city", city).toString();
 	}
+	
+	
+	
+	
+	
+	public static class ConferenceBuilder {
+        private Conference conferenceToBuild;
+
+        ConferenceBuilder() {
+            conferenceToBuild = new Conference();
+        }
+
+        Conference build() {
+            Conference builtConference = conferenceToBuild;
+            conferenceToBuild = new Conference();
+
+            return builtConference;
+        }
+
+        public ConferenceBuilder setUid(String uid) {
+            this.conferenceToBuild.uid = uid;
+            return this;
+        }
+
+        public ConferenceBuilder setTitle(String title) {
+            this.conferenceToBuild.title = title;
+            return this;
+        }
+        
+        public ConferenceBuilder setStartDate(Instant startDate) {
+            this.conferenceToBuild.startDate = startDate;
+            return this;
+        }
+        
+        public ConferenceBuilder setEndDate(Instant endDate) {
+            this.conferenceToBuild.startDate = endDate;
+            return this;
+        }
+        
+        public ConferenceBuilder setRegistrationFee(String registrationFee) {
+            this.conferenceToBuild.registrationFee = registrationFee;
+            return this;
+        }
+        
+        public ConferenceBuilder setCountry(String country) {
+            this.conferenceToBuild.country = country;
+            return this;
+        }
+        
+        public ConferenceBuilder setCity(String city) {
+            this.conferenceToBuild.city = city;
+            return this;
+        }
+
+
+    }
+
+	
 
 }
