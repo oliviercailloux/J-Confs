@@ -28,7 +28,7 @@ public class AddressQuerier {
 
 	/**
 	 * 
-	 * Factory method which creates a Translation instance
+	 * Factory method which creates a AddresQuerier
 	 *
 	 */
 
@@ -46,9 +46,9 @@ public class AddressQuerier {
 	}
 
 	/**
-	 * This class is a builder, it's allows to make the object TranslsationAddress
-	 * immutable. It builds all the attributes of the class using a
-	 * TranslationAddress object.
+	 * This class is a builder, it's allows to make the object AddressQuerier
+	 * immutable. It builds all the attributes of the class using a AddressQuerier
+	 * object.
 	 * 
 	 * @author floryan
 	 *
@@ -56,22 +56,22 @@ public class AddressQuerier {
 
 	public static class AddressQuerierBuilder {
 
-		private AddressQuerier translationAddress;
+		private AddressQuerier addressQuerier;
 
 		/**
 		 * This method initialize state
 		 * 
-		 * @param translationAddress
+		 * @param addressQuerier
 		 */
 
-		private AddressQuerierBuilder(final AddressQuerier translationAddress) {
-			this.translationAddress = translationAddress;
+		private AddressQuerierBuilder(final AddressQuerier addressQuerier) {
+			this.addressQuerier = addressQuerier;
 		}
 
 		/**
-		 * This method start building a TranslationAddress
+		 * This method start building a addressQuerier
 		 * 
-		 * @return TranslationAddressBuilder
+		 * @return addressQuerierBuilder
 		 */
 
 		public static AddressQuerierBuilder build() {
@@ -87,7 +87,7 @@ public class AddressQuerier {
 		 */
 
 		public AddressQuerierBuilder addressInformations(final String address) throws ApiException {
-			this.translationAddress.recoveryAddressInformations(address);
+			this.addressQuerier.recoveryAddressInformations(address);
 			return this;
 		}
 
@@ -98,7 +98,7 @@ public class AddressQuerier {
 		 */
 
 		public AddressQuerierBuilder addressFound() {
-			this.translationAddress.recoveryAddressFound();
+			this.addressQuerier.recoveryAddressFound();
 			return this;
 		}
 
@@ -110,8 +110,8 @@ public class AddressQuerier {
 
 		public AddressQuerier get() {
 			final AddressQuerier ret = AddressQuerier.newInstance();
-			ret.addressFound = translationAddress.addressFound;
-			ret.addressInformations = translationAddress.addressInformations;
+			ret.addressFound = addressQuerier.addressFound;
+			ret.addressInformations = addressQuerier.addressInformations;
 			return ret;
 		}
 	}
@@ -179,9 +179,8 @@ public class AddressQuerier {
 	/**
 	 * This method modifies the contents of the ArrayList addressInformations to
 	 * make it more readable and to be able to apply different methods more easily.
-	 * It also makes it possible to retrieve all the addresses found by
-	 * autocomplete, to store them in addressFound. It allows the selection of the
-	 * address that the user wants.
+	 * It also makes it possible to retrieve all the addresses with latitude and
+	 * longitude found by autocomplete, to store them in addressFound.
 	 */
 
 	public void recoveryAddressFound() {
@@ -209,13 +208,5 @@ public class AddressQuerier {
 
 		}
 		this.addressFound = selection;
-	}
-
-	public static void main(String[] args) throws ApiException {
-		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
-				.addressInformations("Université paris dauphine").addressFound().get();
-		for (int i = 0; i < address.addressFound.size(); i++) {
-			System.out.println(address.addressFound.get(i));
-		}
 	}
 }

@@ -18,7 +18,7 @@ import com.locationiq.client.ApiException;
 class AddressQuerierTest {
 
 	/**
-	 * Test of the creation of an newInstance of TranslationAddress
+	 * Test of the creation of an newInstance of AddressQuerier
 	 */
 
 	@Test
