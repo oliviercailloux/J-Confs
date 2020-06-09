@@ -13,7 +13,7 @@ import com.google.common.base.MoreObjects;
  * @author huong,camille This class is immutable.
  *
  */
-public class Conference {
+public final class Conference {
 	private URL url;
 	private String uid;
 	private String title;

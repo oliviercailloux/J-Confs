@@ -11,6 +11,7 @@ import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
@@ -95,8 +96,8 @@ public class ConferenceReader {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-
-		conf = new Conference(uid, confURL, title, start, end, feeRegistration, country, city);
+		ConferenceBuilder builder = new ConferenceBuilder() ;
+		conf = builder.setCity("Paris").setCountry("France").build();
 		return conf;
 	}
 
