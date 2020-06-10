@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
@@ -96,8 +97,10 @@ public class ConferenceReader {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-		ConferenceBuilder builder = new ConferenceBuilder() ;
-		conf = builder.setCity("Paris").setCountry("France").build();
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		conf = theBuild.setUid(uid).setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration+"").setCity(city).setCountry(country).build();
+
+
 		return conf;
 	}
 
