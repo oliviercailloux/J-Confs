@@ -105,8 +105,8 @@ public class ConferenceWriter {
 		PropertyList<Property> propertyList = new PropertyList<>();
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-		propertyList.add(new XProperty("X-DTSTART", conference.getStartDate().format(formatter)));
-		propertyList.add(new XProperty("X-DTEND", conference.getEndDate().format(formatter)));
+		propertyList.add(new XProperty("X-DTSTART", formatter.format(conference.getStartDate())));
+		propertyList.add(new XProperty("X-DTEND", formatter.format(conference.getStartDate())));
 
 		propertyList.add(new Summary(conference.getTitle()));
 		propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));

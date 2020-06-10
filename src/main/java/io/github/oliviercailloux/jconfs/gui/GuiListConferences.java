@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.swt.SWT;
@@ -34,6 +35,7 @@ import com.google.common.primitives.Doubles;import io.github.oliviercailloux.jco
 import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 
 import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
@@ -207,8 +209,8 @@ public class GuiListConferences {
 			txtCoutry.setText(conferenceSelected.getCountry());
 			txtUrl.setText(conferenceSelected.getUrl().toString());
 			txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
-			setDateofConferences(dateStart, conferenceSelected.getStartDate());
-			setDateofConferences(dateEnd, conferenceSelected.getEndDate());
+			setDateofConferences(dateStart, LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneId.systemDefault()) );
+			setDateofConferences(dateEnd, LocalDate.ofInstant(conferenceSelected.getEndDate(), ZoneId.systemDefault()));
 		}
 	}
 
@@ -387,10 +389,10 @@ public class GuiListConferences {
 		} catch (MalformedURLException e1) {
 			throw new IllegalStateException(e1);
 		}
-
-		Conference newConference = new Conference(new RandomUidGenerator().generateUid().getValue(), urlConference,
-				txtTitle.getText(), localDateStart, localDateEnd, Doubles.tryParse(txtRegisFee.getText()),
-				txtCoutry.getText(), txtCity.getText());
+		
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		Conference newConference = theBuild.setUid(new RandomUidGenerator().generateUid().getValue()).setUrl(urlConference).setTitle(txtTitle.getText()).setStartDate(localDateStart.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(localDateEnd.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(Doubles.tryParse(txtRegisFee.getText())+"").setCity(txtCity.getText()).setCountry(txtCoutry.getText()).build();
+				
 		try {
 			instanceCalendarOnline.addOnlineConference(newConference);
 		} catch (CalDAV4JException | URISyntaxException | ParseException e) {

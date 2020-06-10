@@ -3,7 +3,9 @@ package io.github.oliviercailloux.jconfs.conference;
 import java.io.IOException;
 
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -115,7 +117,7 @@ public class ConferencesShower {
 				throw new IllegalArgumentException("minDate must be before maxDate");
 
 		}
-		return retriever.retrieve(minDate, maxDate);
+		return retriever.retrieve(minDate.atStartOfDay(ZoneId.systemDefault()).toInstant(), maxDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
 	}
 }

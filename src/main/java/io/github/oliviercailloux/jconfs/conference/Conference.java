@@ -9,6 +9,8 @@ import java.time.format.DateTimeParseException;
 import java.util.Objects;
 import com.google.common.base.MoreObjects;
 
+import net.fortuna.ical4j.model.property.Url;
+
 /**
  * @author huong,camille This class is immutable.
  *
@@ -145,11 +147,11 @@ public final class Conference {
 	public static class ConferenceBuilder {
         private Conference conferenceToBuild;
 
-        ConferenceBuilder() {
+        public ConferenceBuilder() {
             conferenceToBuild = new Conference();
         }
 
-        Conference build() {
+        public Conference build() {
             Conference builtConference = conferenceToBuild;
             conferenceToBuild = new Conference();
 
@@ -188,6 +190,11 @@ public final class Conference {
         
         public ConferenceBuilder setCity(String city) {
             this.conferenceToBuild.city = city;
+            return this;
+        }
+        
+        public ConferenceBuilder setUrl(URL url) {
+            this.conferenceToBuild.url = url;
             return this;
         }
 

@@ -5,16 +5,19 @@ import java.net.URL;
 import java.text.ParseException;
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.CalendarComponent;
+import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
  * This class allows to read and iCalelndar file and creates a conference object
@@ -78,6 +81,7 @@ public class ReadCalendarFiles {
 	 */
 
 	public static Conference createConference(String filepath) throws IOException, ParserException {
+		
 
 		Conference conf = null;
 		try (FileInputStream fin2 = new FileInputStream(filepath)) {
@@ -106,8 +110,8 @@ public class ReadCalendarFiles {
 			} catch (Exception e) {
 				throw new IllegalArgumentException("Date impossible to put in the conference", e);
 			}
-
-			conf = new Conference(null, confURL, title, start, end, feeRegistration, country, city);
+			ConferenceBuilder theBuild = new ConferenceBuilder();
+			conf = theBuild.setUid(new RandomUidGenerator().generateUid().getValue()).setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration+"").setCity(city).setCountry(country).build();
 
 		}
 		return conf;

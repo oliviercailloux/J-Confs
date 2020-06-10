@@ -10,6 +10,7 @@ import java.net.URL;
 import java.nio.channels.IllegalSelectorException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -39,6 +40,7 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
 import io.github.oliviercailloux.jconfs.document.GenerateOM;
 import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
@@ -327,7 +329,8 @@ public class GuiConference {
 		String title = textTitle.getText();
 		start = dateFormat(dateStart);
 		end = dateFormat(dateEnd);
-		conf = new Conference(null, url, title, start, end, feeRegistration, country, city);
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		conf = theBuild.setUrl(url).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration+"").setCity(city).setCountry(country).build();
 
 		if (name.equals("generateOm") || name.equals("generateYs")) {
 			researcher = new Researcher(textSurname.getText(), textFirstname.getText());

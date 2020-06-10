@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Optional;
@@ -22,11 +23,13 @@ import com.github.caldav4j.exceptions.CalDAV4JException;
 import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStart;
+import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
  *  @author machria & sbourg
@@ -93,7 +96,9 @@ public class TestCalendarOnlineFruux {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
 
-		Conference conference = new Conference(uid, url, title, start_, end_, feeRegistration, country, city);
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		Conference conference = theBuild.setUid(uid).setUrl(url).setTitle(title).setStartDate(start_.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end_.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration+"").setCity(city).setCountry(country).build();
+
 
 		conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
 
@@ -118,8 +123,12 @@ public class TestCalendarOnlineFruux {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-		Conference conference = new Conference(uid, new URL("http://fruux.com"), "Java formation", start_, end_, 1.36,
-				"France", "Paris");
+		
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		Conference conference = theBuild.setUid(uid).setUrl(new URL("http://fruux.com")).setTitle("Java formation").setStartDate(start_.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end_.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(1.36+"").setCity("Paris").setCountry("France").build();
+		
+		
+		
 		instanceCalendarOnline.addOnlineConference(conference);
 		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uid);
 		if(!confTest.isPresent()) {
