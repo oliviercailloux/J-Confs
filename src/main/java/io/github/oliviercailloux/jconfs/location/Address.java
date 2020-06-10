@@ -14,16 +14,7 @@ public class Address {
 	private String latitude;
 	private String longitude;
 
-	/**
-	 * 
-	 * Factory method which creates a Address instance
-	 *
-	 */
-
-	public static Address newInstanceAddressEmpty() {
-		return new Address();
-	}
-
+	
 	/**
 	 * Factory method which creates a Address instance
 	 *
@@ -32,17 +23,10 @@ public class Address {
 	 * @param longitude
 	 */
 	public static Address given(String address, String latitude, String longitude) {
+		if (latitude.isEmpty() | longitude.isEmpty()) {
+			throw new IllegalArgumentException("latitude or longitude can't be empty");
+		}
 		return new Address(address, latitude, longitude);
-	}
-
-	/**
-	 * Private constructor
-	 */
-
-	private Address() {
-		this.address = "";
-		this.longitude = "";
-		this.latitude = "";
 	}
 
 	/**
@@ -68,15 +52,6 @@ public class Address {
 	}
 
 	/**
-	 * This method set the address name
-	 * 
-	 * @param address
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	/**
 	 * This method return the latitude of the address object
 	 * 
 	 * @return latitude
@@ -85,14 +60,6 @@ public class Address {
 		return latitude;
 	}
 
-	/**
-	 * This method set the address latitude
-	 * 
-	 * @param latitude
-	 */
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
 
 	/**
 	 * This method return the longitude of the address object
@@ -103,13 +70,5 @@ public class Address {
 		return longitude;
 	}
 
-	/**
-	 * This method set the address longitude
-	 * 
-	 * @param longitude
-	 */
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
 
 }
