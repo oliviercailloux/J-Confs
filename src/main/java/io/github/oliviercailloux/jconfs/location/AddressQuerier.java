@@ -164,6 +164,11 @@ public class AddressQuerier {
 		while (i.hasNext()) {
 			this.addressInformations.add(i.next().toString());
 		}
+		for (int a = 0; a < this.addressInformations.size(); a++) {
+			String contenu = this.addressInformations.get(a);
+			String hash = contenu.substring(1, contenu.length() - 2);
+			this.addressInformations.set(a, hash);
+		}
 		this.addressInformations=ImmutableList.copyOf(this.addressInformations);
 	}
 
@@ -175,11 +180,7 @@ public class AddressQuerier {
 	 */
 
 	public void recoveryAddressFound() {
-		for (int i = 0; i < this.addressInformations.size(); i++) {
-			String contenu = this.addressInformations.get(i);
-			String hash = contenu.substring(1, contenu.length() - 2);
-			this.addressInformations.set(i, hash);
-		}
+		
 		ArrayList<String> selection = new ArrayList<>();
 		for (int i = 0; i < this.addressInformations.size(); i++) {
 			String search1 = "display_name=";
@@ -200,5 +201,13 @@ public class AddressQuerier {
 		}
 		this.addressFound = selection;
 		this.addressFound = ImmutableList.copyOf(this.addressFound);
+	}
+	
+	public static void main(String args[]) throws ApiException {
+		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
+				.addressInformations("Avenue jean rostand domont 95330").addressFound().get();
+		for(int i = 0 ; i<address.getAddressFound().size();i++) {
+			System.out.println(address.getAddressFound().get(i));
+		}
 	}
 }
