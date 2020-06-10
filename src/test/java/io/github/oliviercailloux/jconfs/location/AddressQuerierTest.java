@@ -1,6 +1,5 @@
 package io.github.oliviercailloux.jconfs.location;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -16,17 +15,6 @@ import com.locationiq.client.ApiException;
  */
 
 class AddressQuerierTest {
-
-	/**
-	 * Test of the creation of an newInstance of AddressQuerier
-	 */
-
-	@Test
-	public final void testCreateInstance() {
-		AddressQuerier t = new AddressQuerier();
-		assertEquals(0, t.getAddressFound().size());
-		assertEquals(0, t.getAddressInformations().size());
-	}
 
 	/**
 	 * This method test the correct recovery informations returned by the
