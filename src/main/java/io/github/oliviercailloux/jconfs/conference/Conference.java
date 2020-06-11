@@ -117,7 +117,6 @@ public final class Conference {
 	public boolean equals(Object obj) {
 		if (obj instanceof Conference) {
 			Conference conference2 = (Conference) obj;
-
 			if (title.equals(conference2.title) && url.equals(conference2.url)
 					&& startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
 					&& registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
