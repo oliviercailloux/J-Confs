@@ -128,8 +128,8 @@ public class CalendarOnline {
 		Property location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
 		Property description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
 		Property name = new Summary(conferenceEdited.getTitle());
-		Property startDate = new DtStart(new Date(formatter.format(conferenceEdited.getStartDate())));
-		Property endDate = new DtEnd(new Date(formatter.format(conferenceEdited.getEndDate())));
+		Property startDate = new DtStart(new Date(conferenceEdited.getStartDate().toString().substring(0, 4)+conferenceEdited.getStartDate().toString().substring(5, 7)+conferenceEdited.getStartDate().toString().substring(8, 10)));
+		Property endDate = new DtEnd(new Date(conferenceEdited.getEndDate().toString().substring(0, 4)+conferenceEdited.getEndDate().toString().substring(5, 7)+conferenceEdited.getEndDate().toString().substring(8, 10)));
 		Property uid = new Uid(conferenceEdited.getUid().toLowerCase());
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
 		Property sequence = new Sequence(2);

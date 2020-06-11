@@ -174,7 +174,7 @@ public final class Conference {
         }
         
         public ConferenceBuilder setEndDate(Instant endDate) {
-            this.conferenceToBuild.startDate = endDate;
+            this.conferenceToBuild.endDate = endDate;
             return this;
         }
         
