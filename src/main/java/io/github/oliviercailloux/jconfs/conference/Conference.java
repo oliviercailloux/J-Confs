@@ -33,9 +33,9 @@ public final class Conference {
 	/**
 	 * This is a constructor which initializes the conference object
 	 * 
-	 * @param uid
+	 * @param uid	not <code>null</code>
 	 * @param url
-	 * @param title
+	 * @param title not <code>null</code>
 	 * @param startDate       not <code>null</code>
 	 * @param endDate         not <code>null</code>
 	 * @param registrationFee
@@ -43,7 +43,10 @@ public final class Conference {
 	 * @param city
 	 */
 	private Conference() {
-
+		this.url=Optional.empty();
+		this.registrationFee=Optional.empty();
+		this.country=Optional.empty();
+		this.city=Optional.empty();
 	}
 
 	/**
