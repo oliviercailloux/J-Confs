@@ -34,7 +34,7 @@ For example :
 === IT3 Java
 
 We will migrate all LocalDate type into Instant type. Double will became a String. This will help us to extend the price property. We will implement the Builder design pattern into Conference in order to avoid the use of null value in Calendar function.
-In the code, a conference won't exist if it doesn't have a uid, a title, a start date and an end date. It will throw an NullPointerException. We
+In the code, a conference won't exist if it doesn't have a uid, a title, a start date and an end date. It will throw an NullPointerException. We 
 
 === What we plan to do 
 
