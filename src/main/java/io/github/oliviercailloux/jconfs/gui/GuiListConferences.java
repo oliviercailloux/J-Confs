@@ -205,8 +205,8 @@ public class GuiListConferences {
 			Conference conferenceSelected;
 			conferenceSelected = listConferencesUser.get(listConferences.getSelectionIndex());
 			txtTitle.setText(conferenceSelected.getTitle());
-			txtCity.setText(conferenceSelected.getCity());
-			txtCoutry.setText(conferenceSelected.getCountry());
+			txtCity.setText(conferenceSelected.getCity().get());
+			txtCoutry.setText(conferenceSelected.getCountry().get());
 			txtUrl.setText(conferenceSelected.getUrl().toString());
 			txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
 			setDateofConferences(dateStart, LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneId.systemDefault()) );

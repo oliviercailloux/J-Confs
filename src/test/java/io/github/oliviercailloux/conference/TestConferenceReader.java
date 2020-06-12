@@ -31,9 +31,9 @@ public class TestConferenceReader {
 		assertEquals(setOfConf.size(), 4);
 		Conference conferenceTest = iteratorConf.next();
 		assertEquals(conferenceTest.getTitle(), "Java");
-		assertEquals(conferenceTest.getCity(), "Toronto");
-		assertEquals(conferenceTest.getCountry(), "Canada");
-		assertEquals(conferenceTest.getFeeRegistration(), "22.6");
+		assertEquals(conferenceTest.getCity().get(), "Toronto");
+		assertEquals(conferenceTest.getCountry().get(), "Canada");
+		assertEquals(conferenceTest.getFeeRegistration().get(), "22.60");
 	}
 
 }

@@ -50,8 +50,8 @@ public class TestCalendarOnlineFruux {
 			Conference conferenceFound = potentialConference.get();
 			assertEquals("Java presentation",conferenceFound.getTitle());
 			assertEquals(uidSearch,conferenceFound.getUid());
-			assertEquals("Paris",conferenceFound.getCity());
-			assertEquals("France",conferenceFound.getCountry());
+			assertEquals("Paris",conferenceFound.getCity().get());
+			assertEquals("France",conferenceFound.getCountry().get());
 			assertEquals("2019-07-01",conferenceFound.getStartDate().toString().substring(0, 10));
 			assertEquals("1.36",conferenceFound.getFeeRegistration().toString());
 		}
@@ -115,7 +115,7 @@ public class TestCalendarOnlineFruux {
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		LocalDate start_ = null;
 		LocalDate end_ = null;
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
+		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee69";
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			start_ = LocalDate.parse("06/08/2019", formatter);
@@ -138,7 +138,7 @@ public class TestCalendarOnlineFruux {
 
 	@Test
 	public void testDelete() throws Exception {
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
+		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee69";
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		instanceCalendarOnline.deleteOnlineConference(uid);
 		System.out.println(instanceCalendarOnline.getOnlineConferences());

@@ -1,12 +1,17 @@
 package io.github.oliviercailloux.jconfs.conference;
 
 import java.net.URL;
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
+
 import java.text.ParseException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
+import java.util.Optional;
+
 import com.google.common.base.MoreObjects;
 
 import net.fortuna.ical4j.model.property.Url;
@@ -16,14 +21,14 @@ import net.fortuna.ical4j.model.property.Url;
  *
  */
 public final class Conference {
-	private URL url;
+	private Optional<URL> url;
 	private String uid;
 	private String title;
 	private Instant startDate;
 	private Instant endDate;
-	private String registrationFee;
-	private String country;
-	private String city;
+	private Optional<String> registrationFee;
+	private Optional<String> country;
+	private Optional<String> city;
 
 	/**
 	 * This is a constructor which initializes the conference object
@@ -46,7 +51,7 @@ public final class Conference {
 	 * 
 	 * @return url
 	 */
-	public URL getUrl() {
+	public Optional<URL> getUrl() {
 		return url;
 	}
 
@@ -82,7 +87,7 @@ public final class Conference {
 	 * 
 	 * @return registrationFee
 	 */
-	public String getFeeRegistration() {
+	public Optional<String> getFeeRegistration() {
 		return registrationFee;
 	}
 
@@ -91,7 +96,7 @@ public final class Conference {
 	 * 
 	 * @return country
 	 */
-	public String getCountry() {
+	public Optional<String> getCountry() {
 		return country;
 	}
 
@@ -100,7 +105,7 @@ public final class Conference {
 	 * 
 	 * @return city
 	 */
-	public String getCity() {
+	public Optional<String> getCity() {
 		return city;
 	}
 
@@ -117,6 +122,7 @@ public final class Conference {
 	public boolean equals(Object obj) {
 		if (obj instanceof Conference) {
 			Conference conference2 = (Conference) obj;
+
 			if (title.equals(conference2.title) && url.equals(conference2.url)
 					&& startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
 					&& registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
@@ -153,7 +159,10 @@ public final class Conference {
         public Conference build() {
             Conference builtConference = conferenceToBuild;
             conferenceToBuild = new Conference();
-
+    		Preconditions.checkNotNull(builtConference.uid);
+    		Preconditions.checkNotNull(builtConference.title);
+    		Preconditions.checkNotNull(builtConference.startDate);
+    		Preconditions.checkNotNull(builtConference.endDate);
             return builtConference;
         }
 
@@ -178,22 +187,22 @@ public final class Conference {
         }
         
         public ConferenceBuilder setRegistrationFee(String registrationFee) {
-            this.conferenceToBuild.registrationFee = registrationFee;
+            this.conferenceToBuild.registrationFee = Optional.ofNullable(registrationFee);
             return this;
         }
         
         public ConferenceBuilder setCountry(String country) {
-            this.conferenceToBuild.country = country;
+            this.conferenceToBuild.country = Optional.ofNullable(country);
             return this;
         }
         
         public ConferenceBuilder setCity(String city) {
-            this.conferenceToBuild.city = city;
+            this.conferenceToBuild.city = Optional.ofNullable(city);
             return this;
         }
         
         public ConferenceBuilder setUrl(URL url) {
-            this.conferenceToBuild.url = url;
+            this.conferenceToBuild.url = Optional.ofNullable(url);
             return this;
         }
 

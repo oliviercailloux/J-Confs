@@ -123,8 +123,7 @@ public class CalendarOnline {
 	 */
 	public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException, ParseException {
 		VEvent vEventConference;
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-		Property urlz = new Url(conferenceEdited.getUrl().toURI());
+		Property urlz = new Url(conferenceEdited.getUrl().get().toURI());
 		Property location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
 		Property description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
 		Property name = new Summary(conferenceEdited.getTitle());

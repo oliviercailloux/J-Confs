@@ -64,7 +64,7 @@ public class GenerateOM {
 			endCell.setStringValue(conference.getEndDate().toString());
 
 			spreadsheetDoc.save(target);
-			saveOrderMissionToHistory(target, conference.getCity(), conference.getCountry(),
+			saveOrderMissionToHistory(target, conference.getCity().get(), conference.getCountry().get(),
 					conference.getStartDate().toString());
 		}
 

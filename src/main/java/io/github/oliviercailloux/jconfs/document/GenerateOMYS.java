@@ -108,7 +108,7 @@ public class GenerateOMYS {
 			}
 
 			saveYSOrderMission(doc);
-			saveYSOrderMissionToHistory(target, conf.getCity(), conf.getCountry(), conf.getStartDate().toString());
+			saveYSOrderMissionToHistory(target, conf.getCity().get(), conf.getCountry().get(), conf.getStartDate().toString());
 		}
 	}
 

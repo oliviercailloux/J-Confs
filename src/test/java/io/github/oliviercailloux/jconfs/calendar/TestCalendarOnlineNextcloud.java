@@ -50,8 +50,8 @@ public class TestCalendarOnlineNextcloud {
 			Conference conferenceFound = potentialConference.get();
 			assertEquals("93",conferenceFound.getTitle());
 			assertEquals(uidSearch,conferenceFound.getUid());
-			assertEquals("Paris",conferenceFound.getCity());
-			assertEquals("France",conferenceFound.getCountry());
+			assertEquals("Paris",conferenceFound.getCity().get());
+			assertEquals("France",conferenceFound.getCountry().get());
 			assertEquals("2020-04-29",conferenceFound.getStartDate().toString().substring(0, 10));
 			assertEquals("1.36",conferenceFound.getFeeRegistration().toString());
 		}

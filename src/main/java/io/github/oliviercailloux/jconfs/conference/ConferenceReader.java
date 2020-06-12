@@ -64,7 +64,7 @@ public class ConferenceReader {
 		URL confURL;
 		String[] location;
 		String[] description;
-		Double feeRegistration = null;
+		String feeRegistration = null;
 
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
@@ -74,10 +74,10 @@ public class ConferenceReader {
 
 		location = confCompo.getProperty("LOCATION").getValue().split(",");
 		description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
-
 		for (String ele : description) {
 			if (ele.contains("Fee")) {
-				feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+				feeRegistration = ele.substring(ele.indexOf(":") + 1);
+				feeRegistration = feeRegistration.replace(" ", "");
 			}
 		}
 		
@@ -86,7 +86,7 @@ public class ConferenceReader {
 		String country = location[1];
 		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
-		String uid = confCompo.getProperty("UID").getValue();
+		String uid = confCompo.getProperty("UID").getValue();		
 		LocalDate start = null;
 		LocalDate end = null;
 

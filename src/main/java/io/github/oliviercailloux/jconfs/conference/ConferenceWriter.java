@@ -111,7 +111,7 @@ public class ConferenceWriter {
 		propertyList.add(new Summary(conference.getTitle()));
 		propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
 		propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
-		propertyList.add(new Url(conference.getUrl().toURI()));
+		propertyList.add(new Url(conference.getUrl().get().toURI()));
 		propertyList.add(new XProperty("X-FEE", conference.getFeeRegistration().toString()));
 
 		XComponent meeting = new XComponent("X-CONFERENCE", propertyList);
