@@ -53,7 +53,7 @@ public class TestCalendarOnlineFruux {
 			assertEquals("Paris",conferenceFound.getCity().get());
 			assertEquals("France",conferenceFound.getCountry().get());
 			assertEquals("2019-07-01",conferenceFound.getStartDate().toString().substring(0, 10));
-			assertEquals("1.36",conferenceFound.getFeeRegistration().toString());
+			assertEquals("1.36",conferenceFound.getFeeRegistration().get());
 		}
 		else {
 			fail(new NullPointerException());
