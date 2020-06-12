@@ -566,6 +566,8 @@ Refere to CalendarOnline class and GuiListConferences class
       <packagedElement xmi:type="uml:Class" xmi:id="_1laDgGXIEeqCB6kIHjdr_A" name="VEvent"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_Cixm8GXLEeqCB6kIHjdr_A" name="T"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_59L_QGXMEeqCB6kIHjdr_A" name="Comparator&lt;T>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Lx4r8KzGEeqAbfg7Y9ligg" name="Optional&lt;URL>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_PJSsoKzGEeqAbfg7Y9ligg" name="Optional&lt;String>"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_WcUx0GWrEeqCB6kIHjdr_A" name="Element Researcher class diagram">
       <packagedElement xmi:type="uml:Class" xmi:id="_gWsJMGWrEeqCB6kIHjdr_A" name="Researcher">
@@ -1067,9 +1069,7 @@ Refere to CalendarOnline class and GuiListConferences class
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Pb9mcGX4EeqbUqsc8bodZw" name="Conference">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_SAv3YGX4EeqbUqsc8bodZw" name="url" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SAv3YGX4EeqbUqsc8bodZw" name="url" visibility="private" type="_Lx4r8KzGEeqAbfg7Y9ligg"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_SmMGwGX4EeqbUqsc8bodZw" name="uid" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedAttribute>
@@ -1078,22 +1078,14 @@ Refere to CalendarOnline class and GuiListConferences class
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_XtGWMGX4EeqbUqsc8bodZw" name="startDate" visibility="private" type="_ItfbgJwrEeqjV-JclrbTtA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YjX24GX4EeqbUqsc8bodZw" name="endDate" visibility="private" type="_ItfbgJwrEeqjV-JclrbTtA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZMHR4GX4EeqbUqsc8bodZw" name="registrationFee" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Z1dJ0GX4EeqbUqsc8bodZw" name="country" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_afflUGX4EeqbUqsc8bodZw" name="city" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZMHR4GX4EeqbUqsc8bodZw" name="registrationFee" visibility="private" type="_PJSsoKzGEeqAbfg7Y9ligg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Z1dJ0GX4EeqbUqsc8bodZw" name="country" visibility="private" type="_PJSsoKzGEeqAbfg7Y9ligg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_afflUGX4EeqbUqsc8bodZw" name="city" visibility="private" type="_PJSsoKzGEeqAbfg7Y9ligg"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_GfrEEGX8EeqbUqsc8bodZw" name="Conference">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_nyLmkGX8EeqbUqsc8bodZw" name="String" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_GsL2EGX8EeqbUqsc8bodZw" name="getUrl">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rmpWsGX8EeqbUqsc8bodZw" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rmpWsGX8EeqbUqsc8bodZw" type="_Lx4r8KzGEeqAbfg7Y9ligg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_G8dtwGX8EeqbUqsc8bodZw" name="getTitle">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_xm2loGX8EeqbUqsc8bodZw" direction="return">
@@ -1107,19 +1099,13 @@ Refere to CalendarOnline class and GuiListConferences class
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BWj4GX8EeqbUqsc8bodZw" type="_ItfbgJwrEeqjV-JclrbTtA" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Hmh-cGX8EeqbUqsc8bodZw" name="getFreeRegistery">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8GhCcGX8EeqbUqsc8bodZw" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8GhCcGX8EeqbUqsc8bodZw" type="_PJSsoKzGEeqAbfg7Y9ligg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_HzNIgGX8EeqbUqsc8bodZw" name="getCountry">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="__lhf8GX8EeqbUqsc8bodZw" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="__lhf8GX8EeqbUqsc8bodZw" type="_PJSsoKzGEeqAbfg7Y9ligg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_IApHkGX8EeqbUqsc8bodZw" name="getCity">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_CRog4GX9EeqbUqsc8bodZw" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_CRog4GX9EeqbUqsc8bodZw" type="_PJSsoKzGEeqAbfg7Y9ligg" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_INJ5kGX8EeqbUqsc8bodZw" name="getUid">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_OiCikGX9EeqbUqsc8bodZw" direction="return">
@@ -1130,9 +1116,7 @@ Refere to CalendarOnline class and GuiListConferences class
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_YGX_kGX9EeqbUqsc8bodZw" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZlPKQGX9EeqbUqsc8bodZw">
-            <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_6CvaYGXcEeqbUqsc8bodZw"/>
-          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZlPKQGX9EeqbUqsc8bodZw" name="conf" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_PxhNcGX9EeqbUqsc8bodZw" name="hashCode">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_fo-OUGX9EeqbUqsc8bodZw" direction="return">
