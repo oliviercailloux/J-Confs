@@ -46,7 +46,7 @@ public class TestCalendarOnlineNextcloud {
 
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
 				"sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
-		String uidSearch = "59fbcce2-090c-41c8-93b5-fdd377713630";
+		String uidSearch = "4936861f-c1db-4059-82a2-2c1e421ad5fa";
 		Optional<Conference> potentialConference;
 		potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
 		if (potentialConference.isPresent()) {

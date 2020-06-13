@@ -7,6 +7,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
@@ -98,8 +99,8 @@ public class ConferenceReader {
 		}
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		conf = theBuild.setUid(uid).setUrl(confURL).setTitle(title)
-				.setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant())
+				.setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant())
 				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
 
 		return conf;
