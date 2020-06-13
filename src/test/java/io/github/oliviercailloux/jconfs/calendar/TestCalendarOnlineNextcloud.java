@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
+import org.threeten.bp.Instant;
 
 import com.github.caldav4j.exceptions.CalDAV4JException;
 
@@ -45,17 +46,17 @@ public class TestCalendarOnlineNextcloud {
 
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
 				"sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
-		String uidSearch = "685f1f53-bece-4070-8456-7a1431224252-493566496";
+		String uidSearch = "59fbcce2-090c-41c8-93b5-fdd377713630";
 		Optional<Conference> potentialConference;
 		potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
 		if (potentialConference.isPresent()) {
 			Conference conferenceFound = potentialConference.get();
-			assertEquals("93", conferenceFound.getTitle());
+			assertEquals("Java formation", conferenceFound.getTitle());
 			assertEquals(uidSearch, conferenceFound.getUid());
 			assertEquals("Paris", conferenceFound.getCity());
 			assertEquals("France", conferenceFound.getCountry());
-			assertEquals("2020-04-29", conferenceFound.getStartDate().toString().substring(0, 10));
-			assertEquals(1, conferenceFound.getFeeRegistration().get());
+			assertEquals(Instant.parse("2020-04-29T00:00:00.00Z"), conferenceFound.getStartDate());
+			assertEquals(136, conferenceFound.getFeeRegistration().get());
 		} else {
 			fail(new NullPointerException());
 		}

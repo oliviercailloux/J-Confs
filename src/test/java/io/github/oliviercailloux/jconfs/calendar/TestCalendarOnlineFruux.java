@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
+import org.threeten.bp.Instant;
 
 import com.github.caldav4j.exceptions.CalDAV4JException;
 
@@ -55,7 +56,7 @@ public class TestCalendarOnlineFruux {
 			assertEquals(uidSearch, conferenceFound.getUid());
 			assertEquals("Paris", conferenceFound.getCity());
 			assertEquals("France", conferenceFound.getCountry());
-			assertEquals("2019-07-01", conferenceFound.getStartDate().toString().substring(0, 10));
+			assertEquals(Instant.parse("2019-06-30T00:00:00Z"), conferenceFound.getStartDate());
 			assertEquals(1, conferenceFound.getFeeRegistration().get());
 		} else {
 			fail(new NullPointerException());
