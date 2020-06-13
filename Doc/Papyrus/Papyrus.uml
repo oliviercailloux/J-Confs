@@ -1505,9 +1505,7 @@ Refere to CalendarOnline class and GuiListConferences class
           <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps" type="_mX5pYK1XEeqvVcsLEHPVHw"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_z2nHcJzTEeqrR-Ds61GHnw" name="translationaddressbuilder" type="_JUaW0IfNEequSPPEfPKx9w">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z2nHcZzTEeqrR-Ds61GHnw"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z2nugJzTEeqrR-Ds61GHnw" value="1"/>
@@ -1550,6 +1548,7 @@ Refere to CalendarOnline class and GuiListConferences class
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
         </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_mX5pYK1XEeqvVcsLEHPVHw" name="List&lt;DirectionsDirectionsRoutes>"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Lr6kQIfOEequSPPEfPKx9w" memberEnd="_Lr7yYofOEequSPPEfPKx9w _Lr9AgofOEequSPPEfPKx9w">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lr7yYIfOEequSPPEfPKx9w" source="org.eclipse.papyrus">
@@ -1644,7 +1643,7 @@ Refere to CalendarOnline class and GuiListConferences class
         <message xmi:type="uml:Message" xmi:id="_tDuEAJ2nEeqj_I4H62nzog" name="latLonAddressDeparture : String" messageSort="reply" receiveEvent="_tDv5MJ2nEeqj_I4H62nzog" sendEvent="_tDvSIJ2nEeqj_I4H62nzog"/>
         <message xmi:type="uml:Message" xmi:id="_-w6egJ2nEeqj_I4H62nzog" name="addressArrival.getLongitude() + addressArrival.getLatitude()" receiveEvent="_-w7soJ2nEeqj_I4H62nzog" sendEvent="_-w7FkJ2nEeqj_I4H62nzog"/>
         <message xmi:type="uml:Message" xmi:id="_--xUUJ2nEeqj_I4H62nzog" name="latLonAddressArrival : String" messageSort="reply" receiveEvent="_--xUUp2nEeqj_I4H62nzog" sendEvent="_--xUUZ2nEeqj_I4H62nzog"/>
-        <message xmi:type="uml:Message" xmi:id="_TcPooJ2pEeqj_I4H62nzog" name="distance and duration of type int and steps of type String" messageSort="reply" receiveEvent="_TcRd0J2pEeqj_I4H62nzog" sendEvent="_TcQ2wJ2pEeqj_I4H62nzog"/>
+        <message xmi:type="uml:Message" xmi:id="_TcPooJ2pEeqj_I4H62nzog" name="distance and duration of type int and steps equals to the routes list" messageSort="reply" receiveEvent="_TcRd0J2pEeqj_I4H62nzog" sendEvent="_TcQ2wJ2pEeqj_I4H62nzog"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Interaction" xmi:id="_44BLwIeeEequSPPEfPKx9w" name="AddressQuerier : recoveryAddressInformations()">
         <ownedComment xmi:type="uml:Comment" xmi:id="_r9I9AJtjEeqak65IHM59Og" annotatedElement="_YLh7oKp1Eeq79O9YIQX3tA">
