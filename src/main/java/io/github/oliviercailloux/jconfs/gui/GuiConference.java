@@ -10,7 +10,7 @@ import java.net.URL;
 import java.nio.channels.IllegalSelectorException;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -330,8 +330,8 @@ public class GuiConference {
 		start = dateFormat(dateStart);
 		end = dateFormat(dateEnd);
 		ConferenceBuilder theBuild = new ConferenceBuilder();
-		conf = theBuild.setUrl(url).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant())
+		conf = theBuild.setUrl(url).setTitle(title).setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant())
 				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
 
 		if (name.equals("generateOm") || name.equals("generateYs")) {
