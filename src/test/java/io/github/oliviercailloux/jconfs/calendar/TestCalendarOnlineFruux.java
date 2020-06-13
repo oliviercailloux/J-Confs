@@ -56,7 +56,7 @@ public class TestCalendarOnlineFruux {
 			assertEquals(uidSearch, conferenceFound.getUid());
 			assertEquals("Paris", conferenceFound.getCity());
 			assertEquals("France", conferenceFound.getCountry());
-			assertEquals(Instant.parse("2019-06-30T00:00:00Z"), conferenceFound.getStartDate());
+			assertEquals(Instant.parse("2019-07-01T00:00:00Z"), conferenceFound.getStartDate());
 			assertEquals(1, conferenceFound.getFeeRegistration().get());
 		} else {
 			fail(new NullPointerException());
