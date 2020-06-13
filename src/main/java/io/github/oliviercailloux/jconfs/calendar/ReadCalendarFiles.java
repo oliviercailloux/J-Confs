@@ -111,7 +111,7 @@ public class ReadCalendarFiles {
 				throw new IllegalArgumentException("Date impossible to put in the conference", e);
 			}
 			ConferenceBuilder theBuild = new ConferenceBuilder();
-			conf = theBuild.setUid(new RandomUidGenerator().generateUid().getValue()).setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration+"").setCity(city).setCountry(country).build();
+			conf = theBuild.setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
 
 		}
 		return conf;

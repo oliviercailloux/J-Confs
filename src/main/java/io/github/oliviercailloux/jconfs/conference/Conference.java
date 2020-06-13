@@ -26,9 +26,9 @@ public final class Conference {
 	private String title;
 	private Instant startDate;
 	private Instant endDate;
-	private Optional<String> registrationFee;
-	private Optional<String> country;
-	private Optional<String> city;
+	private Optional<Integer> registrationFee;
+	private String country;
+	private String city;
 
 	/**
 	 * This is a constructor which initializes the conference object
@@ -45,8 +45,8 @@ public final class Conference {
 	private Conference() {
 		this.url=Optional.empty();
 		this.registrationFee=Optional.empty();
-		this.country=Optional.empty();
-		this.city=Optional.empty();
+		this.country="";
+		this.city="";
 	}
 
 	/**
@@ -90,7 +90,7 @@ public final class Conference {
 	 * 
 	 * @return registrationFee
 	 */
-	public Optional<String> getFeeRegistration() {
+	public Optional<Integer> getFeeRegistration() {
 		return registrationFee;
 	}
 
@@ -99,7 +99,7 @@ public final class Conference {
 	 * 
 	 * @return country
 	 */
-	public Optional<String> getCountry() {
+	public String getCountry() {
 		return country;
 	}
 
@@ -108,7 +108,7 @@ public final class Conference {
 	 * 
 	 * @return city
 	 */
-	public Optional<String> getCity() {
+	public String getCity() {
 		return city;
 	}
 
@@ -189,18 +189,18 @@ public final class Conference {
             return this;
         }
         
-        public ConferenceBuilder setRegistrationFee(String registrationFee) {
+        public ConferenceBuilder setRegistrationFee(Integer registrationFee) {
             this.conferenceToBuild.registrationFee = Optional.ofNullable(registrationFee);
             return this;
         }
         
         public ConferenceBuilder setCountry(String country) {
-            this.conferenceToBuild.country = Optional.ofNullable(country);
+            this.conferenceToBuild.country = Strings.emptyToNull(country);
             return this;
         }
         
         public ConferenceBuilder setCity(String city) {
-            this.conferenceToBuild.city = Optional.ofNullable(city);
+            this.conferenceToBuild.city = Strings.emptyToNull(city);
             return this;
         }
         
