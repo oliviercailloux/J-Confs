@@ -109,7 +109,7 @@ public class TestCalendarOnlineNextcloud {
 				conference.getCity() + "," + conference.getCountry());
 		assertEquals(conferenceVEvent.getProperty(Property.UID).getValue(), conference.getUid());
 		assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),
-				"Fee:" + conference.getFeeRegistration());
+				"Fee:" + conference.getFeeRegistration().get());
 	}
 
 	@Test

@@ -141,7 +141,7 @@ public class CalendarOnline {
 			}
 			propertyListVevent.add(name);
 			if (conferenceEdited.getFeeRegistration().isPresent()) {
-				description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
+				description = new Description("Fee:" + conferenceEdited.getFeeRegistration().get());
 				propertyListVevent.add(description);
 			}
 			if (!((conferenceEdited.getCity().isEmpty()) && (conferenceEdited.getCity().isEmpty()))) {
@@ -165,7 +165,7 @@ public class CalendarOnline {
 				propertyListVevent.add(location);
 			}
 			if (conferenceEdited.getFeeRegistration().isPresent()) {
-				description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
+				description = new Description("Fee:" + conferenceEdited.getFeeRegistration().get());
 				propertyListVevent.add(description);
 			}
 			if (conferenceEdited.getUrl().isPresent()) {
