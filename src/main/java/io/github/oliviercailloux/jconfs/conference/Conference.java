@@ -20,7 +20,7 @@ import net.fortuna.ical4j.model.property.Url;
  * @author huong,camille This class is immutable.
  *
  */
-public final class Conference {
+public class Conference {
 	private Optional<URL> url;
 	private String uid;
 	private String title;
