@@ -21,7 +21,7 @@ import com.locationiq.client.model.*;
 public class DistanceDuration {
 	private int duration;
 	private int distance;
-	private String steps;
+	private List<DirectionsDirectionsRoutes> steps;
 	private Address addressDeparture;
 	private Address addressArrival;
 
@@ -40,7 +40,6 @@ public class DistanceDuration {
 	private DistanceDuration(Address dep, Address arriv) {
 		this.duration = 0;
 		this.distance = 0;
-		this.steps = "";
 		this.addressDeparture = dep;
 		this.addressArrival = arriv;
 	}
@@ -86,7 +85,7 @@ public class DistanceDuration {
 	 * 
 	 * @return steps
 	 */
-	public String getSteps() {
+	public List<DirectionsDirectionsRoutes> getSteps() {
 		return this.steps;
 	}
 
@@ -111,12 +110,11 @@ public class DistanceDuration {
 				null, null, null, null, "true", null, null, "simplified", null);
 		List<DirectionsDirectionsRoutes> routes = response.getRoutes();
 		Iterator<DirectionsDirectionsRoutes> ite = routes.iterator();
+		this.steps = List.copyOf(routes);
 		while (ite.hasNext()) {
 			DirectionsDirectionsRoutes oneDirection = ite.next();
 			this.distance = this.distance + oneDirection.getDistance().intValue();
 			this.duration = this.duration + oneDirection.getDuration().intValue();
-			this.steps = this.steps + oneDirection.toString();
-
 		}
 
 	}
