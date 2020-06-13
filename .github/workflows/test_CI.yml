@@ -31,4 +31,4 @@ jobs:
       # STEP 3
       # We don't use a specific action but just a command which will be run on Ubuntu
       - name: Verify maven
-        run: mvn -B -e -X test --file pom.xml
+        run: mvn -B -e test --file pom.xml
