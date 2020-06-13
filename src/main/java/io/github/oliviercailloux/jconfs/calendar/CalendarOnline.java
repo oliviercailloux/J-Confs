@@ -123,27 +123,35 @@ public class CalendarOnline {
 	 */
 	public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException, ParseException {
 		VEvent vEventConference;
-		Property urlz = new Url(conferenceEdited.getUrl().get().toURI());
-		Property location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
-		Property description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
-		Property name = new Summary(conferenceEdited.getTitle());
-		Property startDate = new DtStart(new Date(conferenceEdited.getStartDate().toString().substring(0, 4)+conferenceEdited.getStartDate().toString().substring(5, 7)+conferenceEdited.getStartDate().toString().substring(8, 10)));
-		Property endDate = new DtEnd(new Date(conferenceEdited.getEndDate().toString().substring(0, 4)+conferenceEdited.getEndDate().toString().substring(5, 7)+conferenceEdited.getEndDate().toString().substring(8, 10)));
-		Property uid = new Uid(conferenceEdited.getUid().toLowerCase());
+		Property urlz, location, description, uid, name, startDate, endDate, sequence, created, dtstamp, lastModified;
+		location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
+		name = new Summary(conferenceEdited.getTitle());
+		startDate = new DtStart(new Date(java.util.Date.from(conferenceEdited.getStartDate())));
+		endDate = new DtEnd(new Date(java.util.Date.from(conferenceEdited.getEndDate())));
+		uid = new Uid(conferenceEdited.getUid().toLowerCase());
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
-		Property sequence = new Sequence(2);
-		Property created = new Created();
-		Property dtstamp = new DtStamp();
-		Property lastModified = new LastModified();
-		if(this.connector.url.contains("fruux")) {
-			propertyListVevent.add(urlz);
+		sequence = new Sequence(2);
+		created = new Created();
+		dtstamp = new DtStamp();
+		lastModified = new LastModified();
+		if (this.connector.url.contains("fruux")) {
+			if (conferenceEdited.getUrl().isPresent()) {
+				urlz = new Url(conferenceEdited.getUrl().get().toURI());
+				propertyListVevent.add(urlz);
+			}
 			propertyListVevent.add(name);
-			propertyListVevent.add(description);
-			propertyListVevent.add(location);
+			if (conferenceEdited.getFeeRegistration().isPresent()) {
+				description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
+				propertyListVevent.add(description);
+			}
+			if (!((conferenceEdited.getCity().isEmpty()) && (conferenceEdited.getCity().isEmpty()))) {
+				location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
+				propertyListVevent.add(location);
+			}
 			propertyListVevent.add(startDate);
 			propertyListVevent.add(endDate);
 			propertyListVevent.add(uid);
-		}else {
+		} else {
 			propertyListVevent.add(created);
 			propertyListVevent.add(dtstamp);
 			propertyListVevent.add(lastModified);
@@ -152,10 +160,18 @@ public class CalendarOnline {
 			propertyListVevent.add(startDate);
 			propertyListVevent.add(endDate);
 			propertyListVevent.add(name);
-			propertyListVevent.add(location);
-			propertyListVevent.add(description);
-			propertyListVevent.add(urlz);
-
+			if (!((conferenceEdited.getCity().isEmpty()) && (conferenceEdited.getCity().isEmpty()))) {
+				location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
+				propertyListVevent.add(location);
+			}
+			if (conferenceEdited.getFeeRegistration().isPresent()) {
+				description = new Description("Fee:" + conferenceEdited.getFeeRegistration());
+				propertyListVevent.add(description);
+			}
+			if (conferenceEdited.getUrl().isPresent()) {
+				urlz = new Url(conferenceEdited.getUrl().get().toURI());
+				propertyListVevent.add(urlz);
+			}
 		}
 		vEventConference = new VEvent(propertyListVevent);
 

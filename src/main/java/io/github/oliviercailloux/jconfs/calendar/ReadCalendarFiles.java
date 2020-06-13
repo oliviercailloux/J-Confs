@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
@@ -71,7 +72,8 @@ public class ReadCalendarFiles {
 
 	/**
 	 * Creates conference from ics file, function inspired by function
-	 * readCalendarFile
+	 * readCalendarFile. You cannot setup hours. It is by default the start of the
+	 * day from UTC location.
 	 * 
 	 * @param filepath
 	 * @return
@@ -111,7 +113,7 @@ public class ReadCalendarFiles {
 				throw new IllegalArgumentException("Date impossible to put in the conference", e);
 			}
 			ConferenceBuilder theBuild = new ConferenceBuilder();
-			conf = theBuild.setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
+			conf = theBuild.setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant()).setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
 
 		}
 		return conf;
