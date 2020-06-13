@@ -64,7 +64,7 @@ public class ConferenceReader {
 		URL confURL;
 		String[] location;
 		String[] description;
-		String feeRegistration = null;
+		Double feeRegistration = null;
 
 		try {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
@@ -76,17 +76,16 @@ public class ConferenceReader {
 		description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
 		for (String ele : description) {
 			if (ele.contains("Fee")) {
-				feeRegistration = ele.substring(ele.indexOf(":") + 1);
-				feeRegistration = feeRegistration.replace(" ", "");
+				feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
 			}
 		}
-		
+
 		String title = confCompo.getProperty("SUMMARY").getValue();
 		String city = location[0];
 		String country = location[1];
 		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
-		String uid = confCompo.getProperty("UID").getValue();		
+		String uid = confCompo.getProperty("UID").getValue();
 		LocalDate start = null;
 		LocalDate end = null;
 
@@ -98,8 +97,10 @@ public class ConferenceReader {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
 		ConferenceBuilder theBuild = new ConferenceBuilder();
-		conf = theBuild.setUid(uid).setUrl(confURL).setTitle(title).setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant()).setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(feeRegistration+"").setCity(city).setCountry(country).build();
-
+		conf = theBuild.setUid(uid).setUrl(confURL).setTitle(title)
+				.setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant())
+				.setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant())
+				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
 
 		return conf;
 	}
