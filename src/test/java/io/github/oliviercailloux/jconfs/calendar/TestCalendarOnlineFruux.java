@@ -38,6 +38,8 @@ import net.fortuna.ical4j.util.RandomUidGenerator;
  */
 
 public class TestCalendarOnlineFruux {
+	
+	static String uidpr = new RandomUidGenerator().generateUid().getValue();
 
 	@Test
 	public void testGetOnlineConferenceFromUid() throws Exception {
@@ -119,7 +121,6 @@ public class TestCalendarOnlineFruux {
 				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		LocalDate start_ = null;
 		LocalDate end_ = null;
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee34";
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			start_ = LocalDate.parse("06/08/2019", formatter);
@@ -129,13 +130,13 @@ public class TestCalendarOnlineFruux {
 		}
 
 		ConferenceBuilder theBuild = new ConferenceBuilder();
-		Conference conference = theBuild.setUid(uid).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
+		Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
 				.setStartDate(start_.atStartOfDay(ZoneOffset.UTC).toInstant())
 				.setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136)
 				.setCity("Paris").setCountry("France").build();
 
 		instanceCalendarOnline.addOnlineConference(conference);
-		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uid);
+		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);
 		if (!confTest.isPresent()) {
 			fail();
 		}
@@ -143,12 +144,11 @@ public class TestCalendarOnlineFruux {
 
 	@Test
 	public void testDelete() throws Exception {
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee34";
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
 				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
-		instanceCalendarOnline.deleteOnlineConference(uid);
+		instanceCalendarOnline.deleteOnlineConference(uidpr);
 		System.out.println(instanceCalendarOnline.getOnlineConferences());
-		if (instanceCalendarOnline.getConferenceFromUid(uid).isPresent()) {
+		if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
 			fail();
 		}
 	}

@@ -30,6 +30,7 @@ import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStart;
+import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
  * @author machria & sbourg Unit tests for connect to a calendar on Nextcloud
@@ -37,6 +38,7 @@ import net.fortuna.ical4j.model.property.DtStart;
  */
 
 public class TestCalendarOnlineNextcloud {
+	static String uidpr = new RandomUidGenerator().generateUid().getValue();
 
 	@Test
 	public void testGetOnlineConferenceFromUid() throws Exception {
@@ -118,7 +120,6 @@ public class TestCalendarOnlineNextcloud {
 				"sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
 		LocalDate start = null;
 		LocalDate end = null;
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			start = LocalDate.parse("06/08/2019", formatter);
@@ -128,24 +129,23 @@ public class TestCalendarOnlineNextcloud {
 		}
 
 		ConferenceBuilder theBuild = new ConferenceBuilder();
-		Conference conference = theBuild.setUid(uid).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
+		Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
 				.setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant())
 				.setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(136)
 				.setCity("Paris").setCountry("France").build();
 
 		instanceCalendarOnline.addOnlineConference(conference);
-		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uid);
+		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);
 		assertTrue(confTest.isPresent());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
 				"sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
-		instanceCalendarOnline.deleteOnlineConference(uid);
+		instanceCalendarOnline.deleteOnlineConference(uidpr);
 		System.out.println(instanceCalendarOnline.getOnlineConferences());
-		if (instanceCalendarOnline.getConferenceFromUid(uid).isPresent()) {
+		if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
 			fail();
 		}
 	}
