@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -18,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
-import org.threeten.bp.Instant;
 
 import com.github.caldav4j.exceptions.CalDAV4JException;
 
@@ -131,8 +131,8 @@ public class TestCalendarOnlineNextcloud {
 
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
-				.setStartDate(start.atStartOfDay(ZoneId.systemDefault()).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneId.systemDefault()).toInstant()).setRegistrationFee(136)
+				.setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136)
 				.setCity("Paris").setCountry("France").build();
 
 		instanceCalendarOnline.addOnlineConference(conference);
