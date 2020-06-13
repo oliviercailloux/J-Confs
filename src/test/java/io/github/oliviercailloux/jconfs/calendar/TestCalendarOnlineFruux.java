@@ -54,7 +54,7 @@ public class TestCalendarOnlineFruux {
 			assertEquals("Paris", conferenceFound.getCity());
 			assertEquals("France", conferenceFound.getCountry());
 			assertEquals("2019-07-01", conferenceFound.getStartDate().toString().substring(0, 10));
-			assertEquals("1.36", conferenceFound.getFeeRegistration().get());
+			assertEquals("1", conferenceFound.getFeeRegistration().get());
 		} else {
 			fail(new NullPointerException());
 		}
@@ -143,7 +143,7 @@ public class TestCalendarOnlineFruux {
 
 	@Test
 	public void testDelete() throws Exception {
-		String uid = "685f1f53-bece-4070-8456-7a1431224252";
+		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee34";
 		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
 				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		instanceCalendarOnline.deleteOnlineConference(uid);
