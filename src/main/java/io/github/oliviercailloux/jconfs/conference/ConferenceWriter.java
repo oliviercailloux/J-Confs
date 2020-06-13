@@ -95,7 +95,7 @@ public class ConferenceWriter {
 	 * @throws ParserException
 	 * @throws ValidationException
 	 * @throws URISyntaxException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	public static void addConference(String calFile, Conference conference)
 			throws IOException, ParserException, ValidationException, URISyntaxException, ParseException {
@@ -106,25 +106,26 @@ public class ConferenceWriter {
 		calendar = openCalendar(calFile);
 
 		// Creating an event
-				PropertyList<Property> propertyList = new PropertyList<>();
+		PropertyList<Property> propertyList = new PropertyList<>();
 
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-				propertyList.add(new DtStart(formatter.format(conference.getStartDate())));
-				propertyList.add(new DtEnd(formatter.format(conference.getStartDate())));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		propertyList.add(new DtStart(formatter.format(conference.getStartDate())));
+		propertyList.add(new DtEnd(formatter.format(conference.getStartDate())));
 
-				propertyList.add(new Summary(conference.getTitle()));
-				propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
-				propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
-				if(conference.getUrl().isPresent())
-					propertyList.add(new Url(conference.getUrl().get().toURI()));
-				propertyList.add(new Description(conference.getFeeRegistration().toString()));
+		propertyList.add(new Summary(conference.getTitle()));
+		propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
+		propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
+		if (conference.getUrl().isPresent())
+			propertyList.add(new Url(conference.getUrl().get().toURI()));
+		if (conference.getFeeRegistration().isPresent())
+			propertyList.add(new Description(conference.getFeeRegistration().get().toString()));
 
-				XComponent meeting = new XComponent("CONFERENCE", propertyList);
-				// add event to the calendar
-				calendar.getComponents().add(meeting);
+		XComponent meeting = new XComponent("CONFERENCE", propertyList);
+		// add event to the calendar
+		calendar.getComponents().add(meeting);
 
-				// Saving an iCalendar file
-				saveIcsFile(calendar, calFile);
+		// Saving an iCalendar file
+		saveIcsFile(calendar, calFile);
 	}
 
 	/**
