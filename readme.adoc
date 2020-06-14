@@ -13,7 +13,7 @@ image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["
 
 
 |1|20th April, 2020 |13 h | Team 1 : Kieffer Floryan & Hamouni Anis + Team 2 : Achria Majid & Bourg Sébastien | Zouari
-|2 & 3|14th June, 2020 |  14 h |  Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Zouari Anis |Hamouni     
+|2 & 3|14th June, 2020 |  22 h |  Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Zouari Anis |Hamouni     
 
 |===================================================================================================================================
 
