@@ -13,7 +13,7 @@ image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["
 
 
 |1|20th April, 2020 |13 h | Team 1 : Kieffer Floryan & Hamouni Anis + Team 2 : Achria Majid & Bourg Sébastien | Zouari
-|3|14th June, 2020 |  14 h |  Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Zouari Anis |Hamouni     
+|2 & 3|14th June, 2020 |  14 h |  Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Zouari Anis |Hamouni     
 
 |===================================================================================================================================
 
@@ -61,7 +61,7 @@ Delivery 3
 Team 1 realisation
 ^^^^^^^^^^^^^^^^^^
 
-* rebuilt of architecture of package LocationIQ
+* Rebuilt of architecture of package LocationIQ
   - Add class *Address* that allows to store an address define as a string address, the latitude and the longitude associate.
   - Add class *AddressQuerier* that allows to translate an address into several pieces of informations.
      ** Allows to from imprecise information, to propose several addresses or a single address if the information entered is precise.
@@ -70,7 +70,7 @@ Team 1 realisation
   - Add class *DistanceDuration* that allows to calculate the distance and the duration between two
      places defined by *Address*
     ** It define the steps to go to the destination. 
-    ** The units are meter and second, and the steps are a string containing all the route indication.
+    ** The units are meter and second, and the steps are a list of DirectionsDirectionsRoutes containing all the route indication.
   - Both classes *AddressQuerier* and *DistanceDuration* contains units test 
 
 Team 2 realisation
