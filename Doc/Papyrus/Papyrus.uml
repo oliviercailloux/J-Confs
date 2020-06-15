@@ -1445,12 +1445,8 @@ Refere to CalendarOnline class and GuiListConferences class
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_hr4OsHKJEeqfTY0p-PATFQ" name="adress">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="recoveryAddressFound_methode" visibility="private"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier" concurrency="guarded"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="recoveryAddressFound" visibility="private"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_dE8gIIcfEeq1Bu2a_53vKA" name="ApiClient"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_JUaW0IfNEequSPPEfPKx9w" name="AddressQuerierBuilder">
