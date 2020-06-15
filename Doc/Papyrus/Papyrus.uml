@@ -1436,7 +1436,7 @@ Refere to CalendarOnline class and GuiListConferences class
       <packagedElement xmi:type="uml:Package" xmi:id="_rdU6oHKJEeqfTY0p-PATFQ" name="location">
         <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="AddressQuerier">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_NALFoHHOEeqiW5oWiheyZw" name="addressInformations" visibility="private" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_Y3E44IccEeq1Bu2a_53vKA" name="addressFound" visibility="private" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_PM-3QK7eEeqF57OurY6pXw" name="addressFound" visibility="private" type="_fwXKAK7eEeqF57OurY6pXw"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_1C0xIHHMEeqiW5oWiheyZw" name="connexion" visibility="public">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_nq5LIIcfEeq1Bu2a_53vKA" type="_dE8gIIcfEeq1Bu2a_53vKA" direction="return"/>
           </ownedOperation>
@@ -1445,25 +1445,12 @@ Refere to CalendarOnline class and GuiListConferences class
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_RczYAHKJEeqfTY0p-PATFQ" name="Translation">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmqgYHKJEeqfTY0p-PATFQ" name="longitude">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_lZ_fMHKJEeqfTY0p-PATFQ" name="latitude">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="Translation">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_hr4OsHKJEeqfTY0p-PATFQ" name="adress">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_7EgHUIcjEeq1Bu2a_53vKA" name="displayFoundAddress">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-TmgkIcjEeq1Bu2a_53vKA" name="selection" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_xL-GgIckEeq1Bu2a_53vKA" name="addressProposal"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_3Ec80IckEeq1Bu2a_53vKA" name="selectionAddressProposal"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="addressFound_methode"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="recoveryAddressFound_methode" visibility="private"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_dE8gIIcfEeq1Bu2a_53vKA" name="ApiClient"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_JUaW0IfNEequSPPEfPKx9w" name="AddressQuerierBuilder">
@@ -1549,6 +1536,7 @@ Refere to CalendarOnline class and GuiListConferences class
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_mX5pYK1XEeqvVcsLEHPVHw" name="List&lt;DirectionsDirectionsRoutes>"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_fwXKAK7eEeqF57OurY6pXw" name="List&lt;Address>"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Lr6kQIfOEequSPPEfPKx9w" memberEnd="_Lr7yYofOEequSPPEfPKx9w _Lr9AgofOEequSPPEfPKx9w">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lr7yYIfOEequSPPEfPKx9w" source="org.eclipse.papyrus">
