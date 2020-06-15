@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.TimeUnit;
@@ -49,11 +50,10 @@ class AddressQuerierTest {
 		AddressQuerier t = new AddressQuerier();
 		t.recoveryAddressInformations("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
-		t.recoveryAddressFound();
 		boolean test = (t.getAddressFound().size() == 2);
-		String test2 = t.getAddressFound().get(0);
+		Address test2 = t.getAddressFound().get(0);
 		assertTrue(test);
-		assertTrue(test2.contains("lat=48.87015115, lon=2.2735218497104"));
+		assertEquals(test2.getLatitude(),"48.87015115");
 	}
 
 	/**
@@ -66,8 +66,7 @@ class AddressQuerierTest {
 	public final void testBuilder() throws ApiException {
 		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
 				.addressInformations("Avenue jean rostand domont 95330").addressFound().get();
-		assertTrue(address.getAddressFound().contains(
-				"Avenue Jean Rostand, La Belle Rachée, Domont, Ile-de-France, 95330, France, lat=49.0358446, lon=2.341247"));
+		assertEquals(address.getAddressFound().get(0).getAddress(),"Avenue Jean Rostand, La Belle Rachée, Domont, Ile-de-France, 95330, France");
 
 	}
 

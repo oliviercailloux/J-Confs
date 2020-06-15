@@ -24,7 +24,7 @@ import com.locationiq.client.auth.ApiKeyAuth;
 public class AddressQuerier {
 
 	private List<String> addressInformations;
-	private List<String> addressFound;
+	private List<Address> addressFound;
 
 	/**
 	 * Private constructor
@@ -123,7 +123,7 @@ public class AddressQuerier {
 	 * @return adressFound
 	 */
 
-	public List<String> getAddressFound() {
+	public List<Address> getAddressFound() {
 		return addressFound;
 	}
 
@@ -170,6 +170,7 @@ public class AddressQuerier {
 			this.addressInformations.set(a, hash);
 		}
 		this.addressInformations = ImmutableList.copyOf(this.addressInformations);
+		this.recoveryAddressFound();
 	}
 
 	/**
@@ -179,9 +180,9 @@ public class AddressQuerier {
 	 * longitude found by autocomplete, to store them in addressFound.
 	 */
 
-	public void recoveryAddressFound() {
+	private void recoveryAddressFound() {
 
-		ArrayList<String> selection = new ArrayList<>();
+		ArrayList<Address> selection = new ArrayList<>();
 		for (int i = 0; i < this.addressInformations.size(); i++) {
 			String search1 = "display_name=";
 			String search2 = "lat=";
@@ -195,8 +196,8 @@ public class AddressQuerier {
 			int posDepLon = this.addressInformations.get(i).indexOf(search3);
 			int posArrLon = this.addressInformations.get(i).indexOf(", boundingbox=");
 			String lon = this.addressInformations.get(i).substring(posDepLon + search3.length(), posArrLon);
-			String all = address + ", lat=" + lat + ", lon=" + lon;
-			selection.add(all);
+			Address adr = Address.given(address, lat, lon);
+			selection.add(adr);
 
 		}
 		this.addressFound = selection;
