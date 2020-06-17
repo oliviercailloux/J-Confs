@@ -18,7 +18,9 @@ import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
- * @author huong,camille This class is immutable.
+ * This class is immutable. 
+ * Please note that the registrationFee is in euro cent.
+ * @author huong,camille 
  *
  */
 public class Conference {
@@ -51,42 +53,42 @@ public class Conference {
 		this.city = "";
 	}
 
-	
+
 	public Optional<URL> getUrl() {
 		return url;
 	}
 
-	
+
 	public String getTitle() {
 		return title;
 	}
 
-	
+
 	public Instant getStartDate() {
 		return startDate;
 	}
 
-	
+
 	public Instant getEndDate() {
 		return endDate;
 	}
 
-	
+
 	public Optional<Integer> getFeeRegistration() {
 		return registrationFee;
 	}
 
-	
+
 	public String getCountry() {
 		return country;
 	}
 
-	
+
 	public String getCity() {
 		return city;
 	}
 
-	
+
 	public String getUid() {
 		return this.uid;
 	}
@@ -161,21 +163,20 @@ public class Conference {
 		}
 		/**
 		 * This method makes you able to change the end date.
-		 * It will fail if the start date is not set up by sending
 		 * @throws
 		 * NullPointerException - if the parameter is null or if the conference start date has not been set up yet.
-		 * @throws
-		 * IllegalStateException - if the endDate is before the start date
 		 */
 		public ConferenceBuilder setEndDate(Instant endDate) {
 			Preconditions.checkNotNull(endDate);
-			Preconditions.checkNotNull(this.conferenceToBuild.startDate);
-			if(this.conferenceToBuild.startDate.isBefore(endDate)) {
-				this.conferenceToBuild.endDate = endDate;
-				return this;
+			if(this.conferenceToBuild.startDate==null) {
+				if(this.conferenceToBuild.startDate.isBefore(endDate)) {
+					this.conferenceToBuild.endDate = endDate;
+					return this;
+				}
+				throw new IllegalArgumentException();
 			}
-			throw new IllegalStateException();
-			
+			this.conferenceToBuild.endDate = endDate;
+			return this;
 		}
 
 		public ConferenceBuilder setRegistrationFee(Integer registrationFee) {
