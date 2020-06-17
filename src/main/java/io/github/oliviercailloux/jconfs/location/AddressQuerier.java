@@ -25,86 +25,23 @@ public class AddressQuerier {
 
 	private List<String> addressInformations;
 	private List<Address> addressFound;
+	
+	
+	public static AddressQuerier given(String address) throws ApiException {
+		return new AddressQuerier(address);
+	}
 
 	/**
 	 * Private constructor
+	 * @throws ApiException 
 	 */
 
-	public AddressQuerier() {
-		this.addressFound = new ArrayList<>();
-		this.addressInformations = new ArrayList<>();
+	private AddressQuerier(String address) throws ApiException {
+		this.addressInformations = this.recoveryAddressInformations(address);
+		this.addressFound = this.recoveryAddressFound();
 	}
 
-	/**
-	 * This class is a builder, it's allows to make the object AddressQuerier
-	 * immutable. It builds all the attributes of the class using a AddressQuerier
-	 * object.
-	 * 
-	 * @author floryan
-	 *
-	 */
-
-	public static class AddressQuerierBuilder {
-
-		private AddressQuerier addressQuerier;
-
-		/**
-		 * This method initialize state
-		 * 
-		 * @param addressQuerier
-		 */
-
-		private AddressQuerierBuilder(final AddressQuerier addressQuerier) {
-			this.addressQuerier = addressQuerier;
-		}
-
-		/**
-		 * This method start building a addressQuerier
-		 * 
-		 * @return addressQuerierBuilder
-		 */
-
-		public static AddressQuerierBuilder build() {
-			return new AddressQuerierBuilder(new AddressQuerier());
-		}
-
-		/**
-		 * Instantiate attribute addressInformations
-		 * 
-		 * @param address
-		 * @return this (current object)
-		 * @throws ApiException
-		 */
-
-		public AddressQuerierBuilder addressInformations(final String address) throws ApiException {
-			this.addressQuerier.recoveryAddressInformations(address);
-			return this;
-		}
-
-		/**
-		 * Instantiate attribute addressFound
-		 * 
-		 * @return this (current object)
-		 */
-
-		public AddressQuerierBuilder addressFound() {
-			this.addressQuerier.recoveryAddressFound();
-			return this;
-		}
-
-		/**
-		 * Return the unique object
-		 * 
-		 * @return ret
-		 */
-
-		public AddressQuerier get() {
-			final AddressQuerier ret = new AddressQuerier();
-			ret.addressFound = addressQuerier.addressFound;
-			ret.addressInformations = addressQuerier.addressInformations;
-			return ret;
-		}
-	}
+	
 
 	/**
 	 * This method return a list with a lot of informations about an address
@@ -153,7 +90,8 @@ public class AddressQuerier {
 	 * @throws ApiException
 	 */
 
-	public void recoveryAddressInformations(String address) throws ApiException {
+	public List<String> recoveryAddressInformations(String address) throws ApiException {
+		this.addressInformations = new ArrayList<>();
 		if (address == "" || address == null || address.isEmpty()) {
 			throw new IllegalArgumentException("Address error");
 		}
@@ -170,7 +108,7 @@ public class AddressQuerier {
 			this.addressInformations.set(a, hash);
 		}
 		this.addressInformations = ImmutableList.copyOf(this.addressInformations);
-		this.recoveryAddressFound();
+		return this.addressInformations;
 	}
 
 	/**
@@ -180,8 +118,8 @@ public class AddressQuerier {
 	 * longitude found by autocomplete, to store them in addressFound.
 	 */
 
-	private void recoveryAddressFound() {
-
+	private List<Address> recoveryAddressFound() {
+		this.addressFound = new ArrayList<>();
 		ArrayList<Address> selection = new ArrayList<>();
 		for (int i = 0; i < this.addressInformations.size(); i++) {
 			String search1 = "display_name=";
@@ -202,5 +140,6 @@ public class AddressQuerier {
 		}
 		this.addressFound = selection;
 		this.addressFound = ImmutableList.copyOf(this.addressFound);
+		return this.addressFound;
 	}
 }

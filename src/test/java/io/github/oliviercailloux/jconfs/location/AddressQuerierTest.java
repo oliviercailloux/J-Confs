@@ -28,10 +28,9 @@ class AddressQuerierTest {
 
 	@Test
 	public final void testRecoveryAddressInformations() throws ApiException, InterruptedException {
-		AddressQuerier t = new AddressQuerier();
+		AddressQuerier t = AddressQuerier.given("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
-		t.recoveryAddressInformations("Université paris dauphine");
-		boolean test = (t.getAddressInformations().size() == 2);
+		boolean test = (t.getAddressInformations().size() ==  2);
 		assertTrue(test);
 	}
 
@@ -47,27 +46,11 @@ class AddressQuerierTest {
 
 	@Test
 	public final void testRecoveryAddressFound() throws ApiException, InterruptedException {
-		AddressQuerier t = new AddressQuerier();
-		t.recoveryAddressInformations("Université paris dauphine");
+		AddressQuerier t =AddressQuerier.given("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
 		boolean test = (t.getAddressFound().size() == 2);
 		Address test2 = t.getAddressFound().get(0);
 		assertTrue(test);
 		assertEquals(test2.getLatitude(),"48.87015115");
 	}
-
-	/**
-	 * This method tests the builder of TranslationAddress
-	 * 
-	 * @throws LocationIq.ApiException
-	 */
-
-	@Test
-	public final void testBuilder() throws ApiException {
-		AddressQuerier address = AddressQuerier.AddressQuerierBuilder.build()
-				.addressInformations("Avenue jean rostand domont 95330").addressFound().get();
-		assertEquals(address.getAddressFound().get(0).getAddress(),"Avenue Jean Rostand, La Belle Rachée, Domont, Ile-de-France, 95330, France");
-
-	}
-
 }
