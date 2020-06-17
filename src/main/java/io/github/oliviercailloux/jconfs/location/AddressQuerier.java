@@ -26,7 +26,12 @@ public class AddressQuerier {
 	private List<String> addressInformations;
 	private List<Address> addressFound;
 	
-	
+	/**
+	 * Factory Method
+	 * @param address
+	 * @return
+	 * @throws ApiException
+	 */
 	public static AddressQuerier given(String address) throws ApiException {
 		return new AddressQuerier(address);
 	}
@@ -118,7 +123,7 @@ public class AddressQuerier {
 	 * longitude found by autocomplete, to store them in addressFound.
 	 */
 
-	private List<Address> recoveryAddressFound() {
+	public List<Address> recoveryAddressFound() {
 		this.addressFound = new ArrayList<>();
 		ArrayList<Address> selection = new ArrayList<>();
 		for (int i = 0; i < this.addressInformations.size(); i++) {
