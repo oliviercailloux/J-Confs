@@ -244,32 +244,25 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Interaction" xmi:id="_1X2u0Ga8EeqLF_m4YtUVrA" name="General view" useCase="_CsRyQGa9EeqLF_m4YtUVrA _IpIyQGa9EeqLF_m4YtUVrA _bOnfoGa9EeqLF_m4YtUVrA _ooylwGa9EeqLF_m4YtUVrA _tYoZAGa9EeqLF_m4YtUVrA _w-r5sGa9EeqLF_m4YtUVrA _zzSIQGa9EeqLF_m4YtUVrA _5GOokGa9EeqLF_m4YtUVrA _TPoaYGa-EeqLF_m4YtUVrA">
         <ownedComment xmi:type="uml:Comment" xmi:id="_2EHAgG7CEeq668Ll3Jq22Q" annotatedElement="_CsRyQGa9EeqLF_m4YtUVrA">
-          <body>Refere to &quot;Calendar&quot; use case
-Refere to ConferenceReader class and CalendarOnline class
+          <body>Refere to ConferenceReader class and CalendarOnline class
 </body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_XI4B8G7DEeq668Ll3Jq22Q" annotatedElement="_IpIyQGa9EeqLF_m4YtUVrA">
-          <body>Refere to &quot;Conference&quot; use case and &quot;Calendar&quot; uses cases.
-Refere to ConferenceWriter class and CalendarOnline class</body>
+          <body>Refere to ConferenceWriter class and CalendarOnline class</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_iwe-QG7DEeq668Ll3Jq22Q" annotatedElement="_tYoZAGa9EeqLF_m4YtUVrA">
-          <body>Refere to &quot;Document&quot; use case.
-Refere to GeneratOM class.</body>
+          <body>Refere to GeneratOM class.</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_rsX7MG7DEeq668Ll3Jq22Q" annotatedElement="_w-r5sGa9EeqLF_m4YtUVrA">
-          <body>Refere to &quot;GUI&quot; use case .
-Refere to GuiConference class.</body>
+          <body>Refere to GuiConference class.</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_2LNRkG7DEeq668Ll3Jq22Q" annotatedElement="_zzSIQGa9EeqLF_m4YtUVrA">
-          <body>Refere to &quot;Calendar&quot; use case and it used in &quot;GUI&quot; to visualized.
-Refere to CalendarOnline class and GuiListConferences class
+          <body>Refere to CalendarOnline class and GuiListConferences class
 </body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_OM9aYG7EEeq668Ll3Jq22Q" annotatedElement="_ooylwGa9EeqLF_m4YtUVrA">
-          <body>To implement with geocoding API, probably locationIQ</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_oOce4G-LEeq668Ll3Jq22Q" annotatedElement="_bOnfoGa9EeqLF_m4YtUVrA">
-          <body>Refere to ConferencesShower</body>
+          <body>Refere to Location class
+</body>
         </ownedComment>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_CsRyQGa9EeqLF_m4YtUVrA" name="Manage online conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_rJgkIGa_EeqLF_m4YtUVrA" name="ExtensionPoint1"/>
