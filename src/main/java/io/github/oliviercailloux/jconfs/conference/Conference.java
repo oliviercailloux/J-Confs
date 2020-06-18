@@ -197,7 +197,7 @@ public class Conference {
 		public ConferenceBuilder setUrl(URL url) {
 			this.conferenceToBuild.url = Optional.ofNullable(url);
 			return this;
-		}
+		} 
 
 	}
 
