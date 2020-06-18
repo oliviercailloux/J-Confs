@@ -1710,37 +1710,17 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
             </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps" type="_mX5pYK1XEeqvVcsLEHPVHw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps" type="_dZXCILFqEeqRQeKIjPjeTw"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_z2nHcJzTEeqrR-Ds61GHnw" name="translationaddressbuilder">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z2nHcZzTEeqrR-Ds61GHnw"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z2nugJzTEeqrR-Ds61GHnw" value="1"/>
             </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_6jfaALFqEeqRQeKIjPjeTw" name="trip" visibility="private" type="_DkW9kLFrEeqRQeKIjPjeTw"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="DistanceDuration">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="dep" type="_2SVN4JzREeqrR-Ds61GHnw"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arriv" type="_2SVN4JzREeqrR-Ds61GHnw"/>
             </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_Z9qGYHHnEeqziYL5_pR-NA" name="getDuration" visibility="public">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_aP0_AHHoEeqziYL5_pR-NA" direction="return">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-              </ownedParameter>
-            </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_aMZtAHHnEeqziYL5_pR-NA" name="getDistance">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fsA64HHoEeqziYL5_pR-NA" direction="return">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-              </ownedParameter>
-            </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_ae3WAHHnEeqziYL5_pR-NA" name="getSteps">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_ANheQHHpEeqziYL5_pR-NA" direction="return">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-              </ownedParameter>
-            </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="calculateDistanceDuration"/>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_5cofUJzUEeqrR-Ds61GHnw" name="getDeparture" visibility="public">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_C8iIQJzVEeqrR-Ds61GHnw" name="addressDeparture" type="_2SVN4JzREeqrR-Ds61GHnw" direction="return"/>
-            </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_IaflwJzVEeqrR-Ds61GHnw" name="getArrival">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_PYkLIJzVEeqrR-Ds61GHnw" name="addressArrival" type="_2SVN4JzREeqrR-Ds61GHnw" direction="return"/>
-            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fDB6cIdAEeq1Bu2a_53vKA" name="calculateDistanceDuration" visibility="private"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_2SVN4JzREeqrR-Ds61GHnw" name="Address">
             <ownedAttribute xmi:type="uml:Property" xmi:id="_FGoIoJzSEeqrR-Ds61GHnw" name="latitude">
@@ -1753,8 +1733,17 @@
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedAttribute>
           </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_mX5pYK1XEeqvVcsLEHPVHw" name="List&lt;DirectionsDirectionsRoutes>"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_fwXKAK7eEeqF57OurY6pXw" name="List&lt;Address>"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_O3uaILFpEeqRQeKIjPjeTw" name="Step">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_NoZDwLFqEeqRQeKIjPjeTw" name="departureAddress" type="_2SVN4JzREeqrR-Ds61GHnw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_VTXLYLFqEeqRQeKIjPjeTw" name="arrivalAddress" type="_2SVN4JzREeqrR-Ds61GHnw"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_hK1vsLFqEeqRQeKIjPjeTw" name="newStep">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_quyyMLFqEeqRQeKIjPjeTw" name="dep" type="_2SVN4JzREeqrR-Ds61GHnw"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_s6KdkLFqEeqRQeKIjPjeTw" name="arriv" type="_2SVN4JzREeqrR-Ds61GHnw"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_dZXCILFqEeqRQeKIjPjeTw" name="List&lt;Step>"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_DkW9kLFrEeqRQeKIjPjeTw" name="DirectionsDirectionsRoutes"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_OzG_kJzTEeqrR-Ds61GHnw" name="List&lt;String>"/>
       </packagedElement>
@@ -1772,8 +1761,8 @@
           <lifeline xmi:type="uml:Lifeline" xmi:id="_ANTiEIcBEeqqprbaQsRQHQ" name="DirectionApi" coveredBy="_d1iloJtiEeqak65IHM59Og _HtNnIJtjEeqak65IHM59Og _WWHGAJtqEeqak65IHM59Og _WWFQ0JtqEeqak65IHM59Og"/>
           <lifeline xmi:type="uml:Lifeline" xmi:id="_CPwiAIcBEeqqprbaQsRQHQ" name="ApiClient" coveredBy="_OYRRQJtgEeqak65IHM59Og _CaCrUIdBEeq1Bu2a_53vKA _CaDSYIdBEeq1Bu2a_53vKA _aNLScIfHEeq9eN0HH2tdWw _ObCRYJtgEeqak65IHM59Og _f4b3EIcBEeqqprbaQsRQHQ _OYbokIdEEeq1Bu2a_53vKA _OaLVwJtgEeqak65IHM59Og"/>
           <lifeline xmi:type="uml:Lifeline" xmi:id="_FGPm8IcBEeqqprbaQsRQHQ" name="DirectionsDirections" coveredBy="_HtOOMJtjEeqak65IHM59Og _-z-qsJtkEeqak65IHM59Og _2Tf3YJtkEeqak65IHM59Og _2TepQJtkEeqak65IHM59Og"/>
-          <lifeline xmi:type="uml:Lifeline" xmi:id="_UEDqEIcBEeqqprbaQsRQHQ" name="DistanceDuration" coveredBy="_f4bQAIcBEeqqprbaQsRQHQ _JHIu0JtgEeqak65IHM59Og _JIhO4JtgEeqak65IHM59Og _eazS0J2nEeqj_I4H62nzog _tDv5MJ2nEeqj_I4H62nzog _-w7FkJ2nEeqj_I4H62nzog _--xUUp2nEeqj_I4H62nzog _d1h-kJtiEeqak65IHM59Og _TcRd0J2pEeqj_I4H62nzog _amBiQIcBEeqqprbaQsRQHQ"/>
-          <lifeline xmi:type="uml:Lifeline" xmi:id="_XhNbgIcDEeqqprbaQsRQHQ" name="DirectionsDirectionsRoutes" coveredBy="_-z_RwJtkEeqak65IHM59Og _2xMDgJtlEeqak65IHM59Og _2xMqkJtlEeqak65IHM59Og _qGu_gJwoEeqjV-JclrbTtA _qGwNoJwoEeqjV-JclrbTtA _vBtrwJwoEeqjV-JclrbTtA _vBtrwZwoEeqjV-JclrbTtA _TcQ2wJ2pEeqj_I4H62nzog _ubiAIJtlEeqak65IHM59Og"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_UEDqEIcBEeqqprbaQsRQHQ" name="DistanceDuration" coveredBy="_f4bQAIcBEeqqprbaQsRQHQ _JHIu0JtgEeqak65IHM59Og _JIhO4JtgEeqak65IHM59Og _eazS0J2nEeqj_I4H62nzog _tDv5MJ2nEeqj_I4H62nzog _-w7FkJ2nEeqj_I4H62nzog _--xUUp2nEeqj_I4H62nzog _d1h-kJtiEeqak65IHM59Og _TcRd0J2pEeqj_I4H62nzog _hvDlILFsEeqRQeKIjPjeTw _kh6uULFsEeqRQeKIjPjeTw _9HkOYLFsEeqRQeKIjPjeTw _IKTjEbFtEeqRQeKIjPjeTw _amBiQIcBEeqqprbaQsRQHQ"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_XhNbgIcDEeqqprbaQsRQHQ" name="DirectionsDirectionsRoutes" coveredBy="_-z_RwJtkEeqak65IHM59Og _TcQ2wJ2pEeqj_I4H62nzog _hvEMMLFsEeqRQeKIjPjeTw _kh6HQLFsEeqRQeKIjPjeTw _jAR8cLFsEeqRQeKIjPjeTw _jARVYLFsEeqRQeKIjPjeTw _9HkOYbFsEeqRQeKIjPjeTw _IKTjELFtEeqRQeKIjPjeTw _-WzBoLFsEeqRQeKIjPjeTw _ubiAIJtlEeqak65IHM59Og"/>
           <lifeline xmi:type="uml:Lifeline" xmi:id="_AAzHUJteEeql_8qJBgiqlQ" name="" represents="_AA0VcJteEeql_8qJBgiqlQ"/>
           <lifeline xmi:type="uml:Lifeline" xmi:id="_AA1jkJteEeql_8qJBgiqlQ" name="" represents="_AA2KoJteEeql_8qJBgiqlQ"/>
           <lifeline xmi:type="uml:Lifeline" xmi:id="_75CV0JtfEeqak65IHM59Og" name="AddressQuerier" coveredBy="_JHJV4JtgEeqak65IHM59Og _OYQqMJtgEeqak65IHM59Og _ObC4cJtgEeqak65IHM59Og _JIgn0JtgEeqak65IHM59Og _JIahMJtgEeqak65IHM59Og"/>
@@ -1815,16 +1804,19 @@
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-z_RwJtkEeqak65IHM59Og" name="Message62ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_-z9ckJtkEeqak65IHM59Og"/>
           <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_ubiAIJtlEeqak65IHM59Og" name="BehaviorExecutionSpecification66" covered="_XhNbgIcDEeqqprbaQsRQHQ" finish="_TcQ2wJ2pEeqj_I4H62nzog" start="_-z_RwJtkEeqak65IHM59Og"/>
           <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_2Tf3YJtkEeqak65IHM59Og" name="BehaviorExecutionSpecification60Finish" covered="_FGPm8IcBEeqqprbaQsRQHQ" execution="_2TepQJtkEeqak65IHM59Og"/>
-          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2xMDgJtlEeqak65IHM59Og" name="Message68SendEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_2xK1YJtlEeqak65IHM59Og"/>
-          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_2xMqkJtlEeqak65IHM59Og" name="Message68ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_2xK1YJtlEeqak65IHM59Og"/>
-          <fragment xmi:type="uml:CombinedFragment" xmi:id="_qGu_gJwoEeqjV-JclrbTtA" name="CombinedFragment71" covered="_XhNbgIcDEeqqprbaQsRQHQ" interactionOperator="loop">
-            <operand xmi:type="uml:InteractionOperand" xmi:id="_qGwNoJwoEeqjV-JclrbTtA" name="InteractionOperand0" covered="_XhNbgIcDEeqqprbaQsRQHQ">
-              <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vBtrwJwoEeqjV-JclrbTtA" name="Message72SendEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_vBozQJwoEeqjV-JclrbTtA"/>
-              <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_vBtrwZwoEeqjV-JclrbTtA" name="Message72ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_vBozQJwoEeqjV-JclrbTtA"/>
-            </operand>
-          </fragment>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TcQ2wJ2pEeqj_I4H62nzog" name="Message73SendEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_TcPooJ2pEeqj_I4H62nzog"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_TcRd0J2pEeqj_I4H62nzog" name="Message73ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_TcPooJ2pEeqj_I4H62nzog"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_hvDlILFsEeqRQeKIjPjeTw" name="Message70SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_hvCXALFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_hvEMMLFsEeqRQeKIjPjeTw" name="Message70ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_hvCXALFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_jARVYLFsEeqRQeKIjPjeTw" name="BehaviorExecutionSpecification73" covered="_XhNbgIcDEeqqprbaQsRQHQ" finish="_jAR8cLFsEeqRQeKIjPjeTw" start="_hvEMMLFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kh6HQLFsEeqRQeKIjPjeTw" name="Message75SendEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_kh45ILFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_jAR8cLFsEeqRQeKIjPjeTw" name="BehaviorExecutionSpecification73Finish" covered="_XhNbgIcDEeqqprbaQsRQHQ" execution="_jARVYLFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_kh6uULFsEeqRQeKIjPjeTw" name="Message75ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_kh45ILFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_9HkOYLFsEeqRQeKIjPjeTw" name="Message78SendEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_9HjnULFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_9HkOYbFsEeqRQeKIjPjeTw" name="Message78ReceiveEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_9HjnULFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_-WzBoLFsEeqRQeKIjPjeTw" name="BehaviorExecutionSpecification81" covered="_XhNbgIcDEeqqprbaQsRQHQ" finish="_IKTjELFtEeqRQeKIjPjeTw" start="_9HkOYbFsEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IKTjELFtEeqRQeKIjPjeTw" name="Message83SendEvent" covered="_XhNbgIcDEeqqprbaQsRQHQ" message="_IKS8ALFtEeqRQeKIjPjeTw"/>
+          <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IKTjEbFtEeqRQeKIjPjeTw" name="Message83ReceiveEvent" covered="_UEDqEIcBEeqqprbaQsRQHQ" message="_IKS8ALFtEeqRQeKIjPjeTw"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_f4b3EIcBEeqqprbaQsRQHQ" name="Message8ReceiveEvent" covered="_CPwiAIcBEeqqprbaQsRQHQ"/>
           <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_OYbBgIdEEeq1Bu2a_53vKA"/>
           <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_OYbokIdEEeq1Bu2a_53vKA" covered="_CPwiAIcBEeqqprbaQsRQHQ"/>
@@ -1836,14 +1828,16 @@
           <message xmi:type="uml:Message" xmi:id="_ObBDQJtgEeqak65IHM59Og" name="defaultClient : ApiClient" messageSort="reply" receiveEvent="_ObC4cJtgEeqak65IHM59Og" sendEvent="_ObCRYJtgEeqak65IHM59Og"/>
           <message xmi:type="uml:Message" xmi:id="_d1hXgJtiEeqak65IHM59Og" name="new DirectionsApi(defaultClient)" receiveEvent="_d1iloJtiEeqak65IHM59Og" sendEvent="_d1h-kJtiEeqak65IHM59Og"/>
           <message xmi:type="uml:Message" xmi:id="_HtMZAJtjEeqak65IHM59Og" name="directions(latLonAddressDeparture + &quot;;&quot; + latLonAddressArrival, &quot;true&quot;, &quot;simplified&quot;)" receiveEvent="_HtOOMJtjEeqak65IHM59Og" sendEvent="_HtNnIJtjEeqak65IHM59Og"/>
-          <message xmi:type="uml:Message" xmi:id="_-z9ckJtkEeqak65IHM59Og" name="getRoutes() : routes" receiveEvent="_-z_RwJtkEeqak65IHM59Og" sendEvent="_-z-qsJtkEeqak65IHM59Og"/>
-          <message xmi:type="uml:Message" xmi:id="_2xK1YJtlEeqak65IHM59Og" name="routes.iterator() : ite" receiveEvent="_2xMqkJtlEeqak65IHM59Og" sendEvent="_2xMDgJtlEeqak65IHM59Og"/>
-          <message xmi:type="uml:Message" xmi:id="_vBozQJwoEeqjV-JclrbTtA" name="increment distance and duration" receiveEvent="_vBtrwZwoEeqjV-JclrbTtA" sendEvent="_vBtrwJwoEeqjV-JclrbTtA"/>
+          <message xmi:type="uml:Message" xmi:id="_-z9ckJtkEeqak65IHM59Og" name="getRoutes()" receiveEvent="_-z_RwJtkEeqak65IHM59Og" sendEvent="_-z-qsJtkEeqak65IHM59Og"/>
           <message xmi:type="uml:Message" xmi:id="_eawPgJ2nEeqj_I4H62nzog" name="addressDeparture.getLongitude() + addressDeparture.getLatitude()" receiveEvent="_ea3kQJ2nEeqj_I4H62nzog" sendEvent="_eazS0J2nEeqj_I4H62nzog"/>
           <message xmi:type="uml:Message" xmi:id="_tDuEAJ2nEeqj_I4H62nzog" name="latLonAddressDeparture : String" messageSort="reply" receiveEvent="_tDv5MJ2nEeqj_I4H62nzog" sendEvent="_tDvSIJ2nEeqj_I4H62nzog"/>
           <message xmi:type="uml:Message" xmi:id="_-w6egJ2nEeqj_I4H62nzog" name="addressArrival.getLongitude() + addressArrival.getLatitude()" receiveEvent="_-w7soJ2nEeqj_I4H62nzog" sendEvent="_-w7FkJ2nEeqj_I4H62nzog"/>
           <message xmi:type="uml:Message" xmi:id="_--xUUJ2nEeqj_I4H62nzog" name="latLonAddressArrival : String" messageSort="reply" receiveEvent="_--xUUp2nEeqj_I4H62nzog" sendEvent="_--xUUZ2nEeqj_I4H62nzog"/>
-          <message xmi:type="uml:Message" xmi:id="_TcPooJ2pEeqj_I4H62nzog" name="distance and duration of type int and steps equals to the routes list" messageSort="reply" receiveEvent="_TcRd0J2pEeqj_I4H62nzog" sendEvent="_TcQ2wJ2pEeqj_I4H62nzog"/>
+          <message xmi:type="uml:Message" xmi:id="_TcPooJ2pEeqj_I4H62nzog" name="trip : DirectionsDirectionsRoutes" messageSort="reply" receiveEvent="_TcRd0J2pEeqj_I4H62nzog" sendEvent="_TcQ2wJ2pEeqj_I4H62nzog"/>
+          <message xmi:type="uml:Message" xmi:id="_hvCXALFsEeqRQeKIjPjeTw" name="trip.getDistance().intValue()" receiveEvent="_hvEMMLFsEeqRQeKIjPjeTw" sendEvent="_hvDlILFsEeqRQeKIjPjeTw"/>
+          <message xmi:type="uml:Message" xmi:id="_kh45ILFsEeqRQeKIjPjeTw" name="distance : int" messageSort="reply" receiveEvent="_kh6uULFsEeqRQeKIjPjeTw" sendEvent="_kh6HQLFsEeqRQeKIjPjeTw"/>
+          <message xmi:type="uml:Message" xmi:id="_9HjnULFsEeqRQeKIjPjeTw" name="trip.getDuration().intValue()" receiveEvent="_9HkOYbFsEeqRQeKIjPjeTw" sendEvent="_9HkOYLFsEeqRQeKIjPjeTw"/>
+          <message xmi:type="uml:Message" xmi:id="_IKS8ALFtEeqRQeKIjPjeTw" name="duration : int" messageSort="reply" receiveEvent="_IKTjEbFtEeqRQeKIjPjeTw" sendEvent="_IKTjELFtEeqRQeKIjPjeTw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Interaction" xmi:id="_44BLwIeeEequSPPEfPKx9w" name="AddressQuerier : recoveryAddressInformations()">
           <ownedComment xmi:type="uml:Comment" xmi:id="_r9I9AJtjEeqak65IHM59Og" annotatedElement="_YLh7oKp1Eeq79O9YIQX3tA">
