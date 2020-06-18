@@ -139,42 +139,48 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_69vIMG-OEeq668Ll3Jq22Q" name="Elements of Map use case">
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_qCyP0GbDEeqLF_m4YtUVrA" name="Map" useCase="_sNHZYGbDEeqLF_m4YtUVrA _yTtkMGbDEeqLF_m4YtUVrA _z3UE8GbDEeqLF_m4YtUVrA _1goMIGbDEeqLF_m4YtUVrA _1lA84GbDEeqLF_m4YtUVrA _1pJO8GbDEeqLF_m4YtUVrA _1tKMQGbDEeqLF_m4YtUVrA _1xXW0GbDEeqLF_m4YtUVrA _S4JgYIYsEequSPPEfPKx9w">
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_sNHZYGbDEeqLF_m4YtUVrA" name="Download a file and put it in ressources folder" subject="_qCyP0GbDEeqLF_m4YtUVrA">
-          <extend xmi:type="uml:Extend" xmi:id="_scNwgIYsEequSPPEfPKx9w" extendedCase="_S4JgYIYsEequSPPEfPKx9w" extensionLocation="_scOXkIYsEequSPPEfPKx9w"/>
-        </ownedUseCase>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_qCyP0GbDEeqLF_m4YtUVrA" name="Map" useCase="_yTtkMGbDEeqLF_m4YtUVrA _z3UE8GbDEeqLF_m4YtUVrA _1goMIGbDEeqLF_m4YtUVrA _1lA84GbDEeqLF_m4YtUVrA _S4JgYIYsEequSPPEfPKx9w">
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_yTtkMGbDEeqLF_m4YtUVrA" name="Define a path step" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_z3UE8GbDEeqLF_m4YtUVrA" name="Define arrival point" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_1goMIGbDEeqLF_m4YtUVrA" name="Define starting point" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_1lA84GbDEeqLF_m4YtUVrA" name="Define transport type" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_1pJO8GbDEeqLF_m4YtUVrA" name="Set longitude" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_1tKMQGbDEeqLF_m4YtUVrA" name="Set point name" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_1xXW0GbDEeqLF_m4YtUVrA" name="Set lattitude" subject="_qCyP0GbDEeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_S4JgYIYsEequSPPEfPKx9w" name="Generate a map with the place of a conference" subject="_qCyP0GbDEeqLF_m4YtUVrA">
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_i5xJ4IYsEequSPPEfPKx9w" name="ExtensionPoint1"/>
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_scOXkIYsEequSPPEfPKx9w" name="ExtensionPoint2"/>
         </ownedUseCase>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_JAISYIYsEequSPPEfPKx9w" name="" type="_sNHZYGbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JAISYIYsEequSPPEfPKx9w" name=""/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JAVtwYYsEequSPPEfPKx9w" name=""/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JAjJIYYsEequSPPEfPKx9w" name="" type="_yTtkMGbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JAv9cIYsEequSPPEfPKx9w" name="" type="_z3UE8GbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JA8xwYYsEequSPPEfPKx9w" name="" type="_1goMIGbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JBJmEIYsEequSPPEfPKx9w" name="" type="_1lA84GbDEeqLF_m4YtUVrA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_JBWaYYYsEequSPPEfPKx9w" name="" type="_1pJO8GbDEeqLF_m4YtUVrA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_JBj1wIYsEequSPPEfPKx9w" name="" type="_1tKMQGbDEeqLF_m4YtUVrA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_JBwqEYYsEequSPPEfPKx9w" name="" type="_1xXW0GbDEeqLF_m4YtUVrA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_KbMiMIYsEequSPPEfPKx9w" name="" type="_1tKMQGbDEeqLF_m4YtUVrA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_LNXmAYYsEequSPPEfPKx9w" name="" type="_1pJO8GbDEeqLF_m4YtUVrA"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_L1TIsYYsEequSPPEfPKx9w" name="" type="_1xXW0GbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JBWaYYYsEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JBj1wIYsEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JBwqEYYsEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_KbMiMIYsEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_LNXmAYYsEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_L1TIsYYsEequSPPEfPKx9w" name=""/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_MdX1UIYsEequSPPEfPKx9w" name="" type="_1lA84GbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_M80KYIYsEequSPPEfPKx9w" name="" type="_1goMIGbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_NkywYYYsEequSPPEfPKx9w" name="" type="_z3UE8GbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_OU7z4YYsEequSPPEfPKx9w" name="" type="_yTtkMGbDEeqLF_m4YtUVrA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_PPxEcIYsEequSPPEfPKx9w" name=""/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_QMqKgIYsEequSPPEfPKx9w" name="" type="_sNHZYGbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_QMqKgIYsEequSPPEfPKx9w" name=""/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_RLPSoIYsEequSPPEfPKx9w" name=""/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_TrQYUIYsEequSPPEfPKx9w" name="" type="_S4JgYIYsEequSPPEfPKx9w"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xvOiQIYsEequSPPEfPKx9w" name=""/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Pl2MwLFbEeqF57OurY6pXw" name="" type="_z3UE8GbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Qt2WobFbEeqF57OurY6pXw" name="" type="_1goMIGbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_RMFx0LFbEeqF57OurY6pXw" name="" type="_1lA84GbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_R-AW8bFbEeqF57OurY6pXw" name="" type="_yTtkMGbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UwxZgbFbEeqF57OurY6pXw" name="" type="_S4JgYIYsEequSPPEfPKx9w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_VKHGkbFbEeqF57OurY6pXw" name="" type="_S4JgYIYsEequSPPEfPKx9w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_WWUbAbFbEeqF57OurY6pXw" name="" type="_yTtkMGbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Xk2DoLFbEeqF57OurY6pXw" name="" type="_1lA84GbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_X7xV4LFbEeqF57OurY6pXw" name="" type="_1lA84GbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZMv1kbFbEeqF57OurY6pXw" name="" type="_1goMIGbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_afblcLFbEeqF57OurY6pXw" name="" type="_z3UE8GbDEeqLF_m4YtUVrA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_a3KwAbFbEeqF57OurY6pXw" name="" type="_1goMIGbDEeqLF_m4YtUVrA"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_JAHrUIYsEequSPPEfPKx9w" name="" represents="_JAISYIYsEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_JAVtwIYsEequSPPEfPKx9w" name="" represents="_JAVtwYYsEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_JAjJIIYsEequSPPEfPKx9w" name="" represents="_JAjJIYYsEequSPPEfPKx9w"/>
@@ -196,16 +202,22 @@
         <lifeline xmi:type="uml:Lifeline" xmi:id="_RLOrkIYsEequSPPEfPKx9w" name="" represents="_RLPSoIYsEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_TrPxQIYsEequSPPEfPKx9w" name="" represents="_TrQYUIYsEequSPPEfPKx9w"/>
         <lifeline xmi:type="uml:Lifeline" xmi:id="_xvN7MIYsEequSPPEfPKx9w" name="" represents="_xvOiQIYsEequSPPEfPKx9w"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Pl1lsLFbEeqF57OurY6pXw" name="" represents="_Pl2MwLFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Qt2WoLFbEeqF57OurY6pXw" name="" represents="_Qt2WobFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_RMFKwLFbEeqF57OurY6pXw" name="" represents="_RMFx0LFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_R-AW8LFbEeqF57OurY6pXw" name="" represents="_R-AW8bFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_UwxZgLFbEeqF57OurY6pXw" name="" represents="_UwxZgbFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_VKHGkLFbEeqF57OurY6pXw" name="" represents="_VKHGkbFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_WWUbALFbEeqF57OurY6pXw" name="" represents="_WWUbAbFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_Xk1ckLFbEeqF57OurY6pXw" name="" represents="_Xk2DoLFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_X7wu0LFbEeqF57OurY6pXw" name="" represents="_X7xV4LFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_ZMv1kLFbEeqF57OurY6pXw" name="" represents="_ZMv1kbFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_afa-YLFbEeqF57OurY6pXw" name="" represents="_afblcLFbEeqF57OurY6pXw"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="_a3KwALFbEeqF57OurY6pXw" name="" represents="_a3KwAbFbEeqF57OurY6pXw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Usage" xmi:id="_npXr8GbEEeqLF_m4YtUVrA" client="_yTtkMGbDEeqLF_m4YtUVrA" supplier="_z3UE8GbDEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_oSh9sGbEEeqLF_m4YtUVrA" client="_yTtkMGbDEeqLF_m4YtUVrA" supplier="_1goMIGbDEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_pJFyQGbEEeqLF_m4YtUVrA" client="_yTtkMGbDEeqLF_m4YtUVrA" supplier="_1lA84GbDEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_pwa4AGbEEeqLF_m4YtUVrA" client="_qCyP0GbDEeqLF_m4YtUVrA" supplier="_1tKMQGbDEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_xGLkoGbEEeqLF_m4YtUVrA" client="_z3UE8GbDEeqLF_m4YtUVrA" supplier="_1pJO8GbDEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_yUgY8GbEEeqLF_m4YtUVrA" client="_z3UE8GbDEeqLF_m4YtUVrA" supplier="_1xXW0GbDEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_zUTCAGbEEeqLF_m4YtUVrA" client="_1goMIGbDEeqLF_m4YtUVrA" supplier="_1tKMQGbDEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_0OCtcGbEEeqLF_m4YtUVrA" client="_1goMIGbDEeqLF_m4YtUVrA" supplier="_1pJO8GbDEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_06rxAGbEEeqLF_m4YtUVrA" client="_1goMIGbDEeqLF_m4YtUVrA" supplier="_1xXW0GbDEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_q9kBMIYsEequSPPEfPKx9w" client="_S4JgYIYsEequSPPEfPKx9w" supplier="_yTtkMGbDEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_UuFuUIYsEequSPPEfPKx9w" memberEnd="_UuG8coYsEequSPPEfPKx9w _UuG8c4YsEequSPPEfPKx9w">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UuG8cIYsEequSPPEfPKx9w" source="org.eclipse.papyrus">
@@ -443,7 +455,7 @@ Refere to CalendarOnline class and GuiListConferences class
       <packagedElement xmi:type="uml:Usage" xmi:id="_jZ1VUGcEEeqHnrw76uGf4g" client="_NJkxkGb_EeqHnrw76uGf4g" supplier="_NQvJgGb_EeqHnrw76uGf4g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_ExTUAG-PEeq668Ll3Jq22Q" name="Elements of Conference use case">
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_gkjFsGbBEeqLF_m4YtUVrA" name="Conference" useCase="_h8QfgGbBEeqLF_m4YtUVrA _jYsBQGbBEeqLF_m4YtUVrA _jryjcGbBEeqLF_m4YtUVrA _jwFNkGbBEeqLF_m4YtUVrA _j1IssGbBEeqLF_m4YtUVrA _j5sckGbBEeqLF_m4YtUVrA _j9rksGbBEeqLF_m4YtUVrA _kBtwIGbBEeqLF_m4YtUVrA _kF5skGbBEeqLF_m4YtUVrA _kJM4MGbBEeqLF_m4YtUVrA _I2QW4IbrEequSPPEfPKx9w _P8v4cIbrEequSPPEfPKx9w _j-g9oIbrEequSPPEfPKx9w _7e4JUJwjEeqN1skccDV67A">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_gkjFsGbBEeqLF_m4YtUVrA" name="Conference" useCase="_h8QfgGbBEeqLF_m4YtUVrA _jYsBQGbBEeqLF_m4YtUVrA _jryjcGbBEeqLF_m4YtUVrA _jwFNkGbBEeqLF_m4YtUVrA _j1IssGbBEeqLF_m4YtUVrA _j5sckGbBEeqLF_m4YtUVrA _j9rksGbBEeqLF_m4YtUVrA _kBtwIGbBEeqLF_m4YtUVrA _kF5skGbBEeqLF_m4YtUVrA _I2QW4IbrEequSPPEfPKx9w _P8v4cIbrEequSPPEfPKx9w _j-g9oIbrEequSPPEfPKx9w _7e4JUJwjEeqN1skccDV67A">
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_h8QfgGbBEeqLF_m4YtUVrA" name="Create a conference" subject="_gkjFsGbBEeqLF_m4YtUVrA">
           <extend xmi:type="uml:Extend" xmi:id="_EZ7_0JwkEeqN1skccDV67A" extendedCase="_7e4JUJwjEeqN1skccDV67A" extensionLocation="_EaA4UJwkEeqN1skccDV67A"/>
         </ownedUseCase>
@@ -470,7 +482,6 @@ Refere to CalendarOnline class and GuiListConferences class
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_kF5skGbBEeqLF_m4YtUVrA" name="Search by file path" subject="_gkjFsGbBEeqLF_m4YtUVrA">
           <generalization xmi:type="uml:Generalization" xmi:id="_oNQuEGbCEeqLF_m4YtUVrA" general="_jYsBQGbBEeqLF_m4YtUVrA"/>
         </ownedUseCase>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_kJM4MGbBEeqLF_m4YtUVrA" name="VEVENT component" subject="_gkjFsGbBEeqLF_m4YtUVrA"/>
         <ownedUseCase xmi:type="uml:UseCase" xmi:id="_I2QW4IbrEequSPPEfPKx9w" name="Search a researcher" subject="_gkjFsGbBEeqLF_m4YtUVrA">
           <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_V68VMIbrEequSPPEfPKx9w" name="ExtensionPoint1"/>
         </ownedUseCase>
@@ -488,7 +499,6 @@ Refere to CalendarOnline class and GuiListConferences class
       </packagedElement>
       <packagedElement xmi:type="uml:Usage" xmi:id="_lRdrUGbCEeqLF_m4YtUVrA" client="_j1IssGbBEeqLF_m4YtUVrA" supplier="_j5sckGbBEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_l7Q2QGbCEeqLF_m4YtUVrA" client="_jwFNkGbBEeqLF_m4YtUVrA" supplier="_j5sckGbBEeqLF_m4YtUVrA"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_picYUGbCEeqLF_m4YtUVrA" client="_h8QfgGbBEeqLF_m4YtUVrA" supplier="_kJM4MGbBEeqLF_m4YtUVrA"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_MtQdoIbrEequSPPEfPKx9w" client="_h8QfgGbBEeqLF_m4YtUVrA" supplier="_I2QW4IbrEequSPPEfPKx9w"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_bH0CsIbrEequSPPEfPKx9w" client="_I2QW4IbrEequSPPEfPKx9w" supplier="_P8v4cIbrEequSPPEfPKx9w"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_BMCgcJwkEeqN1skccDV67A" memberEnd="_BMDukpwkEeqN1skccDV67A _BMDuk5wkEeqN1skccDV67A">
