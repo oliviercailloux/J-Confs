@@ -1,9 +1,13 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import com.hp.hpl.jena.graph.GetTriple;
 import com.locationiq.client.ApiClient;
 import com.locationiq.client.ApiException;
 import java.math.BigDecimal;
 import com.locationiq.client.api.DirectionsApi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -21,9 +25,10 @@ import com.locationiq.client.model.*;
 public class DistanceDuration {
 	private int duration;
 	private int distance;
-	private List<DirectionsDirectionsRoutes> steps;
+	private List<Step> steps;
 	private Address addressDeparture;
 	private Address addressArrival;
+	private DirectionsDirectionsRoutes trip;
 
 	/**
 	 * 
@@ -42,14 +47,19 @@ public class DistanceDuration {
 		this.distance = 0;
 		this.addressDeparture = dep;
 		this.addressArrival = arriv;
+		this.steps = new ArrayList<>();
+		this.trip = null;
 	}
 
 	/**
 	 * Return the duration in second
 	 * 
 	 * @return duration
+	 * @throws ApiException
 	 */
-	public int getDuration() {
+	public int getDuration() throws ApiException {
+		if (trip == null)
+			calculateDistanceDuration();
 		return this.duration;
 	}
 
@@ -57,8 +67,11 @@ public class DistanceDuration {
 	 * Return the distance in meters
 	 * 
 	 * @return distance
+	 * @throws ApiException
 	 */
-	public int getDistance() {
+	public int getDistance() throws ApiException {
+		if (trip == null)
+			calculateDistanceDuration();
 		return this.distance;
 	}
 
@@ -84,39 +97,49 @@ public class DistanceDuration {
 	 * Return the steps
 	 * 
 	 * @return steps
+	 * @throws ApiException
 	 */
-	public List<DirectionsDirectionsRoutes> getSteps() {
+	public List<Step> getSteps() throws ApiException {
+		if (trip == null)
+			calculateDistanceDuration();
+		
+		String[] tabToParse = this.trip.getLegs().get(0).toString().split("location=\\[");
+		List<String> listToParse = new ArrayList<>(Arrays.asList(tabToParse));
+		listToParse.remove(0);
+		listToParse.remove(0);
+		listToParse.remove(listToParse.size()-1);
+		for(int i = 0; i<listToParse.size()-1;i++) {
+			String departureLatitude = listToParse.get(i).split("]")[0].split(",")[1];
+			String departureLongitude = listToParse.get(i).split("]")[0].split(",")[0];
+			String arrivalLatitude = listToParse.get(i+1).split("]")[0].split(",")[1];
+			String arrivalLongitude = listToParse.get(i+1).split("]")[0].split(",")[0];
+			Address departureStep = Address.given(null, departureLatitude, departureLongitude);
+			Address arrivalStep = Address.given(null, arrivalLatitude, arrivalLongitude);
+			Step oneNewStep = Step.newStep(departureStep, arrivalStep);
+			this.steps.add(oneNewStep);
+		}
 		return this.steps;
 	}
 
 	/**
 	 * This function calculates the time, the distance and the steps to move between
-	 * two address (converted to latitude and longitude using TranslationAddress
-	 * class)
+	 * two address. The API also allow to calculate this informations beetween more
+	 * than 2 address but it hasn't been implement here
 	 * 
 	 * @throws ApiException
 	 */
-	public void calculateDistanceDuration() throws ApiException {
-
-		ApiClient defaultClient = AddressQuerier.connexion();
-
+	private void calculateDistanceDuration() throws ApiException {
 		String latLonAddressDeparture = this.addressDeparture.getLongitude() + ","
 				+ this.addressDeparture.getLatitude();
 		String latLonAddressArrival = this.addressArrival.getLongitude() + "," + this.addressArrival.getLatitude();
-
+		
+		ApiClient defaultClient = AddressQuerier.connexion();
 		DirectionsApi api = new DirectionsApi(defaultClient);
-
 		DirectionsDirections response = api.directions(latLonAddressDeparture + ";" + latLonAddressArrival, null, null,
 				null, null, null, null, "true", null, null, "simplified", null);
-		List<DirectionsDirectionsRoutes> routes = response.getRoutes();
-		Iterator<DirectionsDirectionsRoutes> ite = routes.iterator();
-		this.steps = List.copyOf(routes);
-		while (ite.hasNext()) {
-			DirectionsDirectionsRoutes oneDirection = ite.next();
-			this.distance = this.distance + oneDirection.getDistance().intValue();
-			this.duration = this.duration + oneDirection.getDuration().intValue();
+		
+		this.trip = response.getRoutes().get(0);
+		this.distance = trip.getDistance().intValue();
+		this.duration = trip.getDuration().intValue();
 		}
-
-	}
-
 }

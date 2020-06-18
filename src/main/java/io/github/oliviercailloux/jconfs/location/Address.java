@@ -23,7 +23,7 @@ public class Address {
 	 * @param longitude
 	 */
 	public static Address given(String address, String latitude, String longitude) {
-		if (latitude.isEmpty() | longitude.isEmpty()) {
+		if (latitude.isEmpty() || longitude.isEmpty()) {
 			throw new IllegalArgumentException("latitude or longitude can't be empty");
 		}
 		return new Address(address, latitude, longitude);

@@ -1,5 +1,9 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,9 +32,8 @@ class DistanceDurationTests {
 		Address arrival = Address.given("15 Avenue du général de gaulle, 92800 puteaux", "48.8851553", "2.2269999");
 		DistanceDuration result = DistanceDuration.newDistanceDuration(departure, arrival);
 		TimeUnit.SECONDS.sleep(1);
-		result.calculateDistanceDuration();
 		assertEquals(11005, result.getDistance());
 		assertEquals(1027, result.getDuration());
-
+		assertEquals(132,result.getSteps().size());
 	}
 }
