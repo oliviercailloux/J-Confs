@@ -1611,36 +1611,43 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_xAdbALFeEeqF57OurY6pXw" name="Location">
     <packagedElement xmi:type="uml:Model" xmi:id="_uarZoLFgEeqF57OurY6pXw" name="Use case diagramm">
+      <packagedElement xmi:type="uml:Model" xmi:id="_l8Z64LFiEeqF57OurY6pXw" name="View"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_uimKELFhEeqF57OurY6pXw" name="Elements of Location use case">
         <packagedElement xmi:type="uml:Interaction" xmi:id="_H78a4HKLEeq668Ll3Jq22Q" name="LocationIQ" useCase="_NNzWEHKLEeq668Ll3Jq22Q _RdwvYHKLEeq668Ll3Jq22Q _WJNK0HKLEeq668Ll3Jq22Q _Z6x_AHKLEeq668Ll3Jq22Q _j-wjYIYpEequSPPEfPKx9w">
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NNzWEHKLEeq668Ll3Jq22Q" name="Generate location for conference" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_RdwvYHKLEeq668Ll3Jq22Q" name="Calculate the duration between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_WJNK0HKLEeq668Ll3Jq22Q" name="Calcule distance between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_Z6x_AHKLEeq668Ll3Jq22Q" name="Recovery informations about address" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
-          <ownedUseCase xmi:type="uml:UseCase" xmi:id="_j-wjYIYpEequSPPEfPKx9w" name="Locationiq API" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+          <ownedUseCase xmi:type="uml:UseCase" xmi:id="_j-wjYIYpEequSPPEfPKx9w" name="Connexion to Locationiq API" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_xTHogLIzEeqF57OurY6pXw" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_yHtHIbIzEeqF57OurY6pXw" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_0CdjoLIzEeqF57OurY6pXw" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_2QzDcLIzEeqF57OurY6pXw" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_69IPsbIzEeqF57OurY6pXw" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_HdhOILI0EeqF57OurY6pXw" name="" type="_j-wjYIYpEequSPPEfPKx9w"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_2ye0MLIzEeqF57OurY6pXw" memberEnd="_2yfbQrIzEeqF57OurY6pXw _2yfbQ7IzEeqF57OurY6pXw">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2yfbQLIzEeqF57OurY6pXw" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2yfbQbIzEeqF57OurY6pXw" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_2yfbQrIzEeqF57OurY6pXw" name="calculate the duration between two locations" type="_RdwvYHKLEeq668Ll3Jq22Q" association="_2ye0MLIzEeqF57OurY6pXw"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_2yfbQ7IzEeqF57OurY6pXw" name="user" type="_8xhG4LFhEeqF57OurY6pXw" association="_2ye0MLIzEeqF57OurY6pXw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_3YYWkLIzEeqF57OurY6pXw" memberEnd="_3YY9orIzEeqF57OurY6pXw _3YY9o7IzEeqF57OurY6pXw">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3YY9oLIzEeqF57OurY6pXw" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_3YY9obIzEeqF57OurY6pXw" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_3YY9orIzEeqF57OurY6pXw" name="generate location for conference" type="_NNzWEHKLEeq668Ll3Jq22Q" association="_3YYWkLIzEeqF57OurY6pXw"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_3YY9o7IzEeqF57OurY6pXw" type="_8xhG4LFhEeqF57OurY6pXw" association="_3YYWkLIzEeqF57OurY6pXw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_4ni4YLIzEeqF57OurY6pXw" memberEnd="_4njfcrIzEeqF57OurY6pXw _4njfc7IzEeqF57OurY6pXw">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4njfcLIzEeqF57OurY6pXw" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4njfcbIzEeqF57OurY6pXw" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_4njfcrIzEeqF57OurY6pXw" name="calcule distance between two locations" type="_WJNK0HKLEeq668Ll3Jq22Q" association="_4ni4YLIzEeqF57OurY6pXw"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_4njfc7IzEeqF57OurY6pXw" type="_8xhG4LFhEeqF57OurY6pXw" association="_4ni4YLIzEeqF57OurY6pXw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Usage" xmi:id="_g0-xAHKLEeq668Ll3Jq22Q" client="_NNzWEHKLEeq668Ll3Jq22Q" supplier="_Z6x_AHKLEeq668Ll3Jq22Q"/>
-        <packagedElement xmi:type="uml:Association" xmi:id="_i1OKcHKLEeq668Ll3Jq22Q" memberEnd="_i1OxgnKLEeq668Ll3Jq22Q _i1Oxg3KLEeq668Ll3Jq22Q">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i1OxgHKLEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i1OxgXKLEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
-          </eAnnotations>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_i1OxgnKLEeq668Ll3Jq22Q" name="calculate the duration between two locations" type="_RdwvYHKLEeq668Ll3Jq22Q" association="_i1OKcHKLEeq668Ll3Jq22Q"/>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_i1Oxg3KLEeq668Ll3Jq22Q" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_i1OKcHKLEeq668Ll3Jq22Q"/>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Association" xmi:id="_kjZjgHKLEeq668Ll3Jq22Q" memberEnd="_kjaKknKLEeq668Ll3Jq22Q _kjaKk3KLEeq668Ll3Jq22Q">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kjaKkHKLEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kjaKkXKLEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
-          </eAnnotations>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_kjaKknKLEeq668Ll3Jq22Q" name="generate a location (latitude, longitude)" type="_H78a4HKLEeq668Ll3Jq22Q" association="_kjZjgHKLEeq668Ll3Jq22Q"/>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_kjaKk3KLEeq668Ll3Jq22Q" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_kjZjgHKLEeq668Ll3Jq22Q"/>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Association" xmi:id="_n3lREHKLEeq668Ll3Jq22Q" memberEnd="_n3l4InKLEeq668Ll3Jq22Q _n3l4I3KLEeq668Ll3Jq22Q">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n3l4IHKLEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n3l4IXKLEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
-          </eAnnotations>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_n3l4InKLEeq668Ll3Jq22Q" name="calcule distance between two locations" type="_WJNK0HKLEeq668Ll3Jq22Q" association="_n3lREHKLEeq668Ll3Jq22Q"/>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_n3l4I3KLEeq668Ll3Jq22Q" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_n3lREHKLEeq668Ll3Jq22Q"/>
-        </packagedElement>
         <packagedElement xmi:type="uml:Usage" xmi:id="_UVHVAIYpEequSPPEfPKx9w" client="_RdwvYHKLEeq668Ll3Jq22Q" supplier="_Z6x_AHKLEeq668Ll3Jq22Q"/>
         <packagedElement xmi:type="uml:Usage" xmi:id="_VEpUgIYpEequSPPEfPKx9w" client="_WJNK0HKLEeq668Ll3Jq22Q" supplier="_Z6x_AHKLEeq668Ll3Jq22Q"/>
         <packagedElement xmi:type="uml:Usage" xmi:id="_muzCEIYpEequSPPEfPKx9w" client="_Z6x_AHKLEeq668Ll3Jq22Q" supplier="_j-wjYIYpEequSPPEfPKx9w"/>
@@ -1652,7 +1659,6 @@
           <generalization xmi:type="uml:Generalization" xmi:id="_8xht87FhEeqF57OurY6pXw" general="_8xhG4LFhEeqF57OurY6pXw"/>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Model" xmi:id="_l8Z64LFiEeqF57OurY6pXw" name="Views"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_uasAsLFgEeqF57OurY6pXw" name="Class diagramm">
       <packagedElement xmi:type="uml:Model" xmi:id="_n7vVYLFiEeqF57OurY6pXw" name="View"/>
