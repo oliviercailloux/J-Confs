@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.locationiq.client.api.*;
-import com.google.common.collect.ImmutableList;
 import com.locationiq.client.ApiClient;
 import com.locationiq.client.ApiException;
 import com.locationiq.client.Configuration;
@@ -25,6 +24,7 @@ public class AddressQuerier {
 
 	private List<String> addressInformations;
 	private List<Address> addressFound;
+	private ApiClient defaultClient;
 
 	/**
 	 * Static factory method to build a AddressQuerier instance
@@ -36,9 +36,17 @@ public class AddressQuerier {
 		return new AddressQuerier(address);
 	}
 
+	/**
+	 * Private constructor. The connection to the API is made when the
+	 * AddressQuerier object is instantiated with the call of the
+	 * requestAddressInformations method.
+	 * 
+	 * @param address
+	 * @throws ApiException
+	 */
 	private AddressQuerier(String address) throws ApiException {
-		this.addressInformations = this.recoveryAddressInformations(address);
-		this.addressFound = this.recoveryAddressFound();
+		this.addressInformations = this.requestAddressInformations(address);
+		this.addressFound = this.getLastAddressFound();
 	}
 
 	/**
@@ -83,14 +91,18 @@ public class AddressQuerier {
 	 * 
 	 * @param adresse
 	 * @throws ApiException
+	 * @return adressInformations
 	 */
-	public List<String> recoveryAddressInformations(String address) throws ApiException {
+	public List<String> requestAddressInformations(String address) throws ApiException {
 		this.addressInformations = new ArrayList<>();
 		if (address == "" || address == null || address.isEmpty()) {
 			throw new IllegalArgumentException("Address error");
 		}
-		ApiClient defaultClient = AddressQuerier.connexion();
-		AutocompleteApi api = new AutocompleteApi(defaultClient);
+		if (this.defaultClient == null) {
+			ApiClient defaultClient = AddressQuerier.connexion();
+			this.defaultClient = defaultClient;
+		}
+		AutocompleteApi api = new AutocompleteApi(this.defaultClient);
 		List<Object> tmp = api.autocomplete(address, 1, null, null, null, null, null, null);
 		Iterator<Object> i = tmp.iterator();
 		while (i.hasNext()) {
@@ -101,17 +113,17 @@ public class AddressQuerier {
 			String hash = contenu.substring(1, contenu.length() - 2);
 			this.addressInformations.set(a, hash);
 		}
-		this.addressInformations = ImmutableList.copyOf(this.addressInformations);
 		return this.addressInformations;
 	}
 
 	/**
-	 * This method modifies the contents of the ArrayList addressInformations to
-	 * make it more readable and to be able to apply different methods more easily.
-	 * It also makes it possible to retrieve all the addresses with latitude and
-	 * longitude found by autocomplete, to store them in addressFound.
+	 * This method retrieves the address, latitude and longitude information for each address found in addressInformations (by AutocompleteApi). 
+	 * From this information it creates several Address objects (as many objects as addresses stored in addressInformations)
+	 * which it stores in another Address List.
+	 * 
+	 * @return addressFound
 	 */
-	public List<Address> recoveryAddressFound() {
+	public List<Address> getLastAddressFound() {
 		this.addressFound = new ArrayList<>();
 		ArrayList<Address> selection = new ArrayList<>();
 		for (int i = 0; i < this.addressInformations.size(); i++) {
@@ -132,7 +144,6 @@ public class AddressQuerier {
 
 		}
 		this.addressFound = selection;
-		this.addressFound = ImmutableList.copyOf(this.addressFound);
 		return this.addressFound;
 	}
 }
