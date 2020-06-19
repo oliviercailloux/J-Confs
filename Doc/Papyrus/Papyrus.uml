@@ -1715,6 +1715,18 @@
           <ownedAttribute xmi:type="uml:Property" xmi:id="_2QzDcLIzEeqF57OurY6pXw" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_69IPsbIzEeqF57OurY6pXw" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_HdhOILI0EeqF57OurY6pXw" name="" type="_j-wjYIYpEequSPPEfPKx9w"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_l81lYLI2EeqA4rYckq26gQ" name="" type="_NNzWEHKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_l-a5wLI2EeqA4rYckq26gQ" name="" type="_RdwvYHKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_l_sFEbI2EeqA4rYckq26gQ" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_mAbE4bI2EeqA4rYckq26gQ" name="" type="_WJNK0HKLEeq668Ll3Jq22Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_mAsKoLI2EeqA4rYckq26gQ" name="" type="_j-wjYIYpEequSPPEfPKx9w"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_nqdk0bI2EeqA4rYckq26gQ" name="" type="_Z6x_AHKLEeq668Ll3Jq22Q"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_l80-ULI2EeqA4rYckq26gQ" name="" represents="_l81lYLI2EeqA4rYckq26gQ"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_l-aSsLI2EeqA4rYckq26gQ" name="" represents="_l-a5wLI2EeqA4rYckq26gQ"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_l_sFELI2EeqA4rYckq26gQ" name="" represents="_l_sFEbI2EeqA4rYckq26gQ"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_mAbE4LI2EeqA4rYckq26gQ" name="" represents="_mAbE4bI2EeqA4rYckq26gQ"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_mArjkLI2EeqA4rYckq26gQ" name="" represents="_mAsKoLI2EeqA4rYckq26gQ"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_nqdk0LI2EeqA4rYckq26gQ" name="" represents="_nqdk0bI2EeqA4rYckq26gQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_2ye0MLIzEeqF57OurY6pXw" memberEnd="_2yfbQrIzEeqF57OurY6pXw _2yfbQ7IzEeqF57OurY6pXw">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2yfbQLIzEeqF57OurY6pXw" source="org.eclipse.papyrus">
@@ -1796,12 +1808,13 @@
             <ownedAttribute xmi:type="uml:Property" xmi:id="_4FF7oIc-Eeq1Bu2a_53vKA" name="distance">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
             </ownedAttribute>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="steps" type="_dZXCILFqEeqRQeKIjPjeTw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_0RmmcIc_Eeq1Bu2a_53vKA" name="allSteps" type="_dZXCILFqEeqRQeKIjPjeTw"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_z2nHcJzTEeqrR-Ds61GHnw" name="translationaddressbuilder">
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z2nHcZzTEeqrR-Ds61GHnw"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z2nugJzTEeqrR-Ds61GHnw" value="1"/>
             </ownedAttribute>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_6jfaALFqEeqRQeKIjPjeTw" name="trip" visibility="private" type="_DkW9kLFrEeqRQeKIjPjeTw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_BXFwgLI2EeqA4rYckq26gQ" name="generalStep" type="_O3uaILFpEeqRQeKIjPjeTw"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_ZsL74HHnEeqziYL5_pR-NA" name="DistanceDuration">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_3zREMHHnEeqziYL5_pR-NA" name="dep" type="_2SVN4JzREeqrR-Ds61GHnw"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_5RyQoHHnEeqziYL5_pR-NA" name="arriv" type="_2SVN4JzREeqrR-Ds61GHnw"/>
