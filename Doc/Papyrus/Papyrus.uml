@@ -3,6 +3,96 @@
   <packageImport xmi:type="uml:PackageImport" xmi:id="_cERjsGWpEeqCB6kIHjdr_A">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_xy2kcLFiEeqF57OurY6pXw" name="General View">
+    <packagedElement xmi:type="uml:Model" xmi:id="_1jTXQLFiEeqF57OurY6pXw" name="Views"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_9qUDMG-OEeq668Ll3Jq22Q" name="Elements of General View use case">
+      <packagedElement xmi:type="uml:Association" xmi:id="_iuYx8Ga_EeqLF_m4YtUVrA" memberEnd="_iuccUGa_EeqLF_m4YtUVrA _iudDYGa_EeqLF_m4YtUVrA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iubOMGa_EeqLF_m4YtUVrA" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iubOMWa_EeqLF_m4YtUVrA" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_iuccUGa_EeqLF_m4YtUVrA" name="edit a conference" type="_CsRyQGa9EeqLF_m4YtUVrA" association="_iuYx8Ga_EeqLF_m4YtUVrA"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_iudDYGa_EeqLF_m4YtUVrA" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_iuYx8Ga_EeqLF_m4YtUVrA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mCGlcGa_EeqLF_m4YtUVrA" memberEnd="_mCHMgma_EeqLF_m4YtUVrA _mCHMg2a_EeqLF_m4YtUVrA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mCHMgGa_EeqLF_m4YtUVrA" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mCHMgWa_EeqLF_m4YtUVrA" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mCHMgma_EeqLF_m4YtUVrA" name="visualize conferences in an online calendar" type="_zzSIQGa9EeqLF_m4YtUVrA" association="_mCGlcGa_EeqLF_m4YtUVrA"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_mCHMg2a_EeqLF_m4YtUVrA" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_mCGlcGa_EeqLF_m4YtUVrA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="_1X2u0Ga8EeqLF_m4YtUVrA" name="General view" useCase="_CsRyQGa9EeqLF_m4YtUVrA _IpIyQGa9EeqLF_m4YtUVrA _bOnfoGa9EeqLF_m4YtUVrA _ooylwGa9EeqLF_m4YtUVrA _tYoZAGa9EeqLF_m4YtUVrA _w-r5sGa9EeqLF_m4YtUVrA _zzSIQGa9EeqLF_m4YtUVrA _5GOokGa9EeqLF_m4YtUVrA _TPoaYGa-EeqLF_m4YtUVrA">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2EHAgG7CEeq668Ll3Jq22Q" annotatedElement="_CsRyQGa9EeqLF_m4YtUVrA">
+          <body>Refere to ConferenceReader class and CalendarOnline class
+</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_XI4B8G7DEeq668Ll3Jq22Q" annotatedElement="_IpIyQGa9EeqLF_m4YtUVrA">
+          <body>Refere to ConferenceWriter class and CalendarOnline class</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_iwe-QG7DEeq668Ll3Jq22Q" annotatedElement="_tYoZAGa9EeqLF_m4YtUVrA">
+          <body>Refere to GeneratOM class.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rsX7MG7DEeq668Ll3Jq22Q" annotatedElement="_w-r5sGa9EeqLF_m4YtUVrA">
+          <body>Refere to GuiConference class.</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_2LNRkG7DEeq668Ll3Jq22Q" annotatedElement="_zzSIQGa9EeqLF_m4YtUVrA">
+          <body>Refere to CalendarOnline class and GuiListConferences class
+</body>
+        </ownedComment>
+        <ownedComment xmi:type="uml:Comment" xmi:id="_OM9aYG7EEeq668Ll3Jq22Q" annotatedElement="_ooylwGa9EeqLF_m4YtUVrA">
+          <body>Refere to Location class
+</body>
+        </ownedComment>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_CsRyQGa9EeqLF_m4YtUVrA" name="Manage online conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
+          <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_rJgkIGa_EeqLF_m4YtUVrA" name="ExtensionPoint1"/>
+        </ownedUseCase>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_IpIyQGa9EeqLF_m4YtUVrA" name="Manage conference on application" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
+          <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_tDKNYGa_EeqLF_m4YtUVrA" name="ExtensionPoint1"/>
+        </ownedUseCase>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_bOnfoGa9EeqLF_m4YtUVrA" name="Filter conferences" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
+          <extend xmi:type="uml:Extend" xmi:id="_rJc5wGa_EeqLF_m4YtUVrA" extendedCase="_CsRyQGa9EeqLF_m4YtUVrA" extensionLocation="_rJgkIGa_EeqLF_m4YtUVrA"/>
+          <extend xmi:type="uml:Extend" xmi:id="_tDJmUGa_EeqLF_m4YtUVrA" extendedCase="_IpIyQGa9EeqLF_m4YtUVrA" extensionLocation="_tDKNYGa_EeqLF_m4YtUVrA"/>
+        </ownedUseCase>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ooylwGa9EeqLF_m4YtUVrA" name="Generate location for conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_tYoZAGa9EeqLF_m4YtUVrA" name="Generate a document with informations about a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_w-r5sGa9EeqLF_m4YtUVrA" name="Generate a map with the place of a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_zzSIQGa9EeqLF_m4YtUVrA" name="Visualize conferences in an online calendar" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_5GOokGa9EeqLF_m4YtUVrA" name="Mission order" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
+          <generalization xmi:type="uml:Generalization" xmi:id="_0_2-MGa_EeqLF_m4YtUVrA" general="_tYoZAGa9EeqLF_m4YtUVrA"/>
+        </ownedUseCase>
+        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_TPoaYGa-EeqLF_m4YtUVrA" name="Ask JC" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
+          <generalization xmi:type="uml:Generalization" xmi:id="_1pVZAGa_EeqLF_m4YtUVrA" general="_tYoZAGa9EeqLF_m4YtUVrA"/>
+        </ownedUseCase>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_pcOIYG7BEeq668Ll3Jq22Q" memberEnd="_pcRywG7BEeq668Ll3Jq22Q _pcSZ0G7BEeq668Ll3Jq22Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pcP9kG7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcQkoG7BEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_pcRywG7BEeq668Ll3Jq22Q" name="generate a page with traject optimisation for a conference" type="_ooylwGa9EeqLF_m4YtUVrA" association="_pcOIYG7BEeq668Ll3Jq22Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_pcSZ0G7BEeq668Ll3Jq22Q" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_pcOIYG7BEeq668Ll3Jq22Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_tEQmEG7BEeq668Ll3Jq22Q" memberEnd="_tERNIm7BEeq668Ll3Jq22Q _tER0MG7BEeq668Ll3Jq22Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tERNIG7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tERNIW7BEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tERNIm7BEeq668Ll3Jq22Q" name="generate a document with informations about a conference" type="_tYoZAGa9EeqLF_m4YtUVrA" association="_tEQmEG7BEeq668Ll3Jq22Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_tER0MG7BEeq668Ll3Jq22Q" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_tEQmEG7BEeq668Ll3Jq22Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_uZ90wG7BEeq668Ll3Jq22Q" memberEnd="_uZ-b0m7BEeq668Ll3Jq22Q _uZ-b027BEeq668Ll3Jq22Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uZ-b0G7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uZ-b0W7BEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_uZ-b0m7BEeq668Ll3Jq22Q" name="generate a map with the place of a conference" type="_w-r5sGa9EeqLF_m4YtUVrA" association="_uZ90wG7BEeq668Ll3Jq22Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_uZ-b027BEeq668Ll3Jq22Q" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_uZ90wG7BEeq668Ll3Jq22Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_EaBtgGa9EeqLF_m4YtUVrA" name="User"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_2kQ_4GdyEeqFIaBVu9zzkw" name="Administration">
+        <generalization xmi:type="uml:Generalization" xmi:id="_CJ1U0GdzEeqFIaBVu9zzkw" general="_EaBtgGa9EeqLF_m4YtUVrA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_4yvCkGdyEeqFIaBVu9zzkw" name="Researcher">
+        <generalization xmi:type="uml:Generalization" xmi:id="_JP5YkGdzEeqFIaBVu9zzkw" general="_EaBtgGa9EeqLF_m4YtUVrA"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_k2pwkLFeEeqF57OurY6pXw" name="Calendar">
     <packagedElement xmi:type="uml:Model" xmi:id="_NPLeELFgEeqF57OurY6pXw" name="Use case diagramm">
       <packagedElement xmi:type="uml:Model" xmi:id="_v1I6kLFiEeqF57OurY6pXw" name="View"/>
@@ -1613,7 +1703,7 @@
     <packagedElement xmi:type="uml:Model" xmi:id="_uarZoLFgEeqF57OurY6pXw" name="Use case diagramm">
       <packagedElement xmi:type="uml:Model" xmi:id="_l8Z64LFiEeqF57OurY6pXw" name="View"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_uimKELFhEeqF57OurY6pXw" name="Elements of Location use case">
-        <packagedElement xmi:type="uml:Interaction" xmi:id="_H78a4HKLEeq668Ll3Jq22Q" name="LocationIQ" useCase="_NNzWEHKLEeq668Ll3Jq22Q _RdwvYHKLEeq668Ll3Jq22Q _WJNK0HKLEeq668Ll3Jq22Q _Z6x_AHKLEeq668Ll3Jq22Q _j-wjYIYpEequSPPEfPKx9w">
+        <packagedElement xmi:type="uml:Interaction" xmi:id="_H78a4HKLEeq668Ll3Jq22Q" name="Location" useCase="_NNzWEHKLEeq668Ll3Jq22Q _RdwvYHKLEeq668Ll3Jq22Q _WJNK0HKLEeq668Ll3Jq22Q _Z6x_AHKLEeq668Ll3Jq22Q _j-wjYIYpEequSPPEfPKx9w">
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NNzWEHKLEeq668Ll3Jq22Q" name="Generate location for conference" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_RdwvYHKLEeq668Ll3Jq22Q" name="Calculate the duration between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_WJNK0HKLEeq668Ll3Jq22Q" name="Calcule distance between two locations" subject="_H78a4HKLEeq668Ll3Jq22Q"/>
@@ -1904,96 +1994,6 @@
           <message xmi:type="uml:Message" xmi:id="_PC6J4J32EeqAmv2AVHKcuQ" name="List&lt;Object>.iterator()" receiveEvent="_PC7YAZ32EeqAmv2AVHKcuQ" sendEvent="_PC7YAJ32EeqAmv2AVHKcuQ"/>
           <message xmi:type="uml:Message" xmi:id="_YLh7oKp1Eeq79O9YIQX3tA" name="new AutocompleteApi(defaultClient)" messageSort="createMessage" receiveEvent="_YLqegKp1Eeq79O9YIQX3tA" sendEvent="_YLp3cKp1Eeq79O9YIQX3tA"/>
         </packagedElement>
-      </packagedElement>
-    </packagedElement>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Model" xmi:id="_xy2kcLFiEeqF57OurY6pXw" name="General View">
-    <packagedElement xmi:type="uml:Model" xmi:id="_1jTXQLFiEeqF57OurY6pXw" name="Views"/>
-    <packagedElement xmi:type="uml:Model" xmi:id="_9qUDMG-OEeq668Ll3Jq22Q" name="Elements of General View use case">
-      <packagedElement xmi:type="uml:Association" xmi:id="_iuYx8Ga_EeqLF_m4YtUVrA" memberEnd="_iuccUGa_EeqLF_m4YtUVrA _iudDYGa_EeqLF_m4YtUVrA">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iubOMGa_EeqLF_m4YtUVrA" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iubOMWa_EeqLF_m4YtUVrA" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_iuccUGa_EeqLF_m4YtUVrA" name="edit a conference" type="_CsRyQGa9EeqLF_m4YtUVrA" association="_iuYx8Ga_EeqLF_m4YtUVrA"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_iudDYGa_EeqLF_m4YtUVrA" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_iuYx8Ga_EeqLF_m4YtUVrA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_mCGlcGa_EeqLF_m4YtUVrA" memberEnd="_mCHMgma_EeqLF_m4YtUVrA _mCHMg2a_EeqLF_m4YtUVrA">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mCHMgGa_EeqLF_m4YtUVrA" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mCHMgWa_EeqLF_m4YtUVrA" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_mCHMgma_EeqLF_m4YtUVrA" name="visualize conferences in an online calendar" type="_zzSIQGa9EeqLF_m4YtUVrA" association="_mCGlcGa_EeqLF_m4YtUVrA"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_mCHMg2a_EeqLF_m4YtUVrA" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_mCGlcGa_EeqLF_m4YtUVrA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Interaction" xmi:id="_1X2u0Ga8EeqLF_m4YtUVrA" name="General view" useCase="_CsRyQGa9EeqLF_m4YtUVrA _IpIyQGa9EeqLF_m4YtUVrA _bOnfoGa9EeqLF_m4YtUVrA _ooylwGa9EeqLF_m4YtUVrA _tYoZAGa9EeqLF_m4YtUVrA _w-r5sGa9EeqLF_m4YtUVrA _zzSIQGa9EeqLF_m4YtUVrA _5GOokGa9EeqLF_m4YtUVrA _TPoaYGa-EeqLF_m4YtUVrA">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_2EHAgG7CEeq668Ll3Jq22Q" annotatedElement="_CsRyQGa9EeqLF_m4YtUVrA">
-          <body>Refere to ConferenceReader class and CalendarOnline class
-</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_XI4B8G7DEeq668Ll3Jq22Q" annotatedElement="_IpIyQGa9EeqLF_m4YtUVrA">
-          <body>Refere to ConferenceWriter class and CalendarOnline class</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_iwe-QG7DEeq668Ll3Jq22Q" annotatedElement="_tYoZAGa9EeqLF_m4YtUVrA">
-          <body>Refere to GeneratOM class.</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_rsX7MG7DEeq668Ll3Jq22Q" annotatedElement="_w-r5sGa9EeqLF_m4YtUVrA">
-          <body>Refere to GuiConference class.</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_2LNRkG7DEeq668Ll3Jq22Q" annotatedElement="_zzSIQGa9EeqLF_m4YtUVrA">
-          <body>Refere to CalendarOnline class and GuiListConferences class
-</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_OM9aYG7EEeq668Ll3Jq22Q" annotatedElement="_ooylwGa9EeqLF_m4YtUVrA">
-          <body>Refere to Location class
-</body>
-        </ownedComment>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_CsRyQGa9EeqLF_m4YtUVrA" name="Manage online conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
-          <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_rJgkIGa_EeqLF_m4YtUVrA" name="ExtensionPoint1"/>
-        </ownedUseCase>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_IpIyQGa9EeqLF_m4YtUVrA" name="Manage conference on application" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
-          <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_tDKNYGa_EeqLF_m4YtUVrA" name="ExtensionPoint1"/>
-        </ownedUseCase>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_bOnfoGa9EeqLF_m4YtUVrA" name="Filter conferences" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
-          <extend xmi:type="uml:Extend" xmi:id="_rJc5wGa_EeqLF_m4YtUVrA" extendedCase="_CsRyQGa9EeqLF_m4YtUVrA" extensionLocation="_rJgkIGa_EeqLF_m4YtUVrA"/>
-          <extend xmi:type="uml:Extend" xmi:id="_tDJmUGa_EeqLF_m4YtUVrA" extendedCase="_IpIyQGa9EeqLF_m4YtUVrA" extensionLocation="_tDKNYGa_EeqLF_m4YtUVrA"/>
-        </ownedUseCase>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ooylwGa9EeqLF_m4YtUVrA" name="Generate location for conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_tYoZAGa9EeqLF_m4YtUVrA" name="Generate a document with informations about a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_w-r5sGa9EeqLF_m4YtUVrA" name="Generate a map with the place of a conference" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_zzSIQGa9EeqLF_m4YtUVrA" name="Visualize conferences in an online calendar" subject="_1X2u0Ga8EeqLF_m4YtUVrA"/>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_5GOokGa9EeqLF_m4YtUVrA" name="Mission order" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
-          <generalization xmi:type="uml:Generalization" xmi:id="_0_2-MGa_EeqLF_m4YtUVrA" general="_tYoZAGa9EeqLF_m4YtUVrA"/>
-        </ownedUseCase>
-        <ownedUseCase xmi:type="uml:UseCase" xmi:id="_TPoaYGa-EeqLF_m4YtUVrA" name="Ask JC" subject="_1X2u0Ga8EeqLF_m4YtUVrA">
-          <generalization xmi:type="uml:Generalization" xmi:id="_1pVZAGa_EeqLF_m4YtUVrA" general="_tYoZAGa9EeqLF_m4YtUVrA"/>
-        </ownedUseCase>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_pcOIYG7BEeq668Ll3Jq22Q" memberEnd="_pcRywG7BEeq668Ll3Jq22Q _pcSZ0G7BEeq668Ll3Jq22Q">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pcP9kG7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pcQkoG7BEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_pcRywG7BEeq668Ll3Jq22Q" name="generate a page with traject optimisation for a conference" type="_ooylwGa9EeqLF_m4YtUVrA" association="_pcOIYG7BEeq668Ll3Jq22Q"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_pcSZ0G7BEeq668Ll3Jq22Q" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_pcOIYG7BEeq668Ll3Jq22Q"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_tEQmEG7BEeq668Ll3Jq22Q" memberEnd="_tERNIm7BEeq668Ll3Jq22Q _tER0MG7BEeq668Ll3Jq22Q">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tERNIG7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tERNIW7BEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_tERNIm7BEeq668Ll3Jq22Q" name="generate a document with informations about a conference" type="_tYoZAGa9EeqLF_m4YtUVrA" association="_tEQmEG7BEeq668Ll3Jq22Q"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_tER0MG7BEeq668Ll3Jq22Q" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_tEQmEG7BEeq668Ll3Jq22Q"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_uZ90wG7BEeq668Ll3Jq22Q" memberEnd="_uZ-b0m7BEeq668Ll3Jq22Q _uZ-b027BEeq668Ll3Jq22Q">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uZ-b0G7BEeq668Ll3Jq22Q" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uZ-b0W7BEeq668Ll3Jq22Q" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_uZ-b0m7BEeq668Ll3Jq22Q" name="generate a map with the place of a conference" type="_w-r5sGa9EeqLF_m4YtUVrA" association="_uZ90wG7BEeq668Ll3Jq22Q"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_uZ-b027BEeq668Ll3Jq22Q" name="user" type="_EaBtgGa9EeqLF_m4YtUVrA" association="_uZ90wG7BEeq668Ll3Jq22Q"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_EaBtgGa9EeqLF_m4YtUVrA" name="User"/>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_2kQ_4GdyEeqFIaBVu9zzkw" name="Administration">
-        <generalization xmi:type="uml:Generalization" xmi:id="_CJ1U0GdzEeqFIaBVu9zzkw" general="_EaBtgGa9EeqLF_m4YtUVrA"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_4yvCkGdyEeqFIaBVu9zzkw" name="Researcher">
-        <generalization xmi:type="uml:Generalization" xmi:id="_JP5YkGdzEeqFIaBVu9zzkw" general="_EaBtgGa9EeqLF_m4YtUVrA"/>
       </packagedElement>
     </packagedElement>
   </packagedElement>
