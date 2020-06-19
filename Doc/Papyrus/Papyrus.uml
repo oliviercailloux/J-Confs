@@ -300,14 +300,14 @@
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OAPZsJ37EeqAmv2AVHKcuQ" name="Message45ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_OAOLkJ37EeqAmv2AVHKcuQ"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PwfXsJ3tEeqpGbloYAnGGQ" name="Message33SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_PwewoJ3tEeqpGbloYAnGGQ"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pwf-wJ3tEeqpGbloYAnGGQ" name="Message33ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_PwewoJ3tEeqpGbloYAnGGQ"/>
-          <fragment xmi:type="uml:CombinedFragment" xmi:id="_2VBB4J33EeqAmv2AVHKcuQ" name="for (Calendar calendar : calendarsResult)" covered="_sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ _97vggJ3oEeqpGbloYAnGGQ" interactionOperator="loop">
-            <operand xmi:type="uml:InteractionOperand" xmi:id="_2VCQAJ33EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ _97vggJ3oEeqpGbloYAnGGQ">
+          <fragment xmi:type="uml:CombinedFragment" xmi:id="_2VBB4J33EeqAmv2AVHKcuQ" name="for (Calendar calendar : calendarsResult)" covered="_97vggJ3oEeqpGbloYAnGGQ _sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ" interactionOperator="loop">
+            <operand xmi:type="uml:InteractionOperand" xmi:id="_2VCQAJ33EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_97vggJ3oEeqpGbloYAnGGQ _sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ">
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_BSrM0J35EeqAmv2AVHKcuQ" name="Message40SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_BSp-sJ35EeqAmv2AVHKcuQ"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Be2noZ35EeqAmv2AVHKcuQ" name="Message45ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_Be2AkJ35EeqAmv2AVHKcuQ"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_aFGkoJ35EeqAmv2AVHKcuQ" name="Message42SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_aFF9kJ35EeqAmv2AVHKcuQ"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_aFHLsJ35EeqAmv2AVHKcuQ" name="Message42ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_aFF9kJ35EeqAmv2AVHKcuQ"/>
-              <fragment xmi:type="uml:CombinedFragment" xmi:id="_6nf40J35EeqAmv2AVHKcuQ" name="CombinedFragment44" covered="_sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _97vggJ3oEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ" interactionOperator="loop">
-                <operand xmi:type="uml:InteractionOperand" xmi:id="_6nhG8J35EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _97vggJ3oEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ">
+              <fragment xmi:type="uml:CombinedFragment" xmi:id="_6nf40J35EeqAmv2AVHKcuQ" name="CombinedFragment44" covered="_97vggJ3oEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ _sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ" interactionOperator="loop">
+                <operand xmi:type="uml:InteractionOperand" xmi:id="_6nhG8J35EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_97vggJ3oEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ _sds8UJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ">
                   <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_h1KyMJ36EeqAmv2AVHKcuQ" name="Message46SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_h1KLIJ36EeqAmv2AVHKcuQ"/>
                   <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_h1LZQJ36EeqAmv2AVHKcuQ" name="Message46ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_h1KLIJ36EeqAmv2AVHKcuQ"/>
                   <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KiIJgJ36EeqAmv2AVHKcuQ" name="Message48SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_KiHicJ36EeqAmv2AVHKcuQ"/>
@@ -1643,54 +1643,43 @@
           <ownedAttribute xmi:type="uml:Property" xmi:id="_D8P_gGXEEeqCB6kIHjdr_A" name="mail" visibility="private">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_AHkyEGeHEeq1TMmsQgXH2g" name="listExpense">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pen0kGeHEeq1TMmsQgXH2g"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Peq34GeHEeq1TMmsQgXH2g" value="*"/>
-          </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_BpiUEGeHEeq1TMmsQgXH2g" name="listJourney" visibility="package" type="__--RwGasEeq2I7WBLVkWww" aggregation="composite">
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RLF9cGeHEeq1TMmsQgXH2g"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RLHyoGeHEeq1TMmsQgXH2g" value="*"/>
-          </ownedAttribute>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_HWGQMGXEEeqCB6kIHjdr_A" name="Researcher">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_tpsG8GXEEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_tpsG8GXEEeqCB6kIHjdr_A" name="lastName">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_wdQawGXEEeqCB6kIHjdr_A" name="b">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_wdQawGXEEeqCB6kIHjdr_A" name="firstName">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_H7n_IGXEEeqCB6kIHjdr_A" name="Researcher" visibility="public">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_7EF2kGXEEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_7EF2kGXEEeqCB6kIHjdr_A" name="lastName">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-DQ9cGXEEeqCB6kIHjdr_A" name="b">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-DQ9cGXEEeqCB6kIHjdr_A" name="firstName">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ao-bcGXFEeqCB6kIHjdr_A" name="c">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ao-bcGXFEeqCB6kIHjdr_A" name="function">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CmJSwGXFEeqCB6kIHjdr_A" name="d">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CmJSwGXFEeqCB6kIHjdr_A" name="phone">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_FJ9TUGXFEeqCB6kIHjdr_A" name="e">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_FJ9TUGXFEeqCB6kIHjdr_A" name="office">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_H1lMEGXFEeqCB6kIHjdr_A" name="f">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_H1lMEGXFEeqCB6kIHjdr_A" name="group">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_LSmFgGXFEeqCB6kIHjdr_A" name="g">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_LSmFgGXFEeqCB6kIHjdr_A" name="mail">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_kr8t8GeHEeq1TMmsQgXH2g" name="storePass" visibility="protected"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_mPqjcGeHEeq1TMmsQgXH2g" name="lookPass" visibility="protected"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_isZcUGWrEeqCB6kIHjdr_A" name="ResearcherBuilder">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_x1-MEGXCEeqCB6kIHjdr_A" name="LOGGER" visibility="private" type="_EdxNoGXDEeqCB6kIHjdr_A"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_LLrQEGXDEeqCB6kIHjdr_A" name="ResearcherBuilder"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_LpcKIGXDEeqCB6kIHjdr_A" name="create">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_XkauYGXDEeqCB6kIHjdr_A" name="a">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_LpcKIGXDEeqCB6kIHjdr_A" name="create" isStatic="true">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_XkauYGXDEeqCB6kIHjdr_A" name="login">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_pCwNgGXDEeqCB6kIHjdr_A" type="_gWsJMGWrEeqCB6kIHjdr_A" direction="return"/>

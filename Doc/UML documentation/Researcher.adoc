@@ -18,10 +18,7 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Researcher_s_class_diagram.PNG[alt="Researcher class diagram",width=80%,height=80%, align="center"]
 
-In this package that is represented in Papyrus, we can find 2 classes. One that is immutable (Researcher) and the other that help to create the object that will not change (ResearcherBuilder).
+In this package that is represented in Papyrus, we have 2 classes :
 
-=== What we plan to do 
-
-There is some informations that isn't created yet. We plan to handle the dauphine authentication. That's why we can find storePassword and lookPassword. When we launched the application the first time we have noticed that the link with Dauphine's phone book didn't work. So we look at dauphine's website and we find an exploit on the website to get information. So we have edited the link in ResearcherBuilder and now it works !
-
-We want to add some attributes in Researcher like listJourney and listExpense. So we will have function some new function in ResearcherBuilder -> add an expense/journey, delete an expense/journey, see an expense/journey, modify an expense/journey.
+ * Researcher: this class allows to stock a researcher
+ * ResearcherBuilder: this class creates Researcher object by connecting to  dauphine online phone book
