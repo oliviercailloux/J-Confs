@@ -25,28 +25,21 @@ public class AddressQuerier {
 
 	private List<String> addressInformations;
 	private List<Address> addressFound;
-	
+
 	/**
-	 * Factory Method
+	 * Static factory method to build a AddressQuerier instance
+	 * 
 	 * @param address
-	 * @return
 	 * @throws ApiException
 	 */
 	public static AddressQuerier given(String address) throws ApiException {
 		return new AddressQuerier(address);
 	}
 
-	/**
-	 * Private constructor
-	 * @throws ApiException 
-	 */
-
 	private AddressQuerier(String address) throws ApiException {
 		this.addressInformations = this.recoveryAddressInformations(address);
 		this.addressFound = this.recoveryAddressFound();
 	}
-
-	
 
 	/**
 	 * This method return a list with a lot of informations about an address
@@ -54,7 +47,6 @@ public class AddressQuerier {
 	 * 
 	 * @return adressInformations
 	 */
-
 	public List<String> getAddressInformations() {
 		return addressInformations;
 	}
@@ -64,7 +56,6 @@ public class AddressQuerier {
 	 * 
 	 * @return adressFound
 	 */
-
 	public List<Address> getAddressFound() {
 		return addressFound;
 	}
@@ -74,7 +65,6 @@ public class AddressQuerier {
 	 * 
 	 * @return ApiClient defaultClient
 	 */
-
 	public static ApiClient connexion() {
 		ApiClient defaultClient = Configuration.getDefaultApiClient();
 		defaultClient.setBasePath("https://eu1.locationiq.com/v1");
@@ -94,7 +84,6 @@ public class AddressQuerier {
 	 * @param adresse
 	 * @throws ApiException
 	 */
-
 	public List<String> recoveryAddressInformations(String address) throws ApiException {
 		this.addressInformations = new ArrayList<>();
 		if (address == "" || address == null || address.isEmpty()) {
@@ -122,7 +111,6 @@ public class AddressQuerier {
 	 * It also makes it possible to retrieve all the addresses with latitude and
 	 * longitude found by autocomplete, to store them in addressFound.
 	 */
-
 	public List<Address> recoveryAddressFound() {
 		this.addressFound = new ArrayList<>();
 		ArrayList<Address> selection = new ArrayList<>();

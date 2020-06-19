@@ -15,24 +15,27 @@ import java.util.concurrent.TimeUnit;
 import com.locationiq.client.model.*;
 
 /**
- * This class allows to calculate the distance and the duration between two
- * places defined by address (of type Address). It define the steps to go to the
- * destination. The units are meter and second, and the steps are a string
- * containing all the routes indication.
+ * This class allows to get a trajet and informations about it. A trajet is
+ * define beetween two addresses (see Address class). Using LocationIQ
+ * "DirectionsAPI" you can get the total distance (in meters) and duration (in
+ * seconds) for the trajet. The global informations about the trajet (stored in
+ * a Step object) can be get using getGeneralStep method. You can also get all
+ * the steps of the trajet (stored as a List<Step>) using getAllSteps method.
  * 
- * @author Anis HAMOUNI & Sébastien BOURG
+ * @author Anis HAMOUNI & sbourg
  */
 public class DistanceDuration {
 	private int duration;
 	private int distance;
-	private List<Step> steps;
+	private List<Step> allSteps;
+	private Step generalStep;
 	private Address addressDeparture;
 	private Address addressArrival;
 	private DirectionsDirectionsRoutes trip;
 
 	/**
 	 * 
-	 * Static factory method to build a direction instance.
+	 * Static factory method to build a DistanceDuration instance.
 	 * 
 	 * @param dep   Address
 	 * @param arriv Address
@@ -47,12 +50,13 @@ public class DistanceDuration {
 		this.distance = 0;
 		this.addressDeparture = dep;
 		this.addressArrival = arriv;
-		this.steps = new ArrayList<>();
+		this.allSteps = new ArrayList<>();
 		this.trip = null;
+		this.generalStep = null;
 	}
 
 	/**
-	 * Return the duration in second
+	 * Return the duration in seconds
 	 * 
 	 * @return duration
 	 * @throws ApiException
@@ -94,37 +98,52 @@ public class DistanceDuration {
 	}
 
 	/**
-	 * Return the steps
+	 * Return all the detailed steps of the traject
 	 * 
-	 * @return steps
+	 * @return allSteps
 	 * @throws ApiException
 	 */
-	public List<Step> getSteps() throws ApiException {
+	public List<Step> getAllSteps() throws ApiException {
 		if (trip == null)
 			calculateDistanceDuration();
-		
+
 		String[] tabToParse = this.trip.getLegs().get(0).toString().split("location=\\[");
 		List<String> listToParse = new ArrayList<>(Arrays.asList(tabToParse));
 		listToParse.remove(0);
 		listToParse.remove(0);
-		listToParse.remove(listToParse.size()-1);
-		for(int i = 0; i<listToParse.size()-1;i++) {
+		listToParse.remove(listToParse.size() - 1);
+		for (int i = 0; i < listToParse.size() - 1; i++) {
 			String departureLatitude = listToParse.get(i).split("]")[0].split(",")[1];
 			String departureLongitude = listToParse.get(i).split("]")[0].split(",")[0];
-			String arrivalLatitude = listToParse.get(i+1).split("]")[0].split(",")[1];
-			String arrivalLongitude = listToParse.get(i+1).split("]")[0].split(",")[0];
+			String arrivalLatitude = listToParse.get(i + 1).split("]")[0].split(",")[1];
+			String arrivalLongitude = listToParse.get(i + 1).split("]")[0].split(",")[0];
 			Address departureStep = Address.given(null, departureLatitude, departureLongitude);
 			Address arrivalStep = Address.given(null, arrivalLatitude, arrivalLongitude);
 			Step oneNewStep = Step.newStep(departureStep, arrivalStep);
-			this.steps.add(oneNewStep);
+			this.allSteps.add(oneNewStep);
 		}
-		return this.steps;
+		return this.allSteps;
 	}
 
 	/**
-	 * This function calculates the time, the distance and the steps to move between
-	 * two address. The API also allow to calculate this informations beetween more
-	 * than 2 address but it hasn't been implement here
+	 * Return the generalStep composed of the departure and arrival address and the
+	 * global distance and duration.
+	 * 
+	 * @return generalStep
+	 * @throws ApiException
+	 */
+	public Step getGeneralStep() throws ApiException {
+		if (trip == null)
+			calculateDistanceDuration();
+
+		this.generalStep = Step.newStep(this.addressDeparture, this.addressArrival, this.distance, this.duration);
+		return this.generalStep;
+	}
+
+	/**
+	 * This function use the LocataionIQ "DirectionsAPI" to calculates the duration,
+	 * the distance and all the informations about the traject bewteen the two
+	 * addresses of the class.
 	 * 
 	 * @throws ApiException
 	 */
@@ -132,14 +151,14 @@ public class DistanceDuration {
 		String latLonAddressDeparture = this.addressDeparture.getLongitude() + ","
 				+ this.addressDeparture.getLatitude();
 		String latLonAddressArrival = this.addressArrival.getLongitude() + "," + this.addressArrival.getLatitude();
-		
+
 		ApiClient defaultClient = AddressQuerier.connexion();
 		DirectionsApi api = new DirectionsApi(defaultClient);
 		DirectionsDirections response = api.directions(latLonAddressDeparture + ";" + latLonAddressArrival, null, null,
 				null, null, null, null, "true", null, null, "simplified", null);
-		
+
 		this.trip = response.getRoutes().get(0);
 		this.distance = trip.getDistance().intValue();
 		this.duration = trip.getDuration().intValue();
-		}
+	}
 }

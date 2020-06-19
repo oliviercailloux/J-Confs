@@ -17,10 +17,9 @@ class DistanceDurationTests {
 	/**
 	 * 
 	 * Unit test in order to verify the good get of distance and duration. Carreful
-	 * this test depend on API calculation so it might fail in the future Important
-	 * : A sleep of 1 second as been added due to the request limit per second of
-	 * the API
-	 * 
+	 * this test depend on API calculation so it might fail in the future. 
+	 * Important : A sleep of 1 second as been added due to the request limit per 
+	 * second of the API free use.
 	 * 
 	 * @throws ApiException
 	 * @throws InterruptedException
@@ -34,6 +33,6 @@ class DistanceDurationTests {
 		TimeUnit.SECONDS.sleep(1);
 		assertEquals(11005, result.getDistance());
 		assertEquals(1027, result.getDuration());
-		assertEquals(132,result.getSteps().size());
+		assertEquals(132,result.getAllSteps().size());
 	}
 }

@@ -1,11 +1,10 @@
 package io.github.oliviercailloux.jconfs.location;
 
 /**
- * This class allows you to store an address define as a string address and the
- * latitude and longitude associate wth.
+ * This class allows you to store an address define as a latitude and a
+ * longitude and an (optional) string address associate with.
  * 
  * @author Floryan Kieffer
- * 
  * 
  */
 public class Address {
@@ -14,28 +13,20 @@ public class Address {
 	private String latitude;
 	private String longitude;
 
-	
 	/**
-	 * Factory method which creates a Address instance
+	 * Static factory method which creates a Address instance
 	 *
-	 * @param address
+	 * @param address   (can be null)
 	 * @param latitude
 	 * @param longitude
 	 */
 	public static Address given(String address, String latitude, String longitude) {
-		if (latitude.isEmpty() || longitude.isEmpty()) {
-			throw new IllegalArgumentException("latitude or longitude can't be empty");
+		if (latitude == null || latitude.isEmpty() || longitude == null || longitude.isEmpty()) {
+			throw new IllegalArgumentException("latitude or longitude can't be empty or null ");
 		}
 		return new Address(address, latitude, longitude);
 	}
 
-	/**
-	 * Private constructor
-	 *
-	 * @param address
-	 * @param latitude
-	 * @param longitude
-	 */
 	private Address(String address, String latitude, String longitude) {
 		this.address = address;
 		this.latitude = latitude;
@@ -43,16 +34,16 @@ public class Address {
 	}
 
 	/**
-	 * This method return the address name
+	 * This method return the address name if it has been set
 	 * 
-	 * @return address
+	 * @return address or null
 	 */
 	public String getAddress() {
 		return address;
 	}
 
 	/**
-	 * This method return the latitude of the address object
+	 * This method return the latitude
 	 * 
 	 * @return latitude
 	 */
@@ -60,15 +51,13 @@ public class Address {
 		return latitude;
 	}
 
-
 	/**
-	 * This method return the longitude of the address object
+	 * This method return the longitude
 	 * 
 	 * @return longitude
 	 */
 	public String getLongitude() {
 		return longitude;
 	}
-
 
 }
