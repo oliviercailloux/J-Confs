@@ -5097,6 +5097,10 @@
               <element xmi:type="uml:Property" href="Papyrus.uml#_PM-3QK7eEeqF57OurY6pXw"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_PNX40a7eEeqF57OurY6pXw"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_GyT94LJIEeqF57OurY6pXw" type="Property_ClassAttributeLabel">
+              <element xmi:type="uml:Property" href="Papyrus.uml#_GyJl0LJIEeqF57OurY6pXw"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_GyT94bJIEeqF57OurY6pXw"/>
+            </children>
             <styles xmi:type="notation:TitleStyle" xmi:id="_zxpdIXHMEeqiW5oWiheyZw"/>
             <styles xmi:type="notation:SortingStyle" xmi:id="_zxpdInHMEeqiW5oWiheyZw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_zxpdI3HMEeqiW5oWiheyZw"/>

@@ -1781,16 +1781,20 @@
           <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="AddressQuerier">
             <ownedAttribute xmi:type="uml:Property" xmi:id="_NALFoHHOEeqiW5oWiheyZw" name="addressInformations" visibility="private" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
             <ownedAttribute xmi:type="uml:Property" xmi:id="_PM-3QK7eEeqF57OurY6pXw" name="addressFound" visibility="private" type="_fwXKAK7eEeqF57OurY6pXw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_GyJl0LJIEeqF57OurY6pXw" name="defaultClient" visibility="private" type="_dE8gIIcfEeq1Bu2a_53vKA"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_1C0xIHHMEeqiW5oWiheyZw" name="connexion" visibility="public">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_nq5LIIcfEeq1Bu2a_53vKA" type="_dE8gIIcfEeq1Bu2a_53vKA" direction="return"/>
             </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_1XqYsHHMEeqiW5oWiheyZw" name="recoveryAdresseInformations">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1XqYsHHMEeqiW5oWiheyZw" name="requestAdresseInformations">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_A4W_QHHOEeqiW5oWiheyZw" name="adress">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_7rjr4LJHEeqF57OurY6pXw" type="_OzG_kJzTEeqrR-Ds61GHnw" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier" concurrency="guarded"/>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="recoveryAddressFound" visibility="private"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="getLastAddressFound" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_BoXBgLJIEeqF57OurY6pXw" type="_fwXKAK7eEeqF57OurY6pXw" direction="return"/>
+            </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_dE8gIIcfEeq1Bu2a_53vKA" name="ApiClient"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_X16WwHHnEeqziYL5_pR-NA" name="DistanceDuration">
@@ -1859,8 +1863,8 @@
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_dZXCILFqEeqRQeKIjPjeTw" name="List&lt;Step>"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_DkW9kLFrEeqRQeKIjPjeTw" name="DirectionsDirectionsRoutes"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_OzG_kJzTEeqrR-Ds61GHnw" name="List&lt;String>"/>
         </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_OzG_kJzTEeqrR-Ds61GHnw" name="List&lt;String>"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_sU9N0LFhEeqF57OurY6pXw" name="Sequence diagramm">
