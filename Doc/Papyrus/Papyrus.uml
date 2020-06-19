@@ -1791,9 +1791,12 @@
               </ownedParameter>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_7rjr4LJHEeqF57OurY6pXw" type="_OzG_kJzTEeqrR-Ds61GHnw" direction="return"/>
             </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier" concurrency="guarded"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier" visibility="private" concurrency="guarded"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="getLastAddressFound" visibility="public">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_BoXBgLJIEeqF57OurY6pXw" type="_fwXKAK7eEeqF57OurY6pXw" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_nLcBULJIEeqF57OurY6pXw" name="given">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_tEqegLJIEeqF57OurY6pXw" type="_zxVUEHHMEeqiW5oWiheyZw" direction="return"/>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_dE8gIIcfEeq1Bu2a_53vKA" name="ApiClient"/>

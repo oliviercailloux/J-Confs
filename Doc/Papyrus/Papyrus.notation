@@ -5123,6 +5123,10 @@
               <element xmi:type="uml:Operation" href="Papyrus.uml#_VbYfAIclEeq1Bu2a_53vKA"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_VbksQYclEeq1Bu2a_53vKA"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_nLmZYLJIEeqF57OurY6pXw" type="Operation_ClassOperationLabel">
+              <element xmi:type="uml:Operation" href="Papyrus.uml#_nLcBULJIEeqF57OurY6pXw"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nLmZYbJIEeqF57OurY6pXw"/>
+            </children>
             <styles xmi:type="notation:TitleStyle" xmi:id="_zxpdJnHMEeqiW5oWiheyZw"/>
             <styles xmi:type="notation:SortingStyle" xmi:id="_zxpdJ3HMEeqiW5oWiheyZw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_zxpdKHHMEeqiW5oWiheyZw"/>
