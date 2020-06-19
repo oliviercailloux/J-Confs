@@ -6558,7 +6558,7 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OnktMJ4AEeqAmv2AVHKcuQ" id="(0.5,0.019948519948519948)"/>
     </edges>
   </notation:Diagram>
-  <notation:Diagram xmi:id="_lroA8LIzEeqF57OurY6pXw" type="UseCase" name="Location use case diagramm" measurementUnit="Pixel">
+  <notation:Diagram xmi:id="_lroA8LIzEeqF57OurY6pXw" type="UseCase" name="Location use case diagram" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_qWDvwLIzEeqF57OurY6pXw" type="Classifier_SubjectShape">
       <children xmi:type="notation:DecorationNode" xmi:id="_qWDvwrIzEeqF57OurY6pXw" type="Classifier_NameLabel"/>
       <children xmi:type="notation:DecorationNode" xmi:id="_qWDvw7IzEeqF57OurY6pXw" type="Classifier_FloatingNameLabel">
