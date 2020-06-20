@@ -12,7 +12,7 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
-* Generate location for conference.
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Generate location for conference].
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case in Papyrus model).
 
