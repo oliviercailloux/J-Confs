@@ -9,9 +9,9 @@ By connecting with a local calendar you can only create a conference.
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use cases:
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram [Manage online calendar] 
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Manage online calendar] 
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram [Visualize conferences in an online calendar]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Visualize conferences in an online calendar]
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).
 
