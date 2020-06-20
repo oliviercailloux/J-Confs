@@ -1,5 +1,7 @@
 == General View
 
+This document show a general view of the project and contains links to more detail documentation.
+
 === Use case diagram
 
 
