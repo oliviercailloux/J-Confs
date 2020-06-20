@@ -1,50 +1,36 @@
-== Location package
+= Location package
+:toc: 
+:sectanchors:
 
-This package use https://locationiq.com/[LocationIQ API] and contains two classes using it. 
-Unfortunatly the API wasn't available on maven central, so we imported all the source code at the root of the project (src/main/java/com.locationiq.client). This code can be found https://github.com/location-iq/locationiq-java-client[here]. Duplicate classes coming from the client code generator use by the developpers of the github depository have been delete.
-*Something important to be notice, using a free acount for the api limit the rate of requests per second, this is why we put a few "TimeUnit.SECONDS.sleep(1);" in the code*.
+This package use https://locationiq.com/[LocationIQ API] and contains four classes. 
 
+Let's look at some diagrams about the classes of the package.
 
-The location package able the developpers to do several things : 
-
-* With the class AddressQuerier you can get informations such as latitude, longitude and more detailled informations simply by enter an literal address (precise or not).
-* With the class DistanceDuration you can calculate the distance and the duration beetween two addresses and also get all the itinerary steps beetween them.
-* With the class Address you can store an address as a specific object define by his latitude, longitude and a list of strings to give more informations about this address. This class will be implemented in the next java iteration.
-
-Let's look at some diagrams about this classes.
-
-=== Use case diagram
+== Use case diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Location_use_case_diagram.PNG[alt="Location use case",width=80%,height=80%, align="center"]
-
-=== Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
 * Generate location for conference.
 
-This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+This diagram is accessible from the general view use case via a hyperlink (click on the use case in Papyrus model).
 
 
-=== Class diagram
+== Class diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/locationIQ_class_diagram.PNG[alt="Location class",width=80%,height=80%, align="center"]
 
-
-=== Sequence diagram
-
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_AddressQuerier_recoveryAddressInformations.PNG[alt="AddressQuerier recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
-
-For this sequence diagram we have chosen to represent the interaction "address: String" by an arrow which by AddressQuerier and which loops over AddressQuerier. We made this choice because in the GUI we have not yet implemented the function which asks the user to enter the address he wishes to search.
-
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_DistanceDuration_calculateDistanceDuration.PNG[alt="DistanceDuration calculateDistanceDuration Sequence diagram",width=90%,height=90%, align="center"]
-
+* With the class AddressQuerier you can get informations such as latitude, longitude and more detailled informations simply by enter an literal address (precise or not).
+* With the class DistanceDuration you can calculate the distance and the duration beetween two addresses and also get all the itinerary steps beetween them.
+* With the class Address you can store an address as a specific object define by his latitude, longitude and an (optional) string address. 
+* With the class Step you can store a step define as a departureAddress and a arrivalAddress (of Address class). It's also possible to add the distance and duration informations of a step.
 
 === More details about the classes
 ==== AddressQuerier
 This class use the geocoding part of the api LocationIQ (https://locationiq.com/docs-html/index.html#search-forward-geocoding[see doc here])
 
-Function *recoveryAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribute on this class.
+Function *requestAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribute on this class.
 
 Then the *addressFound function* allows you to find only the addresses in the *addressInformations* ArrayList. These addresses are then stored in the *attribute addressFound* in the format *String*. All these addresses are proposed to the user via the *addressProposal function*. The latter selects one by writting into the console the exact address he wan't.
 
@@ -58,20 +44,24 @@ The *connexion* function allows you to initialize and configure an *ApiClient* u
 ==== DistanceDuration
 This class use the directions part of the api LocationIQ (https://locationiq.com/docs-html/index.html#directions[see doc here]) 
 
-The constructor of this class takes two addresses (of type Address) as parameters and in order to get latitude and longitude corresponding to this addresses. 
+The constructor of this class takes two addresses (of type Address) as parameters in order to get latitude and longitude corresponding to this addresses. 
 
-The function *getDirection* allows you to calculate the distance and the duration beewteen this two locations. By passing to the DirectionsApi method the gps coordinates we get a list of directions with a lot of informations about the itinerary. For each step of the itinerary we got the latitude, longitude, distance, duration, name of the road, and more informations. After getting this list, we use an iterator to browse the list and increment the sum of distance and duration for each steps in order to get the total distance and duration.
+The private method *calculateDistanceDuration* is used to connect to the API in order to get the distance, duration and all the traject informations (trip attribute).
+
+== Sequence diagram
+
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_AddressQuerier_recoveryAddressInformations.PNG[alt="AddressQuerier recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
+
+For this sequence diagram we have chosen to represent the interaction "address: String" by an arrow which loops over AddressQuerier. We made this choice because in the GUI we have not yet implemented the function which asks the user to enter the address he wishes to search.
+
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_DistanceDuration_calculateDistanceDuration.PNG[alt="DistanceDuration calculateDistanceDuration Sequence diagram",width=90%,height=90%, align="center"]
+
+== Problems encountered
+- Unfortunatly the API wasn't available on maven central, so we imported all the https://github.com/location-iq/locationiq-java-client[source code] at the root of the project (src/main/java/com.locationiq.client). Duplicate classes coming from the client code generator use by the developpers of the github depository have been delete.
+- Something important to be notice, using a free acount for the api limit the rate of requests per second, this is why we put a few `TimeUnit.SECONDS.sleep(1);` in the code.
 
 
-==== Address
-
-This class allows to store an address as a specific location. We define it as a latitude, a longitude and a postal address as a String.
-
-=== IT3 java
-
-For the java IT3, we will apply the new architecture developped above. This will concerns the creation of the Address class, the modification of TranslationAddress to AddressQuerier and the modification of DistanceDuration in order to use Address type as parameters. We decided to not use scanner and let the choose of the correct address given by AddressQuerier in the future gui.
-
-=== What could be done next
+== What could be done next
 
 It might be interesting next to display the itinerary on a map. LocationIQ provide interesting stuff about it (https://locationiq.com/docs-html/index.html#static-maps[see doc here]) but an other api might do it more easily.
 
