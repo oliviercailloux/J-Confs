@@ -36,3 +36,5 @@ There are for example :
 
 * Delete the conferencesRetriever class which allows to generate a conference list from entered data. But we could, instead of dedicating a whole class to this part, simply implement it in another class.
 * Complexify the recording of a price. Indeed, we would like to complicate the registrationFee attribute which concerns the management of prices. We will have to make this attribute take into account as a parameter a researcher who will return a price depending on the status of the person who reserves and the reservation period.
+* Instead of using City and Country in Conference, use Address which is in Location.
+* It would be better to use Range instead of two Instant for the start date and the end date in Conference.
