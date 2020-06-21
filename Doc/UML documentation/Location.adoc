@@ -30,15 +30,13 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 ==== AddressQuerier
 This class use the geocoding part of the api LocationIQ (https://locationiq.com/docs-html/index.html#search-forward-geocoding[see doc here])
 
-Function *requestAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* arraylist that is an attribute on this class.
+Function *requestAddressInformations* takes an address as a parameter (precise or not). It makes it possible to retrieve several pieces of information on several different addresses which can be the address sought. The information is stored in an *addressInformations* List that is an attribute on this class.
 
-Then the *addressFound function* allows you to find only the addresses in the *addressInformations* ArrayList. These addresses are then stored in the *attribute addressFound* in the format *String*. All these addresses are proposed to the user via the *addressProposal function*. The latter selects one by writting into the console the exact address he wan't.
+Then the *getLastAddressFound function* allows you to find only the addresses in the *addressInformations* List. These addresses are then stored in the *attribute addressFound* in the format *Address*.
 
-Depending on the choice of the user, the unnecessary rows are deleted in the two ArrayList.
+The *connexion* function allows you to initialize and configure an *ApiClient* using our key. 
 
-Furthermore, a builder is set up to make the AddressQuerier object immutable. We chose this method because it is possible that the class can evolve and that a large number of attributes are added.
-
-The *connexion* function allows you to initialize and configure an *ApiClient* using our key. We chose to put this function here and delete it from DistanceDuration classes in order to avoid duplicate same code.
+The AddressQuerier object allows you to request the locationIQ API to find different addresses. Once the object is initialized, the connection to the API is set up and from this object several requests can be sent to research an address.
 
 
 ==== DistanceDuration
@@ -64,3 +62,4 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 == What could be done next
 
 It might be interesting next to display the itinerary on a map. LocationIQ provide interesting stuff about it (https://locationiq.com/docs-html/index.html#static-maps[see doc here]). The static maps API return an image in response of an HTTP request. The `path` parameter of the HTTP request defines one or more paths to draw on the map separated by pipe characters. The path are defines by latitude and longitude (`path=lat1,lon1|lat2,lon2|`). We havn't got the time to test it but using `DistanceDuration.getAllSteps()` you might be able to easily draw the map itinerary. 
+
