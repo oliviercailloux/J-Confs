@@ -1,18 +1,18 @@
-== Conference Package
+= Conference Package
 :toc:
 :sectanchors:
+
+The package conference is use to create, search or delete a conference. It needs to be as a particular format call Vevent component. There is different way to search a conference such as by file path in order to search conference in a local file, by date interval or by title. 
 
 === Use case diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Conference_use_case_diagram.PNG[alt="Conference use case diagram",width=80%,height=80%, align="center"]
 
-The package conference is use to create, search or delete a conference. It needs to be as a particular format call Vevent component. There is different way to search a conference such as by file path in order to search conference in a local file, by date interval or by title. 
-
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Manage conference for application]
 
-This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+This diagram is accessible from the general view use case via a hyperlink (click on the use case in Papyrus model).
 
 === Class diagram
 
