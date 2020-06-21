@@ -5,80 +5,15 @@ A Java project developed by students during the https://github.com/oliviercaillo
 
 image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["Maven CI"]
 
-=== Delivery schedule for 2020
-
-[width="80%",cols="^10,^20,^10,^30,^10",options="header"]
-|===================================================================================================================================
-|Delivery |Deadline | Expected effort | TEAMS | SM/PO
-
-
-|1|20th April, 2020 |13 h | Team 1 : Kieffer Floryan & Hamouni Anis + Team 2 : Achria Majid & Bourg Sébastien | Zouari
-|2 & 3|14th June, 2020 |  22 h |  Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Zouari Anis |Hamouni     
-
-|===================================================================================================================================
-
-
-
-Delivery 1 
+Delivery 4 
 ~~~~~~~~~~~
 
-For the first iteration, the team has been divided in 2 parts,  one part that is in charge of LocationIQ's package (Kieffer Floryan & Hamouni Anis),  and the other part of the team is on Calendar's package (Achria Majid & Bourg Sébastien).
-
-*Tasks done* :
-
-With regard to the team in charge of the *Calendar package* : 
+Team 1 to do
+^^^^^^^^^^^^
 
 
-- The team worked on the Calendar package to integrate a connection to a calendar hosted by various NextCloud platform hosts (example: cloudamo and wolki). We modified the "CalendarOnline" class and added another "CalendarBuilder" class. We also tested other architectures such as interfaces but we chose to start on a builder for more clarity and also because we were more comfortable with this architecture.
-
-With regard to the team in charge of the *LocationIQ package* : 
-
-
-- We have been working on a new Location class. To do this we imported all the source code of LocationIQ into our code. We then created the Location package specific to our project and developed the following classes: Location (Floryan Kieffer and Anis Hamouni), Direction (Anis Hamouni) and Translation (Floryan Kieffer). The Location class should allow to retrieve the information in a file (offline mode). This class may be removed later we have not yet fully implemented it. The Translation class should make it possible to return several addresses based on an imprecise information and to propose them to the user so that he can select one among the proposed choices. Following this response, a process of deleting unnecessary addresses is carried out. Then we will have in this class all the necessary information about the address selected by the user.
-
-- About the Direction class : this class is used to calculate the distance and time between two locations, as well as the path to take to get there. For the moment the locations are strings in {longitude, latitude} format, later on they will be attributes of type Location. Concerning the steps for the move, we have a function to return the necessary data for this move, the concern is that there is a lot of useless information, we have sorted it but it is not yet sufficient.
+Team 2 to do
+^^^^^^^^^^^^
 
 
-Delivery 2 
-~~~~~~~~~~~
-
-- LocationIQ : solve open issues -> review LocationIQ API architecure, finish implementation of TranslationAddress and Direction
-
-- Calendar : new architecture with a builder to implement and solve open issues
-
-- Use Instant, use double instead of Double and use a Builder in Conference.
-
-- Delete package io.github.oliviercailloux.geocode 
-
-If enougth time : 
-
-- Extend the ability to register a fee (registrationFee) of a conference to able different prices : student price, early registration fee, member price, ...
-- Clean ressources (16 MB in src/main/resources/io/github/oliviercailloux/jconfs)
-
-Delivery 3 
-~~~~~~~~~~~
-
-Team 1 realisation
-^^^^^^^^^^^^^^^^^^
-
-* Rebuilt of architecture of package LocationIQ
-  - Add class *Address* that allows to store an address define as a string address, the latitude and the longitude associate.
-  - Add class *AddressQuerier* that allows to translate an address into several pieces of informations.
-     ** Allows to from imprecise information, to propose several addresses or a single address if the information entered is precise.
-     ** Use a scanner in case the api finds multiple addresses
-     **  Create a builder that make the object AddressQuerier immutable. It builds all the attributes of the class using a AddressQuerier object.
-  - Add class *DistanceDuration* that allows to calculate the distance and the duration between two
-     places defined by *Address*
-    ** It define the steps to go to the destination. 
-    ** The units are meter and second, and the steps are a list of DirectionsDirectionsRoutes containing all the route indication.
-  - Both classes *AddressQuerier* and *DistanceDuration* contains units test 
-
-Team 2 realisation
-^^^^^^^^^^^^^^^^^^
-* Update the class *conference* as it follow this documentation  https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc[Conference^]
-- Set up a builder
-- Make the class more consistent by protecting value from *null*
-* Create a https://github.com/sebastienbourg/J-Confs/issues/42[issue #42^] to replace *String* by the class *Address* 
-* Create a https://github.com/sebastienbourg/J-Confs/issues/41[issue #41^] to change date management using a *range*
-* Update units test
 
