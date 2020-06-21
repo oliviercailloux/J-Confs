@@ -28,28 +28,28 @@ Our project contains 7 packages :
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc#use-case-diagram[Conference package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc[Conference package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc#use-case-diagram[GUI package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc[GUI package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc#use-case-diagram[Researcher package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc[Researcher package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc#use-case-diagram[Document package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc[Document package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc#use-case-diagram[Map package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc#use-case-diagram[Calendar package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc#use-case-diagram[Location package]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location package]
