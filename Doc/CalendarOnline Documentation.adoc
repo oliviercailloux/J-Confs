@@ -29,9 +29,7 @@ The CalDav4j library has been chosen in order to allow these exchanges, it inclu
 - The user id.
 - The user password.
 
-== TO DO
-
-You need to change user account in io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineFruux and io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineNextCloud when you have created yours.
+	* You need to change user account in io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineFruux and io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineNextCloud when you have created yours.
 It will be easier in case of issue. Nevertheless, this part of the code don't seems to have issue.
 Be aware that if the server is unreachable, your test will fail and by so your maven test also.
  
