@@ -46,9 +46,6 @@ Our project contains 7 packages :
 
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map package]
 
- 
-
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar package]
 
  
 
