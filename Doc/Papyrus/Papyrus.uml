@@ -368,17 +368,6 @@
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_15JkUGeIEeq1TMmsQgXH2g" name="sendGit" visibility="protected"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_57f_cGeIEeq1TMmsQgXH2g" name="restoreGit" visibility="protected">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_LYdToGeLEeq1TMmsQgXH2g" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_9ApLcGeIEeq1TMmsQgXH2g" name="mergeCal" visibility="protected">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="__hP1EGeKEeq1TMmsQgXH2g" name="a" type="_QujxQGdtEeq1TMmsQgXH2g"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_EpYzkGeLEeq1TMmsQgXH2g" name="v" type="_QujxQGdtEeq1TMmsQgXH2g" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_DY2DoGeJEeq1TMmsQgXH2g" name="connector" visibility="protected"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_8qZPYGWrEeqCB6kIHjdr_A" name="ReadCalendarFiles" visibility="package">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Yafv4GXFEeqCB6kIHjdr_A" name="ReadCalendarFiles"/>
@@ -559,8 +548,8 @@
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lVWs4GX-EeqbUqsc8bodZw"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lVWs4WX-EeqbUqsc8bodZw" value="1"/>
           </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_fAxqEGX2EeqbUqsc8bodZw" name="ConferencesShower">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aM518GX3EeqbUqsc8bodZw" name="a"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_fAxqEGX2EeqbUqsc8bodZw" name="ConferencesShower" concurrency="concurrent">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aM518GX3EeqbUqsc8bodZw" name="a" type="_sXJWgGdwEeqFIabYW9i8VA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_fPKrYGX2EeqbUqsc8bodZw" name="searchConferenceByTitle">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_nzY5wGX3EeqbUqsc8bodZw" name="a">
@@ -584,19 +573,13 @@
         <packagedElement xmi:type="uml:Class" xmi:id="__nbBkGX1EeqbUqsc8bodZw" name="ConferenceReader">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_kAwLEGX2EeqbUqsc8bodZw" name="ConferenceReader"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_kRR6YGX2EeqbUqsc8bodZw" name="readCalendarFile" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y8KfcGX6EeqbUqsc8bodZw" name="a">
-              <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_ROHC4GXfEeqbUqsc8bodZw"/>
-            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y8KfcGX6EeqbUqsc8bodZw" name="a" type="_j66Y4LQCEeqAbfg7Y9ligg"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_ki7rEGX2EeqbUqsc8bodZw" name="createConference" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_firgcGX6EeqbUqsc8bodZw" name="a">
-              <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_gYx2QGXfEeqbUqsc8bodZw"/>
-            </ownedParameter>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ki7rEGX2EeqbUqsc8bodZw" name="createConference" visibility="public" isStatic="true" concurrency="concurrent">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_firgcGX6EeqbUqsc8bodZw" name="a" type="_53F8ULQCEeqAbfg7Y9ligg"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_kzpnoGX2EeqbUqsc8bodZw" name="readConferences" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_rZ8pYGX6EeqbUqsc8bodZw" name="a">
-              <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_ROHC4GXfEeqbUqsc8bodZw"/>
-            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_rZ8pYGX6EeqbUqsc8bodZw" name="a" type="_j66Y4LQCEeqAbfg7Y9ligg"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_vYcfQGX6EeqbUqsc8bodZw" type="_Pb9mcGX4EeqbUqsc8bodZw" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_lA-R8GX2EeqbUqsc8bodZw" name="convertDate" isStatic="true">
@@ -618,8 +601,8 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_mdViQGX2EeqbUqsc8bodZw" name="invalidConferenceFormatException">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_MWzE8GX7EeqbUqsc8bodZw" name="String">
-              <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_ZtPV4GXgEeqbUqsc8bodZw"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_MWzE8GX7EeqbUqsc8bodZw" name="a">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
         </packagedElement>
@@ -674,8 +657,8 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZlPKQGX9EeqbUqsc8bodZw" name="conf" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_PxhNcGX9EeqbUqsc8bodZw" name="hashCode">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fo-OUGX9EeqbUqsc8bodZw" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_fo-OUGX9EeqbUqsc8bodZw" name="a" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Q1vqkGX9EeqbUqsc8bodZw" name="toString">
@@ -686,13 +669,11 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_2SqxUGX4EeqbUqsc8bodZw" name="ConferenceWriter">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_9RF8AGX4EeqbUqsc8bodZw" name="ConferenceWriter"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_9krmYGX4EeqbUqsc8bodZw" name="openCalendar" visibility="private">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_znLpMGX9EeqbUqsc8bodZw">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_9krmYGX4EeqbUqsc8bodZw" name="openCalendar" visibility="public">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_znLpMGX9EeqbUqsc8bodZw" name="a">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2tiWIGX9EeqbUqsc8bodZw" direction="return">
-              <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_-1jsUGXgEeqbUqsc8bodZw"/>
-            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_2tiWIGX9EeqbUqsc8bodZw" type="_SeNRcLQCEeqAbfg7Y9ligg" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_91iF0GX4EeqbUqsc8bodZw" name="deleteConference">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_8L2Y8GX9EeqbUqsc8bodZw" name="String" type="_Pb9mcGX4EeqbUqsc8bodZw"/>
@@ -2026,6 +2007,9 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_PJSsoKzGEeqAbfg7Y9ligg" name="Optional&lt;String>"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_9q19wLFwEequ0PgZYk274g" name="Date"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_rHJbELPLEeqBiPN88uGEiA" name="Doc"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SeNRcLQCEeqAbfg7Y9ligg" name="Calendar"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j66Y4LQCEeqAbfg7Y9ligg" name="Reader"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_53F8ULQCEeqAbfg7Y9ligg" name="Component" visibility="package"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">

@@ -1,10 +1,11 @@
-== Gui Package
+= Gui Package
+:toc:
+:sectanchors:
 
 === Use case diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Gui_use_case_diagram.PNG[alt="Gui use case diagram",width=80%,height=80%, align="center"]
 
-=== Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
@@ -27,6 +28,8 @@ The application is currently able to display a window by using *Guiconference cl
 * Display a list of conferences
 * Display a map of conference location
 * Generate LibreOffice document
+
+=== What could be done next
 
 Actually one action can work (search a researcher), the others can be improved in order to become operational, for this you can use an *MVC* architecture (Model-View-Controller) to associate events and methods, for example to:
 
