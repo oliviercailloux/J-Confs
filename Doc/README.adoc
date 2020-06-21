@@ -24,92 +24,32 @@ Our project contains 7 packages :
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc[Conference use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc#use-case-diagram[Conference package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc[GUI use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc#use-case-diagram[GUI package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc[Researcher use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc#use-case-diagram[Researcher package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc[Document use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc#use-case-diagram[Document package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc#use-case-diagram[Map package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar use case]
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc#use-case-diagram[Calendar package]
 
  
 
-* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location use case]
-
- 
-
-=== Delivery schedule for 2020
-
- 
-
-[width="80%",cols="^10,^10,^20,^10,^30",options="header"]
-|===================================================================================================================================
-|Delivery |Course |Deadline | Expected effort | TEAMS 
-
- 
-
-|1|UML   |16th March, 2020 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis 
-|2|UML   |30th March, 2020 |10 h | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 : Achria Majid & Hamouni Anis & Zouari Anis 
-|3|UML   |26th April, 2020 |8 h  | Team 1 :  Achria Majid & Bourg Sébastien + Team 2 : Kieffer Floryan & Hamouni Anis & Zouari Anis
-|4|UML   |24th May, 2020 |12 h  | Team 1 : Kieffer Floryan & Bourg Sébastien + Team 2 :  Achria Majid & Hamouni Anis & Zouari Anis
-
- 
-
-
-|===================================================================================================================================
-
- 
-
- 
-
-Delivery 1 
-~~~~~~~~~~
-
- 
-
-See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT1.adoc[first iteration documentation].
-
- 
-
-Delivery 2 
-~~~~~~~~~~~
-
- 
-
-See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT2.adoc[second iteration documentation].
-
- 
-
-Delivery 3 
-~~~~~~~~~~~
-
- 
-
-See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT3.adoc[third iteration documentation].
-
- 
-
-Delivery 4
-~~~~~~~~~~~
-
- 
-
-See the https://github.com/sebastienbourg/J-Confs/blob/master/Doc/IT4.adoc[fourth iteration documentation].
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc#use-case-diagram[Location package]
