@@ -1,4 +1,6 @@
-== Researcher package
+= Researcher package
+:toc:
+:sectanchors:
 
 === Use case diagram
 
@@ -6,7 +8,6 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 The package Researcher allows the user to create a Researcher object by connecting to dauphine online phone book and get information from a login enter by the user.
 
-=== Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
@@ -22,3 +23,14 @@ In this package that is represented in Papyrus, we have 2 classes :
 
  * Researcher: this class allows to stock a researcher
  * ResearcherBuilder: this class creates Researcher object by connecting to  dauphine online phone book
+
+ 
+=== What could be done next
+ 
+ You can add some attributes in Researcher to manage a researcher's portfolio like a
+* List of Journey 
+** Expense : concerns the conference registration fee.
+* List of Expense.  
+** Journey : concerns the conference travel.
+* Create new function in Researcher to add, delete, modify or see an Expense/Journey.
+
