@@ -26,7 +26,7 @@ For example:
 * The MissionOrder class generate a spreed sheet document about a mission order.
 
 
-=== What we planned to do
+=== What could be done next
 
 In the package document, there is also some modifications to do to improve the code. For example :
 

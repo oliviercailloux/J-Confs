@@ -36,7 +36,7 @@ Represents a point with name, longitude and latitude.
 
 Represents a path with a starting *geopoint* and an arrival *geopoint* with a means of transport.
 
-=== What we plan to do 
+=== What could be done next 
 
 
 * API will be managed as an interface that will be implemented by the pathstep class, or just methods that will be added to the pathstep class.
