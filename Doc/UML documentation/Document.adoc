@@ -26,10 +26,10 @@ For example:
 * The MissionOrder class generate a spreed sheet document about a mission order.
 
 
-=== What we plan to do 
+=== What we planned to do
 
-In the package document, there is also some modifications to do to improve the code. For example : 
+In the package document, there is also some modifications to do to improve the code. For example :
 
-* Investigate the existence of a more modern API for manipulating OpenDocument documents. We are therefore studying the different existing solutions in order to choose the one that would best suit our project.
+* Investigate the existence of a more modern API for manipulating OpenDocument documents. We are therefore studying the different existing solutions in order to choose the one that would best suit our project. https://itextpdf.com/fr[Itext] is a good alternative, used to generate PDF files.
 * Set up the generation and storage of the Mission Order (OM) or JC request. If one already exists, it goes into the history. We could add a JC class and put generate and store functions in it and possibly add attriubuts. We would have to add a store function in generateOM and generateOMYS. We're also thinking about storing everything on git.
 * Extract a specialized program dealing with LibreOffice document generation and create its own GitHub repository. To do so, you would have to create a new class containing this program. I've already created a github repository and let's think about it.

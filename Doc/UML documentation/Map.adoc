@@ -38,7 +38,6 @@ Represents a path with a starting *geopoint* and an arrival *geopoint* with a me
 
 === What we plan to do 
 
-* Add a price, a start date and return date in the pathstep class and a display method, and thanks to an API we calculate the price of the trip between the two points and with the means of transport that already exists as attribute and the two dates, with the display function we display the itinerary.
 
 * API will be managed as an interface that will be implemented by the pathstep class, or just methods that will be added to the pathstep class.
 
