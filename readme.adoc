@@ -1,9 +1,8 @@
 J-Confs
 -------
+image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["Maven CI"]
 
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
-
-image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["Maven CI"]
 
 Delivery 4 
 ~~~~~~~~~~~
