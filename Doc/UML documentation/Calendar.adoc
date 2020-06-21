@@ -1,12 +1,15 @@
-== Calendar package
+= Calendar package
+:toc:
+:sectanchors:
 
-See also https://github.com/sebastienbourg/J-Confs/blob/master/Doc/CalendarOnline%20Documentation.adoc
+https://github.com/sebastienbourg/J-Confs/blob/master/Doc/CalendarOnline%20Documentation.adoc[See also]
+
+The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
 
 === Use case diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Calendar_use_case_diagram.PNG[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
 
-The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
 By connecting with a local calendar you can only create a conference.
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use cases:
@@ -15,7 +18,7 @@ This use case is a detailed version of the general use case about one or several
 
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Visualize conferences in an online calendar]
 
-This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+This diagram is accessible from the general view use case via a hyperlink (click on the use case in Papyrus model).
 
 === Class diagram
 
@@ -36,7 +39,10 @@ Here you can find how we look for online conferences.
 
 === What could be done next
 
-You can try to increase the number of calendar useable by the user. By so, I mean find a NextCloud/Fruux like.
+In the Calendar packages, there are some changes to be made to improve the code, make it "cleaner", improve functions or remove unnecessary things. There are for example :
 
-We want to add a function send to git and a function restore from git in CalendarOnline. We also need to add a function that help us to know if the calendar is writeable/readable in ReadCalendarFiles. You can also use Path instead of String as seen in course.
+* You can try to increase the number of calendar useable by the user. By so, I mean find a NextCloud/Fruux like.
+* Add a function to send to git and add a function restore from git in CalendarOnline the whole calendar. 
+* Add a function that help us to know if the calendar is writeable/readable in ReadCalendarFiles. 
+* You can also use Path instead of String as seen in course.
 
