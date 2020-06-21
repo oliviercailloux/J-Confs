@@ -31,7 +31,7 @@ For example :
 * The conferenceWriter class Delete the conference of the ics file (if it exists), Add the conference in the ics file (if it exists) and Save the given conference in the ics File. 
 * The invalidConferenceFormatException class custom exception use for a conference creation.
 
-=== What we plan to do 
+=== What could be done next
 
 In the Conference packages, there are some changes to be made to improve the code, make it "cleaner", improve functions or remove unnecessary things.
 There are for example : 
