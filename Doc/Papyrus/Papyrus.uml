@@ -931,7 +931,7 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_2GFCoGX_EeqbUqsc8bodZw" name="Conference" type="_gWsJMGWrEeqCB6kIHjdr_A"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_UEd-cGX_EeqbUqsc8bodZw" name="saveOrderMissionToHistory" visibility="private" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_EyiQAGYAEeqbUqsc8bodZw" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_EyiQAGYAEeqbUqsc8bodZw" name="String">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
@@ -939,14 +939,16 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_Hgti8GX_EeqbUqsc8bodZw" name="MissionOrder">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_U0iJcGX_EeqbUqsc8bodZw" name="MissionOrder"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_U_W5YGX_EeqbUqsc8bodZw" name="main" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_No5zwGYAEeqbUqsc8bodZw" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_No5zwGYAEeqbUqsc8bodZw" name="String">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_VMBcYGX_EeqbUqsc8bodZw" name="generateSpreadsheetDocument" visibility="private"/>
         </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_JxWv4GX_EeqbUqsc8bodZw" name="GenerateOMYS">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_V4m1kGX_EeqbUqsc8bodZw" name="target" visibility="private" isStatic="true"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_JxWv4GX_EeqbUqsc8bodZw" name="GenerateOMYS" visibility="protected">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_V4m1kGX_EeqbUqsc8bodZw" name="target" visibility="private" isStatic="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_XRpsIGX_EeqbUqsc8bodZw" name="GenerateOMS"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Xg8FUGX_EeqbUqsc8bodZw" name="getTarget" isStatic="true">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZcJ_YGYAEeqbUqsc8bodZw" direction="return">
@@ -959,14 +961,12 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_X8lfgGX_EeqbUqsc8bodZw" name="saveYSOrderMissionToHistory" visibility="private" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3tfP4GYAEeqbUqsc8bodZw" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3tfP4GYAEeqbUqsc8bodZw" name="String">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_YKuCIGX_EeqbUqsc8bodZw" name="saveYSOrderMission" visibility="private" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_9yyaMGYAEeqbUqsc8bodZw" name="a">
-              <type xmi:type="uml:Class" href="../../papyrusDiag/diagPapyrus.uml#_snjuAGXkEeqbUqsc8bodZw"/>
-            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_9yyaMGYAEeqbUqsc8bodZw" name="Document" type="_rHJbELPLEeqBiPN88uGEiA"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_I39r0GeWEeq1TMmsQgXH2g" client="_CyGewGX_EeqbUqsc8bodZw" supplier="_A_R7YGaxEeq2I7WBLVkWww"/>
@@ -2018,6 +2018,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_Lx4r8KzGEeqAbfg7Y9ligg" name="Optional&lt;URL>"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_PJSsoKzGEeqAbfg7Y9ligg" name="Optional&lt;String>"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_9q19wLFwEequ0PgZYk274g" name="Date"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rHJbELPLEeqBiPN88uGEiA" name="Doc"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">

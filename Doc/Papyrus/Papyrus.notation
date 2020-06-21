@@ -1083,7 +1083,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F98vuWX_EeqbUqsc8bodZw"/>
           </children>
           <element xmi:type="uml:Class" href="Papyrus.uml#_F95FUGX_EeqbUqsc8bodZw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F98IoWX_EeqbUqsc8bodZw" x="34" y="28"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F98IoWX_EeqbUqsc8bodZw" x="34" y="8"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_HgxNUGX_EeqbUqsc8bodZw" type="Class_Shape_CN">
           <children xmi:type="notation:DecorationNode" xmi:id="_HgxNUmX_EeqbUqsc8bodZw" type="Class_NameLabel_CN"/>
@@ -1121,7 +1121,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hgx0ZGX_EeqbUqsc8bodZw"/>
           </children>
           <element xmi:type="uml:Class" href="Papyrus.uml#_Hgti8GX_EeqbUqsc8bodZw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HgxNUWX_EeqbUqsc8bodZw" x="414" y="28"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HgxNUWX_EeqbUqsc8bodZw" x="514" y="23"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_JxcPcGX_EeqbUqsc8bodZw" type="Class_Shape_CN">
           <children xmi:type="notation:DecorationNode" xmi:id="_Jxc2gGX_EeqbUqsc8bodZw" type="Class_NameLabel_CN"/>
@@ -1171,13 +1171,13 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Jxc2kWX_EeqbUqsc8bodZw"/>
           </children>
           <element xmi:type="uml:Class" href="Papyrus.uml#_JxWv4GX_EeqbUqsc8bodZw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JxcPcWX_EeqbUqsc8bodZw" x="214" y="268"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JxcPcWX_EeqbUqsc8bodZw" x="214" y="248"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_CyKJIWX_EeqbUqsc8bodZw"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CyKJImX_EeqbUqsc8bodZw"/>
       </children>
       <element xmi:type="uml:Package" href="Papyrus.uml#_CyGewGX_EeqbUqsc8bodZw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CyJiEWX_EeqbUqsc8bodZw" y="20" width="721" height="541"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CyJiEWX_EeqbUqsc8bodZw" x="180" y="40" width="861" height="521"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_8GKyQWX-EeqbUqsc8bodZw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_8GKyQmX-EeqbUqsc8bodZw"/>
