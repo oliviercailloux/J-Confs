@@ -28,7 +28,7 @@ The application is currently able to display a window by using *Guiconference cl
 * Display a map of conference location
 * Generate LibreOffice document
 
-Actually one action can work (search a researcher), the others can be improved in order to become operational, for this you can use an *MVC* architecture (Model-View-Controller) for this you can use an *MVC* architecture to associate events and methods, for example to:
+Actually one action can work (search a researcher), the others can be improved in order to become operational, for this you can use an *MVC* architecture (Model-View-Controller) to associate events and methods, for example to:
 
  *  Display a map of conference location
  ** Use the functionality of class *MapGUI* like a View
