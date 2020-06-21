@@ -1,6 +1,4 @@
 = Document Package
-
-
 :toc:
 :sectanchors:
 
@@ -15,7 +13,7 @@ This use case is a detailed version of the general use case about one or several
 
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Generate a document with informations about a conference.]
 
-This diagram is accessible from the general view use case via a hyperlink (click on the use case).
+This diagram is accessible from the general view use case via a hyperlink (click on the use case in Papyrus model).
 
 
 === Class diagram
