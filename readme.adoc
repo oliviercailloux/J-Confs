@@ -1,18 +1,18 @@
-J-Confs
--------
+= J-Confs
+
 image:https://github.com/sebastienbourg/J-Confs/workflows/Maven%20CI/badge.svg["Maven CI"]
 
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
 
-Delivery 4 
-~~~~~~~~~~~
+== Delivery 4 
 
-Team 1 to do
-^^^^^^^^^^^^
+Team 1 :
 
-
-Team 2 to do
-^^^^^^^^^^^^
+* Improve conference and calendar package (PR #30 #40)
+* Make connexion using JSON config file for calendar package
 
 
+Team 2 :
 
+* Make connexion using JSON config file for locationIQ API
+* Do last change for the PR #39
