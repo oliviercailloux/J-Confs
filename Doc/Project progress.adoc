@@ -1,13 +1,5 @@
 = Project Progress 2019-2020
 
-== Team
-
-Bourg Sébastien
-Kieffer Floryan
-Hamouni Anis
-Zouari Anis
-Achria Majid
-
 == State
 
 
@@ -40,3 +32,7 @@ This package contains four classes:
 * DistanceDuration
 
 * Step
+
+We can also connect to all calendar host links to NextCloud or Fruux. 
+
+You can find idea to improve some package in their specific documentation under What could be done next.
