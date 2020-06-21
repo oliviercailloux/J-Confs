@@ -24,6 +24,7 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 This package mainly deals with the management of mission orders.
 For example: 
+
 * The generateOM class fills a searcher Mission Order.
 * The generateOMYS class fills a searcher Mission Order but for a young searcher.
 * The MissionOrder class generate a spreed sheet document about a mission order.
