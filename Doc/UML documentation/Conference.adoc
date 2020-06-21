@@ -6,11 +6,9 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 
 The package conference is use to create, search or delete a conference. It needs to be as a particular format call Vevent component. There is different way to search a conference such as by file path in order to search conference in a local file, by date interval or by title. 
 
-=== Link
-
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
-* Manage conference for application
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Manage conference for application]
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).
 
@@ -23,18 +21,13 @@ Indeed it contains the classes allowing to create conferences.
 For example : 
 
 * The conferenceReader class for example which reads information from a calendar file and creates a conference object.
-* The conference class defines what a conference is with its attributes and constructor.
+* The conference class defines what a conference is with its attributes and constructor. In the code, a conference won't exist if it doesn't have a uid, a title, a start date and an end date. It will throw an NullPointerException.
 * The ConferenceBuilder class instantiate a conference and validate only if it contains Uid, Title, startDate and endDate at least;
 * The ConferenceRetriever interface reads conference data and return a set of conferences.
 * The conferenceShower class show Conferences data.
 * The ConferenceFromCal class that retrieve a conference from any ics file  
 * The conferenceWriter class Delete the conference of the ics file (if it exists), Add the conference in the ics file (if it exists) and Save the given conference in the ics File. 
 * The invalidConferenceFormatException class custom exception use for a conference creation.
-
-=== IT3 Java
-
-We will migrate all LocalDate type into Instant type. Double will became a String. This will help us to extend the price property. We will implement the Builder design pattern into Conference in order to avoid the use of null value in Calendar function.
-In the code, a conference won't exist if it doesn't have a uid, a title, a start date and an end date. It will throw an NullPointerException.
 
 === What we plan to do 
 
