@@ -1,0 +1,34 @@
+= Project Progress 2019-2020
+
+== State
+
+
+During the whole project we made sure to improve the previous code either by modifying it or by adding new classes or new packages. We have therefore modified all of the following packages:
+
+* io.github.oliviercailloux.jconfs.calendar
+
+* io.github.oliviercailloux.jconfs.conference
+
+
+We also created a new package (io.github.oliviercailloux.jconfs.location) to replace a package already present in the project. We had to import the locationIQ API to be able to implement the location package classes.
+
+
+This document is a summary of what we have done throughout the project. We have produced a more detailed documentation of the progress of the project by package by taking up the current state of the packages as well as the changes made if there are any. All this documentation 
+is located in the UML documentation folder.
+
+== Evolution
+
+In this project we have created a location package which allows you to create a route between two addresses for a researcher who is to give a conference. It is therefore possible for this researcher to know how to get from his home to his conference for example. This package calculates the distance and duration between two addresses. In addition this package allows to know all the steps between these two addresses.
+
+
+This package uses the connection to the locationIQ API and sends it requests to retrieve addresses related to the one sought by the user.
+
+This package contains four classes:
+
+* AddresQuerier
+
+* Address
+
+* DistanceDuration
+
+* Step
