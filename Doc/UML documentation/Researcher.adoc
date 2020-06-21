@@ -27,7 +27,7 @@ In this package that is represented in Papyrus, we have 2 classes :
  
 === What could be done next
  
- You can add some attributes in Researcher to manage a researcher's portfolio like a
+You can add some attributes in Researcher to manage a researcher's portfolio like a
 * List of Journey 
 ** Expense : concerns the conference registration fee.
 * List of Expense.  
