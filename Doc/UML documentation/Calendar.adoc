@@ -2,7 +2,7 @@
 :toc:
 :sectanchors:
 
-https://github.com/sebastienbourg/J-Confs/blob/master/Doc/CalendarOnline%20Documentation.adoc[See also]
+First you need to create some account. https://github.com/sebastienbourg/J-Confs/blob/master/Doc/CalendarOnline%20Documentation.adoc[Please refer to this doc]
 
 The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
 
