@@ -6,10 +6,10 @@
 
 * List of task for next IT java for Conference and Calendar package.
 
-* Everyone participate to the elaboration and verification of all adoc files and diagrams*
+* Everyone participate to the elaboration and verification of all adoc files and diagrams.
 
  
 
 === Problems encountered
 
-- Still some issue to handle sequence diagram in Papyrus
+- Still some issue to handle sequence diagram in Papyrus.
