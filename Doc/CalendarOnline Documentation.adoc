@@ -7,15 +7,13 @@ The purpose of this document is to document the storage functionality of online 
 A graphical user interface called "GuiListConferences" has been set up with the aim of displaying, editing and adding conferences to an online calendar storage website by the last team.
 
 
-The calendar storage websites used are https://fruux.com/[Fruux^] and https://nextcloud.com/[NextCloud^]. It is a free service that allows you to keep your contacts and calendars synchronized on many platforms.
+The calendar storage websites used are https://fruux.com/[Fruux^] or https://nextcloud.com/[NextCloud^]. It is a free service that allows you to keep your contacts and calendars synchronized on many platforms.
 
 
 In order to be able to exchange data between the application and the hosts, it is necessary to use an online calendar editing protocol named *CalDav*.
 
 
 The CalDav4j library has been chosen in order to allow these exchanges, it includes a set of methods allowing the edition of events and the addition of new events online. All the methods using this library are in the "CalendarOnline" class.
-
-
 
 == Prerequisites :
 
@@ -31,36 +29,17 @@ The CalDav4j library has been chosen in order to allow these exchanges, it inclu
 - The user id.
 - The user password.
 
- 
+== TO DO
 
+You need to change user account in io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineFruux and io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineNextCloud when you have created yours.
+It will be easier in case of issue. Nevertheless, this part of the code don't seems to have issue.
+Be aware that if the server is unreachable, your test will fail and by so your maven test also.
+ 
 More infos :
 
 - Fruux : https://fruux.com/api/
+- NextCloud : https://nextcloud.com/signup/
 - Library : https://github.com/caldav4j/caldav4j/tree/master/src/example/org/osaf/caldav4j/example
 - ICalendar : https://tools.ietf.org/html/rfc5545
 - Old team documentation : https://github.com/13tomoore/J-Confs/blob/master/Doc/Documentation_CalendarOnline.adoc
-
-== Diagrams
-
-=== Use case diagram
-
-image:https://imgur.com/Bhw0pv9.png[alt="Calendar use case diagram",width=80%,height=80%, align="center"]
-
-The user can create an account either in https://fruux.com or in https://nextcloud.com/signup/ 
-When you set up your account and the name of your calendar, you will need to edit a config file in your pc or via the GUI(?).
-
-=== Class diagram
-
-:image-uri-screenshot: https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/ScreenShots/Calendar_s_class_diagram.PNG
-image::{image-uri-screenshot}[Preview of AsciiDoc source and corresponding rendered HTML]
-
-This is a class diagram which represents a new architecture that we purpose. 
-
-=== Sequence diagram
-
-image:https://imgur.com/LYtI3Qo.png[alt="Calendar sequence diagram",width=80%,height=80%, align="center"]
-
-This sequence diagram represent how CalendarOnline class works in order to connect to an online calendar.
-CalendarOnline class first create a calendar object by interacting with the static factory method "given" of CalendarBuilder class.
-Then the class interact with 3 other class in order to set the caldav connexion.
 
