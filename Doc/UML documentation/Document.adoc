@@ -1,16 +1,19 @@
-== Document Package
+= Document Package
+
+
+:toc:
+:sectanchors:
+
+The package document is use to generate documents in resources folder. He is in charge of generate mission order for example after the user fill all information in the application.
 
 === Use case diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Document_use_case_diagram.PNG[alt="Document use case diagram",width=80%,height=80%, align="center"]
 
-The package document is use to generate documents in resources folder. He is in charge of generate mission order for example after the user fill all information in the application.
-
-=== Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
-* Generate a document with informations about a conference.
+* https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc#use-case-diagram[Generate a document with informations about a conference.]
 
 This diagram is accessible from the general view use case via a hyperlink (click on the use case).
 
