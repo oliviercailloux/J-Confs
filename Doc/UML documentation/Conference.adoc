@@ -1,4 +1,6 @@
 == Conference Package
+:toc:
+:sectanchors:
 
 === Use case diagram
 
