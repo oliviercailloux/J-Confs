@@ -1,11 +1,11 @@
 = Gui Package
 :toc:
 :sectanchors:
+
 === Use case diagram
 
 image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Gui_use_case_diagram.PNG[alt="Gui use case diagram",width=80%,height=80%, align="center"]
 
-=== Link
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
