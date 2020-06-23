@@ -9,6 +9,27 @@
 * Everyone participate to the elaboration and verification of all adoc files and diagrams.
 
  
+== Task performed
+
+For this iteration we have corrected all the remarks of the previous iteration:
+
+* Change the complete structure of the papyrus model explorer
+
+* Removal of certain use cases
+
+* Creation of a new document which allows to summarize the work provided "Project Progress.adoc"
+
+* Update of all documentation
+
+* Creation of Prerequisites CalendarOnline.adoc
+
+* Update Sequence diagramm (Location)
+
+* Update README.adoc
+
+* Update Class diagramm (Location, Conference, Document, Map, Gui, Researcher)
+
+* Improve link between files
 
 === Problems encountered
 
