@@ -124,9 +124,8 @@ public class CalendarOnline {
 	 * @param conferenceEdited : the conference you want to convert
 	 * @return the VEvent corresponding to your Conference
 	 * @throws URISyntaxException
-	 * @throws ParseException
 	 */
-	public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException, ParseException {
+	public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException {
 		VEvent vEventConference;
 		Property urlz, location, description, uid, name, startDate, endDate, sequence, created, dtstamp, lastModified;
 		location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
