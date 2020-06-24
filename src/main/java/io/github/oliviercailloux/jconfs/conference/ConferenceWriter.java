@@ -23,6 +23,7 @@ import net.fortuna.ical4j.model.property.CalScale;
 import net.fortuna.ical4j.model.property.Description;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStart;
+import net.fortuna.ical4j.model.property.Location;
 import net.fortuna.ical4j.model.property.ProdId;
 import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Url;
@@ -113,8 +114,13 @@ public class ConferenceWriter {
 		propertyList.add(new DtEnd(formatter.format(conference.getEndDate())));
 
 		propertyList.add(new Summary(conference.getTitle()));
-		propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
-		propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
+		//
+		//propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
+		//propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
+		// 
+		Property location = new Location(conference.getCity() + "," + conference.getCountry());
+		propertyList.add(location);
+		//
 		if (conference.getUrl().isPresent())
 			propertyList.add(new Url(conference.getUrl().get().toURI()));
 		if (conference.getFeeRegistration().isPresent())
