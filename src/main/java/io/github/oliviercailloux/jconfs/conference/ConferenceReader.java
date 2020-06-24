@@ -56,37 +56,48 @@ public class ConferenceReader {
 	 *                  conference
 	 * @return a conference
 	 * @throws InvalidConferenceFormatException
+	 * @throws MalformedURLException 
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 */
-	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
+	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException, MalformedURLException {
 		Conference conf = null;
-		URL confURL;
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		URL confURL = new URL("http://fakeurl.om");
 		String[] location;
 		String[] description;
 		Double feeRegistration = null;
-
-		try {
+		if (!confCompo.getProperties("URL").isEmpty()) {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
-		} catch (MalformedURLException e1) {
-			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference", e1);
+			theBuild.setUrl(confURL);
+		}
+		if (!confCompo.getProperties("LOCATION").isEmpty()) {
+			location = confCompo.getProperty("LOCATION").getValue().split(",");
+			String city = location[0];
+			String country = location[1];
+			theBuild.setCity(city);
+			theBuild.setCountry(country);
+		}
+		if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
+			description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
+			for (String ele : description) {
+				if (ele.contains("Fee")) {
+					feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+				}
+			}
+			theBuild.setRegistrationFee(feeRegistration.intValue());
 		}
 
-		location = confCompo.getProperty("LOCATION").getValue().split(",");
-		description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
-		for (String ele : description) {
-			if (ele.contains("Fee")) {
-				feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
-			}
+		if (!confCompo.getProperties("UID").isEmpty()) {
+			String uid = confCompo.getProperty("UID").getValue();
+			theBuild.setUid(uid);
 		}
 
 		String title = confCompo.getProperty("SUMMARY").getValue();
-		String city = location[0];
-		String country = location[1];
+
 		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
-		String uid = confCompo.getProperty("UID").getValue();
 		LocalDate start = null;
 		LocalDate end = null;
 
@@ -97,11 +108,9 @@ public class ConferenceReader {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
-		ConferenceBuilder theBuild = new ConferenceBuilder();
-		conf = theBuild.setUid(uid).setUrl(confURL).setTitle(title)
-				.setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
+		theBuild.setTitle(title).setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant());
+		conf = theBuild.build();
 
 		return conf;
 	}

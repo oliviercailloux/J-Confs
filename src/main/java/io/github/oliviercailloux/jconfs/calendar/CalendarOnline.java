@@ -84,8 +84,9 @@ public class CalendarOnline {
 	 * @return
 	 * @throws CalDAV4JException
 	 * @throws InvalidConferenceFormatException
+	 * @throws MalformedURLException 
 	 */
-	public Set<Conference> getOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException {
+	public Set<Conference> getOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException, MalformedURLException {
 		GenerateQuery searchQuery = new GenerateQuery();
 		CalendarQuery calendarQuery = searchQuery.generate();
 		Set<Conference> listConferencesUser = new LinkedHashSet<>();
@@ -190,9 +191,10 @@ public class CalendarOnline {
 	 * @return The VEvent that have this uid
 	 * @throws CalDAV4JException
 	 * @throws InvalidConferenceFormatException
+	 * @throws MalformedURLException 
 	 */
 	public Optional<Conference> getConferenceFromUid(String uid)
-			throws CalDAV4JException, InvalidConferenceFormatException {
+			throws CalDAV4JException, InvalidConferenceFormatException, MalformedURLException {
 		VEvent vEventConferenceFound = null;
 		GenerateQuery searchQuery = new GenerateQuery();
 		searchQuery.setFilter("VEVENT : UID==" + uid);
