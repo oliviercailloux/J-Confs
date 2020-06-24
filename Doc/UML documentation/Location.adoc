@@ -62,5 +62,6 @@ image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams
 == What could be done next
 
 It might be interesting next to display the itinerary on a map. LocationIQ provide interesting stuff about it (https://locationiq.com/docs-html/index.html#static-maps[see doc here]). The static maps API return an image in response of an HTTP request. The `path` parameter of the HTTP request defines one or more paths to draw on the map separated by pipe characters. The path are defines by latitude and longitude (`path=lat1,lon1|lat2,lon2|`). We havn't got the time to test it but using `DistanceDuration.getAllSteps()` you might be able to easily draw the map itinerary. 
+
 Another option could use DirectionsApi.directions() and activate annotation in order to get a list of "nodes" corresponding to OpenStreetMap node ID and they are associate with a list of distance and duration for each (see https://locationiq.com/docs-html/index.html#result-objects[here] for more infos)
 
