@@ -55,19 +55,17 @@ public class ConferenceReader {
 	 * @param confCompo it's a calendar component that contains the data of one
 	 *                  conference
 	 * @return a conference
-	 * @throws InvalidConferenceFormatException
 	 * @throws MalformedURLException 
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 */
-	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException, MalformedURLException {
+	public static Conference createConference(Component confCompo) throws MalformedURLException {
 		Conference conf = null;
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		URL confURL = new URL("http://fakeurl.om");
 		String[] location;
 		String[] description;
-		Double feeRegistration = null;
 		if (!confCompo.getProperties("URL").isEmpty()) {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
 			theBuild.setUrl(confURL);
@@ -83,10 +81,11 @@ public class ConferenceReader {
 			description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
 			for (String ele : description) {
 				if (ele.contains("Fee")) {
-					feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+					Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+					theBuild.setRegistrationFee(feeRegistration.intValue());
+
 				}
 			}
-			theBuild.setRegistrationFee(feeRegistration.intValue());
 		}
 
 		if (!confCompo.getProperties("UID").isEmpty()) {
