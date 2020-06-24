@@ -3,6 +3,7 @@ package io.github.oliviercailloux.jconfs.location;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import com.locationiq.client.api.*;
 import com.locationiq.client.ApiClient;
@@ -24,15 +25,16 @@ public class AddressQuerier {
 
 	private List<String> addressInformations;
 	private List<Address> addressFound;
-	private ApiClient defaultClient;
+	private ApiClient clientConnexion;
 
 	/**
 	 * Static factory method to build a AddressQuerier instance
 	 * 
 	 * @param address
 	 * @throws ApiException
+	 * @throws InterruptedException 
 	 */
-	public static AddressQuerier given(String address) throws ApiException {
+	public static AddressQuerier given(String address) throws ApiException, InterruptedException {
 		return new AddressQuerier(address);
 	}
 
@@ -43,8 +45,9 @@ public class AddressQuerier {
 	 * 
 	 * @param address
 	 * @throws ApiException
+	 * @throws InterruptedException 
 	 */
-	private AddressQuerier(String address) throws ApiException {
+	private AddressQuerier(String address) throws ApiException, InterruptedException {
 		this.addressInformations = this.requestAddressInformations(address);
 		this.addressFound = this.getLastAddressFound();
 	}
@@ -71,7 +74,7 @@ public class AddressQuerier {
 	/**
 	 * This method allows connection to LocationIQ and its database.
 	 * 
-	 * @return ApiClient defaultClient
+	 * @return ApiClient clientConnexion
 	 */
 	public static ApiClient connexion() {
 		ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -92,26 +95,30 @@ public class AddressQuerier {
 	 * @param adresse
 	 * @throws ApiException
 	 * @return adressInformations
+	 * @throws InterruptedException 
 	 */
-	public List<String> requestAddressInformations(String address) throws ApiException {
+	public List<String> requestAddressInformations(String address) throws ApiException, InterruptedException {
 		this.addressInformations = new ArrayList<>();
-		if (address == "" || address == null || address.isEmpty()) {
-			throw new IllegalArgumentException("Address error");
+		if (address == ""|| address == null || address.isEmpty()) {
+			throw new NullPointerException("Address error");
 		}
-		if (this.defaultClient == null) {
+		if (this.clientConnexion == null) {
 			ApiClient defaultClient = AddressQuerier.connexion();
-			this.defaultClient = defaultClient;
+			this.clientConnexion = defaultClient;
 		}
-		AutocompleteApi api = new AutocompleteApi(this.defaultClient);
+		TimeUnit.SECONDS.sleep(1);
+		AutocompleteApi api = new AutocompleteApi(this.clientConnexion);
 		List<Object> tmp = api.autocomplete(address, 1, null, null, null, null, null, null);
 		Iterator<Object> i = tmp.iterator();
 		while (i.hasNext()) {
 			this.addressInformations.add(i.next().toString());
 		}
-		for (int a = 0; a < this.addressInformations.size(); a++) {
-			String contenu = this.addressInformations.get(a);
+		int index = 0;
+		for(String adr : this.addressInformations) {
+			String contenu = adr;
 			String hash = contenu.substring(1, contenu.length() - 2);
-			this.addressInformations.set(a, hash);
+			this.addressInformations.set(index,hash);
+			index++;
 		}
 		return this.addressInformations;
 	}
@@ -126,22 +133,21 @@ public class AddressQuerier {
 	public List<Address> getLastAddressFound() {
 		this.addressFound = new ArrayList<>();
 		ArrayList<Address> selection = new ArrayList<>();
-		for (int i = 0; i < this.addressInformations.size(); i++) {
+		for (String s : this.addressInformations) {
 			String search1 = "display_name=";
 			String search2 = "lat=";
 			String search3 = "lon=";
-			int posDep = this.addressInformations.get(i).indexOf(search1);
-			int posArr = this.addressInformations.get(i).indexOf(", display_place=");
-			String address = this.addressInformations.get(i).substring(posDep + search1.length(), posArr);
-			int posDepLat = this.addressInformations.get(i).indexOf(search2);
-			int posArrLat = this.addressInformations.get(i).indexOf(", lon=");
-			String lat = this.addressInformations.get(i).substring(posDepLat + search2.length(), posArrLat);
-			int posDepLon = this.addressInformations.get(i).indexOf(search3);
-			int posArrLon = this.addressInformations.get(i).indexOf(", boundingbox=");
-			String lon = this.addressInformations.get(i).substring(posDepLon + search3.length(), posArrLon);
+			int posDep = s.indexOf(search1);
+			int posArr = s.indexOf(", display_place=");
+			String address = s.substring(posDep + search1.length(), posArr);
+			int posDepLat = s.indexOf(search2);
+			int posArrLat = s.indexOf(", lon=");
+			String lat = s.substring(posDepLat + search2.length(), posArrLat);
+			int posDepLon = s.indexOf(search3);
+			int posArrLon = s.indexOf(", boundingbox=");
+			String lon = s.substring(posDepLon + search3.length(), posArrLon);
 			Address adr = Address.given(address, lat, lon);
 			selection.add(adr);
-
 		}
 		this.addressFound = selection;
 		return this.addressFound;

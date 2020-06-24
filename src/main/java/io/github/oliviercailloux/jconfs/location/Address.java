@@ -16,13 +16,13 @@ public class Address {
 	/**
 	 * Static factory method which creates a Address instance
 	 *
-	 * @param address   (can be null)
+	 * @param address
 	 * @param latitude
 	 * @param longitude
 	 */
 	public static Address given(String address, String latitude, String longitude) {
 		if (latitude == null || latitude.isEmpty() || longitude == null || longitude.isEmpty()) {
-			throw new IllegalArgumentException("latitude or longitude can't be empty or null ");
+			throw new NullPointerException("latitude or longitude can't be empty or null ");
 		}
 		return new Address(address, latitude, longitude);
 	}
@@ -36,7 +36,7 @@ public class Address {
 	/**
 	 * This method return the address name if it has been set
 	 * 
-	 * @return address or null
+	 * @return address
 	 */
 	public String getAddress() {
 		return address;
