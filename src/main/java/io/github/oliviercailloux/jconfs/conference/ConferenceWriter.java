@@ -110,7 +110,7 @@ public class ConferenceWriter {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		propertyList.add(new DtStart(formatter.format(conference.getStartDate())));
-		propertyList.add(new DtEnd(formatter.format(conference.getStartDate())));
+		propertyList.add(new DtEnd(formatter.format(conference.getEndDate())));
 
 		propertyList.add(new Summary(conference.getTitle()));
 		propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
