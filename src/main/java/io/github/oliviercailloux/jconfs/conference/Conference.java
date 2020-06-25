@@ -152,7 +152,10 @@ public class Conference {
 
 		public ConferenceBuilder setStartDate(Instant startDate) {
 			Preconditions.checkNotNull(startDate);
-			this.conferenceToBuild.startDate = startDate;
+			if ((this.conferenceToBuild.endDate == null) || (startDate.isBefore(this.conferenceToBuild.endDate)))
+				this.conferenceToBuild.startDate = startDate;
+			else
+				throw new IllegalArgumentException();
 			return this;
 		}
 
@@ -164,14 +167,10 @@ public class Conference {
 		 */
 		public ConferenceBuilder setEndDate(Instant endDate) {
 			Preconditions.checkNotNull(endDate);
-			if (this.conferenceToBuild.startDate == null) {
-				if (this.conferenceToBuild.startDate.isBefore(endDate)) {
-					this.conferenceToBuild.endDate = endDate;
-					return this;
-				}
+			if ((this.conferenceToBuild.startDate == null) || (this.conferenceToBuild.startDate.isBefore(endDate)))
+				this.conferenceToBuild.endDate = endDate;
+			else
 				throw new IllegalArgumentException();
-			}
-			this.conferenceToBuild.endDate = endDate;
 			return this;
 		}
 
