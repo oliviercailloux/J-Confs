@@ -93,10 +93,10 @@ public class GenerateOMYS {
 			if (span.item(i).getTextContent().contains("INTITULEMISSION")) {
 				span.item(i).setTextContent(conf.getTitle());
 			}
-			if(!((conf.getCity().isEmpty()) && (conf.getCountry().isEmpty()))) {
-			if (span.item(i).getTextContent().contains("VILLE - PAYS")) {
-				span.item(i).setTextContent(conf.getCity() + " - " + conf.getCountry());
-			}
+			if (!((conf.getCity().isEmpty()) && (conf.getCountry().isEmpty()))) {
+				if (span.item(i).getTextContent().contains("VILLE - PAYS")) {
+					span.item(i).setTextContent(conf.getCity() + " - " + conf.getCountry());
+				}
 			}
 			if (span.item(i).getTextContent().contains("DATE")) {
 				span.item(i).setTextContent(conf.getStartDate().toString());

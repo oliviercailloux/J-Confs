@@ -402,7 +402,7 @@ public class GuiListConferences {
 
 		try {
 			instanceCalendarOnline.addOnlineConference(newConference);
-		} catch (CalDAV4JException | URISyntaxException | ParseException e) {
+		} catch (CalDAV4JException | URISyntaxException e) {
 			throw new IllegalStateException(e);
 		}
 	}

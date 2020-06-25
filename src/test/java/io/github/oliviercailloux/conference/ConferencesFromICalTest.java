@@ -50,7 +50,6 @@ public class ConferencesFromICalTest {
 	public final void retriveTest2() throws Exception {
 		ConferencesFromICal testConfFromIcal = new ConferencesFromICal();
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		// TEST 2
 		Set<Conference> setConfTest2 = testConfFromIcal.retrieve(Instant.parse("20-10-2000T16:22:52.966Z"),
 				Instant.parse("20-10-2020T16:22:52.966Z"));

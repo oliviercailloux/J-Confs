@@ -18,9 +18,10 @@ import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
- * This class is immutable. 
- * Please note that the registrationFee is in euro cent.
- * @author huong,camille 
+ * This class is immutable. Please note that the registrationFee is in euro
+ * cent.
+ * 
+ * @author huong,camille
  *
  */
 public class Conference {
@@ -46,52 +47,45 @@ public class Conference {
 	 * @param city
 	 */
 	private Conference() {
-		this.uid="";
+		this.uid = "";
 		this.url = Optional.empty();
 		this.registrationFee = Optional.empty();
 		this.country = "";
 		this.city = "";
 	}
 
-
 	public Optional<URL> getUrl() {
 		return url;
 	}
-
 
 	public String getTitle() {
 		return title;
 	}
 
-
 	public Instant getStartDate() {
 		return startDate;
 	}
-
 
 	public Instant getEndDate() {
 		return endDate;
 	}
 
-
 	public Optional<Integer> getFeeRegistration() {
 		return registrationFee;
 	}
-
 
 	public String getCountry() {
 		return country;
 	}
 
-
 	public String getCity() {
 		return city;
 	}
 
-
 	public String getUid() {
 		return this.uid;
 	}
+
 	public boolean isConf() {
 		Preconditions.checkNotNull(this.title);
 		Preconditions.checkNotNull(this.startDate);
@@ -136,7 +130,7 @@ public class Conference {
 		public Conference build() {
 			Conference builtConference = conferenceToBuild;
 			conferenceToBuild = new Conference();
-			if(builtConference.uid.isEmpty())
+			if (builtConference.uid.isEmpty())
 				builtConference.uid = new RandomUidGenerator().generateUid().getValue();
 			Preconditions.checkNotNull(builtConference.title);
 			Preconditions.checkNotNull(builtConference.startDate);
@@ -161,15 +155,17 @@ public class Conference {
 			this.conferenceToBuild.startDate = startDate;
 			return this;
 		}
+
 		/**
 		 * This method makes you able to change the end date.
-		 * @throws
-		 * NullPointerException - if the parameter is null or if the conference start date has not been set up yet.
+		 * 
+		 * @throws NullPointerException - if the parameter is null or if the conference
+		 *                              start date has not been set up yet.
 		 */
 		public ConferenceBuilder setEndDate(Instant endDate) {
 			Preconditions.checkNotNull(endDate);
-			if(this.conferenceToBuild.startDate==null) {
-				if(this.conferenceToBuild.startDate.isBefore(endDate)) {
+			if (this.conferenceToBuild.startDate == null) {
+				if (this.conferenceToBuild.startDate.isBefore(endDate)) {
 					this.conferenceToBuild.endDate = endDate;
 					return this;
 				}
@@ -197,7 +193,7 @@ public class Conference {
 		public ConferenceBuilder setUrl(URL url) {
 			this.conferenceToBuild.url = Optional.ofNullable(url);
 			return this;
-		} 
+		}
 
 	}
 

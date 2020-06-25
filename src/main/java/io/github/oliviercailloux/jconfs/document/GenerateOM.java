@@ -50,27 +50,24 @@ public class GenerateOM {
 
 			Cell comeCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B31");
 			comeCell.setStringValue("Paris, France");
-			
-			if(conference.isConf()) {
+
+			if (conference.isConf()) {
 				Cell titleCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B15");
 				titleCell.setStringValue(conference.getTitle());
-				
+
 				Cell startCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("M22");
 				startCell.setStringValue(conference.getStartDate().toString());
 
 				Cell endCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("Z22");
 				endCell.setStringValue(conference.getEndDate().toString());
-				
+
 				if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
 
-				Cell returnCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B37");
-				returnCell.setStringValue(conference.getCity() + " ," + conference.getCountry());
+					Cell returnCell = spreadsheetDoc.getSheetByName("Feuil1").getCellByPosition("B37");
+					returnCell.setStringValue(conference.getCity() + " ," + conference.getCountry());
 				}
 
-				
 			}
-			
-			
 
 			spreadsheetDoc.save(target);
 			saveOrderMissionToHistory(target, conference.getCity(), conference.getCountry(),

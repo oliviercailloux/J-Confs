@@ -331,8 +331,8 @@ public class GuiConference {
 		end = dateFormat(dateEnd);
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		conf = theBuild.setUrl(url).setTitle(title).setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(feeRegistration.intValue())
+				.setCity(city).setCountry(country).build();
 
 		if (name.equals("generateOm") || name.equals("generateYs")) {
 			researcher = new Researcher(textSurname.getText(), textFirstname.getText());
@@ -372,7 +372,7 @@ public class GuiConference {
 			try {
 				ConferenceWriter.addConference(textTitle.getText(), conf);
 				mb.open();
-			} catch (ValidationException | IOException | ParserException | URISyntaxException | ParseException e1) {
+			} catch (ValidationException | IOException | ParserException | URISyntaxException e1) {
 				throw new RuntimeException(e1);
 			}
 		}

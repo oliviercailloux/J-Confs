@@ -33,12 +33,13 @@ import net.fortuna.ical4j.model.property.DtStart;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
- * @author machria & sbourg Unit tests for connect to a calendar on Fruux cloud
- *         platform
+ * Unit tests for connect to a calendar on Fruux cloud platform
+ * 
+ * @author machria & sbourg
  */
 
 public class TestCalendarOnlineFruux {
-	
+
 	static String uidpr = new RandomUidGenerator().generateUid().getValue();
 
 	@Test
@@ -132,8 +133,8 @@ public class TestCalendarOnlineFruux {
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
 				.setStartDate(start_.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136)
-				.setCity("Paris").setCountry("France").build();
+				.setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136).setCity("Paris")
+				.setCountry("France").build();
 
 		instanceCalendarOnline.addOnlineConference(conference);
 		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);

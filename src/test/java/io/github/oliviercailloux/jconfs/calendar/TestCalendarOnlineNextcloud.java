@@ -33,8 +33,9 @@ import net.fortuna.ical4j.model.property.DtStart;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
- * @author machria & sbourg Unit tests for connect to a calendar on Nextcloud
- *         platform
+ * Unit tests for connect to a calendar on Nextcloud platform
+ * 
+ * @author machria & sbourg
  */
 
 public class TestCalendarOnlineNextcloud {
@@ -101,9 +102,9 @@ public class TestCalendarOnlineNextcloud {
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		Conference conference = theBuild.setUid(uid).setUrl(url).setTitle(title)
 				.setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
- 
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(feeRegistration.intValue())
+				.setCity(city).setCountry(country).build();
+
 		conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
 
 		assertEquals(conferenceVEvent.getProperty(Property.SUMMARY).getValue(), conference.getTitle());
@@ -131,8 +132,8 @@ public class TestCalendarOnlineNextcloud {
 		ConferenceBuilder theBuild = new ConferenceBuilder();
 		Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
 				.setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136)
-				.setCity("Paris").setCountry("France").build();
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136).setCity("Paris")
+				.setCountry("France").build();
 
 		instanceCalendarOnline.addOnlineConference(conference);
 		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);

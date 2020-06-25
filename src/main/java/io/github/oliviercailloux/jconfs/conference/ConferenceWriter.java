@@ -67,10 +67,9 @@ public class ConferenceWriter {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws URISyntaxException
-	 * @throws InvalidConferenceFormatException
 	 */
 	public static void deleteConference(String calFile, Conference conference)
-			throws IOException, ParserException, URISyntaxException, InvalidConferenceFormatException {
+			throws IOException, ParserException, URISyntaxException {
 		Objects.requireNonNull(calFile);
 		Objects.requireNonNull(conference);
 
@@ -93,6 +92,75 @@ public class ConferenceWriter {
 	}
 
 	/**
+	 * Transform a Conference into a Property List to be used after in VEvent
+	 * 
+	 * @param conference  not <code>null</code>.
+	 * @param containFrux make the property List in the same order that we do for
+	 *                    fruux VEvent
+	 * @param icsfile     make the property List in the same order that we do in
+	 *                    IcsFile manual
+	 * @throws URISyntaxException
+	 */
+
+	public static PropertyList<Property> conferenceToProperty(Conference conference, boolean containFrux,
+			boolean icsfile) throws URISyntaxException {
+		Property urlz, description, location, startDate, endDate, uid, sequence, created, dtstamp, lastModified, name;
+		PropertyList<Property> propertyList = new PropertyList<>();
+		startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
+		endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
+		uid = new Uid(conference.getUid().toLowerCase());
+		sequence = new Sequence(2);
+		created = new Created();
+		dtstamp = new DtStamp();
+		lastModified = new LastModified();
+		name = new Summary(conference.getTitle());
+		if (containFrux) {
+			if (conference.getUrl().isPresent()) {
+				urlz = new Url(conference.getUrl().get().toURI());
+				propertyList.add(urlz);
+			}
+			propertyList.add(name);
+			if (conference.getFeeRegistration().isPresent()) {
+				description = new Description("Fee:" + conference.getFeeRegistration().get());
+				propertyList.add(description);
+			}
+			if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
+				location = new Location(conference.getCity() + "," + conference.getCountry());
+				propertyList.add(location);
+			}
+			propertyList.add(startDate);
+			propertyList.add(endDate);
+			propertyList.add(uid);
+		} else {
+			if (!icsfile) {
+				propertyList.add(created);
+				propertyList.add(dtstamp);
+				propertyList.add(lastModified);
+				propertyList.add(sequence);
+				propertyList.add(uid);
+				propertyList.add(startDate);
+				propertyList.add(endDate);
+			}
+
+			propertyList.add(name);
+			if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
+				location = new Location(conference.getCity() + "," + conference.getCountry());
+				propertyList.add(location);
+			}
+			if (conference.getFeeRegistration().isPresent()) {
+				description = new Description("Fee:" + conference.getFeeRegistration().get());
+				propertyList.add(description);
+			}
+			if (conference.getUrl().isPresent()) {
+				urlz = new Url(conference.getUrl().get().toURI());
+				propertyList.add(urlz);
+			}
+		}
+
+		return propertyList;
+	}
+
+	/**
 	 * Add the conference in the ics file file (if it exists)
 	 * 
 	 * @param calFile    not <code>null</code>.
@@ -103,68 +171,9 @@ public class ConferenceWriter {
 	 * @throws URISyntaxException
 	 * @throws ParseException
 	 */
-	
-	public static PropertyList<Property> conferenceToProperty(Conference conference, boolean containFrux, boolean icsfile) throws URISyntaxException{
-		  Property urlz,description,location,startDate,endDate,uid,sequence,created,dtstamp,lastModified,name;
-		  PropertyList<Property> propertyList = new PropertyList<>();
-		  startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
-			endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
-			uid = new Uid(conference.getUid().toLowerCase());
-			sequence = new Sequence(2);
-			created = new Created();
-			dtstamp = new DtStamp();
-			lastModified = new LastModified();
-			name = new Summary(conference.getTitle());
-		  if(containFrux) {
-			  if (conference.getUrl().isPresent()) {
-				  urlz = new Url(conference.getUrl().get().toURI());
-					propertyList.add(urlz);
-				}
-			  propertyList.add(name);
-				if (conference.getFeeRegistration().isPresent()) {
-					description = new Description("Fee:" + conference.getFeeRegistration().get());
-					propertyList.add(description);
-				}
-				if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
-					location = new Location(conference.getCity() + "," + conference.getCountry());
-					propertyList.add(location);
-				}
-				propertyList.add(startDate);
-				propertyList.add(endDate);
-				propertyList.add(uid);
-		  }else {
-			   if(!icsfile) {
-			    propertyList.add(created);
-			    propertyList.add(dtstamp);
-			    propertyList.add(lastModified);
-				propertyList.add(sequence);
-				propertyList.add(uid);
-				propertyList.add(startDate);
-				propertyList.add(endDate);
-			   }
-				
-				propertyList.add(name);
-				if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
-					location = new Location(conference.getCity() + "," + conference.getCountry());
-					propertyList.add(location);
-				}
-				if (conference.getFeeRegistration().isPresent()) {
-					description = new Description("Fee:" + conference.getFeeRegistration().get());
-					propertyList.add(description);
-				}
-				if (conference.getUrl().isPresent()) {
-					urlz = new Url(conference.getUrl().get().toURI());
-					propertyList.add(urlz);
-				}
-		  }
-		  
-		  
-		  return propertyList;
-	  }
 
-	
 	public static void addConference(String calFile, Conference conference)
-			throws IOException, ParserException, ValidationException, URISyntaxException, ParseException {
+			throws IOException, ParserException, ValidationException, URISyntaxException {
 		Objects.requireNonNull(calFile);
 		Objects.requireNonNull(conference);
 
@@ -173,7 +182,7 @@ public class ConferenceWriter {
 
 		// Creating an event
 		PropertyList<Property> propertyList = new PropertyList<>();
-		propertyList = conferenceToProperty(conference,false,true);
+		propertyList = conferenceToProperty(conference, false, true);
 		XComponent meeting = new XComponent("CONFERENCE", propertyList);
 		// add event to the calendar
 		calendar.getComponents().add(meeting);
@@ -181,7 +190,6 @@ public class ConferenceWriter {
 		// Saving an iCalendar file
 		saveIcsFile(calendar, calFile);
 	}
-
 
 	/**
 	 * Save the given conference in the ics File

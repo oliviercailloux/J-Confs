@@ -55,7 +55,7 @@ public class ConferenceReader {
 	 * @param confCompo it's a calendar component that contains the data of one
 	 *                  conference
 	 * @return a conference
-	 * @throws MalformedURLException 
+	 * @throws MalformedURLException
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
@@ -122,10 +122,8 @@ public class ConferenceReader {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
-	 * @throws InvalidConferenceFormatException
 	 */
-	public static Set<Conference> readConferences(Reader reader)
-			throws InvalidConferenceFormatException, IOException, ParserException {
+	public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
 		Set<Conference> listeconfuser = new LinkedHashSet<>();

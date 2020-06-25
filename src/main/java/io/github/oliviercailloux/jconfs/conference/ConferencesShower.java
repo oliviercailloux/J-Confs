@@ -118,7 +118,8 @@ public class ConferencesShower {
 				throw new IllegalArgumentException("minDate must be before maxDate");
 
 		}
-		return retriever.retrieve(minDate.atStartOfDay(ZoneOffset.UTC).toInstant(), maxDate.atStartOfDay(ZoneOffset.UTC).toInstant());
+		return retriever.retrieve(minDate.atStartOfDay(ZoneOffset.UTC).toInstant(),
+				maxDate.atStartOfDay(ZoneOffset.UTC).toInstant());
 
 	}
 }

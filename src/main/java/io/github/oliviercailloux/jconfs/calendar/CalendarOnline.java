@@ -64,8 +64,10 @@ import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 
 /**
- * @author nikola, machria & sbourg This class is the management of calendar
- *         online object. It makes you able to add, edit and delete conference.
+ * This class is the management of calendar online object. It makes you able to
+ * add, edit and delete conference.
+ * 
+ * @author nikola, machria & sbourg
  */
 public class CalendarOnline {
 
@@ -84,10 +86,9 @@ public class CalendarOnline {
 	 * 
 	 * @return
 	 * @throws CalDAV4JException
-	 * @throws InvalidConferenceFormatException
-	 * @throws MalformedURLException 
+	 * @throws MalformedURLException
 	 */
-	public Set<Conference> getOnlineConferences() throws CalDAV4JException, InvalidConferenceFormatException, MalformedURLException {
+	public Set<Conference> getOnlineConferences() throws CalDAV4JException, MalformedURLException {
 		GenerateQuery searchQuery = new GenerateQuery();
 		CalendarQuery calendarQuery = searchQuery.generate();
 		Set<Conference> listConferencesUser = new LinkedHashSet<>();
@@ -108,12 +109,10 @@ public class CalendarOnline {
 	 * Method that upload online the conference that has been modified by a user
 	 * 
 	 * @param conferenceEdited
-	 * @throws ParseException
 	 * @throws CalDAV4JException
 	 * @throws URISyntaxException
 	 */
-	public void editConferenceOnline(Conference conferenceEdited)
-			throws ParseException, CalDAV4JException, URISyntaxException {
+	public void editConferenceOnline(Conference conferenceEdited) throws CalDAV4JException, URISyntaxException {
 		VEvent vEventConferenceModified = conferenceToVEvent(conferenceEdited);
 		this.connector.collectionCalendarsOnline.updateMasterEvent(connector.httpclient, vEventConferenceModified,
 				null);
@@ -146,11 +145,9 @@ public class CalendarOnline {
 	 * @param uid
 	 * @return The VEvent that have this uid
 	 * @throws CalDAV4JException
-	 * @throws InvalidConferenceFormatException
-	 * @throws MalformedURLException 
+	 * @throws MalformedURLException
 	 */
-	public Optional<Conference> getConferenceFromUid(String uid)
-			throws CalDAV4JException, InvalidConferenceFormatException, MalformedURLException {
+	public Optional<Conference> getConferenceFromUid(String uid) throws CalDAV4JException, MalformedURLException {
 		VEvent vEventConferenceFound = null;
 		GenerateQuery searchQuery = new GenerateQuery();
 		searchQuery.setFilter("VEVENT : UID==" + uid);
@@ -169,11 +166,9 @@ public class CalendarOnline {
 	/**
 	 * @param ve event to add
 	 * @throws CalDAV4JException
-	 * @throws ParseException
 	 * @throws URISyntaxException
 	 */
-	public void addOnlineConference(Conference conferenceToPush)
-			throws CalDAV4JException, URISyntaxException, ParseException {
+	public void addOnlineConference(Conference conferenceToPush) throws CalDAV4JException, URISyntaxException {
 		VEvent ve;
 		ve = conferenceToVEvent(conferenceToPush);
 		System.out.println(ve);
