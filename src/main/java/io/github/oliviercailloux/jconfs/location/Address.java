@@ -1,10 +1,12 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import com.google.common.base.Preconditions;
+
 /**
  * This class allows you to store an address define as a latitude and a
  * longitude and an (optional) string address associate with.
  * 
- * @author Floryan Kieffer
+ * @author Floryan Kieffer & ZOUARI Anis
  * 
  */
 public class Address {
@@ -21,9 +23,12 @@ public class Address {
 	 * @param longitude
 	 */
 	public static Address given(String address, String latitude, String longitude) {
-		if (latitude == null || latitude.isEmpty() || longitude == null || longitude.isEmpty()) {
+		Preconditions.checkNotNull(latitude);
+		Preconditions.checkNotNull(longitude);
+
+		if (latitude.isEmpty() || longitude.isEmpty())
 			throw new NullPointerException("latitude or longitude can't be empty or null ");
-		}
+
 		return new Address(address, latitude, longitude);
 	}
 

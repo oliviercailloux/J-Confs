@@ -1,9 +1,5 @@
 package io.github.oliviercailloux.jconfs.location;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,9 +13,9 @@ class DistanceDurationTests {
 	/**
 	 * 
 	 * Unit test in order to verify the good get of distance and duration. Carreful
-	 * this test depend on API calculation so it might fail in the future. 
-	 * Important : A sleep of 1 second as been added due to the request limit per 
-	 * second of the API free use.
+	 * this test depend on API calculation so it might fail in the future. Important
+	 * : A sleep of 1 second as been added due to the request limit per second of
+	 * the API free use.
 	 * 
 	 * @throws ApiException
 	 * @throws InterruptedException
@@ -33,6 +29,7 @@ class DistanceDurationTests {
 		TimeUnit.SECONDS.sleep(1);
 		assertEquals(11005, result.getDistance());
 		assertEquals(1027, result.getDuration());
-		assertEquals(132,result.getAllSteps().size());
+		assertEquals(132, result.getAllSteps().size());
 	}
+
 }

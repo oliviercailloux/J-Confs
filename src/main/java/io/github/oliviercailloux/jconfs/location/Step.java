@@ -1,11 +1,13 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import com.google.common.base.Preconditions;
+
 /**
  * This class store a step define as a departureAddress and a arrivalAddress
  * (see Address class). It's also possible to add the distance and duration
  * informations of a step.
  * 
- * @author sbourg
+ * @author sbourg & ZOUARI Anis
  *
  */
 public class Step {
@@ -23,6 +25,8 @@ public class Step {
 	 * 
 	 */
 	public static Step newStep(Address dep, Address arriv) {
+		Preconditions.checkNotNull(dep);
+		Preconditions.checkNotNull(arriv);
 		return new Step(dep, arriv);
 	}
 
@@ -43,6 +47,10 @@ public class Step {
 	 * @param dur   : duration
 	 */
 	public static Step newStep(Address dep, Address arriv, int dist, int dur) {
+		Preconditions.checkNotNull(dep);
+		Preconditions.checkNotNull(arriv);
+		Preconditions.checkNotNull(dist);
+		Preconditions.checkNotNull(dur);
 		return new Step(dep, arriv, dist, dur);
 	}
 
