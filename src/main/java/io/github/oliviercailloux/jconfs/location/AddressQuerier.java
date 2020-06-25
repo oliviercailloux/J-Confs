@@ -48,8 +48,7 @@ public class AddressQuerier {
 	 * @throws InterruptedException 
 	 */
 	private AddressQuerier(String address) throws ApiException, InterruptedException {
-		this.addressInformations = this.requestAddressInformations(address);
-		this.addressFound = this.getLastAddressFound();
+		this.requestAddressInformations(address);
 	}
 
 	/**
@@ -97,7 +96,7 @@ public class AddressQuerier {
 	 * @return adressInformations
 	 * @throws InterruptedException 
 	 */
-	public List<String> requestAddressInformations(String address) throws ApiException, InterruptedException {
+	public List<Address> requestAddressInformations(String address) throws ApiException, InterruptedException {
 		this.addressInformations = new ArrayList<>();
 		if (address == ""|| address == null || address.isEmpty()) {
 			throw new NullPointerException("Address error");
@@ -120,7 +119,8 @@ public class AddressQuerier {
 			this.addressInformations.set(index,hash);
 			index++;
 		}
-		return this.addressInformations;
+		this.TransformeToAddressArray();
+		return this.addressFound;
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class AddressQuerier {
 	 * 
 	 * @return addressFound
 	 */
-	public List<Address> getLastAddressFound() {
+	private void TransformeToAddressArray() {
 		this.addressFound = new ArrayList<>();
 		ArrayList<Address> selection = new ArrayList<>();
 		for (String s : this.addressInformations) {
@@ -150,6 +150,5 @@ public class AddressQuerier {
 			selection.add(adr);
 		}
 		this.addressFound = selection;
-		return this.addressFound;
 	}
 }

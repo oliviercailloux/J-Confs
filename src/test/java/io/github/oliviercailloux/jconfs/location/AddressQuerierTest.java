@@ -53,7 +53,7 @@ class AddressQuerierTest {
 	public final void testRecoveryAddressFound() throws ApiException, InterruptedException {
 		AddressQuerier t =AddressQuerier.given("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
-		boolean test = (t.getAddressFound().size() == 2);
+		boolean test = (t.getAddressFound().size() >= 2);
 		Address test2 = t.getAddressFound().get(0);
 		assertTrue(test);
 		assertTrue(test2.getAddress().contains("Place du Maréchal de Lattre de Tassigny"));
