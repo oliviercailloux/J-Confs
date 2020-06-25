@@ -128,17 +128,7 @@ public class CalendarOnline {
 	 */
 	public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException {
 		VEvent vEventConference;
-		Property urlz, location, description, uid, name, startDate, endDate, sequence, created, dtstamp, lastModified;
-		location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
-		name = new Summary(conferenceEdited.getTitle());
-		startDate = new DtStart(new Date(java.util.Date.from(conferenceEdited.getStartDate())));
-		endDate = new DtEnd(new Date(java.util.Date.from(conferenceEdited.getEndDate())));
-		uid = new Uid(conferenceEdited.getUid().toLowerCase());
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
-		sequence = new Sequence(2);
-		created = new Created();
-		dtstamp = new DtStamp();
-		lastModified = new LastModified();
 		if (this.connector.url.contains("fruux")) {
 			propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited, true, false);
 		} else {
