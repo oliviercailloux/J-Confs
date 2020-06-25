@@ -10,9 +10,10 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-
+import net.fortuna.ical4j.model.property.Sequence;
+import java.time.LocalDate;
 import com.google.common.base.Preconditions;
-
+import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.data.ParserException;
@@ -20,12 +21,16 @@ import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 import net.fortuna.ical4j.model.component.XComponent;
 import net.fortuna.ical4j.model.property.CalScale;
+import net.fortuna.ical4j.model.property.Created;
 import net.fortuna.ical4j.model.property.Description;
 import net.fortuna.ical4j.model.property.DtEnd;
+import net.fortuna.ical4j.model.property.DtStamp;
 import net.fortuna.ical4j.model.property.DtStart;
+import net.fortuna.ical4j.model.property.LastModified;
 import net.fortuna.ical4j.model.property.Location;
 import net.fortuna.ical4j.model.property.ProdId;
 import net.fortuna.ical4j.model.property.Summary;
+import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.model.property.Version;
 import net.fortuna.ical4j.model.property.XProperty;
@@ -98,6 +103,69 @@ public class ConferenceWriter {
 	 * @throws URISyntaxException
 	 * @throws ParseException
 	 */
+	
+	public static PropertyList<Property> conferenceToProperty(Conference conference, boolean containFrux, boolean icsfile) throws URISyntaxException{
+		  Property urlz,description,location,startDate,endDate,uid,sequence,created,dtstamp,lastModified,name;
+		  PropertyList<Property> propertyList = new PropertyList<>();
+		  startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
+			endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
+			uid = new Uid(conference.getUid().toLowerCase());
+			sequence = new Sequence(2);
+			created = new Created();
+			dtstamp = new DtStamp();
+			lastModified = new LastModified();
+			name = new Summary(conference.getTitle());
+		  if(containFrux) {
+			  if (conference.getUrl().isPresent()) {
+				  urlz = new Url(conference.getUrl().get().toURI());
+					propertyList.add(urlz);
+				}
+			  propertyList.add(name);
+				if (conference.getFeeRegistration().isPresent()) {
+					description = new Description("Fee:" + conference.getFeeRegistration().get());
+					propertyList.add(description);
+				}
+				if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
+					location = new Location(conference.getCity() + "," + conference.getCountry());
+					propertyList.add(location);
+				}
+				propertyList.add(startDate);
+				propertyList.add(endDate);
+				propertyList.add(uid);
+		  }else {
+			   if(!icsfile) {
+			    propertyList.add(created);
+			    propertyList.add(dtstamp);
+			    propertyList.add(lastModified);
+				propertyList.add(sequence);
+				propertyList.add(uid);
+				propertyList.add(startDate);
+				propertyList.add(endDate);
+			   }else {
+				   propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
+					propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
+			   }
+				
+				propertyList.add(name);
+				if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
+					location = new Location(conference.getCity() + "," + conference.getCountry());
+					propertyList.add(location);
+				}
+				if (conference.getFeeRegistration().isPresent()) {
+					description = new Description("Fee:" + conference.getFeeRegistration().get());
+					propertyList.add(description);
+				}
+				if (conference.getUrl().isPresent()) {
+					urlz = new Url(conference.getUrl().get().toURI());
+					propertyList.add(urlz);
+				}
+		  }
+		  
+		  
+		  return propertyList;
+	  }
+
+	
 	public static void addConference(String calFile, Conference conference)
 			throws IOException, ParserException, ValidationException, URISyntaxException, ParseException {
 		Objects.requireNonNull(calFile);
@@ -108,24 +176,7 @@ public class ConferenceWriter {
 
 		// Creating an event
 		PropertyList<Property> propertyList = new PropertyList<>();
-
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-		propertyList.add(new DtStart(formatter.format(conference.getStartDate())));
-		propertyList.add(new DtEnd(formatter.format(conference.getEndDate())));
-
-		propertyList.add(new Summary(conference.getTitle()));
-		//
-		//propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
-		//propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
-		// 
-		Property location = new Location(conference.getCity() + "," + conference.getCountry());
-		propertyList.add(location);
-		//
-		if (conference.getUrl().isPresent())
-			propertyList.add(new Url(conference.getUrl().get().toURI()));
-		if (conference.getFeeRegistration().isPresent())
-			propertyList.add(new Description(conference.getFeeRegistration().get().toString()));
-
+		propertyList = conferenceToProperty(conference,false,true);
 		XComponent meeting = new XComponent("CONFERENCE", propertyList);
 		// add event to the calendar
 		calendar.getComponents().add(meeting);
@@ -133,6 +184,7 @@ public class ConferenceWriter {
 		// Saving an iCalendar file
 		saveIcsFile(calendar, calFile);
 	}
+
 
 	/**
 	 * Save the given conference in the ics File

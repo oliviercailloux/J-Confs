@@ -60,6 +60,7 @@ import com.github.caldav4j.util.ICalendarUtils;
 
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
+import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 
 /**
@@ -139,43 +140,9 @@ public class CalendarOnline {
 		dtstamp = new DtStamp();
 		lastModified = new LastModified();
 		if (this.connector.url.contains("fruux")) {
-			if (conferenceEdited.getUrl().isPresent()) {
-				urlz = new Url(conferenceEdited.getUrl().get().toURI());
-				propertyListVevent.add(urlz);
-			}
-			propertyListVevent.add(name);
-			if (conferenceEdited.getFeeRegistration().isPresent()) {
-				description = new Description("Fee:" + conferenceEdited.getFeeRegistration().get());
-				propertyListVevent.add(description);
-			}
-			if (!((conferenceEdited.getCity().isEmpty()) && (conferenceEdited.getCountry().isEmpty()))) {
-				location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
-				propertyListVevent.add(location);
-			}
-			propertyListVevent.add(startDate);
-			propertyListVevent.add(endDate);
-			propertyListVevent.add(uid);
+			propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited, true, false);
 		} else {
-			propertyListVevent.add(created);
-			propertyListVevent.add(dtstamp);
-			propertyListVevent.add(lastModified);
-			propertyListVevent.add(sequence);
-			propertyListVevent.add(uid);
-			propertyListVevent.add(startDate);
-			propertyListVevent.add(endDate);
-			propertyListVevent.add(name);
-			if (!((conferenceEdited.getCity().isEmpty()) && (conferenceEdited.getCountry().isEmpty()))) {
-				location = new Location(conferenceEdited.getCity() + "," + conferenceEdited.getCountry());
-				propertyListVevent.add(location);
-			}
-			if (conferenceEdited.getFeeRegistration().isPresent()) {
-				description = new Description("Fee:" + conferenceEdited.getFeeRegistration().get());
-				propertyListVevent.add(description);
-			}
-			if (conferenceEdited.getUrl().isPresent()) {
-				urlz = new Url(conferenceEdited.getUrl().get().toURI());
-				propertyListVevent.add(urlz);
-			}
+			propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited, false, false);
 		}
 		vEventConference = new VEvent(propertyListVevent);
 
