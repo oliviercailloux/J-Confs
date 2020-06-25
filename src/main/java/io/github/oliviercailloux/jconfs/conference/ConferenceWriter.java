@@ -141,9 +141,6 @@ public class ConferenceWriter {
 				propertyList.add(uid);
 				propertyList.add(startDate);
 				propertyList.add(endDate);
-			   }else {
-				   propertyList.add(new XProperty("X-COUNTRY", conference.getCountry().toString()));
-					propertyList.add(new XProperty("X-CITY", conference.getCity().toString()));
 			   }
 				
 				propertyList.add(name);
