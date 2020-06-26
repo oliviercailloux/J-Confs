@@ -63,7 +63,7 @@ public class ConferenceReader {
 	public static Conference createConference(Component confCompo) throws MalformedURLException {
 		Conference conf = null;
 		ConferenceBuilder theBuild = new ConferenceBuilder();
-		URL confURL = new URL("http://fakeurl.om");
+		URL confURL;// = new URL("http://example.com");
 		String[] location;
 		String[] description;
 		if (!confCompo.getProperties("URL").isEmpty()) {

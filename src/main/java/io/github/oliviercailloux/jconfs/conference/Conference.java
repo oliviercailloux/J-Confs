@@ -70,6 +70,11 @@ public class Conference {
 		return endDate;
 	}
 
+	/**
+	 * this method return the price of registration in a conference in euro cent
+	 * 
+	 * @return Optional<Integer>
+	 */
 	public Optional<Integer> getFeeRegistration() {
 		return registrationFee;
 	}
