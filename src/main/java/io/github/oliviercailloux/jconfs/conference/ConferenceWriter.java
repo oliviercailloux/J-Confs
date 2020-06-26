@@ -90,31 +90,17 @@ public class ConferenceWriter {
 		newCalendar = new Calendar(confList);
 		saveIcsFile(newCalendar, calFile);
 	}
-
-	/**
-	 * Transform a Conference into a Property List to be used after in VEvent
-	 * 
-	 * @param conference  not <code>null</code>.
-	 * @param containFrux make the property List in the same order that we do for
-	 *                    fruux VEvent
-	 * @param icsfile     make the property List in the same order that we do in
-	 *                    IcsFile manual
-	 * @throws URISyntaxException
-	 */
-
-	public static PropertyList<Property> conferenceToProperty(Conference conference, boolean containFrux,
-			boolean icsfile) throws URISyntaxException {
-		Property urlz, description, location, startDate, endDate, uid, sequence, created, dtstamp, lastModified, name;
+	
+	
+	
+	public static PropertyList<Property> conferenceToPropertyFruux(Conference conference) throws URISyntaxException {
+		Property urlz, description, location, startDate, endDate, uid, name;
 		PropertyList<Property> propertyList = new PropertyList<>();
 		startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
 		endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
 		uid = new Uid(conference.getUid().toLowerCase());
-		sequence = new Sequence(2);
-		created = new Created();
-		dtstamp = new DtStamp();
-		lastModified = new LastModified();
 		name = new Summary(conference.getTitle());
-		if (containFrux) {
+
 			if (conference.getUrl().isPresent()) {
 				urlz = new Url(conference.getUrl().get().toURI());
 				propertyList.add(urlz);
@@ -131,8 +117,34 @@ public class ConferenceWriter {
 			propertyList.add(startDate);
 			propertyList.add(endDate);
 			propertyList.add(uid);
-		} else {
-			if (!icsfile) {
+			return propertyList;
+	}
+
+	/**
+	 * Transform a Conference into a Property List to be used after in VEvent
+	 * 
+	 * @param conference  not <code>null</code>.
+	 * @param containFrux make the property List in the same order that we do for
+	 *                    fruux VEvent
+	 * @param icsfile     make the property List in the same order that we do in
+	 *                    IcsFile manual
+	 * @throws URISyntaxException
+	 */
+	
+	
+
+	public static PropertyList<Property> conferenceToProperty(Conference conference) throws URISyntaxException {
+		Property urlz, description, location, startDate, endDate, uid, sequence, created, dtstamp, lastModified, name;
+		PropertyList<Property> propertyList = new PropertyList<>();
+		startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
+		endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
+		uid = new Uid(conference.getUid().toLowerCase());
+		sequence = new Sequence(2);
+		created = new Created();
+		dtstamp = new DtStamp();
+		lastModified = new LastModified();
+		name = new Summary(conference.getTitle());
+		
 				propertyList.add(created);
 				propertyList.add(dtstamp);
 				propertyList.add(lastModified);
@@ -140,7 +152,6 @@ public class ConferenceWriter {
 				propertyList.add(uid);
 				propertyList.add(startDate);
 				propertyList.add(endDate);
-			}
 
 			propertyList.add(name);
 			if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
@@ -155,7 +166,6 @@ public class ConferenceWriter {
 				urlz = new Url(conference.getUrl().get().toURI());
 				propertyList.add(urlz);
 			}
-		}
 
 		return propertyList;
 	}
@@ -182,7 +192,7 @@ public class ConferenceWriter {
 
 		// Creating an event
 		PropertyList<Property> propertyList = new PropertyList<>();
-		propertyList = conferenceToProperty(conference, false, true);
+		propertyList = conferenceToProperty(conference);
 		XComponent meeting = new XComponent("CONFERENCE", propertyList);
 		// add event to the calendar
 		calendar.getComponents().add(meeting);

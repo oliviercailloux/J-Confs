@@ -117,6 +117,8 @@ public class CalendarOnline {
 		this.connector.collectionCalendarsOnline.updateMasterEvent(connector.httpclient, vEventConferenceModified,
 				null);
 	}
+	
+	
 
 	/**
 	 * Different behavior depending on the calendar online
@@ -129,9 +131,9 @@ public class CalendarOnline {
 		VEvent vEventConference;
 		PropertyList<Property> propertyListVevent = new PropertyList<>();
 		if (this.connector.url.contains("fruux")) {
-			propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited, true, false);
+			propertyListVevent = ConferenceWriter.conferenceToPropertyFruux(conferenceEdited);
 		} else {
-			propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited, false, false);
+			propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited);
 		}
 		vEventConference = new VEvent(propertyListVevent);
 
