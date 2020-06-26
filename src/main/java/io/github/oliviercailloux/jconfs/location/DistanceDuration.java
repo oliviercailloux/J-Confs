@@ -1,28 +1,38 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import com.locationiq.client.ApiClient;
 import com.locationiq.client.ApiException;
+
+import java.io.IOException;
 import com.locationiq.client.api.DirectionsApi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.json.simple.parser.ParseException;
+
 import com.locationiq.client.model.*;
 
 /**
- * This class allows to get a path and informations about it. A trajet is define
- * beetween two addresses (see Address class). Using LocationIQ "DirectionsAPI"
- * you can get the total distance (in meters) and duration (in seconds) for the
- * journey. The global informations about the path (stored in a Step object) can
- * be get using getGeneralStep method. You can also get all the steps of the
- * journey (stored as a List<Step>) using getAllSteps method.
+ * This class allows to get a trajet and informations about it. A trajet is
+ * define beetween two addresses (see Address class). Using LocationIQ
+ * "DirectionsAPI" you can get the total distance (in meters) and duration (in
+ * seconds) for the trajet. The global informations about the trajet (stored in
+ * a Step object) can be get using getGeneralStep method. You can also get all
+ * the steps of the trajet (stored as a List<Step>) using getAllSteps method.
  * 
- * @author Anis HAMOUNI & sbourg & ZOUARI Anis
+ * @author Anis HAMOUNI & sbourg
  */
 public class DistanceDuration {
-
+	private int duration;
+	private int distance;
 	private List<Step> allSteps;
 	private Step generalStep;
+	private Address addressDeparture;
+	private Address addressArrival;
+	private DirectionsDirectionsRoutes trip;
 
 	/**
 	 * 
@@ -36,14 +46,14 @@ public class DistanceDuration {
 		return new DistanceDuration(dep, arriv);
 	}
 
-	/**
-	 * Distance and Duration of generalStep are temporally set to -1 and will be
-	 * calculate by calling locationIQ API
-	 * 
-	 */
 	private DistanceDuration(Address dep, Address arriv) {
+		this.duration = 0;
+		this.distance = 0;
+		this.addressDeparture = dep;
+		this.addressArrival = arriv;
 		this.allSteps = new ArrayList<>();
-		this.generalStep = Step.newStep(dep, arriv, -1, -1);
+		this.trip = null;
+		this.generalStep = null;
 	}
 
 	/**
@@ -51,11 +61,15 @@ public class DistanceDuration {
 	 * 
 	 * @return duration
 	 * @throws ApiException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	public int getDuration() throws ApiException {
-		if (this.generalStep.getDuration() == -1)
+	public int getDuration() throws ApiException, JsonIOException, JsonSyntaxException, IOException, ParseException {
+		if (trip == null)
 			calculateDistanceDuration();
-		return this.generalStep.getDuration();
+		return this.duration;
 	}
 
 	/**
@@ -63,11 +77,15 @@ public class DistanceDuration {
 	 * 
 	 * @return distance
 	 * @throws ApiException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	public int getDistance() throws ApiException {
-		if (this.generalStep.getDistance() == -1)
+	public int getDistance() throws ApiException, JsonIOException, JsonSyntaxException, IOException, ParseException {
+		if (trip == null)
 			calculateDistanceDuration();
-		return this.generalStep.getDistance();
+		return this.distance;
 	}
 
 	/**
@@ -76,7 +94,7 @@ public class DistanceDuration {
 	 * @return addressDeparture
 	 */
 	public Address getDeparture() {
-		return this.generalStep.getDepartureAddress();
+		return this.addressDeparture;
 	}
 
 	/**
@@ -85,62 +103,25 @@ public class DistanceDuration {
 	 * @return addressArrival
 	 */
 	public Address getArrival() {
-		return this.generalStep.getArrivalAddress();
+		return this.addressArrival;
 	}
 
 	/**
-	 * Return all the detailed steps of the path
+	 * Return all the detailed steps of the traject
 	 * 
 	 * @return allSteps
 	 * @throws ApiException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	public List<Step> getAllSteps() throws ApiException {
-		if (this.allSteps.isEmpty())
+	public List<Step> getAllSteps()
+			throws ApiException, JsonIOException, JsonSyntaxException, IOException, ParseException {
+		if (trip == null)
 			calculateDistanceDuration();
 
-		return this.allSteps;
-	}
-
-	/**
-	 * Return the generalStep composed of the departure and arrival address and the
-	 * global distance and duration. It verified if the distance and the duration
-	 * had been calculated and otherwise it use locationIQ to calculate it.
-	 * 
-	 * 
-	 * @return generalStep
-	 * @throws ApiException
-	 */
-	public Step getGeneralStep() throws ApiException {
-		if (this.generalStep.getDistance() == -1 || this.generalStep.getDuration() == -1)
-			calculateDistanceDuration();
-
-		return this.generalStep;
-	}
-
-	/**
-	 * This function use the LocataionIQ "DirectionsAPI" to calculates the duration,
-	 * the distance and all the informations about the path between the two
-	 * addresses of the class.
-	 * 
-	 * @throws ApiException
-	 */
-	private void calculateDistanceDuration() throws ApiException {
-		String latLonAddressDeparture = this.generalStep.getDepartureAddress().getLongitude() + ","
-				+ this.generalStep.getDepartureAddress().getLatitude();
-		String latLonAddressArrival = this.generalStep.getArrivalAddress().getLongitude() + ","
-				+ this.generalStep.getArrivalAddress().getLatitude();
-
-		ApiClient defaultClient = AddressQuerier.connexion();
-		DirectionsApi api = new DirectionsApi(defaultClient);
-		DirectionsDirections response = api.directions(latLonAddressDeparture + ";" + latLonAddressArrival, null, null,
-				null, null, null, null, "true", null, null, "simplified", null);
-
-		DirectionsDirectionsRoutes trip = response.getRoutes().get(0);
-		int distance = trip.getDistance().intValue();
-		int duration = trip.getDuration().intValue();
-		this.generalStep = Step.newStep(this.generalStep.getDepartureAddress(), this.generalStep.getArrivalAddress(),
-				distance, duration);
-		String[] tabToParse = trip.getLegs().get(0).toString().split("location=\\[");
+		String[] tabToParse = this.trip.getLegs().get(0).toString().split("location=\\[");
 		List<String> listToParse = new ArrayList<>(Arrays.asList(tabToParse));
 		listToParse.remove(0);
 		listToParse.remove(0);
@@ -155,5 +136,53 @@ public class DistanceDuration {
 			Step oneNewStep = Step.newStep(departureStep, arrivalStep);
 			this.allSteps.add(oneNewStep);
 		}
+		return this.allSteps;
+	}
+
+	/**
+	 * Return the generalStep composed of the departure and arrival address and the
+	 * global distance and duration.
+	 * 
+	 * @return generalStep
+	 * @throws ApiException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
+	 */
+	public Step getGeneralStep()
+			throws ApiException, JsonIOException, JsonSyntaxException, IOException, ParseException {
+		if (trip == null)
+			calculateDistanceDuration();
+
+		this.generalStep = Step.newStep(this.addressDeparture, this.addressArrival, this.distance, this.duration);
+		return this.generalStep;
+	}
+
+	/**
+	 * This function use the LocataionIQ "DirectionsAPI" to calculates the duration,
+	 * the distance and all the informations about the traject bewteen the two
+	 * addresses of the class.
+	 * 
+	 * @throws ApiException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
+	 */
+	private void calculateDistanceDuration()
+			throws ApiException, JsonIOException, JsonSyntaxException, IOException, ParseException {
+		String latLonAddressDeparture = this.addressDeparture.getLongitude() + ","
+				+ this.addressDeparture.getLatitude();
+		String latLonAddressArrival = this.addressArrival.getLongitude() + "," + this.addressArrival.getLatitude();
+
+		ApiClient defaultClient = AddressQuerier.connexion();
+		DirectionsApi api = new DirectionsApi(defaultClient);
+		DirectionsDirections response = api.directions(latLonAddressDeparture + ";" + latLonAddressArrival, null, null,
+				null, null, null, null, "true", null, null, "simplified", null);
+
+		this.trip = response.getRoutes().get(0);
+		this.distance = trip.getDistance().intValue();
+		this.duration = trip.getDuration().intValue();
 	}
 }

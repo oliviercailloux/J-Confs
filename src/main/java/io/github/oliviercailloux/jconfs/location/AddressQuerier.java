@@ -1,11 +1,19 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.json.simple.JSONObject;
+
 import com.locationiq.client.api.*;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import com.locationiq.client.ApiClient;
 import com.locationiq.client.ApiException;
 import com.locationiq.client.Configuration;
@@ -32,9 +40,14 @@ public class AddressQuerier {
 	 * 
 	 * @param address
 	 * @throws ApiException
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	public static AddressQuerier given(String address) throws ApiException, InterruptedException {
+	public static AddressQuerier given(String address) throws ApiException, InterruptedException, JsonIOException,
+			JsonSyntaxException, IOException, ParseException {
 		return new AddressQuerier(address);
 	}
 
@@ -45,9 +58,14 @@ public class AddressQuerier {
 	 * 
 	 * @param address
 	 * @throws ApiException
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	private AddressQuerier(String address) throws ApiException, InterruptedException {
+	private AddressQuerier(String address) throws ApiException, InterruptedException, JsonIOException,
+			JsonSyntaxException, IOException, ParseException {
 		this.requestAddressInformations(address);
 	}
 
@@ -71,15 +89,45 @@ public class AddressQuerier {
 	}
 
 	/**
+	 * This method recovery connection informations in Configuration.json file
+	 * 
+	 * @return login
+	 * @throws JsonIOException
+	 * @throws JsonSyntaxException
+	 * @throws IOException
+	 * @throws ParseException
+	 */
+	public static List<String> connexionConfiguration()
+			throws JsonIOException, JsonSyntaxException, IOException, ParseException {
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(new FileReader("Configuration.json"));
+		JSONObject jsonObject = (JSONObject) obj;
+		List<String> login = new ArrayList<String>();
+		String basePath = (String) jsonObject.get("basePath");
+		String key = (String) jsonObject.get("key");
+		login.add(basePath);
+		login.add(key);
+		return login;
+
+	}
+
+	/**
 	 * This method allows connection to LocationIQ and its database.
 	 * 
 	 * @return ApiClient clientConnexion
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	public static ApiClient connexion() {
+	public static ApiClient connexion() throws JsonIOException, JsonSyntaxException, IOException, ParseException {
+		List<String> login = AddressQuerier.connexionConfiguration();
 		ApiClient defaultClient = Configuration.getDefaultApiClient();
-		defaultClient.setBasePath("https://eu1.locationiq.com/v1");
+		defaultClient.setBasePath(login.get(0));
 		ApiKeyAuth key = (ApiKeyAuth) defaultClient.getAuthentication("key");
-		key.setApiKey("d4b9a23eaef07d");
+		key.setApiKey(login.get(1));
+		System.out.println(login.get(0));
+		System.out.println(login.get(1));
 		return defaultClient;
 	}
 
@@ -94,11 +142,16 @@ public class AddressQuerier {
 	 * @param adresse
 	 * @throws ApiException
 	 * @return adressInformations
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws JsonSyntaxException
+	 * @throws JsonIOException
 	 */
-	public List<Address> requestAddressInformations(String address) throws ApiException, InterruptedException {
+	public List<Address> requestAddressInformations(String address) throws ApiException, InterruptedException,
+			JsonIOException, JsonSyntaxException, IOException, ParseException {
 		this.addressInformations = new ArrayList<>();
-		if (address == ""|| address == null || address.isEmpty()) {
+		if (address == "" || address == null || address.isEmpty()) {
 			throw new NullPointerException("Address error");
 		}
 		if (this.clientConnexion == null) {
@@ -113,10 +166,10 @@ public class AddressQuerier {
 			this.addressInformations.add(i.next().toString());
 		}
 		int index = 0;
-		for(String adr : this.addressInformations) {
+		for (String adr : this.addressInformations) {
 			String contenu = adr;
 			String hash = contenu.substring(1, contenu.length() - 2);
-			this.addressInformations.set(index,hash);
+			this.addressInformations.set(index, hash);
 			index++;
 		}
 		this.TransformeToAddressArray();
@@ -124,9 +177,10 @@ public class AddressQuerier {
 	}
 
 	/**
-	 * This method retrieves the address, latitude and longitude information for each address found in addressInformations (by AutocompleteApi). 
-	 * From this information it creates several Address objects (as many objects as addresses stored in addressInformations)
-	 * which it stores in another Address List.
+	 * This method retrieves the address, latitude and longitude information for
+	 * each address found in addressInformations (by AutocompleteApi). From this
+	 * information it creates several Address objects (as many objects as addresses
+	 * stored in addressInformations) which it stores in another Address List.
 	 * 
 	 * @return addressFound
 	 */
@@ -150,5 +204,9 @@ public class AddressQuerier {
 			selection.add(adr);
 		}
 		this.addressFound = selection;
+	}
+
+	public static void main(String args[]) throws JsonIOException, JsonSyntaxException, IOException, ParseException {
+		AddressQuerier.connexion();
 	}
 }
