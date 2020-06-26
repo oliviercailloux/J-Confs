@@ -90,9 +90,18 @@ public class ConferenceWriter {
 		newCalendar = new Calendar(confList);
 		saveIcsFile(newCalendar, calFile);
 	}
-	
-	
-	
+
+	/**
+	 * Transform a Conference into a Property List to be used after in VEvent(in the
+	 * case of communication with server ) or Event (In the case of IcsFile) this is
+	 * the specific one for fruux. To communicate with fruux we need to specificate
+	 * order
+	 * 
+	 * @param conference not <code>null</code>.
+	 * 
+	 * @throws URISyntaxException
+	 */
+
 	public static PropertyList<Property> conferenceToPropertyFruux(Conference conference) throws URISyntaxException {
 		Property urlz, description, location, startDate, endDate, uid, name;
 		PropertyList<Property> propertyList = new PropertyList<>();
@@ -101,37 +110,33 @@ public class ConferenceWriter {
 		uid = new Uid(conference.getUid().toLowerCase());
 		name = new Summary(conference.getTitle());
 
-			if (conference.getUrl().isPresent()) {
-				urlz = new Url(conference.getUrl().get().toURI());
-				propertyList.add(urlz);
-			}
-			propertyList.add(name);
-			if (conference.getFeeRegistration().isPresent()) {
-				description = new Description("Fee:" + conference.getFeeRegistration().get());
-				propertyList.add(description);
-			}
-			if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
-				location = new Location(conference.getCity() + "," + conference.getCountry());
-				propertyList.add(location);
-			}
-			propertyList.add(startDate);
-			propertyList.add(endDate);
-			propertyList.add(uid);
-			return propertyList;
+		if (conference.getUrl().isPresent()) {
+			urlz = new Url(conference.getUrl().get().toURI());
+			propertyList.add(urlz);
+		}
+		propertyList.add(name);
+		if (conference.getFeeRegistration().isPresent()) {
+			description = new Description("Fee:" + conference.getFeeRegistration().get());
+			propertyList.add(description);
+		}
+		if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
+			location = new Location(conference.getCity() + "," + conference.getCountry());
+			propertyList.add(location);
+		}
+		propertyList.add(startDate);
+		propertyList.add(endDate);
+		propertyList.add(uid);
+		return propertyList;
 	}
 
 	/**
-	 * Transform a Conference into a Property List to be used after in VEvent
+	 * Transform a Conference into a Property List to be used after in VEvent(in the
+	 * case of communication with server ) or Event (In the case of IcsFile)
 	 * 
-	 * @param conference  not <code>null</code>.
-	 * @param containFrux make the property List in the same order that we do for
-	 *                    fruux VEvent
-	 * @param icsfile     make the property List in the same order that we do in
-	 *                    IcsFile manual
+	 * @param conference not <code>null</code>.
+	 * 
 	 * @throws URISyntaxException
 	 */
-	
-	
 
 	public static PropertyList<Property> conferenceToProperty(Conference conference) throws URISyntaxException {
 		Property urlz, description, location, startDate, endDate, uid, sequence, created, dtstamp, lastModified, name;
@@ -144,28 +149,28 @@ public class ConferenceWriter {
 		dtstamp = new DtStamp();
 		lastModified = new LastModified();
 		name = new Summary(conference.getTitle());
-		
-				propertyList.add(created);
-				propertyList.add(dtstamp);
-				propertyList.add(lastModified);
-				propertyList.add(sequence);
-				propertyList.add(uid);
-				propertyList.add(startDate);
-				propertyList.add(endDate);
 
-			propertyList.add(name);
-			if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
-				location = new Location(conference.getCity() + "," + conference.getCountry());
-				propertyList.add(location);
-			}
-			if (conference.getFeeRegistration().isPresent()) {
-				description = new Description("Fee:" + conference.getFeeRegistration().get());
-				propertyList.add(description);
-			}
-			if (conference.getUrl().isPresent()) {
-				urlz = new Url(conference.getUrl().get().toURI());
-				propertyList.add(urlz);
-			}
+		propertyList.add(created);
+		propertyList.add(dtstamp);
+		propertyList.add(lastModified);
+		propertyList.add(sequence);
+		propertyList.add(uid);
+		propertyList.add(startDate);
+		propertyList.add(endDate);
+
+		propertyList.add(name);
+		if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
+			location = new Location(conference.getCity() + "," + conference.getCountry());
+			propertyList.add(location);
+		}
+		if (conference.getFeeRegistration().isPresent()) {
+			description = new Description("Fee:" + conference.getFeeRegistration().get());
+			propertyList.add(description);
+		}
+		if (conference.getUrl().isPresent()) {
+			urlz = new Url(conference.getUrl().get().toURI());
+			propertyList.add(urlz);
+		}
 
 		return propertyList;
 	}

@@ -117,8 +117,6 @@ public class CalendarOnline {
 		this.connector.collectionCalendarsOnline.updateMasterEvent(connector.httpclient, vEventConferenceModified,
 				null);
 	}
-	
-	
 
 	/**
 	 * Different behavior depending on the calendar online
