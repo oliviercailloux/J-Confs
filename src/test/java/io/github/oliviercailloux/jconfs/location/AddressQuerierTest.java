@@ -31,9 +31,9 @@ class AddressQuerierTest {
 		AddressQuerier t = AddressQuerier.given("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
 		boolean test = false;
-		for(String s : t.getAddressInformations()) {
-			if(s.contains("Place du Maréchal de Lattre de Tassigny")) {
-				test=true;
+		for (String s : t.getAddressInformations()) {
+			if (s.contains("Place du Maréchal de Lattre de Tassigny")) {
+				test = true;
 			}
 		}
 		assertTrue(test);
@@ -51,12 +51,12 @@ class AddressQuerierTest {
 
 	@Test
 	public final void testRecoveryAddressFound() throws ApiException, InterruptedException {
-		AddressQuerier t =AddressQuerier.given("Université paris dauphine");
+		AddressQuerier t = AddressQuerier.given("Université paris dauphine");
 		TimeUnit.SECONDS.sleep(1);
 		boolean test = (t.getAddressFound().size() >= 2);
 		Address test2 = t.getAddressFound().get(0);
 		assertTrue(test);
 		assertTrue(test2.getAddress().contains("Place du Maréchal de Lattre de Tassigny"));
-		assertEquals(test2.getLatitude(),"48.87015115");
+		assertEquals(test2.getLatitude(), "48.87015115");
 	}
 }

@@ -32,7 +32,7 @@ public class AddressQuerier {
 	 * 
 	 * @param address
 	 * @throws ApiException
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	public static AddressQuerier given(String address) throws ApiException, InterruptedException {
 		return new AddressQuerier(address);
@@ -45,7 +45,7 @@ public class AddressQuerier {
 	 * 
 	 * @param address
 	 * @throws ApiException
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	private AddressQuerier(String address) throws ApiException, InterruptedException {
 		this.requestAddressInformations(address);
@@ -94,11 +94,11 @@ public class AddressQuerier {
 	 * @param adresse
 	 * @throws ApiException
 	 * @return adressInformations
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
 	public List<Address> requestAddressInformations(String address) throws ApiException, InterruptedException {
 		this.addressInformations = new ArrayList<>();
-		if (address == ""|| address == null || address.isEmpty()) {
+		if (address == "" || address == null || address.isEmpty()) {
 			throw new NullPointerException("Address error");
 		}
 		if (this.clientConnexion == null) {
@@ -113,10 +113,10 @@ public class AddressQuerier {
 			this.addressInformations.add(i.next().toString());
 		}
 		int index = 0;
-		for(String adr : this.addressInformations) {
+		for (String adr : this.addressInformations) {
 			String contenu = adr;
 			String hash = contenu.substring(1, contenu.length() - 2);
-			this.addressInformations.set(index,hash);
+			this.addressInformations.set(index, hash);
 			index++;
 		}
 		this.TransformeToAddressArray();
@@ -124,9 +124,10 @@ public class AddressQuerier {
 	}
 
 	/**
-	 * This method retrieves the address, latitude and longitude information for each address found in addressInformations (by AutocompleteApi). 
-	 * From this information it creates several Address objects (as many objects as addresses stored in addressInformations)
-	 * which it stores in another Address List.
+	 * This method retrieves the address, latitude and longitude information for
+	 * each address found in addressInformations (by AutocompleteApi). From this
+	 * information it creates several Address objects (as many objects as addresses
+	 * stored in addressInformations) which it stores in another Address List.
 	 * 
 	 * @return addressFound
 	 */
