@@ -9,10 +9,12 @@ A Java project developed by students during the https://github.com/oliviercaillo
 Team 1 :
 
 * Improve conference and calendar package (PR #30 #40)
-* Make connexion using JSON config file for calendar package
-
 
 Team 2 :
 
-* Make connexion using JSON config file for locationIQ API
 * Do last change for the PR #39
+
+== Rapport
+
+* Majid : I participate to Pr #5, #24, #30, #40 and #43. First we modified the code in order that we can connect to NextCloud. This makes me created JUnit task to make us able to know when we can reach a server Nextcloud. We tried to simplify our pom.xml. This was difficult because it wasn't usual yet for us to work on pom which seems to not have an error. The fact that now Github give us a good status make me hope that this will be the last time that something like that will appear. Unfortunately, I was too ambitious in the PR #30 and make it before PR#40. In my mind, we could work on those topics separately but it wasn't the case because Calendar and Conference are linked. So we need to make one PR approved to move on another topic. So we try something which is detailed as proposal in Calendar but it hasn't been merged with master. Sometimes I need some time to avoid using try catch. This project help me on that. I participate to the builder of conference and make stronger our test that we have set up in the first PR. They were some issue that we find after like when you create an event with the same uid and some event wasn't readable.
+
