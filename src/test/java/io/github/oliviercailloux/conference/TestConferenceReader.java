@@ -33,7 +33,7 @@ public class TestConferenceReader {
 		assertEquals(conferenceTest.getTitle(), "Java");
 		assertEquals(conferenceTest.getCity(), "Toronto");
 		assertEquals(conferenceTest.getCountry(), "Canada");
-		assertEquals(conferenceTest.getFeeRegistration(), 22.60, 0.001);
+		assertEquals(conferenceTest.getFeeRegistration().get(), 22);
 	}
 
 }

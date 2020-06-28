@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.swt.SWT;
@@ -30,19 +31,20 @@ import org.slf4j.LoggerFactory;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
-import com.google.common.primitives.Doubles;import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
+import com.google.common.primitives.Doubles;
+import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
 import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 
 import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
 
 /**
- * @author nikola 
- * This class GUI uses to show a list of conferences of a
- *         searcher and with the possibility to edit it.
- *         It takes conferences from fruux
+ * @author nikola This class GUI uses to show a list of conferences of a
+ *         searcher and with the possibility to edit it. It takes conferences
+ *         from fruux
  */
 public class GuiListConferences {
 
@@ -82,7 +84,7 @@ public class GuiListConferences {
 	 * 
 	 * @param display
 	 * @return the shell
-	 * @throws Exception 
+	 * @throws Exception
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException
@@ -123,7 +125,8 @@ public class GuiListConferences {
 	 */
 	public void getConferences() throws Exception {
 		try {
-			listConferencesUser = new ArrayList<>(new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", "")).getOnlineConferences());
+			listConferencesUser = new ArrayList<>(new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
+					"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", "")).getOnlineConferences());
 		} catch (CalDAV4JException e) {
 			throw new IllegalStateException(e);
 		}
@@ -207,8 +210,8 @@ public class GuiListConferences {
 			txtCoutry.setText(conferenceSelected.getCountry());
 			txtUrl.setText(conferenceSelected.getUrl().toString());
 			txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
-			setDateofConferences(dateStart, conferenceSelected.getStartDate());
-			setDateofConferences(dateEnd, conferenceSelected.getEndDate());
+			setDateofConferences(dateStart, LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneOffset.UTC));
+			setDateofConferences(dateEnd, LocalDate.ofInstant(conferenceSelected.getEndDate(), ZoneOffset.UTC));
 		}
 	}
 
@@ -218,7 +221,7 @@ public class GuiListConferences {
 	 * widget list is updates with new online conferences
 	 * 
 	 * @param e event that we catch
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void editConference(@SuppressWarnings("unused") Event e) throws Exception {
 		if (isAllFieldsValid()) {
@@ -238,7 +241,8 @@ public class GuiListConferences {
 
 	/**
 	 * Create widgets of the GUI, and disposition of widgets
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 * 
 	 * @throws IOException
 	 * @throws ParserException
@@ -315,7 +319,7 @@ public class GuiListConferences {
 	/**
 	 * Create all listener for all widgets of the GUI
 	 */
-	private void createListenerWidgets() throws Exception{
+	private void createListenerWidgets() throws Exception {
 		txtCity.addVerifyListener(ListenerAction::checkTextInput);
 		txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
 		txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
@@ -345,7 +349,7 @@ public class GuiListConferences {
 	 * Delete the conference in fruux that had been selected by the user
 	 * 
 	 * @param e vent that we catch
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void deleteConference(@SuppressWarnings("unused") Event e) throws Exception {
 		if (listConferences.getSelectionIndex() >= 0) {
@@ -378,7 +382,8 @@ public class GuiListConferences {
 	 * Call the method from CalendarOnline to push in fruux the new conference
 	 */
 	public void addConference() {
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
+				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		LocalDate localDateStart = LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
 		LocalDate localDateEnd = LocalDate.of(dateEnd.getYear(), dateEnd.getMonth() + 1, dateEnd.getDay());
 		URL urlConference;
@@ -388,12 +393,16 @@ public class GuiListConferences {
 			throw new IllegalStateException(e1);
 		}
 
-		Conference newConference = new Conference(new RandomUidGenerator().generateUid().getValue(), urlConference,
-				txtTitle.getText(), localDateStart, localDateEnd, Doubles.tryParse(txtRegisFee.getText()),
-				txtCoutry.getText(), txtCity.getText());
+		ConferenceBuilder theBuild = new ConferenceBuilder();
+		Conference newConference = theBuild.setUrl(urlConference).setTitle(txtTitle.getText())
+				.setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue()).setCity(txtCity.getText())
+				.setCountry(txtCoutry.getText()).build();
+
 		try {
 			instanceCalendarOnline.addOnlineConference(newConference);
-		} catch (CalDAV4JException | URISyntaxException | ParseException e) {
+		} catch (CalDAV4JException | URISyntaxException e) {
 			throw new IllegalStateException(e);
 		}
 	}
@@ -402,7 +411,8 @@ public class GuiListConferences {
 	 * Call the method from CalendarOnline to delete in fruux a conference
 	 */
 	public void removeConference() {
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
+				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
 		String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
 		try {
 			instanceCalendarOnline.deleteOnlineConference(uidDelete);

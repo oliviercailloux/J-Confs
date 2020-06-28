@@ -1,123 +1,101 @@
 package io.github.oliviercailloux.jconfs.conference;
 
 import java.net.URL;
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
+
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
+import java.util.Optional;
+
 import com.google.common.base.MoreObjects;
 
+import net.fortuna.ical4j.model.property.Url;
+import net.fortuna.ical4j.util.RandomUidGenerator;
+
 /**
- * @author huong,camille This class is immutable.
+ * This class is immutable. Please note that the registrationFee is in euro
+ * cent.
+ * 
+ * @author huong,camille
  *
  */
 public class Conference {
-	private URL url;
+	private Optional<URL> url;
 	private String uid;
 	private String title;
-	private LocalDate startDate;
-	private LocalDate endDate;
-	private Double registrationFee;
+	private Instant startDate;
+	private Instant endDate;
+	private Optional<Integer> registrationFee;
 	private String country;
 	private String city;
 
 	/**
 	 * This is a constructor which initializes the conference object
 	 * 
-	 * @param uid
+	 * @param uid             not <code>null</code>
 	 * @param url
-	 * @param title
+	 * @param title           not <code>null</code>
 	 * @param startDate       not <code>null</code>
 	 * @param endDate         not <code>null</code>
 	 * @param registrationFee
 	 * @param country
 	 * @param city
 	 */
-	public Conference(String uid, URL url, String title, LocalDate startDate, LocalDate endDate, Double registrationFee,
-			String country, String city) {
-		Objects.requireNonNull(endDate);
-		Objects.requireNonNull(startDate);
-		this.uid = uid;
-		this.url = url;
-		this.title = title;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.registrationFee = registrationFee;
-		this.country = country;
-		this.city = city;
+	private Conference() {
+		this.uid = "";
+		this.url = Optional.empty();
+		this.registrationFee = Optional.empty();
+		this.country = "";
+		this.city = "";
 	}
 
-	/**
-	 * This is a getter which return the URL
-	 * 
-	 * @return url
-	 */
-	public URL getUrl() {
+	public Optional<URL> getUrl() {
 		return url;
 	}
 
-	/**
-	 * This is a getter which return the title
-	 * 
-	 * @return title
-	 */
 	public String getTitle() {
 		return title;
 	}
 
-	/**
-	 * This is a getter which return the date start
-	 * 
-	 * @return not <code>null</code>
-	 */
-	public LocalDate getStartDate() {
+	public Instant getStartDate() {
 		return startDate;
 	}
 
-	/**
-	 * This is a getter which return the date end
-	 * 
-	 * @return not <code>null</code>
-	 */
-	public LocalDate getEndDate() {
+	public Instant getEndDate() {
 		return endDate;
 	}
 
 	/**
-	 * This is a getter which return the fee of registration
+	 * this method return the price of registration in a conference in euro cent
 	 * 
-	 * @return registrationFee
+	 * @return Optional<Integer>
 	 */
-	public Double getFeeRegistration() {
+	public Optional<Integer> getFeeRegistration() {
 		return registrationFee;
 	}
 
-	/**
-	 * This is a getter which return the country
-	 * 
-	 * @return country
-	 */
 	public String getCountry() {
 		return country;
 	}
 
-	/**
-	 * This is a getter which return the city
-	 * 
-	 * @return city
-	 */
 	public String getCity() {
 		return city;
 	}
 
-	/**
-	 * This is a getter which return the iud
-	 * 
-	 * @return not <code>null</code>
-	 */
 	public String getUid() {
 		return this.uid;
+	}
+
+	public boolean isConf() {
+		Preconditions.checkNotNull(this.title);
+		Preconditions.checkNotNull(this.startDate);
+		Preconditions.checkNotNull(this.endDate);
+		return true;
 	}
 
 	@Override
@@ -145,6 +123,82 @@ public class Conference {
 		return MoreObjects.toStringHelper(this).add("UID", uid).add("url", url).add("title", title)
 				.add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
 				.add("country", country).add("city", city).toString();
+	}
+
+	public static class ConferenceBuilder {
+		private Conference conferenceToBuild;
+
+		public ConferenceBuilder() {
+			conferenceToBuild = new Conference();
+		}
+
+		public Conference build() {
+			Conference builtConference = conferenceToBuild;
+			conferenceToBuild = new Conference();
+			if (builtConference.uid.isEmpty())
+				builtConference.uid = new RandomUidGenerator().generateUid().getValue();
+			Preconditions.checkNotNull(builtConference.title);
+			Preconditions.checkNotNull(builtConference.startDate);
+			Preconditions.checkNotNull(builtConference.endDate);
+			return builtConference;
+		}
+
+		public ConferenceBuilder setUid(String uid) {
+			Preconditions.checkNotNull(uid);
+			this.conferenceToBuild.uid = uid;
+			return this;
+		}
+
+		public ConferenceBuilder setTitle(String title) {
+			Preconditions.checkNotNull(title);
+			this.conferenceToBuild.title = title;
+			return this;
+		}
+
+		public ConferenceBuilder setStartDate(Instant startDate) {
+			Preconditions.checkNotNull(startDate);
+			if ((this.conferenceToBuild.endDate == null) || (startDate.isBefore(this.conferenceToBuild.endDate)))
+				this.conferenceToBuild.startDate = startDate;
+			else
+				throw new IllegalArgumentException();
+			return this;
+		}
+
+		/**
+		 * This method makes you able to change the end date.
+		 * 
+		 * @throws NullPointerException - if the parameter is null or if the conference
+		 *                              start date has not been set up yet.
+		 */
+		public ConferenceBuilder setEndDate(Instant endDate) {
+			Preconditions.checkNotNull(endDate);
+			if ((this.conferenceToBuild.startDate == null) || (this.conferenceToBuild.startDate.isBefore(endDate)))
+				this.conferenceToBuild.endDate = endDate;
+			else
+				throw new IllegalArgumentException();
+			return this;
+		}
+
+		public ConferenceBuilder setRegistrationFee(Integer registrationFee) {
+			this.conferenceToBuild.registrationFee = Optional.ofNullable(registrationFee);
+			return this;
+		}
+
+		public ConferenceBuilder setCountry(String country) {
+			this.conferenceToBuild.country = Strings.emptyToNull(country);
+			return this;
+		}
+
+		public ConferenceBuilder setCity(String city) {
+			this.conferenceToBuild.city = Strings.emptyToNull(city);
+			return this;
+		}
+
+		public ConferenceBuilder setUrl(URL url) {
+			this.conferenceToBuild.url = Optional.ofNullable(url);
+			return this;
+		}
+
 	}
 
 }

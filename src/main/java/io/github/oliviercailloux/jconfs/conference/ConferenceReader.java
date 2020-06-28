@@ -6,11 +6,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
@@ -52,39 +55,48 @@ public class ConferenceReader {
 	 * @param confCompo it's a calendar component that contains the data of one
 	 *                  conference
 	 * @return a conference
-	 * @throws InvalidConferenceFormatException
+	 * @throws MalformedURLException
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
 	 */
-	public static Conference createConference(Component confCompo) throws InvalidConferenceFormatException {
+	public static Conference createConference(Component confCompo) throws MalformedURLException {
 		Conference conf = null;
+		ConferenceBuilder theBuild = new ConferenceBuilder();
 		URL confURL;
 		String[] location;
 		String[] description;
-		Double feeRegistration = null;
-
-		try {
+		if (!confCompo.getProperties("URL").isEmpty()) {
 			confURL = new URL(confCompo.getProperty("URL").getValue());
-		} catch (MalformedURLException e1) {
-			throw new InvalidConferenceFormatException("URL malformated, impossible to put in a conference", e1);
+			theBuild.setUrl(confURL);
 		}
+		if (!confCompo.getProperties("LOCATION").isEmpty()) {
+			location = confCompo.getProperty("LOCATION").getValue().split(",");
+			String city = location[0];
+			String country = location[1];
+			theBuild.setCity(city);
+			theBuild.setCountry(country);
+		}
+		if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
+			description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
+			for (String ele : description) {
+				if (ele.contains("Fee")) {
+					Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+					theBuild.setRegistrationFee(feeRegistration.intValue());
 
-		location = confCompo.getProperty("LOCATION").getValue().split(",");
-		description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
-
-		for (String ele : description) {
-			if (ele.contains("Fee")) {
-				feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+				}
 			}
 		}
-		
+
+		if (!confCompo.getProperties("UID").isEmpty()) {
+			String uid = confCompo.getProperty("UID").getValue();
+			theBuild.setUid(uid);
+		}
+
 		String title = confCompo.getProperty("SUMMARY").getValue();
-		String city = location[0];
-		String country = location[1];
+
 		String stringDTSTART = convertDate(confCompo.getProperty("DTSTART").getValue());
 		String stringDTEND = convertDate(confCompo.getProperty("DTEND").getValue());
-		String uid = confCompo.getProperty("UID").getValue();
 		LocalDate start = null;
 		LocalDate end = null;
 
@@ -95,8 +107,10 @@ public class ConferenceReader {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Date impossible to put in the conference", e);
 		}
+		theBuild.setTitle(title).setStartDate(start.atStartOfDay(ZoneOffset.UTC).toInstant())
+				.setEndDate(end.atStartOfDay(ZoneOffset.UTC).toInstant());
+		conf = theBuild.build();
 
-		conf = new Conference(uid, confURL, title, start, end, feeRegistration, country, city);
 		return conf;
 	}
 
@@ -108,10 +122,8 @@ public class ConferenceReader {
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws NumberFormatException
-	 * @throws InvalidConferenceFormatException
 	 */
-	public static Set<Conference> readConferences(Reader reader)
-			throws InvalidConferenceFormatException, IOException, ParserException {
+	public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException {
 		CalendarBuilder builder = new CalendarBuilder();
 		Calendar calendar = builder.build(reader);
 		Set<Conference> listeconfuser = new LinkedHashSet<>();
