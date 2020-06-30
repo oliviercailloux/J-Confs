@@ -6,13 +6,15 @@ A Java project developed by students during the https://github.com/oliviercaillo
 
 == Delivery 4 
 
-Team 1 :
+Team 1 Majid ACHRIA and Anis HAMOUNI:
 
 * Improve conference and calendar package (PR #30 #40)
 
-Team 2 :
+Team 2 Floryan KIEFFER and Anis ZOUARI :
 
 * Do last change for the PR #39
+
+SM/PO : Sébastien BOURG
 
 == Rapport
 
