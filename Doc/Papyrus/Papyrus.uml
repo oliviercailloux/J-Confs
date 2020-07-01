@@ -1778,9 +1778,9 @@
       <packagedElement xmi:type="uml:Package" xmi:id="_kIjoYHHMEeqiW5oWiheyZw" name="Location">
         <packagedElement xmi:type="uml:Package" xmi:id="_rdU6oHKJEeqfTY0p-PATFQ" name="location">
           <packagedElement xmi:type="uml:Class" xmi:id="_zxVUEHHMEeqiW5oWiheyZw" name="AddressQuerier">
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_NALFoHHOEeqiW5oWiheyZw" name="addressInformations" visibility="private" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_PM-3QK7eEeqF57OurY6pXw" name="addressFound" visibility="private" type="_fwXKAK7eEeqF57OurY6pXw"/>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_GyJl0LJIEeqF57OurY6pXw" name="defaultClient" visibility="private" type="_dE8gIIcfEeq1Bu2a_53vKA"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_NALFoHHOEeqiW5oWiheyZw" name="addressInformations" visibility="private" type="_fwXKAK7eEeqF57OurY6pXw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_PM-3QK7eEeqF57OurY6pXw" name="addressFound" visibility="private" type="_OzG_kJzTEeqrR-Ds61GHnw"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_GyJl0LJIEeqF57OurY6pXw" name="client" visibility="private" type="_dE8gIIcfEeq1Bu2a_53vKA"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_1C0xIHHMEeqiW5oWiheyZw" name="connexion" visibility="public">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_nq5LIIcfEeq1Bu2a_53vKA" type="_dE8gIIcfEeq1Bu2a_53vKA" direction="return"/>
             </ownedOperation>
@@ -1788,12 +1788,10 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_A4W_QHHOEeqiW5oWiheyZw" name="adress">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
               </ownedParameter>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_7rjr4LJHEeqF57OurY6pXw" type="_OzG_kJzTEeqrR-Ds61GHnw" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tzfs8LujEeqhqMfGUrxe3g" type="_fwXKAK7eEeqF57OurY6pXw" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_Rwo6AHKJEeqfTY0p-PATFQ" name="AddressQuerier" visibility="private" concurrency="guarded"/>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="getLastAddressFound" visibility="public">
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_BoXBgLJIEeqF57OurY6pXw" type="_fwXKAK7eEeqF57OurY6pXw" direction="return"/>
-            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VbYfAIclEeq1Bu2a_53vKA" name="TransformeToAddressArray" visibility="public"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_nLcBULJIEeqF57OurY6pXw" name="given">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_tEqegLJIEeqF57OurY6pXw" type="_zxVUEHHMEeqiW5oWiheyZw" direction="return"/>
             </ownedOperation>
