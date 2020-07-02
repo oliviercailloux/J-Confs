@@ -373,7 +373,7 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_EpkmQGXJEeqCB6kIHjdr_A" name="a" type="_1laDgGXIEeqCB6kIHjdr_A" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Ag5WIGXIEeqCB6kIHjdr_A" name="getConferenceFromUid">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_R51icGXJEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_R51icGXJEeqCB6kIHjdr_A" name="uid">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZQ0XEGXJEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A" direction="return"/>
@@ -382,7 +382,7 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_hlkbgGXJEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Bl8SoGXIEeqCB6kIHjdr_A" name="deleteOnlineConference">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mlHesGXJEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_mlHesGXJEeqCB6kIHjdr_A" name="uid">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
@@ -395,7 +395,7 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ZFU1kGXFEeqCB6kIHjdr_A" name="StringToLocalDate" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_s-FvwGXFEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_s-FvwGXFEeqCB6kIHjdr_A" name="toparse">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_1n3B8GXFEeqCB6kIHjdr_A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A" direction="return"/>
@@ -414,33 +414,40 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_RbGCcHJ2EeqfTY0p-PATFQ" name="CalDavCalendarGeneric">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_ZYLNwHJ2EeqfTY0p-PATFQ" name="url" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_ZYLNwHJ2EeqfTY0p-PATFQ" name="url" visibility="protected">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_4S5ZgHJ2EeqfTY0p-PATFQ" name="port" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_4S5ZgHJ2EeqfTY0p-PATFQ" name="port" visibility="protected">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_vmjzYIfeEeqZvaTIxmcLWw" name="httpclient" visibility="public" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_wtXDYIfeEeqZvaTIxmcLWw" name="collectionCalendarsOnline" visibility="public" type="_QujxQGdtEeq1TMmsQgXH2g"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_yUickIfeEeqZvaTIxmcLWw" name="postUrl" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_vmjzYIfeEeqZvaTIxmcLWw" name="httpclient" visibility="protected" type="_V8TBcGdtEeq1TMmsQgXH2g"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_wtXDYIfeEeqZvaTIxmcLWw" name="collectionCalendarsOnline" visibility="protected" type="_QujxQGdtEeq1TMmsQgXH2g"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_yUickIfeEeqZvaTIxmcLWw" name="postUrl" visibility="protected">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_BzOp0LvBEeqHOPjed-9WSQ" name="username">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_BzOp0LvBEeqHOPjed-9WSQ" name="username" visibility="protected">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_CYUT4LvBEeqHOPjed-9WSQ" name="password">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_CYUT4LvBEeqHOPjed-9WSQ" name="password" visibility="protected">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_CvbzYLvBEeqHOPjed-9WSQ" name="calendarId">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_CvbzYLvBEeqHOPjed-9WSQ" name="calendarId" visibility="protected">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_dC0TgHJ2EeqfTY0p-PATFQ" name="CalDavBuilder" visibility="private"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_1QJzAIc3EeqZvaTIxmcLWw" name="given" visibility="public" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_FDqIAIc4EeqZvaTIxmcLWw" name="user"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_v9dbAIffEeqZvaTIxmcLWw" name="url">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_dC0TgHJ2EeqfTY0p-PATFQ" name="CalDavCalendarGeneric" visibility="public">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_MU34ALyPEeqHOPjed-9WSQ" name="url">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_18nhEIffEeqZvaTIxmcLWw" name="postUrl">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_OYMaoLyPEeqHOPjed-9WSQ" name="username">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_PzpE8LyPEeqHOPjed-9WSQ" name="password">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_UEw74LyPEeqHOPjed-9WSQ" name="calendarid">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Wv0M4LyPEeqHOPjed-9WSQ" name="posturl">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>

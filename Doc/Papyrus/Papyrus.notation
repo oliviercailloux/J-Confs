@@ -269,10 +269,6 @@
               <element xmi:type="uml:Operation" href="Papyrus.uml#_dC0TgHJ2EeqfTY0p-PATFQ"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_dDBH0XJ2EeqfTY0p-PATFQ"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_1QWAQIc3EeqZvaTIxmcLWw" type="Operation_ClassOperationLabel">
-              <element xmi:type="uml:Operation" href="Papyrus.uml#_1QJzAIc3EeqZvaTIxmcLWw"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_1QWAQYc3EeqZvaTIxmcLWw"/>
-            </children>
             <styles xmi:type="notation:TitleStyle" xmi:id="_UTsANnJ2EeqfTY0p-PATFQ"/>
             <styles xmi:type="notation:SortingStyle" xmi:id="_UTsAN3J2EeqfTY0p-PATFQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_UTsAOHJ2EeqfTY0p-PATFQ"/>
