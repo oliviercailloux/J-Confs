@@ -366,10 +366,10 @@
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_8z6HAGXHEeqCB6kIHjdr_A" name="edtConferenceOnline">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_spsFsGXIEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_spsFsGXIEeqCB6kIHjdr_A" name="conferenceEdited" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ADLfYGXIEeqCB6kIHjdr_A" name="conferenceToVEvent">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_BqF9YGXJEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_BqF9YGXJEeqCB6kIHjdr_A" name="conferenceEdited" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_EpkmQGXJEeqCB6kIHjdr_A" name="a" type="_1laDgGXIEeqCB6kIHjdr_A" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Ag5WIGXIEeqCB6kIHjdr_A" name="getConferenceFromUid">
@@ -379,7 +379,7 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZQ0XEGXJEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_BNXakGXIEeqCB6kIHjdr_A" name="addOnlineConference">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_hlkbgGXJEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_hlkbgGXJEeqCB6kIHjdr_A" name="conferenceToPush" type="_YZcKgGXGEeqCB6kIHjdr_A"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Bl8SoGXIEeqCB6kIHjdr_A" name="deleteOnlineConference">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_mlHesGXJEeqCB6kIHjdr_A" name="uid">
@@ -390,7 +390,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_8qZPYGWrEeqCB6kIHjdr_A" name="ReadCalendarFiles" visibility="package">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Yafv4GXFEeqCB6kIHjdr_A" name="ReadCalendarFiles"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_YwB7AGXFEeqCB6kIHjdr_A" name="ReadCalendarFiles" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_irzAkGXFEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_irzAkGXFEeqCB6kIHjdr_A" name="filePath">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
@@ -401,16 +401,10 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_1n3B8GXFEeqCB6kIHjdr_A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ZbZzQGXFEeqCB6kIHjdr_A" name="createConference" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_dC1XgGXGEeqCB6kIHjdr_A" name="a">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_dC1XgGXGEeqCB6kIHjdr_A" name="filepath">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_il0e8GXGEeqCB6kIHjdr_A" name="a" type="_YZcKgGXGEeqCB6kIHjdr_A" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_fOuv8GeKEeq1TMmsQgXH2g" name="typeCal" visibility="public" isStatic="true">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ywWVcGeKEeq1TMmsQgXH2g" name="a" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_7Ue5sGeKEeq1TMmsQgXH2g" name="a" type="_QujxQGdtEeq1TMmsQgXH2g"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_RbGCcHJ2EeqfTY0p-PATFQ" name="CalDavCalendarGeneric">
