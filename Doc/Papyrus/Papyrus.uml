@@ -620,9 +620,13 @@
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_XtGWMGX4EeqbUqsc8bodZw" name="startDate" visibility="private" type="_ItfbgJwrEeqjV-JclrbTtA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_YjX24GX4EeqbUqsc8bodZw" name="endDate" visibility="private" type="_ItfbgJwrEeqjV-JclrbTtA"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_ZMHR4GX4EeqbUqsc8bodZw" name="registrationFee" visibility="private" type="_PJSsoKzGEeqAbfg7Y9ligg"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_Z1dJ0GX4EeqbUqsc8bodZw" name="country" visibility="private" type="_PJSsoKzGEeqAbfg7Y9ligg"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_afflUGX4EeqbUqsc8bodZw" name="city" visibility="private" type="_PJSsoKzGEeqAbfg7Y9ligg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_ZMHR4GX4EeqbUqsc8bodZw" name="registrationFee" visibility="private" type="_ciXuAL0WEeqHOPjed-9WSQ"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_Z1dJ0GX4EeqbUqsc8bodZw" name="country" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_afflUGX4EeqbUqsc8bodZw" name="city" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_GfrEEGX8EeqbUqsc8bodZw" name="Conference">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_nyLmkGX8EeqbUqsc8bodZw" name="String" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
           </ownedOperation>
@@ -641,13 +645,17 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_4BWj4GX8EeqbUqsc8bodZw" type="_ItfbgJwrEeqjV-JclrbTtA" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Hmh-cGX8EeqbUqsc8bodZw" name="getFreeRegistery">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_8GhCcGX8EeqbUqsc8bodZw" type="_PJSsoKzGEeqAbfg7Y9ligg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_8GhCcGX8EeqbUqsc8bodZw" type="_ciXuAL0WEeqHOPjed-9WSQ" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_HzNIgGX8EeqbUqsc8bodZw" name="getCountry">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="__lhf8GX8EeqbUqsc8bodZw" type="_PJSsoKzGEeqAbfg7Y9ligg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="__lhf8GX8EeqbUqsc8bodZw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_IApHkGX8EeqbUqsc8bodZw" name="getCity">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CRog4GX9EeqbUqsc8bodZw" type="_PJSsoKzGEeqAbfg7Y9ligg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CRog4GX9EeqbUqsc8bodZw" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_INJ5kGX8EeqbUqsc8bodZw" name="getUid">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_OiCikGX9EeqbUqsc8bodZw" direction="return">
@@ -739,7 +747,7 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_7eyxYJ3yEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_rOtYoJ3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_tDpL4J3xEeqkdZ3dVWGO7A" name="InstantiateRegistrationFee" visibility="private">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_tDpL4J3xEeqkdZ3dVWGO7A" name="InstantiateRegistrationFee" visibility="public">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_96q98J3yEeqkdZ3dVWGO7A" type="_NqTxgJ3xEeqkdZ3dVWGO7A" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_tppKAJ3zEeqkdZ3dVWGO7A" name="a" type="_0QRj8GXFEeqCB6kIHjdr_A"/>
           </ownedOperation>
@@ -2051,6 +2059,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_SeNRcLQCEeqAbfg7Y9ligg" name="Calendar"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_j66Y4LQCEeqAbfg7Y9ligg" name="Reader"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_53F8ULQCEeqAbfg7Y9ligg" name="Component" visibility="package"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ciXuAL0WEeqHOPjed-9WSQ" name="Optional&lt;Integer>"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
