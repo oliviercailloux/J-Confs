@@ -1,0 +1,13 @@
+= J-Confs
+:gitHubUserName: oliviercailloux
+:groupId: io.github.{gitHubUserName}
+:artifactId: j-confs
+:repository: J-Confs
+
+image:https://github.com/{gitHubUserName}/{repository}/workflows/Maven%20CI/badge.svg["Build Status", link="https://github.com/{gitHubUserName}/{repository}/actions"]
+
+A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in https://dauphine.psl.eu/formations/licences/informatique-des-organisations/l3-methodes-informatiques-appliquees-pour-la-gestion-des-entreprises[L3 MIAGE Alternance]).
+
+The code is hereby published under the MIT License, with the permission of the contributors.
+
+The project documentation is link:Doc/README.adoc[here].
