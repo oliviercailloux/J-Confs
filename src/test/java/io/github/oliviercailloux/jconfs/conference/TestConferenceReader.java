@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.conference;
+package io.github.oliviercailloux.jconfs.conference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;

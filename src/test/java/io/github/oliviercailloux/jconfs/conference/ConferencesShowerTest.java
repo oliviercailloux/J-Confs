@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.conference;
+package io.github.oliviercailloux.jconfs.conference;
 
 import java.io.IOException;
 import java.text.ParseException;
