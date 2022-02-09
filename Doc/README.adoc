@@ -1,52 +1,19 @@
-J-Confs
--------
+= J-Confs
 
- 
+See: https://github.com/oliviercailloux/J-Confs/blob/master/Doc/TODO.adoc[TODO’s].
 
-A UML documentation for the JAVA project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 Apprentissage).
-
- 
-
-
-=== Links to specific package documentation
-
- 
+== Links to specific package documentation
 
 This is our file to get a high-level vision of our project :
 
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/General_View.adoc[General view]
-
- 
 
 Our project contains 7 packages :
 
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Calendar.adoc[Calendar package]
-
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Conference.adoc[Conference package]
-
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Gui.adoc[GUI package]
-
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Researcher.adoc[Researcher package]
-
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc[Document package]
-
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map package]
-
-
- 
-
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location package]
