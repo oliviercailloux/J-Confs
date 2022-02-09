@@ -85,7 +85,7 @@ public class MapGUI {
 	 * * mapGUI constructor,it creates every items needed to make the GUI and
 	 * display
 	 * 
-	 * @param mapName <code>not null</code>, must be a .map file
+	 * @param mapName {@code not null}, must be a .map file
 	 * @param display
 	 * @throws NullPointerException
 	 * @throws IOException
@@ -275,7 +275,7 @@ public class MapGUI {
 	 * constructor in which we can choose the endPoint;
 	 * 
 	 * @param mapName
-	 * @param endPoint <code>not null</code>
+	 * @param endPoint {@code not null}
 	 * @param display
 	 * @throws IOException, NullPointerException
 	 */
@@ -370,10 +370,10 @@ public class MapGUI {
 	/**
 	 * create a TileRenderLayer from mapFile data
 	 * 
-	 * @param tileCache         <code>not null </code>
-	 * @param mapDataStore      <code>not null </code>
-	 * @param mapViewPosition   <code>not null </code>
-	 * @param hillsRenderConfig <code>can be null</code>
+	 * @param tileCache         {@code not null }
+	 * @param mapDataStore      {@code not null }
+	 * @param mapViewPosition   {@code not null }
+	 * @param hillsRenderConfig {@code can be null}
 	 * @return TileRenderLayer
 	 */
 	private TileRendererLayer createTileRendererLayer(TileCache tileCache, MapDataStore mapDataStore,
@@ -387,9 +387,9 @@ public class MapGUI {
 	/**
 	 * CreateTileDownloadLayer from tileSource
 	 * 
-	 * @param tileCache       <code>not null </code>
-	 * @param mapViewPosition <code>not null </code>
-	 * @param tileSource      <code>not null </code>
+	 * @param tileCache       {@code not null }
+	 * @param mapViewPosition {@code not null }
+	 * @param tileSource      {@code not null }
 	 * @return TileDownloadLayer
 	 */
 	private TileDownloadLayer createTileDownloadLayer(TileCache tileCache, MapViewPosition mapViewPosition,

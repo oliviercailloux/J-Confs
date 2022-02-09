@@ -448,8 +448,8 @@ public class GuiConference {
 	 * This method set informations of the city (which is the arrival point) for the
 	 * instance path
 	 * 
-	 * @param city not <code>null</code>.
-	 * @param path not <code>null</code>.
+	 * @param city not {@code null}.
+	 * @param path not {@code null}.
 	 * @return
 	 */
 	public static PathStep getLatLonCity(String city) {

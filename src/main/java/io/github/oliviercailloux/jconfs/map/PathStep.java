@@ -35,8 +35,8 @@ public class PathStep {
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
 	 * 
-	 * @param startingGeoPoint not <code>null</code>.
-	 * @param arrivalGeoPoint  not <code>null</code>.
+	 * @param startingGeoPoint not {@code null}.
+	 * @param arrivalGeoPoint  not {@code null}.
 	 */
 	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint) {
 		this.starting = Objects.requireNonNull(startingGeoPoint);
@@ -47,8 +47,8 @@ public class PathStep {
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
 	 * 
-	 * @param startingGeoPoint not <code>null</code>.
-	 * @param arrivalGeoPoint  not <code>null</code>.
+	 * @param startingGeoPoint not {@code null}.
+	 * @param arrivalGeoPoint  not {@code null}.
 	 */
 	public PathStep(GeoPoint arrivalGeoPoint) {
 		this.starting = new GeoPoint();
@@ -58,9 +58,9 @@ public class PathStep {
 	/**
 	 * this is a constructor which initializes the PathStep object
 	 * 
-	 * @param startingGeoPoint not <code>null</code>.
-	 * @param arrivalGeoPoint  not <code>null</code>.
-	 * @param type          not <code>null</code>.
+	 * @param startingGeoPoint not {@code null}.
+	 * @param arrivalGeoPoint  not {@code null}.
+	 * @param type          not {@code null}.
 	 */
 	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint, TransportType type) {
 		this(startingGeoPoint, arrivalGeoPoint);
@@ -70,7 +70,7 @@ public class PathStep {
 	/**
 	 * this is a getter which return the type
 	 * 
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public TransportType getType() {
 		return type;
@@ -79,7 +79,7 @@ public class PathStep {
 	/**
 	 * This is a setter to modify the type
 	 * 
-	 * @param type not <code>null</code>
+	 * @param type not {@code null}
 	 */
 	public void setType(TransportType type) {
 		this.type = Objects.requireNonNull(type);

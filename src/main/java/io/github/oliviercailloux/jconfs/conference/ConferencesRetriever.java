@@ -28,9 +28,9 @@ public interface ConferencesRetriever {
 	/**
 	 * this method take a date interval and return a restricted set of conference
 	 * 
-	 * @param maxDate not <code> null</code>
-	 * @param minDate Not <code> null</code>
-	 * @return Set<Conference>,Not <code> null</code>, return empty set if no data
+	 * @param maxDate not {@code  null}
+	 * @param minDate Not {@code  null}
+	 * @return Set<Conference>,Not {@code  null}, return empty set if no data
 	 *         found
 	 * @throws InvalidConferenceFormatException
 	 */
@@ -41,7 +41,7 @@ public interface ConferencesRetriever {
 	 * this method search an .ics file located in classpath and return a set of
 	 * conferences contain in this file.
 	 * 
-	 * @param fileName Not <code> null</code>
+	 * @param fileName Not {@code  null}
 	 * @return
 	 * @throws InvalidConferenceFormatException
 	 * @throws ParseException

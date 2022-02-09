@@ -410,7 +410,7 @@ public class ApiClient {
 
     /**
      * The path of temporary folder used to store downloaded files from endpoints
-     * with file response. The default value is <code>null</code>, i.e. using
+     * with file response. The default value is {@code null}, i.e. using
      * the system's default tempopary folder.
      *
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html#createTempFile">createTempFile</a>

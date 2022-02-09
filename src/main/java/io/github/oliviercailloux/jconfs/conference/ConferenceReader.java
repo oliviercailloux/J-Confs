@@ -138,7 +138,7 @@ public class ConferenceReader {
 	/**
 	 * this function transform a date to an another pattern of date
 	 * 
-	 * @param date Not <code>null</code> it's the date that we want to change its
+	 * @param date Not {@code null} it's the date that we want to change its
 	 *             pattern.
 	 * 
 	 * @return dateformated it's the date with the good pattern

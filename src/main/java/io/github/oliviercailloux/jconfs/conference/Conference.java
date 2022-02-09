@@ -37,11 +37,11 @@ public class Conference {
 	/**
 	 * This is a constructor which initializes the conference object
 	 * 
-	 * @param uid             not <code>null</code>
+	 * @param uid             not {@code null}
 	 * @param url
-	 * @param title           not <code>null</code>
-	 * @param startDate       not <code>null</code>
-	 * @param endDate         not <code>null</code>
+	 * @param title           not {@code null}
+	 * @param startDate       not {@code null}
+	 * @param endDate         not {@code null}
 	 * @param registrationFee
 	 * @param country
 	 * @param city

@@ -44,8 +44,8 @@ public class ConferenceWriter {
 	/**
 	 * Open the specified ics file as an Calendar object
 	 * 
-	 * @param calFile not <code>null</code>.
-	 * @return not <code>null</code>.
+	 * @param calFile not {@code null}.
+	 * @return not {@code null}.
 	 * @throws IOException
 	 * @throws ParserException
 	 */
@@ -62,8 +62,8 @@ public class ConferenceWriter {
 	/**
 	 * Delete the conference of the ics file (if it exists)
 	 * 
-	 * @param calFile    not <code>null</code>.
-	 * @param conference not <code>null</code>.
+	 * @param calFile    not {@code null}.
+	 * @param conference not {@code null}.
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws URISyntaxException
@@ -97,7 +97,7 @@ public class ConferenceWriter {
 	 * the specific one for fruux. To communicate with fruux we need to specificate
 	 * order
 	 * 
-	 * @param conference not <code>null</code>.
+	 * @param conference not {@code null}.
 	 * 
 	 * @throws URISyntaxException
 	 */
@@ -133,7 +133,7 @@ public class ConferenceWriter {
 	 * Transform a Conference into a Property List to be used after in VEvent(in the
 	 * case of communication with server ) or Event (In the case of IcsFile)
 	 * 
-	 * @param conference not <code>null</code>.
+	 * @param conference not {@code null}.
 	 * 
 	 * @throws URISyntaxException
 	 */
@@ -178,8 +178,8 @@ public class ConferenceWriter {
 	/**
 	 * Add the conference in the ics file file (if it exists)
 	 * 
-	 * @param calFile    not <code>null</code>.
-	 * @param conference not <code>null</code>.
+	 * @param calFile    not {@code null}.
+	 * @param conference not {@code null}.
 	 * @throws IOException
 	 * @throws ParserException
 	 * @throws ValidationException
@@ -209,8 +209,8 @@ public class ConferenceWriter {
 	/**
 	 * Save the given conference in the ics File
 	 * 
-	 * @param cal     not <code>null</code>.
-	 * @param calFile not <code>null</code>.
+	 * @param cal     not {@code null}.
+	 * @param calFile not {@code null}.
 	 * @throws URISyntaxException
 	 * @throws ValidationException
 	 * @throws IOException

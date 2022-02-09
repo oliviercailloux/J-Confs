@@ -91,7 +91,7 @@ public class ConferencesShower {
 	 * this method return a set of Conference with every conferences data in
 	 * icaldata directory
 	 * 
-	 * @return Set<Conference> not <code>null</code>
+	 * @return Set<Conference> not {@code null}
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 * @throws ParserException

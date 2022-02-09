@@ -21,8 +21,8 @@ public class Researcher {
 	/**
 	 * This is a constructor which initializes the searcher object
 	 * 
-	 * @param surname   not <code>null</code>.
-	 * @param firstName not <code>null</code>.
+	 * @param surname   not {@code null}.
+	 * @param firstName not {@code null}.
 	 * @param function
 	 * @param phone
 	 * @param office
@@ -43,7 +43,7 @@ public class Researcher {
 	/**
 	 * this is a getter which return a lastName
 	 * 
-	 * @return not <code>null</code>
+	 * @return not {@code null}
 	 */
 	public String getLastname() {
 		return lastName;
@@ -52,77 +52,77 @@ public class Researcher {
 	/**
 	 * this is a setter which allows to set the name
 	 * 
-	 * @param lastName not <code>null</code>
+	 * @param lastName not {@code null}
 	 */
 	public void setLastname(String lastName) {
 		this.lastName = Objects.requireNonNull(lastName);
 	}
 
 	/**
-	 * @return not <code>null</code>
+	 * @return not {@code null}
 	 */
 	public String getFirstname() {
 		return firstName;
 	}
 
 	/**
-	 * @param firstName not <code>null</code>
+	 * @param firstName not {@code null}
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = Objects.requireNonNull(firstName);
 	}
 
 	/**
-	 * @return not <code>null</code>
+	 * @return not {@code null}
 	 */
 	public String getPhone() {
 		return phone;
 	}
 
 	/**
-	 * @param phone not <code>null</code>
+	 * @param phone not {@code null}
 	 */
 	public void setPhone(String phone) {
 		this.phone = Objects.requireNonNull(phone);
 	}
 
 	/**
-	 * @return not <code>null</code>
+	 * @return not {@code null}
 	 */
 	public String getOffice() {
 		return office;
 	}
 
 	/**
-	 * @param office not <code>null</code>
+	 * @param office not {@code null}
 	 */
 	public void setOffice(String office) {
 		this.office = Objects.requireNonNull(office);
 	}
 
 	/**
-	 * @return not <code>null</code>
+	 * @return not {@code null}
 	 */
 	public String getGroup() {
 		return group;
 	}
 
 	/**
-	 * @param group not <code>null</code>
+	 * @param group not {@code null}
 	 */
 	public void setGroup(String group) {
 		this.group = Objects.requireNonNull(group);
 	}
 
 	/**
-	 * @return not <code>null</code>
+	 * @return not {@code null}
 	 */
 	public String getMail() {
 		return mail;
 	}
 
 	/**
-	 * @param mail not <code>null</code>
+	 * @param mail not {@code null}
 	 */
 	public void setMail(String mail) {
 		this.mail = Objects.requireNonNull(mail);
@@ -130,7 +130,7 @@ public class Researcher {
 
 	/**
 	 * 
-	 * @param function not<code>null</code>
+	 * @param function not{@code null}
 	 */
 	public void setFunction(String function) {
 		this.function = Objects.requireNonNull(function);
@@ -140,8 +140,8 @@ public class Researcher {
 	 * 
 	 * This is a constructor which initializes the searcher object
 	 * 
-	 * @param lastName  not <code>null</code>
-	 * @param firstName not <code>null</code>
+	 * @param lastName  not {@code null}
+	 * @param firstName not {@code null}
 	 */
 	public Researcher(String lastName, String firstName) {
 		this.lastName = Objects.requireNonNull(lastName);
