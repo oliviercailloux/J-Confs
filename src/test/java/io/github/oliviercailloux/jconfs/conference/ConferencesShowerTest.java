@@ -9,12 +9,12 @@ import java.util.Set;
  *
  */
 public class ConferencesShowerTest {
-	public static void main(String[] args) throws Exception {
-		ConferencesShower testShower = new ConferencesShower(new ConferencesFromICal());
-		Set<Conference> testConf = testShower.conferencesFiltredByDate();
-		for (Conference conf : testConf) {
-			System.out.println(conf.getTitle());
-			System.out.println(conf.getStartDate());
-		}
-	}
+  public static void main(String[] args) throws Exception {
+    ConferencesShower testShower = new ConferencesShower(new ConferencesFromICal());
+    Set<Conference> testConf = testShower.conferencesFiltredByDate();
+    for (Conference conf : testConf) {
+      System.out.println(conf.getTitle());
+      System.out.println(conf.getStartDate());
+    }
+  }
 }

@@ -11,23 +11,23 @@ import org.junit.jupiter.api.Test;
 
 public class TestConferenceReader {
 
-	protected ConferenceReader Confr;
-	protected ConferencesFromICal confI;
-	protected Set<Conference> setOfConf;
+  protected ConferenceReader Confr;
+  protected ConferencesFromICal confI;
+  protected Set<Conference> setOfConf;
 
-	@Test
-	public void testLocalCalendar() throws IOException, ParserException, InvalidConferenceFormatException {
-		Confr = new ConferenceReader();
-		confI = new ConferencesFromICal();
-		setOfConf = new LinkedHashSet<>();
-		setOfConf.addAll(confI.retrieve("Calendartest2"));
-		Iterator<Conference> iteratorConf = setOfConf.iterator();
-		assertEquals(setOfConf.size(), 4);
-		Conference conferenceTest = iteratorConf.next();
-		assertEquals(conferenceTest.getTitle(), "Java");
-		assertEquals(conferenceTest.getCity(), "Toronto");
-		assertEquals(conferenceTest.getCountry(), "Canada");
-		assertEquals(conferenceTest.getFeeRegistration().get(), 22);
-	}
-
+  @Test
+  public void testLocalCalendar()
+      throws IOException, ParserException, InvalidConferenceFormatException {
+    Confr = new ConferenceReader();
+    confI = new ConferencesFromICal();
+    setOfConf = new LinkedHashSet<>();
+    setOfConf.addAll(confI.retrieve("Calendartest2"));
+    Iterator<Conference> iteratorConf = setOfConf.iterator();
+    assertEquals(setOfConf.size(), 4);
+    Conference conferenceTest = iteratorConf.next();
+    assertEquals(conferenceTest.getTitle(), "Java");
+    assertEquals(conferenceTest.getCity(), "Toronto");
+    assertEquals(conferenceTest.getCountry(), "Canada");
+    assertEquals(conferenceTest.getFeeRegistration().get(), 22);
+  }
 }

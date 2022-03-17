@@ -26,118 +26,122 @@ import org.junit.jupiter.api.Test;
 
 public class TestCalendarOnlineFruux {
 
-	static String uidpr = new RandomUidGenerator().generateUid().getValue();
+  static String uidpr = new RandomUidGenerator().generateUid().getValue();
 
-	@Test
-	public void testGetOnlineConferenceFromUid() throws Exception {
+  @Test
+  public void testGetOnlineConferenceFromUid() throws Exception {
 
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
-				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
-		String uidSearch = "0cf024cb-9dfd-4956-8076-a7c24a0ff8b6";
-		Optional<Conference> potentialConference;
-		potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
-		if (potentialConference.isPresent()) {
-			Conference conferenceFound = potentialConference.get();
-			assertEquals("Java formation", conferenceFound.getTitle());
-			assertEquals(uidSearch, conferenceFound.getUid());
-			assertEquals("Paris", conferenceFound.getCity());
-			assertEquals("France", conferenceFound.getCountry());
-			assertEquals(Instant.parse("2019-08-06T00:00:00Z"), conferenceFound.getStartDate());
-			assertEquals(136, conferenceFound.getFeeRegistration().get());
-		} else {
-			fail(new NullPointerException());
-		}
-	}
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
+            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    String uidSearch = "0cf024cb-9dfd-4956-8076-a7c24a0ff8b6";
+    Optional<Conference> potentialConference;
+    potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
+    if (potentialConference.isPresent()) {
+      Conference conferenceFound = potentialConference.get();
+      assertEquals("Java formation", conferenceFound.getTitle());
+      assertEquals(uidSearch, conferenceFound.getUid());
+      assertEquals("Paris", conferenceFound.getCity());
+      assertEquals("France", conferenceFound.getCountry());
+      assertEquals(Instant.parse("2019-08-06T00:00:00Z"), conferenceFound.getStartDate());
+      assertEquals(136, conferenceFound.getFeeRegistration().get());
+    } else {
+      fail(new NullPointerException());
+    }
+  }
 
-	@Test
-	public void testGetAllOnlineConferences() throws Exception {
+  @Test
+  public void testGetAllOnlineConferences() throws Exception {
 
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
-				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
-		Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
-		Iterator<Conference> iteratorConf = collectionConferences.iterator();
-		while (iteratorConf.hasNext()) {
-			Conference conferenceOnline = iteratorConf.next();
-			System.out.println(conferenceOnline.toString());
-		}
-	}
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
+            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
+    Iterator<Conference> iteratorConf = collectionConferences.iterator();
+    while (iteratorConf.hasNext()) {
+      Conference conferenceOnline = iteratorConf.next();
+      System.out.println(conferenceOnline.toString());
+    }
+  }
 
-	@Test
-	public void testConferenceToVEvent() throws Exception {
-		VEvent conferenceVEvent;
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
-				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
-		URL url = new URL("http://fruux.com");
-		String city = "Paris";
-		String country = "France";
-		String endDate = "08/08/2019";
-		Double feeRegistration = 1.36;
-		String startDate = "06/08/2019";
-		String title = "Java formation";
-		String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
-		LocalDate start_ = null;
-		LocalDate end_ = null;
+  @Test
+  public void testConferenceToVEvent() throws Exception {
+    VEvent conferenceVEvent;
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
+            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    URL url = new URL("http://fruux.com");
+    String city = "Paris";
+    String country = "France";
+    String endDate = "08/08/2019";
+    Double feeRegistration = 1.36;
+    String startDate = "06/08/2019";
+    String title = "Java formation";
+    String uid = "4e14d618-1d93-29a3-adb3-2c21dca5ee67";
+    LocalDate start_ = null;
+    LocalDate end_ = null;
 
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			start_ = LocalDate.parse(startDate, formatter);
-			end_ = LocalDate.parse(endDate, formatter);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Date impossible to put in the conference", e);
-		}
+    try {
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+      start_ = LocalDate.parse(startDate, formatter);
+      end_ = LocalDate.parse(endDate, formatter);
+    } catch (Exception e) {
+      throw new IllegalArgumentException("Date impossible to put in the conference", e);
+    }
 
-		ConferenceBuilder theBuild = new ConferenceBuilder();
-		Conference conference = theBuild.setUid(uid).setUrl(url).setTitle(title)
-				.setStartDate(start_.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
+    ConferenceBuilder theBuild = new ConferenceBuilder();
+    Conference conference = theBuild.setUid(uid).setUrl(url).setTitle(title)
+        .setStartDate(start_.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setRegistrationFee(feeRegistration.intValue()).setCity(city).setCountry(country).build();
 
-		conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
+    conferenceVEvent = instanceCalendarOnline.conferenceToVEvent(conference);
 
-		assertEquals(conferenceVEvent.getProperty(Property.SUMMARY).getValue(), conference.getTitle());
-		assertEquals(conferenceVEvent.getProperty(Property.LOCATION).getValue(),
-				conference.getCity() + "," + conference.getCountry());
-		assertEquals(conferenceVEvent.getProperty(Property.UID).getValue(), conference.getUid());
-		assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),
-				"Fee:" + conference.getFeeRegistration().get());
-	}
+    assertEquals(conferenceVEvent.getProperty(Property.SUMMARY).getValue(), conference.getTitle());
+    assertEquals(conferenceVEvent.getProperty(Property.LOCATION).getValue(),
+        conference.getCity() + "," + conference.getCountry());
+    assertEquals(conferenceVEvent.getProperty(Property.UID).getValue(), conference.getUid());
+    assertEquals(conferenceVEvent.getProperty(Property.DESCRIPTION).getValue(),
+        "Fee:" + conference.getFeeRegistration().get());
+  }
 
-	@Test
-	public void testAddOnlineConference() throws Exception {
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
-				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
-		LocalDate start_ = null;
-		LocalDate end_ = null;
-		try {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			start_ = LocalDate.parse("06/08/2019", formatter);
-			end_ = LocalDate.parse("08/08/2019", formatter);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Date impossible to put in the conference", e);
-		}
+  @Test
+  public void testAddOnlineConference() throws Exception {
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
+            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    LocalDate start_ = null;
+    LocalDate end_ = null;
+    try {
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+      start_ = LocalDate.parse("06/08/2019", formatter);
+      end_ = LocalDate.parse("08/08/2019", formatter);
+    } catch (Exception e) {
+      throw new IllegalArgumentException("Date impossible to put in the conference", e);
+    }
 
-		ConferenceBuilder theBuild = new ConferenceBuilder();
-		Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com")).setTitle("Java formation")
-				.setStartDate(start_.atStartOfDay(ZoneOffset.UTC).toInstant())
-				.setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136).setCity("Paris")
-				.setCountry("France").build();
+    ConferenceBuilder theBuild = new ConferenceBuilder();
+    Conference conference = theBuild.setUid(uidpr).setUrl(new URL("http://fruux.com"))
+        .setTitle("Java formation").setStartDate(start_.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setEndDate(end_.atStartOfDay(ZoneOffset.UTC).toInstant()).setRegistrationFee(136)
+        .setCity("Paris").setCountry("France").build();
 
-		instanceCalendarOnline.addOnlineConference(conference);
-		Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);
-		if (!confTest.isPresent()) {
-			fail();
-		}
-	}
+    instanceCalendarOnline.addOnlineConference(conference);
+    Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);
+    if (!confTest.isPresent()) {
+      fail();
+    }
+  }
 
-	@Test
-	public void testDelete() throws Exception {
-		CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com",
-				"b3297431258", "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
-		instanceCalendarOnline.deleteOnlineConference(uidpr);
-		System.out.println(instanceCalendarOnline.getOnlineConferences());
-		if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
-			fail();
-		}
-	}
-
+  @Test
+  public void testDelete() throws Exception {
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
+            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    instanceCalendarOnline.deleteOnlineConference(uidpr);
+    System.out.println(instanceCalendarOnline.getOnlineConferences());
+    if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
+      fail();
+    }
+  }
 }

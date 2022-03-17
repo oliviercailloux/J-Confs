@@ -10,35 +10,34 @@ import java.util.Objects;
  */
 public final class GeoPoint {
 
-	private final String pointName;
-	private final double latitude;
-	private final double longitude;
+  private final String pointName;
+  private final double latitude;
+  private final double longitude;
 
-	public String getPointName() {
-		return pointName;
-	}
+  public String getPointName() {
+    return pointName;
+  }
 
-	public double getLatitude() {
-		return latitude;
-	}
+  public double getLatitude() {
+    return latitude;
+  }
 
-	public double getLongitude() {
-		return longitude;
-	}
+  public double getLongitude() {
+    return longitude;
+  }
 
-	public GeoPoint(String name, double latitude, double longitude) {
-		this.pointName = Objects.requireNonNull(name);
-		this.latitude = latitude;
-		this.longitude = longitude;
-	}
+  public GeoPoint(String name, double latitude, double longitude) {
+    this.pointName = Objects.requireNonNull(name);
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
 
-	/**
-	 * By default with mapGui, Paris is the default point
-	 */
-	public GeoPoint() {
-		this.pointName = "Paris";
-		this.latitude = 48.866667;
-		this.longitude = 2.333333;
-	}
-
+  /**
+   * By default with mapGui, Paris is the default point
+   */
+  public GeoPoint() {
+    this.pointName = "Paris";
+    this.latitude = 48.866667;
+    this.longitude = 2.333333;
+  }
 }
