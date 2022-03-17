@@ -1,5 +1,13 @@
 package io.github.oliviercailloux.jconfs.gui;
 
+import com.github.caldav4j.exceptions.CalDAV4JException;
+import com.google.common.base.Strings;
+import com.google.common.primitives.Doubles;
+import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
+import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
+import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -9,11 +17,8 @@ import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
+import net.fortuna.ical4j.data.ParserException;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.events.VerifyEvent;
-import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -22,24 +27,11 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import net.fortuna.ical4j.data.ParserException;
-import net.fortuna.ical4j.util.RandomUidGenerator;
-
-import com.google.common.primitives.Doubles;
-import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
-import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
-import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
-
-import com.github.caldav4j.exceptions.CalDAV4JException;
-import com.google.common.base.Strings;
 
 /**
  * @author nikola This class GUI uses to show a list of conferences of a

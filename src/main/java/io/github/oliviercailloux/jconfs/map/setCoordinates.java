@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jconfs.map;
 
+import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -8,11 +9,8 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.github.oliviercailloux.jconfs.researcher.Researcher;
 
 /**
  * 

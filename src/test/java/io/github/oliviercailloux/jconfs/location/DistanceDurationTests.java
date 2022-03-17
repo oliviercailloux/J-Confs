@@ -1,12 +1,10 @@
 package io.github.oliviercailloux.jconfs.location;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
-
 import com.locationiq.client.ApiException;
+import java.util.concurrent.TimeUnit;
+import org.junit.jupiter.api.Test;
 
 class DistanceDurationTests {
 

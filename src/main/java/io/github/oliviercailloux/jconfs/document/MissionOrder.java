@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.jconfs.document;
 
 import java.io.InputStream;
-
 import org.odftoolkit.simple.SpreadsheetDocument;
 
 /**

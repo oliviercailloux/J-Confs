@@ -1,27 +1,25 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.CalendarComponent;
+import net.fortuna.ical4j.validate.ValidationException;
 
 /**
  * This class allows to read and iCalelndar file and creates a conference object
  * from a parsed iCalendar file
- * 
+ *
  * @author berkani-mustapha
  *
  */
@@ -30,7 +28,7 @@ public class ReadCalendarFiles {
 	/**
 	 * Parse an iCalendar object with ical4j API function took from source :
 	 * https://www.programcreek.com/java-api-examples/?api=net.fortuna.ical4j.model.property.Method
-	 * 
+	 *
 	 * @param filePath
 	 * @throws IOException
 	 * @throws ParserException
@@ -44,12 +42,11 @@ public class ReadCalendarFiles {
 			Calendar calendar = builder.build(fin1);
 
 			// Iterating over the calendar component
-			for (Iterator<CalendarComponent> i = calendar.getComponents().iterator(); i.hasNext();) {
-				Component component = i.next();
+			for (CalendarComponent calendarComponent : calendar.getComponents()) {
+				Component component = calendarComponent;
 				System.out.println("Component [" + component.getName() + "]");
 				// Iterating over the component property
-				for (Iterator<Property> j = component.getProperties().iterator(); j.hasNext();) {
-					Property property = j.next();
+				for (Property property : component.getProperties()) {
 					System.out.println("Property [" + property.getName() + ", " + property.getValue() + "]");
 				}
 			}
@@ -60,7 +57,7 @@ public class ReadCalendarFiles {
 	 * generate a localDate from string parametre This function is needed since the
 	 * ical4j property DTSTART is a string so we have to convert it into a localDate
 	 * format
-	 * 
+	 *
 	 * @param date
 	 * @return LocalDate
 	 */
@@ -72,7 +69,7 @@ public class ReadCalendarFiles {
 	 * Creates conference from ics file, function inspired by function
 	 * readCalendarFile. You cannot setup hours. It is by default the start of the
 	 * day from UTC location.
-	 * 
+	 *
 	 * @param filepath
 	 * @return
 	 * @throws IOException

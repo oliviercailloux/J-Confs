@@ -1,20 +1,15 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import com.hp.hpl.jena.rdf.model.EmptyListException;
 import java.io.IOException;
-
 import java.text.ParseException;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
-
-import com.hp.hpl.jena.rdf.model.EmptyListException;
-
 import net.fortuna.ical4j.data.ParserException;
 
 /**

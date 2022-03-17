@@ -4,9 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.slf4j.LoggerFactory;
 
-import io.github.oliviercailloux.jconfs.researcher.Researcher;
-import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
-
 /**
  * a Junit test for ResearcherBuilder class
  * 

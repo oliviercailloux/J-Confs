@@ -10,167 +10,152 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.locationiq.client.model.DirectionsDirectionsRoutes;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * DirectionsDirections
  */
 
 public class DirectionsDirections {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+	public static final String SERIALIZED_NAME_CODE = "code";
+	@SerializedName(SERIALIZED_NAME_CODE)
+	private String code;
 
-  public static final String SERIALIZED_NAME_WAYPOINTS = "waypoints";
-  @SerializedName(SERIALIZED_NAME_WAYPOINTS)
-  private List<Object> waypoints = null;
+	public static final String SERIALIZED_NAME_WAYPOINTS = "waypoints";
+	@SerializedName(SERIALIZED_NAME_WAYPOINTS)
+	private List<Object> waypoints = null;
 
-  public static final String SERIALIZED_NAME_ROUTES = "routes";
-  @SerializedName(SERIALIZED_NAME_ROUTES)
-  private List<DirectionsDirectionsRoutes> routes = null;
+	public static final String SERIALIZED_NAME_ROUTES = "routes";
+	@SerializedName(SERIALIZED_NAME_ROUTES)
+	private List<DirectionsDirectionsRoutes> routes = null;
 
+	public DirectionsDirections code(String code) {
 
-  public DirectionsDirections code(String code) {
-    
-    this.code = code;
-    return this;
-  }
+		this.code = code;
+		return this;
+	}
 
-   /**
-   * Get code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get code
+	 * 
+	 * @return code
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public String getCode() {
-    return code;
-  }
+	public String getCode() {
+		return code;
+	}
 
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-  public void setCode(String code) {
-    this.code = code;
-  }
+	public DirectionsDirections waypoints(List<Object> waypoints) {
 
+		this.waypoints = waypoints;
+		return this;
+	}
 
-  public DirectionsDirections waypoints(List<Object> waypoints) {
-    
-    this.waypoints = waypoints;
-    return this;
-  }
+	public DirectionsDirections addWaypointsItem(Object waypointsItem) {
+		if (this.waypoints == null) {
+			this.waypoints = new ArrayList<Object>();
+		}
+		this.waypoints.add(waypointsItem);
+		return this;
+	}
 
-  public DirectionsDirections addWaypointsItem(Object waypointsItem) {
-    if (this.waypoints == null) {
-      this.waypoints = new ArrayList<Object>();
-    }
-    this.waypoints.add(waypointsItem);
-    return this;
-  }
+	/**
+	 * Get waypoints
+	 * 
+	 * @return waypoints
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get waypoints
-   * @return waypoints
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public List<Object> getWaypoints() {
+		return waypoints;
+	}
 
-  public List<Object> getWaypoints() {
-    return waypoints;
-  }
+	public void setWaypoints(List<Object> waypoints) {
+		this.waypoints = waypoints;
+	}
 
+	public DirectionsDirections routes(List<DirectionsDirectionsRoutes> routes) {
 
-  public void setWaypoints(List<Object> waypoints) {
-    this.waypoints = waypoints;
-  }
+		this.routes = routes;
+		return this;
+	}
 
+	public DirectionsDirections addRoutesItem(DirectionsDirectionsRoutes routesItem) {
+		if (this.routes == null) {
+			this.routes = new ArrayList<DirectionsDirectionsRoutes>();
+		}
+		this.routes.add(routesItem);
+		return this;
+	}
 
-  public DirectionsDirections routes(List<DirectionsDirectionsRoutes> routes) {
-    
-    this.routes = routes;
-    return this;
-  }
+	/**
+	 * Get routes
+	 * 
+	 * @return routes
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public DirectionsDirections addRoutesItem(DirectionsDirectionsRoutes routesItem) {
-    if (this.routes == null) {
-      this.routes = new ArrayList<DirectionsDirectionsRoutes>();
-    }
-    this.routes.add(routesItem);
-    return this;
-  }
+	public List<DirectionsDirectionsRoutes> getRoutes() {
+		return routes;
+	}
 
-   /**
-   * Get routes
-   * @return routes
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public void setRoutes(List<DirectionsDirectionsRoutes> routes) {
+		this.routes = routes;
+	}
 
-  public List<DirectionsDirectionsRoutes> getRoutes() {
-    return routes;
-  }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		DirectionsDirections directionsDirections = (DirectionsDirections) o;
+		return Objects.equals(this.code, directionsDirections.code)
+				&& Objects.equals(this.waypoints, directionsDirections.waypoints)
+				&& Objects.equals(this.routes, directionsDirections.routes);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, waypoints, routes);
+	}
 
-  public void setRoutes(List<DirectionsDirectionsRoutes> routes) {
-    this.routes = routes;
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class DirectionsDirections {\n");
+		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("    waypoints: ").append(toIndentedString(waypoints)).append("\n");
+		sb.append("    routes: ").append(toIndentedString(routes)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DirectionsDirections directionsDirections = (DirectionsDirections) o;
-    return Objects.equals(this.code, directionsDirections.code) &&
-        Objects.equals(this.waypoints, directionsDirections.waypoints) &&
-        Objects.equals(this.routes, directionsDirections.routes);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, waypoints, routes);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DirectionsDirections {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    waypoints: ").append(toIndentedString(waypoints)).append("\n");
-    sb.append("    routes: ").append(toIndentedString(routes)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

@@ -1,14 +1,6 @@
 package io.github.oliviercailloux.jconfs.conference;
 
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.Set;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.ConferencesFromICal;
-import io.github.oliviercailloux.jconfs.conference.ConferencesShower;
-import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
-import net.fortuna.ical4j.data.ParserException;
 
 /**
  * it's a main to test the method ConferencesFiltredByDate

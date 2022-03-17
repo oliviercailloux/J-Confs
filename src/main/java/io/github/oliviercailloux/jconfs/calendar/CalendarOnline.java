@@ -1,67 +1,26 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
+import com.github.caldav4j.exceptions.CalDAV4JException;
+import com.github.caldav4j.model.request.CalendarQuery;
+import com.github.caldav4j.util.GenerateQuery;
+import com.github.caldav4j.util.ICalendarUtils;
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
+import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.rmi.server.UID;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.ComponentList;
-import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.property.Created;
-import net.fortuna.ical4j.model.property.Description;
-import net.fortuna.ical4j.model.property.DtEnd;
-import net.fortuna.ical4j.model.property.DtStamp;
-import net.fortuna.ical4j.model.property.DtStart;
-import net.fortuna.ical4j.model.property.LastModified;
-import net.fortuna.ical4j.model.property.Location;
-import net.fortuna.ical4j.model.property.Name;
-import net.fortuna.ical4j.model.property.Sequence;
-import net.fortuna.ical4j.model.property.Summary;
-import net.fortuna.ical4j.model.property.Uid;
-import net.fortuna.ical4j.model.property.Url;
-import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
-
-import org.apache.http.HttpHost;
-import org.apache.http.HttpResponse;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.CredentialsProvider;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.BasicCredentialsProvider;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-
-import com.github.caldav4j.CalDAVCollection;
-import com.github.caldav4j.CalDAVConstants;
-import com.github.caldav4j.exceptions.CalDAV4JException;
-import com.github.caldav4j.methods.CalDAV4JMethodFactory;
-import com.github.caldav4j.model.request.CalendarQuery;
-import com.github.caldav4j.util.GenerateQuery;
-import com.github.caldav4j.util.ICalendarUtils;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
-import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
-import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
+import net.fortuna.ical4j.model.component.VEvent;
 
 /**
  * This class is the management of calendar online object. It makes you able to

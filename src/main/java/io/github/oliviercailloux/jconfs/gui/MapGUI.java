@@ -1,5 +1,7 @@
 package io.github.oliviercailloux.jconfs.gui;
 
+import com.google.common.base.Preconditions;
+import io.github.oliviercailloux.jconfs.map.Download;
 import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
@@ -38,10 +40,6 @@ import org.mapsforge.map.layer.renderer.TileRendererLayer;
 import org.mapsforge.map.model.MapViewPosition;
 import org.mapsforge.map.reader.MapFile;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
-
-import com.google.common.base.Preconditions;
-
-import io.github.oliviercailloux.jconfs.map.Download;
 
 /**
  * this class provides method to made GUI for displaying map inspired from awt

@@ -10,120 +10,105 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.locationiq.client.model.Daybalance;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Balance
  */
 
 public class Balance {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+	public static final String SERIALIZED_NAME_STATUS = "status";
+	@SerializedName(SERIALIZED_NAME_STATUS)
+	private String status;
 
-  public static final String SERIALIZED_NAME_BALANCE = "balance";
-  @SerializedName(SERIALIZED_NAME_BALANCE)
-  private Daybalance balance;
+	public static final String SERIALIZED_NAME_BALANCE = "balance";
+	@SerializedName(SERIALIZED_NAME_BALANCE)
+	private Daybalance balance;
 
+	public Balance status(String status) {
 
-  public Balance status(String status) {
-    
-    this.status = status;
-    return this;
-  }
+		this.status = status;
+		return this;
+	}
 
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get status
+	 * 
+	 * @return status
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public String getStatus() {
-    return status;
-  }
+	public String getStatus() {
+		return status;
+	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+	public Balance balance(Daybalance balance) {
 
+		this.balance = balance;
+		return this;
+	}
 
-  public Balance balance(Daybalance balance) {
-    
-    this.balance = balance;
-    return this;
-  }
+	/**
+	 * Get balance
+	 * 
+	 * @return balance
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get balance
-   * @return balance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public Daybalance getBalance() {
+		return balance;
+	}
 
-  public Daybalance getBalance() {
-    return balance;
-  }
+	public void setBalance(Daybalance balance) {
+		this.balance = balance;
+	}
 
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Balance balance = (Balance) o;
+		return Objects.equals(this.status, balance.status) && Objects.equals(this.balance, balance.balance);
+	}
 
-  public void setBalance(Daybalance balance) {
-    this.balance = balance;
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(status, balance);
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Balance {\n");
+		sb.append("    status: ").append(toIndentedString(status)).append("\n");
+		sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Balance balance = (Balance) o;
-    return Objects.equals(this.status, balance.status) &&
-        Objects.equals(this.balance, balance.balance);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(status, balance);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Balance {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

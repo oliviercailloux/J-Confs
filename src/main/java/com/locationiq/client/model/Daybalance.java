@@ -10,119 +10,105 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Daybalance
  */
 
 public class Daybalance {
-  public static final String SERIALIZED_NAME_DAY = "day";
-  @SerializedName(SERIALIZED_NAME_DAY)
-  private Integer day;
+	public static final String SERIALIZED_NAME_DAY = "day";
+	@SerializedName(SERIALIZED_NAME_DAY)
+	private Integer day;
 
-  public static final String SERIALIZED_NAME_BONUS = "bonus";
-  @SerializedName(SERIALIZED_NAME_BONUS)
-  private Integer bonus;
+	public static final String SERIALIZED_NAME_BONUS = "bonus";
+	@SerializedName(SERIALIZED_NAME_BONUS)
+	private Integer bonus;
 
+	public Daybalance day(Integer day) {
 
-  public Daybalance day(Integer day) {
-    
-    this.day = day;
-    return this;
-  }
+		this.day = day;
+		return this;
+	}
 
-   /**
-   * Get day
-   * @return day
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get day
+	 * 
+	 * @return day
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public Integer getDay() {
-    return day;
-  }
+	public Integer getDay() {
+		return day;
+	}
 
+	public void setDay(Integer day) {
+		this.day = day;
+	}
 
-  public void setDay(Integer day) {
-    this.day = day;
-  }
+	public Daybalance bonus(Integer bonus) {
 
+		this.bonus = bonus;
+		return this;
+	}
 
-  public Daybalance bonus(Integer bonus) {
-    
-    this.bonus = bonus;
-    return this;
-  }
+	/**
+	 * Get bonus
+	 * 
+	 * @return bonus
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get bonus
-   * @return bonus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public Integer getBonus() {
+		return bonus;
+	}
 
-  public Integer getBonus() {
-    return bonus;
-  }
+	public void setBonus(Integer bonus) {
+		this.bonus = bonus;
+	}
 
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Daybalance daybalance = (Daybalance) o;
+		return Objects.equals(this.day, daybalance.day) && Objects.equals(this.bonus, daybalance.bonus);
+	}
 
-  public void setBonus(Integer bonus) {
-    this.bonus = bonus;
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(day, bonus);
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Daybalance {\n");
+		sb.append("    day: ").append(toIndentedString(day)).append("\n");
+		sb.append("    bonus: ").append(toIndentedString(bonus)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Daybalance daybalance = (Daybalance) o;
-    return Objects.equals(this.day, daybalance.day) &&
-        Objects.equals(this.bonus, daybalance.bonus);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(day, bonus);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Daybalance {\n");
-    sb.append("    day: ").append(toIndentedString(day)).append("\n");
-    sb.append("    bonus: ").append(toIndentedString(bonus)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

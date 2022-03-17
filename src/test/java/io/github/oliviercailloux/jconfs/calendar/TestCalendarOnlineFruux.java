@@ -1,9 +1,11 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.net.URL;
-import java.text.ParseException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -11,26 +13,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.Set;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import org.junit.jupiter.api.Test;
-
-import com.github.caldav4j.exceptions.CalDAV4JException;
-
-import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
-import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
-import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.property.DtEnd;
-import net.fortuna.ical4j.model.property.DtStart;
 import net.fortuna.ical4j.util.RandomUidGenerator;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for connect to a calendar on Fruux cloud platform

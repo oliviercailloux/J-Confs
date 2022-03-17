@@ -10,242 +10,225 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.locationiq.client.model.DirectionsMatrixSources;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * DirectionsMatrix
  */
 
 public class DirectionsMatrix {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+	public static final String SERIALIZED_NAME_CODE = "code";
+	@SerializedName(SERIALIZED_NAME_CODE)
+	private String code;
 
-  public static final String SERIALIZED_NAME_DISTANCES = "distances";
-  @SerializedName(SERIALIZED_NAME_DISTANCES)
-  private List<BigDecimal> distances = null;
+	public static final String SERIALIZED_NAME_DISTANCES = "distances";
+	@SerializedName(SERIALIZED_NAME_DISTANCES)
+	private List<BigDecimal> distances = null;
 
-  public static final String SERIALIZED_NAME_FALLBACK_SPEED_CELLS = "fallback_speed_cells";
-  @SerializedName(SERIALIZED_NAME_FALLBACK_SPEED_CELLS)
-  private List<BigDecimal> fallbackSpeedCells = null;
+	public static final String SERIALIZED_NAME_FALLBACK_SPEED_CELLS = "fallback_speed_cells";
+	@SerializedName(SERIALIZED_NAME_FALLBACK_SPEED_CELLS)
+	private List<BigDecimal> fallbackSpeedCells = null;
 
-  public static final String SERIALIZED_NAME_SOURCES = "sources";
-  @SerializedName(SERIALIZED_NAME_SOURCES)
-  private List<DirectionsMatrixSources> sources = null;
+	public static final String SERIALIZED_NAME_SOURCES = "sources";
+	@SerializedName(SERIALIZED_NAME_SOURCES)
+	private List<DirectionsMatrixSources> sources = null;
 
-  public static final String SERIALIZED_NAME_DESTINATIONS = "destinations";
-  @SerializedName(SERIALIZED_NAME_DESTINATIONS)
-  private List<DirectionsMatrixSources> destinations = null;
+	public static final String SERIALIZED_NAME_DESTINATIONS = "destinations";
+	@SerializedName(SERIALIZED_NAME_DESTINATIONS)
+	private List<DirectionsMatrixSources> destinations = null;
 
+	public DirectionsMatrix code(String code) {
 
-  public DirectionsMatrix code(String code) {
-    
-    this.code = code;
-    return this;
-  }
+		this.code = code;
+		return this;
+	}
 
-   /**
-   * Get code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get code
+	 * 
+	 * @return code
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public String getCode() {
-    return code;
-  }
+	public String getCode() {
+		return code;
+	}
 
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-  public void setCode(String code) {
-    this.code = code;
-  }
+	public DirectionsMatrix distances(List<BigDecimal> distances) {
 
+		this.distances = distances;
+		return this;
+	}
 
-  public DirectionsMatrix distances(List<BigDecimal> distances) {
-    
-    this.distances = distances;
-    return this;
-  }
+	public DirectionsMatrix addDistancesItem(BigDecimal distancesItem) {
+		if (this.distances == null) {
+			this.distances = new ArrayList<BigDecimal>();
+		}
+		this.distances.add(distancesItem);
+		return this;
+	}
 
-  public DirectionsMatrix addDistancesItem(BigDecimal distancesItem) {
-    if (this.distances == null) {
-      this.distances = new ArrayList<BigDecimal>();
-    }
-    this.distances.add(distancesItem);
-    return this;
-  }
+	/**
+	 * Get distances
+	 * 
+	 * @return distances
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get distances
-   * @return distances
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public List<BigDecimal> getDistances() {
+		return distances;
+	}
 
-  public List<BigDecimal> getDistances() {
-    return distances;
-  }
+	public void setDistances(List<BigDecimal> distances) {
+		this.distances = distances;
+	}
 
+	public DirectionsMatrix fallbackSpeedCells(List<BigDecimal> fallbackSpeedCells) {
 
-  public void setDistances(List<BigDecimal> distances) {
-    this.distances = distances;
-  }
+		this.fallbackSpeedCells = fallbackSpeedCells;
+		return this;
+	}
 
+	public DirectionsMatrix addFallbackSpeedCellsItem(BigDecimal fallbackSpeedCellsItem) {
+		if (this.fallbackSpeedCells == null) {
+			this.fallbackSpeedCells = new ArrayList<BigDecimal>();
+		}
+		this.fallbackSpeedCells.add(fallbackSpeedCellsItem);
+		return this;
+	}
 
-  public DirectionsMatrix fallbackSpeedCells(List<BigDecimal> fallbackSpeedCells) {
-    
-    this.fallbackSpeedCells = fallbackSpeedCells;
-    return this;
-  }
+	/**
+	 * Get fallbackSpeedCells
+	 * 
+	 * @return fallbackSpeedCells
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public DirectionsMatrix addFallbackSpeedCellsItem(BigDecimal fallbackSpeedCellsItem) {
-    if (this.fallbackSpeedCells == null) {
-      this.fallbackSpeedCells = new ArrayList<BigDecimal>();
-    }
-    this.fallbackSpeedCells.add(fallbackSpeedCellsItem);
-    return this;
-  }
+	public List<BigDecimal> getFallbackSpeedCells() {
+		return fallbackSpeedCells;
+	}
 
-   /**
-   * Get fallbackSpeedCells
-   * @return fallbackSpeedCells
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public void setFallbackSpeedCells(List<BigDecimal> fallbackSpeedCells) {
+		this.fallbackSpeedCells = fallbackSpeedCells;
+	}
 
-  public List<BigDecimal> getFallbackSpeedCells() {
-    return fallbackSpeedCells;
-  }
+	public DirectionsMatrix sources(List<DirectionsMatrixSources> sources) {
 
+		this.sources = sources;
+		return this;
+	}
 
-  public void setFallbackSpeedCells(List<BigDecimal> fallbackSpeedCells) {
-    this.fallbackSpeedCells = fallbackSpeedCells;
-  }
+	public DirectionsMatrix addSourcesItem(DirectionsMatrixSources sourcesItem) {
+		if (this.sources == null) {
+			this.sources = new ArrayList<DirectionsMatrixSources>();
+		}
+		this.sources.add(sourcesItem);
+		return this;
+	}
 
+	/**
+	 * Get sources
+	 * 
+	 * @return sources
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public DirectionsMatrix sources(List<DirectionsMatrixSources> sources) {
-    
-    this.sources = sources;
-    return this;
-  }
+	public List<DirectionsMatrixSources> getSources() {
+		return sources;
+	}
 
-  public DirectionsMatrix addSourcesItem(DirectionsMatrixSources sourcesItem) {
-    if (this.sources == null) {
-      this.sources = new ArrayList<DirectionsMatrixSources>();
-    }
-    this.sources.add(sourcesItem);
-    return this;
-  }
+	public void setSources(List<DirectionsMatrixSources> sources) {
+		this.sources = sources;
+	}
 
-   /**
-   * Get sources
-   * @return sources
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public DirectionsMatrix destinations(List<DirectionsMatrixSources> destinations) {
 
-  public List<DirectionsMatrixSources> getSources() {
-    return sources;
-  }
+		this.destinations = destinations;
+		return this;
+	}
 
+	public DirectionsMatrix addDestinationsItem(DirectionsMatrixSources destinationsItem) {
+		if (this.destinations == null) {
+			this.destinations = new ArrayList<DirectionsMatrixSources>();
+		}
+		this.destinations.add(destinationsItem);
+		return this;
+	}
 
-  public void setSources(List<DirectionsMatrixSources> sources) {
-    this.sources = sources;
-  }
+	/**
+	 * Get destinations
+	 * 
+	 * @return destinations
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
+	public List<DirectionsMatrixSources> getDestinations() {
+		return destinations;
+	}
 
-  public DirectionsMatrix destinations(List<DirectionsMatrixSources> destinations) {
-    
-    this.destinations = destinations;
-    return this;
-  }
+	public void setDestinations(List<DirectionsMatrixSources> destinations) {
+		this.destinations = destinations;
+	}
 
-  public DirectionsMatrix addDestinationsItem(DirectionsMatrixSources destinationsItem) {
-    if (this.destinations == null) {
-      this.destinations = new ArrayList<DirectionsMatrixSources>();
-    }
-    this.destinations.add(destinationsItem);
-    return this;
-  }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		DirectionsMatrix directionsMatrix = (DirectionsMatrix) o;
+		return Objects.equals(this.code, directionsMatrix.code)
+				&& Objects.equals(this.distances, directionsMatrix.distances)
+				&& Objects.equals(this.fallbackSpeedCells, directionsMatrix.fallbackSpeedCells)
+				&& Objects.equals(this.sources, directionsMatrix.sources)
+				&& Objects.equals(this.destinations, directionsMatrix.destinations);
+	}
 
-   /**
-   * Get destinations
-   * @return destinations
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, distances, fallbackSpeedCells, sources, destinations);
+	}
 
-  public List<DirectionsMatrixSources> getDestinations() {
-    return destinations;
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class DirectionsMatrix {\n");
+		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("    distances: ").append(toIndentedString(distances)).append("\n");
+		sb.append("    fallbackSpeedCells: ").append(toIndentedString(fallbackSpeedCells)).append("\n");
+		sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+		sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-
-  public void setDestinations(List<DirectionsMatrixSources> destinations) {
-    this.destinations = destinations;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DirectionsMatrix directionsMatrix = (DirectionsMatrix) o;
-    return Objects.equals(this.code, directionsMatrix.code) &&
-        Objects.equals(this.distances, directionsMatrix.distances) &&
-        Objects.equals(this.fallbackSpeedCells, directionsMatrix.fallbackSpeedCells) &&
-        Objects.equals(this.sources, directionsMatrix.sources) &&
-        Objects.equals(this.destinations, directionsMatrix.destinations);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, distances, fallbackSpeedCells, sources, destinations);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DirectionsMatrix {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    distances: ").append(toIndentedString(distances)).append("\n");
-    sb.append("    fallbackSpeedCells: ").append(toIndentedString(fallbackSpeedCells)).append("\n");
-    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
-    sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

@@ -1,8 +1,7 @@
 package io.github.oliviercailloux.jconfs.map;
 
-import java.util.Objects;
-
 import com.google.common.base.MoreObjects;
+import java.util.Objects;
 
 /*
  * An object of PathStep represents a path step of a conference with parameters
@@ -14,7 +13,7 @@ public class PathStep {
 	private TransportType type = TransportType.NOTRANSPORT;
 	private GeoPoint arrival;
 	private GeoPoint starting;
-	
+
 	public GeoPoint getArrival() {
 		return arrival;
 	}
@@ -42,7 +41,7 @@ public class PathStep {
 		this.starting = Objects.requireNonNull(startingGeoPoint);
 		this.arrival = Objects.requireNonNull(arrivalGeoPoint);
 	}
-	
+
 	/**
 	 * this is a constructor which initializes the PathStep object The TransporType
 	 * is noTranport by default
@@ -60,7 +59,7 @@ public class PathStep {
 	 * 
 	 * @param startingGeoPoint not {@code null}.
 	 * @param arrivalGeoPoint  not {@code null}.
-	 * @param type          not {@code null}.
+	 * @param type             not {@code null}.
 	 */
 	public PathStep(GeoPoint startingGeoPoint, GeoPoint arrivalGeoPoint, TransportType type) {
 		this(startingGeoPoint, arrivalGeoPoint);
@@ -87,11 +86,8 @@ public class PathStep {
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this)
-				.add("StartingPoint", starting)
-				.add("ArrivalPoint", arrival)
-				.add("Type", type)
-				.toString();
+		return MoreObjects.toStringHelper(this).add("StartingPoint", starting).add("ArrivalPoint", arrival)
+				.add("Type", type).toString();
 	}
 
 }

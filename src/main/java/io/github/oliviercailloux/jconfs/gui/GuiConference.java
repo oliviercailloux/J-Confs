@@ -1,27 +1,27 @@
 package io.github.oliviercailloux.jconfs.gui;
 
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
+import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
+import io.github.oliviercailloux.jconfs.document.GenerateOM;
+import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
+import io.github.oliviercailloux.jconfs.map.GeoPoint;
+import io.github.oliviercailloux.jconfs.map.PathStep;
+import io.github.oliviercailloux.jconfs.researcher.Researcher;
+import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.channels.IllegalSelectorException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.naming.directory.InvalidAttributeIdentifierException;
 import javax.xml.parsers.ParserConfigurationException;
-
+import net.fortuna.ical4j.data.ParserException;
+import net.fortuna.ical4j.validate.ValidationException;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.VerifyEvent;
-import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -38,18 +38,6 @@ import org.mapsforge.core.model.LatLong;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
-import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
-import io.github.oliviercailloux.jconfs.document.GenerateOM;
-import io.github.oliviercailloux.jconfs.document.GenerateOMYS;
-import io.github.oliviercailloux.jconfs.map.GeoPoint;
-import io.github.oliviercailloux.jconfs.map.PathStep;
-import io.github.oliviercailloux.jconfs.researcher.Researcher;
-import io.github.oliviercailloux.jconfs.researcher.ResearcherBuilder;
-import net.fortuna.ical4j.data.ParserException;
-import net.fortuna.ical4j.validate.ValidationException;
 
 /**
  * This class create the GUI to edit the conference

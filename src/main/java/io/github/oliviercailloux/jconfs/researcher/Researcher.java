@@ -1,8 +1,7 @@
 package io.github.oliviercailloux.jconfs.researcher;
 
-import java.util.Objects;
-
 import com.google.common.base.MoreObjects;
+import java.util.Objects;
 
 /**
  * this class allows to stock a researcher

@@ -10,196 +10,181 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * DirectionsNearestWaypoints
  */
 
 public class DirectionsNearestWaypoints {
-  public static final String SERIALIZED_NAME_NODES = "nodes";
-  @SerializedName(SERIALIZED_NAME_NODES)
-  private List<BigDecimal> nodes = null;
+	public static final String SERIALIZED_NAME_NODES = "nodes";
+	@SerializedName(SERIALIZED_NAME_NODES)
+	private List<BigDecimal> nodes = null;
 
-  public static final String SERIALIZED_NAME_DISTANCE = "distance";
-  @SerializedName(SERIALIZED_NAME_DISTANCE)
-  private BigDecimal distance;
+	public static final String SERIALIZED_NAME_DISTANCE = "distance";
+	@SerializedName(SERIALIZED_NAME_DISTANCE)
+	private BigDecimal distance;
 
-  public static final String SERIALIZED_NAME_LOCATION = "location";
-  @SerializedName(SERIALIZED_NAME_LOCATION)
-  private List<BigDecimal> location = null;
+	public static final String SERIALIZED_NAME_LOCATION = "location";
+	@SerializedName(SERIALIZED_NAME_LOCATION)
+	private List<BigDecimal> location = null;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+	public static final String SERIALIZED_NAME_NAME = "name";
+	@SerializedName(SERIALIZED_NAME_NAME)
+	private String name;
 
+	public DirectionsNearestWaypoints nodes(List<BigDecimal> nodes) {
 
-  public DirectionsNearestWaypoints nodes(List<BigDecimal> nodes) {
-    
-    this.nodes = nodes;
-    return this;
-  }
+		this.nodes = nodes;
+		return this;
+	}
 
-  public DirectionsNearestWaypoints addNodesItem(BigDecimal nodesItem) {
-    if (this.nodes == null) {
-      this.nodes = new ArrayList<BigDecimal>();
-    }
-    this.nodes.add(nodesItem);
-    return this;
-  }
+	public DirectionsNearestWaypoints addNodesItem(BigDecimal nodesItem) {
+		if (this.nodes == null) {
+			this.nodes = new ArrayList<BigDecimal>();
+		}
+		this.nodes.add(nodesItem);
+		return this;
+	}
 
-   /**
-   * Get nodes
-   * @return nodes
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get nodes
+	 * 
+	 * @return nodes
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public List<BigDecimal> getNodes() {
-    return nodes;
-  }
+	public List<BigDecimal> getNodes() {
+		return nodes;
+	}
 
+	public void setNodes(List<BigDecimal> nodes) {
+		this.nodes = nodes;
+	}
 
-  public void setNodes(List<BigDecimal> nodes) {
-    this.nodes = nodes;
-  }
+	public DirectionsNearestWaypoints distance(BigDecimal distance) {
 
+		this.distance = distance;
+		return this;
+	}
 
-  public DirectionsNearestWaypoints distance(BigDecimal distance) {
-    
-    this.distance = distance;
-    return this;
-  }
+	/**
+	 * Get distance
+	 * 
+	 * @return distance
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get distance
-   * @return distance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public BigDecimal getDistance() {
+		return distance;
+	}
 
-  public BigDecimal getDistance() {
-    return distance;
-  }
+	public void setDistance(BigDecimal distance) {
+		this.distance = distance;
+	}
 
+	public DirectionsNearestWaypoints location(List<BigDecimal> location) {
 
-  public void setDistance(BigDecimal distance) {
-    this.distance = distance;
-  }
+		this.location = location;
+		return this;
+	}
 
+	public DirectionsNearestWaypoints addLocationItem(BigDecimal locationItem) {
+		if (this.location == null) {
+			this.location = new ArrayList<BigDecimal>();
+		}
+		this.location.add(locationItem);
+		return this;
+	}
 
-  public DirectionsNearestWaypoints location(List<BigDecimal> location) {
-    
-    this.location = location;
-    return this;
-  }
+	/**
+	 * Get location
+	 * 
+	 * @return location
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public DirectionsNearestWaypoints addLocationItem(BigDecimal locationItem) {
-    if (this.location == null) {
-      this.location = new ArrayList<BigDecimal>();
-    }
-    this.location.add(locationItem);
-    return this;
-  }
+	public List<BigDecimal> getLocation() {
+		return location;
+	}
 
-   /**
-   * Get location
-   * @return location
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public void setLocation(List<BigDecimal> location) {
+		this.location = location;
+	}
 
-  public List<BigDecimal> getLocation() {
-    return location;
-  }
+	public DirectionsNearestWaypoints name(String name) {
 
+		this.name = name;
+		return this;
+	}
 
-  public void setLocation(List<BigDecimal> location) {
-    this.location = location;
-  }
+	/**
+	 * Get name
+	 * 
+	 * @return name
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
+	public String getName() {
+		return name;
+	}
 
-  public DirectionsNearestWaypoints name(String name) {
-    
-    this.name = name;
-    return this;
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-   /**
-   * Get name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		DirectionsNearestWaypoints directionsNearestWaypoints = (DirectionsNearestWaypoints) o;
+		return Objects.equals(this.nodes, directionsNearestWaypoints.nodes)
+				&& Objects.equals(this.distance, directionsNearestWaypoints.distance)
+				&& Objects.equals(this.location, directionsNearestWaypoints.location)
+				&& Objects.equals(this.name, directionsNearestWaypoints.name);
+	}
 
-  public String getName() {
-    return name;
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(nodes, distance, location, name);
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class DirectionsNearestWaypoints {\n");
+		sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+		sb.append("    distance: ").append(toIndentedString(distance)).append("\n");
+		sb.append("    location: ").append(toIndentedString(location)).append("\n");
+		sb.append("    name: ").append(toIndentedString(name)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DirectionsNearestWaypoints directionsNearestWaypoints = (DirectionsNearestWaypoints) o;
-    return Objects.equals(this.nodes, directionsNearestWaypoints.nodes) &&
-        Objects.equals(this.distance, directionsNearestWaypoints.distance) &&
-        Objects.equals(this.location, directionsNearestWaypoints.location) &&
-        Objects.equals(this.name, directionsNearestWaypoints.name);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(nodes, distance, location, name);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DirectionsNearestWaypoints {\n");
-    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
-    sb.append("    distance: ").append(toIndentedString(distance)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

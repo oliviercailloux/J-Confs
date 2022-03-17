@@ -1,8 +1,8 @@
 package io.github.oliviercailloux.jconfs.map;
-import java.io.IOException;
-import org.mapsforge.core.model.LatLong;
 
 import io.github.oliviercailloux.jconfs.gui.MapGUI;
+import java.io.IOException;
+import org.mapsforge.core.model.LatLong;
 
 public class TestMapGUI {
 	public static void main(String[] args) throws NullPointerException, IllegalArgumentException, IOException {

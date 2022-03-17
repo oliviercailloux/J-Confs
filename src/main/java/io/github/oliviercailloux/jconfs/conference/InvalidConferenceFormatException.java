@@ -1,8 +1,7 @@
 package io.github.oliviercailloux.jconfs.conference;
 
 /**
- * @author nikola 
- * Custom exception use for a conference creation
+ * @author nikola Custom exception use for a conference creation
  */
 public class InvalidConferenceFormatException extends Exception {
 	/**

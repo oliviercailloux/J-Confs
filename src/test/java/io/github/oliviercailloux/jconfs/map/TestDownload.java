@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.jconfs.map;
-import java.io.IOException;
 
-import io.github.oliviercailloux.jconfs.map.Download;
+import java.io.IOException;
 
 public class TestDownload {
 	public static void main(String[] args) throws IOException {

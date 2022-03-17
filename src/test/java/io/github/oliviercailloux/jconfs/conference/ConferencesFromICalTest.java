@@ -5,20 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Set;
-
+import net.fortuna.ical4j.data.ParserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.ConferencesFromICal;
-import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
-import net.fortuna.ical4j.data.ParserException;
 
 public class ConferencesFromICalTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConferencesFromICalTest.class);

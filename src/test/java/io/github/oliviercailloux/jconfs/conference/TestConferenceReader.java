@@ -1,19 +1,13 @@
 package io.github.oliviercailloux.jconfs.conference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import javax.validation.constraints.AssertTrue;
-
-import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
-import io.github.oliviercailloux.jconfs.conference.ConferencesFromICal;
-import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
 import net.fortuna.ical4j.data.ParserException;
+import org.junit.jupiter.api.Test;
 
 public class TestConferenceReader {
 

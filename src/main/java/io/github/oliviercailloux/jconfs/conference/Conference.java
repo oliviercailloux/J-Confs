@@ -1,20 +1,12 @@
 package io.github.oliviercailloux.jconfs.conference;
 
-import java.net.URL;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
-
-import java.text.ParseException;
+import java.net.URL;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Objects;
 import java.util.Optional;
-
-import com.google.common.base.MoreObjects;
-
-import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**

@@ -10,130 +10,116 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.locationiq.client.model.DirectionsNearestWaypoints;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * DirectionsNearest
  */
 
 public class DirectionsNearest {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+	public static final String SERIALIZED_NAME_CODE = "code";
+	@SerializedName(SERIALIZED_NAME_CODE)
+	private String code;
 
-  public static final String SERIALIZED_NAME_WAYPOINTS = "waypoints";
-  @SerializedName(SERIALIZED_NAME_WAYPOINTS)
-  private List<DirectionsNearestWaypoints> waypoints = null;
+	public static final String SERIALIZED_NAME_WAYPOINTS = "waypoints";
+	@SerializedName(SERIALIZED_NAME_WAYPOINTS)
+	private List<DirectionsNearestWaypoints> waypoints = null;
 
+	public DirectionsNearest code(String code) {
 
-  public DirectionsNearest code(String code) {
-    
-    this.code = code;
-    return this;
-  }
+		this.code = code;
+		return this;
+	}
 
-   /**
-   * Get code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get code
+	 * 
+	 * @return code
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public String getCode() {
-    return code;
-  }
+	public String getCode() {
+		return code;
+	}
 
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-  public void setCode(String code) {
-    this.code = code;
-  }
+	public DirectionsNearest waypoints(List<DirectionsNearestWaypoints> waypoints) {
 
+		this.waypoints = waypoints;
+		return this;
+	}
 
-  public DirectionsNearest waypoints(List<DirectionsNearestWaypoints> waypoints) {
-    
-    this.waypoints = waypoints;
-    return this;
-  }
+	public DirectionsNearest addWaypointsItem(DirectionsNearestWaypoints waypointsItem) {
+		if (this.waypoints == null) {
+			this.waypoints = new ArrayList<DirectionsNearestWaypoints>();
+		}
+		this.waypoints.add(waypointsItem);
+		return this;
+	}
 
-  public DirectionsNearest addWaypointsItem(DirectionsNearestWaypoints waypointsItem) {
-    if (this.waypoints == null) {
-      this.waypoints = new ArrayList<DirectionsNearestWaypoints>();
-    }
-    this.waypoints.add(waypointsItem);
-    return this;
-  }
+	/**
+	 * Get waypoints
+	 * 
+	 * @return waypoints
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get waypoints
-   * @return waypoints
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public List<DirectionsNearestWaypoints> getWaypoints() {
+		return waypoints;
+	}
 
-  public List<DirectionsNearestWaypoints> getWaypoints() {
-    return waypoints;
-  }
+	public void setWaypoints(List<DirectionsNearestWaypoints> waypoints) {
+		this.waypoints = waypoints;
+	}
 
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		DirectionsNearest directionsNearest = (DirectionsNearest) o;
+		return Objects.equals(this.code, directionsNearest.code)
+				&& Objects.equals(this.waypoints, directionsNearest.waypoints);
+	}
 
-  public void setWaypoints(List<DirectionsNearestWaypoints> waypoints) {
-    this.waypoints = waypoints;
-  }
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, waypoints);
+	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class DirectionsNearest {\n");
+		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("    waypoints: ").append(toIndentedString(waypoints)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DirectionsNearest directionsNearest = (DirectionsNearest) o;
-    return Objects.equals(this.code, directionsNearest.code) &&
-        Objects.equals(this.waypoints, directionsNearest.waypoints);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, waypoints);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DirectionsNearest {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    waypoints: ").append(toIndentedString(waypoints)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

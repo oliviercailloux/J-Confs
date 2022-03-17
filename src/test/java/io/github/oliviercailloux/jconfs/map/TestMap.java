@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
-
 import org.junit.jupiter.api.Test;
 import org.mapsforge.map.reader.MapFile;
 import org.slf4j.Logger;

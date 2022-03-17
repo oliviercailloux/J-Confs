@@ -10,90 +10,78 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Error
  */
 
 public class Error {
-  public static final String SERIALIZED_NAME_ERROR = "error";
-  @SerializedName(SERIALIZED_NAME_ERROR)
-  private String error;
+	public static final String SERIALIZED_NAME_ERROR = "error";
+	@SerializedName(SERIALIZED_NAME_ERROR)
+	private String error;
 
+	public Error error(String error) {
 
-  public Error error(String error) {
-    
-    this.error = error;
-    return this;
-  }
+		this.error = error;
+		return this;
+	}
 
-   /**
-   * Get error
-   * @return error
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get error
+	 * 
+	 * @return error
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public String getError() {
-    return error;
-  }
+	public String getError() {
+		return error;
+	}
 
+	public void setError(String error) {
+		this.error = error;
+	}
 
-  public void setError(String error) {
-    this.error = error;
-  }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Error error = (Error) o;
+		return Objects.equals(this.error, error.error);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(error);
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Error error = (Error) o;
-    return Objects.equals(this.error, error.error);
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class Error {\n");
+		sb.append("    error: ").append(toIndentedString(error)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(error);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-

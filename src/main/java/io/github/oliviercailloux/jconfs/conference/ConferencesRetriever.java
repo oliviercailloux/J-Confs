@@ -3,9 +3,7 @@ package io.github.oliviercailloux.jconfs.conference;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.Set;
-
 import net.fortuna.ical4j.data.ParserException;
 
 /**
@@ -30,8 +28,7 @@ public interface ConferencesRetriever {
 	 * 
 	 * @param maxDate not {@code  null}
 	 * @param minDate Not {@code  null}
-	 * @return Set<Conference>,Not {@code  null}, return empty set if no data
-	 *         found
+	 * @return Set<Conference>,Not {@code  null}, return empty set if no data found
 	 * @throws InvalidConferenceFormatException
 	 */
 	public Set<Conference> retrieve(Instant minDate, Instant maxDate)

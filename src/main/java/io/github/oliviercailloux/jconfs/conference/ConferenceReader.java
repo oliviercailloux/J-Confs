@@ -1,19 +1,15 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;

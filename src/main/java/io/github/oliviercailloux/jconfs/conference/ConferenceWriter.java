@@ -1,26 +1,23 @@
 package io.github.oliviercailloux.jconfs.conference;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import net.fortuna.ical4j.model.property.Sequence;
-import java.time.LocalDate;
-import com.google.common.base.Preconditions;
-import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.data.ParserException;
+import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.ComponentList;
+import net.fortuna.ical4j.model.Date;
+import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 import net.fortuna.ical4j.model.component.XComponent;
-import net.fortuna.ical4j.model.property.CalScale;
 import net.fortuna.ical4j.model.property.Created;
 import net.fortuna.ical4j.model.property.Description;
 import net.fortuna.ical4j.model.property.DtEnd;
@@ -28,16 +25,11 @@ import net.fortuna.ical4j.model.property.DtStamp;
 import net.fortuna.ical4j.model.property.DtStart;
 import net.fortuna.ical4j.model.property.LastModified;
 import net.fortuna.ical4j.model.property.Location;
-import net.fortuna.ical4j.model.property.ProdId;
+import net.fortuna.ical4j.model.property.Sequence;
 import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Url;
-import net.fortuna.ical4j.model.property.Version;
-import net.fortuna.ical4j.model.property.XProperty;
 import net.fortuna.ical4j.validate.ValidationException;
-import net.fortuna.ical4j.model.Calendar;
-import net.fortuna.ical4j.model.ComponentList;
-import net.fortuna.ical4j.model.Property;
 
 public class ConferenceWriter {
 

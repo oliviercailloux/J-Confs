@@ -1,5 +1,9 @@
 package io.github.oliviercailloux.jconfs.document;
 
+import com.google.common.io.Files;
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.map.setCoordinates;
+import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -7,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.FileSystems;
 import java.time.temporal.ChronoUnit;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,16 +19,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
-import com.google.common.io.Files;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.map.setCoordinates;
-import io.github.oliviercailloux.jconfs.researcher.Researcher;
 
 /**
  * 

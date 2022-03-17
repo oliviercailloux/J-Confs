@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import com.google.common.base.Preconditions;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -7,11 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import com.google.common.base.Preconditions;
-
 import net.fortuna.ical4j.data.ParserException;
 
 public class ConferencesFromICal implements ConferencesRetriever {

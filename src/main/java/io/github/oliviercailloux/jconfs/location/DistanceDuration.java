@@ -3,11 +3,11 @@ package io.github.oliviercailloux.jconfs.location;
 import com.locationiq.client.ApiClient;
 import com.locationiq.client.ApiException;
 import com.locationiq.client.api.DirectionsApi;
-
+import com.locationiq.client.model.DirectionsDirections;
+import com.locationiq.client.model.DirectionsDirectionsRoutes;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.locationiq.client.model.*;
 
 /**
  * This class allows to get a path and informations about it. A trajet is define

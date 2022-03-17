@@ -1,18 +1,15 @@
 package io.github.oliviercailloux.jconfs.document;
 
+import com.google.common.io.Files;
+import io.github.oliviercailloux.jconfs.conference.Conference;
+import io.github.oliviercailloux.jconfs.researcher.Researcher;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.FileSystems;
-
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Cell;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.io.Files;
-
-import io.github.oliviercailloux.jconfs.conference.Conference;
-import io.github.oliviercailloux.jconfs.researcher.Researcher;
 
 /**
  * This class fills a searcher Mission Order

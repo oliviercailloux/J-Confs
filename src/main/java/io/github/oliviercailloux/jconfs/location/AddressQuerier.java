@@ -1,15 +1,14 @@
 package io.github.oliviercailloux.jconfs.location;
 
+import com.locationiq.client.ApiClient;
+import com.locationiq.client.ApiException;
+import com.locationiq.client.Configuration;
+import com.locationiq.client.api.AutocompleteApi;
+import com.locationiq.client.auth.ApiKeyAuth;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import com.locationiq.client.api.*;
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.auth.ApiKeyAuth;
 
 /**
  * This class allows you to translate an address into several pieces of

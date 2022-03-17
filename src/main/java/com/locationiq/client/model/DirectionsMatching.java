@@ -10,166 +10,152 @@
  * Do not edit the class manually.
  */
 
-
 package com.locationiq.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * DirectionsMatching
  */
 
 public class DirectionsMatching {
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+	public static final String SERIALIZED_NAME_CODE = "code";
+	@SerializedName(SERIALIZED_NAME_CODE)
+	private String code;
 
-  public static final String SERIALIZED_NAME_TRACEPOINTS = "tracepoints";
-  @SerializedName(SERIALIZED_NAME_TRACEPOINTS)
-  private List<Object> tracepoints = null;
+	public static final String SERIALIZED_NAME_TRACEPOINTS = "tracepoints";
+	@SerializedName(SERIALIZED_NAME_TRACEPOINTS)
+	private List<Object> tracepoints = null;
 
-  public static final String SERIALIZED_NAME_MATCHINGS = "matchings";
-  @SerializedName(SERIALIZED_NAME_MATCHINGS)
-  private List<Object> matchings = null;
+	public static final String SERIALIZED_NAME_MATCHINGS = "matchings";
+	@SerializedName(SERIALIZED_NAME_MATCHINGS)
+	private List<Object> matchings = null;
 
+	public DirectionsMatching code(String code) {
 
-  public DirectionsMatching code(String code) {
-    
-    this.code = code;
-    return this;
-  }
+		this.code = code;
+		return this;
+	}
 
-   /**
-   * Get code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	/**
+	 * Get code
+	 * 
+	 * @return code
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public String getCode() {
-    return code;
-  }
+	public String getCode() {
+		return code;
+	}
 
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-  public void setCode(String code) {
-    this.code = code;
-  }
+	public DirectionsMatching tracepoints(List<Object> tracepoints) {
 
+		this.tracepoints = tracepoints;
+		return this;
+	}
 
-  public DirectionsMatching tracepoints(List<Object> tracepoints) {
-    
-    this.tracepoints = tracepoints;
-    return this;
-  }
+	public DirectionsMatching addTracepointsItem(Object tracepointsItem) {
+		if (this.tracepoints == null) {
+			this.tracepoints = new ArrayList<Object>();
+		}
+		this.tracepoints.add(tracepointsItem);
+		return this;
+	}
 
-  public DirectionsMatching addTracepointsItem(Object tracepointsItem) {
-    if (this.tracepoints == null) {
-      this.tracepoints = new ArrayList<Object>();
-    }
-    this.tracepoints.add(tracepointsItem);
-    return this;
-  }
+	/**
+	 * Get tracepoints
+	 * 
+	 * @return tracepoints
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-   /**
-   * Get tracepoints
-   * @return tracepoints
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public List<Object> getTracepoints() {
+		return tracepoints;
+	}
 
-  public List<Object> getTracepoints() {
-    return tracepoints;
-  }
+	public void setTracepoints(List<Object> tracepoints) {
+		this.tracepoints = tracepoints;
+	}
 
+	public DirectionsMatching matchings(List<Object> matchings) {
 
-  public void setTracepoints(List<Object> tracepoints) {
-    this.tracepoints = tracepoints;
-  }
+		this.matchings = matchings;
+		return this;
+	}
 
+	public DirectionsMatching addMatchingsItem(Object matchingsItem) {
+		if (this.matchings == null) {
+			this.matchings = new ArrayList<Object>();
+		}
+		this.matchings.add(matchingsItem);
+		return this;
+	}
 
-  public DirectionsMatching matchings(List<Object> matchings) {
-    
-    this.matchings = matchings;
-    return this;
-  }
+	/**
+	 * Get matchings
+	 * 
+	 * @return matchings
+	 **/
+	@javax.annotation.Nullable
+	@ApiModelProperty(value = "")
 
-  public DirectionsMatching addMatchingsItem(Object matchingsItem) {
-    if (this.matchings == null) {
-      this.matchings = new ArrayList<Object>();
-    }
-    this.matchings.add(matchingsItem);
-    return this;
-  }
+	public List<Object> getMatchings() {
+		return matchings;
+	}
 
-   /**
-   * Get matchings
-   * @return matchings
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+	public void setMatchings(List<Object> matchings) {
+		this.matchings = matchings;
+	}
 
-  public List<Object> getMatchings() {
-    return matchings;
-  }
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		DirectionsMatching directionsMatching = (DirectionsMatching) o;
+		return Objects.equals(this.code, directionsMatching.code)
+				&& Objects.equals(this.tracepoints, directionsMatching.tracepoints)
+				&& Objects.equals(this.matchings, directionsMatching.matchings);
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(code, tracepoints, matchings);
+	}
 
-  public void setMatchings(List<Object> matchings) {
-    this.matchings = matchings;
-  }
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class DirectionsMatching {\n");
+		sb.append("    code: ").append(toIndentedString(code)).append("\n");
+		sb.append("    tracepoints: ").append(toIndentedString(tracepoints)).append("\n");
+		sb.append("    matchings: ").append(toIndentedString(matchings)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
 
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    DirectionsMatching directionsMatching = (DirectionsMatching) o;
-    return Objects.equals(this.code, directionsMatching.code) &&
-        Objects.equals(this.tracepoints, directionsMatching.tracepoints) &&
-        Objects.equals(this.matchings, directionsMatching.matchings);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, tracepoints, matchings);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DirectionsMatching {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    tracepoints: ").append(toIndentedString(tracepoints)).append("\n");
-    sb.append("    matchings: ").append(toIndentedString(matchings)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 
 }
-
