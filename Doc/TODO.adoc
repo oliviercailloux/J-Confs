@@ -2,7 +2,14 @@
 
 We will focus on the calendar functionality, in order to provide easy collective management of conferences at the level of a lab. In passing, we will also fix various defects in that part of the code.
 
+* Create a new UC `Print Fruux conferences`, put it in a new UC diagram within a `System` subject.
+* Export this diagram (in SVG, see below), put it as an entry point in the doc, explain it briefly and state that this will be our main focus.
+* Create a new UC `List Fruux conferences`. Put it in a new UC diagram within the `Calendar` subject. Its actor should be a new `Main` actor, representing the rest of the system.
+* Let the `Use an online calendar…` UC appear into that new UC diagram as well. The `List Fruux conferences` should extend the `Use` UC.
+* Move the Papyrus model file to `Doc/Papyrus/Model.di` (for consistency with other projects in this course), and related ones similarly
+* About the diagrams into the `Doc/Papyrus/Diagrams` folder: transform them all to https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG]`, remove those that are not used, check that they are up-to-date
 * Create a Fruux account, make sure that the calendar aspects work as intended, document anything missing.
+* Get rid of the dependency to Google gson
 * Fix tests that fail
 * Use https://github.com/oliviercailloux/JARiS[JARiS] to read the API key for accessing the calendar services
 * Document the format used to store a conference (specify exactly which fields are used and why)
