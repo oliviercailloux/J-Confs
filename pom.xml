@@ -2,13 +2,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.oliviercailloux</groupId>
+	<parent>
+		<groupId>io.github.oliviercailloux</groupId>
+		<artifactId>pom</artifactId>
+		<version>0.0.14</version>
+	</parent>
 	<artifactId>j-confs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.release>17</maven.compiler.release>
-	</properties>
 
 	<profiles>
 		<profile>
@@ -96,19 +96,6 @@
 				of adding and deleting online events -->
 			<version>1.0.0-rc.2</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.5.2</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-runner</artifactId>
-			<version>1.5.2</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -116,7 +103,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.apache.odftoolkit</groupId>
@@ -153,25 +139,23 @@
 			<version>2.26</version>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-core -->
+
 		<dependency>
 			<groupId>org.mapsforge</groupId>
 			<artifactId>mapsforge-core</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-map-awt -->
 		<dependency>
 			<groupId>org.mapsforge</groupId>
 			<artifactId>mapsforge-map-awt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mapsforge/mapsforge-themes -->
 		<dependency>
 			<groupId>org.mapsforge</groupId>
 			<artifactId>mapsforge-themes</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.mnode.ical4j</groupId>
 			<artifactId>ical4j</artifactId>
@@ -193,13 +177,6 @@
 			<groupId>org.mapsforge</groupId>
 			<artifactId>mapsforge-samples-awt</artifactId>
 			<version>0.6.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>27.1-jre</version>
 		</dependency>
 
 		<dependency>
@@ -292,11 +269,6 @@
 				<groupId>org.jvnet.jax-ws-commons</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
 				<version>2.3.1-b20150201.1248</version>
-			</plugin>
-			<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
 			</plugin>
 		</plugins>
 	</build>
