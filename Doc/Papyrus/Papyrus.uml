@@ -113,7 +113,15 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_k2pwkLFeEeqF57OurY6pXw" name="Calendar">
     <packagedElement xmi:type="uml:Model" xmi:id="_NPLeELFgEeqF57OurY6pXw" name="Use case diagramm">
-      <packagedElement xmi:type="uml:Model" xmi:id="_v1I6kLFiEeqF57OurY6pXw" name="View"/>
+      <packagedElement xmi:type="uml:Model" xmi:id="_v1I6kLFiEeqF57OurY6pXw" name="View">
+        <packagedElement xmi:type="uml:Association" xmi:id="_r0rKsLQVEeygaNoZtuKkow" memberEnd="_r04mELQVEeygaNoZtuKkow _r050MLQVEeygaNoZtuKkow">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r007sLQVEeygaNoZtuKkow" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_r01iwLQVEeygaNoZtuKkow" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_r04mELQVEeygaNoZtuKkow" name="list fruux conferences" type="_bI5w8LQVEeygaNoZtuKkow" association="_r0rKsLQVEeygaNoZtuKkow"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_r050MLQVEeygaNoZtuKkow" name="main" type="_gVCeoLQVEeygaNoZtuKkow" association="_r0rKsLQVEeygaNoZtuKkow"/>
+        </packagedElement>
+      </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_PIy1oLFhEeqF57OurY6pXw" name="Elements of Calendar use case">
         <packagedElement xmi:type="uml:Interaction" xmi:id="_-4EZcGa_EeqLF_m4YtUVrA" name="Calendar" useCase="_AQxRwGbAEeqLF_m4YtUVrA _DOIawGbAEeqLF_m4YtUVrA _FYbIEGbAEeqLF_m4YtUVrA _HwGxIGbAEeqLF_m4YtUVrA _KkxRIGbAEeqLF_m4YtUVrA _NqRpgGbAEeqLF_m4YtUVrA _PjHacGbAEeqLF_m4YtUVrA _RnIgoGbAEeqLF_m4YtUVrA _VlJOUGbAEeqLF_m4YtUVrA _XcZD0GbAEeqLF_m4YtUVrA _W6ISoIYtEequSPPEfPKx9w _Bx2qkIbsEequSPPEfPKx9w _PxbHUIbtEequSPPEfPKx9w __YUqoJwkEeqN1skccDV67A">
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AQxRwGbAEeqLF_m4YtUVrA" name="Use an online calendar (fruux, owncloud or nextcloud)" subject="_-4EZcGa_EeqLF_m4YtUVrA">
@@ -121,6 +129,7 @@
             <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_V7YuoGbBEeqLF_m4YtUVrA" name="ExtensionPoint2"/>
             <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_WfF4oWbBEeqLF_m4YtUVrA" name="ExtensionPoint3"/>
             <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_XJCNgGbBEeqLF_m4YtUVrA" name="ExtensionPoint4"/>
+            <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_0Z7wULQVEeygaNoZtuKkow" name="ExtensionPoint5"/>
           </ownedUseCase>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_DOIawGbAEeqLF_m4YtUVrA" name="Set crendential providers via CALDAV" subject="_-4EZcGa_EeqLF_m4YtUVrA"/>
           <ownedUseCase xmi:type="uml:UseCase" xmi:id="_FYbIEGbAEeqLF_m4YtUVrA" name="Get online conferences" subject="_-4EZcGa_EeqLF_m4YtUVrA">
@@ -160,6 +169,9 @@
             <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Hd2AQJwlEeqN1skccDV67A" name="ExtensionPoint5"/>
             <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_L8928JwlEeqN1skccDV67A" name="ExtensionPoint6"/>
           </ownedUseCase>
+          <ownedUseCase xmi:type="uml:UseCase" xmi:id="_bI5w8LQVEeygaNoZtuKkow" name="List Fruux conferences">
+            <extend xmi:type="uml:Extend" xmi:id="_0Z4F8LQVEeygaNoZtuKkow" extendedCase="_AQxRwGbAEeqLF_m4YtUVrA" extensionLocation="_0Z7wULQVEeygaNoZtuKkow"/>
+          </ownedUseCase>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_YP0IoJwlEeqN1skccDV67A" memberEnd="_YP1WwpwlEeqN1skccDV67A _YP1Ww5wlEeqN1skccDV67A">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YP1WwJwlEeqN1skccDV67A" source="org.eclipse.papyrus">
@@ -192,6 +204,7 @@
         <packagedElement xmi:type="uml:Actor" xmi:id="_1sb6krFhEeqF57OurY6pXw" name="Researcher">
           <generalization xmi:type="uml:Generalization" xmi:id="_1sb6k7FhEeqF57OurY6pXw" general="_1sbTgLFhEeqF57OurY6pXw"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Actor" xmi:id="_gVCeoLQVEeygaNoZtuKkow" name="Main"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Model" xmi:id="_Qr5ckLFgEeqF57OurY6pXw" name="Sequence diagramm">
