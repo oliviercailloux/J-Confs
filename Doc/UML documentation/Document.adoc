@@ -6,7 +6,7 @@ The package document is use to generate documents in resources folder. He is in 
 
 === Use case diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Document_use_case_diagram.PNG[alt="Document use case diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Document_use_case_diagram.SVG[alt="Document use case diagram",width=80%,height=80%, align="center"]
 
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
@@ -18,7 +18,7 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 === Class diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Document_s_class_diagram.PNG[alt="Document class diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Document_s_class_diagram.SVG[alt="Document class diagram",width=80%,height=80%, align="center"]
 
 This package mainly deals with the management of mission orders.
 For example: 

@@ -5,7 +5,7 @@ This document show a general view of the project and contains links to more deta
 === Use case diagram
 
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/General_view_use_case_diagram.PNG[alt="General View.",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/General_view_use_case_diagram.SVG[alt="General View.",width=80%,height=80%, align="center"]
 
 This diagram corresponds to the somewhat simplified use of the application. The purpose of the application is to allow the user (researcher, user of the administration) to create a conference. So he can look for a researcher and assign him a conference. It can then generate a mission order for a researcher or a young researcher. The user can also visualize all conferences in an online calendar. Furthermore, he can delete or edit conferences.
 
@@ -31,6 +31,6 @@ Here are all the links between general view use case and others:
 
 === Package diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Package_diagram.PNG[alt="Package diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Package_diagram.SVG[alt="Package diagram",width=80%,height=80%, align="center"]
 
 Here you have a package diagram where we can see package dependencies. As usual, the package which is the most dependent is the GUI one.

@@ -8,7 +8,7 @@ Let's look at some diagrams about the classes of the package.
 
 == Use case diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Location_use_case_diagram.PNG[alt="Location use case",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Location_use_case_diagram.SVG[alt="Location use case",width=80%,height=80%, align="center"]
 
 This use case is a detailed version of the general use case about one or several specific use cases. It details the following use case:
 
@@ -19,7 +19,7 @@ This diagram is accessible from the general view use case via a hyperlink (click
 
 == Class diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/locationIQ_class_diagram.PNG[alt="Location class",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/locationIQ_class_diagram.SVG[alt="Location class",width=80%,height=80%, align="center"]
 
 * With the class AddressQuerier you can get informations such as latitude, longitude and more detailled informations simply by enter an literal address (precise or not).
 * With the class DistanceDuration you can calculate the distance and the duration beetween two addresses and also get all the itinerary steps beetween them.
@@ -48,11 +48,11 @@ The private method *calculateDistanceDuration* is used to connect to the API in 
 
 == Sequence diagram
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_AddressQuerier_requestAddressInformations.PNG[alt="AddressQuerier recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_AddressQuerier_requestAddressInformations.SVG[alt="AddressQuerier recoveryAddressInformations Sequence diagram",width=80%,height=80%, align="center"]
 
 For this sequence diagram we have chosen to represent the interaction "address: String" by an arrow which loops over AddressQuerier. We made this choice because in the GUI we have not yet implemented the function which asks the user to enter the address he wishes to search.
 
-image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_DistanceDuration_calculateDistanceDuration.PNG[alt="DistanceDuration calculateDistanceDuration Sequence diagram",width=90%,height=90%, align="center"]
+image:https://github.com/sebastienbourg/J-Confs/blob/master/Doc/Papyrus/Diagrams/Sequence_Diagram_DistanceDuration_calculateDistanceDuration.SVG[alt="DistanceDuration calculateDistanceDuration Sequence diagram",width=90%,height=90%, align="center"]
 
 == Problems encountered
 - Unfortunatly the API wasn't available on maven central, so we imported all the https://github.com/location-iq/locationiq-java-client[source code] at the root of the project (src/main/java/com.locationiq.client). Duplicate classes coming from the client code generator use by the developpers of the github depository have been delete.
