@@ -2077,6 +2077,25 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_53F8ULQCEeqAbfg7Y9ligg" name="Component" visibility="package"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_ciXuAL0WEeqHOPjed-9WSQ" name="Optional&lt;Integer>"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_id8C0LQrEeygSJHRX1fcRg" name="Print Fruux Conferences">
+    <nestedClassifier xmi:type="uml:Interaction" xmi:id="_ojcogLQrEeygSJHRX1fcRg" name="System" useCase="_pZZZELQrEeygSJHRX1fcRg">
+      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_pZZZELQrEeygSJHRX1fcRg" name="Print Fruux Conferences" subject="_ojcogLQrEeygSJHRX1fcRg"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Actor" xmi:id="_q8Pr4LQrEeygSJHRX1fcRg" name="User"/>
+    <nestedClassifier xmi:type="uml:Actor" xmi:id="_rlBjILQrEeygSJHRX1fcRg" name="Administration">
+      <generalization xmi:type="uml:Generalization" xmi:id="_vA2JwLQrEeygSJHRX1fcRg" general="_q8Pr4LQrEeygSJHRX1fcRg"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Actor" xmi:id="_s4PegLQrEeygSJHRX1fcRg" name="Researcher">
+      <generalization xmi:type="uml:Generalization" xmi:id="_v2A3MLQrEeygSJHRX1fcRg" general="_q8Pr4LQrEeygSJHRX1fcRg"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_w-rvcLQrEeygSJHRX1fcRg" memberEnd="_w-vZ0bQrEeygSJHRX1fcRg _w-wA4LQrEeygSJHRX1fcRg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_w-uywLQrEeygSJHRX1fcRg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_w-vZ0LQrEeygSJHRX1fcRg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_w-vZ0bQrEeygSJHRX1fcRg" name="print fruux conferences" type="_pZZZELQrEeygSJHRX1fcRg" association="_w-rvcLQrEeygSJHRX1fcRg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_w-wA4LQrEeygSJHRX1fcRg" name="user" type="_q8Pr4LQrEeygSJHRX1fcRg" association="_w-rvcLQrEeygSJHRX1fcRg"/>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>

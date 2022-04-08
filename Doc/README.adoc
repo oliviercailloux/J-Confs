@@ -1,5 +1,9 @@
 = J-Confs
 
+Our main focus for this project this year is to print fruux conferences. You can see the use case diagram here :
+https://github.com/oliviercailloux-org/projet-j-confs/blob/br12/Doc/Papyrus/Diagrams/Print_Fruux_Conferences.SVG[Use Case Diagram]
+
+
 See: https://github.com/oliviercailloux/J-Confs/blob/master/Doc/TODO.adoc[TODO’s].
 
 == Links to specific package documentation
