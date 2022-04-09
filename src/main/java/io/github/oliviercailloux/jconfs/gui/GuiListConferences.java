@@ -117,8 +117,8 @@ public class GuiListConferences {
   public void getConferences() throws Exception {
     try {
       listConferencesUser = new ArrayList<>(
-          new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258",
-              "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", "")).getOnlineConferences());
+          new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754",
+              "4pq8nzbhzugs", "8b3ff300-b8ce-4d85-a255-76ea3dff1338", "")).getOnlineConferences());
     } catch (CalDAV4JException e) {
       throw new IllegalStateException(e);
     }
@@ -380,8 +380,8 @@ public class GuiListConferences {
    */
   public void addConference() {
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     LocalDate localDateStart =
         LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
     LocalDate localDateEnd =
@@ -412,8 +412,8 @@ public class GuiListConferences {
    */
   public void removeConference() {
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
     try {
       instanceCalendarOnline.deleteOnlineConference(uidDelete);
