@@ -32,8 +32,8 @@ public class TestCalendarOnlineFruux {
   public void testGetOnlineConferenceFromUid() throws Exception {
 
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     String uidSearch = "0cf024cb-9dfd-4956-8076-a7c24a0ff8b6";
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
@@ -54,8 +54,8 @@ public class TestCalendarOnlineFruux {
   public void testGetAllOnlineConferences() throws Exception {
 
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
     Iterator<Conference> iteratorConf = collectionConferences.iterator();
     while (iteratorConf.hasNext()) {
@@ -68,8 +68,8 @@ public class TestCalendarOnlineFruux {
   public void testConferenceToVEvent() throws Exception {
     VEvent conferenceVEvent;
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     URL url = new URL("http://fruux.com");
     String city = "Paris";
     String country = "France";
@@ -108,8 +108,8 @@ public class TestCalendarOnlineFruux {
   @Test
   public void testAddOnlineConference() throws Exception {
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     LocalDate start_ = null;
     LocalDate end_ = null;
     try {
@@ -136,8 +136,8 @@ public class TestCalendarOnlineFruux {
   @Test
   public void testDelete() throws Exception {
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297393754", "4pq8nzbhzugs",
+            "8b3ff300-b8ce-4d85-a255-76ea3dff1338", ""));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
     System.out.println(instanceCalendarOnline.getOnlineConferences());
     if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
