@@ -1247,7 +1247,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_UhMZ4GYDEeqbUqsc8bodZw" name="GuiConference">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_Ccxx8GaiEeq2I7WBLVkWww" name="LOGGER" visibility="private" isStatic="true" type="_EdxNoGXDEeqCB6kIHjdr_A"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_Ccxx8GaiEeq2I7WBLVkWww" name="LOGGER" visibility="package" isStatic="true" type="_EdxNoGXDEeqCB6kIHjdr_A"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_EUvZIGaiEeq2I7WBLVkWww" name="shell" visibility="private" type="_EcxQkGaeEeq2I7WBLVkWww"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_E8v0UGaiEeq2I7WBLVkWww" name="textTitle" visibility="private" type="_6YudsLLZEeqcocqpARW21g"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_FP4LsGaiEeq2I7WBLVkWww" name="textLogin" visibility="private" type="_6YudsLLZEeqcocqpARW21g"/>
@@ -2095,6 +2095,44 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_w-vZ0bQrEeygSJHRX1fcRg" name="print fruux conferences" type="_pZZZELQrEeygSJHRX1fcRg" association="_w-rvcLQrEeygSJHRX1fcRg"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_w-wA4LQrEeygSJHRX1fcRg" name="user" type="_q8Pr4LQrEeygSJHRX1fcRg" association="_w-rvcLQrEeygSJHRX1fcRg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_J-bYAM-rEeyHe5QGuobObg" name="JARiS">
+    <packagedElement xmi:type="uml:Model" xmi:id="_O5KMoM-rEeyHe5QGuobObg" name="Use case diagramm">
+      <packagedElement xmi:type="uml:Model" xmi:id="_Y6-P0M-rEeyHe5QGuobObg" name="View"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_gKGI8M-rEeyHe5QGuobObg" name="Elements of JARiS use case">
+        <packagedElement xmi:type="uml:Interaction" xmi:id="_yzaNcM-rEeyHe5QGuobObg" name="JARiS" useCase="_d5aYYM-uEeyHe5QGuobObg _rMaqEM-vEeyHe5QGuobObg _upq0EM-vEeyHe5QGuobObg">
+          <ownedUseCase xmi:type="uml:UseCase" xmi:id="_d5aYYM-uEeyHe5QGuobObg" name="Read a user’s credentials" subject="_yzaNcM-rEeyHe5QGuobObg"/>
+          <ownedUseCase xmi:type="uml:UseCase" xmi:id="_rMaqEM-vEeyHe5QGuobObg" name="Get Key Credential" subject="_yzaNcM-rEeyHe5QGuobObg"/>
+          <ownedUseCase xmi:type="uml:UseCase" xmi:id="_upq0EM-vEeyHe5QGuobObg" name="Get Classical Credentials" subject="_yzaNcM-rEeyHe5QGuobObg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_jWUF8M-uEeyHe5QGuobObg" name="" type="_d5aYYM-uEeyHe5QGuobObg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_ldkGUM-uEeyHe5QGuobObg" name="" type="_d5aYYM-uEeyHe5QGuobObg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_nrrjsM-uEeyHe5QGuobObg" name="" type="_d5aYYM-uEeyHe5QGuobObg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_tXgBkM-vEeyHe5QGuobObg" name="" type="_rMaqEM-vEeyHe5QGuobObg"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_wxjtoM-vEeyHe5QGuobObg" name="" type="_upq0EM-vEeyHe5QGuobObg"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_jWTe4M-uEeyHe5QGuobObg" name="" represents="_jWUF8M-uEeyHe5QGuobObg"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_ldjfQM-uEeyHe5QGuobObg" name="" represents="_ldkGUM-uEeyHe5QGuobObg"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_nrq8oM-uEeyHe5QGuobObg" name="" represents="_nrrjsM-uEeyHe5QGuobObg"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_tXfagM-vEeyHe5QGuobObg" name="" represents="_tXgBkM-vEeyHe5QGuobObg"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="_wxjGkM-vEeyHe5QGuobObg" name="" represents="_wxjtoM-vEeyHe5QGuobObg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Actor" xmi:id="_zcQgsM-sEeyHe5QGuobObg" name="User"/>
+        <packagedElement xmi:type="uml:Actor" xmi:id="_1KUlAM-sEeyHe5QGuobObg" name="Administration">
+          <generalization xmi:type="uml:Generalization" xmi:id="_JJmW4M-tEeyHe5QGuobObg" general="_zcQgsM-sEeyHe5QGuobObg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Actor" xmi:id="_25cZQM-sEeyHe5QGuobObg" name="Researcher">
+          <generalization xmi:type="uml:Generalization" xmi:id="_J4MiQM-tEeyHe5QGuobObg" general="_zcQgsM-sEeyHe5QGuobObg"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_0PiQYM-vEeyHe5QGuobObg" client="_d5aYYM-uEeyHe5QGuobObg" supplier="_rMaqEM-vEeyHe5QGuobObg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_3Hy28M-vEeyHe5QGuobObg" client="_d5aYYM-uEeyHe5QGuobObg" supplier="_upq0EM-vEeyHe5QGuobObg"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_7xb7kM-vEeyHe5QGuobObg" memberEnd="_7xfl8M-vEeyHe5QGuobObg _7xfl8c-vEeyHe5QGuobObg">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7xe-4M-vEeyHe5QGuobObg" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7xe-4c-vEeyHe5QGuobObg" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_7xfl8M-vEeyHe5QGuobObg" name="read a user’s credentials" type="_d5aYYM-uEeyHe5QGuobObg" association="_7xb7kM-vEeyHe5QGuobObg"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_7xfl8c-vEeyHe5QGuobObg" name="user" type="_zcQgsM-sEeyHe5QGuobObg" association="_7xb7kM-vEeyHe5QGuobObg"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_jKhIcGW7EeqCB6kIHjdr_A">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jKiWkGW7EeqCB6kIHjdr_A" source="http://www.eclipse.org/uml2/2.0.0/UML">
