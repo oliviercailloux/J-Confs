@@ -63,6 +63,14 @@ public class GuiListConferences {
   private Button btnClear;
   private Button btnDelete;
 
+  /**
+   * Introduce constant values for url, username,password and calendarId
+   */
+  private final String lv_url = "dav.fruux.com";
+  private final String lv_username = "b3297393754";
+  private final String lv_password = "4pq8nzbhzugs";
+  private final String lv_calendarID = "8b3ff300-b8ce-4d85-a255-76ea3dff1338";
+
   public GuiListConferences() throws Exception {
     Display display = new Display();
     shell = createShell(display);
@@ -116,9 +124,9 @@ public class GuiListConferences {
    */
   public void getConferences() throws Exception {
     try {
-      listConferencesUser = new ArrayList<>(
-          new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258",
-              "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", "")).getOnlineConferences());
+      listConferencesUser = new ArrayList<>(new CalendarOnline(
+          new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""))
+              .getOnlineConferences());
     } catch (CalDAV4JException e) {
       throw new IllegalStateException(e);
     }
@@ -379,9 +387,8 @@ public class GuiListConferences {
    * Call the method from CalendarOnline to push in fruux the new conference
    */
   public void addConference() {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     LocalDate localDateStart =
         LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
     LocalDate localDateEnd =
@@ -411,9 +418,8 @@ public class GuiListConferences {
    * Call the method from CalendarOnline to delete in fruux a conference
    */
   public void removeConference() {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
     try {
       instanceCalendarOnline.deleteOnlineConference(uidDelete);

@@ -28,12 +28,17 @@ public class TestCalendarOnlineFruux {
 
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
 
+  // Introduce constant values for url, username,password and calendarId
+  private final String lv_url = "dav.fruux.com";
+  private final String lv_username = "b3297393754";
+  private final String lv_password = "4pq8nzbhzugs";
+  private final String lv_calendarID = "8b3ff300-b8ce-4d85-a255-76ea3dff1338";
+
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     String uidSearch = "0cf024cb-9dfd-4956-8076-a7c24a0ff8b6";
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
@@ -53,9 +58,8 @@ public class TestCalendarOnlineFruux {
   @Test
   public void testGetAllOnlineConferences() throws Exception {
 
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
     Iterator<Conference> iteratorConf = collectionConferences.iterator();
     while (iteratorConf.hasNext()) {
@@ -67,9 +71,8 @@ public class TestCalendarOnlineFruux {
   @Test
   public void testConferenceToVEvent() throws Exception {
     VEvent conferenceVEvent;
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     URL url = new URL("http://fruux.com");
     String city = "Paris";
     String country = "France";
@@ -107,9 +110,8 @@ public class TestCalendarOnlineFruux {
 
   @Test
   public void testAddOnlineConference() throws Exception {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     LocalDate start_ = null;
     LocalDate end_ = null;
     try {
@@ -135,9 +137,8 @@ public class TestCalendarOnlineFruux {
 
   @Test
   public void testDelete() throws Exception {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
     System.out.println(instanceCalendarOnline.getOnlineConferences());
     if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
