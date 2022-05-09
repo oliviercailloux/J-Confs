@@ -6,7 +6,9 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -49,7 +51,14 @@ public class ConferencesFromICal implements ConferencesRetriever {
       throws InvalidConferenceFormatException, IOException, ParserException {
     Preconditions.checkNotNull(fileName);
     URL urlcalendar = ConferenceReader.class.getResource(fileName + ".ics");
-    try (FileReader reader = new FileReader(new File(urlcalendar.getFile()))) {
+    Path p;
+    try {
+      p = Path.of(urlcalendar.toURI());
+    } catch (URISyntaxException e) {
+      throw new IllegalStateException(e);
+    }
+    String s = p.toString();
+    try (FileReader reader = new FileReader(new File(s))) {
       return ConferenceReader.readConferences(reader);
     }
 
