@@ -2076,6 +2076,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_j66Y4LQCEeqAbfg7Y9ligg" name="Reader"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_53F8ULQCEeqAbfg7Y9ligg" name="Component" visibility="package"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_ciXuAL0WEeqHOPjed-9WSQ" name="Optional&lt;Integer>"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_uj_7cNHUEeyM4vcii4t54Q" name="Path"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_id8C0LQrEeygSJHRX1fcRg" name="Print Fruux Conferences">
     <nestedClassifier xmi:type="uml:Interaction" xmi:id="_ojcogLQrEeygSJHRX1fcRg" name="System" useCase="_pZZZELQrEeygSJHRX1fcRg">
@@ -2246,6 +2247,49 @@
           </eAnnotations>
           <ownedEnd xmi:type="uml:Property" xmi:id="_7xfl8M-vEeyHe5QGuobObg" name="read a user’s credentials" type="_d5aYYM-uEeyHe5QGuobObg" association="_7xb7kM-vEeyHe5QGuobObg"/>
           <ownedEnd xmi:type="uml:Property" xmi:id="_7xfl8c-vEeyHe5QGuobObg" name="user" type="_zcQgsM-sEeyHe5QGuobObg" association="_7xb7kM-vEeyHe5QGuobObg"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_bAcHINHSEeyM4vcii4t54Q" name="Class diagramm">
+      <packagedElement xmi:type="uml:Model" xmi:id="_l-RtsNHSEeyM4vcii4t54Q" name="View"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_ohOyoNHSEeyM4vcii4t54Q" name="Credentials">
+        <packagedElement xmi:type="uml:Class" xmi:id="_UG18oNHTEeyM4vcii4t54Q" name="CredentialsReader">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_lrrFUNHTEeyM4vcii4t54Q" name="DEFAULT_FILE_PATH" visibility="public" isStatic="true" type="_uj_7cNHUEeyM4vcii4t54Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_XDXGMNHVEeyM4vcii4t54Q" name="keysType" visibility="private" type="_UG18oNHTEeyM4vcii4t54Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_el5qkNHVEeyM4vcii4t54Q" name="filePath" visibility="private" type="_uj_7cNHUEeyM4vcii4t54Q"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_tX1N0NHVEeyM4vcii4t54Q" name="classicalReader">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_u-qPcNHaEeyM4vcii4t54Q" name="a" type="_d3mA0NHaEeyM4vcii4t54Q" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_ZWABwNHWEeyM4vcii4t54Q" name="equals">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_3rL3gNHWEeyM4vcii4t54Q" name="o2">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EJavaObject"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_9v0WoNHaEeyM4vcii4t54Q" name="a" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_8adqENHWEeyM4vcii4t54Q" name="getCredentials"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_AgRo4NHXEeyM4vcii4t54Q" name="getFilePath">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_S6oukNHbEeyM4vcii4t54Q" name="a" type="_uj_7cNHUEeyM4vcii4t54Q" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_DvaeYNHXEeyM4vcii4t54Q" name="getKeysType">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZJqcoNHbEeyM4vcii4t54Q" name="a" type="_UG18oNHTEeyM4vcii4t54Q" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_GhzGcNHXEeyM4vcii4t54Q" name="hashCode">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_gG7wwNHbEeyM4vcii4t54Q" name="a" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_JvcuMNHXEeyM4vcii4t54Q" name="keyReader">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_jjR70NHbEeyM4vcii4t54Q" name="a" type="_geNdwNHaEeyM4vcii4t54Q" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_OCIEUNHXEeyM4vcii4t54Q" name="toString">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_lvNn4NHbEeyM4vcii4t54Q" name="a" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_d3mA0NHaEeyM4vcii4t54Q" name="ClassicalCredentials"/>
+          <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_geNdwNHaEeyM4vcii4t54Q" name="KeyCredential"/>
         </packagedElement>
       </packagedElement>
     </packagedElement>
