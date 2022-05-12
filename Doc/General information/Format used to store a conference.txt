@@ -11,7 +11,7 @@ Those four fields are String object.
 5.	The date of the start of the conference
 6.	And obviously, the date of the end of the event
 Those two fields belong to the Instant java class. 
-Bullets 2 to 5 are compulsory, since they give the most basic information about any conference.
+Bullets 2 to 6 are compulsory, since they give the most basic information about any conference.
 
 The 2 optional fields are:
 7.	The url of the conference
