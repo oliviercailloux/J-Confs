@@ -2288,6 +2288,11 @@
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_QW24UNHdEeyM4vcii4t54Q" name="using">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_WDIeoNHdEeyM4vcii4t54Q" name="keysType" type="_UG18oNHTEeyM4vcii4t54Q"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZrUGQNHdEeyM4vcii4t54Q" name="filePath" type="_uj_7cNHUEeyM4vcii4t54Q"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_bmahANHdEeyM4vcii4t54Q" name="a" type="_UG18oNHTEeyM4vcii4t54Q" direction="return"/>
+          </ownedOperation>
           <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_d3mA0NHaEeyM4vcii4t54Q" name="ClassicalCredentials"/>
           <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_geNdwNHaEeyM4vcii4t54Q" name="KeyCredential"/>
         </packagedElement>

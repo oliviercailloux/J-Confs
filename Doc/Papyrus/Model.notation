@@ -7276,7 +7276,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FD86YdHVEeyM4vcii4t54Q"/>
           </children>
           <element xmi:type="uml:Class" href="Model.uml#_UG18oNHTEeyM4vcii4t54Q"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FD8TQdHVEeyM4vcii4t54Q" x="194" y="52" width="241" height="258"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FD8TQdHVEeyM4vcii4t54Q" x="114" y="52" width="401" height="258"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_Clzc5NHVEeyM4vcii4t54Q"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Clzc5dHVEeyM4vcii4t54Q"/>
