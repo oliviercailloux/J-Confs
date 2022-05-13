@@ -1,7 +1,7 @@
 = Evolution, fruux and J-Confs
 
 == Evolution and J-Confs compared to Fruux 
-Evolution is an application that can be installed on Linux and allows you to consult and edit a fruit calendar.
+Evolution is an application that can be installed on Linux and allows you to consult and edit a fruux calendar.
 After connecting the application with a fruux calendar identified by 548d1281-4843-4582-8d68-aee8fe0c45da, any consultation or modification is effectively possible and automatically synchronized on fruux.
 On the J-Confs side, thanks to the recent modifications to the GuiListConferences class, all these manipulations by the user are also possible.
 
