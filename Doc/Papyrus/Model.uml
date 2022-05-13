@@ -2257,6 +2257,7 @@
           <ownedAttribute xmi:type="uml:Property" xmi:id="_lrrFUNHTEeyM4vcii4t54Q" name="DEFAULT_FILE_PATH" visibility="public" isStatic="true" type="_uj_7cNHUEeyM4vcii4t54Q"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_XDXGMNHVEeyM4vcii4t54Q" name="keysType" visibility="private" type="_UG18oNHTEeyM4vcii4t54Q"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_el5qkNHVEeyM4vcii4t54Q" name="filePath" visibility="private" type="_uj_7cNHUEeyM4vcii4t54Q"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_1rfWYNIzEeyzRZm25HE99Q" name="LOGGER" visibility="private" type="_EdxNoGXDEeqCB6kIHjdr_A"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_tX1N0NHVEeyM4vcii4t54Q" name="classicalReader">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_u-qPcNHaEeyM4vcii4t54Q" name="a" type="_d3mA0NHaEeyM4vcii4t54Q" direction="return"/>
           </ownedOperation>
