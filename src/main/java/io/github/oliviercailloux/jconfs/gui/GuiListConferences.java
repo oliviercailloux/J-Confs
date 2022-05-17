@@ -75,7 +75,7 @@ public class GuiListConferences {
     this.display = displayGui;
 
     // setup the SWT window
-    shell = new Shell(displayGui, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
+    shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
     shell.setText("J-Confs list");
 
     // initialize a grid layout manager
@@ -155,10 +155,6 @@ public class GuiListConferences {
 
     txtCity.addVerifyListener(ListenerAction::checkTextInput);
     txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
-
-    // **** ESSAYER ça pour enlever le optional ??? Mais avec ça caractères de l'url sont restreints
-    // !
-    // txtUrl.addVerifyListener(ListenerAction::checkTextInput);
     txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
     listConferences.addListener(SWT.Selection, this::fillInAllFields);
     btnSave.addListener(SWT.Selection, event -> {
@@ -291,7 +287,7 @@ public class GuiListConferences {
       txtCity.setText(conferenceSelected.getCity());
       txtCoutry.setText(conferenceSelected.getCountry());
       if (txtUrl != null) {
-        txtUrl.setText(conferenceSelected.getUrl().toString());
+        txtUrl.setText(conferenceSelected.putUrl());
       }
       if (txtRegisFee != null) {
         txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
@@ -344,6 +340,7 @@ public class GuiListConferences {
     }
     listConferences.removeAll();
     listConferences.deselectAll();
+    clearwidget(e);
     try {
       getConferences();
     } catch (InvalidConferenceFormatException e1) {

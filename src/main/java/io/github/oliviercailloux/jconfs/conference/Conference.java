@@ -49,6 +49,14 @@ public class Conference {
     return url;
   }
 
+  public String putUrl() {
+    if (url.equals(Optional.empty())) {
+      return "";
+    }
+    String url = this.url.toString();
+    return url.substring(9, url.length() - 1);
+  }
+
   public String getTitle() {
     return title;
   }
