@@ -247,11 +247,7 @@ public class GuiListConferences {
    * @return a boolean that say if all fields are filled
    */
   public boolean isFillIn() {
-    /*
-     * if ((Strings.isNullOrEmpty(txtCity.getText()) || Strings.isNullOrEmpty(txtUrl.getText()) ||
-     * Strings.isNullOrEmpty(txtCoutry.getText()) || Strings.isNullOrEmpty(txtTitle.getText()) ||
-     * Strings.isNullOrEmpty(txtRegisFee.getText()))) {
-     */
+
     if ((Strings.isNullOrEmpty(txtCity.getText()) || Strings.isNullOrEmpty(txtCoutry.getText())
         || Strings.isNullOrEmpty(txtTitle.getText()))) {
 
