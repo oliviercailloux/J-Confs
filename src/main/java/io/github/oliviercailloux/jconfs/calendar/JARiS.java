@@ -3,34 +3,73 @@ package io.github.oliviercailloux.jconfs.calendar;
 import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
 import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
 import io.github.oliviercailloux.jaris.credentials.CredentialsReader.ClassicalCredentials;
+import io.github.oliviercailloux.jconfs.conference.Conference;
 import java.nio.file.Path;
 import com.google.common.collect.ImmutableSet;
 import java.util.*;
 
 
-
-
 public class JARiS {
   
-
-//private static final String API_PASSWORD = null;
-/*public static enum FruuxKeysCredential {
+  public static enum FruuxKeysCredential {
+    API_USERNAME,
+    API_PASSWORD,
     API_URL,
-    API_CalendarID
-  }*/
-
-//private static final String API_USERNAME = null;
+    API_CalendarID,
+  }
   
-  /*public static enum ourCredentials{
-	  API_USERNAME,
-	  API_PASSWORD
-  }*/
- 
-  /*CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("my file.txt"));
-  ImmutableCompleteMap<FruuxKeysCredential, String> credentials = reader.getCredentials();
-  String key1 = credentials.get(FruuxKeysCredential.API_URL);
-  String key2 = credentials.get(FruuxKeysCredential.API_CalendarID);
-  */
+  public static ImmutableCompleteMap<FruuxKeysCredential, String> myAuth;
+  public static CredentialsReader<FruuxKeysCredential> reader;
+  
+  
+  public void editFruuxKeys(String project_username , String project_password , String project_url , String project_calendarID){
+    
+    System.setProperty("API_USERNAME", project_username);
+    System.setProperty("API_PASSWORD", project_password);
+    System.setProperty("API_URL", project_url);
+    System.setProperty("API_CalendarID", project_calendarID);
+    reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("my file.txt"));
+    myAuth = reader.getCredentials();
+
+  }
+  
+  
+public void printFruuxKeys(){
+    
+    System.out.println("API_USERNAME : " + myAuth.get(FruuxKeysCredential.API_USERNAME));
+    System.out.println("API_PASSWORD : " + myAuth.get(FruuxKeysCredential.API_PASSWORD));
+    System.out.println("API_URL : " + myAuth.get(FruuxKeysCredential.API_URL));
+    System.out.println("API_CalendarID : " + myAuth.get(FruuxKeysCredential.API_CalendarID));
+    
+  }
+
+public String getFruuxUsername() {
+  
+  return myAuth.get(FruuxKeysCredential.API_USERNAME);
+  
+}
+
+public String getFruuxPassword() {
+  
+  return myAuth.get(FruuxKeysCredential.API_PASSWORD);
+  
+}
+
+public String getFruuxURL() {
+  
+  return myAuth.get(FruuxKeysCredential.API_URL);
+  
+}
+
+public String getFruuxCalendarID() {
+  
+  return myAuth.get(FruuxKeysCredential.API_CalendarID);
+  
+}
+  
+  
+  
+  
  
 
 
