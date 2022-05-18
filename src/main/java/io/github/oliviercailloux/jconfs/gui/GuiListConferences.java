@@ -63,18 +63,6 @@ public class GuiListConferences {
   private Button btnDelete;
   private Display display;
 
-<<<<<<< HEAD
-	/**
-	 * Introduce constant values for url, username,password and calendarId
-	 */
-	private final String lv_url = "dav.fruux.com";
-	private final String lv_username = "b3297394371";
-	private final String lv_password = "g8tokd3q0hc2";
-	private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
-
-	public void gui(Display displayGui) throws Exception {
-		this.display = displayGui;
-=======
   /**
    * Introduce constant values for url, username,password and calendarId
    */
@@ -83,9 +71,8 @@ public class GuiListConferences {
   private final String lv_password = "g8tokd3q0hc2";
   private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
 
-  public void Gui(Display displayGui) throws Exception {
+  public void gui(Display displayGui) throws Exception {
     this.display = displayGui;
->>>>>>> 300843de0d98cf75c55381be8f5847c216ddf356
 
     // setup the SWT window
     shell = new Shell(displayGui, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
@@ -325,15 +312,9 @@ public class GuiListConferences {
     }
   }
 
-<<<<<<< HEAD
-	public static void main(String[] args) throws Exception {
-		new GuiListConferences().gui(new Display());
-	}
-=======
   public static void main(String[] args) throws Exception {
-    new GuiListConferences().Gui(new Display());
+    new GuiListConferences().gui(new Display());
   }
->>>>>>> 300843de0d98cf75c55381be8f5847c216ddf356
 
   /**
    * Delete the conference in fruux that had been selected by the user
