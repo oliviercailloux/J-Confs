@@ -68,7 +68,7 @@ public class GuiConference {
   private LocalDate end;
   private Display display;
 
-  public void Gui(Display displayGui) {
+  public void gui(Display displayGui) {
     this.display = displayGui;
 
     // setup the SWT window
@@ -489,6 +489,6 @@ public class GuiConference {
   }
 
   public static void main(String[] args) {
-    new GuiConference().Gui(new Display());
+    new GuiConference().gui(new Display());
   }
 }
