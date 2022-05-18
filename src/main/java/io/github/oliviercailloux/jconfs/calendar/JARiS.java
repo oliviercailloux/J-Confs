@@ -22,7 +22,7 @@ public class JARiS {
   public static CredentialsReader<FruuxKeysCredential> reader;
   
   
-  public void editFruuxKeys(String project_username , String project_password , String project_url , String project_calendarID){
+  public ImmutableCompleteMap<FruuxKeysCredential, String> editFruuxKeys(String project_username , String project_password , String project_url , String project_calendarID){
     
     System.setProperty("API_USERNAME", project_username);
     System.setProperty("API_PASSWORD", project_password);
@@ -30,6 +30,7 @@ public class JARiS {
     System.setProperty("API_CalendarID", project_calendarID);
     reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("my file.txt"));
     myAuth = reader.getCredentials();
+    return myAuth ;
 
   }
   
