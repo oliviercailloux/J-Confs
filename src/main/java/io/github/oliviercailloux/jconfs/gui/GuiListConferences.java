@@ -68,11 +68,11 @@ public class GuiListConferences {
 	 * Introduce constant values for url, username,password and calendarId
 	 */
 	private final String lv_url = "dav.fruux.com";
-	private final String lv_username = "b3297393754";
-	private final String lv_password = "4pq8nzbhzugs";
-	private final String lv_calendarID = "d0c3dc1d-562a-4a24-be16-f526b57b3be6";
+	private final String lv_username = "b3297394371";
+	private final String lv_password = "g8tokd3q0hc2";
+	private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
 
-	public void Gui(Display displayGui) throws Exception {
+	public void gui(Display displayGui) throws Exception {
 		this.display = displayGui;
 
 		// setup the SWT window
@@ -309,7 +309,7 @@ public class GuiListConferences {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new GuiListConferences().Gui(new Display());
+		new GuiListConferences().gui(new Display());
 	}
 
 	/**
