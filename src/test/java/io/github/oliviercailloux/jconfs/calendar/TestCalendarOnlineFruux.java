@@ -40,6 +40,7 @@ public class TestCalendarOnlineFruux {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
         new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     String uidSearch = "c44f7ea0-c1a4-45c4-94a7-7d0b16075b0c";
+
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
     if (potentialConference.isPresent()) {

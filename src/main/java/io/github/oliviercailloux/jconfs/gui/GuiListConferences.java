@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -62,46 +61,124 @@ public class GuiListConferences {
   private Button btnSave;
   private Button btnClear;
   private Button btnDelete;
-
-  public GuiListConferences() throws Exception {
-    Display display = new Display();
-    shell = createShell(display);
-    shell.open();
-  }
+  private Display display;
 
   /**
-   * Create a shell with all field of a conference and the list of conferences of a specific
-   * calendar file
-   * 
-   * @param display
-   * @return the shell
-   * @throws Exception
-   * @throws NumberFormatException
-   * @throws IOException
-   * @throws ParserException
-   * @throws ParseException
+   * Introduce constant values for url, username,password and calendarId
    */
-  public Shell createShell(Display display) throws Exception {
-    this.shell = new Shell(display);
-    shell.setText("My conference");
-    GridLayout layout = new GridLayout(2, false);
-    shell.setLayout(layout);
-    createWidgets();
-    createListenerWidgets();
-    return shell;
-  }
+  private final String lv_url = "dav.fruux.com";
+  private final String lv_username = "b3297394371";
+  private final String lv_password = "g8tokd3q0hc2";
+  private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
 
-  /**
-   * this method display the GUI in a windows
-   */
-  public void display() {
-    this.shell.pack();
-    this.shell.open();
-    while (!this.shell.isDisposed()) {
-      if (!shell.getDisplay().readAndDispatch()) {
-        shell.getDisplay().sleep();
+  public void gui(Display displayGui) throws Exception {
+    this.display = displayGui;
+
+    // setup the SWT window
+    shell = new Shell(displayGui, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
+    shell.setText("J-Confs list");
+
+    // initialize a grid layout manager
+    GridLayout gridLayout = new GridLayout();
+    shell.setLayout(gridLayout);
+
+    listConferences =
+        new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
+    this.getConferences();
+    GridData gridDatalist = new GridData();
+    gridDatalist.grabExcessHorizontalSpace = true;
+    gridDatalist.grabExcessVerticalSpace = true;
+    gridDatalist.heightHint = 200;
+    listConferences.setLayoutData(gridDatalist);
+
+    Group groupInfoConf = new Group(shell, SWT.NONE);
+    groupInfoConf.setText("Details of your conference");
+    GridLayout gridLayoutDetails = new GridLayout(4, false);
+    groupInfoConf.setLayout(gridLayoutDetails);
+
+    GridData gridDataTextField = new GridData();
+    gridDataTextField.horizontalSpan = 3;
+    gridDataTextField.widthHint = 500;
+    gridDataTextField.heightHint = 30;
+
+    Label labelTitle = new Label(groupInfoConf, SWT.NONE);
+    labelTitle.setText("Title :");
+    this.txtTitle = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtTitle.setLayoutData(gridDataTextField);
+
+    Label labelUrl = new Label(groupInfoConf, SWT.NONE);
+    labelUrl.setText("URL :");
+    this.txtUrl = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtUrl.setLayoutData(gridDataTextField);
+
+    Label labelFee = new Label(groupInfoConf, SWT.NONE);
+    labelFee.setText("Fee :");
+    this.txtRegisFee = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtRegisFee.setLayoutData(gridDataTextField);
+
+    Label labelCountry = new Label(groupInfoConf, SWT.NONE);
+    labelCountry.setText("Country :");
+    this.txtCoutry = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtCoutry.setLayoutData(gridDataTextField);
+
+    Label labelCity = new Label(groupInfoConf, SWT.NONE);
+    labelCity.setText("City :");
+    this.txtCity = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtCity.setLayoutData(gridDataTextField);
+
+    Label labelDateStart = new Label(groupInfoConf, SWT.NONE);
+    labelDateStart.setText("Date start :");
+    this.dateStart = new DateTime(groupInfoConf, SWT.DEFAULT);
+    this.dateStart.setLayoutData(gridDataTextField);
+
+    Label labelDateEnd = new Label(groupInfoConf, SWT.NONE);
+    labelDateEnd.setText("Date end :");
+    this.dateEnd = new DateTime(groupInfoConf, SWT.DEFAULT);
+    this.dateEnd.setLayoutData(gridDataTextField);
+
+    btnSave = new Button(groupInfoConf, SWT.PUSH);
+    btnSave.setText("Save Conference");
+    GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
+    gridDataBtn.widthHint = 200;
+    btnSave.setLayoutData(gridDataBtn);
+
+    btnDelete = new Button(groupInfoConf, SWT.PUSH);
+    btnDelete.setText("Delete Conference");
+    btnDelete.setLayoutData(gridDataBtn);
+
+    btnClear = new Button(groupInfoConf, SWT.PUSH);
+    btnClear.setText("Clear fields");
+    btnClear.setLayoutData(gridDataBtn);
+
+    txtCity.addVerifyListener(ListenerAction::checkTextInput);
+    txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
+    txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
+    listConferences.addListener(SWT.Selection, this::fillInAllFields);
+    btnSave.addListener(SWT.Selection, event -> {
+      try {
+        editConference(event);
+      } catch (Exception e) {
+        throw new IllegalStateException(e);
       }
+    });
+    btnClear.addListener(SWT.Selection, this::clearwidget);
+    btnDelete.addListener(SWT.Selection, event -> {
+      try {
+        deleteConference(event);
+      } catch (Exception e) {
+        throw new IllegalStateException(e);
+      }
+    });
+
+    // tear down the SWT window
+    shell.pack();
+    shell.open();
+    while (!shell.isDisposed()) {
+      if (!displayGui.readAndDispatch())
+        displayGui.sleep();
     }
+    displayGui.dispose();
+
   }
 
   /**
@@ -116,9 +193,9 @@ public class GuiListConferences {
    */
   public void getConferences() throws Exception {
     try {
-      listConferencesUser = new ArrayList<>(
-          new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258",
-              "jizbr5fuj9gi", "6e8c6372-eba5-43da-9eed-8e5413559c99", "")).getOnlineConferences());
+      listConferencesUser = new ArrayList<>(new CalendarOnline(
+          new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""))
+              .getOnlineConferences());
     } catch (CalDAV4JException e) {
       throw new IllegalStateException(e);
     }
@@ -235,111 +312,8 @@ public class GuiListConferences {
     }
   }
 
-  /**
-   * Create widgets of the GUI, and disposition of widgets
-   * 
-   * @throws Exception
-   * 
-   * @throws IOException
-   * @throws ParserException
-   */
-  public void createWidgets() throws Exception {
-    listConferences =
-        new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
-    this.getConferences();
-    GridData gridDatalist = new GridData();
-    gridDatalist.grabExcessHorizontalSpace = true;
-    gridDatalist.grabExcessVerticalSpace = true;
-    gridDatalist.heightHint = 200;
-    listConferences.setLayoutData(gridDatalist);
-
-    Group groupInfoConf = new Group(shell, SWT.NONE);
-    groupInfoConf.setText("Details of your conference");
-    GridLayout gridLayoutDetails = new GridLayout(4, false);
-    groupInfoConf.setLayout(gridLayoutDetails);
-
-    GridData gridDataTextField = new GridData();
-    gridDataTextField.horizontalSpan = 3;
-    gridDataTextField.widthHint = 500;
-    gridDataTextField.heightHint = 30;
-
-    Label labelTitle = new Label(groupInfoConf, SWT.NONE);
-    labelTitle.setText("Title :");
-    this.txtTitle = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
-    this.txtTitle.setLayoutData(gridDataTextField);
-
-    Label labelUrl = new Label(groupInfoConf, SWT.NONE);
-    labelUrl.setText("URL :");
-    this.txtUrl = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
-    this.txtUrl.setLayoutData(gridDataTextField);
-
-    Label labelFee = new Label(groupInfoConf, SWT.NONE);
-    labelFee.setText("Fee :");
-    this.txtRegisFee = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
-    this.txtRegisFee.setLayoutData(gridDataTextField);
-
-    Label labelCountry = new Label(groupInfoConf, SWT.NONE);
-    labelCountry.setText("Country :");
-    this.txtCoutry = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
-    this.txtCoutry.setLayoutData(gridDataTextField);
-
-    Label labelCity = new Label(groupInfoConf, SWT.NONE);
-    labelCity.setText("City :");
-    this.txtCity = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
-    this.txtCity.setLayoutData(gridDataTextField);
-
-    Label labelDateStart = new Label(groupInfoConf, SWT.NONE);
-    labelDateStart.setText("Date start :");
-    this.dateStart = new DateTime(groupInfoConf, SWT.DEFAULT);
-    this.dateStart.setLayoutData(gridDataTextField);
-
-    Label labelDateEnd = new Label(groupInfoConf, SWT.NONE);
-    labelDateEnd.setText("Date end :");
-    this.dateEnd = new DateTime(groupInfoConf, SWT.DEFAULT);
-    this.dateEnd.setLayoutData(gridDataTextField);
-
-    btnSave = new Button(groupInfoConf, SWT.PUSH);
-    btnSave.setText("Save Conference");
-    GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
-    gridDataBtn.widthHint = 200;
-    btnSave.setLayoutData(gridDataBtn);
-
-    btnDelete = new Button(groupInfoConf, SWT.PUSH);
-    btnDelete.setText("Delete Conference");
-    btnDelete.setLayoutData(gridDataBtn);
-
-    btnClear = new Button(groupInfoConf, SWT.PUSH);
-    btnClear.setText("Clear fields");
-    btnClear.setLayoutData(gridDataBtn);
-  }
-
-  /**
-   * Create all listener for all widgets of the GUI
-   */
-  private void createListenerWidgets() throws Exception {
-    txtCity.addVerifyListener(ListenerAction::checkTextInput);
-    txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
-    txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
-    listConferences.addListener(SWT.Selection, this::fillInAllFields);
-    btnSave.addListener(SWT.Selection, event -> {
-      try {
-        editConference(event);
-      } catch (Exception e) {
-        throw new IllegalStateException(e);
-      }
-    });
-    btnClear.addListener(SWT.Selection, this::clearwidget);
-    btnDelete.addListener(SWT.Selection, event -> {
-      try {
-        deleteConference(event);
-      } catch (Exception e) {
-        throw new IllegalStateException(e);
-      }
-    });
-  }
-
   public static void main(String[] args) throws Exception {
-    new GuiListConferences().display();
+    new GuiListConferences().gui(new Display());
   }
 
   /**
@@ -379,9 +353,8 @@ public class GuiListConferences {
    * Call the method from CalendarOnline to push in fruux the new conference
    */
   public void addConference() {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     LocalDate localDateStart =
         LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
     LocalDate localDateEnd =
@@ -411,9 +384,8 @@ public class GuiListConferences {
    * Call the method from CalendarOnline to delete in fruux a conference
    */
   public void removeConference() {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("dav.fruux.com", "b3297431258", "jizbr5fuj9gi",
-            "6e8c6372-eba5-43da-9eed-8e5413559c99", ""));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
     try {
       instanceCalendarOnline.deleteOnlineConference(uidDelete);
