@@ -283,7 +283,7 @@ public class GuiListConferences {
       txtCity.setText(conferenceSelected.getCity());
       txtCoutry.setText(conferenceSelected.getCountry());
       if (txtUrl != null) {
-        txtUrl.setText(conferenceSelected.putUrl());
+        txtUrl.setText(conferenceSelected.getUrlAsShortString());
       }
       if (txtRegisFee != null) {
         txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
