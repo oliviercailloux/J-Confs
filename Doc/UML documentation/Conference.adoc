@@ -32,9 +32,6 @@ For example :
 * The invalidConferenceFormatException class custom exception use for a conference creation.
 
 
-=== General information
-* Format used to store a conference --> https://github.com/oliviercailloux-org/projet-j-confs/tree/main/Doc/General%20information/Format%20used%20to%20store%20an%20online%20conference.adoc
-
 
 === What could be done next
 

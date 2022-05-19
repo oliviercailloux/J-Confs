@@ -1,4 +1,4 @@
-= How to store an online conference
+= Format used to store a conference
 
 To store a conference, we use the eponymous class. In order to create a new event, we call the class ConferenceBuilder, which belongs to the class Conference. The created object is a composure of 8 different fields. Six of its are mandatory and 2 are optional.
 
@@ -46,9 +46,9 @@ The 3 following fields aren't always filled out:
 
 
 
-=== Creating the iCalendar file (.ics)
+== Creating the iCalendar file (.ics)
 
 The properties we saw above form an event. It is used combined with a string ("CONFERENCE" here) to create an instance of the XComponent class, through the builder of this class. This instance is then add to an object of the Calendar class.
 Finally, the method saveIcsFile() allows to convert the Calendar object into an .ics file.
-
+This file allows to use the calendar (and therefore store a conference) online.
 
