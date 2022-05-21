@@ -2,9 +2,17 @@
 :toc:
 :sectanchors:
 
-First you need to create some account. https://github.com/sebastienbourg/J-Confs/blob/master/Prerequisites%20CalendarOnline.adoc[Please refer to this doc]
+First you need to create some account.
 
-The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar. After that, you can add, edit, delete, and get online conferences.
+
+The package calendar permits to use an online calendar or to use a local file file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar, thanks to JARiS.
+
+image:https://github.com/oliviercailloux-org/projet-j-confs/Doc/Papyrus/Diagrams/JARiS_use_case_diagramm.SVG[alt="JARiS use case diagram",width=80%,height=80%, align="center"]
+
+image:https://github.com/oliviercailloux-org/projet-j-confs/Doc/Papyrus/Diagrams/CredentialsReader_Class_Diagramm.SVG[alt="JARiS Class diagram",width=80%,height=80%, align="center"]
+
+
+After that, you can add, edit, delete, and get online conferences.
 
 === Use case diagram
 
