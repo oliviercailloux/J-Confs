@@ -39,7 +39,7 @@ public class TestJARiS {
 		final String test_url = "dav.fruux.com";
 		final String test_calendarID = "8b3ff300-b8ce-4d85-a255-76ea3dff1338";
 
-		JARiS.myAuth = instance.editFruuxKeys(test_username, test_password, test_url, test_calendarID);
+		JARiS.myAuth = instance.editFruuxKeys();
 		assertEquals(test_username, instance.getFruuxUsername());
 		assertEquals(test_password, instance.getFruuxPassword());
 		assertEquals(test_url, instance.getFruuxURL());

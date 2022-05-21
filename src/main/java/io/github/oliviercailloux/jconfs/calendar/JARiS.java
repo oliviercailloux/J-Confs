@@ -13,12 +13,16 @@ public class JARiS {
 	public static enum FruuxKeysCredential {
 		API_USERNAME, API_PASSWORD, API_URL, API_CalendarID,
 	}
+	
+	final String project_username = "b3297393754";
+    final String project_password = "4pq8nzbhzugs";
+    final String project_url = "dav.fruux.com";
+    final String project_calendarID = "8b3ff300-b8ce-4d85-a255-76ea3dff1338";
 
 	public static ImmutableCompleteMap<FruuxKeysCredential, String> myAuth;
 	public static CredentialsReader<FruuxKeysCredential> reader;
 
-	public ImmutableCompleteMap<FruuxKeysCredential, String> editFruuxKeys(String project_username,
-			String project_password, String project_url, String project_calendarID) {
+	public ImmutableCompleteMap<FruuxKeysCredential, String> editFruuxKeys() {
 
 		System.setProperty("API_USERNAME", project_username);
 		System.setProperty("API_PASSWORD", project_password);
