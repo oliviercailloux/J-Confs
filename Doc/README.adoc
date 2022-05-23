@@ -21,7 +21,12 @@ Our project contains 7 packages :
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc[Document package]
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map package]
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location package]
+
+== Link to a documentation explains the relationships between the Evolution application, the Fruux website, and the J-Confs software
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
+
+== Link to a documentation explaining the format used to store a conference
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/UML%20documentation/Format%20used%20to%20store%20a%20conference.adoc[Format used to store a conference]
 
-Link to a documentation explains the relationships between the Evolution application, the Fruux website, and the J-Confs softsware
-* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
+== Link to a documentation explaining the modifications needed in java unit tests
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Prequisities%20JUnit%20tests.adoc[Prerequisities JUnit tests]
