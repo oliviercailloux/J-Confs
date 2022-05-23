@@ -10,32 +10,10 @@
 	<artifactId>j-confs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+
+
+
 	<profiles>
-		<profile>
-			<id>swt-unix</id>
-			<activation>
-				<os>
-					<family>unix</family>
-				</os>
-			</activation>
-			<properties>
-				<env>linux</env>
-			</properties>
-			<dependencies>
-				<dependency>
-					<groupId>org.eclipse.platform</groupId>
-					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
-					<version>3.110.0</version>
-					<optional>true</optional>
-					<exclusions>
-						<exclusion>
-							<groupId>org.eclipse.platform</groupId>
-							<artifactId>org.eclipse.swt</artifactId>
-						</exclusion>
-					</exclusions>
-				</dependency>
-			</dependencies>
-		</profile>
 		<profile>
 			<id>swt-mac</id>
 			<activation>
@@ -50,6 +28,31 @@
 				<dependency>
 					<groupId>org.eclipse.platform</groupId>
 					<artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
+					<version>3.110.0</version>
+					<optional>true</optional>
+					<exclusions>
+						<exclusion>
+							<groupId>org.eclipse.platform</groupId>
+							<artifactId>org.eclipse.swt</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>swt-unix</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<properties>
+				<env>linux</env>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
 					<version>3.110.0</version>
 					<optional>true</optional>
 					<exclusions>

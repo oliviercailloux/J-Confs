@@ -11,8 +11,10 @@ We will focus on the calendar functionality, in order to provide easy collective
 * Create a Fruux account, make sure that the calendar aspects work as intended, document anything missing.
 * Get rid of the dependency to Google gson
 * Fix tests that fail
+* Fix the pom.xml to make it work on Mac
 * Use https://github.com/oliviercailloux/JARiS[JARiS] to read the API key for accessing the calendar services
 * Document the format used to store a conference (specify exactly which fields are used and why)
+* Fix what it doesn't work in the gui applications in order to have access to conferences off the fruux account by using Evolution
 * Test whether Evolution can access and edit those calendar entries; document what works and what doesn’t
 * Search how to store programmatically a precise location in a calendar entry (either in the form of a point, with a latitude and a longitude; or a specific city)
 * Check how (or whether) Evolution can store a precise location in a calendar entry

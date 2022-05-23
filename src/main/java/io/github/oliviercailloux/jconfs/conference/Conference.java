@@ -49,6 +49,22 @@ public class Conference {
     return url;
   }
 
+  /**
+   * This method is used to get the url without the "Optional" in front.
+   * 
+   * @return url as a string
+   */
+  public String getUrlAsShortString() {
+    if (url.equals(Optional.empty())) {
+      return "";
+    }
+    String url = this.url.toString();
+    if (url.length() < 9) { // case where there is no "Optional"
+      return url;
+    }
+    return url.substring(9, url.length() - 1);
+  }
+
   public String getTitle() {
     return title;
   }
