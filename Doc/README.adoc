@@ -22,7 +22,7 @@ Our project contains 7 packages :
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map package]
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location package]
 
-== Link to a documentation explains the relationships between the Evolution application, the Fruux website, and the J-Confs software
+== Link to a documentation explaining the relationships between the Evolution application, the Fruux website, and the J-Confs software
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
 
 == Link to a documentation explaining the format used to store a conference
