@@ -7090,16 +7090,6 @@
               <element xmi:type="uml:Property" href="Model.uml#_el5qkNHVEeyM4vcii4t54Q"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_i5gNwdHVEeyM4vcii4t54Q"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_1r7bQNIzEeyzRZm25HE99Q" type="Property_ClassAttributeLabel">
-              <styles xmi:type="notation:StringListValueStyle" xmi:id="_Q19BQNqzEeyfrMb-kx_wGg" name="maskLabel">
-                <stringListValue>visibility</stringListValue>
-                <stringListValue>name</stringListValue>
-                <stringListValue>type</stringListValue>
-                <stringListValue>derived</stringListValue>
-              </styles>
-              <element xmi:type="uml:Property" href="Model.uml#_1rfWYNIzEeyzRZm25HE99Q"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_1r7bQdIzEeyzRZm25HE99Q"/>
-            </children>
             <styles xmi:type="notation:TitleStyle" xmi:id="_FD86VNHVEeyM4vcii4t54Q"/>
             <styles xmi:type="notation:SortingStyle" xmi:id="_FD86VdHVEeyM4vcii4t54Q"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_FD86VtHVEeyM4vcii4t54Q"/>
@@ -7125,10 +7115,6 @@
             <children xmi:type="notation:Shape" xmi:id="_EqaHANHXEeyM4vcii4t54Q" type="Operation_ClassOperationLabel">
               <element xmi:type="uml:Operation" href="Model.uml#_DvaeYNHXEeyM4vcii4t54Q"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_EqaHAdHXEeyM4vcii4t54Q"/>
-            </children>
-            <children xmi:type="notation:Shape" xmi:id="_Pj1usNHXEeyM4vcii4t54Q" type="Operation_ClassOperationLabel">
-              <element xmi:type="uml:Operation" href="Model.uml#_GhzGcNHXEeyM4vcii4t54Q"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_Pj1usdHXEeyM4vcii4t54Q"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_Pzvy8NHXEeyM4vcii4t54Q" type="Operation_ClassOperationLabel">
               <element xmi:type="uml:Operation" href="Model.uml#_JvcuMNHXEeyM4vcii4t54Q"/>

@@ -318,14 +318,14 @@
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_OAPZsJ37EeqAmv2AVHKcuQ" name="Message45ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_OAOLkJ37EeqAmv2AVHKcuQ"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PwfXsJ3tEeqpGbloYAnGGQ" name="Message33SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_PwewoJ3tEeqpGbloYAnGGQ"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pwf-wJ3tEeqpGbloYAnGGQ" name="Message33ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_PwewoJ3tEeqpGbloYAnGGQ"/>
-          <fragment xmi:type="uml:CombinedFragment" xmi:id="_2VBB4J33EeqAmv2AVHKcuQ" name="for (Calendar calendar : calendarsResult)" covered="_OZk6AJ3rEeqpGbloYAnGGQ _97vggJ3oEeqpGbloYAnGGQ _sds8UJ3oEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ" interactionOperator="loop">
-            <operand xmi:type="uml:InteractionOperand" xmi:id="_2VCQAJ33EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_OZk6AJ3rEeqpGbloYAnGGQ _97vggJ3oEeqpGbloYAnGGQ _sds8UJ3oEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ">
+          <fragment xmi:type="uml:CombinedFragment" xmi:id="_2VBB4J33EeqAmv2AVHKcuQ" name="for (Calendar calendar : calendarsResult)" covered="_97vggJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ _sds8UJ3oEeqpGbloYAnGGQ" interactionOperator="loop">
+            <operand xmi:type="uml:InteractionOperand" xmi:id="_2VCQAJ33EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_97vggJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _qg-zIJ33EeqAmv2AVHKcuQ _sds8UJ3oEeqpGbloYAnGGQ">
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_BSrM0J35EeqAmv2AVHKcuQ" name="Message40SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_BSp-sJ35EeqAmv2AVHKcuQ"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Be2noZ35EeqAmv2AVHKcuQ" name="Message45ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_Be2AkJ35EeqAmv2AVHKcuQ"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_aFGkoJ35EeqAmv2AVHKcuQ" name="Message42SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_aFF9kJ35EeqAmv2AVHKcuQ"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_aFHLsJ35EeqAmv2AVHKcuQ" name="Message42ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_aFF9kJ35EeqAmv2AVHKcuQ"/>
-              <fragment xmi:type="uml:CombinedFragment" xmi:id="_6nf40J35EeqAmv2AVHKcuQ" name="CombinedFragment44" covered="_OZk6AJ3rEeqpGbloYAnGGQ _97vggJ3oEeqpGbloYAnGGQ _sds8UJ3oEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ" interactionOperator="loop">
-                <operand xmi:type="uml:InteractionOperand" xmi:id="_6nhG8J35EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_OZk6AJ3rEeqpGbloYAnGGQ _97vggJ3oEeqpGbloYAnGGQ _sds8UJ3oEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ">
+              <fragment xmi:type="uml:CombinedFragment" xmi:id="_6nf40J35EeqAmv2AVHKcuQ" name="CombinedFragment44" covered="_97vggJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ _sds8UJ3oEeqpGbloYAnGGQ" interactionOperator="loop">
+                <operand xmi:type="uml:InteractionOperand" xmi:id="_6nhG8J35EeqAmv2AVHKcuQ" name="InteractionOperand0" covered="_97vggJ3oEeqpGbloYAnGGQ _OZk6AJ3rEeqpGbloYAnGGQ _yEYBMJ35EeqAmv2AVHKcuQ _sds8UJ3oEeqpGbloYAnGGQ">
                   <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_h1KyMJ36EeqAmv2AVHKcuQ" name="Message46SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_h1KLIJ36EeqAmv2AVHKcuQ"/>
                   <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_h1LZQJ36EeqAmv2AVHKcuQ" name="Message46ReceiveEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_h1KLIJ36EeqAmv2AVHKcuQ"/>
                   <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KiIJgJ36EeqAmv2AVHKcuQ" name="Message48SendEvent" covered="_sds8UJ3oEeqpGbloYAnGGQ" message="_KiHicJ36EeqAmv2AVHKcuQ"/>
@@ -1998,8 +1998,8 @@
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3MRmMIefEequSPPEfPKx9w" name="Message11SendEvent" covered="_CACgMIefEequSPPEfPKx9w"/>
           <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_eGnJUIefEequSPPEfPKx9w" name="BehaviorExecutionSpecification5" covered="_CACgMIefEequSPPEfPKx9w" finish="_eGo-gIefEequSPPEfPKx9w" start="_3MRmMIefEequSPPEfPKx9w"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Pm3oAJ31EeqAmv2AVHKcuQ" name="Message39ReceiveEvent" covered="_CACgMIefEequSPPEfPKx9w" message="_Pm2Z4J31EeqAmv2AVHKcuQ"/>
-          <fragment xmi:type="uml:CombinedFragment" xmi:id="_qmx7ULP_EeqZcr-LuTJJ2Q" name="CombinedFragment41" covered="_DjHcgIefEequSPPEfPKx9w _CACgMIefEequSPPEfPKx9w" interactionOperator="alt">
-            <operand xmi:type="uml:InteractionOperand" xmi:id="_qmyiYLP_EeqZcr-LuTJJ2Q" name="InteractionOperand0" covered="_DjHcgIefEequSPPEfPKx9w _CACgMIefEequSPPEfPKx9w">
+          <fragment xmi:type="uml:CombinedFragment" xmi:id="_qmx7ULP_EeqZcr-LuTJJ2Q" name="CombinedFragment41" covered="_CACgMIefEequSPPEfPKx9w _DjHcgIefEequSPPEfPKx9w" interactionOperator="alt">
+            <operand xmi:type="uml:InteractionOperand" xmi:id="_qmyiYLP_EeqZcr-LuTJJ2Q" name="InteractionOperand0" covered="_CACgMIefEequSPPEfPKx9w _DjHcgIefEequSPPEfPKx9w">
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IW8tAIehEequSPPEfPKx9w" name="Message15SendEvent" covered="_CACgMIefEequSPPEfPKx9w" message="_IW7e4IehEequSPPEfPKx9w"/>
               <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_IW9UEIehEequSPPEfPKx9w" name="Message15ReceiveEvent" covered="_DjHcgIefEequSPPEfPKx9w" message="_IW7e4IehEequSPPEfPKx9w"/>
               <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_8bDmgLQFEeq6IPHMtyBxTg" name="BehaviorExecutionSpecification43" covered="_DjHcgIefEequSPPEfPKx9w" finish="_8bK7QLQFEeq6IPHMtyBxTg" start="_IW9UEIehEequSPPEfPKx9w"/>
@@ -2248,7 +2248,6 @@
           <ownedAttribute xmi:type="uml:Property" xmi:id="_lrrFUNHTEeyM4vcii4t54Q" name="DEFAULT_FILE_PATH" visibility="public" isStatic="true" type="_uj_7cNHUEeyM4vcii4t54Q"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_XDXGMNHVEeyM4vcii4t54Q" name="keysType" visibility="private" type="_UG18oNHTEeyM4vcii4t54Q"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_el5qkNHVEeyM4vcii4t54Q" name="filePath" visibility="private" type="_uj_7cNHUEeyM4vcii4t54Q"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_1rfWYNIzEeyzRZm25HE99Q" name="LOGGER" visibility="private" type="_EdxNoGXDEeqCB6kIHjdr_A"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_tX1N0NHVEeyM4vcii4t54Q" name="classicalReader">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_u-qPcNHaEeyM4vcii4t54Q" name="a" type="_d3mA0NHaEeyM4vcii4t54Q" direction="return"/>
           </ownedOperation>
@@ -2266,11 +2265,6 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_DvaeYNHXEeyM4vcii4t54Q" name="getKeysType">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZJqcoNHbEeyM4vcii4t54Q" name="a" type="_UG18oNHTEeyM4vcii4t54Q" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_GhzGcNHXEeyM4vcii4t54Q" name="hashCode">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_gG7wwNHbEeyM4vcii4t54Q" name="a" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-            </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_JvcuMNHXEeyM4vcii4t54Q" name="keyReader">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_jjR70NHbEeyM4vcii4t54Q" name="a" type="_geNdwNHaEeyM4vcii4t54Q" direction="return"/>
