@@ -1,0 +1,54 @@
+= Format used to store a conference
+
+To store a conference, we use the eponymous class. In order to create a new event, we call the class ConferenceBuilder, which belongs to the class Conference. The created object is a composure of 8 different fields. Six of its are mandatory and 2 are optional.
+
+The 6 mandatory fields are:
+1.	The id of the conference: this piece of data is automatically generated during the earliest stage of the inception.
+2.	The title of the conference
+3.	The host city of the conference
+4.	The country in which the city is located
+Those four fields are String object.
+5.	The date of the start of the conference
+6.	And obviously, the date of the end of the event
+Those two fields belong to the Instant java class. 
+Bullets 2 to 6 are compulsory, since they give the most basic information about any conference.
+
+The 2 optional fields are:
+7.	The url of the conference
+8.	The registration fee of it
+
+Both are Optional object. The url has a String as variable argument and the registration fee has a Integer variable argument.
+Since conferences don’t always have a dedicated website, the url field is optional. Moreover, a conference can be free. Therefore, the registration fee is not always necessary.
+
+An object of the class conference is considered as an actual conference only when the title, the beginning date and the end date are registered. The start date has to be anterior to the end date of the conference. Otherwise, the program throws an exception. This check prevents awkward situation and ensures the consitency of the data.
+
+
+== Convertion into a PropertyList
+
+Once a conference object is created, it is converted into a list of property.
+Such convertion requires a call to whether the method conferenceToProperty() or conferenceToPropertyFruux().
+
+Those methods aim at filling the following fields:
+1. Created: this field contains the date at which the Event is created
+2. DtStamp: this property gives the date of the creation of the iCalendar
+3. lastModified: trivially contains the date of last modification of the calendar event
+4. Sequence: this fields represents the number of change concerning an event. Everytime one of the other property is modified, this field must be incremented by 1.
+5. Uid: this field is unique and allows to distinguish easily two event.
+6. DtStart: gives the beginning moment of an event
+7. DtEnd: similarily, gives the ending moment of an event
+8. Name: contains a brief description of an event
+Those fields are filled during every online storage of a conference.
+
+The 3 following fields aren't always filled out:
+9. Location: contains the city and the country, which host the event. To be filled, the Conference object has to give information about at least one of those two properties
+10. Description: gives the registration fee of an event. In our case, the Conference object obviously must have that piece of information in order to create this Description property.
+11. Urlz: contains a URI instance corresponding to the URL of the Conference, if it exists of course.
+
+
+
+== Creating the iCalendar file (.ics)
+
+The properties we saw above form an event. It is used combined with a string ("CONFERENCE" here) to create an instance of the XComponent class, through the builder of this class. This instance is then add to an object of the Calendar class.
+Finally, the method saveIcsFile() allows to convert the Calendar object into an .ics file.
+This file allows to use the calendar (and therefore store a conference) online.
+
