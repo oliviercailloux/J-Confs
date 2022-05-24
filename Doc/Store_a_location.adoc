@@ -1,0 +1,19 @@
+= Store programmatically a location in a calendar entry
+
+This documentation will inform you how to store programatically a location in a calendar entry. Based on these 2 classes (https://github.com/oliviercailloux-org/projet-j-confs/blob/main/src/main/java/io/github/oliviercailloux/jconfs/location/Address.java[Adress.java] and https://github.com/oliviercailloux-org/projet-j-confs/blob/main/src/main/java/io/github/oliviercailloux/jconfs/location/AddressQuerier.java[AddressQuerier.java], we will see how.
+
+== An adress in the form of a point
+
+If we know the latitude and the longitude of a location, it is directly stored in an Address object, in three constants :
+- address,
+- latitude,
+- longitude.
+
+== An adress with a specific city
+
+If we only know the name of the place (and not the coordinates), the AdressQuerier class establish a connection with an API in the method requestAddressInformations(String address).
+The API will take the name of the place and will give us lots of informations in a List of Objects, as the full adress, the city, the neighborhood or the coordinates.
+Then, this list is converted to a list of String. Afterward, with the method TransformeToAddressArray(), we save the name, the latitude and the longitude in an Address object, that we add to the Address List.
+
+To conclude, the location is stored in a List of Address.
+

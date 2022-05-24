@@ -25,3 +25,6 @@ Our project contains 7 packages :
 
 Link to a documentation explains the relationships between the Evolution application, the Fruux website, and the J-Confs softsware
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
+
+Link to a documentation explaining how to store programmatically a location in a calendar entry
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Store_a_location.adoc[Store a location]
