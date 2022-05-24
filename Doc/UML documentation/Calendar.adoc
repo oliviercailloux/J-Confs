@@ -2,7 +2,7 @@
 :toc:
 :sectanchors:
 
-First you need to create some account.
+First you need to create some account. https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Prerequisites%20CalendarOnline.adoc[Please refer to this doc]
 
 
 The package calendar permits to use an online calendar or to use a local file calendar with limited options. To use an online calendar you need first, to set credential providers in order to connect to the calendar, thanks to JARiS.
