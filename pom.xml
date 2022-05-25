@@ -258,7 +258,6 @@
 			<groupId>io.github.oliviercailloux</groupId>
 			<artifactId>jaris</artifactId>
 			<version>0.0.17</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
