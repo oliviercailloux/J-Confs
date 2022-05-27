@@ -3,8 +3,11 @@ package io.github.oliviercailloux.jconfs.gui;
 import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
 import com.google.common.primitives.Doubles;
+import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
+import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
 import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
 import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
+import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
@@ -12,6 +15,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -63,13 +67,8 @@ public class GuiListConferences {
   private Button btnDelete;
   private Display display;
 
-  /**
-   * Introduce constant values for url, username,password and calendarId
-   */
-  private final String lv_url = "dav.fruux.com";
-  private final String lv_username = "b3297394371";
-  private final String lv_password = "g8tokd3q0hc2";
-  private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
+  protected CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials.txt"));
+  protected ImmutableCompleteMap<FruuxKeysCredential, String> myAuth = reader.getCredentials();
 
   public void gui(Display displayGui) throws Exception {
     this.display = displayGui;
@@ -197,7 +196,7 @@ public class GuiListConferences {
   public void getConferences() throws Exception {
     try {
       listConferencesUser = new ArrayList<>(new CalendarOnline(
-          new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""))
+          new CalDavCalendarGeneric(myAuth, ""))
               .getOnlineConferences());
     } catch (CalDAV4JException e) {
       throw new IllegalStateException(e);
@@ -366,7 +365,7 @@ public class GuiListConferences {
    */
   public void addConference(boolean url, boolean fees) {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(myAuth, ""));
     LocalDate localDateStart =
         LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
     LocalDate localDateEnd =
@@ -403,7 +402,7 @@ public class GuiListConferences {
    */
   public void removeConference() {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(myAuth, ""));
     String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
     try {
       instanceCalendarOnline.deleteOnlineConference(uidDelete);

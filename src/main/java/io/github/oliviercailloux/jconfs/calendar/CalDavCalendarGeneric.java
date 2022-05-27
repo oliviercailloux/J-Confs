@@ -24,6 +24,7 @@ public class CalDavCalendarGeneric {
   protected CalDAVCollection collectionCalendarsOnline;
   protected static int port = 443;
   protected String postUrl;
+  protected ImmutableCompleteMap<FruuxKeysCredential, String> myAuth;
 
   /**
    * Constructor for a generic calendar object
@@ -37,14 +38,15 @@ public class CalDavCalendarGeneric {
    */
   public CalDavCalendarGeneric(ImmutableCompleteMap<FruuxKeysCredential, String> myAuth,
       String postUrl) {
+    this.myAuth = myAuth;
     this.postUrl = postUrl;
     this.credsProvider = new BasicCredentialsProvider();
-    credsProvider.setCredentials(new AuthScope(myAuth.get(FruuxKeysCredential.API_URL), port),
-        new UsernamePasswordCredentials(myAuth.get(FruuxKeysCredential.API_USERNAME), myAuth.get(FruuxKeysCredential.API_PASSWORD)));
+    credsProvider.setCredentials(new AuthScope(this.myAuth.get(FruuxKeysCredential.API_URL), port),
+        new UsernamePasswordCredentials(this.myAuth.get(FruuxKeysCredential.API_USERNAME), this.myAuth.get(FruuxKeysCredential.API_PASSWORD)));
     httpclient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider).build();
-    hostTarget = new HttpHost(myAuth.get(FruuxKeysCredential.API_URL), port, "https");
+    hostTarget = new HttpHost(this.myAuth.get(FruuxKeysCredential.API_URL), port, "https");
     collectionCalendarsOnline =
-        new CalDAVCollection(this.postUrl + "/calendars/" + myAuth.get(FruuxKeysCredential.API_USERNAME) + "/" + myAuth.get(FruuxKeysCredential.API_CalendarID),
+        new CalDAVCollection(this.postUrl + "/calendars/" + this.myAuth.get(FruuxKeysCredential.API_USERNAME) + "/" + this.myAuth.get(FruuxKeysCredential.API_CalendarID),
             hostTarget, new CalDAV4JMethodFactory(), null);
   }
 }
