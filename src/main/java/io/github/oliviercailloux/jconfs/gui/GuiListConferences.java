@@ -67,11 +67,11 @@ public class GuiListConferences {
   private Button btnDelete;
   private Display display;
 
-  protected CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials.txt"));
-  protected ImmutableCompleteMap<FruuxKeysCredential, String> myAuth = reader.getCredentials();
+  protected ImmutableCompleteMap<FruuxKeysCredential, String> myAuth;
 
-  public void gui(Display displayGui) throws Exception {
+  public void gui(Display displayGui, ImmutableCompleteMap<FruuxKeysCredential, String> Auth) throws Exception {
     this.display = displayGui;
+    this.myAuth = Auth;
 
     // setup the SWT window
     shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
@@ -86,7 +86,7 @@ public class GuiListConferences {
     groupListConf.setLayout(gridLayout);
     listConferences =
         new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
-    this.getConferences();
+    this.getConferences(this.myAuth);
     GridData gridDatalist = new GridData();
     gridDatalist.grabExcessHorizontalSpace = true;
     gridDatalist.grabExcessVerticalSpace = true;
@@ -196,7 +196,7 @@ public class GuiListConferences {
   public void getConferences() throws Exception {
     try {
       listConferencesUser = new ArrayList<>(new CalendarOnline(
-          new CalDavCalendarGeneric(myAuth, ""))
+          new CalDavCalendarGeneric(this.myAuth, ""))
               .getOnlineConferences());
     } catch (CalDAV4JException e) {
       throw new IllegalStateException(e);
@@ -320,7 +320,10 @@ public class GuiListConferences {
   }
 
   public static void main(String[] args) throws Exception {
-    new GuiListConferences().gui(new Display());
+    CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials.txt"));
+    ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
+
+    new GuiListConferences().gui(new Display(),Auth);
   }
 
   /**
@@ -365,7 +368,7 @@ public class GuiListConferences {
    */
   public void addConference(boolean url, boolean fees) {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(myAuth, ""));
+        new CalDavCalendarGeneric(this.myAuth, ""));
     LocalDate localDateStart =
         LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
     LocalDate localDateEnd =
@@ -402,7 +405,7 @@ public class GuiListConferences {
    */
   public void removeConference() {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(myAuth, ""));
+        new CalDavCalendarGeneric(this.myAuth, ""));
     String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
     try {
       instanceCalendarOnline.deleteOnlineConference(uidDelete);
