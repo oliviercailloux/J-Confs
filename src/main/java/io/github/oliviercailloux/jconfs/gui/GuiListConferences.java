@@ -57,8 +57,8 @@ public class GuiListConferences {
   private Text txtCountry;
   private Text txtCity;
   private Text txtPresence;
-  private static DateTime dateStart;
-  private static DateTime dateEnd;
+  private DateTime dateStart;
+  private DateTime dateEnd;
   private Button btnSave;
   private Button btnClear;
   private Button btnDelete;
@@ -71,8 +71,6 @@ public class GuiListConferences {
   private final String lv_username = "b3297394371";
   private final String lv_password = "g8tokd3q0hc2";
   private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
-
-  private boolean presence = false;
 
   public void gui(Display displayGui) throws Exception {
     this.display = displayGui;
@@ -181,10 +179,7 @@ public class GuiListConferences {
         throw new IllegalStateException(e);
       }
     });
-    /*
-     * btnPresence.addListener(SWT.Selection, event -> { try { addOneParticipant(event); } catch
-     * (Exception e) { throw new IllegalStateException(e); } });
-     */
+
     // tear down the SWT window
     shell.pack();
     shell.open();
@@ -306,6 +301,8 @@ public class GuiListConferences {
       setDateofConferences(dateEnd,
           LocalDate.ofInstant(conferenceSelected.getEndDate(), ZoneOffset.UTC));
 
+      System.out.println(conferenceSelected.getParticipants());
+
     }
   }
 
@@ -336,7 +333,6 @@ public class GuiListConferences {
 
   public static void main(String[] args) throws Exception {
     new GuiListConferences().gui(new Display());
-
   }
 
   /**
