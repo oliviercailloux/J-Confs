@@ -95,7 +95,7 @@ public class ConferenceWriter {
 
   public static PropertyList<Property> conferenceToPropertyFruux(Conference conference)
       throws URISyntaxException {
-    Property urlz, description, location, startDate, endDate, uid, name;
+    Property urlz, description, location, startDate, endDate, uid, name, participant;
     PropertyList<Property> propertyList = new PropertyList<>();
     startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
     endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
@@ -114,6 +114,11 @@ public class ConferenceWriter {
     if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
       location = new Location(conference.getCity() + "," + conference.getCountry());
       propertyList.add(location);
+    }
+    if (!(conference.getParticipants().isEmpty())) {
+      participant = new Description("Participants : " + conference.getParticipants().toString());
+      propertyList.add(participant);
+
     }
     propertyList.add(startDate);
     propertyList.add(endDate);

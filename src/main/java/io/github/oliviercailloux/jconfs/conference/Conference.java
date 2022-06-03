@@ -5,8 +5,10 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import java.net.URL;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 /**
@@ -24,6 +26,7 @@ public class Conference {
   private Optional<Integer> registrationFee;
   private String country;
   private String city;
+  private Set<String> participants;
 
   /**
    * This is a constructor which initializes the conference object
@@ -36,6 +39,7 @@ public class Conference {
    * @param registrationFee
    * @param country
    * @param city
+   * @param participants
    */
   private Conference() {
     this.uid = "";
@@ -43,6 +47,7 @@ public class Conference {
     this.registrationFee = Optional.empty();
     this.country = "";
     this.city = "";
+    this.participants = new HashSet<String>();
   }
 
   public Optional<URL> getUrl() {
@@ -98,6 +103,10 @@ public class Conference {
     return this.uid;
   }
 
+  public Set getParticipants() {
+    return participants;
+  }
+
   public boolean isConf() {
     Preconditions.checkNotNull(this.title);
     Preconditions.checkNotNull(this.startDate);
@@ -113,7 +122,7 @@ public class Conference {
       if (title.equals(conference2.title) && url.equals(conference2.url)
           && startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
           && registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
-          && country.equals(conference2.country)) {
+          && country.equals(conference2.country) && country.equals(conference2.participants)) {
         return true;
       }
     }
@@ -122,14 +131,15 @@ public class Conference {
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, title, registrationFee, startDate, endDate, country, city);
+    return Objects.hash(url, title, registrationFee, startDate, endDate, country, city,
+        participants);
   }
 
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this).add("UID", uid).add("url", url).add("title", title)
         .add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
-        .add("country", country).add("city", city).toString();
+        .add("country", country).add("city", city).add("participants", participants).toString();
   }
 
   public static class ConferenceBuilder {
@@ -205,6 +215,11 @@ public class Conference {
 
     public ConferenceBuilder setUrl(URL url) {
       this.conferenceToBuild.url = Optional.ofNullable(url);
+      return this;
+    }
+
+    public ConferenceBuilder setParticipant(String oneParticipant) {
+      this.conferenceToBuild.participants.add(Strings.emptyToNull(oneParticipant));
       return this;
     }
   }

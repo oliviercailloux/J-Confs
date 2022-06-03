@@ -54,10 +54,11 @@ public class GuiListConferences {
   private Text txtTitle;
   private Text txtUrl;
   private Text txtRegisFee;
-  private Text txtCoutry;
+  private Text txtCountry;
   private Text txtCity;
-  private DateTime dateStart;
-  private DateTime dateEnd;
+  private Text txtPresence;
+  private static DateTime dateStart;
+  private static DateTime dateEnd;
   private Button btnSave;
   private Button btnClear;
   private Button btnDelete;
@@ -70,6 +71,8 @@ public class GuiListConferences {
   private final String lv_username = "b3297394371";
   private final String lv_password = "g8tokd3q0hc2";
   private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
+
+  private boolean presence = false;
 
   public void gui(Display displayGui) throws Exception {
     this.display = displayGui;
@@ -121,8 +124,8 @@ public class GuiListConferences {
 
     Label labelCountry = new Label(groupInfoConf, SWT.NONE);
     labelCountry.setText("Country * :");
-    this.txtCoutry = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
-    this.txtCoutry.setLayoutData(gridDataTextField);
+    this.txtCountry = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtCountry.setLayoutData(gridDataTextField);
 
     Label labelCity = new Label(groupInfoConf, SWT.NONE);
     labelCity.setText("City * :");
@@ -139,6 +142,11 @@ public class GuiListConferences {
     this.dateEnd = new DateTime(groupInfoConf, SWT.DEFAULT);
     this.dateEnd.setLayoutData(gridDataTextField);
 
+    Label labelParticipant = new Label(groupInfoConf, SWT.NONE);
+    labelParticipant.setText("Presence : ");
+    this.txtPresence = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtPresence.setLayoutData(gridDataTextField);
+
     btnSave = new Button(groupInfoConf, SWT.PUSH);
     btnSave.setText("Save Conference");
     GridData gridDataBtn = new GridData(SWT.RIGHT, SWT.BOTTOM, false, false);
@@ -154,8 +162,9 @@ public class GuiListConferences {
     btnClear.setLayoutData(gridDataBtn);
 
     txtCity.addVerifyListener(ListenerAction::checkTextInput);
-    txtCoutry.addVerifyListener(ListenerAction::checkTextInput);
+    txtCountry.addVerifyListener(ListenerAction::checkTextInput);
     txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
+    txtPresence.addVerifyListener(ListenerAction::checkTextInput);
     listConferences.addListener(SWT.Selection, this::fillInAllFields);
     btnSave.addListener(SWT.Selection, event -> {
       try {
@@ -172,7 +181,10 @@ public class GuiListConferences {
         throw new IllegalStateException(e);
       }
     });
-
+    /*
+     * btnPresence.addListener(SWT.Selection, event -> { try { addOneParticipant(event); } catch
+     * (Exception e) { throw new IllegalStateException(e); } });
+     */
     // tear down the SWT window
     shell.pack();
     shell.open();
@@ -248,7 +260,7 @@ public class GuiListConferences {
    */
   public boolean isFillIn() {
 
-    if ((Strings.isNullOrEmpty(txtCity.getText()) || Strings.isNullOrEmpty(txtCoutry.getText())
+    if ((Strings.isNullOrEmpty(txtCity.getText()) || Strings.isNullOrEmpty(txtCountry.getText())
         || Strings.isNullOrEmpty(txtTitle.getText()))) {
 
       LOGGER.debug("Conference not save : not all fields filled");
@@ -281,7 +293,8 @@ public class GuiListConferences {
       conferenceSelected = listConferencesUser.get(listConferences.getSelectionIndex());
       txtTitle.setText(conferenceSelected.getTitle());
       txtCity.setText(conferenceSelected.getCity());
-      txtCoutry.setText(conferenceSelected.getCountry());
+      txtCountry.setText(conferenceSelected.getCountry());
+      txtPresence.setText(conferenceSelected.getParticipants().toString());
       if (txtUrl != null) {
         txtUrl.setText(conferenceSelected.getUrlAsShortString());
       }
@@ -292,6 +305,7 @@ public class GuiListConferences {
           LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneOffset.UTC));
       setDateofConferences(dateEnd,
           LocalDate.ofInstant(conferenceSelected.getEndDate(), ZoneOffset.UTC));
+
     }
   }
 
@@ -322,6 +336,7 @@ public class GuiListConferences {
 
   public static void main(String[] args) throws Exception {
     new GuiListConferences().gui(new Display());
+
   }
 
   /**
@@ -351,10 +366,11 @@ public class GuiListConferences {
    */
   public void clearwidget(@SuppressWarnings("unused") Event e) {
     txtCity.setText("");
-    txtCoutry.setText("");
+    txtCountry.setText("");
     txtRegisFee.setText("");
     txtTitle.setText("");
     txtUrl.setText("");
+    txtPresence.setText("");
     listConferences.deselectAll();
   }
 
@@ -375,7 +391,8 @@ public class GuiListConferences {
     theBuild = theBuild.setTitle(txtTitle.getText())
         .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
-        .setCity(txtCity.getText()).setCountry(txtCoutry.getText());
+        .setCity(txtCity.getText()).setCountry(txtCountry.getText())
+        .setParticipant(txtPresence.getText());
 
     if (url) {
       URL urlConference;
@@ -396,6 +413,7 @@ public class GuiListConferences {
     } catch (CalDAV4JException | URISyntaxException e) {
       throw new IllegalStateException(e);
     }
+
   }
 
   /**

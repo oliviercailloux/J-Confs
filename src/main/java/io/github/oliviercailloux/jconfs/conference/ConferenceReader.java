@@ -59,6 +59,7 @@ public class ConferenceReader {
   public static Conference createConference(Component confCompo) throws MalformedURLException {
     Conference conf = null;
     ConferenceBuilder theBuild = new ConferenceBuilder();
+    String participant;
     URL confURL;
     String[] location;
     String[] description;
@@ -79,7 +80,11 @@ public class ConferenceReader {
         if (ele.contains("Fee")) {
           Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
           theBuild.setRegistrationFee(feeRegistration.intValue());
-
+        } else {
+          if (ele.contains("Participants")) {
+            String oneParticipant = ele.substring(ele.indexOf(":") + 1);
+            theBuild.setParticipant(oneParticipant);
+          }
         }
       }
     }
