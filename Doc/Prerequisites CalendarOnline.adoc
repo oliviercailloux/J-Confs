@@ -42,10 +42,12 @@ Then, you need to create a calendar in your account, and set the calendarID in t
 The test "testGetOnlineConferenceFromUid()" tries to find a specific conference in your calendar.
 
 In order to make it work, you need to create a conference in your fruux account with these properties :
-- Title : Java formation
-- City : Paris
-- Country : France
-- Beginning Date : 2022-05-31
+
+- Title : Java formation.
+- City : Paris.
+- Country : France.
+- Beginning Date : 2022-05-31.
+
 Make sure to check the "All day" item, when creating the conference in Fruux, because the test can't handle times.   
 After that, you need to find the ID of the conference, and replace it in the "uidSearch" variable. 
 Tips to find this ID : Run the test after all the modifications. It will fail but you will see on the "Console" window, a list with all your conferences in your calendar with theirs characteristics.
