@@ -29,11 +29,37 @@ The CalDav4j library has been chosen in order to allow these exchanges, it inclu
 - The user id.
 - The user password.
 
-	* You need to change user account in io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineFruux and io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineNextCloud when you have created yours.
-It will be easier in case of issue. Nevertheless, this part of the code don't seems to have issue.
+== How to modify JUnit tests in order to use them in the project ?
+
+=== Calendar Test
+
+	* TestCalendarOnlineFruux
+
+You need to change user account in io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineFruux and io.github.oliviercailloux.jconfs.calendar.TestCalendarOnlineNextCloud when you have created yours.
+
+Then, you need to create a calendar in your account, and set the calendarID in the "TestCalendarOnlineFruux" method. You will find this ID in the parameters of your Fruux account.
+
+The test "testGetOnlineConferenceFromUid()" tries to find a specific conference in your calendar.
+
+In order to make it work, you need to create a conference in your fruux account with these properties :
+- Title : Java formation
+- City : Paris
+- Country : France
+- Beginning Date : 2022-05-31
+Make sure to check the "All day" item, when creating the conference in Fruux, because the test can't handle times.   
+After that, you need to find the ID of the conference, and replace it in the "uidSearch" variable. 
+Tips to find this ID : Run the test after all the modifications. It will fail but you will see on the "Console" window, a list with all your conferences in your calendar with theirs characteristics.
+You will find there the UID of the conference "Java formation"
+
+	* TestCalendarOnlineNextCloud
+
+You may need to make the same changes for the TestCalendarOnlineNextCloud test, but on your NextCloud account.
+	
+
 Be aware that if the server is unreachable, your test will fail and by so your maven test also.
+
  
-More infos :
+== More infos :
 
 - Fruux : https://fruux.com/api/
 - NextCloud : https://nextcloud.com/signup/
