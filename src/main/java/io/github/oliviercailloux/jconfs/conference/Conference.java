@@ -122,7 +122,7 @@ public class Conference {
       if (title.equals(conference2.title) && url.equals(conference2.url)
           && startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
           && registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
-          && country.equals(conference2.country) && country.equals(conference2.participants)) {
+          && country.equals(conference2.country) && participants.equals(conference2.participants)) {
         return true;
       }
     }
@@ -219,7 +219,7 @@ public class Conference {
     }
 
     public ConferenceBuilder setParticipant(String oneParticipant) {
-      this.conferenceToBuild.participants.add(Strings.emptyToNull(oneParticipant));
+      this.conferenceToBuild.participants.add(Strings.nullToEmpty(oneParticipant));
       return this;
     }
   }
