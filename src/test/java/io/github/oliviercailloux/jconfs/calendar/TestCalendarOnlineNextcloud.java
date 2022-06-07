@@ -28,13 +28,18 @@ import org.junit.jupiter.api.Test;
 public class TestCalendarOnlineNextcloud {
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
 
+  private final String lv_url = "nch.pl";
+  private final String lv_username = "JAVA_PROJECT";
+  private final String lv_password = "Azert2022&&";
+  private final String lv_calendarID = "projet_j-conf";
+  private final String lv_postUrl = "/remote.php/dav";
+
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
-    String uidSearch = "4936861f-c1db-4059-82a2-2c1e421ad5fa";
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
+    String uidSearch = "b0672b91-af89-491f-92be-9e0032828413";
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
     if (potentialConference.isPresent()) {
@@ -43,8 +48,8 @@ public class TestCalendarOnlineNextcloud {
       assertEquals(uidSearch, conferenceFound.getUid());
       assertEquals("Paris", conferenceFound.getCity());
       assertEquals("France", conferenceFound.getCountry());
-      assertEquals(Instant.parse("2019-08-06T00:00:00Z"), conferenceFound.getStartDate());
-      assertEquals(136, conferenceFound.getFeeRegistration().get());
+      assertEquals(Instant.parse("2022-05-31T00:00:00Z"), conferenceFound.getStartDate());
+
     } else {
       fail(new NullPointerException());
     }
@@ -53,9 +58,8 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testGetAllOnlineConferences() throws Exception {
 
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
     Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
     Iterator<Conference> iteratorConf = collectionConferences.iterator();
     while (iteratorConf.hasNext()) {
@@ -67,9 +71,8 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testConferenceToVEvent() throws Exception {
     VEvent conferenceVEvent;
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
     URL url = new URL("http://fruux.com");
     String city = "Paris";
     String country = "France";
@@ -107,9 +110,8 @@ public class TestCalendarOnlineNextcloud {
 
   @Test
   public void testAddOnlineConference() throws Exception {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
     LocalDate start = null;
     LocalDate end = null;
     try {
@@ -133,9 +135,8 @@ public class TestCalendarOnlineNextcloud {
 
   @Test
   public void testDelete() throws Exception {
-    CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(
+        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
     System.out.println(instanceCalendarOnline.getOnlineConferences());
     if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
