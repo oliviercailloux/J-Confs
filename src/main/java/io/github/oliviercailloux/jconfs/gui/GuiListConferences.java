@@ -301,8 +301,6 @@ public class GuiListConferences {
       setDateofConferences(dateEnd,
           LocalDate.ofInstant(conferenceSelected.getEndDate(), ZoneOffset.UTC));
 
-      System.out.println(conferenceSelected.getParticipants());
-
     }
   }
 

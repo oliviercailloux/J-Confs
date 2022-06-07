@@ -103,8 +103,8 @@ public class Conference {
     return this.uid;
   }
 
-  public Set getParticipants() {
-    return participants;
+  public String getParticipants() {
+    return participants.toString();
   }
 
   public boolean isConf() {
