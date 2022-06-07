@@ -219,6 +219,9 @@ public class Conference {
     }
 
     public ConferenceBuilder setParticipant(String oneParticipant) {
+      if (conferenceToBuild.participants.size() > 0) {
+        throw new IllegalStateException("Only one participant can attend a conference");
+      }
       this.conferenceToBuild.participants.add(Strings.nullToEmpty(oneParticipant));
       return this;
     }
