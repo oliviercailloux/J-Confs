@@ -7,7 +7,21 @@ import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.time.Instant;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for testing just one participant can attend a conference
+ * 
+ * @author Sarah & Mikhal
+ */
+
 public class NumberOfParticipantsTests {
+
+  /**
+   * The first test add one participant (Nathan) to the conference "Python". It respects the
+   * contract of the Conference class. The second doesn't respect it because it adds two
+   * participants (Sarah & Lea) for the same conference "UML".
+   * 
+   * @throws IllegalStateException iff more than one participant attend the same conference
+   */
 
   @Test
   public void testOneParticipant() {
