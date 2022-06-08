@@ -1,12 +1,13 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.time.Instant;
 import org.junit.jupiter.api.Test;
 
-public class TestNumberOfParticipants {
+public class NumberOfParticipantsTests {
 
   @Test
   public void testOneParticipant() {
@@ -21,6 +22,7 @@ public class TestNumberOfParticipants {
     conf1.setRegistrationFee(10);
     conf1.setParticipant("Nathan");
     Conference c1 = conf1.build();
+    assertEquals(c1.getParticipants(), "[Nathan]");
   }
 
   @Test
