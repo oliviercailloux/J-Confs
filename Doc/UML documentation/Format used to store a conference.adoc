@@ -52,3 +52,46 @@ The properties we saw above form an event. It is used combined with a string ("C
 Finally, the method saveIcsFile() allows to convert the Calendar object into an .ics file.
 This file allows to use the calendar (and therefore store a conference) online.
 
+
+== Structure of the ICS file
+
+Here is an example of an ICS file:
+
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+URL:http://www.conference-website.com/
+UID:9af1f750-ad5a-46c3-84a7-5b4da704548b
+DTSTAMP;VALUE=DATE:20220602
+CREATED;VALUE=DATE:20220530
+LAST-MODIFIED;VALUE=DATE:20220603
+SEQUENCE:1
+SUMMARY:Java lesson
+DTSTART;VALUE=DATE:20220611
+DTEND;VALUE=DATE:20220612
+DESCRIPTION:Fee : 22.60
+LOCATION:Toronto,Canada
+END:VEVENT
+END:VCALENDAR
+
+As you can see, the file uses the element of the PropertyList created with a conference.
+It begins with:
+BEGIN:VCALENDAR
+VERSION:2.0
+And finishes with:
+END:VCALENDAR
+
+
+The heart of the file is made of at least one event.
+An event begins with: 
+BEGIN:VEVENT
+And ends with:
+END:VEVENT
+If the file contains several conferences, each must be followed one another.
+
+Between those assertions, the file uses the element of the PropertyList we saw earlier.
+For the some fields, the structure is quite simple. It is the name of the property written in upper case letter.
+SUMMARY represents the Name property and URL the Urlz property.
+Dates are treated differently. The name of the date is followed by ;VALUE=DATE: and then the date. The date consists of the year followed by the month and the day (YYYYMMDD).
+
+
