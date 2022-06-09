@@ -17,10 +17,8 @@ public class NumberOfParticipantsTests {
 
   /**
    * The first test add one participant (Nathan) to the conference "Python". It respects the
-   * contract of the Conference class. The second doesn't respect it because it adds two
-   * participants (Sarah & Lea) for the same conference "UML".
+   * contract of the Conference class.
    * 
-   * @throws IllegalStateException iff more than one participant attend the same conference
    */
 
   @Test
@@ -39,8 +37,15 @@ public class NumberOfParticipantsTests {
     assertEquals(c1.getParticipants(), "[Nathan]");
   }
 
+  /**
+   * The second test doesn't respect the contract of the Conference class because it adds two
+   * participants (Sarah & Lea) for the same conference "UML".
+   * 
+   * @throws IllegalStateException iff more than one participant attend the same conference
+   */
+
   @Test
-  public void testThreeParticipants() {
+  public void testTwoParticipants() {
     ConferenceBuilder conf2 = new ConferenceBuilder();
     conf2.setTitle("UML");
     conf2.setCity("Madrid");
