@@ -30,16 +30,17 @@ public class TestCalendarOnlineFruux {
 
   // Introduce constant values for url, username,password and calendarId
   private final String lv_url = "dav.fruux.com";
-  private final String lv_username = "b3297393754";
-  private final String lv_password = "4pq8nzbhzugs";
-  private final String lv_calendarID = "8b3ff300-b8ce-4d85-a255-76ea3dff1338";
+  private final String lv_username = "b3297394371";
+  private final String lv_password = "g8tokd3q0hc2";
+  private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
 
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
         new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
-    String uidSearch = "0cf024cb-9dfd-4956-8076-a7c24a0ff8b6";
+    String uidSearch = "c44f7ea0-c1a4-45c4-94a7-7d0b16075b0c";
+
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
     if (potentialConference.isPresent()) {
@@ -48,7 +49,7 @@ public class TestCalendarOnlineFruux {
       assertEquals(uidSearch, conferenceFound.getUid());
       assertEquals("Paris", conferenceFound.getCity());
       assertEquals("France", conferenceFound.getCountry());
-      assertEquals(Instant.parse("2019-08-06T00:00:00Z"), conferenceFound.getStartDate());
+      assertEquals(Instant.parse("2022-05-31T00:00:00Z"), conferenceFound.getStartDate());
       assertEquals(136, conferenceFound.getFeeRegistration().get());
     } else {
       fail(new NullPointerException());

@@ -4,7 +4,7 @@ Our main focus for this project this year is to print fruux conferences. You can
 https://github.com/oliviercailloux-org/projet-j-confs/blob/br12/Doc/Papyrus/Diagrams/Print_Fruux_Conferences.SVG[Use Case Diagram]
 
 
-See: https://github.com/oliviercailloux/J-Confs/blob/master/Doc/TODO.adoc[TODO’s].
+See: https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/TODO.adoc[TODO’s].
 
 == Links to specific package documentation
 
@@ -21,10 +21,9 @@ Our project contains 7 packages :
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Document.adoc[Document package]
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Map.adoc[Map package]
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location package]
-* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/UML%20documentation/Format%20used%20to%20store%20a%20conference.adoc[Format used to store a conference]
 
-Link to a documentation explains the relationships between the Evolution application, the Fruux website, and the J-Confs softsware
+== Links to other documentations
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
-
-Link to a documentation explaining how to store programmatically a location in a calendar entry
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Store_a_location.adoc[Store a location]
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/UML%20documentation/Format%20used%20to%20store%20a%20conference.adoc[Format used to store a conference]
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Prequisities%20CalendarOnline.adoc[Prerequisities CalendarOnline]

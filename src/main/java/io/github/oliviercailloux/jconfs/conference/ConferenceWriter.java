@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
@@ -18,6 +19,7 @@ import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 import net.fortuna.ical4j.model.component.XComponent;
+import net.fortuna.ical4j.model.property.Attendee;
 import net.fortuna.ical4j.model.property.Created;
 import net.fortuna.ical4j.model.property.Description;
 import net.fortuna.ical4j.model.property.DtEnd;
@@ -114,6 +116,12 @@ public class ConferenceWriter {
     if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
       location = new Location(conference.getCity() + "," + conference.getCountry());
       propertyList.add(location);
+    }
+    if (!(conference.getParticipants().isEmpty())) {
+      String attendee = conference.getParticipants();
+      Attendee participant =
+          new Attendee(URI.create(attendee.substring(1, (attendee.length() - 1))));
+      propertyList.add(participant);
     }
     propertyList.add(startDate);
     propertyList.add(endDate);
