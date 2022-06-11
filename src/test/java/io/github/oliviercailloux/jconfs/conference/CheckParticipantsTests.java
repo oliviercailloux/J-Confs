@@ -51,6 +51,13 @@ public class CheckParticipantsTests {
     assertEquals(c1.getParticipants(), "[Nathan]");
   }
 
+  /**
+   * This test is used to check if the participant has been correctly added to the online Calendar.
+   * 
+   * @author Julien and Saidaniyaa
+   * 
+   */
+  
   @Test
   public void testPaticipantOnlineCalendar()
       throws MalformedURLException, CalDAV4JException, URISyntaxException {
