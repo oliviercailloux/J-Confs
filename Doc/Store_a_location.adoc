@@ -13,8 +13,6 @@ The API will take the name of the place and will give us lots of informations in
 Then, this list is converted to a list of String. Afterward, with the method TransformeToAddressArray(), we save the name, the latitude and the longitude in an Address object, that we add to the Address List.
 
 * The Address object will store the location in three constants :
-**address,
-**latitude,
-**longitude.
-
-
+..address,
+..latitude,
+..longitude.
