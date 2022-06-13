@@ -86,7 +86,7 @@ public class GuiListConferences {
     groupListConf.setLayout(gridLayout);
     listConferences =
         new org.eclipse.swt.widgets.List(shell, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
-    this.getConferences(this.myAuth);
+    this.getConferences();
     GridData gridDatalist = new GridData();
     gridDatalist.grabExcessHorizontalSpace = true;
     gridDatalist.grabExcessVerticalSpace = true;
