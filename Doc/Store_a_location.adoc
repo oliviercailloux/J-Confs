@@ -1,0 +1,18 @@
+= Store programmatically a location in a calendar entry
+
+In addition to the city and the country, you can also save the exact place of a conference in your calendar.
+This documentation will inform you how to store programatically a location in a calendar entry. Based on these 2 classes (https://github.com/oliviercailloux-org/projet-j-confs/blob/main/src/main/java/io/github/oliviercailloux/jconfs/location/Address.java[Adress.java] and https://github.com/oliviercailloux-org/projet-j-confs/blob/main/src/main/java/io/github/oliviercailloux/jconfs/location/AddressQuerier.java[AddressQuerier.java]), we will see how.
+
+* In the Calendar file, the location is stored in the "GEO" property that can be specified in Vevent calendar components. It is a float property that save the latitude and the longitude of a place.
+It must be in this format :  "GEO:latitude;longitude"
+The coordinates can have a plus (+) or minus (-) sign in order to indicate the direction, and can be precise upto six decimals.
+Example : GEO:12.345678;-98.765432
+
+* In order to have the cooridnates of a place, we will use the class AddressQuerier that will establish a connection with an API.
+The API will take the name of the place and will give us lots of informations in a List of Objects, as the full adress, the city, the neighborhood or the coordinates.
+Then, this list is converted to a list of String. Afterward, with the method TransformeToAddressArray(), we save the name, the latitude and the longitude in an Address object, that we add to the Address List.
+
+* The Address object will store the location in three constants :
+** address,
+** latitude,
+** longitude.
