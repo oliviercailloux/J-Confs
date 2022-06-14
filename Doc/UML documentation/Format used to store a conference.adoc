@@ -54,18 +54,15 @@ This file allows to use the calendar (and therefore store a conference) online.
 
 
 == Structure of the ICS file
-
-Here is an example of an ICS file:
+Once the .ics file is downloaded, we can read it on multiple software like Outlook or Evolution.
+It can be also be opened on a text editor.
+Here is an example of an ICS file created with J-Confs :
 
 BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 URL:http://www.conference-website.com/
 UID:9af1f750-ad5a-46c3-84a7-5b4da704548b
-DTSTAMP;VALUE=DATE:20220602
-CREATED;VALUE=DATE:20220530
-LAST-MODIFIED;VALUE=DATE:20220603
-SEQUENCE:1
 SUMMARY:Java lesson
 DTSTART;VALUE=DATE:20220611
 DTEND;VALUE=DATE:20220612
@@ -90,8 +87,27 @@ END:VEVENT
 If the file contains several conferences, each must be followed one another.
 
 Between those assertions, the file uses the element of the PropertyList we saw earlier.
-For the some fields, the structure is quite simple. It is the name of the property written in upper case letter.
+For the some fields, the structure is quite simple. It is the name of the property written in upper case letter followed by its value.
 SUMMARY represents the Name property and URL the Urlz property.
-Dates are treated differently. The name of the date is followed by ;VALUE=DATE: and then the date. The date consists of the year followed by the month and the day (YYYYMMDD).
+Dates are treated differently. The date consists of the year followed by the month and the day (YYYYMMDD).
 
+It is important to mention that different fields can be added in iCalendar.
+For example, we can use the properties corresponding to the bullet points 1 to 4 of the previous section. They are written as follow:
 
+DTSTAMP;VALUE=DATE:20220602
+CREATED;VALUE=DATE:20220530
+LAST-MODIFIED;VALUE=DATE:20220603
+SEQUENCE:1
+
+As we saw earlier, they provide information about the possible altering a conference has undergone.
+
+It is important to mention, that each field can be specified by different type of value. In our case, dates are our perfect example. Indeed, there are several ways to write a date: 
+ - We can use a date combined with an precise hour. It would be written as: DTSTART:202206101T163000Z. The first part being the day of the event and the second part displaying the hour at the UTC time zone.
+ - Or we can only specify the date of the beginning or end of an event (as done in this project). To do so, the field of a date contains ";VALUE=DATE:". Then hour doesn't matter.
+
+Besides those points, it is possible to store further indications.
+
+For example, we can add a participant of an event/conference. It can be done with the fields attendees, which we are currently working on. It gives:
+ATTENDEE:NameOfTheParticipant
+To go deeper into this field, different value can be filled. The participant can be specified with his email adress.
+ATTENDEE;CN=Rayan Moussi:mailto:rayan.moussi@dauphine.eu.
