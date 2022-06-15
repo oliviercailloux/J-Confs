@@ -4,9 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
+import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
+import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -27,13 +31,14 @@ import org.junit.jupiter.api.Test;
 
 public class TestCalendarOnlineNextcloud {
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
+  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials_Nextcloud.txt"));
+  static ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     String uidSearch = "4936861f-c1db-4059-82a2-2c1e421ad5fa";
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
@@ -54,8 +59,7 @@ public class TestCalendarOnlineNextcloud {
   public void testGetAllOnlineConferences() throws Exception {
 
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
     Iterator<Conference> iteratorConf = collectionConferences.iterator();
     while (iteratorConf.hasNext()) {
@@ -68,8 +72,7 @@ public class TestCalendarOnlineNextcloud {
   public void testConferenceToVEvent() throws Exception {
     VEvent conferenceVEvent;
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     URL url = new URL("http://fruux.com");
     String city = "Paris";
     String country = "France";
@@ -108,8 +111,7 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testAddOnlineConference() throws Exception {
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     LocalDate start = null;
     LocalDate end = null;
     try {
@@ -134,8 +136,7 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testDelete() throws Exception {
     CalendarOnline instanceCalendarOnline =
-        new CalendarOnline(new CalDavCalendarGeneric("us.cloudamo.com",
-            "sebastien.bourg@dauphine.eu", "600bec84476fb1", "b", "/remote.php/dav"));
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
     System.out.println(instanceCalendarOnline.getOnlineConferences());
     if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
