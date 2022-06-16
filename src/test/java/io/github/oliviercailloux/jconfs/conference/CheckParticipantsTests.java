@@ -10,7 +10,8 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.Instant;
-import java.util.Optional;
+import net.fortuna.ical4j.model.Property;
+import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 import org.junit.jupiter.api.Test;
 
@@ -57,11 +58,12 @@ public class CheckParticipantsTests {
    * @author Julien and Saidaniyaa
    * 
    */
-  
+
   @Test
   public void testPaticipantOnlineCalendar()
       throws MalformedURLException, CalDAV4JException, URISyntaxException {
 
+    VEvent confVEvent;
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
         new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
     URL url = new URL("http://fruux.com");
@@ -79,10 +81,18 @@ public class CheckParticipantsTests {
     conf1.setParticipant("Nathan");
     Conference c1 = conf1.build();
     instanceCalendarOnline.addOnlineConference(c1);
-    Optional<Conference> confTest = instanceCalendarOnline.getConferenceFromUid(uidpr);
-    Conference confCheck = confTest.get();
-    System.out.println(confCheck.toString());
-    assertEquals("[Nathan]", confCheck.getParticipants());
+
+    confVEvent = instanceCalendarOnline.conferenceToVEvent(c1);
+
+    assertEquals(confVEvent.getProperty(Property.SUMMARY).getValue(), c1.getTitle());
+    assertEquals(confVEvent.getProperty(Property.ATTENDEE).getValue(),
+        c1.getParticipants().substring(1, c1.getParticipants().length() - 1)); // c1.getParticipants()
+                                                                               // returns a hashlist
+                                                                               // in the form of a
+                                                                               // string, so it is
+                                                                               // "[Nathan]". We
+                                                                               // want to delete the
+                                                                               // brackets.
 
   }
 }
