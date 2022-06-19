@@ -18,7 +18,7 @@ GEO:48.870170;2.274228
 END:VEVENT
 END:VCALENDAR
 
-*We processed as follow:
+* We processed as follow:
 ** We import the file on the software
 ** We open the event at the date of June 11th.
 ** We check whether we can read the GPS coordinates on the event.
