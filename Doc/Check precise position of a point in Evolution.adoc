@@ -18,19 +18,19 @@ GEO:48.870170;2.274228
 END:VEVENT
 END:VCALENDAR
 
-.We processed as follow:
-. We import the file on the software
-. We open the event at the date of June 11th.
-. We check whether we can read the GPS coordinates on the event.
+*We processed as follow:
+** We import the file on the software
+** We open the event at the date of June 11th.
+** We check whether we can read the GPS coordinates on the event.
  
 In every cases, we weren't able to read them. In fact, every time only Paris (the Location attribute) was displayed.+
 To go a bit further, we decided to change the .ics file by omitting the Location attribute. With that change, the GEO attribute was the only property describing a location. We thought it could change the result.+
 Unfortunately, the outcome was not the one we were looking for. The field place of the event showed nothing.
 
 
-Therefore, we conducted an investigation on Outlook.+
-We started by importing the file once again.+
-Immediately after, we tried to export this file. We wanted to make sure that the GEO property was still in the downloaded file. +
+Therefore, we conducted an investigation on Outlook.
+We started by importing the file once again.
+Immediately after, we tried to export this file. We wanted to make sure that the GEO property was still in the downloaded file.
 However, it was not the case. We conclude that Outlook couldn't store the GEO property.
 
 On Mozilla Thunderbird, we tried to create an event.+
