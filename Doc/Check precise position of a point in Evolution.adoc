@@ -23,28 +23,28 @@ END:VCALENDAR
 ** We open the event at the date of June 11th.
 ** We check whether we can read the GPS coordinates on the event.
  
-In every cases, we weren't able to read them. In fact, every time only Paris (the Location attribute) was displayed.+
-To go a bit further, we decided to change the .ics file by omitting the Location attribute. With that change, the GEO attribute was the only property describing a location. We thought it could change the result.+
+In every cases, we weren't able to read them. In fact, every time only Paris (the Location attribute) was displayed. +
+To go a bit further, we decided to change the .ics file by omitting the Location attribute. With that change, the GEO attribute was the only property describing a location. We thought it could change the result. +
 Unfortunately, the outcome was not the one we were looking for. The field place of the event showed nothing.
 
 
-Therefore, we conducted an investigation on Outlook.
-We started by importing the file once again.
-Immediately after, we tried to export this file. We wanted to make sure that the GEO property was still in the downloaded file.
+Therefore, we conducted an investigation on Outlook. +
+We started by importing the file once again. +
+Immediately after, we tried to export this file. We wanted to make sure that the GEO property was still in the downloaded file. +
 However, it was not the case. We conclude that Outlook couldn't store the GEO property.
 
-On Mozilla Thunderbird, we tried to create an event.+
-We fullfilled every proposed field. For the location one, we wrote a "real" address. We hoped that this address would be transformed as GPS coordinates.+
+On Mozilla Thunderbird, we tried to create an event. +
+We fullfilled every proposed field. For the location one, we wrote a "real" address. We hoped that this address would be transformed as GPS coordinates. +
 Of course, it was not the case.
 
-The last option we saw was to try something else on Google Agenda.+
-To do so, we created an event on that software. In the Location field, we tried to enter the location of the University. We enter the name and Google proposed the right name of the location.+
+The last option we saw was to try something else on Google Agenda. +
+To do so, we created an event on that software. In the Location field, we tried to enter the location of the University. We enter the name and Google proposed the right name of the location. +
 Once again, we exported the event and we saw that only the property location was displayed in the ics file.
 
-Finally, we tried to enter directly GPS coordinates of the university in the location field.+
+Finally, we tried to enter directly GPS coordinates of the university in the location field. +
 We exported the event as an ics file. The GPS coordinates were visible but written in the location property. +
 The coordinates we entered were : 48.870142, 2.274190. It is exactly what was displayed in the location property.
 
 
-After conducting those previous tests, we decided to conclude.+
+After conducting those previous tests, we decided to conclude. +
 It is not possible to store the GEO property with Evolution, Outlook, Thunderbird or Google Agenda.
