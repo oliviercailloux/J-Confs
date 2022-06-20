@@ -34,6 +34,12 @@ public class TestCalendarOnlineNextcloud {
   static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Nextcloud.txt"));
   static ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
+  private final String lv_url = "nch.pl";
+  private final String lv_username = "JAVA_PROJECT";
+  private final String lv_password = "Azert2022&&";
+  private final String lv_calendarID = "projet_j-conf";
+  private final String lv_postUrl = "/remote.php/dav";
+
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
@@ -134,6 +140,7 @@ public class TestCalendarOnlineNextcloud {
 
   @Test
   public void testDelete() throws Exception {
+
     CalendarOnline instanceCalendarOnline =
         new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
