@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 public class TestCalendarOnlineFruux {
 
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
-  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials_Fruux.txt"));
+  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Fruux.txt"));
   static ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
   @Test

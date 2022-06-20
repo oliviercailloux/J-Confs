@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestCalendarOnlineNextcloud {
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
-  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials_Nextcloud.txt"));
+  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Nextcloud.txt"));
   static ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
   @Test
