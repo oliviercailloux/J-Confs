@@ -44,7 +44,6 @@ public class ConferenceWriter {
    * @throws IOException
    * @throws ParserException
    */
-
   private static Calendar openCalendar(String calFile) throws IOException, ParserException {
     Objects.requireNonNull(calFile);
     URL urlcalendar = ConferenceWriter.class.getResource(calFile + ".ics");

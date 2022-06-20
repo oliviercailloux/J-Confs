@@ -214,7 +214,6 @@ public class GuiListConferences {
 
     for (Conference conf : this.listConferencesUser) {
       listConferences.add(conf.getTitle());
-
     }
   }
 
@@ -391,9 +390,7 @@ public class GuiListConferences {
         .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setCity(txtCity.getText()).setCountry(txtCountry.getText());
-    if (url)
-
-    {
+    if (url) {
       URL urlConference;
       try {
         urlConference = new URL(txtUrl.getText());
