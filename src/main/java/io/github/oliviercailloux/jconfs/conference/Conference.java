@@ -3,6 +3,7 @@ package io.github.oliviercailloux.jconfs.conference;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jconfs.location.Address;
 import io.github.oliviercailloux.jconfs.location.AddressQuerier;
 import java.net.URL;
@@ -31,7 +32,7 @@ public class Conference {
   private String country;
   private String city;
   private Set<String> participants;
-  private Optional<Address> address;
+  private Address address;
 
   /**
    * This is a constructor which initializes the conference object
@@ -46,15 +47,17 @@ public class Conference {
    * @param city
    * @param participants
    * @param adresse
+   * @throws InterruptedException 
+   * @throws ApiException 
    */
-  private Conference() {
+  private Conference() throws ApiException, InterruptedException {
     this.uid = "";
     this.url = Optional.empty();
     this.registrationFee = Optional.empty();
     this.country = "";
     this.city = "";
     this.participants = new HashSet<String>();
-    this.address = Optional.empty() ;
+    this.address = AddressQuerier.given("").getAddressFound().get(0) ;
   }
 
   public Optional<URL> getUrl() {
@@ -114,8 +117,8 @@ public class Conference {
     return participants.toString();
   }
   
-  public Optional<Address> getAddress() {
-    return address;
+  public Address getAddress() {
+    return this.address ;
   }
 
   public boolean isConf() {
@@ -133,7 +136,9 @@ public class Conference {
       if (title.equals(conference2.title) && url.equals(conference2.url)
           && startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
           && registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
-          && country.equals(conference2.country) && participants.equals(conference2.participants)) {
+          && country.equals(conference2.country) && participants.equals(conference2.participants)
+          && address.getLongitude().equals(conference2.address.getLongitude()) 
+          && address.getLatitude().equals(conference2.address.getLatitude())) {
         return true;
       }
     }
@@ -150,18 +155,18 @@ public class Conference {
   public String toString() {
     return MoreObjects.toStringHelper(this).add("UID", uid).add("url", url).add("title", title)
         .add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
-        .add("country", country).add("city", city).add("participants", participants).toString()
-        .add("address",address).toString();
+        .add("address", address.getAddress()).add("country", country).add("city", city)
+        .add("participants", participants).toString();
   }
 
   public static class ConferenceBuilder {
     private Conference conferenceToBuild;
 
-    public ConferenceBuilder() {
+    public ConferenceBuilder() throws ApiException, InterruptedException {
       conferenceToBuild = new Conference();
     }
 
-    public Conference build() {
+    public Conference build() throws ApiException, InterruptedException {
       Conference builtConference = conferenceToBuild;
       conferenceToBuild = new Conference();
       if (builtConference.uid.isEmpty())
@@ -238,10 +243,9 @@ public class Conference {
       return this;
     }
     
-    public ConferenceBuilder setAddress(String location) {
+    public ConferenceBuilder setAddress(String location) throws ApiException, InterruptedException {
       Preconditions.checkNotNull(location);
-      AddressQuerier t = AddressQuerier.given(location);
-      this.conferenceToBuild.address = t.getAddressFound().get(0);
+      this.conferenceToBuild.address = AddressQuerier.given(location).getAddressFound().get(0);
       return this;
     }
     
