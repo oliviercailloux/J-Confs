@@ -9,6 +9,7 @@ In order for the reader to be able to perform the modification tests of a calend
 _identifier_: julien.haderer@dauphine.eu +
 _password_ : azerty2022 +
 _calendar_ : TestCalendar + 
+_website_ : https://fruux.com/ +
 *Evolution* +
 Any account but connected to the Fruux calendar with these username and password +
 _username_ : b3297394371 +
