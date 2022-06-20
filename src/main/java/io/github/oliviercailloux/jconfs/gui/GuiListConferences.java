@@ -405,7 +405,7 @@ public class GuiListConferences {
     }
 
     if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
-      theBuild.setParticipant(txtPresence.getText());
+      theBuild.addParticipant(txtPresence.getText());
     }
 
     Conference newConference = theBuild.build();
@@ -423,7 +423,7 @@ public class GuiListConferences {
           while (it2.hasNext()) {
             String part = it2.next();
             if (part != "") {
-              theBuild2 = theBuild2.setParticipant(part);
+              theBuild2 = theBuild2.addParticipant(part);
             }
           }
         }
@@ -440,9 +440,7 @@ public class GuiListConferences {
         .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setCity(txtCity.getText()).setCountry(txtCountry.getText());
-    if (url)
-
-    {
+    if (url) {
       URL urlConference;
       try {
         urlConference = new URL(txtUrl.getText());
@@ -456,9 +454,9 @@ public class GuiListConferences {
       theBuild2 = theBuild2.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
     }
     if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
-      theBuild2.setParticipant(txtPresence.getText());
+      theBuild2.addParticipant(txtPresence.getText());
     } else {
-      theBuild2.setNoParticipant();
+      theBuild2.removeParticipant();
     }
 
     finalConference = theBuild2.build();

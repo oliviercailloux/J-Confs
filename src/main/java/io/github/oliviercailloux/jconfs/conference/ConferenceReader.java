@@ -89,7 +89,7 @@ public class ConferenceReader {
       PropertyList<Property> participants = confCompo.getProperties("ATTENDEE");
       for (Property oneParticipant : participants) {
         participant = oneParticipant.getValue();
-        theBuild.setParticipant(participant);
+        theBuild.addParticipant(participant);
       }
     }
 

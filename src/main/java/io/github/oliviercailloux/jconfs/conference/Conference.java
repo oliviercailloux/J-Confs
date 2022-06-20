@@ -221,12 +221,12 @@ public class Conference {
       return this;
     }
 
-    public ConferenceBuilder setParticipant(String oneParticipant) {
+    public ConferenceBuilder addParticipant(String oneParticipant) {
       this.conferenceToBuild.participants.add(Strings.nullToEmpty(oneParticipant));
       return this;
     }
 
-    public ConferenceBuilder setNoParticipant() {
+    public ConferenceBuilder removeParticipant() {
       this.conferenceToBuild.participants = new HashSet<String>();
       return this;
     }
