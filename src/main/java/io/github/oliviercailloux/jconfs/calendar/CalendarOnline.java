@@ -4,6 +4,7 @@ import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.github.caldav4j.model.request.CalendarQuery;
 import com.github.caldav4j.util.GenerateQuery;
 import com.github.caldav4j.util.ICalendarUtils;
+import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
 import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
@@ -87,7 +88,7 @@ public class CalendarOnline {
   public VEvent conferenceToVEvent(Conference conferenceEdited) throws URISyntaxException {
     VEvent vEventConference;
     PropertyList<Property> propertyListVevent = new PropertyList<>();
-    if (this.connector.url.contains("fruux")) {
+    if (this.connector.myAuth.get(FruuxKeysCredential.API_URL).contains("fruux")) {
       propertyListVevent = ConferenceWriter.conferenceToPropertyFruux(conferenceEdited);
     } else {
       propertyListVevent = ConferenceWriter.conferenceToProperty(conferenceEdited);

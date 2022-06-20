@@ -22,7 +22,7 @@ public class JARiS {
 	public ImmutableCompleteMap<FruuxKeysCredential, String> editFruuxKeys() {
 
 
-		reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials.txt"));
+		reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Fruux.txt"));
 		myAuth = reader.getCredentials();
 		return myAuth;
 
