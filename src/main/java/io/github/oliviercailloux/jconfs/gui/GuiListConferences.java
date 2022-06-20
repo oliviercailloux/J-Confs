@@ -320,7 +320,7 @@ public class GuiListConferences {
   }
 
   public static void main(String[] args) throws Exception {
-    CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("../API_Credentials_Fruux.txt"));
+    CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Fruux.txt"));
     ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
     new GuiListConferences().gui(new Display(),Auth);
