@@ -1,6 +1,6 @@
-= Evolution, fruux and J-Confs
+= Evolution, fruux, NextCloud and J-Confs
 
-The purpose of this file is to document the use of Evolution and J-Confs in relation to Fruux, i.e. to explain which manipulations 
+The purpose of this file is to document the use of Evolution and J-Confs in relation to Fruux and NextCloud, i.e. to explain which manipulations 
 are possible on a Fruux calendar, either from the Evolution application or from the J-Confs software. +
 It is also a question of explaining the synchronization relationships between Evolution and J-Confs. In other words, will a modification made in Evolution be visible in J-Confs and vice versa?
 
@@ -16,7 +16,12 @@ _password_ : g8tokd3q0hc2 +
 *J-Confs* +
 In the instance variables, same username and password as above and connect to the Fruux TestCalendar by his login +
 _calendarID_ : 548d1281-4843-4582-8d68-aee8fe0c45da +
-
+*NextCloud* +
+_username_ : JAVA_PROJECT +
+_password_ : Azert2022&& +
+_calendarID_ : projet_j-conf +
+_website_ : https://nch.pl/login +
+NB : We used a free access provider to the nexcloud software, which is nch. 
  
 ==== Evolution and J-Confs compared to Fruux
 
