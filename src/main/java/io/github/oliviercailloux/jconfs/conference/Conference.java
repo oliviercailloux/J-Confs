@@ -3,9 +3,13 @@ package io.github.oliviercailloux.jconfs.conference;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import io.github.oliviercailloux.jconfs.location.Address;
+import io.github.oliviercailloux.jconfs.location.AddressQuerier;
 import java.net.URL;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -27,6 +31,7 @@ public class Conference {
   private String country;
   private String city;
   private Set<String> participants;
+  private Optional<Address> address;
 
   /**
    * This is a constructor which initializes the conference object
@@ -40,6 +45,7 @@ public class Conference {
    * @param country
    * @param city
    * @param participants
+   * @param adresse
    */
   private Conference() {
     this.uid = "";
@@ -48,6 +54,7 @@ public class Conference {
     this.country = "";
     this.city = "";
     this.participants = new HashSet<String>();
+    this.address = Optional.empty() ;
   }
 
   public Optional<URL> getUrl() {
@@ -106,6 +113,10 @@ public class Conference {
   public String getParticipants() {
     return participants.toString();
   }
+  
+  public Optional<Address> getAddress() {
+    return address;
+  }
 
   public boolean isConf() {
     Preconditions.checkNotNull(this.title);
@@ -132,14 +143,15 @@ public class Conference {
   @Override
   public int hashCode() {
     return Objects.hash(url, title, registrationFee, startDate, endDate, country, city,
-        participants);
+        participants, address);
   }
 
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this).add("UID", uid).add("url", url).add("title", title)
         .add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
-        .add("country", country).add("city", city).add("participants", participants).toString();
+        .add("country", country).add("city", city).add("participants", participants).toString()
+        .add("address",address).toString();
   }
 
   public static class ConferenceBuilder {
@@ -225,5 +237,13 @@ public class Conference {
       this.conferenceToBuild.participants.add(Strings.nullToEmpty(oneParticipant));
       return this;
     }
+    
+    public ConferenceBuilder setAddress(String location) {
+      Preconditions.checkNotNull(location);
+      AddressQuerier t = AddressQuerier.given(location);
+      this.conferenceToBuild.address = t.getAddressFound().get(0);
+      return this;
+    }
+    
   }
 }
