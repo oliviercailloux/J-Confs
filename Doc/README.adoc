@@ -23,6 +23,6 @@ Our project contains 7 packages :
 * https://github.com/sebastienbourg/J-Confs/blob/master/Doc/UML%20documentation/Location.adoc[Location package]
 
 == Links to other documentations
-* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
-* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/UML%20documentation/Format%20used%20to%20store%20a%20conference.adoc[Format used to store a conference]
-* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Prequisities%20CalendarOnline.adoc[Prerequisities CalendarOnline]
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Specific%20documentation/Evolution%2C%20fruux%20and%20J-Confs.adoc[Documentation about J-Confs, Evolution & Fruux]
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Specific%20documentation/Format%20used%20to%20store%20a%20conference.adoc[Format used to store a conference]
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Specific%20documentation/Prequisities%20CalendarOnline.adoc[Prerequisities CalendarOnline]
