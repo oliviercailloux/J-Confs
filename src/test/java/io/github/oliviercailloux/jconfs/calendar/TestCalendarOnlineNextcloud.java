@@ -39,7 +39,7 @@ public class TestCalendarOnlineNextcloud {
 
     CalendarOnline instanceCalendarOnline =
         new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
-    String uidSearch = "4936861f-c1db-4059-82a2-2c1e421ad5fa";
+    String uidSearch = "b0672b91-af89-491f-92be-9e0032828413";
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
     if (potentialConference.isPresent()) {
@@ -48,8 +48,7 @@ public class TestCalendarOnlineNextcloud {
       assertEquals(uidSearch, conferenceFound.getUid());
       assertEquals("Paris", conferenceFound.getCity());
       assertEquals("France", conferenceFound.getCountry());
-      assertEquals(Instant.parse("2019-08-06T00:00:00Z"), conferenceFound.getStartDate());
-      assertEquals(136, conferenceFound.getFeeRegistration().get());
+      assertEquals(Instant.parse("2022-05-31T00:00:00Z"), conferenceFound.getStartDate());
     } else {
       fail(new NullPointerException());
     }
