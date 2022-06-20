@@ -19,7 +19,9 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import net.fortuna.ical4j.data.ParserException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -313,9 +315,6 @@ public class GuiListConferences {
    */
   public void editConference(@SuppressWarnings("unused") Event e) throws Exception {
     if (isAllFieldsValid()) {
-      if (listConferences.getSelectionIndex() >= 0) {
-        removeConference();
-      }
       addConference(!(Strings.isNullOrEmpty(txtUrl.getText())),
           !(Strings.isNullOrEmpty(txtRegisFee.getText())));
       listConferences.removeAll();
@@ -375,8 +374,13 @@ public class GuiListConferences {
    * 
    * @param url boolean : true if an url is informed
    * @param fees boolean : true if a fee is informed
+   * @throws MalformedURLException
+   * @throws CalDAV4JException
    */
-  public void addConference(boolean url, boolean fees) {
+  public void addConference(boolean url, boolean fees)
+      throws MalformedURLException, CalDAV4JException {
+    boolean isUpdate = false;
+    Conference finalConference;
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
         new CalDavCalendarGeneric(this.myAuth, ""));
     LocalDate localDateStart =
@@ -387,9 +391,7 @@ public class GuiListConferences {
     theBuild = theBuild.setTitle(txtTitle.getText())
         .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
-        .setCity(txtCity.getText()).setCountry(txtCountry.getText())
-        .setParticipant(txtPresence.getText());
-
+        .setCity(txtCity.getText()).setCountry(txtCountry.getText());
     if (url) {
       URL urlConference;
       try {
@@ -403,13 +405,72 @@ public class GuiListConferences {
     if (fees) {
       theBuild = theBuild.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
     }
+
+    if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
+      theBuild.addParticipant(txtPresence.getText());
+    }
+
     Conference newConference = theBuild.build();
+
+    ConferenceBuilder theBuild2 = new ConferenceBuilder();
+
     try {
-      instanceCalendarOnline.addOnlineConference(newConference);
-    } catch (CalDAV4JException | URISyntaxException e) {
+
+      for (Conference conf : this.listConferencesUser) {
+        if (conf.equals(newConference)) {
+          isUpdate = true;
+          theBuild2 = theBuild2.setUid(conf.getUid());
+          Set<String> alreadyParticipants = conf.getParticipantsSet();
+          Iterator<String> it2 = alreadyParticipants.iterator();
+          while (it2.hasNext()) {
+            String part = it2.next();
+            if (part != "") {
+              theBuild2 = theBuild2.addParticipant(part);
+            }
+          }
+        }
+
+      }
+
+    } catch (
+
+    IllegalStateException e) {
       throw new IllegalStateException(e);
     }
 
+    theBuild2 = theBuild2.setTitle(txtTitle.getText())
+        .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setCity(txtCity.getText()).setCountry(txtCountry.getText());
+    if (url) {
+      URL urlConference;
+      try {
+        urlConference = new URL(txtUrl.getText());
+      } catch (MalformedURLException e1) {
+        throw new IllegalStateException(e1);
+      }
+      theBuild2 = theBuild2.setUrl(urlConference);
+    }
+
+    if (fees) {
+      theBuild2 = theBuild2.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
+    }
+    if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
+      theBuild2.addParticipant(txtPresence.getText());
+    } else {
+      theBuild2.removeParticipant();
+    }
+
+    finalConference = theBuild2.build();
+    try {
+      if (isUpdate) {
+        instanceCalendarOnline.editConferenceOnline(finalConference);
+      } else {
+        instanceCalendarOnline.addOnlineConference(finalConference);
+      }
+    } catch (CalDAV4JException | URISyntaxException e) {
+      throw new IllegalStateException(e);
+    }
   }
 
   /**
