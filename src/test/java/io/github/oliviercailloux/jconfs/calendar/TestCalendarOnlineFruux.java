@@ -38,18 +38,18 @@ public class TestCalendarOnlineFruux {
   public void testGetOnlineConferenceFromUid() throws Exception {
 
     CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric(Auth, ""));
-    String uidSearch = "c44f7ea0-c1a4-45c4-94a7-7d0b16075b0c";
+    String uidSearch = "778b0882-3f52-4353-8f44-cc715bf0a9ce";
 
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
     if (potentialConference.isPresent()) {
       Conference conferenceFound = potentialConference.get();
-      assertEquals("Java formation", conferenceFound.getTitle());
+      assertEquals("Soutenance", conferenceFound.getTitle());
       assertEquals(uidSearch, conferenceFound.getUid());
       assertEquals("Paris", conferenceFound.getCity());
       assertEquals("France", conferenceFound.getCountry());
-      assertEquals(Instant.parse("2022-05-31T00:00:00Z"), conferenceFound.getStartDate());
-      assertEquals(136, conferenceFound.getFeeRegistration().get());
+      assertEquals(Instant.parse("2022-07-04T00:00:00Z"), conferenceFound.getStartDate());
+      assertEquals(10, conferenceFound.getFeeRegistration().get());
     } else {
       fail(new NullPointerException());
     }
