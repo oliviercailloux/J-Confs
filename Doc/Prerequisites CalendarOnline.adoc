@@ -24,7 +24,7 @@ The CalDav4j library has been chosen in order to allow these exchanges, it inclu
 - The "location" property contains the name of the city followed by the name of the country (fields separated by a comma) of the conference.
 - The "summary" property contains the title of the event.
 
-	* At the root of the project, it is necessary to create a document with the name "API_Credentials_SoftwareName.txt" in order to be able to connect the project with the different softwares via JARiS. It must contain those elements in this particular order:
+	* At the root of the project, it is necessary to create a document with the name "API_Credentials_SoftwareName.txt" in order to be able to connect the project with the different softwares via JARiS. It must contain those elements in this particular order: +
 Username +
 Password +
 Url +
