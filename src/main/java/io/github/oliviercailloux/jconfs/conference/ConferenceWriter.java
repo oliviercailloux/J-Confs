@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Objects;
+import java.util.Set;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.data.ParserException;
@@ -118,10 +119,13 @@ public class ConferenceWriter {
       propertyList.add(location);
     }
     if (!(conference.getParticipants().isEmpty())) {
-      String attendee = conference.getParticipants();
-      Attendee participant =
-          new Attendee(URI.create(attendee.substring(1, (attendee.length() - 1))));
-      propertyList.add(participant);
+
+      Set<String> it2 = conference.getParticipantsSet();
+      for (String parti : it2) {
+        String attendee = parti;
+        Attendee participant = new Attendee(URI.create(attendee.substring(0, (attendee.length()))));
+        propertyList.add(participant);
+      }
     }
     propertyList.add(startDate);
     propertyList.add(endDate);
@@ -172,6 +176,12 @@ public class ConferenceWriter {
     if (conference.getUrl().isPresent()) {
       urlz = new Url(conference.getUrl().get().toURI());
       propertyList.add(urlz);
+    }
+    if (!(conference.getParticipants().isEmpty())) {
+      String attendee = conference.getParticipants();
+      Attendee participant =
+          new Attendee(URI.create(attendee.substring(1, (attendee.length() - 1))));
+      propertyList.add(participant);
     }
 
     return propertyList;
