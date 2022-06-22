@@ -125,9 +125,11 @@ public class ConferenceReader {
    * @return a list of the conferences of the user
    * @throws IOException
    * @throws ParserException
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws NumberFormatException
    */
-  public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException {
+  public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException, ApiException, InterruptedException {
     CalendarBuilder builder = new CalendarBuilder();
     Calendar calendar = builder.build(reader);
     Set<Conference> listeconfuser = new LinkedHashSet<>();

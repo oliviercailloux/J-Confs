@@ -133,7 +133,7 @@ public class GuiListConferences {
     this.txtCity.setLayoutData(gridDataTextField);
     
     Label labelAddress = new Label(groupInfoConf, SWT.NONE);
-    labelCity.setText("Address * :");
+    labelAddress.setText("Address :");
     this.txtAddress = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
     this.txtAddress.setLayoutData(gridDataTextField);
 

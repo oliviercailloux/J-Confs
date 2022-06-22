@@ -50,14 +50,14 @@ public class Conference {
    * @throws InterruptedException 
    * @throws ApiException 
    */
-  private Conference() throws ApiException, InterruptedException {
+  private Conference() {
     this.uid = "";
     this.url = Optional.empty();
     this.registrationFee = Optional.empty();
     this.country = "";
     this.city = "";
     this.participants = new HashSet<String>();
-    this.address = Optional.ofNullable(AddressQuerier.given("").getAddressFound().get(0)) ;
+    this.address = Optional.empty() ;
   }
 
   public Optional<URL> getUrl() {

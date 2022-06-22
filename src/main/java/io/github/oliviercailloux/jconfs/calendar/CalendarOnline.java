@@ -108,9 +108,11 @@ public class CalendarOnline {
    * @return The VEvent that have this uid
    * @throws CalDAV4JException
    * @throws MalformedURLException
+   * @throws InterruptedException 
+   * @throws ApiException 
    */
   public Optional<Conference> getConferenceFromUid(String uid)
-      throws CalDAV4JException, MalformedURLException {
+      throws CalDAV4JException, MalformedURLException, ApiException, InterruptedException {
     VEvent vEventConferenceFound = null;
     GenerateQuery searchQuery = new GenerateQuery();
     searchQuery.setFilter("VEVENT : UID==" + uid);
