@@ -16,6 +16,7 @@ import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.Property;
+import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 
 /**
@@ -63,6 +64,7 @@ public class ConferenceReader {
     URL confURL;
     String[] location;
     String[] description;
+    String participant;
     if (!confCompo.getProperties("URL").isEmpty()) {
       confURL = new URL(confCompo.getProperty("URL").getValue());
       theBuild.setUrl(confURL);
@@ -80,12 +82,14 @@ public class ConferenceReader {
         if (ele.contains("Fee")) {
           Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
           theBuild.setRegistrationFee(feeRegistration.intValue());
-        } else {
-          if (ele.contains("Participants")) {
-            String oneParticipant = ele.substring(ele.indexOf(":") + 1);
-            theBuild.setParticipant(oneParticipant);
-          }
         }
+      }
+    }
+    if (!confCompo.getProperties("ATTENDEE").isEmpty()) {
+      PropertyList<Property> participants = confCompo.getProperties("ATTENDEE");
+      for (Property oneParticipant : participants) {
+        participant = oneParticipant.getValue();
+        theBuild.addParticipant(participant);
       }
     }
 
