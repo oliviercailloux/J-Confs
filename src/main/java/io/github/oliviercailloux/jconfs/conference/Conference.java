@@ -32,7 +32,7 @@ public class Conference {
   private String country;
   private String city;
   private Set<String> participants;
-  private Address address;
+  private Optional<Address> address;
 
   /**
    * This is a constructor which initializes the conference object
@@ -57,7 +57,7 @@ public class Conference {
     this.country = "";
     this.city = "";
     this.participants = new HashSet<String>();
-    this.address = AddressQuerier.given("").getAddressFound().get(0) ;
+    this.address = Optional.ofNullable(AddressQuerier.given("").getAddressFound().get(0)) ;
   }
 
   public Optional<URL> getUrl() {
@@ -117,7 +117,7 @@ public class Conference {
     return participants.toString();
   }
   
-  public Address getAddress() {
+  public Optional<Address> getAddress() {
     return this.address ;
   }
 
@@ -137,8 +137,7 @@ public class Conference {
           && startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
           && registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
           && country.equals(conference2.country) && participants.equals(conference2.participants)
-          && address.getLongitude().equals(conference2.address.getLongitude()) 
-          && address.getLatitude().equals(conference2.address.getLatitude())) {
+          && address.equals(conference2.address))  {
         return true;
       }
     }
@@ -155,7 +154,7 @@ public class Conference {
   public String toString() {
     return MoreObjects.toStringHelper(this).add("UID", uid).add("url", url).add("title", title)
         .add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
-        .add("address", address.getAddress()).add("country", country).add("city", city)
+        .add("address", address).add("country", country).add("city", city)
         .add("participants", participants).toString();
   }
 
@@ -245,7 +244,7 @@ public class Conference {
     
     public ConferenceBuilder setAddress(String location) throws ApiException, InterruptedException {
       Preconditions.checkNotNull(location);
-      this.conferenceToBuild.address = AddressQuerier.given(location).getAddressFound().get(0);
+      this.conferenceToBuild.address = Optional.of(AddressQuerier.given(location).getAddressFound().get(0));
       return this;
     }
     

@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.io.IOException;
 import java.io.Reader;
@@ -52,11 +53,13 @@ public class ConferenceReader {
    * @param confCompo it's a calendar component that contains the data of one conference
    * @return a conference
    * @throws MalformedURLException
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws IOException
    * @throws ParserException
    * @throws NumberFormatException
    */
-  public static Conference createConference(Component confCompo) throws MalformedURLException {
+  public static Conference createConference(Component confCompo) throws MalformedURLException, ApiException, InterruptedException {
     Conference conf = null;
     ConferenceBuilder theBuild = new ConferenceBuilder();
 
