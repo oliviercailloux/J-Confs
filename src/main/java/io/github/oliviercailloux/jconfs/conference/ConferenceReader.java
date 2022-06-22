@@ -77,20 +77,15 @@ public class ConferenceReader {
       theBuild.setCity(city);
       theBuild.setCountry(country);
     }
-    if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
+    /*if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
       description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
       for (String ele : description) {
         if (ele.contains("Fee")) {
           Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
           theBuild.setRegistrationFee(feeRegistration.intValue());
-        } else {
-          if (ele.contains("Participants")) {
-            String oneParticipant = ele.substring(ele.indexOf(":") + 1);
-            theBuild.setParticipant(oneParticipant);
-          }
-        }
+        } 
       }
-    }
+    }*/
 
     if (!confCompo.getProperties("UID").isEmpty()) {
       String uid = confCompo.getProperty("UID").getValue();

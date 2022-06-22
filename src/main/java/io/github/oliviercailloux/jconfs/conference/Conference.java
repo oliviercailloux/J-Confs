@@ -245,6 +245,7 @@ public class Conference {
     public ConferenceBuilder setAddress(String location) throws ApiException, InterruptedException {
       Preconditions.checkNotNull(location);
       this.conferenceToBuild.address = Optional.of(AddressQuerier.given(location).getAddressFound().get(0));
+      this.conferenceToBuild.address.get().setAddressName(location);
       return this;
     }
     

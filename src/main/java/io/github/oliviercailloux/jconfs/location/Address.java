@@ -43,8 +43,15 @@ public class Address {
    * 
    * @return address
    */
-  public String getAddress() {
+  public String getAddressName() {
     return address;
+  }
+  
+  /**
+   * This method return the address name if it has been set
+   */
+  public void setAddressName(String location) {
+    address = location;
   }
 
   /**
