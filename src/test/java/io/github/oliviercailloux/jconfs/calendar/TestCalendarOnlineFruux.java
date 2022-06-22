@@ -3,9 +3,13 @@ package io.github.oliviercailloux.jconfs.calendar;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
+import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
+import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -27,30 +31,25 @@ import org.junit.jupiter.api.Test;
 public class TestCalendarOnlineFruux {
 
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
-
-  // Introduce constant values for url, username,password and calendarId
-  private final String lv_url = "dav.fruux.com";
-  private final String lv_username = "b3297394371";
-  private final String lv_password = "g8tokd3q0hc2";
-  private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
+  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Fruux.txt"));
+  static ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
-    CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
-    String uidSearch = "c44f7ea0-c1a4-45c4-94a7-7d0b16075b0c";
+    CalendarOnline instanceCalendarOnline = new CalendarOnline(new CalDavCalendarGeneric(Auth, ""));
+    String uidSearch = "778b0882-3f52-4353-8f44-cc715bf0a9ce";
 
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
     if (potentialConference.isPresent()) {
       Conference conferenceFound = potentialConference.get();
-      assertEquals("Java formation", conferenceFound.getTitle());
+      assertEquals("Soutenance", conferenceFound.getTitle());
       assertEquals(uidSearch, conferenceFound.getUid());
       assertEquals("Paris", conferenceFound.getCity());
       assertEquals("France", conferenceFound.getCountry());
-      assertEquals(Instant.parse("2022-05-31T00:00:00Z"), conferenceFound.getStartDate());
-      assertEquals(136, conferenceFound.getFeeRegistration().get());
+      assertEquals(Instant.parse("2022-07-04T00:00:00Z"), conferenceFound.getStartDate());
+      assertEquals(10, conferenceFound.getFeeRegistration().get());
     } else {
       fail(new NullPointerException());
     }
@@ -60,7 +59,7 @@ public class TestCalendarOnlineFruux {
   public void testGetAllOnlineConferences() throws Exception {
 
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(Auth, ""));
     Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
     Iterator<Conference> iteratorConf = collectionConferences.iterator();
     while (iteratorConf.hasNext()) {
@@ -73,7 +72,7 @@ public class TestCalendarOnlineFruux {
   public void testConferenceToVEvent() throws Exception {
     VEvent conferenceVEvent;
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(Auth, ""));
     URL url = new URL("http://fruux.com");
     String city = "Paris";
     String country = "France";
@@ -112,7 +111,7 @@ public class TestCalendarOnlineFruux {
   @Test
   public void testAddOnlineConference() throws Exception {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(Auth, ""));
     LocalDate start_ = null;
     LocalDate end_ = null;
     try {
@@ -139,7 +138,7 @@ public class TestCalendarOnlineFruux {
   @Test
   public void testDelete() throws Exception {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(Auth, ""));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
     System.out.println(instanceCalendarOnline.getOnlineConferences());
     if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
