@@ -4,9 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
+import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
+import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -27,6 +31,8 @@ import org.junit.jupiter.api.Test;
 
 public class TestCalendarOnlineNextcloud {
   static String uidpr = new RandomUidGenerator().generateUid().getValue();
+  static CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Nextcloud.txt"));
+  static ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
 
   private final String lv_url = "nch.pl";
   private final String lv_username = "JAVA_PROJECT";
@@ -37,8 +43,8 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testGetOnlineConferenceFromUid() throws Exception {
 
-    CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     String uidSearch = "b0672b91-af89-491f-92be-9e0032828413";
     Optional<Conference> potentialConference;
     potentialConference = instanceCalendarOnline.getConferenceFromUid(uidSearch);
@@ -49,7 +55,6 @@ public class TestCalendarOnlineNextcloud {
       assertEquals("Paris", conferenceFound.getCity());
       assertEquals("France", conferenceFound.getCountry());
       assertEquals(Instant.parse("2022-05-31T00:00:00Z"), conferenceFound.getStartDate());
-
     } else {
       fail(new NullPointerException());
     }
@@ -58,8 +63,8 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testGetAllOnlineConferences() throws Exception {
 
-    CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     Set<Conference> collectionConferences = instanceCalendarOnline.getOnlineConferences();
     Iterator<Conference> iteratorConf = collectionConferences.iterator();
     while (iteratorConf.hasNext()) {
@@ -71,8 +76,8 @@ public class TestCalendarOnlineNextcloud {
   @Test
   public void testConferenceToVEvent() throws Exception {
     VEvent conferenceVEvent;
-    CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     URL url = new URL("http://fruux.com");
     String city = "Paris";
     String country = "France";
@@ -110,8 +115,8 @@ public class TestCalendarOnlineNextcloud {
 
   @Test
   public void testAddOnlineConference() throws Exception {
-    CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     LocalDate start = null;
     LocalDate end = null;
     try {
@@ -135,8 +140,9 @@ public class TestCalendarOnlineNextcloud {
 
   @Test
   public void testDelete() throws Exception {
-    CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, lv_postUrl));
+
+    CalendarOnline instanceCalendarOnline =
+        new CalendarOnline(new CalDavCalendarGeneric(Auth, "/remote.php/dav"));
     instanceCalendarOnline.deleteOnlineConference(uidpr);
     System.out.println(instanceCalendarOnline.getOnlineConferences());
     if (instanceCalendarOnline.getConferenceFromUid(uidpr).isPresent()) {
