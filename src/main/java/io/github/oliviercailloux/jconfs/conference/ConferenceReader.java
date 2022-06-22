@@ -77,15 +77,32 @@ public class ConferenceReader {
       theBuild.setCity(city);
       theBuild.setCountry(country);
     }
-    /*if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
-      description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
-      for (String ele : description) {
-        if (ele.contains("Fee")) {
-          Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
+    if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
+      description = confCompo.getProperty("DESCRIPTION").getValue().split(",");
+      String s = confCompo.getProperty("DESCRIPTION").getValue();
+      if (s.contains("Address") && s.contains("Fee")) {
+        String fee = description[0];
+        String address = description[1];
+        Double feeRegistration = Double.parseDouble(fee.substring(fee.indexOf(":") + 1));
+        theBuild.setRegistrationFee(feeRegistration.intValue());
+        String addresseName = address.substring(address.indexOf(":") + 1);
+        System.out.println("Address & Fee" + addresseName);
+        theBuild.setAddress(addresseName);
+      } else {
+        if (s.contains("Fee")) {
+          System.out.println("Fee");
+          String fee = description[0];
+          Double feeRegistration = Double.parseDouble(fee.substring(fee.indexOf(":") + 1));
           theBuild.setRegistrationFee(feeRegistration.intValue());
-        } 
+        }
+        if (s.contains("Address")) {
+          System.out.println("Address");
+          String address = description[0];
+          String addresseName = address.substring(address.indexOf(":") + 1);
+          theBuild.setAddress(addresseName);
+        }
       }
-    }*/
+    }
 
     if (!confCompo.getProperties("UID").isEmpty()) {
       String uid = confCompo.getProperty("UID").getValue();

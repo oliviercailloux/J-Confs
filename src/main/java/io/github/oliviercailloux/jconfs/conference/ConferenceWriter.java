@@ -124,7 +124,7 @@ public class ConferenceWriter {
     }
     if (!((conference.getAddress().isEmpty()))) {
       geo = new Geo(conference.getAddress().get().getLatitude() + ";" +  conference.getAddress().get().getLongitude());
-      property_description += ", Adresse:" + conference.getAddress().get().getAddressName();
+      property_description += ", Address:" + conference.getAddress().get().getAddressName();
       propertyList.add(geo);
     }
     if (!(conference.getParticipants().isEmpty())) {

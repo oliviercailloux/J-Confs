@@ -15,7 +15,7 @@ public class testAddress {
     System.out.println(addQ.getAddressInformations());
     
     address = addQ.getAddressFound().get(0);
-    System.out.println(address.getAddress());
+    System.out.println(address.getAddressName());
     System.out.println(address.getLatitude());
     System.out.println(address.getLongitude());
     
