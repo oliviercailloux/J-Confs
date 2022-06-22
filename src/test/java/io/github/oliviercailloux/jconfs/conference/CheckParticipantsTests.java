@@ -50,7 +50,7 @@ public class CheckParticipantsTests {
     conf1.setEndDate(deb2);
     conf1.setCity("London");
     conf1.setRegistrationFee(10);
-    conf1.setParticipant("Nathan");
+    conf1.addParticipant("Nathan");
     Conference c1 = conf1.build();
     assertEquals(c1.getParticipants(), "[Nathan]");
 
@@ -81,17 +81,16 @@ public class CheckParticipantsTests {
     Instant deb2 = Instant.parse("2022-06-10T16:22:52.966Z");
     conf1.setEndDate(deb2);
     conf1.setRegistrationFee(10);
-    conf1.setParticipant("Nathan");
+    conf1.addParticipant("Nathan");
+    conf1.addParticipant("Tess");
     Conference c1 = conf1.build();
     instanceCalendarOnline.addOnlineConference(c1);
 
     confVEvent = instanceCalendarOnline.conferenceToVEvent(c1);
 
     assertEquals(confVEvent.getProperty(Property.SUMMARY).getValue(), c1.getTitle());
-    assertEquals(confVEvent.getProperty(Property.ATTENDEE).getValue(),
+    assertEquals(confVEvent.getProperties(Property.ATTENDEE).get(0).getValue()+", "+confVEvent.getProperties(Property.ATTENDEE).get(1).getValue(),
         c1.getParticipants().substring(1, c1.getParticipants().length() - 1));
-    // c1.getParticipants() returns a hashlist in the form of a string, so it is "[Nathan]". We want
-    // to delete the brackets.
 
   }
 }
