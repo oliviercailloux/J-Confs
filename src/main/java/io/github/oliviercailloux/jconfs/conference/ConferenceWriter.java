@@ -103,7 +103,7 @@ public class ConferenceWriter {
   public static PropertyList<Property> conferenceToPropertyFruux(Conference conference)
       throws URISyntaxException {
     Property urlz, description, location, startDate, endDate, uid, name, geo;
-    String property_description = "";
+    String property_location = "";
     PropertyList<Property> propertyList = new PropertyList<>();
     startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
     endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
@@ -116,15 +116,15 @@ public class ConferenceWriter {
     }
     propertyList.add(name);
     if (conference.getFeeRegistration().isPresent()) {
-      property_description += "Fee:" + conference.getFeeRegistration().get();
+      description = new Description("Fee:" + conference.getFeeRegistration().get());
+      propertyList.add(description);
     }
     if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
-      location = new Location(conference.getCity() + "," + conference.getCountry());
-      propertyList.add(location);
+      property_location += conference.getCity() + "," + conference.getCountry();
     }
     if (!((conference.getAddress().isEmpty()))) {
       geo = new Geo(conference.getAddress().get().getLatitude() + ";" +  conference.getAddress().get().getLongitude());
-      property_description += ", Address:" + conference.getAddress().get().getAddressName();
+      property_location += "," + conference.getAddress().get().getAddressName();
       propertyList.add(geo);
     }
     if (!(conference.getParticipants().isEmpty())) {
@@ -133,8 +133,8 @@ public class ConferenceWriter {
           new Attendee(URI.create(attendee.substring(1, (attendee.length() - 1))));
       propertyList.add(participant);
     }
-    description = new Description(property_description);
-    propertyList.add(description);
+    location = new Location(property_location);
+    propertyList.add(location);
     propertyList.add(startDate);
     propertyList.add(endDate);
     propertyList.add(uid);

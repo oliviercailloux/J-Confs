@@ -18,6 +18,7 @@ import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.CalendarComponent;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class allows to read and iCalelndar file and creates a conference object from a parsed
@@ -64,6 +65,10 @@ public class ConferenceReader {
     ConferenceBuilder theBuild = new ConferenceBuilder();
 
     URL confURL;
+    String c;
+    String city="";
+    String country="";
+    String address="";
     String[] location;
     String[] description;
     if (!confCompo.getProperties("URL").isEmpty()) {
@@ -71,35 +76,35 @@ public class ConferenceReader {
       theBuild.setUrl(confURL);
     }
     if (!confCompo.getProperties("LOCATION").isEmpty()) {
-      location = confCompo.getProperty("LOCATION").getValue().split(",");
-      String city = location[0];
-      String country = location[1];
+      c = confCompo.getProperty("LOCATION").getValue();
+      int cpt = StringUtils.countMatches(c,",");
+      if (cpt == 0) {
+        location = c.split(",");
+        city = "Paris";
+        country = "France";
+      }
+      if (cpt == 1) {
+        location = c.split(",");
+        city = location[0];
+        country = location[1];
+      }
+      if (cpt == 2) {
+        location = c.split(",");
+        city = location[0];
+        country = location[1];
+        address = location[2];
+        theBuild.setAddress(address);
+      }
       theBuild.setCity(city);
       theBuild.setCountry(country);
+      
     }
     if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
-      description = confCompo.getProperty("DESCRIPTION").getValue().split(",");
-      String s = confCompo.getProperty("DESCRIPTION").getValue();
-      if (s.contains("Address") && s.contains("Fee")) {
-        String fee = description[0];
-        String address = description[1];
-        Double feeRegistration = Double.parseDouble(fee.substring(fee.indexOf(":") + 1));
-        theBuild.setRegistrationFee(feeRegistration.intValue());
-        String addresseName = address.substring(address.indexOf(":") + 1);
-        System.out.println("Address & Fee" + addresseName);
-        theBuild.setAddress(addresseName);
-      } else {
-        if (s.contains("Fee")) {
-          System.out.println("Fee");
-          String fee = description[0];
-          Double feeRegistration = Double.parseDouble(fee.substring(fee.indexOf(":") + 1));
+      description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
+      for (String ele : description) {
+        if (ele.contains("Fee")) {
+          Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
           theBuild.setRegistrationFee(feeRegistration.intValue());
-        }
-        if (s.contains("Address")) {
-          System.out.println("Address");
-          String address = description[0];
-          String addresseName = address.substring(address.indexOf(":") + 1);
-          theBuild.setAddress(addresseName);
         }
       }
     }

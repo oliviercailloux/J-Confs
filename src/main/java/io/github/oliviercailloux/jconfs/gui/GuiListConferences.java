@@ -298,14 +298,15 @@ public class GuiListConferences {
       txtCity.setText(conferenceSelected.getCity());
       txtCountry.setText(conferenceSelected.getCountry());
       txtPresence.setText(conferenceSelected.getParticipants().toString());
-      if (txtUrl != null) {
+      if (!conferenceSelected.getUrlAsShortString().isEmpty()) {
         txtUrl.setText(conferenceSelected.getUrlAsShortString());
       }
-      if (txtRegisFee != null) {
-        txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
+      if (!conferenceSelected.getFeeRegistration().isEmpty()) {
+        txtRegisFee.setText(conferenceSelected.getFeeRegistration().get().toString());
       }
-      if (txtAddress != null) {
-        txtAddress.setText(conferenceSelected.getAddress().toString());
+      if (!conferenceSelected.getAddress().isEmpty()) {
+        //System.out.println(txtAddress;is);
+        txtAddress.setText(conferenceSelected.getAddress().get().getAddressName());
       }
       setDateofConferences(dateStart,
           LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneOffset.UTC));

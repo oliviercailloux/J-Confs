@@ -48,7 +48,7 @@ public class Address {
   }
   
   /**
-   * This method return the address name if it has been set
+   * This method set the address name
    */
   public void setAddressName(String location) {
     address = location;
