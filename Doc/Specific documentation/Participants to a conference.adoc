@@ -1,0 +1,19 @@
+= Participants to a conference
+
+Through the interface programmed in the GuiListConferences class, it is possible to create a conference without specified participants or with one or more participants. +
+
+_How to indicate that one or more participants are attending a conference?_ +
+
+===== Add one or more participants 
+
+* When creating the conference
+
+The user inserts the name of the first participant in the "Presence" field, then saves the created conference (via the "Save conference" button), then reinserts the name of the second participant in the "Presence" field, saves again and so on until the user has inserted the names of all participants for the conference in question. +
+
+* After creating the conference
+
+It is possible to indicate that one or more participants are attending a conference after it has been created. To do this, the user simply launches the interface and selects the conference in question from the list of user conferences that appears at the top left of the interface. Then the user enters the participant's name in the "Presence" field and saves the updated conference. This is done as many times as there are participants to add to the conference. 
+
+====== Warning
+
+In any case, the user must be careful not to insert an erroneous participant name because a delete button is not currently set up in the J-Confs software. Therefore, an insertion error jeopardizes the creation of the conference that will have to be deleted in order to recreate it correctly afterwards. 
