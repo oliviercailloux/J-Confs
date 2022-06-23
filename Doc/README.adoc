@@ -28,3 +28,4 @@ Our project contains 7 packages :
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Check%20precise%20position%20of%20a%20a%20point%20in%20Evolution.adoc[Check whether Evolution can store a precise location in a calendar entry]
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/UML%20documentation/Format%20used%20to%20store%20a%20conference.adoc[Format used to store a conference]
 * https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Prequisities%20CalendarOnline.adoc[Prerequisities CalendarOnline]
+* https://github.com/oliviercailloux-org/projet-j-confs/blob/main/Doc/Specific%20documentation/Participants%20to%20a%20confenrence.adoc[Participants to a conference]
