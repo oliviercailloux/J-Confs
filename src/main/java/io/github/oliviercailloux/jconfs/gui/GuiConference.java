@@ -1,6 +1,5 @@
 package io.github.oliviercailloux.jconfs.gui;
 
-import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import io.github.oliviercailloux.jconfs.conference.ConferenceWriter;
@@ -307,10 +306,8 @@ public class GuiConference {
    * 
    * @param name
    * @return mb
-   * @throws InterruptedException 
-   * @throws ApiException 
    */
-  public MessageBox callButton(String name) throws ApiException, InterruptedException {
+  public MessageBox callButton(String name) {
     URL url = null;
     try {
       url = new URL("http://www.conference.com");
@@ -358,10 +355,8 @@ public class GuiConference {
    * Method that generate and store a calendar
    * 
    * @param e Event that we can catch
-   * @throws InterruptedException 
-   * @throws ApiException 
    */
-  public void generateCalendar(@SuppressWarnings("unused") Event e) throws ApiException, InterruptedException {
+  public void generateCalendar(@SuppressWarnings("unused") Event e) {
     LOGGER.debug("Button clicked : Ical created");
     String name = Thread.currentThread().getStackTrace()[1].getMethodName();
     MessageBox mb = callButton(name);
@@ -379,10 +374,8 @@ public class GuiConference {
    * Method that generate an ods file which is an order mission
    * 
    * @param e Event that we can catch
-   * @throws InterruptedException 
-   * @throws ApiException 
    */
-  public void generateOm(@SuppressWarnings("unused") Event e) throws ApiException, InterruptedException {
+  public void generateOm(@SuppressWarnings("unused") Event e) {
     LOGGER.debug("Button clicked : OM generated");
     String name = Thread.currentThread().getStackTrace()[1].getMethodName();
     MessageBox mb = callButton(name);
@@ -400,10 +393,8 @@ public class GuiConference {
    * Method that generate a fodt file
    * 
    * @param e event that we catch
-   * @throws InterruptedException 
-   * @throws ApiException 
    */
-  public void generateYs(@SuppressWarnings("unused") Event e) throws ApiException, InterruptedException {
+  public void generateYs(@SuppressWarnings("unused") Event e) {
     LOGGER.debug("Button clicked : Ys generated");
     String name = Thread.currentThread().getStackTrace()[1].getMethodName();
     MessageBox mb = callButton(name);
