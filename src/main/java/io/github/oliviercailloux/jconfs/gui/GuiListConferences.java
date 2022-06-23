@@ -301,14 +301,20 @@ public class GuiListConferences {
       txtPresence.setText(conferenceSelected.getParticipants().toString());
       if (!conferenceSelected.getUrlAsShortString().isEmpty()) {
         txtUrl.setText(conferenceSelected.getUrlAsShortString());
+      } else {
+        txtUrl.setText("");
       }
       if (!conferenceSelected.getFeeRegistration().isEmpty()) {
         txtRegisFee.setText(conferenceSelected.getFeeRegistration().get().toString());
+      } else {
+        txtRegisFee.setText("");
       }
       if (!conferenceSelected.getAddress().isEmpty()) {
         //System.out.println(txtAddress;is);
         txtAddress.setText(conferenceSelected.getAddress().get().getAddressName());
-      }
+      } else {
+        txtAddress.setText("");
+      } 
       setDateofConferences(dateStart,
           LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneOffset.UTC));
       setDateofConferences(dateEnd,

@@ -79,6 +79,7 @@ public class ConferenceReader {
     }
     if (!confCompo.getProperties("LOCATION").isEmpty()) {
       c = confCompo.getProperty("LOCATION").getValue();
+      System.out.println(c);
       int cpt = StringUtils.countMatches(c,",");
       if (cpt == 0) {
         location = c.split(",");

@@ -143,7 +143,6 @@ public class Conference {
           && country.equals(conference2.country) && participants.equals(conference2.participants)
           && address.equals(conference2.address))
         return true;
-      }
     }
     return false;
   }
