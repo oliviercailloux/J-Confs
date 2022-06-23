@@ -4,8 +4,11 @@ import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
 import com.google.common.primitives.Doubles;
 import com.locationiq.client.ApiException;
+import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
+import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
 import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
 import io.github.oliviercailloux.jconfs.calendar.CalendarOnline;
+import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import io.github.oliviercailloux.jconfs.conference.InvalidConferenceFormatException;
@@ -13,10 +16,13 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import net.fortuna.ical4j.data.ParserException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -66,16 +72,11 @@ public class GuiListConferences {
   private Button btnDelete;
   private Display display;
 
-  /**
-   * Introduce constant values for url, username,password and calendarId
-   */
-  private final String lv_url = "dav.fruux.com";
-  private final String lv_username = "b3297394371";
-  private final String lv_password = "g8tokd3q0hc2";
-  private final String lv_calendarID = "548d1281-4843-4582-8d68-aee8fe0c45da";
+  protected ImmutableCompleteMap<FruuxKeysCredential, String> myAuth;
 
-  public void gui(Display displayGui) throws Exception {
+  public void gui(Display displayGui, ImmutableCompleteMap<FruuxKeysCredential, String> Auth) throws Exception {
     this.display = displayGui;
+    this.myAuth = Auth;
 
     // setup the SWT window
     shell = new Shell(display, SWT.RESIZE | SWT.CLOSE | SWT.MIN);
@@ -212,7 +213,7 @@ public class GuiListConferences {
   public void getConferences() throws Exception {
     try {
       listConferencesUser = new ArrayList<>(new CalendarOnline(
-          new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""))
+          new CalDavCalendarGeneric(this.myAuth, ""))
               .getOnlineConferences());
     } catch (CalDAV4JException e) {
       throw new IllegalStateException(e);
@@ -326,9 +327,6 @@ public class GuiListConferences {
    */
   public void editConference(@SuppressWarnings("unused") Event e) throws Exception {
     if (isAllFieldsValid()) {
-      if (listConferences.getSelectionIndex() >= 0) {
-        removeConference();
-      }
       addConference(!(Strings.isNullOrEmpty(txtUrl.getText())),
           !(Strings.isNullOrEmpty(txtRegisFee.getText())),!(Strings.isNullOrEmpty(txtAddress.getText())));
       listConferences.removeAll();
@@ -342,7 +340,10 @@ public class GuiListConferences {
   }
 
   public static void main(String[] args) throws Exception {
-    new GuiListConferences().gui(new Display());
+    CredentialsReader<FruuxKeysCredential> reader = CredentialsReader.using(FruuxKeysCredential.class, Path.of("API_Credentials_Fruux.txt"));
+    ImmutableCompleteMap<FruuxKeysCredential, String> Auth = reader.getCredentials();
+
+    new GuiListConferences().gui(new Display(),Auth);
   }
 
   /**
@@ -388,10 +389,14 @@ public class GuiListConferences {
    * @param fees boolean : true if a fee is informed
    * @throws InterruptedException 
    * @throws ApiException 
+   * @throws MalformedURLException
+   * @throws CalDAV4JException
    */
-  public void addConference(boolean url, boolean fees,  boolean address) throws ApiException, InterruptedException {
+  public void addConference(boolean url, boolean fees,  boolean address) throws ApiException, InterruptedException, MalformedURLException, CalDAV4JException {
+    boolean isUpdate = false;
+    Conference finalConference;
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(this.myAuth, ""));
     LocalDate localDateStart =
         LocalDate.of(dateStart.getYear(), dateStart.getMonth() + 1, dateStart.getDay());
     LocalDate localDateEnd =
@@ -400,9 +405,7 @@ public class GuiListConferences {
     theBuild = theBuild.setTitle(txtTitle.getText())
         .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
         .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
-        .setCity(txtCity.getText()).setCountry(txtCountry.getText())
-        .setParticipant(txtPresence.getText());
-
+        .setCity(txtCity.getText()).setCountry(txtCountry.getText());
     if (url) {
       URL urlConference;
       try {
@@ -420,15 +423,72 @@ public class GuiListConferences {
     if (address) {
       theBuild = theBuild.setAddress(txtAddress.getText());
     }
-    
-    
+
+    if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
+      theBuild.addParticipant(txtPresence.getText());
+    }
+
     Conference newConference = theBuild.build();
+
+    ConferenceBuilder theBuild2 = new ConferenceBuilder();
+
     try {
-      instanceCalendarOnline.addOnlineConference(newConference);
-    } catch (CalDAV4JException | URISyntaxException e) {
+
+      for (Conference conf : this.listConferencesUser) {
+        if (conf.equals(newConference)) {
+          isUpdate = true;
+          theBuild2 = theBuild2.setUid(conf.getUid());
+          Set<String> alreadyParticipants = conf.getParticipantsSet();
+          Iterator<String> it2 = alreadyParticipants.iterator();
+          while (it2.hasNext()) {
+            String part = it2.next();
+            if (part != "") {
+              theBuild2 = theBuild2.addParticipant(part);
+            }
+          }
+        }
+
+      }
+
+    } catch (
+
+    IllegalStateException e) {
       throw new IllegalStateException(e);
     }
 
+    theBuild2 = theBuild2.setTitle(txtTitle.getText())
+        .setStartDate(localDateStart.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setEndDate(localDateEnd.atStartOfDay(ZoneOffset.UTC).toInstant())
+        .setCity(txtCity.getText()).setCountry(txtCountry.getText());
+    if (url) {
+      URL urlConference;
+      try {
+        urlConference = new URL(txtUrl.getText());
+      } catch (MalformedURLException e1) {
+        throw new IllegalStateException(e1);
+      }
+      theBuild2 = theBuild2.setUrl(urlConference);
+    }
+
+    if (fees) {
+      theBuild2 = theBuild2.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
+    }
+    if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
+      theBuild2.addParticipant(txtPresence.getText());
+    } else {
+      theBuild2.removeParticipant();
+    }
+
+    finalConference = theBuild2.build();
+    try {
+      if (isUpdate) {
+        instanceCalendarOnline.editConferenceOnline(finalConference);
+      } else {
+        instanceCalendarOnline.addOnlineConference(finalConference);
+      }
+    } catch (CalDAV4JException | URISyntaxException e) {
+      throw new IllegalStateException(e);
+    }
   }
 
   /**
@@ -436,7 +496,7 @@ public class GuiListConferences {
    */
   public void removeConference() {
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
-        new CalDavCalendarGeneric(lv_url, lv_username, lv_password, lv_calendarID, ""));
+        new CalDavCalendarGeneric(this.myAuth, ""));
     String uidDelete = listConferencesUser.get(listConferences.getSelectionIndex()).getUid();
     try {
       instanceCalendarOnline.deleteOnlineConference(uidDelete);
