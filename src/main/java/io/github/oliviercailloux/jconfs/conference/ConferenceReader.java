@@ -82,7 +82,6 @@ public class ConferenceReader {
         if (ele.contains("Fee")) {
           Double feeRegistration = Double.parseDouble(ele.substring(ele.indexOf(":") + 1));
           theBuild.setRegistrationFee(feeRegistration.intValue());
-
         }
       }
     }
