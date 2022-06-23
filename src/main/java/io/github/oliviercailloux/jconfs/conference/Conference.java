@@ -113,6 +113,10 @@ public class Conference {
     return this.uid;
   }
 
+  public Set<String> getParticipantsSet() {
+    return participants;
+  }
+
   public String getParticipants() {
     return participants.toString();
   }
@@ -137,7 +141,7 @@ public class Conference {
           && startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
           && registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
           && country.equals(conference2.country) && participants.equals(conference2.participants)
-          && address.equals(conference2.address))  {
+          && address.equals(conference2.address))
         return true;
       }
     }
@@ -234,10 +238,7 @@ public class Conference {
       return this;
     }
 
-    public ConferenceBuilder setParticipant(String oneParticipant) {
-      if (conferenceToBuild.participants.size() > 0) {
-        throw new IllegalStateException("Only one participant can attend a conference");
-      }
+    public ConferenceBuilder addParticipant(String oneParticipant) {
       this.conferenceToBuild.participants.add(Strings.nullToEmpty(oneParticipant));
       return this;
     }
@@ -248,6 +249,10 @@ public class Conference {
       this.conferenceToBuild.address.get().setAddressName(location);
       return this;
     }
-    
+
+    public ConferenceBuilder removeParticipant() {
+      this.conferenceToBuild.participants = new HashSet<String>();
+      return this;
+    }
   }
 }

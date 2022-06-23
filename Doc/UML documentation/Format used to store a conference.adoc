@@ -2,22 +2,22 @@
 
 To store a conference, we use the eponymous class. In order to create a new event, we call the class ConferenceBuilder, which belongs to the class Conference. The created object is a composure of 8 different fields. Six of its are mandatory and 2 are optional.
 
-The 6 mandatory fields are:
-1.	The id of the conference: this piece of data is automatically generated during the earliest stage of the inception.
-2.	The title of the conference
-3.	The host city of the conference
-4.	The country in which the city is located
-Those four fields are String object.
-5.	The date of the start of the conference
-6.	And obviously, the date of the end of the event
-Those two fields belong to the Instant java class. 
-Bullets 2 to 6 are compulsory, since they give the most basic information about any conference.
+The 6 mandatory fields are: +
+1.	The id of the conference: this piece of data is automatically generated during the earliest stage of the inception. +
+2.	The title of the conference +
+3.	The host city of the conference +
+4.	The country in which the city is located +
+Those four fields are String object. +
+5.	The date of the start of the conference +
+6.	And obviously, the date of the end of the event +
+Those two fields belong to the Instant java class. +
+Bullets 2 to 6 are compulsory, since they give the most basic information about any conference. 
 
-The 2 optional fields are:
-7.	The url of the conference
-8.	The registration fee of it
+The 2 optional fields are: +
+7.	The url of the conference +
+8.	The registration fee of it +
 
-Both are Optional object. The url has a String as variable argument and the registration fee has a Integer variable argument.
+Both are Optional object. The url has a String as variable argument and the registration fee has a Integer variable argument. +
 Since conferences don’t always have a dedicated website, the url field is optional. Moreover, a conference can be free. Therefore, the registration fee is not always necessary.
 
 An object of the class conference is considered as an actual conference only when the title, the beginning date and the end date are registered. The start date has to be anterior to the end date of the conference. Otherwise, the program throws an exception. This check prevents awkward situation and ensures the consitency of the data.
@@ -25,30 +25,89 @@ An object of the class conference is considered as an actual conference only whe
 
 == Convertion into a PropertyList
 
-Once a conference object is created, it is converted into a list of property.
+Once a conference object is created, it is converted into a list of property. +
 Such convertion requires a call to whether the method conferenceToProperty() or conferenceToPropertyFruux().
 
-Those methods aim at filling the following fields:
-1. Created: this field contains the date at which the Event is created
-2. DtStamp: this property gives the date of the creation of the iCalendar
-3. lastModified: trivially contains the date of last modification of the calendar event
-4. Sequence: this fields represents the number of change concerning an event. Everytime one of the other property is modified, this field must be incremented by 1.
-5. Uid: this field is unique and allows to distinguish easily two event.
-6. DtStart: gives the beginning moment of an event
-7. DtEnd: similarily, gives the ending moment of an event
-8. Name: contains a brief description of an event
+Those methods aim at filling the following fields: +
+1. Created: this field contains the date at which the Event is created +
+2. DtStamp: this property gives the date of the creation of the iCalendar +
+3. lastModified: trivially contains the date of last modification of the calendar event +
+4. Sequence: this fields represents the number of change concerning an event. Everytime one of the other property is modified, this field must be incremented by 1. +
+5. Uid: this field is unique and allows to distinguish easily two event. +
+6. DtStart: gives the beginning moment of an event +
+7. DtEnd: similarily, gives the ending moment of an event +
+8. Name: contains a brief description of an event +
 Those fields are filled during every online storage of a conference.
 
-The 3 following fields aren't always filled out:
-9. Location: contains the city and the country, which host the event. To be filled, the Conference object has to give information about at least one of those two properties
-10. Description: gives the registration fee of an event. In our case, the Conference object obviously must have that piece of information in order to create this Description property.
+The 3 following fields aren't always filled out: +
+9. Location: contains the city and the country, which host the event. To be filled, the Conference object has to give information about at least one of those two properties +
+10. Description: gives the registration fee of an event. In our case, the Conference object obviously must have that piece of information in order to create this Description property. +
 11. Urlz: contains a URI instance corresponding to the URL of the Conference, if it exists of course.
 
 
 
 == Creating the iCalendar file (.ics)
 
-The properties we saw above form an event. It is used combined with a string ("CONFERENCE" here) to create an instance of the XComponent class, through the builder of this class. This instance is then add to an object of the Calendar class.
-Finally, the method saveIcsFile() allows to convert the Calendar object into an .ics file.
-This file allows to use the calendar (and therefore store a conference) online.
+The properties we saw above form an event. It is used combined with a string ("CONFERENCE" here) to create an instance of the XComponent class, through the builder of this class. This instance is then add to an object of the Calendar class. +
+Finally, the method saveIcsFile() allows to convert the Calendar object into an .ics file. +
+This file allows to use the calendar (and therefore store a conference) online. +
 
+
+== Structure of the ICS file
+Once the .ics file is downloaded, we can read it on multiple software like Outlook or Evolution. +
+It can be also be opened on a text editor. +
+Here is an example of an ICS file created with J-Confs :
+
+BEGIN:VCALENDAR +
+VERSION:2.0 +
+BEGIN:VEVENT +
+URL:http://www.conference-website.com/ +
+UID:9af1f750-ad5a-46c3-84a7-5b4da704548b +
+SUMMARY:Java lesson +
+DTSTART;VALUE=DATE:20220611 +
+DTEND;VALUE=DATE:20220612 +
+DESCRIPTION:Fee : 22.60 +
+LOCATION:Toronto,Canada +
+END:VEVENT +
+END:VCALENDAR +
+
+As you can see, the file uses the element of the PropertyList created with a conference. +
+It begins with: +
+BEGIN:VCALENDAR +
+VERSION:2.0 +
+And finishes with: +
+END:VCALENDAR +
+
+
+The heart of the file is made of at least one event. +
+An event begins with: +
+BEGIN:VEVENT +
+And ends with: +
+END:VEVENT +
+If the file contains several conferences, each must be followed one another.
+
+Between those assertions, the file uses the element of the PropertyList we saw earlier. +
+For the some fields, the structure is quite simple. It is the name of the property written in upper case letter followed by its value. +
+SUMMARY represents the Name property and URL the Urlz property. +
+Dates are treated differently. The date consists of the year followed by the month and the day (YYYYMMDD).
+
+It is important to mention that different fields can be added in iCalendar. +
+For example, we can use the properties corresponding to the bullet points 1 to 4 of the previous section. They are written as follow:
+
+DTSTAMP;VALUE=DATE:20220602 +
+CREATED;VALUE=DATE:20220530 +
+LAST-MODIFIED;VALUE=DATE:20220603 +
+SEQUENCE:1 
+
+As we saw earlier, they provide information about the possible altering a conference has undergone. +
+
+* It is important to mention, that each field can be specified by different type of value. In our case, dates are our perfect example. Indeed, there are several ways to write a date: +
+** We can use a date combined with an precise hour. It would be written as: DTSTART:202206101T163000Z. The first part being the day of the event and the second part displaying the hour at the UTC time zone. +
+** Or we can only specify the date of the beginning or end of an event (as done in this project). To do so, the field of a date contains ";VALUE=DATE:". Then hour doesn't matter. +
+
+Besides those points, it is possible to store further indications.
+
+For example, we can add a participant of an event/conference. It can be done with the fields attendees, which we are currently working on. It gives:
+ATTENDEE:NameOfTheParticipant +
+To go deeper into this field, different value can be filled. The participant can be specified with his email adress. +
+ATTENDEE;CN=Rayan Moussi:mailto:rayan.moussi@dauphine.eu.
