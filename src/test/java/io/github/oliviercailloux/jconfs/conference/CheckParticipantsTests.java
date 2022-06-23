@@ -88,7 +88,7 @@ public class CheckParticipantsTests {
 
     confVEvent = instanceCalendarOnline.conferenceToVEvent(c1);
 
-    assertEquals(confVEvent.getProperty(Property.SUMMARY).getValue(), c1.getTitle());
+    assertEquals(c1.getTitle(), confVEvent.getProperty(Property.SUMMARY).getValue());
     assertEquals(confVEvent.getProperties(Property.ATTENDEE).get(0).getValue()+", "+confVEvent.getProperties(Property.ATTENDEE).get(1).getValue(),
         c1.getParticipants().substring(1, c1.getParticipants().length() - 1));
 
