@@ -479,6 +479,11 @@ public class GuiListConferences {
     if (fees) {
       theBuild2 = theBuild2.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
     }
+    
+    if (address) {
+      theBuild2 = theBuild2.setAddress(txtAddress.getText());
+    }
+    
     if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
       theBuild2.addParticipant(txtPresence.getText());
     } else {

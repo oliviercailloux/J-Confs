@@ -36,6 +36,7 @@ import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.validate.ValidationException;
+import org.eclipse.osgi.internal.loader.SystemBundleLoader;
 
 public class ConferenceWriter {
 
@@ -218,6 +219,7 @@ public class ConferenceWriter {
 
     Calendar calendar = new Calendar();
     calendar = openCalendar(calFile);
+    System.out.println("addConference");
 
     // Creating an event
     PropertyList<Property> propertyList = new PropertyList<>();
