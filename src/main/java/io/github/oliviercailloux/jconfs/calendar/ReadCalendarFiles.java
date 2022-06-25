@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jconfs.calendar;
 
+import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.io.FileInputStream;
@@ -72,10 +73,12 @@ public class ReadCalendarFiles {
    * @return
    * @throws IOException
    * @throws ParserException
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws ValidationException
    */
 
-  public static Conference createConference(String filepath) throws IOException, ParserException {
+  public static Conference createConference(String filepath) throws IOException, ParserException, ApiException, InterruptedException {
 
     Conference conf = null;
     try (FileInputStream fin2 = new FileInputStream(filepath)) {
