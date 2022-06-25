@@ -24,10 +24,11 @@ The CalDav4j library has been chosen in order to allow these exchanges, it inclu
 - The "location" property contains the name of the city followed by the name of the country (fields separated by a comma) of the conference.
 - The "summary" property contains the title of the event.
 
-	* Within the Java code it is necessary to fill a document of configuration with a set of information to be retrieved on fruux or nextcloud. This information will allow you to have the authorization to retrieve events from a desired calendar. It is necessary to set :
-- The calendar identification key.
-- The user id.
-- The user password.
+	* At the root of the project, it is necessary to create a document with the name "API_Credentials_SoftwareName.txt" in order to be able to connect the project with the different softwares via JARiS. It must contain those elements in this particular order:
+** Username 
+** Password 
+** Url
+** CalendarID 	
 
 == How to modify JUnit tests in order to use them in the project ?
 
