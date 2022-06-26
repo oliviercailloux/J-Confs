@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.jconfs.conference;
 
 import com.google.common.base.Preconditions;
+import com.locationiq.client.ApiException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -26,7 +27,17 @@ public class ConferencesFromICal implements ConferencesRetriever {
     for (File file : fileList) {
       if (file.getName().endsWith(".ics")) {
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
-          setOfConf.addAll(ConferenceReader.readConferences(reader));
+          try {
+            setOfConf.addAll(ConferenceReader.readConferences(reader));
+          } catch (IOException e) {
+            throw new IllegalStateException(e);
+          } catch (ParserException e) {
+            throw new IllegalStateException(e);
+          } catch (ApiException e) {
+            throw new IllegalStateException(e);
+          } catch (InterruptedException e) {
+            throw new IllegalStateException(e);
+          }
         }
       }
     }
@@ -59,7 +70,17 @@ public class ConferencesFromICal implements ConferencesRetriever {
     }
     String s = p.toString();
     try (FileReader reader = new FileReader(new File(s))) {
-      return ConferenceReader.readConferences(reader);
+      try {
+        return ConferenceReader.readConferences(reader);
+      } catch (IOException e) {
+        throw new IllegalStateException(e);
+      } catch (ParserException e) {
+        throw new IllegalStateException(e);
+      } catch (ApiException e) {
+        throw new IllegalStateException(e);
+      } catch (InterruptedException e) {
+        throw new IllegalStateException(e);
+      }
     }
 
   }

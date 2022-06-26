@@ -177,15 +177,39 @@ public class GuiConference {
 
     Button buttonSubmit = new Button(grp_conf, SWT.PUSH);
     buttonSubmit.setText("Create calendar");
-    buttonSubmit.addListener(SWT.Selection, this::generateCalendar);
+    buttonSubmit.addListener(SWT.Selection, event -> {
+      try {
+        generateCalendar(event);
+      } catch (ApiException e) {
+        throw new IllegalStateException(e);
+      } catch (InterruptedException e) {
+        throw new IllegalStateException(e);
+      }
+    });
 
     Button buttonOm = new Button(grp_conf, SWT.PUSH);
     buttonOm.setText("Generate OM");
-    buttonOm.addListener(SWT.Selection, this::generateOm);
+    buttonOm.addListener(SWT.Selection, event -> {
+      try {
+        generateOm(event);
+      } catch (ApiException e) {
+        throw new IllegalStateException(e);
+      } catch (InterruptedException e) {
+        throw new IllegalStateException(e);
+      }
+    });
 
     Button buttonYs = new Button(grp_conf, SWT.PUSH);
     buttonYs.setText("Generate YS");
-    buttonYs.addListener(SWT.Selection, this::generateYs);
+    buttonYs.addListener(SWT.Selection, event -> {
+      try {
+        generateYs(event);
+      } catch (ApiException e) {
+        throw new IllegalStateException(e);
+      } catch (InterruptedException e) {
+        throw new IllegalStateException(e);
+      }
+    });
 
     Button buttonMap = new Button(grp_conf, SWT.PUSH);
     buttonMap.setText("Display Conference Location");
