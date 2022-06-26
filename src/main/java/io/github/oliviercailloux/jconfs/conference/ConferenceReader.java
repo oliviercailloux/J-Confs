@@ -99,7 +99,6 @@ public class ConferenceReader {
       }
       theBuild.setCity(city);
       theBuild.setCountry(country);
-      
     }
     if (!confCompo.getProperties("DESCRIPTION").isEmpty()) {
       description = confCompo.getProperty("DESCRIPTION").getValue().split("/");
