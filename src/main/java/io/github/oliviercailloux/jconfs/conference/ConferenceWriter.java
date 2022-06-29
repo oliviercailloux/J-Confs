@@ -219,7 +219,6 @@ public class ConferenceWriter {
 
     Calendar calendar = new Calendar();
     calendar = openCalendar(calFile);
-    System.out.println("addConference");
 
     // Creating an event
     PropertyList<Property> propertyList = new PropertyList<>();
