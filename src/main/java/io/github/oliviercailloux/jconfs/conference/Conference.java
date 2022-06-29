@@ -46,9 +46,6 @@ public class Conference {
    * @param country
    * @param city
    * @param participants
-   * @param adresse
-   * @throws InterruptedException 
-   * @throws ApiException 
    */
   private Conference() {
     this.uid = "";
