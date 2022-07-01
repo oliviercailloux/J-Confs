@@ -29,13 +29,7 @@ public class ConferencesFromICal implements ConferencesRetriever {
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
           try {
             setOfConf.addAll(ConferenceReader.readConferences(reader));
-          } catch (IOException e) {
-            throw new IllegalStateException(e);
-          } catch (ParserException e) {
-            throw new IllegalStateException(e);
-          } catch (ApiException e) {
-            throw new IllegalStateException(e);
-          } catch (InterruptedException e) {
+          } catch (IOException | ParserException | ApiException | InterruptedException e) {
             throw new IllegalStateException(e);
           }
         }
