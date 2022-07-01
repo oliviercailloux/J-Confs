@@ -3,6 +3,7 @@ package io.github.oliviercailloux.jconfs.gui;
 import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.google.common.base.Strings;
 import com.google.common.primitives.Doubles;
+import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jaris.collections.ImmutableCompleteMap;
 import io.github.oliviercailloux.jaris.credentials.CredentialsReader;
 import io.github.oliviercailloux.jconfs.calendar.CalDavCalendarGeneric;
@@ -63,6 +64,7 @@ public class GuiListConferences {
   private Text txtCountry;
   private Text txtCity;
   private Text txtPresence;
+  private Text txtAddress;
   private DateTime dateStart;
   private DateTime dateEnd;
   private Button btnSave;
@@ -130,6 +132,11 @@ public class GuiListConferences {
     labelCity.setText("City * :");
     this.txtCity = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
     this.txtCity.setLayoutData(gridDataTextField);
+    
+    Label labelAddress = new Label(groupInfoConf, SWT.NONE);
+    labelAddress.setText("Address :");
+    this.txtAddress = new Text(groupInfoConf, SWT.SINGLE | SWT.BORDER);
+    this.txtAddress.setLayoutData(gridDataTextField);
 
     Label labelDateStart = new Label(groupInfoConf, SWT.NONE);
     labelDateStart.setText("Date start * :");
@@ -162,6 +169,7 @@ public class GuiListConferences {
 
     txtCity.addVerifyListener(ListenerAction::checkTextInput);
     txtCountry.addVerifyListener(ListenerAction::checkTextInput);
+    txtAddress.addVerifyListener(ListenerAction::checkTextInput);
     txtRegisFee.addVerifyListener(ListenerAction::checkDoubleInput);
     txtPresence.addVerifyListener(ListenerAction::checkTextInput);
     listConferences.addListener(SWT.Selection, this::fillInAllFields);
@@ -291,12 +299,22 @@ public class GuiListConferences {
       txtCity.setText(conferenceSelected.getCity());
       txtCountry.setText(conferenceSelected.getCountry());
       txtPresence.setText(conferenceSelected.getParticipants().toString());
-      if (txtUrl != null) {
+      if (!conferenceSelected.getUrlAsShortString().isEmpty()) {
         txtUrl.setText(conferenceSelected.getUrlAsShortString());
+      } else {
+        txtUrl.setText("");
       }
-      if (txtRegisFee != null) {
-        txtRegisFee.setText(conferenceSelected.getFeeRegistration().toString());
+      if (!conferenceSelected.getFeeRegistration().isEmpty()) {
+        txtRegisFee.setText(conferenceSelected.getFeeRegistration().get().toString());
+      } else {
+        txtRegisFee.setText("");
       }
+      if (!conferenceSelected.getAddress().isEmpty()) {
+        //System.out.println(txtAddress;is);
+        txtAddress.setText(conferenceSelected.getAddress().get().getAddressName());
+      } else {
+        txtAddress.setText("");
+      } 
       setDateofConferences(dateStart,
           LocalDate.ofInstant(conferenceSelected.getStartDate(), ZoneOffset.UTC));
       setDateofConferences(dateEnd,
@@ -316,7 +334,7 @@ public class GuiListConferences {
   public void editConference(@SuppressWarnings("unused") Event e) throws Exception {
     if (isAllFieldsValid()) {
       addConference(!(Strings.isNullOrEmpty(txtUrl.getText())),
-          !(Strings.isNullOrEmpty(txtRegisFee.getText())));
+          !(Strings.isNullOrEmpty(txtRegisFee.getText())),!(Strings.isNullOrEmpty(txtAddress.getText())));
       listConferences.removeAll();
       listConferences.deselectAll();
       try {
@@ -366,6 +384,7 @@ public class GuiListConferences {
     txtTitle.setText("");
     txtUrl.setText("");
     txtPresence.setText("");
+    txtAddress.setText("");
     listConferences.deselectAll();
   }
 
@@ -374,11 +393,12 @@ public class GuiListConferences {
    * 
    * @param url boolean : true if an url is informed
    * @param fees boolean : true if a fee is informed
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws MalformedURLException
    * @throws CalDAV4JException
    */
-  public void addConference(boolean url, boolean fees)
-      throws MalformedURLException, CalDAV4JException {
+  public void addConference(boolean url, boolean fees,  boolean address) throws ApiException, InterruptedException, MalformedURLException, CalDAV4JException {
     boolean isUpdate = false;
     Conference finalConference;
     CalendarOnline instanceCalendarOnline = new CalendarOnline(
@@ -404,6 +424,10 @@ public class GuiListConferences {
 
     if (fees) {
       theBuild = theBuild.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
+    }
+    
+    if (address) {
+      theBuild = theBuild.setAddress(txtAddress.getText());
     }
 
     if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
@@ -455,6 +479,11 @@ public class GuiListConferences {
     if (fees) {
       theBuild2 = theBuild2.setRegistrationFee(Doubles.tryParse(txtRegisFee.getText()).intValue());
     }
+    
+    if (address) {
+      theBuild2 = theBuild2.setAddress(txtAddress.getText());
+    }
+    
     if (!(Strings.isNullOrEmpty(txtPresence.getText()))) {
       theBuild2.addParticipant(txtPresence.getText());
     } else {

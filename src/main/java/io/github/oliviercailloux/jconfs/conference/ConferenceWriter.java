@@ -1,5 +1,7 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import com.locationiq.client.ApiException;
+import io.github.oliviercailloux.jconfs.location.Address;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -26,6 +28,7 @@ import net.fortuna.ical4j.model.property.Description;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStamp;
 import net.fortuna.ical4j.model.property.DtStart;
+import net.fortuna.ical4j.model.property.Geo;
 import net.fortuna.ical4j.model.property.LastModified;
 import net.fortuna.ical4j.model.property.Location;
 import net.fortuna.ical4j.model.property.Sequence;
@@ -33,6 +36,7 @@ import net.fortuna.ical4j.model.property.Summary;
 import net.fortuna.ical4j.model.property.Uid;
 import net.fortuna.ical4j.model.property.Url;
 import net.fortuna.ical4j.validate.ValidationException;
+import org.eclipse.osgi.internal.loader.SystemBundleLoader;
 
 public class ConferenceWriter {
 
@@ -62,9 +66,11 @@ public class ConferenceWriter {
    * @throws IOException
    * @throws ParserException
    * @throws URISyntaxException
+   * @throws InterruptedException 
+   * @throws ApiException 
    */
   public static void deleteConference(String calFile, Conference conference)
-      throws IOException, ParserException, URISyntaxException {
+      throws IOException, ParserException, URISyntaxException, ApiException, InterruptedException {
     Objects.requireNonNull(calFile);
     Objects.requireNonNull(conference);
 
@@ -98,7 +104,8 @@ public class ConferenceWriter {
 
   public static PropertyList<Property> conferenceToPropertyFruux(Conference conference)
       throws URISyntaxException {
-    Property urlz, description, location, startDate, endDate, uid, name;
+    Property urlz, description, location, startDate, endDate, uid, name, geo;
+    String property_location = "";
     PropertyList<Property> propertyList = new PropertyList<>();
     startDate = new DtStart(new Date(java.util.Date.from(conference.getStartDate())));
     endDate = new DtEnd(new Date(java.util.Date.from(conference.getEndDate())));
@@ -115,8 +122,12 @@ public class ConferenceWriter {
       propertyList.add(description);
     }
     if (!((conference.getCity().isEmpty()) && (conference.getCountry().isEmpty()))) {
-      location = new Location(conference.getCity() + "," + conference.getCountry());
-      propertyList.add(location);
+      property_location += conference.getCity() + "," + conference.getCountry();
+    }
+    if (!((conference.getAddress().isEmpty()))) {
+      geo = new Geo(conference.getAddress().get().getLatitude() + ";" +  conference.getAddress().get().getLongitude());
+      property_location += "," + conference.getAddress().get().getAddressName();
+      propertyList.add(geo);
     }
     if (!(conference.getParticipants().isEmpty())) {
 
@@ -127,6 +138,8 @@ public class ConferenceWriter {
         propertyList.add(participant);
       }
     }
+    location = new Location(property_location);
+    propertyList.add(location);
     propertyList.add(startDate);
     propertyList.add(endDate);
     propertyList.add(uid);

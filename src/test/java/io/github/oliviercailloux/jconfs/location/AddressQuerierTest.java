@@ -53,7 +53,7 @@ class AddressQuerierTest {
     boolean test = (t.getAddressFound().size() >= 2);
     Address test2 = t.getAddressFound().get(0);
     assertTrue(test);
-    assertTrue(test2.getAddress().contains("Place du Maréchal de Lattre de Tassigny"));
+    assertTrue(test2.getAddressName().contains("Place du Maréchal de Lattre de Tassigny"));
     assertEquals(test2.getLatitude(), "48.87015115");
   }
 }

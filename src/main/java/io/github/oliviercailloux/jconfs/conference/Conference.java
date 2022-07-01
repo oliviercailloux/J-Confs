@@ -3,9 +3,14 @@ package io.github.oliviercailloux.jconfs.conference;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import com.locationiq.client.ApiException;
+import io.github.oliviercailloux.jconfs.location.Address;
+import io.github.oliviercailloux.jconfs.location.AddressQuerier;
 import java.net.URL;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -27,6 +32,7 @@ public class Conference {
   private String country;
   private String city;
   private Set<String> participants;
+  private Optional<Address> address;
 
   /**
    * This is a constructor which initializes the conference object
@@ -48,6 +54,7 @@ public class Conference {
     this.country = "";
     this.city = "";
     this.participants = new HashSet<String>();
+    this.address = Optional.empty() ;
   }
 
   public Optional<URL> getUrl() {
@@ -110,6 +117,10 @@ public class Conference {
   public String getParticipants() {
     return participants.toString();
   }
+  
+  public Optional<Address> getAddress() {
+    return this.address ;
+  }
 
   public boolean isConf() {
     Preconditions.checkNotNull(this.title);
@@ -126,33 +137,35 @@ public class Conference {
       if (title.equals(conference2.title) && url.equals(conference2.url)
           && startDate.equals(conference2.startDate) && endDate.equals(conference2.endDate)
           && registrationFee.equals(conference2.registrationFee) && city.equals(conference2.city)
-          && country.equals(conference2.country)) {
+          && country.equals(conference2.country) && participants.equals(conference2.participants)
+          && address.equals(conference2.address))
         return true;
-      }
     }
     return false;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, title, registrationFee, startDate, endDate, country, city);
+    return Objects.hash(url, title, registrationFee, startDate, endDate, country, city,
+        participants, address);
   }
 
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this).add("UID", uid).add("url", url).add("title", title)
         .add("startDate", startDate).add("endDate", endDate).add("registrationFee", registrationFee)
-        .add("country", country).add("city", city).add("participants", participants).toString();
+        .add("address", address).add("country", country).add("city", city)
+        .add("participants", participants).toString();
   }
 
   public static class ConferenceBuilder {
     private Conference conferenceToBuild;
 
-    public ConferenceBuilder() {
+    public ConferenceBuilder() throws ApiException, InterruptedException {
       conferenceToBuild = new Conference();
     }
 
-    public Conference build() {
+    public Conference build() throws ApiException, InterruptedException {
       Conference builtConference = conferenceToBuild;
       conferenceToBuild = new Conference();
       if (builtConference.uid.isEmpty())
@@ -223,6 +236,13 @@ public class Conference {
 
     public ConferenceBuilder addParticipant(String oneParticipant) {
       this.conferenceToBuild.participants.add(Strings.nullToEmpty(oneParticipant));
+      return this;
+    }
+    
+    public ConferenceBuilder setAddress(String location) throws ApiException, InterruptedException {
+      Preconditions.checkNotNull(location);
+      this.conferenceToBuild.address = Optional.of(AddressQuerier.given(location).getAddressFound().get(0));
+      this.conferenceToBuild.address.get().setAddressName(location);
       return this;
     }
 

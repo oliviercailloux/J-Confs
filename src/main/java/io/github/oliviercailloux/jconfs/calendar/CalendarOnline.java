@@ -4,6 +4,7 @@ import com.github.caldav4j.exceptions.CalDAV4JException;
 import com.github.caldav4j.model.request.CalendarQuery;
 import com.github.caldav4j.util.GenerateQuery;
 import com.github.caldav4j.util.ICalendarUtils;
+import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jconfs.calendar.JARiS.FruuxKeysCredential;
 import io.github.oliviercailloux.jconfs.conference.Conference;
 import io.github.oliviercailloux.jconfs.conference.ConferenceReader;
@@ -46,8 +47,10 @@ public class CalendarOnline {
    * @return
    * @throws CalDAV4JException
    * @throws MalformedURLException
+   * @throws InterruptedException 
+   * @throws ApiException 
    */
-  public Set<Conference> getOnlineConferences() throws CalDAV4JException, MalformedURLException {
+  public Set<Conference> getOnlineConferences() throws CalDAV4JException, MalformedURLException, ApiException, InterruptedException {
     GenerateQuery searchQuery = new GenerateQuery();
     CalendarQuery calendarQuery = searchQuery.generate();
     Set<Conference> listConferencesUser = new LinkedHashSet<>();
@@ -106,9 +109,11 @@ public class CalendarOnline {
    * @return The VEvent that have this uid
    * @throws CalDAV4JException
    * @throws MalformedURLException
+   * @throws InterruptedException 
+   * @throws ApiException 
    */
   public Optional<Conference> getConferenceFromUid(String uid)
-      throws CalDAV4JException, MalformedURLException {
+      throws CalDAV4JException, MalformedURLException, ApiException, InterruptedException {
     VEvent vEventConferenceFound = null;
     GenerateQuery searchQuery = new GenerateQuery();
     searchQuery.setFilter("VEVENT : UID==" + uid);

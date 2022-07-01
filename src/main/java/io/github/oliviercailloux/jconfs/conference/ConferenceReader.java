@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jconfs.conference;
 
+import com.locationiq.client.ApiException;
 import io.github.oliviercailloux.jconfs.conference.Conference.ConferenceBuilder;
 import java.io.IOException;
 import java.io.Reader;
@@ -18,6 +19,7 @@ import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.PropertyList;
 import net.fortuna.ical4j.model.component.CalendarComponent;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class allows to read and iCalelndar file and creates a conference object from a parsed
@@ -53,15 +55,21 @@ public class ConferenceReader {
    * @param confCompo it's a calendar component that contains the data of one conference
    * @return a conference
    * @throws MalformedURLException
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws IOException
    * @throws ParserException
    * @throws NumberFormatException
    */
-  public static Conference createConference(Component confCompo) throws MalformedURLException {
+  public static Conference createConference(Component confCompo) throws MalformedURLException, ApiException, InterruptedException {
     Conference conf = null;
     ConferenceBuilder theBuild = new ConferenceBuilder();
 
     URL confURL;
+    String c;
+    String city="";
+    String country="";
+    String address="";
     String[] location;
     String[] description;
     String participant;
@@ -70,9 +78,25 @@ public class ConferenceReader {
       theBuild.setUrl(confURL);
     }
     if (!confCompo.getProperties("LOCATION").isEmpty()) {
-      location = confCompo.getProperty("LOCATION").getValue().split(",");
-      String city = location[0];
-      String country = location[1];
+      c = confCompo.getProperty("LOCATION").getValue();
+      int cpt = StringUtils.countMatches(c,",");
+      if (cpt == 0) {
+        location = c.split(",");
+        city = "Paris";
+        country = "France";
+      }
+      if (cpt == 1) {
+        location = c.split(",");
+        city = location[0];
+        country = location[1];
+      }
+      if (cpt == 2) {
+        location = c.split(",");
+        city = location[0];
+        country = location[1];
+        address = location[2];
+        theBuild.setAddress(address);
+      }
       theBuild.setCity(city);
       theBuild.setCountry(country);
     }
@@ -126,9 +150,11 @@ public class ConferenceReader {
    * @return a list of the conferences of the user
    * @throws IOException
    * @throws ParserException
+   * @throws InterruptedException 
+   * @throws ApiException 
    * @throws NumberFormatException
    */
-  public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException {
+  public static Set<Conference> readConferences(Reader reader) throws IOException, ParserException, ApiException, InterruptedException {
     CalendarBuilder builder = new CalendarBuilder();
     Calendar calendar = builder.build(reader);
     Set<Conference> listeconfuser = new LinkedHashSet<>();
