@@ -8,6 +8,6 @@ image:https://github.com/{gitHubUserName}/{repository}/workflows/Maven%20CI/badg
 
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in https://dauphine.psl.eu/en/training/bachelors-degrees/organizational-computer-science/bachelors3-business-informatics/program[MIAGE L3 Alternance]).
 
-The code is hereby published under the https://github.com/oliviercailloux/{repository}/blob/master/LICENSE[MIT License], with their permission.
+The code is hereby published under the https://github.com/oliviercailloux/{repository}/blob/main/LICENSE[MIT License], with their permission.
 
 See the https://github.com/oliviercailloux/{repository}/blob/master/Doc/README.adoc[doc].
